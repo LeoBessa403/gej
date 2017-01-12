@@ -47,14 +47,19 @@ class MembroWeb
             $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
             $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
 
-            $InscricaoModel->Salva($insc);
+            $coInscricao = $InscricaoModel->Salva($insc);
+            unset($_POST);
+            $this->FormaDePagamento($coInscricao);
+            UrlAmigavel::$controller = 'MembroWeb';
+            UrlAmigavel::$action = 'FormaDePagamento';
         endif;
 
         $this->form = MembroWebForm::Cadastrar();
     }
-    
-    static function montaComboCamisas(){
-         return array(
+
+    static function montaComboCamisas()
+    {
+        return array(
             "" => "Selecione um Tamanho",
             "1" => "BL PP",
             "2" => "BL P",
@@ -66,5 +71,33 @@ class MembroWeb
             "8" => "G",
             "9" => "GG"
         );
+    }
+
+    function FormaDePagamento($coInscricao)
+    {
+        $this->coInscricao = $coInscricao;
+        $this->formas = Inscricao::FormasDePagamento();
+    }
+
+    function ConcluirInscricao()
+    {
+        $id = "formaPagamento";
+
+        if (!empty($_POST[$id])):
+            $dados = $_POST;
+            $pagamentoModel = new PagamentoModel();
+            $parcelaModel = new PagamentoModel();
+            $pagamento[Constantes::NU_TOTAL] = '120.01';
+            $pagamento[Constantes::NU_PARCELAS] = 1;
+            $pagamento[Constantes::CO_INSCRICAO] = $dados[Constantes::CO_INSCRICAO];
+
+            $parcela[Constantes::CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
+//            $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::CO_TIPO_PAGAMENTO];
+//            $parcela[Constantes::NU_PARCELA] = 1;
+//            $parcela[Constantes::NU_VALOR_PARCELA] = '120.10';
+//            $parcela[Constantes::DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
+
+            $parcelaModel->Salva($parcela);
+        endif;
     }
 }

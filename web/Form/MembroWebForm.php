@@ -114,7 +114,6 @@ class MembroWebForm
             ->setTamanhoInput(8)
             ->setId(Constantes::SG_UF)
             ->setType("select")
-            ->setClasses("ob")
             ->setLabel("Estado")
             ->setOptions($options)
             ->CriaInpunt();
@@ -180,5 +179,6 @@ class MembroWebForm
         return $formulario->finalizaForm();
     }
 }
+
 ?>
    

@@ -1,17 +1,17 @@
 var Funcoes = function () {
     var inicio = function () {
-        
+
                 //VARIÁVEIS GLOBAIS
                 var dados       = constantes();
                 var urlValida   = dados['HOME'] + 'admin/Controller/Ajax.Controller.php';
                 var upload      = dados['PASTAUPLOADS'];
-                
-               // MASCARA DE CADASTRO DE LIVROS 
+
+               // MASCARA DE CADASTRO DE LIVROS
                $("#nu_ano_publicacao").mask("9999").change(function(){
                     var ano = $(this).val();
                     var Hoje     = new Date();
                     var AnoAtual = Hoje.getFullYear();
-                    
+
                     if(ano > AnoAtual){
                         Funcoes.Alerta(Funcoes.MSG02);
                         $(this).val("");
@@ -25,15 +25,15 @@ var Funcoes = function () {
                $("#nu_edicao").mask("9?99");
                $("#quantidade").mask("9?99");
                $("#nu_paginas").mask("9?99");
-               
-               
+
+
                $("#ds_pastoral_ativo").change(function(){
                    disabilitaCamposRetiro();
                })
-                
-                
+
+
                 // CADASTRO De Retiro de Carnaval
-                function disabilitaCamposRetiro(){ 
+                function disabilitaCamposRetiro(){
                     if($("#ds_pastoral_ativo").prop('checked')){
                         $("#ds_pastoral").parent(".form-group").slideDown("slow");
                     }else{
@@ -42,15 +42,15 @@ var Funcoes = function () {
                 }
 
                 disabilitaCamposRetiro();
-                
-                
-                
+
+
+
                $("#st_status").change(function(){
                    disabilitaDtTermino();
                })
-                
+
                 // CADASTRO de Tarefa
-                function disabilitaDtTermino(){ 
+                function disabilitaDtTermino(){
                     if($("#st_status").val() == "C"){
                         $("#dt_conclusao").parent().parent(".form-group").slideDown("slow");
                         $("#dt_conclusao").addClass("ob");
@@ -61,11 +61,11 @@ var Funcoes = function () {
                         $("#dt_conclusao").parent().parent(".form-group").slideUp("fast").removeClass("has-error");
                         $("#dt_conclusao").val("").removeClass("ob");
                     }
-                       
+
                 }
 
                 disabilitaDtTermino();
-                
+
                 // Valida data
                 $("#dt_nascimento").change(function(){
                     var idade = 14; // Idade limite para aceitar o cadastro Maior que a Idade
@@ -73,7 +73,7 @@ var Funcoes = function () {
                     var Hoje     = new Date();
                     var AnoAtual = Hoje.getFullYear();
                     var novoAno  = AnoAtual - idade;
-                    
+
                     if(ano > novoAno){
                         Funcoes.Alerta(Funcoes.MSG01);
                         $(this).val("");
@@ -82,14 +82,14 @@ var Funcoes = function () {
                         return false;
                     }
                 })
-               
+
                 function verificaTodas(){
                         var todas = true;
-                        $(".funcionalidade").each(function() { 
+                        $(".funcionalidade").each(function() {
                             $(".todas").prop("checked",$(".funcionalidade").prop('checked'));
-                        if(!$(this).prop('checked')){    
+                        if(!$(this).prop('checked')){
                             todas = false;
-                        } 
+                        }
                     });
                     if(todas){
                         $(".todas").prop("checked",true);
@@ -97,28 +97,28 @@ var Funcoes = function () {
                         $(".todas").prop("checked",false);
                 }
                 }
-                
-                
+
+
                 // VINCULAÇÃO FUNCIONALIDADES AO PERFIL // BOTÃO TODOS FUNCIONALIDADES
                 $(".todas").change(function(){
                     $(".funcionalidade").each(function() {
                         $(this).prop("checked",$(".todas").prop('checked'));
-                    }); 
+                    });
                 });
 
                 // VINCULAÇÃO DA FUNCIONALIDADE AO PERFIL
-                $(".funcionalidade").change(function(){ 
+                $(".funcionalidade").change(function(){
                     verificaTodas();
                 });
-                
+
                 verificaTodas();
-                
-                
+
+
                 // CARREGA MODAL DE FOTOS DA CAPA DO LIVRO
-                $(".fotos").click(function(){ 
+                $(".fotos").click(function(){
                     var id = $(this).attr("id");
                     var title = $(this).attr("title");
-                    $(".foto .modal-body.modal-body img").attr("src",""); 
+                    $(".foto .modal-body.modal-body img").attr("src","");
                     $.ajax({
                         url: urlValida,
                         data: {valida: "capa_livro", id: id},
@@ -127,11 +127,11 @@ var Funcoes = function () {
                         beforeSend: function(){
                              $("#load").click();
                         },
-                        success: function(data){ 
+                        success: function(data){
                             $("#carregando .cancelar").click();
                             var objData = jQuery.parseJSON(data);
                             if(objData.ds_foto_capa){
-                                $(".foto .modal-header .modal-title").text(title); 
+                                $(".foto .modal-header .modal-title").text(title);
                                 $(".foto .modal-body.modal-body img").attr("src","../../" + upload + objData.ds_foto_capa);
                                 $("#fotos").click();
                             }else{
@@ -139,10 +139,10 @@ var Funcoes = function () {
                             }
                         }
                     });
-                });  
-               
+                });
+
                 // RECUPERA OS CÓDIGOS DO LIVRO
-                $(".pesquisa_livro").click(function(){ 
+                $(".pesquisa_livro").click(function(){
                     var id = $(this).attr("id");
                     $("#codigos_livro b").text("");
                     $.ajax({
@@ -153,26 +153,26 @@ var Funcoes = function () {
                         beforeSend: function(){
                              $("#load").click();
                         },
-                        success: function(data){ 
+                        success: function(data){
                             $("#codigos_livro b").append(data);
                             $("#carregando .cancelar").click();
                             $(".modal .btn-success").attr("id",id);
                         }
                     });
-                });    
-                
+                });
+
                 $("#Reserva .btn-success").click(function(){
                     var id = $(this).attr("id");
-                    $("#load").click();  
+                    $("#load").click();
 
                     $.get(urlValida, {valida: 'reservar', id: id}, function(retorno) {
                             if(retorno != ""){
                                 Funcoes.Sucesso("Reserva efetuada com sucesso!");
-                            }else{          
+                            }else{
                                 Funcoes.Erro("Foi identificado um Erro<br>Favor entrar em contato com o Administrador do Sistema<br>Informando o erro ocorrido.");
                             }
-                            
-                            $("#carregando .cancelar").click(); 
+
+                            $("#carregando .cancelar").click();
                      });
                 }); 
     };
@@ -200,14 +200,14 @@ var Funcoes = function () {
         Erro: function(msg){
             Funcoes.Modal(msg,"bricky","bricky","fa-frown-o","Erro");
         },
-        
+
         MSG_CONFIRMACAO: "CONFIRMAÇÃO",
-        
+
         MSG01: "Sua Idade Não é Permitida.",
         MSG02: "Ano de publicação não pode ser maior que o ano atual.",
         MSG03: "Ano de publicação não pode ser menor que o ano de 1950.",
         MSG04: "Livro sem Foto de Capa"
-        
+
     };
 }();
 

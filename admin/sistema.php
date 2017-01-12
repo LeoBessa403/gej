@@ -264,7 +264,7 @@ endif;
         Funcoes.Sucesso("<?= Mensagens::OK_ATUALIZADO;?>");
         <?php
         endif;
-        
+
         if($session->CheckSession(CADASTRADO)):
         $session->FinalizaSession(CADASTRADO);
         ?>
