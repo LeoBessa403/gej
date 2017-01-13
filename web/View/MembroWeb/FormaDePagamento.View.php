@@ -74,139 +74,156 @@
         <div class="col-md-6" style="padding: 10px;">
             <h4>Normas do Retiro</h4>
             <div>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">5° Retiro de Carnaval </span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">5° Retiro de Carnaval </span></p>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">Santifique-se</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">Santifique-se</span></p>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">26, 27 e 28 de fevereiro de 2017</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">26, 27 e 28 de fevereiro de 2017</span></p>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">“Vós sois a carta de Cristo” </span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">“Vós sois a carta de Cristo” </span></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;
 line-height:107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>É
-imensa a alegria em telo no nosso 5º retiro de carnaval. Estaremos juntos
-durante três dias e para que nossa convivência seja harmoniosa e muito
-proveitosa existem alguns aspectos para serem cumpridos para que aproveitemos o
-máximo do que o Senhor tem para nos oferecer. </span></p>
+imensa a alegria em telo no nosso 5º retiro de carnaval Santifique-se.
+Estaremos juntos durante três dias e para que nossa convivência seja harmoniosa
+e muito proveitosa existem alguns aspectos para serem cumpridos para que
+aproveitemos o máximo do que o Senhor tem para nos oferecer. </span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;
-mso-bidi-font-size:11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">Providencias:</span></b></p>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;;color:red">Deve:</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Avisar
-familiares sobre a sua participação no encontro </span></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;
 mso-bidi-font-size:11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">Levar:<br>
 </span></b><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Bíblia</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>-
-Cobertor, lençol e travesseiro;</span></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Toalha,
-sabonete e bucha;</span></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Creme
-dental e escova de dente </span></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Levar
-sandálias; </span></p>
+objetos de uso pessoal tais como:</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.4pt"><span style="font-size:14.0pt;mso-bidi-font-size:
+11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">* Cobertor, lençol e
+travesseiro;</span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>* Toalha, sabonete, Creme dental e
+escova de dente;</span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>* Roupas adequadas para o retiro (Calças
+e blusas) </span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>* Levar sandálias; </span>
+                    </p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Levar
-uma muda de roupa branca; </span></p>
+uma muda de roupa branca (Calça, Camisa e calçado se possível); </span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>-<span style="mso-spacerun:yes">&nbsp; </span>Além das demais roupas levar roupas
-confortáveis como leg, bermuda e regata para atividades </span></p>
+107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Além das
+demais roupas levar roupas confortáveis como leg, bermuda e regata para
+atividades (Em Alguns momentos)</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">Exigências</span></b></p>
+&quot;Agency FB&quot;;color:red">Exigências</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;
 mso-bidi-font-size:11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">Proibido: </span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;">- Levar mp3, mp4, rádios, máquina fotográfica
-e/ou filmadora;</span></p>
+107%;font-family:&quot;Agency FB&quot;">- É PROIBIDO Levar e Utilizar qualquer tipo de
+dispositivo, aparelho ou equipamento eletrônico, tais como:</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.4pt"><span style="font-size:14.0pt;mso-bidi-font-size:
+11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">* mp3, mp4, rádios, máquina
+fotográfica e/ou filmadora;</span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.4pt"><span style="font-size:14.0pt;mso-bidi-font-size:
+11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">* celular, jogos portáteis; </span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;text-indent:35.4pt"><span style="font-size:14.0pt;mso-bidi-font-size:
+11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">* relógio e/ou despertador; </span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;">- Levar celular, jogos portáteis; </span></p>
+107%;font-family:&quot;Agency FB&quot;">Obs.: Durante o período de todas as atividades é
+proibido o uso de shorts ou bermuda e Camisas Regatas ou blusas de alça. Os
+mesmos poderão ser usados após o toque de recolher. </span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;">- Levar relógio e/ou despertador; </span></p>
+107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
-107%;font-family:&quot;Agency FB&quot;">Obs: Durante o período de todas as atividades é
-proibido o uso de shorts ou bermuda. Os mesmos poderão ser usados após o toque
-de recolher. </span></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">Recomendações</span></b></p>
+&quot;Agency FB&quot;;color:red">Recomendações</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
 &quot;Agency FB&quot;">- Cumprir os horários das atividades;</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
 &quot;Agency FB&quot;">- Caso precise de remédio, primeiros socorros, material de higiene
 pessoal procurar algum servo identificado para este fim;</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:&quot;Agency FB&quot;">- Avisar familiares sobre a sua participação no
+encontro. (Pessoa Responsável).</span></p>
+
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
 &quot;Agency FB&quot;">&nbsp;</span></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">Saída: Paróquia São João Evangelista</span></p>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">Saída: Paróquia São João Evangelista</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">Horário: 7:00 (após a Santa Missa)<br>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">Horário: 7:00 <br>
 Data: 26/02/2017 (Domingo)<br>
-Coordenador: Linneker (61) 99325-9985</span></p>
+Coordenador: Linneker (61) 99325-9985</span></b></p>
 
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">Comissão: Leo (61) 99327-4991 ou
-Fernanda (61) 98499-5380</span></p>
+                    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+&quot;Agency FB&quot;">Comissão: Leo (61) 99327-4991 ou Fernanda (61) 98499-5380</span></b></p>
 
             </div>
         </div>
