@@ -42,10 +42,12 @@ class MembroWeb
 
             $insc[Constantes::CO_PESSOA] = $PessoaModel->Salva($pessoa);
             $insc[Constantes::DS_PASTORAL] = $dados[Constantes::DS_PASTORAL];
-            $insc[Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox($dados[Constantes::ST_SEXO]);
+            $insc[Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox($dados[Constantes::DS_MEMBRO_ATIVO]);
             $insc[Constantes::NU_CAMISA] = $dados[Constantes::NU_CAMISA][0];
             $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
             $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
+
+
 
             $coInscricao = $InscricaoModel->Salva($insc);
             unset($_POST);
