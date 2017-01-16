@@ -86,16 +86,16 @@ class MembroWeb
         if (!empty($_POST[$id])):
             $dados = $_POST;
             $pagamentoModel = new PagamentoModel();
-            $parcelaModel = new PagamentoModel();
-            $pagamento[Constantes::NU_TOTAL] = '120.01';
+            $parcelaModel = new ParcelamentoModel();
+            $pagamento[Constantes::NU_TOTAL] = '120.00';
             $pagamento[Constantes::NU_PARCELAS] = 1;
             $pagamento[Constantes::CO_INSCRICAO] = $dados[Constantes::CO_INSCRICAO];
 
             $parcela[Constantes::CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
-//            $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::CO_TIPO_PAGAMENTO];
-//            $parcela[Constantes::NU_PARCELA] = 1;
-//            $parcela[Constantes::NU_VALOR_PARCELA] = '120.10';
-//            $parcela[Constantes::DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
+            $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::CO_TIPO_PAGAMENTO];
+            $parcela[Constantes::NU_PARCELA] = 1;
+            $parcela[Constantes::NU_VALOR_PARCELA] = '120.00';
+            $parcela[Constantes::DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
             $parcelaModel->Salva($parcela);
         endif;

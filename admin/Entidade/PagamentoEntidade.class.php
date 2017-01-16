@@ -18,7 +18,6 @@ class PagamentoEntidade
 	private $tp_situacao;
 	private $ds_observacao;
 	private $co_inscricao;
-	private $co_tipo_pagamento;
 	private $co_parcelamento;
 
 
@@ -34,7 +33,6 @@ class PagamentoEntidade
 			Constantes::TP_SITUACAO,
 			Constantes::DS_OBSERVACAO,
 			Constantes::CO_INSCRICAO,
-			Constantes::CO_TIPO_PAGAMENTO,
 		];
     	return $campos;
     }
@@ -167,22 +165,6 @@ class PagamentoEntidade
 	public function setCoInscricao($co_inscricao)
     {
         return $this->co_inscricao = $co_inscricao;
-    }
-
-	/**
-     * @return $co_tipo_pagamento
-     */
-	public function getCoTipoPagamento()
-    {
-        return $this->co_tipo_pagamento;
-    }
-
-	/**
-     * @param mixed $co_tipo_pagamento
-     */
-	public function setCoTipoPagamento($co_tipo_pagamento)
-    {
-        return $this->co_tipo_pagamento = $co_tipo_pagamento;
     }
 
 	/**
