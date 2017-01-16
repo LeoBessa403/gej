@@ -19,6 +19,7 @@ class ParcelamentoEntidade
 	private $dt_vencimento_pago;
 	private $ds_observacao;
 	private $co_pagamento;
+    private $co_tipo_pagamento;
 
 
 	/**
@@ -34,6 +35,7 @@ class ParcelamentoEntidade
 			Constantes::DT_VENCIMENTO_PAGO,
 			Constantes::DS_OBSERVACAO,
 			Constantes::CO_PAGAMENTO,
+            Constantes::CO_TIPO_PAGAMENTO,
 		];
     	return $campos;
     }
@@ -182,6 +184,22 @@ class ParcelamentoEntidade
 	public function setCoPagamento($co_pagamento)
     {
         return $this->co_pagamento = $co_pagamento;
+    }
+
+    /**
+     * @return $co_tipo_pagamento
+     */
+    public function getCoTipoPagamento()
+    {
+        return $this->co_tipo_pagamento;
+    }
+
+    /**
+     * @param mixed $co_tipo_pagamento
+     */
+    public function setCoTipoPagamento($co_tipo_pagamento)
+    {
+        return $this->co_tipo_pagamento = $co_tipo_pagamento;
     }
 
 }
