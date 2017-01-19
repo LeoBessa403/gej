@@ -359,6 +359,9 @@ class FuncoesSistema {
             case "I":
                 $op = '<span class="label label-info">PARCIAL</span>';
                 break;
+            default:
+                $op = '';
+                break;
         }
 
         return $op;
