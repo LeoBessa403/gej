@@ -347,6 +347,22 @@ class FuncoesSistema {
         
         return $op;
     }
+
+    public static function Pagamento($st){
+        switch ($st) {
+            case "F":
+                $op = '<span class="label label-success">SIM</span>';
+                break;
+            case "N":
+                $op = '<span class="label label-danger">NÃO</span>';
+                break;
+            case "P":
+                $op = '<span class="label label-info">PARCIAL</span>';
+                break;
+        }
+
+        return $op;
+    }
     
     public static function TamanhoCamisa($tm){
         
