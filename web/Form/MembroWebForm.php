@@ -3,17 +3,25 @@
 class MembroWebForm
 {
 
-    public static function Cadastrar()
+    public static function Cadastrar($CoInscricao = false, $res = false, $id = false)
     {
-        $id = "CadastroRetiroCarnaval";
+        if (!$id):
+            $id = "CadastroRetiroCarnaval";
+        endif;
+        $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
-        $formulario = new Form($id, "web/MembroWeb/CadastroRetiroCarnaval");
+        $formulario = new Form($id, $action);
+        if ($res):
+            $formulario->setValor($res);
+        endif;
+
 
         $label_options = array("Sim", "Não", "azul", "verde");
         $formulario
             ->setLabel("Membro do Grupo GEJ?")
             ->setId(Constantes::DS_MEMBRO_ATIVO)
             ->setType("checkbox")
+            ->setClasses($res[Constantes::DS_MEMBRO_ATIVO])
             ->setTamanhoInput(5)
             ->setOptions($label_options)
             ->CriaInpunt();
@@ -123,6 +131,7 @@ class MembroWebForm
             ->setLabel("Participou de algum Retiro?")
             ->setTamanhoInput(5)
             ->setId(Constantes::DS_RETIRO)
+            ->setClasses($res[Constantes::DS_RETIRO])
             ->setType("checkbox")
             ->setOptions($label_options)
             ->CriaInpunt();
@@ -131,6 +140,7 @@ class MembroWebForm
         $formulario
             ->setLabel("Participa de alguma Pastoral?")
             ->setId("ds_pastoral_ativo")
+            ->setClasses($res["ds_pastoral_ativo"])
             ->setTamanhoInput(7)
             ->setType("checkbox")
             ->setOptions($label_options)
@@ -175,6 +185,14 @@ class MembroWebForm
             ->setLabel("Email")
             ->setTamanhoInput(12)
             ->CriaInpunt();
+
+        if ($CoInscricao) {
+            $formulario
+                ->setType("hidden")
+                ->setId(Constantes::CO_INSCRICAO)
+                ->setValues($CoInscricao)
+                ->CriaInpunt();
+        }
 
         return $formulario->finalizaForm();
     }

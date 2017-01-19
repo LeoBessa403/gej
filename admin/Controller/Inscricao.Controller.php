@@ -11,6 +11,54 @@ class Inscricao
     {
         $id = "DetalharInscricao";
 
+        if (!empty($_POST[$id])):
+
+            $dados = $_POST;
+            $EnderecoModel = new EnderecoModel();
+            $ContatoModel = new ContatoModel();
+            $PessoaModel = new PessoaModel();
+            $InscricaoModel = new InscricaoModel();
+            $coInscricao = $dados[Constantes::CO_INSCRICAO];
+            /** @var InscricaoEntidade $inscricao */
+            $inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
+
+            $endereco[Constantes::DS_ENDERECO] = $dados[Constantes::DS_ENDERECO];
+            $endereco[Constantes::DS_COMPLEMENTO] = $dados[Constantes::DS_COMPLEMENTO];
+            $endereco[Constantes::DS_BAIRRO] = $dados[Constantes::DS_BAIRRO];
+            $endereco[Constantes::NO_CIDADE] = $dados[Constantes::NO_CIDADE];
+            $endereco[Constantes::NU_CEP] = Valida::RetiraMascara($dados[Constantes::NU_CEP]);
+            $endereco[Constantes::SG_UF] = $dados[Constantes::SG_UF][0];
+
+            $contato[Constantes::DS_EMAIL] = trim($dados[Constantes::DS_EMAIL]);
+            $contato[Constantes::NU_TEL1] = Valida::RetiraMascara($dados[Constantes::NU_TEL1]);
+            $contato[Constantes::NU_TEL2] = Valida::RetiraMascara($dados[Constantes::NU_TEL2]);
+
+            $pessoa[Constantes::NO_PESSOA] = strtoupper(trim($dados[Constantes::NO_PESSOA]));
+            $pessoa[Constantes::NU_CPF] = Valida::RetiraMascara($dados[Constantes::NU_CPF]);
+            $pessoa[Constantes::NU_RG] = Valida::RetiraMascara($dados[Constantes::NU_RG]);
+            $pessoa[Constantes::DT_NASCIMENTO] = Valida::DataDBDate($dados[Constantes::DT_NASCIMENTO]);
+            $pessoa[Constantes::ST_SEXO] = $dados[Constantes::ST_SEXO][0];
+            $pessoa[Constantes::DT_CADASTRO] = Valida::DataAtualBanco();
+
+            $EnderecoModel->Salva($endereco, $inscricao->getCoPessoa()->getCoEndereco()->getCoEndereco());
+            $ContatoModel->Salva($contato, $inscricao->getCoPessoa()->getCoContato()->getCoContato());
+
+            $PessoaModel->Salva($pessoa, $inscricao->getCoPessoa()->getCoPessoa());
+
+            $insc[Constantes::DS_PASTORAL] = $dados[Constantes::DS_PASTORAL];
+            $insc[Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[Constantes::DS_MEMBRO_ATIVO])) ? $dados[Constantes::DS_MEMBRO_ATIVO] : null
+            );
+            $insc[Constantes::NU_CAMISA] = $dados[Constantes::NU_CAMISA][0];
+            $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
+            $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
+
+            $InscricaoModel->Salva($insc, $coInscricao);
+            unset($_POST);
+            $this->ListarInscricao();
+            UrlAmigavel::$action = "ListarInscricao";
+        endif;
+
         $coInscricao = UrlAmigavel::PegaParametro("insc");
         $res = array();
         if ($coInscricao):
@@ -18,9 +66,10 @@ class Inscricao
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $InscricaoModel->PesquisaUmQuando([Constantes::CO_INSCRICAO => $coInscricao]);
 
-//            debug($inscricao);
-
-            $res['ds_Mebro_Gej'] = FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo());
+            $res[Constantes::DS_MEMBRO_ATIVO] = ($inscricao->getDsMembroAtivo() == 'S')
+                ? 'checked' : '';
+            $res[Constantes::DS_RETIRO] = ($inscricao->getDsRetiro() == 'S')
+                ? 'checked' : '';
             $res[Constantes::CO_INSCRICAO] = $inscricao->getCoInscricao();
             $res[Constantes::NO_PESSOA] = $inscricao->getCoPessoa()->getNoPessoa();
             $res[Constantes::NU_TEL1] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
@@ -28,12 +77,15 @@ class Inscricao
             $res[Constantes::NU_CPF] = Valida::MascaraCpf($inscricao->getCoPessoa()->getNuCpf());
             $res[Constantes::NU_RG] = $inscricao->getCoPessoa()->getNuRg();
             $res[Constantes::DT_NASCIMENTO] = Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento());
-            $res[Constantes::ST_SEXO] = FuncoesSistema::retornoSexo($inscricao->getCoPessoa()->getStSexo());
+            $res[Constantes::ST_SEXO] = $inscricao->getCoPessoa()->getStSexo();
+
+            $res[Constantes::NU_CAMISA] = $inscricao->getNuCamisa();
 
             $res[Constantes::DS_EMAIL] = $inscricao->getCoPessoa()->getCoContato()->getDsEmail();
             $res[Constantes::NO_RESPONSAVEL] = $inscricao->getNoResponsavel();
             $res[Constantes::NU_TEL_RESPONSAVEL] = Valida::MascaraTel($inscricao->getNuTelResponsavel());
             $res[Constantes::DS_PASTORAL] = $inscricao->getDsPastoral();
+            $res["ds_pastoral_ativo"] = ($inscricao->getDsPastoral()) ? 'checked' : '';
 
             $res[Constantes::DS_ENDERECO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsEndereco();
             $res[Constantes::DS_COMPLEMENTO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsComplemento();
@@ -41,9 +93,9 @@ class Inscricao
             $res[Constantes::NO_CIDADE] = $inscricao->getCoPessoa()->getCoEndereco()->getNoCidade();
             $res[Constantes::NU_CEP] = $inscricao->getCoPessoa()->getCoEndereco()->getNuCep();
             $res[Constantes::SG_UF] = $inscricao->getCoPessoa()->getCoEndereco()->getSgUf();
+            $this->form = MembroWebForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
         endif;
 
-        $this->result = $res;
     }
 
     public function ListarInscricao()
