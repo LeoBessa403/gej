@@ -58,7 +58,7 @@
                                    href="#Inscricao" data-original-title="Excluir Registro" data-placement="top">
                                     <i class="fa fa-trash-o"></i>
                                 </a>';
-                            debug($res->getCoPagamento(), 1);
+                            debug($res->getCoPagamento()->getTpSituacao(), 1);
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
