@@ -60,6 +60,7 @@
                                 </a>';
                             /** @var PagamentoEntidade $pagamento */
                             $pagamento = $res->getCoPagamento();
+
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
