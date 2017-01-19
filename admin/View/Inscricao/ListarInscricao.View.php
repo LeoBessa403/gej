@@ -58,12 +58,13 @@
                                    href="#Inscricao" data-original-title="Excluir Registro" data-placement="top">
                                     <i class="fa fa-trash-o"></i>
                                 </a>';
+                            /** @var PagamentoEntidade $pagamento */
+                            $pagamento = $res->getCoPagamento();
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo()));
-//                            $grid->setColunas(FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao()));
-                            $grid->setColunas(FuncoesSistema::Pagamento('N'));
+                            $grid->setColunas(FuncoesSistema::Pagamento($pagamento->getTpSituacao()));
                             $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoInscricao());
                         endforeach;
