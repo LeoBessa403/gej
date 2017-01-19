@@ -350,13 +350,13 @@ class FuncoesSistema {
 
     public static function Pagamento($st){
         switch ($st) {
-            case "F":
-                $op = '<span class="label label-success">SIM</span>';
+            case "C":
+                $op = '<span class="label label-success">Concluído</span>';
                 break;
             case "N":
-                $op = '<span class="label label-danger">NÃO</span>';
+                $op = '<span class="label label-danger">Não Pago</span>';
                 break;
-            case "P":
+            case "I":
                 $op = '<span class="label label-info">PARCIAL</span>';
                 break;
         }
