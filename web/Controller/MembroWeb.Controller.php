@@ -8,7 +8,6 @@ class MembroWeb
 
     function CadastroRetiroCarnaval()
     {
-
         $id = "CadastroRetiroCarnaval";
 
         if (!empty($_POST[$id])):
@@ -46,8 +45,6 @@ class MembroWeb
             $insc[Constantes::NU_CAMISA] = $dados[Constantes::NU_CAMISA][0];
             $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
             $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
-
-
 
             $coInscricao = $InscricaoModel->Salva($insc);
             unset($_POST);
