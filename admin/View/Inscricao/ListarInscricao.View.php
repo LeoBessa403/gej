@@ -40,9 +40,11 @@
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
                         $documento = '';
-
+                        $i = 1;
                         /** @var InscricaoEntidade $res */
                         foreach ($result as $res):
+                            debug($i.'/Insc: '.$res->getCoInscricao()."/ST: ".$res->getCoPagamento()->getTpSituacao(),1);
+                            $i++;
                             $stPagamento = $res->getCoPagamento()->getTpSituacao();
                             if ($res->getCoPessoa()->getNuCpf()) {
                                 $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
