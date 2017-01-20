@@ -49,6 +49,9 @@ class Inscricao
             $insc[Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
                 (!empty($dados[Constantes::DS_MEMBRO_ATIVO])) ? $dados[Constantes::DS_MEMBRO_ATIVO] : null
             );
+            $insc[Constantes::ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[Constantes::ST_EQUIPE_TRABALHO])) ? $dados[Constantes::ST_EQUIPE_TRABALHO] : null
+            );
             $insc[Constantes::NU_CAMISA] = $dados[Constantes::NU_CAMISA][0];
             $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
             $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
@@ -69,6 +72,8 @@ class Inscricao
             $res[Constantes::DS_MEMBRO_ATIVO] = ($inscricao->getDsMembroAtivo() == 'S')
                 ? 'checked' : '';
             $res[Constantes::DS_RETIRO] = ($inscricao->getDsRetiro() == 'S')
+                ? 'checked' : '';
+            $res[Constantes::ST_EQUIPE_TRABALHO] = ($inscricao->getStEquipeTrabalho() == 'S')
                 ? 'checked' : '';
             $res[Constantes::CO_INSCRICAO] = $inscricao->getCoInscricao();
             $res[Constantes::NO_PESSOA] = $inscricao->getCoPessoa()->getNoPessoa();

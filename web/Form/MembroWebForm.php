@@ -13,16 +13,27 @@ class MembroWebForm
         $formulario = new Form($id, $action);
         if ($res):
             $formulario->setValor($res);
+
+            $label_options = array("Sim", "Não", "verde", "vermelho");
+            $formulario
+                ->setLabel("Servo?")
+                ->setId(Constantes::ST_EQUIPE_TRABALHO)
+                ->setType("checkbox")
+                ->setClasses($res[Constantes::ST_EQUIPE_TRABALHO])
+                ->setTamanhoInput(6)
+                ->setOptions($label_options)
+                ->CriaInpunt();
+
         endif;
 
 
-        $label_options = array("Sim", "Não", "azul", "verde");
+        $label_options = array("Sim", "Não", "verde", "vermelho");
         $formulario
             ->setLabel("Membro do Grupo GEJ?")
             ->setId(Constantes::DS_MEMBRO_ATIVO)
             ->setType("checkbox")
             ->setClasses($res[Constantes::DS_MEMBRO_ATIVO])
-            ->setTamanhoInput(5)
+            ->setTamanhoInput(6)
             ->setOptions($label_options)
             ->CriaInpunt();
 
@@ -126,7 +137,7 @@ class MembroWebForm
             ->setOptions($options)
             ->CriaInpunt();
 
-        $label_options = array("Sim", "Não", "azul", "verde");
+        $label_options = array("Sim", "Não", "verde", "vermelho");
         $formulario
             ->setLabel("Participou de algum Retiro?")
             ->setTamanhoInput(5)
@@ -136,7 +147,7 @@ class MembroWebForm
             ->setOptions($label_options)
             ->CriaInpunt();
 
-        $label_options = array("Sim", "Não", "azul", "verde");
+        $label_options = array("Sim", "Não", "verde", "vermelho");
         $formulario
             ->setLabel("Participa de alguma Pastoral?")
             ->setId("ds_pastoral_ativo")
