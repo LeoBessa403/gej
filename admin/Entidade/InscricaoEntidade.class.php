@@ -23,6 +23,7 @@ class InscricaoEntidade
 	private $ds_descricao;
 	private $co_pessoa;
 	private $co_pagamento;
+	private $st_equipe_trabalho;
 
 
 	/**
@@ -41,6 +42,7 @@ class InscricaoEntidade
 			Constantes::NU_TEL_RESPONSAVEL,
 			Constantes::DS_DESCRICAO,
 			Constantes::CO_PESSOA,
+			Constantes::ST_EQUIPE_TRABALHO,
 		];
     	return $campos;
     }
@@ -257,6 +259,22 @@ class InscricaoEntidade
 	public function setCoPagamento($co_pagamento)
     {
         return $this->co_pagamento = $co_pagamento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStEquipeTrabalho()
+    {
+        return $this->st_equipe_trabalho;
+    }
+
+    /**
+     * @param mixed $st_equipe_trabalho
+     */
+    public function setStEquipeTrabalho($st_equipe_trabalho)
+    {
+        $this->st_equipe_trabalho = $st_equipe_trabalho;
     }
 
 }

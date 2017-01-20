@@ -35,7 +35,7 @@
                         Modal::deletaRegistro("Inscricao");
                         Modal::confirmacao("confirma_Inscricao");
 
-                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Membro', 'Pagamento', 'Ações');
+                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -62,6 +62,7 @@
                             $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()));
                             $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo()));
                             $grid->setColunas(FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao()));
                             $grid->setColunas($acao, 2);

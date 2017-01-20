@@ -90,5 +90,6 @@ class  Constantes
 	const DS_SENHA = 'ds_senha';
 	const DS_CODE = 'ds_code';
 	const CO_USUARIO_PERFIL = 'co_usuario_perfil';
+	const ST_EQUIPE_TRABALHO = 'st_equipe_trabalho';
 
 }
