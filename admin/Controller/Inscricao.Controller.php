@@ -103,10 +103,10 @@ class Inscricao
         $inscricaoModel = new InscricaoModel();
         $dados = array();
         $session = new Session();
-        $this->result = $inscricaoModel->PesquisaTodos();
+        $inscricoes = $inscricaoModel->PesquisaTodos();
         // Verifica se ja tem pagamento cadastrado caso não faz o cadastro
         /** @var InscricaoEntidade $inscricao */
-        foreach ($this->result as $inscricao) {
+        foreach ($inscricoes as $inscricao) {
             if(!$inscricao->getCoPagamento()){
                 $pagamentoModel = new PagamentoModel();
                 $parcelaModel = new ParcelamentoModel();
