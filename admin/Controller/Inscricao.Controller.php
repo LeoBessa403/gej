@@ -156,23 +156,24 @@ class Inscricao
             $session->FinalizaSession(PESQUISA_AVANCADA);
         }
         if (!empty($_POST)) {
-//            $dados = array(
-//                Constantes::NO_PESSOA => trim($_POST[Constantes::NO_PESSOA]),
-//                Constantes::NU_CPF => Valida::RetiraMascara($_POST[Constantes::NU_CPF]),
-//            );
-//            $session->setSession(PESQUISA_AVANCADA, $dados);
-//            $pessoaModel = new PessoaModel();
-//            $pessoas = $pessoaModel->PesquisaTodos($dados);
-//            $todos = array();
-//            foreach ($pessoas as $pessoa) {
-//                $todos[] = $pessoa->getCoInscricao()->getCoInscricao();
-//            }
-//            if ($todos) {
-//                $usuarios[Constantes::CO_USUARIO] = implode(', ', $todos);
-//                $this->result = $usuarioModel->PesquisaTodos($usuarios);
-//            } else {
-//                $this->result = array();
-//            }
+            $Condicoes = array(
+                "pes." . Constantes::NO_PESSOA => trim($_POST[Constantes::NO_PESSOA]),
+                "pes." . Constantes::NU_CPF => Valida::RetiraMascara($_POST[Constantes::NU_CPF]),
+                "pag." . Constantes::TP_SITUACAO => $_POST[Constantes::TP_SITUACAO][0],
+            );
+//            debug($Condicoes);
+            $session->setSession(PESQUISA_AVANCADA, $Condicoes);
+            $inscricoes = $inscricaoModel->PesquisaAvancada($Condicoes);
+            $todos = array();
+            foreach ($inscricoes as $inscricao) {
+                $todos[] = $inscricao['co_inscricao'];
+            }
+            if ($todos) {
+                $insc[Constantes::CO_INSCRICAO] = implode(', ', $todos);
+                $this->result = $inscricaoModel->PesquisaTodos($insc);
+            } else {
+                $this->result = array();
+            }
         } else {
             $this->result = $inscricaoModel->PesquisaTodos($dados);
         }
@@ -215,7 +216,7 @@ class Inscricao
 
     public function ListarInscricaoPesquisaAvancada()
     {
-//        echo InscricaoForm::Pesquisar();
+        echo InscricaoForm::Pesquisar();
     }
 
     public static function FormasDePagamento()
@@ -227,6 +228,15 @@ class Inscricao
             $pagamentos[$forma->getCoTipoPagamento()] = $forma->getDsTipoPagamento();
         }
         return $pagamentos;
+    }
+
+    public static function SituacaoPagamento()
+    {
+        $SituacaoPagamento[""] = "Situação do Pagamento";
+        $SituacaoPagamento["N"] = "Não Pago";
+        $SituacaoPagamento["I"] = "Parcial";
+        $SituacaoPagamento["C"] = "Concluído";
+        return $SituacaoPagamento;
     }
 
     public function DetalharPagamento()
@@ -250,12 +260,13 @@ class Inscricao
             $ParcelamentoModel = new ParcelamentoModel();
             $coParcela = $dados[Constantes::CO_PARCELAMENTO];
 
-            $parcela[Constantes::NU_VALOR_PARCELA_PAGO] = $dados[Constantes::NU_VALOR_PARCELA_PAGO];
+            $parcela[Constantes::NU_VALOR_PARCELA_PAGO] = Valida::FormataMoedaBanco($dados[Constantes::NU_VALOR_PARCELA_PAGO]);
             $parcela[Constantes::DT_VENCIMENTO_PAGO] = ($dados[Constantes::DT_VENCIMENTO_PAGO])
                 ? Valida::DataDBDate($dados[Constantes::DT_VENCIMENTO_PAGO])
                 : null;
             $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::DS_TIPO_PAGAMENTO][0];
-//            debug($parcela);
+            $parcela[Constantes::DS_OBSERVACAO] = Valida::LimpaVariavel($dados[Constantes::DS_OBSERVACAO]);
+
             $ParcelamentoModel->Salva($parcela, $coParcela);
             unset($_POST);
             $this->ListarInscricao();
@@ -270,9 +281,11 @@ class Inscricao
             $parcela = $ParcelaModel->PesquisaUmRegistro($parc);
 
             $res[Constantes::CO_PARCELAMENTO] = $parcela->getCoParcelamento();
-            $res[Constantes::NU_VALOR_PARCELA] = $parcela->getNuValorParcela();
-            $res[Constantes::NU_VALOR_PARCELA_PAGO] = $parcela->getNuValorParcelaPago();
-            $res[Constantes::DT_VENCIMENTO_PAGO] = $parcela->getDtVencimentoPago();
+            $res[Constantes::NU_VALOR_PARCELA] = Valida::FormataMoeda($parcela->getNuValorParcela());
+            $res[Constantes::NU_VALOR_PARCELA_PAGO] = Valida::FormataMoeda($parcela->getNuValorParcelaPago());
+            $res[Constantes::DT_VENCIMENTO_PAGO] = ($parcela->getDtVencimentoPago())
+                ? Valida::DataShow($parcela->getDtVencimentoPago())
+                : null;
             $res[Constantes::DS_OBSERVACAO] = $parcela->getDsObservacao();
             $res[Constantes::SG_TIPO_PAGAMENTO] = $parcela->getCoTipoPagamento()->getSgTipoPagamento();
 

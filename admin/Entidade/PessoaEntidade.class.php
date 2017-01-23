@@ -22,6 +22,7 @@ class PessoaEntidade
 	private $co_endereco;
 	private $co_membro;
 	private $co_usuario;
+	private $co_inscricao;
 
 
 	/**
@@ -61,6 +62,10 @@ class PessoaEntidade
             ),
 			Constantes::CO_USUARIO => array(
                 'Entidade' => UsuarioEntidade::ENTIDADE,
+                'Tipo' => 1,
+            ),
+			Constantes::CO_INSCRICAO => array(
+                'Entidade' => InscricaoEntidade::ENTIDADE,
                 'Tipo' => 1,
             ),
 		];
@@ -242,6 +247,22 @@ class PessoaEntidade
 	public function setCoUsuario($co_usuario)
     {
         return $this->co_usuario = $co_usuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoInscricao()
+    {
+        return $this->co_inscricao;
+    }
+
+    /**
+     * @param mixed $co_inscricao
+     */
+    public function setCoInscricao($co_inscricao)
+    {
+        $this->co_inscricao = $co_inscricao;
     }
 
 }

@@ -168,6 +168,7 @@ class MembroWebForm
 
         $formulario
             ->setLabel("Qual Pastoral?")
+            ->setTamanhoInput(12)
             ->setId(Constantes::DS_PASTORAL)
             ->CriaInpunt();
 

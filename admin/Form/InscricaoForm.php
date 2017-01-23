@@ -42,6 +42,13 @@ class InscricaoForm
             ->setOptions($label_options)
             ->CriaInpunt();
 
+        $formulario
+            ->setType("textarea")
+            ->setId(Constantes::DS_OBSERVACAO)
+            ->setLabel("Observação")
+            ->CriaInpunt();
+
+
             $formulario
                 ->setType("hidden")
                 ->setId(Constantes::CO_PARCELAMENTO)
@@ -49,6 +56,38 @@ class InscricaoForm
                 ->CriaInpunt();
 
         return $formulario->finalizaForm();
+    }
+
+    public static function Pesquisar()
+    {
+        $id = "pesquisaUsuario";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action, "Pesquisa", 12);
+
+        $formulario
+            ->setId("no_pessoa")
+            ->setIcon("clip-user-6")
+            ->setLabel("Nome do Usuario")
+            ->setInfo("Pode ser Parte do nome")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(Constantes::NU_CPF)
+            ->setClasses("cpf")
+            ->setTamanhoInput(6)
+            ->setLabel("CPF")
+            ->CriaInpunt();
+
+        $label_options = Inscricao::SituacaoPagamento();
+        $formulario
+            ->setLabel("Situação do Pagamento")
+            ->setId(Constantes::TP_SITUACAO)
+            ->setType("select")
+            ->setTamanhoInput(12)
+            ->setOptions($label_options)
+            ->CriaInpunt();
+
+        return $formulario->finalizaFormPesquisaAvancada();
     }
 }
 ?>
