@@ -242,6 +242,26 @@ class Inscricao
 
     public function EditarParcela()
     {
+        $id = "EditarParcelamento";
+
+        if (!empty($_POST[$id])):
+
+            $dados = $_POST;
+            $ParcelamentoModel = new ParcelamentoModel();
+            $coParcela = $dados[Constantes::CO_PARCELAMENTO];
+
+            $parcela[Constantes::NU_VALOR_PARCELA_PAGO] = $dados[Constantes::NU_VALOR_PARCELA_PAGO];
+            $parcela[Constantes::DT_VENCIMENTO_PAGO] = ($dados[Constantes::DT_VENCIMENTO_PAGO])
+                ? Valida::DataDBDate($dados[Constantes::DT_VENCIMENTO_PAGO])
+                : null;
+            $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::DS_TIPO_PAGAMENTO][0];
+//            debug($parcela);
+            $ParcelamentoModel->Salva($parcela, $coParcela);
+            unset($_POST);
+            $this->ListarInscricao();
+            UrlAmigavel::$action = "ListarInscricao";
+        endif;
+
         $parc = UrlAmigavel::PegaParametro("parc");
         $res = array();
         if ($parc):

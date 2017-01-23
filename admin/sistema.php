@@ -211,7 +211,8 @@ endif;
                                 var dados = {
                                     "HOME" : "' . HOME . '",
                                     "INATIVO" : "' . INATIVO . '",
-                                    "PASTAUPLOADS" : "' . PASTAUPLOADS . '"                                        
+                                    "PASTAUPLOADS" : "' . PASTAUPLOADS . '" ,                                       
+                                    "AMBIENTE" : "ADMIN"                                      
                                     };
                                 return dados;
                         }

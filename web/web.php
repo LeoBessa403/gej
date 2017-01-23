@@ -352,12 +352,13 @@ require_once 'library/Config.inc.php';
 <script type="text/javascript" src="<?php echo INCLUDES; ?>gera-grafico.js"></script>
 <script type="text/javascript" src="<?php echo INCLUDES; ?>jquery.mask.js"></script>
 <script type="text/javascript" src="<?php echo INCLUDES; ?>jquery.maskMoney.js"></script>
-<?php echo '<script type="text/javascript">
+<?= '<script type="text/javascript">
                         function constantes(){    
                                 var dados = {
                                     "HOME" : "' . HOME . '",
                                     "INATIVO" : "' . INATIVO . '",
-                                    "PASTAUPLOADS" : "' . PASTAUPLOADS . '"                                        
+                                    "PASTAUPLOADS" : "' . PASTAUPLOADS . '" ,                                       
+                                    "AMBIENTE" : "WEB"                                      
                                     };
                                 return dados;
                         }

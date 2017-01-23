@@ -8,7 +8,7 @@ class InscricaoForm
         $id = "EditarParcelamento";
 
         /** @var Form $formulario */
-        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action, 'Cadastrar', 6);
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action, 'Salvar', 6);
         if ($res):
             $formulario->setValor($res);
         endif;
