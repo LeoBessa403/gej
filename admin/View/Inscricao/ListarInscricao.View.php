@@ -53,10 +53,9 @@
                                 data-original-title="Visualizar Registro" data-placement="top">
                                 <i class="fa fa-clipboard"></i>
                                 </a>
-                                <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'
-                                . $res->getCoInscricao() . '" 
-                                   href="#Inscricao" data-original-title="Excluir Registro" data-placement="top">
-                                    <i class="fa fa-trash-o"></i>
+                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-dark-grey tooltips" 
+                                   data-original-title="Detalhes do Pagamento" data-placement="top">
+                                    <i class="fa fa-indent"></i>
                                 </a>';
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()));

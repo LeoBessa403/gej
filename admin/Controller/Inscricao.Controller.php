@@ -229,6 +229,17 @@ class Inscricao
         return $pagamentos;
     }
 
+    public function DetalharPagamento()
+    {
+        $coInscricao = UrlAmigavel::PegaParametro("insc");
+        $InscricaoModel = new InscricaoModel();
+        $PagamentoModel = new PagamentoModel();
+        /** @var InscricaoEntidade $inscricao */
+        $this->inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
+        /** @var PagamentoEntidade $pagamentoInsc */
+        $this->pagamentoInsc = $PagamentoModel->PesquisaUmRegistro($this->inscricao->getCoPagamento()->getCoPagamento());
+    }
+
 }
 
 ?>
