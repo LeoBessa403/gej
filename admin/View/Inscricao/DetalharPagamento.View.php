@@ -89,7 +89,7 @@
                             else:
                                 $venc = Valida::DataShow($res->getDtVencimentoPago(), "d/m/Y");
                             endif;
-                            $acao = '<a href="' . PASTAADMIN . 'Pagamento/EditaParcelamento/'
+                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/EditarParcela/'
                                 . Valida::GeraParametro("parc/" . $res->getCoParcelamento()) . '" class="btn btn-primary tooltips"
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
@@ -99,7 +99,7 @@
                             $grid->setColunas($venc);
                             $grid->setColunas($situacao);
                             $grid->setColunas($res->getDsObservacao());
-                            $grid->setColunas($acao, 2);
+                            $grid->setColunas($acao, 1);
                             $grid->criaLinha($res->getCoParcelamento());
                         endforeach;
 

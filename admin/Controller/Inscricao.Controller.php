@@ -240,6 +240,38 @@ class Inscricao
         $this->pagamentoInsc = $PagamentoModel->PesquisaUmRegistro($this->inscricao->getCoPagamento()->getCoPagamento());
     }
 
+    public function EditarParcela()
+    {
+        $parc = UrlAmigavel::PegaParametro("parc");
+        $res = array();
+        if ($parc):
+            $ParcelaModel = new ParcelamentoModel();
+            /** @var ParcelamentoEntidade $parcela */
+            $parcela = $ParcelaModel->PesquisaUmRegistro($parc);
+
+            $res[Constantes::CO_PARCELAMENTO] = $parcela->getCoParcelamento();
+            $res[Constantes::NU_VALOR_PARCELA] = $parcela->getNuValorParcela();
+            $res[Constantes::NU_VALOR_PARCELA_PAGO] = $parcela->getNuValorParcelaPago();
+            $res[Constantes::DT_VENCIMENTO_PAGO] = $parcela->getDtVencimentoPago();
+            $res[Constantes::DS_OBSERVACAO] = $parcela->getDsObservacao();
+            $res[Constantes::SG_TIPO_PAGAMENTO] = $parcela->getCoTipoPagamento()->getSgTipoPagamento();
+
+            $this->form = InscricaoForm::EditarParcelamento($res);
+        endif;
+    }
+
+    public function montaComboTodosTipoPagamento()
+    {
+        $TipoPagamentoModel = new TipoPagamentoModel();
+        $tpPagamento = $TipoPagamentoModel->PesquisaTodos();
+        $todosTp = array();
+        /** @var TipoPagamentoEntidade $tp */
+        foreach ($tpPagamento as $tp) :
+            $todosTp[$tp->getCoTipoPagamento()] = $tp->getDsTipoPagamento();
+        endforeach;
+        return $todosTp;
+    }
+
 }
 
 ?>
