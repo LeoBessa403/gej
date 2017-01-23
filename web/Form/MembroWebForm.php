@@ -18,7 +18,6 @@ class MembroWebForm
             $formulario
                 ->setLabel("Números de Parcelas")
                 ->setId(Constantes::NU_PARCELAS)
-                ->setClasses("ob")
                 ->setType("select")
                 ->setTamanhoInput(12)
                 ->setOptions($label_options)

@@ -105,7 +105,8 @@
                                         <p><big><b>';
                                         if ($pre == "dt"):
                                             $data = explode(" ", $reg[1]);
-                                            echo Valida::DataShow($data[0], "d/m/Y") . " - " . $data[1];
+                                            echo Valida::DataShow($data[0], "d/m/Y");
+                                            echo (!empty($data[1])) ? " - " . $data[1] : '';
                                         else:
                                             echo $reg[1];
                                         endif;

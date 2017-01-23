@@ -18,9 +18,13 @@ class Inscricao
             $ContatoModel = new ContatoModel();
             $PessoaModel = new PessoaModel();
             $InscricaoModel = new InscricaoModel();
+            $PagamentoModel = new PagamentoModel();
+            $ParcelamentoModel = new ParcelamentoModel();
             $coInscricao = $dados[Constantes::CO_INSCRICAO];
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
+            /** @var PagamentoEntidade $pagamentoInsc */
+            $pagamentoInsc = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
 
             $endereco[Constantes::DS_ENDERECO] = $dados[Constantes::DS_ENDERECO];
             $endereco[Constantes::DS_COMPLEMENTO] = $dados[Constantes::DS_COMPLEMENTO];
@@ -57,6 +61,25 @@ class Inscricao
             $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
 
             $InscricaoModel->Salva($insc, $coInscricao);
+
+            $pagamento[Constantes::NU_PARCELAS] = $dados[Constantes::NU_PARCELAS][0];
+            $PagamentoModel->Salva($pagamento, $pagamentoInsc->getCoPagamento());
+
+            /** @var ParcelamentoEntidade $parcela */
+            foreach ($pagamentoInsc->getCoParcelamento() as $parcela) {
+                $ParcelamentoModel->Deleta($parcela->getCoParcelamento());
+            }
+
+            for ($i = 0; $i < $pagamento[Constantes::NU_PARCELAS]; $i++) {
+                $novaParcela = array(
+                    Constantes::NU_PARCELA => $i + 1,
+                    Constantes::NU_VALOR_PARCELA => (120.00 / $pagamento[Constantes::NU_PARCELAS]),
+                    Constantes::DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
+                    Constantes::CO_TIPO_PAGAMENTO => 1,
+                    Constantes::CO_PAGAMENTO => $pagamentoInsc->getCoPagamento(),
+                );
+                $ParcelamentoModel->Salva($novaParcela);
+            }
             unset($_POST);
             $this->ListarInscricao();
             UrlAmigavel::$action = "ListarInscricao";
@@ -112,7 +135,7 @@ class Inscricao
         // Verifica se ja tem pagamento cadastrado caso não faz o cadastro
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
-            if(!$inscricao->getCoPagamento()){
+            if (!$inscricao->getCoPagamento()) {
                 $pagamentoModel = new PagamentoModel();
                 $parcelaModel = new ParcelamentoModel();
                 $pagamento[Constantes::NU_TOTAL] = '120.00';
