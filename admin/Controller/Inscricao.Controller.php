@@ -83,7 +83,7 @@ class Inscricao
             $res[Constantes::NU_RG] = $inscricao->getCoPessoa()->getNuRg();
             $res[Constantes::DT_NASCIMENTO] = Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento());
             $res[Constantes::ST_SEXO] = $inscricao->getCoPessoa()->getStSexo();
-
+            $res[Constantes::NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
             $res[Constantes::NU_CAMISA] = $inscricao->getNuCamisa();
 
             $res[Constantes::DS_EMAIL] = $inscricao->getCoPessoa()->getCoContato()->getDsEmail();

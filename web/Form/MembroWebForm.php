@@ -14,6 +14,16 @@ class MembroWebForm
         if ($res):
             $formulario->setValor($res);
 
+            $label_options = array("1" => "1", "2" => "2", "3" => "3");
+            $formulario
+                ->setLabel("Números de Parcelas")
+                ->setId(Constantes::NU_PARCELAS)
+                ->setClasses("ob")
+                ->setType("select")
+                ->setTamanhoInput(12)
+                ->setOptions($label_options)
+                ->CriaInpunt();
+
             $label_options = array("Sim", "Não", "verde", "vermelho");
             $formulario
                 ->setLabel("Servo?")
