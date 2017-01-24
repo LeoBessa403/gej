@@ -29,6 +29,7 @@ class Index
             }
 
             /** @var PagamentoEntidade $pagamentoInscricao */
+            debug($inscricao);
             $pagamentoInscricao = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
             switch ($pagamentoInscricao->getTpSituacao()) {
                 case "C":
