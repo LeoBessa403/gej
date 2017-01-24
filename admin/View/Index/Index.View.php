@@ -87,7 +87,7 @@
                                 <i class="fa-eur fa"></i>
                                 Não Pagos
                                 <span class="dados negrito dados-danger">
-                                    <?= $dados['TotalInscricoes']; ?>
+                                    <?= $dados['TotalNaoPago']; ?>
                                 </span>
                             </button>
                         </div>
@@ -96,7 +96,7 @@
                                 <i class="fa-gbp fa"></i>
                                 Pag. Parcial
                                 <span class="dados negrito dados-info">
-                                    <?= $dados['TotalInscricoes']; ?>
+                                    <?= $dados['TotalParcial']; ?>
                                 </span>
                             </button>
                         </div>
@@ -105,7 +105,7 @@
                                 <i class="fa-usd fa"></i>
                                 Pag. Concluídos
                                 <span class="dados negrito dados-success">
-                                    <?= $dados['TotalInscricoes']; ?>
+                                    <?= $dados['TotalConcluido']; ?>
                                 </span>
                             </button>
                         </div>

@@ -13,6 +13,9 @@ class Index
         $dados['TotalNaoMembros'] = 0;
         $dados['TotalMembros'] = 0;
         $dados['TotalServos'] = 0;
+        $dados['TotalNaoPago'] = 0;
+        $dados['TotalParcial'] = 0;
+        $dados['TotalConcluido'] = 0;
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
@@ -27,6 +30,19 @@ class Index
 
             /** @var PagamentoEntidade $pagamentoInscricao */
             $pagamentoInscricao = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
+            switch ($pagamentoInscricao->getTpSituacao()) {
+                case "C":
+                    $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
+                    break;
+                case "N":
+                    $dados['TotalNaoPago'] = $dados['TotalNaoPago'] + 1;
+                    break;
+                case "I":
+                    $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
+                    break;
+                default:
+                    break;
+            }
             foreach ($pagamentoInscricao->getCoParcelamento() as $pagamentoInsc) {
                 $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
             }
@@ -34,7 +50,6 @@ class Index
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 120 - $dados['TotalArrecadado']);
 
-//        debug($dados);
         $this->dados = $dados;
     }
 
