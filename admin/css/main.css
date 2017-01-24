@@ -4776,9 +4776,8 @@ td.column-right{
 }
 
 .dados{
-	display: block;
+	display: list-item;
 	color: rgba(230, 255, 209, 1);
-	float: left;
 	margin-left: 36%;
 	width: 28%;
 	padding: 5px;
