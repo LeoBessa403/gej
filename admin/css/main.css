@@ -4770,3 +4770,29 @@ td.column-right{
     font-size: 14px;
     margin-top: 20px;
 }
+
+.negrito{
+	font-weight: bold;
+}
+
+.dados{
+	display: block;
+	color: rgba(230, 255, 209, 1);
+	float: left;
+	margin-left: 40%;
+	width: 20%;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.dados-danger{
+	background-color: rgba(188, 13, 10, 1);
+}
+
+.dados-info{
+	background-color: rgba(21, 17, 188, 1);
+}
+
+.dados-success{
+	background-color: rgba(19, 140, 9, 1);
+}

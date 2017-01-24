@@ -261,7 +261,7 @@ require_once 'library/Config.inc.php';
                         <li>
                             <p>
                                 <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Paróquia São
-                                                                João Evangelista <br/>QS 405 Samambai Norte</span>
+                                                                João Evangelista <br/>QS 405 Samambaia Norte</span>
                             </p>
                         </li>
                         <li>
