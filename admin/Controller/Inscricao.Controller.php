@@ -271,6 +271,7 @@ class Inscricao
         if (!empty($_POST[$id])):
 
             $dados = $_POST;
+            $PagamentoModel = new PagamentoModel();
             $ParcelamentoModel = new ParcelamentoModel();
             $coParcela = $dados[Constantes::CO_PARCELAMENTO];
 
@@ -282,6 +283,22 @@ class Inscricao
             $parcela[Constantes::DS_OBSERVACAO] = Valida::LimpaVariavel($dados[Constantes::DS_OBSERVACAO]);
 
             $ParcelamentoModel->Salva($parcela, $coParcela);
+
+            /** @var ParcelamentoEntidade $parcelas */
+            $parcelas = $ParcelamentoModel->PesquisaUmRegistro($coParcela);
+            /** @var PagamentoEntidade $pagamentos */
+            $pagamentos = $PagamentoModel->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
+            /** @var ParcelamentoEntidade $parcela */
+            $total = 0;
+            foreach ($pagamentos->getCoParcelamento() as $parcela){
+                $total = $total + $parcela->getNuValorParcelaPago();
+            }
+            if($total == 120){
+                $pag[Constantes::TP_SITUACAO] = "C";
+            }elseif($total > 0){
+                $pag[Constantes::TP_SITUACAO] = "I";
+            }
+            $PagamentoModel->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
             unset($_POST);
             $this->ListarInscricao();
             UrlAmigavel::$action = "ListarInscricao";
