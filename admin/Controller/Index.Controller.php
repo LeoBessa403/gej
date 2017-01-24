@@ -5,6 +5,37 @@ class Index
 
     function Index()
     {
+        $InscricaoModel = new InscricaoModel();
+        $PagamentoModel = new PagamentoModel();
+        $inscricoes = $InscricaoModel->PesquisaTodos();
+        $dados['TotalInscricoes'] = count($inscricoes);
+        $dados['TotalArrecadado'] = 0;
+        $dados['TotalNaoMembros'] = 0;
+        $dados['TotalMembros'] = 0;
+        $dados['TotalServos'] = 0;
+
+        /** @var InscricaoEntidade $inscricao */
+        foreach ($inscricoes as $inscricao) {
+            if($inscricao->getDsMembroAtivo() == "N"){
+                $dados['TotalNaoMembros'] = $dados['TotalNaoMembros'] + 1;
+            }else{
+                $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
+            }
+            if($inscricao->getStEquipeTrabalho() == "S"){
+                $dados['TotalServos'] = $dados['TotalServos'] + 1;
+            }
+
+            /** @var PagamentoEntidade $pagamentoInscricao */
+            $pagamentoInscricao = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
+            foreach ($pagamentoInscricao->getCoParcelamento() as $pagamentoInsc) {
+                $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
+            }
+        }
+        $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
+        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 120 - $dados['TotalArrecadado']);
+
+//        debug($dados);
+        $this->dados = $dados;
     }
 
     function Registrar()
