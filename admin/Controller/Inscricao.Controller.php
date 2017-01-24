@@ -131,26 +131,7 @@ class Inscricao
         $inscricaoModel = new InscricaoModel();
         $dados = array();
         $session = new Session();
-        $inscricoes = $inscricaoModel->PesquisaTodos();
-        // Verifica se ja tem pagamento cadastrado caso não faz o cadastro
-        /** @var InscricaoEntidade $inscricao */
-        foreach ($inscricoes as $inscricao) {
-            if (!$inscricao->getCoPagamento()) {
-                $pagamentoModel = new PagamentoModel();
-                $parcelaModel = new ParcelamentoModel();
-                $pagamento[Constantes::NU_TOTAL] = '120.00';
-                $pagamento[Constantes::NU_PARCELAS] = 1;
-                $pagamento[Constantes::CO_INSCRICAO] = $inscricao->getCoInscricao();
-
-                $parcela[Constantes::CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
-                $parcela[Constantes::CO_TIPO_PAGAMENTO] = 1;
-                $parcela[Constantes::NU_PARCELA] = 1;
-                $parcela[Constantes::NU_VALOR_PARCELA] = '120.00';
-                $parcela[Constantes::DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
-
-                $parcelaModel->Salva($parcela);
-            }
-        }
+        
 
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
             $session->FinalizaSession(PESQUISA_AVANCADA);
