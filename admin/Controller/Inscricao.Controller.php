@@ -184,35 +184,48 @@ class Inscricao
     // AÇÃO DE EXPORTAÇÃO
     public function ExportarListarInscricao()
     {
-//        $usuarioModel = new InscricaoModel();
-//        $session = new Session();
-//        if ($session->CheckSession(PESQUISA_AVANCADA)) {
-//            $dados = $session->getSession(PESQUISA_AVANCADA);
-//            $pessoaModel = new PessoaModel();
-//            $pessoas = $pessoaModel->PesquisaTodos($dados);
-//            foreach ($pessoas as $pessoa) {
-//                $todos[] = $pessoa->getCoInscricao()->getCoInscricao();
-//            }
-//            $usuarios[Constantes::CO_USUARIO] = implode(', ', $todos);
-//            $result = $usuarioModel->PesquisaTodos($usuarios);
-//        } else {
-//            $result = $usuarioModel->PesquisaTodos();
-//        }
-//        $formato = UrlAmigavel::PegaParametro("formato");
-//        $i = 0;
-//        /** @var InscricaoEntidade $value */
-//        foreach ($result as $value) {
-//            $res[$i][Constantes::NO_PESSOA] = $value->getCoPessoa()->getNoPessoa();
-//            $res[$i][Constantes::NU_CPF] = Valida::MascaraCpf($value->getCoPessoa()->getNuCpf());
-//            $res[$i][Constantes::ST_STATUS] = FuncoesSistema::SituacaoInscricao($value->getStStatus());
-//            $i++;
-//        }
-//        $Colunas = array('Nome', 'CPF', 'Status');
-//        $exporta = new Exportacao($formato);
-//        // $exporta->setPapelOrientacao("paisagem");
-//        $exporta->setColunas($Colunas);
-//        $exporta->setConteudo($res);
-//        $exporta->GeraArquivo();
+        $inscricaoModel = new InscricaoModel();
+        $session = new Session();
+        if ($session->CheckSession(PESQUISA_AVANCADA)) {
+            $Condicoes = $session->getSession(PESQUISA_AVANCADA);
+            $inscricoes = $inscricaoModel->PesquisaAvancada($Condicoes);
+            $todos = array();
+            foreach ($inscricoes as $inscricao) {
+                $todos[] = $inscricao['co_inscricao'];
+            }
+            if ($todos) {
+                $insc[Constantes::CO_INSCRICAO] = implode(', ', $todos);
+                $result = $inscricaoModel->PesquisaTodos($insc);
+            } else {
+                $result = array();
+            }
+        } else {
+            $result = $inscricaoModel->PesquisaTodos();
+        }
+        $formato = UrlAmigavel::PegaParametro("formato");
+        $i = 0;
+        /** @var InscricaoEntidade $res */
+        foreach ($result as $res) {
+            if ($res->getCoPessoa()->getNuCpf()) {
+                $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
+            } elseif ($res->getCoPessoa()->getNuRG()) {
+                $documento = $res->getCoPessoa()->getNuRG();
+            }
+            $dados[$i][Constantes::NO_PESSOA] = strtoupper($res->getCoPessoa()->getNoPessoa());
+            $dados[$i][Constantes::NU_TEL1] = Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1());
+            $dados[$i][Constantes::NU_CPF] = $documento;
+            $dados[$i][Constantes::DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
+            $dados[$i][Constantes::ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
+            $dados[$i][Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo());
+            $dados[$i][Constantes::TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
+            $i++;
+        }
+        $Colunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento');
+        $exporta = new Exportacao($formato);
+        $exporta->setPapelOrientacao("paisagem");
+        $exporta->setColunas($Colunas);
+        $exporta->setConteudo($dados);
+        $exporta->GeraArquivo();
     }
 
     public function ListarInscricaoPesquisaAvancada()
