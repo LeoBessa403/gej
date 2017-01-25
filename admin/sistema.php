@@ -1,6 +1,7 @@
 <?php
 require_once 'library/Config.inc.php';
 $url = new UrlAmigavel();
+$back = new Backup();
 if (in_array(UrlAmigavel::$action, UrlAmigavel::$ACESSO_PERMITIDO)):
     $url->pegaControllerAction();
     exit;
