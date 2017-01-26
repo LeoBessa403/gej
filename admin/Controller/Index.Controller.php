@@ -201,6 +201,15 @@ class Index
     //*************************************************************//
 
     // EXEMPLO DE ENVIO DE EMAIL
+    function VerGraficos()
+    {
+        $grafico = new Grafico(Grafico::PORCENTAGEM,"Teste Título", "div_porcentagem");
+        $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
+        $grafico->GeraGrafico();
+        
+    }
+
+    // EXEMPLO DE ENVIO DE EMAIL
     function EmailCliente()
     {
         $email = new Email();
