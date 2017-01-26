@@ -19,12 +19,12 @@ class Index
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
-            if($inscricao->getDsMembroAtivo() == "N"){
+            if ($inscricao->getDsMembroAtivo() == "N") {
                 $dados['TotalNaoMembros'] = $dados['TotalNaoMembros'] + 1;
-            }else{
+            } else {
                 $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
             }
-            if($inscricao->getStEquipeTrabalho() == "S"){
+            if ($inscricao->getStEquipeTrabalho() == "S") {
                 $dados['TotalServos'] = $dados['TotalServos'] + 1;
             }
 
@@ -203,10 +203,53 @@ class Index
     // EXEMPLO DE ENVIO DE EMAIL
     function VerGraficos()
     {
-        $grafico = new Grafico(Grafico::PORCENTAGEM,"Teste Título", "div_porcentagem");
+        $grafico = new Grafico(Grafico::PORCENTAGEM, "Teste Porcentagem", "div_porcentagem");
         $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
         $grafico->GeraGrafico();
-        
+
+        $grafico = new Grafico(Grafico::MAPA, "Teste Mapa", "div_mapa");
+        $grafico->SetDados(array(
+                "['Cidade','Acessos','Visitas']",
+                "['Natal',2761477,1285.31]",
+                "['Brasília',1324110,181.76]",
+                "['São Paulo',959574,117.27]",
+                "['Rio de Janeiro',67370,213.44]",
+                "['Belo Horizonte',52192,43.43]",
+                "['Maceio',38262,11]"
+            )
+        );
+        $grafico->GeraGrafico();
+
+        $grafico = new Grafico(Grafico::COLUNA, "Teste coluna", "div_coluna");
+        $grafico->SetDados(array(
+            "['Ano','Gordos','Obesos','Magros']",
+            "['Jan',1080,1780,180]",
+            "['Fev',1170,670,180]",
+            "['Mar',660,960,180]",
+            "['Abr',1030,130,540]"
+        ));
+        $grafico->GeraGrafico();
+
+        $grafico = new Grafico(Grafico::LINHA, "Teste Linha", "div_linha");
+        $grafico->SetDados(array(
+            "['Ano','Gordos','Obesos','Magros']",
+            "['2004',1080,1780,180]",
+            "['2005',1170,670,10]",
+            "['2006',660,960,10]",
+            "['2007',1030,130,540]"
+        ));
+        $grafico->GeraGrafico();
+
+        $grafico = new Grafico(Grafico::PIZZA, "Teste Pizza", "div_pizza");
+        $grafico->SetDados(array(
+            "['Categorias','Procedimentos/Mês']",
+            "['Odontológico',11]",
+            "['Pediatra',5]",
+            "['Ginecologista',2]",
+            "['UTI',2]"
+        ));
+        $grafico->GeraGrafico();
+
     }
 
     // EXEMPLO DE ENVIO DE EMAIL
