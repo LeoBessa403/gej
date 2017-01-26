@@ -204,7 +204,6 @@ endif;
 <!--<![endif]-->
 <!--<script src="<?= PASTAADMIN; ?>plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>-->
 <script src="<?= INCLUDES; ?>jquery-ui.js"></script>
-<script type="text/javascript" src="<?= INCLUDES; ?>gera-grafico.js"></script>
 <script type="text/javascript" src="<?= INCLUDES; ?>jquery.mask.js"></script>
 <script type="text/javascript" src="<?= INCLUDES; ?>jquery.maskMoney.js"></script>
 <?= '<script type="text/javascript">

@@ -343,13 +343,12 @@ require_once 'library/Config.inc.php';
 <script src="<?php echo PASTASITE; ?>plugins/respond.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/excanvas.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="<?php echo INCLUDES; ?>jquery-1.10.2.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
 <script src="<?php echo INCLUDES; ?>jquery-2.0.3.js"></script>
 <!--<![endif]-->
 <script src="<?php echo INCLUDES; ?>jquery-ui.js"></script>
-<script type="text/javascript" src="<?php echo INCLUDES; ?>gera-grafico.js"></script>
 <script type="text/javascript" src="<?php echo INCLUDES; ?>jquery.mask.js"></script>
 <script type="text/javascript" src="<?php echo INCLUDES; ?>jquery.maskMoney.js"></script>
 <?= '<script type="text/javascript">
