@@ -207,18 +207,18 @@ class Index
         $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
         $grafico->GeraGrafico();
 
-        $grafico = new Grafico(Grafico::MAPA, "Teste Mapa", "div_mapa");
-        $grafico->SetDados(array(
-                "['Cidade','Acessos','Visitas']",
-                "['Natal',2761477,1285.31]",
-                "['Brasília',1324110,181.76]",
-                "['São Paulo',959574,117.27]",
-                "['Rio de Janeiro',67370,213.44]",
-                "['Belo Horizonte',52192,43.43]",
-                "['Maceio',38262,11]"
-            )
-        );
-        $grafico->GeraGrafico();
+//        $grafico = new Grafico(Grafico::MAPA, "Teste Mapa", "div_mapa");
+//        $grafico->SetDados(array(
+//                "['Cidade','Acessos','Visitas']",
+//                "['Natal',2761477,1285.31]",
+//                "['Brasília',1324110,181.76]",
+//                "['São Paulo',959574,117.27]",
+//                "['Rio de Janeiro',67370,213.44]",
+//                "['Belo Horizonte',52192,43.43]",
+//                "['Maceio',38262,11]"
+//            )
+//        );
+//        $grafico->GeraGrafico();
 
         $grafico = new Grafico(Grafico::COLUNA, "Teste coluna", "div_coluna");
         $grafico->SetDados(array(
