@@ -73,6 +73,8 @@ endif;
     <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/DataTables/media/css/DT_bootstrap.css">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="favicon.ico"/>
+    <!-- SCRIPT GERAR GRAFICOS -->
+    <script type="text/javascript" src="<?= HOME; ?>library/Helpers/includes/gera-grafico.js"></script>
 </head>
 <!-- end: HEAD -->
 <!-- start: BODY -->

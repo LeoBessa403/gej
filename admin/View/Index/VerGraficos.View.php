@@ -21,7 +21,7 @@
         </div>
         <!-- end: PAGE HEADER -->
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div id="div_porcentagem"></div>
                 <div id="div_mapa"></div>
                 <div id="div_pizza"></div>

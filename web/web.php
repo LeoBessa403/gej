@@ -75,6 +75,8 @@ require_once 'library/Config.inc.php';
     <!-- start: HTML5SHIV FOR IE8 -->
     <!--[if lt IE 9]>
     <script src="<?php echo PASTASITE; ?><?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
+    <!-- SCRIPT GERAR GRAFICOS -->
+    <script type="text/javascript" src="<?= HOME; ?>library/Helpers/includes/gera-grafico.js"></script>
     <![endif]-->
     <!-- end: HTML5SHIV FOR IE8 -->
     <!-- GOOGLE ANALITCS -->

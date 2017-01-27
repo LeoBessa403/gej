@@ -203,9 +203,9 @@ class Index
     // EXEMPLO DE ENVIO DE EMAIL
     function VerGraficos()
     {
-        $grafico = new Grafico(Grafico::PORCENTAGEM, "Teste Porcentagem", "div_porcentagem");
-        $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
-        $grafico->GeraGrafico();
+//        $grafico = new Grafico(Grafico::PORCENTAGEM, "Teste Porcentagem", "div_porcentagem");
+//        $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
+//        $grafico->GeraGrafico();
 
 //        $grafico = new Grafico(Grafico::MAPA, "Teste Mapa", "div_mapa");
 //        $grafico->SetDados(array(
@@ -220,33 +220,44 @@ class Index
 //        );
 //        $grafico->GeraGrafico();
 
-        $grafico = new Grafico(Grafico::COLUNA, "Teste coluna", "div_coluna");
-        $grafico->SetDados(array(
-            "['Ano','Gordos','Obesos','Magros']",
-            "['Jan',1080,1780,180]",
-            "['Fev',1170,670,180]",
-            "['Mar',660,960,180]",
-            "['Abr',1030,130,540]"
-        ));
-        $grafico->GeraGrafico();
-
-        $grafico = new Grafico(Grafico::LINHA, "Teste Linha", "div_linha");
-        $grafico->SetDados(array(
-            "['Ano','Gordos','Obesos','Magros']",
-            "['2004',1080,1780,180]",
-            "['2005',1170,670,10]",
-            "['2006',660,960,10]",
-            "['2007',1030,130,540]"
-        ));
-        $grafico->GeraGrafico();
-
-        $grafico = new Grafico(Grafico::PIZZA, "Teste Pizza", "div_pizza");
+//        $grafico = new Grafico(Grafico::COLUNA, "Teste coluna", "div_coluna");
+//        $grafico->SetDados(array(
+//            "['Ano','Gordos','Obesos','Magros']",
+//            "['Jan',1080,1780,180]",
+//            "['Fev',1170,670,180]",
+//            "['Mar',660,960,180]",
+//            "['Abr',1030,130,540]"
+//        ));
+//        $grafico->GeraGrafico();
+//
+//        $grafico = new Grafico(Grafico::LINHA, "Teste Linha", "div_linha");
+//        $grafico->SetDados(array(
+//            "['Ano','Gordos','Obesos','Magros']",
+//            "['2004',1080,1780,180]",
+//            "['2005',1170,670,10]",
+//            "['2006',660,960,10]",
+//            "['2007',1030,130,540]"
+//        ));
+//        $grafico->GeraGrafico();
+//
+        $grafico = new Grafico(Grafico::PIZZA, "Total do programa (Teórica)", "div_pizza");
         $grafico->SetDados(array(
             "['Categorias','Procedimentos/Mês']",
-            "['Odontológico',11]",
-            "['Pediatra',5]",
-            "['Ginecologista',2]",
-            "['UTI',2]"
+            "['Meta Atingida',800]",
+            "['Meta Restante',356]",
+        ));
+        $grafico->GeraGrafico();
+
+        $grafico = new Grafico(Grafico::COLUNA, "1º Semestre", "div_coluna");
+//        $grafico->SetDados(array(
+//            "['Horas','Teórica','Teórico-Prática','Prática']",
+//            "['Horas',256, 128 , 96]"
+//        ));
+        $grafico->SetDados(array(
+            "['Horas','Horas',{ role: 'annotation' }, { role: 'style' }]",
+            "['Teórica',256, 256, 'blue']",
+            "['Teórico-Prática',128, 128, 'red']",
+            "['Prática',96, 96, 'green']",
         ));
         $grafico->GeraGrafico();
 
