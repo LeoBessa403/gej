@@ -63,8 +63,8 @@ class Index
                 $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
             }
         }
+        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 120.00 - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
-        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 120 - $dados['TotalArrecadado']);
 
         $this->dados = $dados;
     }
