@@ -193,7 +193,8 @@ class Inscricao
                 $documento = $res->getCoPessoa()->getNuRG();
             }
             $dados[$i][Constantes::NO_PESSOA] = strtoupper($res->getCoPessoa()->getNoPessoa());
-            $dados[$i][Constantes::NU_TEL1] = Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1());
+            $dados[$i][Constantes::NU_TEL1] = Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()) .
+                ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2());
             $dados[$i][Constantes::NU_CPF] = $documento;
             $dados[$i][Constantes::DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
             $dados[$i][Constantes::ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
