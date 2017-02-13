@@ -4795,3 +4795,7 @@ td.column-right{
 .dados-success{
 	background-color: rgba(19, 140, 9, 1);
 }
+
+.dados-warning{
+	background-color: rgba(206, 174, 13, 1);
+}

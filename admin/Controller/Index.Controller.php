@@ -16,6 +16,7 @@ class Index
         $dados['TotalNaoPago'] = 0;
         $dados['TotalParcial'] = 0;
         $dados['TotalConcluido'] = 0;
+        $dados['TotalInscricoesRestantes'] = 0;
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
@@ -49,12 +50,18 @@ class Index
             switch ($pagamentoInscricao->getTpSituacao()) {
                 case "C":
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
+                    if ($inscricao->getStEquipeTrabalho() == "N") {
+                        $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
+                    }
                     break;
                 case "N":
                     $dados['TotalNaoPago'] = $dados['TotalNaoPago'] + 1;
                     break;
                 case "I":
                     $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
+                    if ($inscricao->getStEquipeTrabalho() == "N") {
+                        $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
+                    }
                     break;
                 default:
                     break;
