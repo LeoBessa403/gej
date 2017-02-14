@@ -35,8 +35,7 @@
                         Modal::deletaRegistro("Inscricao");
                         Modal::confirmacao("confirma_Inscricao");
 
-//                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento', 'Ações');
-                        $arrColunas = array('Nome', 'Telefone', 'Nascimento');
+                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -44,30 +43,28 @@
 
                         /** @var InscricaoEntidade $res */
                         foreach ($result as $res):
-//                            if ($res->getCoPessoa()->getNuCpf()) {
-//                                $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
-//                            } elseif ($res->getCoPessoa()->getNuRG()) {
-//                                $documento = $res->getCoPessoa()->getNuRG();
-//                            }
-//                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-//                                . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-primary tooltips" 
-//                                data-original-title="Visualizar Registro" data-placement="top">
-//                                <i class="fa fa-clipboard"></i>
-//                                </a>
-//                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-dark-grey tooltips" 
-//                                   data-original-title="Detalhes do Pagamento" data-placement="top">
-//                                    <i class="fa fa-indent"></i>
-//                                </a>';
+                            if ($res->getCoPessoa()->getNuCpf()) {
+                                $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
+                            } elseif ($res->getCoPessoa()->getNuRG()) {
+                                $documento = $res->getCoPessoa()->getNuRG();
+                            }
+                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
+                                . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-primary tooltips" 
+                                data-original-title="Visualizar Registro" data-placement="top">
+                                <i class="fa fa-clipboard"></i>
+                                </a>
+                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-dark-grey tooltips" 
+                                   data-original-title="Detalhes do Pagamento" data-placement="top">
+                                    <i class="fa fa-indent"></i>
+                                </a>';
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
-                            $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()) .
-                                ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2()) .
-                                ' / ' . Valida::MascaraTel($res->getNuTelResponsavel()));
-//                            $grid->setColunas($documento);
+                            $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()));
+                            $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
-//                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho()));
-//                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo()));
-//                            $grid->setColunas(FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao()));
-//                            $grid->setColunas($acao, 2);
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho()));
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo()));
+                            $grid->setColunas(FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao()));
+                            $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoInscricao());
                         endforeach;
                         $grid->finalizaGrid();
