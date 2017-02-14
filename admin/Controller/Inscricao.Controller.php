@@ -141,6 +141,7 @@ class Inscricao
                 "pes." . Constantes::NO_PESSOA => trim($_POST[Constantes::NO_PESSOA]),
                 "pes." . Constantes::NU_CPF => Valida::RetiraMascara($_POST[Constantes::NU_CPF]),
                 "pag." . Constantes::TP_SITUACAO => $_POST[Constantes::TP_SITUACAO][0],
+                "pag." . Constantes::TP_SITUACAO => 'C, I',
                 "insc." . Constantes::DS_MEMBRO_ATIVO => $_POST[Constantes::DS_MEMBRO_ATIVO][0],
                 "insc." . Constantes::ST_EQUIPE_TRABALHO => $_POST[Constantes::ST_EQUIPE_TRABALHO][0],
             );
