@@ -60,7 +60,7 @@
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()) .
                                 ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2()) .
-                                ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel3()));
+                                ' / ' . Valida::MascaraTel($res->getNuTelResponsavel()));
                             $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho()));
