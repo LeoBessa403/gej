@@ -2,14 +2,14 @@
 
 /**
  * UsuarioPerfil.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class UsuarioPerfilEntidade
+class UsuarioPerfilEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_USUARIO_PERFIL';
+	const TABELA = 'tb_usuario_perfil';
 	const ENTIDADE = 'UsuarioPerfilEntidade';
-	const CHAVE = Constantes::CO_USUARIO_PERFIL;
+	const CHAVE = CO_USUARIO_PERFIL;
 
 	private $co_usuario_perfil;
 	private $co_usuario;
@@ -17,37 +17,27 @@ class UsuarioPerfilEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_USUARIO_PERFIL,
-			Constantes::CO_USUARIO,
-			Constantes::CO_PERFIL,
+    	return [
+			CO_USUARIO_PERFIL,
+			CO_USUARIO,
+			CO_PERFIL,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_USUARIO => array(
-                'Entidade' => UsuarioEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_PERFIL => array(
-                'Entidade' => PerfilEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_usuario_perfil
+	* @return $co_usuario_perfil
      */
 	public function getCoUsuarioPerfil()
     {
@@ -55,7 +45,8 @@ class UsuarioPerfilEntidade
     }
 
 	/**
-     * @param mixed $co_usuario_perfil
+	* @param $co_usuario_perfil
+     * @return mixed
      */
 	public function setCoUsuarioPerfil($co_usuario_perfil)
     {
@@ -63,7 +54,7 @@ class UsuarioPerfilEntidade
     }
 
 	/**
-     * @return $co_usuario
+	* @return UsuarioEntidade $co_usuario
      */
 	public function getCoUsuario()
     {
@@ -71,7 +62,8 @@ class UsuarioPerfilEntidade
     }
 
 	/**
-     * @param mixed $co_usuario
+	* @param $co_usuario
+     * @return mixed
      */
 	public function setCoUsuario($co_usuario)
     {
@@ -79,7 +71,7 @@ class UsuarioPerfilEntidade
     }
 
 	/**
-     * @return $co_perfil
+	* @return PerfilEntidade $co_perfil
      */
 	public function getCoPerfil()
     {
@@ -87,7 +79,8 @@ class UsuarioPerfilEntidade
     }
 
 	/**
-     * @param mixed $co_perfil
+	* @param $co_perfil
+     * @return mixed
      */
 	public function setCoPerfil($co_perfil)
     {

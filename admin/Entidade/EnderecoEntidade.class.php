@@ -2,14 +2,14 @@
 
 /**
  * Endereco.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class EnderecoEntidade
+class EnderecoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_ENDERECO';
+	const TABELA = 'tb_endereco';
 	const ENTIDADE = 'EnderecoEntidade';
-	const CHAVE = Constantes::CO_ENDERECO;
+	const CHAVE = CO_ENDERECO;
 
 	private $co_endereco;
 	private $ds_endereco;
@@ -22,37 +22,31 @@ class EnderecoEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_ENDERECO,
-			Constantes::DS_ENDERECO,
-			Constantes::DS_COMPLEMENTO,
-			Constantes::DS_BAIRRO,
-			Constantes::NU_CEP,
-			Constantes::NO_CIDADE,
-			Constantes::SG_UF,
+    	return [
+			CO_ENDERECO,
+			DS_ENDERECO,
+			DS_COMPLEMENTO,
+			DS_BAIRRO,
+			NU_CEP,
+			NO_CIDADE,
+			SG_UF,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_PESSOA => array(
-                'Entidade' => PessoaEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_endereco
+	* @return $co_endereco
      */
 	public function getCoEndereco()
     {
@@ -60,7 +54,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $co_endereco
+	* @param $co_endereco
+     * @return mixed
      */
 	public function setCoEndereco($co_endereco)
     {
@@ -68,7 +63,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $ds_endereco
+	* @return $ds_endereco
      */
 	public function getDsEndereco()
     {
@@ -76,7 +71,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $ds_endereco
+	* @param $ds_endereco
+     * @return mixed
      */
 	public function setDsEndereco($ds_endereco)
     {
@@ -84,7 +80,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $ds_complemento
+	* @return $ds_complemento
      */
 	public function getDsComplemento()
     {
@@ -92,7 +88,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $ds_complemento
+	* @param $ds_complemento
+     * @return mixed
      */
 	public function setDsComplemento($ds_complemento)
     {
@@ -100,7 +97,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $ds_bairro
+	* @return $ds_bairro
      */
 	public function getDsBairro()
     {
@@ -108,7 +105,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $ds_bairro
+	* @param $ds_bairro
+     * @return mixed
      */
 	public function setDsBairro($ds_bairro)
     {
@@ -116,7 +114,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $nu_cep
+	* @return $nu_cep
      */
 	public function getNuCep()
     {
@@ -124,7 +122,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $nu_cep
+	* @param $nu_cep
+     * @return mixed
      */
 	public function setNuCep($nu_cep)
     {
@@ -132,7 +131,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $no_cidade
+	* @return $no_cidade
      */
 	public function getNoCidade()
     {
@@ -140,7 +139,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $no_cidade
+	* @param $no_cidade
+     * @return mixed
      */
 	public function setNoCidade($no_cidade)
     {
@@ -148,7 +148,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $sg_uf
+	* @return $sg_uf
      */
 	public function getSgUf()
     {
@@ -156,7 +156,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $sg_uf
+	* @param $sg_uf
+     * @return mixed
      */
 	public function setSgUf($sg_uf)
     {
@@ -164,7 +165,7 @@ class EnderecoEntidade
     }
 
 	/**
-     * @return $co_pessoa
+	* @return PessoaEntidade $co_pessoa
      */
 	public function getCoPessoa()
     {
@@ -172,7 +173,8 @@ class EnderecoEntidade
     }
 
 	/**
-     * @param mixed $co_pessoa
+     * @param $co_pessoa
+     * @return mixed
      */
 	public function setCoPessoa($co_pessoa)
     {

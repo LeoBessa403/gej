@@ -2,6 +2,7 @@
 require_once 'library/Config.inc.php';
 $url = new UrlAmigavel();
 $back = new Backup();
+$entidade = new GerarEntidades();
 if (in_array(UrlAmigavel::$action, UrlAmigavel::$ACESSO_PERMITIDO)):
     $url->pegaControllerAction();
     exit;
@@ -103,6 +104,7 @@ endif;
                     <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true"
                        href="#">
                         <?php
+                        /** @var Session $us */
                         $us = $_SESSION[SESSION_USER];
                         $user = $us->getUser();
                         $fotoPerfil = $user[md5('ds_caminho')];
@@ -255,6 +257,7 @@ endif;
 <script src="<?= PASTAADMIN; ?>plugins/ckeditor/adapters/jquery.js"></script>
 <script src="<?= PASTAADMIN; ?>js/Funcoes.js"></script>
 <script src="<?= PASTAADMIN; ?>js/FullCalendar.js"></script>
+<?php carregaJs($url); ?>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script>
     jQuery(document).ready(function () {

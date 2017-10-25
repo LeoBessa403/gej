@@ -2,14 +2,14 @@
 
 /**
  * Evento.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class EventoEntidade
+class EventoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_EVENTO';
+	const TABELA = 'tb_evento';
 	const ENTIDADE = 'EventoEntidade';
-	const CHAVE = Constantes::CO_EVENTO;
+	const CHAVE = CO_EVENTO;
 
 	private $co_evento;
 	private $no_evento;
@@ -18,36 +18,38 @@ class EventoEntidade
 	private $dt_cadastro;
 	private $dt_realizado;
 	private $ds_local;
+	private $co_agenda;
+	private $co_inscricao;
+	private $co_tarefa;
+	private $co_usuario_evento;
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_EVENTO,
-			Constantes::NO_EVENTO,
-			Constantes::DS_CONTEUDO,
-			Constantes::DS_PALAVRAS_CHAVES,
-			Constantes::DT_CADASTRO,
-			Constantes::DT_REALIZADO,
-			Constantes::DS_LOCAL,
+    	return [
+			CO_EVENTO,
+			NO_EVENTO,
+			DS_CONTEUDO,
+			DS_PALAVRAS_CHAVES,
+			DT_CADASTRO,
+			DT_REALIZADO,
+			DS_LOCAL,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_evento
+	* @return $co_evento
      */
 	public function getCoEvento()
     {
@@ -55,7 +57,8 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $co_evento
+	* @param $co_evento
+     * @return mixed
      */
 	public function setCoEvento($co_evento)
     {
@@ -63,7 +66,7 @@ class EventoEntidade
     }
 
 	/**
-     * @return $no_evento
+	* @return $no_evento
      */
 	public function getNoEvento()
     {
@@ -71,7 +74,8 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $no_evento
+	* @param $no_evento
+     * @return mixed
      */
 	public function setNoEvento($no_evento)
     {
@@ -79,7 +83,7 @@ class EventoEntidade
     }
 
 	/**
-     * @return $ds_conteudo
+	* @return $ds_conteudo
      */
 	public function getDsConteudo()
     {
@@ -87,7 +91,8 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $ds_conteudo
+	* @param $ds_conteudo
+     * @return mixed
      */
 	public function setDsConteudo($ds_conteudo)
     {
@@ -95,7 +100,7 @@ class EventoEntidade
     }
 
 	/**
-     * @return $ds_palavras_chaves
+	* @return $ds_palavras_chaves
      */
 	public function getDsPalavrasChaves()
     {
@@ -103,7 +108,8 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $ds_palavras_chaves
+	* @param $ds_palavras_chaves
+     * @return mixed
      */
 	public function setDsPalavrasChaves($ds_palavras_chaves)
     {
@@ -111,7 +117,7 @@ class EventoEntidade
     }
 
 	/**
-     * @return $dt_cadastro
+	* @return $dt_cadastro
      */
 	public function getDtCadastro()
     {
@@ -119,7 +125,8 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $dt_cadastro
+	* @param $dt_cadastro
+     * @return mixed
      */
 	public function setDtCadastro($dt_cadastro)
     {
@@ -127,7 +134,7 @@ class EventoEntidade
     }
 
 	/**
-     * @return $dt_realizado
+	* @return $dt_realizado
      */
 	public function getDtRealizado()
     {
@@ -135,7 +142,8 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $dt_realizado
+	* @param $dt_realizado
+     * @return mixed
      */
 	public function setDtRealizado($dt_realizado)
     {
@@ -143,7 +151,7 @@ class EventoEntidade
     }
 
 	/**
-     * @return $ds_local
+	* @return $ds_local
      */
 	public function getDsLocal()
     {
@@ -151,11 +159,80 @@ class EventoEntidade
     }
 
 	/**
-     * @param mixed $ds_local
+	* @param $ds_local
+     * @return mixed
      */
 	public function setDsLocal($ds_local)
     {
         return $this->ds_local = $ds_local;
+    }
+
+	/**
+	* @return AgendaEntidade $co_agenda
+     */
+	public function getCoAgenda()
+    {
+        return $this->co_agenda;
+    }
+
+	/**
+     * @param $co_agenda
+     * @return mixed
+     */
+	public function setCoAgenda($co_agenda)
+    {
+        return $this->co_agenda = $co_agenda;
+    }
+
+	/**
+	* @return InscricaoEntidade $co_inscricao
+     */
+	public function getCoInscricao()
+    {
+        return $this->co_inscricao;
+    }
+
+	/**
+     * @param $co_inscricao
+     * @return mixed
+     */
+	public function setCoInscricao($co_inscricao)
+    {
+        return $this->co_inscricao = $co_inscricao;
+    }
+
+	/**
+	* @return TarefaEntidade $co_tarefa
+     */
+	public function getCoTarefa()
+    {
+        return $this->co_tarefa;
+    }
+
+	/**
+     * @param $co_tarefa
+     * @return mixed
+     */
+	public function setCoTarefa($co_tarefa)
+    {
+        return $this->co_tarefa = $co_tarefa;
+    }
+
+	/**
+	* @return UsuarioEventoEntidade $co_usuario_evento
+     */
+	public function getCoUsuarioEvento()
+    {
+        return $this->co_usuario_evento;
+    }
+
+	/**
+     * @param $co_usuario_evento
+     * @return mixed
+     */
+	public function setCoUsuarioEvento($co_usuario_evento)
+    {
+        return $this->co_usuario_evento = $co_usuario_evento;
     }
 
 }

@@ -2,14 +2,14 @@
 
 /**
  * Auditoria.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class AuditoriaEntidade
+class AuditoriaEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_AUDITORIA';
+	const TABELA = 'tb_auditoria';
 	const ENTIDADE = 'AuditoriaEntidade';
-	const CHAVE = Constantes::CO_AUDITORIA;
+	const CHAVE = CO_AUDITORIA;
 
 	private $co_auditoria;
 	private $no_tabela;
@@ -23,39 +23,33 @@ class AuditoriaEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_AUDITORIA,
-			Constantes::NO_TABELA,
-			Constantes::DT_REALIZADO,
-			Constantes::NO_OPERACAO,
-			Constantes::DS_ITEM_ANTERIOR,
-			Constantes::DS_ITEM_ATUAL,
-			Constantes::CO_REGISTRO,
-			Constantes::DS_PERFIL_USUARIO,
-			Constantes::CO_USUARIO,
+    	return [
+			CO_AUDITORIA,
+			NO_TABELA,
+			DT_REALIZADO,
+			NO_OPERACAO,
+			DS_ITEM_ANTERIOR,
+			DS_ITEM_ATUAL,
+			CO_REGISTRO,
+			DS_PERFIL_USUARIO,
+			CO_USUARIO,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_USUARIO => array(
-                'Entidade' => UsuarioEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_auditoria
+	* @return $co_auditoria
      */
 	public function getCoAuditoria()
     {
@@ -63,7 +57,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $co_auditoria
+	* @param $co_auditoria
+     * @return mixed
      */
 	public function setCoAuditoria($co_auditoria)
     {
@@ -71,7 +66,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $no_tabela
+	* @return $no_tabela
      */
 	public function getNoTabela()
     {
@@ -79,7 +74,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $no_tabela
+	* @param $no_tabela
+     * @return mixed
      */
 	public function setNoTabela($no_tabela)
     {
@@ -87,7 +83,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $dt_realizado
+	* @return $dt_realizado
      */
 	public function getDtRealizado()
     {
@@ -95,7 +91,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $dt_realizado
+	* @param $dt_realizado
+     * @return mixed
      */
 	public function setDtRealizado($dt_realizado)
     {
@@ -103,7 +100,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $no_operacao
+	* @return $no_operacao
      */
 	public function getNoOperacao()
     {
@@ -111,7 +108,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $no_operacao
+	* @param $no_operacao
+     * @return mixed
      */
 	public function setNoOperacao($no_operacao)
     {
@@ -119,7 +117,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $ds_item_anterior
+	* @return $ds_item_anterior
      */
 	public function getDsItemAnterior()
     {
@@ -127,7 +125,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $ds_item_anterior
+	* @param $ds_item_anterior
+     * @return mixed
      */
 	public function setDsItemAnterior($ds_item_anterior)
     {
@@ -135,7 +134,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $ds_item_atual
+	* @return $ds_item_atual
      */
 	public function getDsItemAtual()
     {
@@ -143,7 +142,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $ds_item_atual
+	* @param $ds_item_atual
+     * @return mixed
      */
 	public function setDsItemAtual($ds_item_atual)
     {
@@ -151,7 +151,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $co_registro
+	* @return RegistroEntidade $co_registro
      */
 	public function getCoRegistro()
     {
@@ -159,7 +159,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $co_registro
+	* @param $co_registro
+     * @return mixed
      */
 	public function setCoRegistro($co_registro)
     {
@@ -167,7 +168,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $ds_perfil_usuario
+	* @return $ds_perfil_usuario
      */
 	public function getDsPerfilUsuario()
     {
@@ -175,7 +176,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $ds_perfil_usuario
+	* @param $ds_perfil_usuario
+     * @return mixed
      */
 	public function setDsPerfilUsuario($ds_perfil_usuario)
     {
@@ -183,7 +185,7 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @return $co_usuario
+	* @return UsuarioEntidade $co_usuario
      */
 	public function getCoUsuario()
     {
@@ -191,7 +193,8 @@ class AuditoriaEntidade
     }
 
 	/**
-     * @param mixed $co_usuario
+	* @param $co_usuario
+     * @return mixed
      */
 	public function setCoUsuario($co_usuario)
     {

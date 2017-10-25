@@ -2,14 +2,14 @@
 
 /**
  * Usuario.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class UsuarioEntidade
+class UsuarioEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_USUARIO';
+	const TABELA = 'tb_usuario';
 	const ENTIDADE = 'UsuarioEntidade';
-	const CHAVE = Constantes::CO_USUARIO;
+	const CHAVE = CO_USUARIO;
 
 	private $co_usuario;
 	private $ds_senha;
@@ -19,53 +19,39 @@ class UsuarioEntidade
 	private $co_imagem;
 	private $co_pessoa;
 	private $co_acesso;
+	private $co_auditoria;
+	private $co_emprestimo;
+	private $co_tarefa;
+	private $co_usuario_evento;
 	private $co_usuario_perfil;
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_USUARIO,
-			Constantes::DS_SENHA,
-			Constantes::DS_CODE,
-			Constantes::ST_STATUS,
-			Constantes::DT_CADASTRO,
-			Constantes::CO_IMAGEM,
-			Constantes::CO_PESSOA,
+    	return [
+			CO_USUARIO,
+			DS_SENHA,
+			DS_CODE,
+			ST_STATUS,
+			DT_CADASTRO,
+			CO_IMAGEM,
+			CO_PESSOA,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_IMAGEM => array(
-                'Entidade' => ImagemEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_PESSOA => array(
-                'Entidade' => PessoaEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_ACESSO => array(
-                'Entidade' => AcessoEntidade::ENTIDADE,
-                'Tipo' => 'N',
-            ),
-			Constantes::CO_USUARIO_PERFIL => array(
-                'Entidade' => UsuarioPerfilEntidade::ENTIDADE,
-                'Tipo' => 'N',
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_usuario
+	* @return $co_usuario
      */
 	public function getCoUsuario()
     {
@@ -73,7 +59,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $co_usuario
+	* @param $co_usuario
+     * @return mixed
      */
 	public function setCoUsuario($co_usuario)
     {
@@ -81,7 +68,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $ds_senha
+	* @return $ds_senha
      */
 	public function getDsSenha()
     {
@@ -89,7 +76,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $ds_senha
+	* @param $ds_senha
+     * @return mixed
      */
 	public function setDsSenha($ds_senha)
     {
@@ -97,7 +85,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $ds_code
+	* @return $ds_code
      */
 	public function getDsCode()
     {
@@ -105,7 +93,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $ds_code
+	* @param $ds_code
+     * @return mixed
      */
 	public function setDsCode($ds_code)
     {
@@ -113,7 +102,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $st_status
+	* @return $st_status
      */
 	public function getStStatus()
     {
@@ -121,7 +110,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $st_status
+	* @param $st_status
+     * @return mixed
      */
 	public function setStStatus($st_status)
     {
@@ -129,7 +119,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $dt_cadastro
+	* @return $dt_cadastro
      */
 	public function getDtCadastro()
     {
@@ -137,7 +127,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $dt_cadastro
+	* @param $dt_cadastro
+     * @return mixed
      */
 	public function setDtCadastro($dt_cadastro)
     {
@@ -145,7 +136,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $co_imagem
+	* @return ImagemEntidade $co_imagem
      */
 	public function getCoImagem()
     {
@@ -153,7 +144,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $co_imagem
+	* @param $co_imagem
+     * @return mixed
      */
 	public function setCoImagem($co_imagem)
     {
@@ -161,7 +153,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $co_pessoa
+	* @return PessoaEntidade $co_pessoa
      */
 	public function getCoPessoa()
     {
@@ -169,7 +161,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $co_pessoa
+	* @param $co_pessoa
+     * @return mixed
      */
 	public function setCoPessoa($co_pessoa)
     {
@@ -177,7 +170,7 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $co_acesso
+	* @return AcessoEntidade $co_acesso
      */
 	public function getCoAcesso()
     {
@@ -185,7 +178,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $co_acesso
+     * @param $co_acesso
+     * @return mixed
      */
 	public function setCoAcesso($co_acesso)
     {
@@ -193,7 +187,75 @@ class UsuarioEntidade
     }
 
 	/**
-     * @return $co_usuario_perfil
+	* @return AuditoriaEntidade $co_auditoria
+     */
+	public function getCoAuditoria()
+    {
+        return $this->co_auditoria;
+    }
+
+	/**
+     * @param $co_auditoria
+     * @return mixed
+     */
+	public function setCoAuditoria($co_auditoria)
+    {
+        return $this->co_auditoria = $co_auditoria;
+    }
+
+	/**
+	* @return EmprestimoEntidade $co_emprestimo
+     */
+	public function getCoEmprestimo()
+    {
+        return $this->co_emprestimo;
+    }
+
+	/**
+     * @param $co_emprestimo
+     * @return mixed
+     */
+	public function setCoEmprestimo($co_emprestimo)
+    {
+        return $this->co_emprestimo = $co_emprestimo;
+    }
+
+	/**
+	* @return TarefaEntidade $co_tarefa
+     */
+	public function getCoTarefa()
+    {
+        return $this->co_tarefa;
+    }
+
+	/**
+     * @param $co_tarefa
+     * @return mixed
+     */
+	public function setCoTarefa($co_tarefa)
+    {
+        return $this->co_tarefa = $co_tarefa;
+    }
+
+	/**
+	* @return UsuarioEventoEntidade $co_usuario_evento
+     */
+	public function getCoUsuarioEvento()
+    {
+        return $this->co_usuario_evento;
+    }
+
+	/**
+     * @param $co_usuario_evento
+     * @return mixed
+     */
+	public function setCoUsuarioEvento($co_usuario_evento)
+    {
+        return $this->co_usuario_evento = $co_usuario_evento;
+    }
+
+	/**
+	* @return UsuarioPerfilEntidade $co_usuario_perfil
      */
 	public function getCoUsuarioPerfil()
     {
@@ -201,7 +263,8 @@ class UsuarioEntidade
     }
 
 	/**
-     * @param mixed $co_usuario_perfil
+     * @param $co_usuario_perfil
+     * @return mixed
      */
 	public function setCoUsuarioPerfil($co_usuario_perfil)
     {

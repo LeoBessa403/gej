@@ -2,14 +2,14 @@
 
 /**
  * Funcionalidade.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class FuncionalidadeEntidade
+class FuncionalidadeEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_FUNCIONALIDADE';
+	const TABELA = 'tb_funcionalidade';
 	const ENTIDADE = 'FuncionalidadeEntidade';
-	const CHAVE = Constantes::CO_FUNCIONALIDADE;
+	const CHAVE = CO_FUNCIONALIDADE;
 
 	private $co_funcionalidade;
 	private $no_funcionalidade;
@@ -19,34 +19,28 @@ class FuncionalidadeEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_FUNCIONALIDADE,
-			Constantes::NO_FUNCIONALIDADE,
-			Constantes::DS_ROTA,
-			Constantes::ST_STATUS,
+    	return [
+			CO_FUNCIONALIDADE,
+			NO_FUNCIONALIDADE,
+			DS_ROTA,
+			ST_STATUS,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_PERFIL_FUNCIONALIDADE => array(
-                'Entidade' => PerfilFuncionalidadeEntidade::ENTIDADE,
-                'Tipo' => 'N',
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_funcionalidade
+	* @return $co_funcionalidade
      */
 	public function getCoFuncionalidade()
     {
@@ -54,7 +48,8 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $co_funcionalidade
+	* @param $co_funcionalidade
+     * @return mixed
      */
 	public function setCoFuncionalidade($co_funcionalidade)
     {
@@ -62,7 +57,7 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @return $no_funcionalidade
+	* @return $no_funcionalidade
      */
 	public function getNoFuncionalidade()
     {
@@ -70,7 +65,8 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $no_funcionalidade
+	* @param $no_funcionalidade
+     * @return mixed
      */
 	public function setNoFuncionalidade($no_funcionalidade)
     {
@@ -78,7 +74,7 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @return $ds_rota
+	* @return $ds_rota
      */
 	public function getDsRota()
     {
@@ -86,7 +82,8 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $ds_rota
+	* @param $ds_rota
+     * @return mixed
      */
 	public function setDsRota($ds_rota)
     {
@@ -94,7 +91,7 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @return $st_status
+	* @return $st_status
      */
 	public function getStStatus()
     {
@@ -102,7 +99,8 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $st_status
+	* @param $st_status
+     * @return mixed
      */
 	public function setStStatus($st_status)
     {
@@ -110,7 +108,7 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @return $co_perfil_funcionalidade
+	* @return PerfilFuncionalidadeEntidade $co_perfil_funcionalidade
      */
 	public function getCoPerfilFuncionalidade()
     {
@@ -118,7 +116,8 @@ class FuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $co_perfil_funcionalidade
+     * @param $co_perfil_funcionalidade
+     * @return mixed
      */
 	public function setCoPerfilFuncionalidade($co_perfil_funcionalidade)
     {

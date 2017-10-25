@@ -2,14 +2,14 @@
 
 /**
  * PerfilFuncionalidade.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class PerfilFuncionalidadeEntidade
+class PerfilFuncionalidadeEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_PERFIL_FUNCIONALIDADE';
+	const TABELA = 'tb_perfil_funcionalidade';
 	const ENTIDADE = 'PerfilFuncionalidadeEntidade';
-	const CHAVE = Constantes::CO_PERFIL_FUNCIONALIDADE;
+	const CHAVE = CO_PERFIL_FUNCIONALIDADE;
 
 	private $co_perfil_funcionalidade;
 	private $co_perfil;
@@ -17,37 +17,27 @@ class PerfilFuncionalidadeEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_PERFIL_FUNCIONALIDADE,
-			Constantes::CO_PERFIL,
-			Constantes::CO_FUNCIONALIDADE,
+    	return [
+			CO_PERFIL_FUNCIONALIDADE,
+			CO_PERFIL,
+			CO_FUNCIONALIDADE,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_PERFIL => array(
-                'Entidade' => PerfilEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_FUNCIONALIDADE => array(
-                'Entidade' => FuncionalidadeEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_perfil_funcionalidade
+	* @return $co_perfil_funcionalidade
      */
 	public function getCoPerfilFuncionalidade()
     {
@@ -55,7 +45,8 @@ class PerfilFuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $co_perfil_funcionalidade
+	* @param $co_perfil_funcionalidade
+     * @return mixed
      */
 	public function setCoPerfilFuncionalidade($co_perfil_funcionalidade)
     {
@@ -63,7 +54,7 @@ class PerfilFuncionalidadeEntidade
     }
 
 	/**
-     * @return $co_perfil
+	* @return PerfilEntidade $co_perfil
      */
 	public function getCoPerfil()
     {
@@ -71,7 +62,8 @@ class PerfilFuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $co_perfil
+	* @param $co_perfil
+     * @return mixed
      */
 	public function setCoPerfil($co_perfil)
     {
@@ -79,7 +71,7 @@ class PerfilFuncionalidadeEntidade
     }
 
 	/**
-     * @return $co_funcionalidade
+	* @return FuncionalidadeEntidade $co_funcionalidade
      */
 	public function getCoFuncionalidade()
     {
@@ -87,7 +79,8 @@ class PerfilFuncionalidadeEntidade
     }
 
 	/**
-     * @param mixed $co_funcionalidade
+	* @param $co_funcionalidade
+     * @return mixed
      */
 	public function setCoFuncionalidade($co_funcionalidade)
     {

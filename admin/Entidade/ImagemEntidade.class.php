@@ -2,14 +2,14 @@
 
 /**
  * Imagem.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class ImagemEntidade
+class ImagemEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_IMAGEM';
+	const TABELA = 'tb_imagem';
 	const ENTIDADE = 'ImagemEntidade';
-	const CHAVE = Constantes::CO_IMAGEM;
+	const CHAVE = CO_IMAGEM;
 
 	private $co_imagem;
 	private $ds_caminho;
@@ -17,32 +17,26 @@ class ImagemEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_IMAGEM,
-			Constantes::DS_CAMINHO,
+    	return [
+			CO_IMAGEM,
+			DS_CAMINHO,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_USUARIO => array(
-                'Entidade' => UsuarioEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_imagem
+	* @return $co_imagem
      */
 	public function getCoImagem()
     {
@@ -50,7 +44,8 @@ class ImagemEntidade
     }
 
 	/**
-     * @param mixed $co_imagem
+	* @param $co_imagem
+     * @return mixed
      */
 	public function setCoImagem($co_imagem)
     {
@@ -58,7 +53,7 @@ class ImagemEntidade
     }
 
 	/**
-     * @return $ds_caminho
+	* @return $ds_caminho
      */
 	public function getDsCaminho()
     {
@@ -66,7 +61,8 @@ class ImagemEntidade
     }
 
 	/**
-     * @param mixed $ds_caminho
+	* @param $ds_caminho
+     * @return mixed
      */
 	public function setDsCaminho($ds_caminho)
     {
@@ -74,7 +70,7 @@ class ImagemEntidade
     }
 
 	/**
-     * @return $co_usuario
+	* @return UsuarioEntidade $co_usuario
      */
 	public function getCoUsuario()
     {
@@ -82,7 +78,8 @@ class ImagemEntidade
     }
 
 	/**
-     * @param mixed $co_usuario
+     * @param $co_usuario
+     * @return mixed
      */
 	public function setCoUsuario($co_usuario)
     {

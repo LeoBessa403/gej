@@ -2,14 +2,14 @@
 
 /**
  * Parcelamento.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class ParcelamentoEntidade
+class ParcelamentoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_PARCELAMENTO';
+	const TABELA = 'tb_parcelamento';
 	const ENTIDADE = 'ParcelamentoEntidade';
-	const CHAVE = Constantes::CO_PARCELAMENTO;
+	const CHAVE = CO_PARCELAMENTO;
 
 	private $co_parcelamento;
 	private $nu_parcela;
@@ -19,47 +19,37 @@ class ParcelamentoEntidade
 	private $dt_vencimento_pago;
 	private $ds_observacao;
 	private $co_pagamento;
-    private $co_tipo_pagamento;
+	private $co_tipo_pagamento;
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_PARCELAMENTO,
-			Constantes::NU_PARCELA,
-			Constantes::NU_VALOR_PARCELA,
-			Constantes::NU_VALOR_PARCELA_PAGO,
-			Constantes::DT_VENCIMENTO,
-			Constantes::DT_VENCIMENTO_PAGO,
-			Constantes::DS_OBSERVACAO,
-			Constantes::CO_PAGAMENTO,
-            Constantes::CO_TIPO_PAGAMENTO,
+    	return [
+			CO_PARCELAMENTO,
+			NU_PARCELA,
+			NU_VALOR_PARCELA,
+			NU_VALOR_PARCELA_PAGO,
+			DT_VENCIMENTO,
+			DT_VENCIMENTO_PAGO,
+			DS_OBSERVACAO,
+			CO_PAGAMENTO,
+			CO_TIPO_PAGAMENTO,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_PAGAMENTO => array(
-                'Entidade' => PagamentoEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-            Constantes::CO_TIPO_PAGAMENTO => array(
-                'Entidade' => TipoPagamentoEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_parcelamento
+	* @return $co_parcelamento
      */
 	public function getCoParcelamento()
     {
@@ -67,7 +57,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $co_parcelamento
+	* @param $co_parcelamento
+     * @return mixed
      */
 	public function setCoParcelamento($co_parcelamento)
     {
@@ -75,7 +66,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $nu_parcela
+	* @return $nu_parcela
      */
 	public function getNuParcela()
     {
@@ -83,7 +74,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $nu_parcela
+	* @param $nu_parcela
+     * @return mixed
      */
 	public function setNuParcela($nu_parcela)
     {
@@ -91,7 +83,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $nu_valor_parcela
+	* @return $nu_valor_parcela
      */
 	public function getNuValorParcela()
     {
@@ -99,7 +91,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $nu_valor_parcela
+	* @param $nu_valor_parcela
+     * @return mixed
      */
 	public function setNuValorParcela($nu_valor_parcela)
     {
@@ -107,7 +100,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $nu_valor_parcela_pago
+	* @return $nu_valor_parcela_pago
      */
 	public function getNuValorParcelaPago()
     {
@@ -115,7 +108,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $nu_valor_parcela_pago
+	* @param $nu_valor_parcela_pago
+     * @return mixed
      */
 	public function setNuValorParcelaPago($nu_valor_parcela_pago)
     {
@@ -123,7 +117,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $dt_vencimento
+	* @return $dt_vencimento
      */
 	public function getDtVencimento()
     {
@@ -131,7 +125,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $dt_vencimento
+	* @param $dt_vencimento
+     * @return mixed
      */
 	public function setDtVencimento($dt_vencimento)
     {
@@ -139,7 +134,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $dt_vencimento_pago
+	* @return $dt_vencimento_pago
      */
 	public function getDtVencimentoPago()
     {
@@ -147,7 +142,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $dt_vencimento_pago
+	* @param $dt_vencimento_pago
+     * @return mixed
      */
 	public function setDtVencimentoPago($dt_vencimento_pago)
     {
@@ -155,7 +151,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $ds_observacao
+	* @return $ds_observacao
      */
 	public function getDsObservacao()
     {
@@ -163,7 +159,8 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $ds_observacao
+	* @param $ds_observacao
+     * @return mixed
      */
 	public function setDsObservacao($ds_observacao)
     {
@@ -171,7 +168,7 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @return $co_pagamento
+	* @return PagamentoEntidade $co_pagamento
      */
 	public function getCoPagamento()
     {
@@ -179,25 +176,27 @@ class ParcelamentoEntidade
     }
 
 	/**
-     * @param mixed $co_pagamento
+	* @param $co_pagamento
+     * @return mixed
      */
 	public function setCoPagamento($co_pagamento)
     {
         return $this->co_pagamento = $co_pagamento;
     }
 
-    /**
-     * @return $co_tipo_pagamento
+	/**
+	* @return TipoPagamentoEntidade $co_tipo_pagamento
      */
-    public function getCoTipoPagamento()
+	public function getCoTipoPagamento()
     {
         return $this->co_tipo_pagamento;
     }
 
-    /**
-     * @param mixed $co_tipo_pagamento
+	/**
+	* @param $co_tipo_pagamento
+     * @return mixed
      */
-    public function setCoTipoPagamento($co_tipo_pagamento)
+	public function setCoTipoPagamento($co_tipo_pagamento)
     {
         return $this->co_tipo_pagamento = $co_tipo_pagamento;
     }

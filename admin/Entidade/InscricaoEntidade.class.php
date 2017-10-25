@@ -2,14 +2,14 @@
 
 /**
  * Inscricao.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class InscricaoEntidade
+class InscricaoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_INSCRICAO';
+	const TABELA = 'tb_inscricao';
 	const ENTIDADE = 'InscricaoEntidade';
-	const CHAVE = Constantes::CO_INSCRICAO;
+	const CHAVE = CO_INSCRICAO;
 
 	private $co_inscricao;
 	private $ds_pastoral;
@@ -23,54 +23,38 @@ class InscricaoEntidade
 	private $ds_descricao;
 	private $co_pessoa;
 	private $co_pagamento;
-	private $st_equipe_trabalho;
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_INSCRICAO,
-			Constantes::DS_PASTORAL,
-			Constantes::DS_RETIRO,
-			Constantes::DS_MEMBRO_ATIVO,
-			Constantes::DS_SITUACAO_ATUAL_GRUPO,
-			Constantes::CO_EVENTO,
-			Constantes::NU_CAMISA,
-			Constantes::NO_RESPONSAVEL,
-			Constantes::NU_TEL_RESPONSAVEL,
-			Constantes::DS_DESCRICAO,
-			Constantes::CO_PESSOA,
-			Constantes::ST_EQUIPE_TRABALHO,
+    	return [
+			CO_INSCRICAO,
+			DS_PASTORAL,
+			DS_RETIRO,
+			DS_MEMBRO_ATIVO,
+			DS_SITUACAO_ATUAL_GRUPO,
+			CO_EVENTO,
+			NU_CAMISA,
+			NO_RESPONSAVEL,
+			NU_TEL_RESPONSAVEL,
+			DS_DESCRICAO,
+			CO_PESSOA,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_EVENTO => array(
-                'Entidade' => EventoEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_PESSOA => array(
-                'Entidade' => PessoaEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_PAGAMENTO => array(
-                'Entidade' => PagamentoEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_inscricao
+	* @return $co_inscricao
      */
 	public function getCoInscricao()
     {
@@ -78,7 +62,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $co_inscricao
+	* @param $co_inscricao
+     * @return mixed
      */
 	public function setCoInscricao($co_inscricao)
     {
@@ -86,7 +71,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $ds_pastoral
+	* @return $ds_pastoral
      */
 	public function getDsPastoral()
     {
@@ -94,7 +79,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $ds_pastoral
+	* @param $ds_pastoral
+     * @return mixed
      */
 	public function setDsPastoral($ds_pastoral)
     {
@@ -102,7 +88,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $ds_retiro
+	* @return $ds_retiro
      */
 	public function getDsRetiro()
     {
@@ -110,7 +96,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $ds_retiro
+	* @param $ds_retiro
+     * @return mixed
      */
 	public function setDsRetiro($ds_retiro)
     {
@@ -118,7 +105,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $ds_membro_ativo
+	* @return $ds_membro_ativo
      */
 	public function getDsMembroAtivo()
     {
@@ -126,7 +113,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $ds_membro_ativo
+	* @param $ds_membro_ativo
+     * @return mixed
      */
 	public function setDsMembroAtivo($ds_membro_ativo)
     {
@@ -134,7 +122,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $ds_situacao_atual_grupo
+	* @return $ds_situacao_atual_grupo
      */
 	public function getDsSituacaoAtualGrupo()
     {
@@ -142,7 +130,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $ds_situacao_atual_grupo
+	* @param $ds_situacao_atual_grupo
+     * @return mixed
      */
 	public function setDsSituacaoAtualGrupo($ds_situacao_atual_grupo)
     {
@@ -150,7 +139,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $co_evento
+	* @return EventoEntidade $co_evento
      */
 	public function getCoEvento()
     {
@@ -158,7 +147,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $co_evento
+	* @param $co_evento
+     * @return mixed
      */
 	public function setCoEvento($co_evento)
     {
@@ -166,7 +156,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $nu_camisa
+	* @return $nu_camisa
      */
 	public function getNuCamisa()
     {
@@ -174,7 +164,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $nu_camisa
+	* @param $nu_camisa
+     * @return mixed
      */
 	public function setNuCamisa($nu_camisa)
     {
@@ -182,7 +173,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $no_responsavel
+	* @return $no_responsavel
      */
 	public function getNoResponsavel()
     {
@@ -190,7 +181,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $no_responsavel
+	* @param $no_responsavel
+     * @return mixed
      */
 	public function setNoResponsavel($no_responsavel)
     {
@@ -198,7 +190,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $nu_tel_responsavel
+	* @return $nu_tel_responsavel
      */
 	public function getNuTelResponsavel()
     {
@@ -206,7 +198,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $nu_tel_responsavel
+	* @param $nu_tel_responsavel
+     * @return mixed
      */
 	public function setNuTelResponsavel($nu_tel_responsavel)
     {
@@ -214,7 +207,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $ds_descricao
+	* @return $ds_descricao
      */
 	public function getDsDescricao()
     {
@@ -222,7 +215,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $ds_descricao
+	* @param $ds_descricao
+     * @return mixed
      */
 	public function setDsDescricao($ds_descricao)
     {
@@ -230,7 +224,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $co_pessoa
+	* @return PessoaEntidade $co_pessoa
      */
 	public function getCoPessoa()
     {
@@ -238,7 +232,8 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $co_pessoa
+	* @param $co_pessoa
+     * @return mixed
      */
 	public function setCoPessoa($co_pessoa)
     {
@@ -246,7 +241,7 @@ class InscricaoEntidade
     }
 
 	/**
-     * @return $co_pagamento
+	* @return PagamentoEntidade $co_pagamento
      */
 	public function getCoPagamento()
     {
@@ -254,27 +249,12 @@ class InscricaoEntidade
     }
 
 	/**
-     * @param mixed $co_pagamento
+     * @param $co_pagamento
+     * @return mixed
      */
 	public function setCoPagamento($co_pagamento)
     {
         return $this->co_pagamento = $co_pagamento;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStEquipeTrabalho()
-    {
-        return $this->st_equipe_trabalho;
-    }
-
-    /**
-     * @param mixed $st_equipe_trabalho
-     */
-    public function setStEquipeTrabalho($st_equipe_trabalho)
-    {
-        $this->st_equipe_trabalho = $st_equipe_trabalho;
     }
 
 }

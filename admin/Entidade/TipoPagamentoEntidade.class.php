@@ -2,14 +2,14 @@
 
 /**
  * TipoPagamento.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class TipoPagamentoEntidade
+class TipoPagamentoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_TIPO_PAGAMENTO';
+	const TABELA = 'tb_tipo_pagamento';
 	const ENTIDADE = 'TipoPagamentoEntidade';
-	const CHAVE = Constantes::CO_TIPO_PAGAMENTO;
+	const CHAVE = CO_TIPO_PAGAMENTO;
 
 	private $co_tipo_pagamento;
 	private $ds_tipo_pagamento;
@@ -18,33 +18,27 @@ class TipoPagamentoEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_TIPO_PAGAMENTO,
-			Constantes::DS_TIPO_PAGAMENTO,
-			Constantes::SG_TIPO_PAGAMENTO,
+    	return [
+			CO_TIPO_PAGAMENTO,
+			DS_TIPO_PAGAMENTO,
+			SG_TIPO_PAGAMENTO,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_PARCELAMENTO => array(
-                'Entidade' => ParcelamentoEntidade::ENTIDADE,
-                'Tipo' => 'N',
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_tipo_pagamento
+	* @return $co_tipo_pagamento
      */
 	public function getCoTipoPagamento()
     {
@@ -52,7 +46,8 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @param mixed $co_tipo_pagamento
+	* @param $co_tipo_pagamento
+     * @return mixed
      */
 	public function setCoTipoPagamento($co_tipo_pagamento)
     {
@@ -60,7 +55,7 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @return $ds_tipo_pagamento
+	* @return $ds_tipo_pagamento
      */
 	public function getDsTipoPagamento()
     {
@@ -68,7 +63,8 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @param mixed $ds_tipo_pagamento
+	* @param $ds_tipo_pagamento
+     * @return mixed
      */
 	public function setDsTipoPagamento($ds_tipo_pagamento)
     {
@@ -76,7 +72,7 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @return $sg_tipo_pagamento
+	* @return $sg_tipo_pagamento
      */
 	public function getSgTipoPagamento()
     {
@@ -84,7 +80,8 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @param mixed $sg_tipo_pagamento
+	* @param $sg_tipo_pagamento
+     * @return mixed
      */
 	public function setSgTipoPagamento($sg_tipo_pagamento)
     {
@@ -92,7 +89,7 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @return $co_parcelamento
+	* @return ParcelamentoEntidade $co_parcelamento
      */
 	public function getCoParcelamento()
     {
@@ -100,7 +97,8 @@ class TipoPagamentoEntidade
     }
 
 	/**
-     * @param mixed $co_parcelamento
+     * @param $co_parcelamento
+     * @return mixed
      */
 	public function setCoParcelamento($co_parcelamento)
     {

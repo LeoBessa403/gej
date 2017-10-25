@@ -2,14 +2,14 @@
 
 /**
  * Acesso.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class AcessoEntidade
+class AcessoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_ACESSO';
+	const TABELA = 'tb_acesso';
 	const ENTIDADE = 'AcessoEntidade';
-	const CHAVE = Constantes::CO_ACESSO;
+	const CHAVE = CO_ACESSO;
 
 	private $co_acesso;
 	private $ds_session_id;
@@ -19,35 +19,29 @@ class AcessoEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_ACESSO,
-			Constantes::DS_SESSION_ID,
-			Constantes::DT_INICIO_ACESSO,
-			Constantes::DT_FIM_ACESSO,
-			Constantes::CO_USUARIO,
+    	return [
+			CO_ACESSO,
+			DS_SESSION_ID,
+			DT_INICIO_ACESSO,
+			DT_FIM_ACESSO,
+			CO_USUARIO,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_USUARIO => array(
-                'Entidade' => UsuarioEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_acesso
+	* @return $co_acesso
      */
 	public function getCoAcesso()
     {
@@ -55,7 +49,8 @@ class AcessoEntidade
     }
 
 	/**
-     * @param mixed $co_acesso
+	* @param $co_acesso
+     * @return mixed
      */
 	public function setCoAcesso($co_acesso)
     {
@@ -63,7 +58,7 @@ class AcessoEntidade
     }
 
 	/**
-     * @return $ds_session_id
+	* @return $ds_session_id
      */
 	public function getDsSessionId()
     {
@@ -71,7 +66,8 @@ class AcessoEntidade
     }
 
 	/**
-     * @param mixed $ds_session_id
+	* @param $ds_session_id
+     * @return mixed
      */
 	public function setDsSessionId($ds_session_id)
     {
@@ -79,7 +75,7 @@ class AcessoEntidade
     }
 
 	/**
-     * @return $dt_inicio_acesso
+	* @return $dt_inicio_acesso
      */
 	public function getDtInicioAcesso()
     {
@@ -87,7 +83,8 @@ class AcessoEntidade
     }
 
 	/**
-     * @param mixed $dt_inicio_acesso
+	* @param $dt_inicio_acesso
+     * @return mixed
      */
 	public function setDtInicioAcesso($dt_inicio_acesso)
     {
@@ -95,7 +92,7 @@ class AcessoEntidade
     }
 
 	/**
-     * @return $dt_fim_acesso
+	* @return $dt_fim_acesso
      */
 	public function getDtFimAcesso()
     {
@@ -103,7 +100,8 @@ class AcessoEntidade
     }
 
 	/**
-     * @param mixed $dt_fim_acesso
+	* @param $dt_fim_acesso
+     * @return mixed
      */
 	public function setDtFimAcesso($dt_fim_acesso)
     {
@@ -111,7 +109,7 @@ class AcessoEntidade
     }
 
 	/**
-     * @return $co_usuario
+	* @return UsuarioEntidade $co_usuario
      */
 	public function getCoUsuario()
     {
@@ -119,7 +117,8 @@ class AcessoEntidade
     }
 
 	/**
-     * @param mixed $co_usuario
+	* @param $co_usuario
+     * @return mixed
      */
 	public function setCoUsuario($co_usuario)
     {

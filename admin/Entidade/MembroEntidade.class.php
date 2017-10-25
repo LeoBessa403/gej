@@ -2,14 +2,14 @@
 
 /**
  * Membro.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class MembroEntidade
+class MembroEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_MEMBRO';
+	const TABELA = 'tb_membro';
 	const ENTIDADE = 'MembroEntidade';
-	const CHAVE = Constantes::CO_MEMBRO;
+	const CHAVE = CO_MEMBRO;
 
 	private $co_membro;
 	private $no_responsavel;
@@ -24,40 +24,34 @@ class MembroEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_MEMBRO,
-			Constantes::NO_RESPONSAVEL,
-			Constantes::ST_ESTUDA,
-			Constantes::ST_TRABALHA,
-			Constantes::DS_CONHECIMENTO,
-			Constantes::ST_STATUS,
-			Constantes::ST_BATIZADO,
-			Constantes::ST_EUCARISTIA,
-			Constantes::ST_CRISMA,
-			Constantes::CO_PESSOA,
+    	return [
+			CO_MEMBRO,
+			NO_RESPONSAVEL,
+			ST_ESTUDA,
+			ST_TRABALHA,
+			DS_CONHECIMENTO,
+			ST_STATUS,
+			ST_BATIZADO,
+			ST_EUCARISTIA,
+			ST_CRISMA,
+			CO_PESSOA,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_PESSOA => array(
-                'Entidade' => PessoaEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_membro
+	* @return $co_membro
      */
 	public function getCoMembro()
     {
@@ -65,7 +59,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $co_membro
+	* @param $co_membro
+     * @return mixed
      */
 	public function setCoMembro($co_membro)
     {
@@ -73,7 +68,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $no_responsavel
+	* @return $no_responsavel
      */
 	public function getNoResponsavel()
     {
@@ -81,7 +76,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $no_responsavel
+	* @param $no_responsavel
+     * @return mixed
      */
 	public function setNoResponsavel($no_responsavel)
     {
@@ -89,7 +85,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $st_estuda
+	* @return $st_estuda
      */
 	public function getStEstuda()
     {
@@ -97,7 +93,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $st_estuda
+	* @param $st_estuda
+     * @return mixed
      */
 	public function setStEstuda($st_estuda)
     {
@@ -105,7 +102,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $st_trabalha
+	* @return $st_trabalha
      */
 	public function getStTrabalha()
     {
@@ -113,7 +110,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $st_trabalha
+	* @param $st_trabalha
+     * @return mixed
      */
 	public function setStTrabalha($st_trabalha)
     {
@@ -121,7 +119,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $ds_conhecimento
+	* @return $ds_conhecimento
      */
 	public function getDsConhecimento()
     {
@@ -129,7 +127,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $ds_conhecimento
+	* @param $ds_conhecimento
+     * @return mixed
      */
 	public function setDsConhecimento($ds_conhecimento)
     {
@@ -137,7 +136,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $st_status
+	* @return $st_status
      */
 	public function getStStatus()
     {
@@ -145,7 +144,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $st_status
+	* @param $st_status
+     * @return mixed
      */
 	public function setStStatus($st_status)
     {
@@ -153,7 +153,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $st_batizado
+	* @return $st_batizado
      */
 	public function getStBatizado()
     {
@@ -161,7 +161,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $st_batizado
+	* @param $st_batizado
+     * @return mixed
      */
 	public function setStBatizado($st_batizado)
     {
@@ -169,7 +170,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $st_eucaristia
+	* @return $st_eucaristia
      */
 	public function getStEucaristia()
     {
@@ -177,7 +178,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $st_eucaristia
+	* @param $st_eucaristia
+     * @return mixed
      */
 	public function setStEucaristia($st_eucaristia)
     {
@@ -185,7 +187,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $st_crisma
+	* @return $st_crisma
      */
 	public function getStCrisma()
     {
@@ -193,7 +195,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $st_crisma
+	* @param $st_crisma
+     * @return mixed
      */
 	public function setStCrisma($st_crisma)
     {
@@ -201,7 +204,7 @@ class MembroEntidade
     }
 
 	/**
-     * @return $co_pessoa
+	* @return PessoaEntidade $co_pessoa
      */
 	public function getCoPessoa()
     {
@@ -209,7 +212,8 @@ class MembroEntidade
     }
 
 	/**
-     * @param mixed $co_pessoa
+	* @param $co_pessoa
+     * @return mixed
      */
 	public function setCoPessoa($co_pessoa)
     {

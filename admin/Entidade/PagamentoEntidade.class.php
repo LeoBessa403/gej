@@ -2,14 +2,14 @@
 
 /**
  * Pagamento.Entidade [ ENTIDADE ]
- * @copyright (c) 2016, Leo Bessa
+ * @copyright (c) 2017, Leo Bessa
  */
 
-class PagamentoEntidade
+class PagamentoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_PAGAMENTO';
+	const TABELA = 'tb_pagamento';
 	const ENTIDADE = 'PagamentoEntidade';
-	const CHAVE = Constantes::CO_PAGAMENTO;
+	const CHAVE = CO_PAGAMENTO;
 
 	private $co_pagamento;
 	private $nu_total;
@@ -22,41 +22,31 @@ class PagamentoEntidade
 
 
 	/**
-     * @return $campos
+     * @return array
      */
 	public static function getCampos() {
-    	$campos = [
-			Constantes::CO_PAGAMENTO,
-			Constantes::NU_TOTAL,
-			Constantes::NU_VALOR_PAGO,
-			Constantes::NU_PARCELAS,
-			Constantes::TP_SITUACAO,
-			Constantes::DS_OBSERVACAO,
-			Constantes::CO_INSCRICAO,
+    	return [
+			CO_PAGAMENTO,
+			NU_TOTAL,
+			NU_VALOR_PAGO,
+			NU_PARCELAS,
+			TP_SITUACAO,
+			DS_OBSERVACAO,
+			CO_INSCRICAO,
 		];
-    	return $campos;
     }
 
 	/**
-     * @return $relacionamentos
+	* @return $relacionamentos
      */
 	public static function getRelacionamentos() {
-    	$relacionamentos = [
-			Constantes::CO_INSCRICAO => array(
-                'Entidade' => InscricaoEntidade::ENTIDADE,
-                'Tipo' => 1,
-            ),
-			Constantes::CO_PARCELAMENTO => array(
-                'Entidade' => ParcelamentoEntidade::ENTIDADE,
-                'Tipo' => 'N',
-            ),
-		];
-    	return $relacionamentos;
-    }
+    	$relacionamentos = Relacionamentos::getRelacionamentos();
+		return $relacionamentos[static::TABELA];
+	}
 
 
 	/**
-     * @return $co_pagamento
+	* @return $co_pagamento
      */
 	public function getCoPagamento()
     {
@@ -64,7 +54,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $co_pagamento
+	* @param $co_pagamento
+     * @return mixed
      */
 	public function setCoPagamento($co_pagamento)
     {
@@ -72,7 +63,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $nu_total
+	* @return $nu_total
      */
 	public function getNuTotal()
     {
@@ -80,7 +71,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $nu_total
+	* @param $nu_total
+     * @return mixed
      */
 	public function setNuTotal($nu_total)
     {
@@ -88,7 +80,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $nu_valor_pago
+	* @return $nu_valor_pago
      */
 	public function getNuValorPago()
     {
@@ -96,7 +88,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $nu_valor_pago
+	* @param $nu_valor_pago
+     * @return mixed
      */
 	public function setNuValorPago($nu_valor_pago)
     {
@@ -104,7 +97,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $nu_parcelas
+	* @return $nu_parcelas
      */
 	public function getNuParcelas()
     {
@@ -112,7 +105,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $nu_parcelas
+	* @param $nu_parcelas
+     * @return mixed
      */
 	public function setNuParcelas($nu_parcelas)
     {
@@ -120,7 +114,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $tp_situacao
+	* @return $tp_situacao
      */
 	public function getTpSituacao()
     {
@@ -128,7 +122,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $tp_situacao
+	* @param $tp_situacao
+     * @return mixed
      */
 	public function setTpSituacao($tp_situacao)
     {
@@ -136,7 +131,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $ds_observacao
+	* @return $ds_observacao
      */
 	public function getDsObservacao()
     {
@@ -144,7 +139,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $ds_observacao
+	* @param $ds_observacao
+     * @return mixed
      */
 	public function setDsObservacao($ds_observacao)
     {
@@ -152,7 +148,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $co_inscricao
+	* @return InscricaoEntidade $co_inscricao
      */
 	public function getCoInscricao()
     {
@@ -160,7 +156,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $co_inscricao
+	* @param $co_inscricao
+     * @return mixed
      */
 	public function setCoInscricao($co_inscricao)
     {
@@ -168,7 +165,7 @@ class PagamentoEntidade
     }
 
 	/**
-     * @return $co_parcelamento
+	* @return ParcelamentoEntidade $co_parcelamento
      */
 	public function getCoParcelamento()
     {
@@ -176,7 +173,8 @@ class PagamentoEntidade
     }
 
 	/**
-     * @param mixed $co_parcelamento
+     * @param $co_parcelamento
+     * @return mixed
      */
 	public function setCoParcelamento($co_parcelamento)
     {
