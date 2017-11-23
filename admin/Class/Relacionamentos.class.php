@@ -21,7 +21,7 @@ class Relacionamentos
 				(CO_ACESSO) => Array(
 					('Campo') => CO_USUARIO,
 					('Entidade') => 'AcessoEntidade',
-					('Tipo') => '1',
+					('Tipo') => '21',
 				),
 				(CO_AUDITORIA) => Array(
 					('Campo') => CO_USUARIO,
