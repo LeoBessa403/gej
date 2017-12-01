@@ -21,12 +21,12 @@ class Relacionamentos
 				(CO_ACESSO) => Array(
 					('Campo') => CO_USUARIO,
 					('Entidade') => 'AcessoEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 				(CO_AUDITORIA) => Array(
 					('Campo') => CO_USUARIO,
 					('Entidade') => 'AuditoriaEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 				(CO_IMAGEM) => Array(
 					('Campo') => CO_IMAGEM,
@@ -41,7 +41,7 @@ class Relacionamentos
 				(CO_USUARIO_PERFIL) => Array(
 					('Campo') => CO_USUARIO,
 					('Entidade') => 'UsuarioPerfilEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 			),
 			(AuditoriaEntidade::TABELA) => Array(
@@ -118,7 +118,7 @@ class Relacionamentos
 				(CO_PARCELAMENTO) => Array(
 					('Campo') => CO_PAGAMENTO,
 					('Entidade') => 'ParcelamentoEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 			),
 			(ParcelamentoEntidade::TABELA) => Array(
@@ -137,7 +137,7 @@ class Relacionamentos
 				(CO_PARCELAMENTO) => Array(
 					('Campo') => CO_TIPO_PAGAMENTO,
 					('Entidade') => 'ParcelamentoEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 			),
 			(PerfilFuncionalidadeEntidade::TABELA) => Array(
@@ -156,19 +156,19 @@ class Relacionamentos
 				(CO_PERFIL_FUNCIONALIDADE) => Array(
 					('Campo') => CO_PERFIL,
 					('Entidade') => 'PerfilFuncionalidadeEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 				(CO_USUARIO_PERFIL) => Array(
 					('Campo') => CO_PERFIL,
 					('Entidade') => 'UsuarioPerfilEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 			),
 			(FuncionalidadeEntidade::TABELA) => Array(
 				(CO_PERFIL_FUNCIONALIDADE) => Array(
 					('Campo') => CO_FUNCIONALIDADE,
 					('Entidade') => 'PerfilFuncionalidadeEntidade',
-					('Tipo') => '1',
+					('Tipo') => '2',
 				),
 			),
 			(ContatoEntidade::TABELA) => Array(
