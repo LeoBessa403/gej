@@ -11,7 +11,7 @@
         ?>
         <div class="row">
             <?php
-//            echo $form;
+            echo $form;
             ?>
         </div>
         <!-- end: PAGE CONTENT-->

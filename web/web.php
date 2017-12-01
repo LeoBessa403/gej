@@ -1,10 +1,5 @@
 <?php
 require_once 'library/Config.inc.php';
-//    $back = new Backup();
-
-//    $ip = "200.130.2.5"; 
-//    $query = @unserialize(file_get_contents(IP_LOCALIZACAO.$ip));
-//    debug($query,1);
 ?>
 <!DOCTYPE html>
 <!-- Template Name: Clip-One - Frontend | Build with Twitter Bootstrap 3 | Version: 1.0 | Author: ClipTheme -->
@@ -112,8 +107,8 @@ require_once 'library/Config.inc.php';
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
                         Contatos: (61)9327-4991 - E-Mail:
-                        <a href="mailto:contato@gejdomboscoweb.com.br">
-                            contato@gejdomboscoweb.com.br
+                        <a href="mailto:contato@gejdombosco.com.br">
+                            contato@gejdombosco.com.br
                         </a>
                     </div>
                     <!-- end: TOP BAR CALL US -->
@@ -176,7 +171,7 @@ require_once 'library/Config.inc.php';
                                 <!--											Membro GEJ-->
                                 <!--										</a>-->
                                 <a href="<?php echo PASTASITE; ?>MembroWeb/CadastroRetiroCarnaval">
-                                    5º Retiro de Carnaval
+                                    6º Retiro de Carnaval
                                 </a>
                             </li>
                         </ul>
@@ -279,8 +274,8 @@ require_once 'library/Config.inc.php';
                         <li>
                             <p>
                                 <i class="fa fa-envelope"></i><strong>Email:</strong>
-                                <a href="mailto:contato@gejdomboscoweb.com.br">
-                                    contato@gejdomboscoweb.com.br
+                                <a href="mailto:contato@gejdombosco.com.br">
+                                    contato@gejdombosco.com.br
                                 </a>
                             </p>
                         </li>

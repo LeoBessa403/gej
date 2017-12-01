@@ -18,35 +18,35 @@ class MembroWeb
             $PessoaModel = new PessoaModel();
             $InscricaoModel = new InscricaoModel();
 
-            $endereco[Constantes::DS_ENDERECO] = $dados[Constantes::DS_ENDERECO];
-            $endereco[Constantes::DS_COMPLEMENTO] = $dados[Constantes::DS_COMPLEMENTO];
-            $endereco[Constantes::DS_BAIRRO] = $dados[Constantes::DS_BAIRRO];
-            $endereco[Constantes::NO_CIDADE] = $dados[Constantes::NO_CIDADE];
-            $endereco[Constantes::NU_CEP] = Valida::RetiraMascara($dados[Constantes::NU_CEP]);
-            $endereco[Constantes::SG_UF] = $dados[Constantes::SG_UF][0];
+            $endereco[DS_ENDERECO] = $dados[DS_ENDERECO];
+            $endereco[DS_COMPLEMENTO] = $dados[DS_COMPLEMENTO];
+            $endereco[DS_BAIRRO] = $dados[DS_BAIRRO];
+            $endereco[NO_CIDADE] = $dados[NO_CIDADE];
+            $endereco[NU_CEP] = Valida::RetiraMascara($dados[NU_CEP]);
+            $endereco[SG_UF] = $dados[SG_UF][0];
 
-            $contato[Constantes::DS_EMAIL] = trim($dados[Constantes::DS_EMAIL]);
-            $contato[Constantes::NU_TEL1] = Valida::RetiraMascara($dados[Constantes::NU_TEL1]);
-            $contato[Constantes::NU_TEL2] = Valida::RetiraMascara($dados[Constantes::NU_TEL2]);
+            $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
+            $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
+            $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
 
-            $pessoa[Constantes::NO_PESSOA] = strtoupper(trim($dados[Constantes::NO_PESSOA]));
-            $pessoa[Constantes::NU_CPF] = Valida::RetiraMascara($dados[Constantes::NU_CPF]);
-            $pessoa[Constantes::NU_RG] = Valida::RetiraMascara($dados[Constantes::NU_RG]);
-            $pessoa[Constantes::DT_NASCIMENTO] = Valida::DataDBDate($dados[Constantes::DT_NASCIMENTO]);
-            $pessoa[Constantes::ST_SEXO] = $dados[Constantes::ST_SEXO][0];
-            $pessoa[Constantes::DT_CADASTRO] = Valida::DataAtualBanco();
+            $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
+            $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
+            $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
+            $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
+            $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
+            $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
 
-            $pessoa[Constantes::CO_ENDERECO] = $EnderecoModel->Salva($endereco);
-            $pessoa[Constantes::CO_CONTATO] = $ContatoModel->Salva($contato);
+            $pessoa[CO_ENDERECO] = $EnderecoModel->Salva($endereco);
+            $pessoa[CO_CONTATO] = $ContatoModel->Salva($contato);
 
-            $insc[Constantes::CO_PESSOA] = $PessoaModel->Salva($pessoa);
-            $insc[Constantes::DS_PASTORAL] = $dados[Constantes::DS_PASTORAL];
-            $insc[Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
-                (!empty($dados[Constantes::DS_MEMBRO_ATIVO])) ? $dados[Constantes::DS_MEMBRO_ATIVO] : null
+            $insc[CO_PESSOA] = $PessoaModel->Salva($pessoa);
+            $insc[DS_PASTORAL] = $dados[DS_PASTORAL];
+            $insc[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
                 );
-            $insc[Constantes::NU_CAMISA] = $dados[Constantes::NU_CAMISA][0];
-            $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
-            $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
+            $insc[NU_CAMISA] = $dados[NU_CAMISA][0];
+            $insc[NO_RESPONSAVEL] = strtoupper(trim($dados[NO_RESPONSAVEL]));
+            $insc[NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[NU_TEL_RESPONSAVEL]);
 
             $coInscricao = $InscricaoModel->Salva($insc);
             unset($_POST);
@@ -88,15 +88,15 @@ class MembroWeb
             $dados = $_POST;
             $pagamentoModel = new PagamentoModel();
             $parcelaModel = new ParcelamentoModel();
-            $pagamento[Constantes::NU_TOTAL] = '120.00';
-            $pagamento[Constantes::NU_PARCELAS] = 1;
-            $pagamento[Constantes::CO_INSCRICAO] = $dados[Constantes::CO_INSCRICAO];
+            $pagamento[NU_TOTAL] = '120.00';
+            $pagamento[NU_PARCELAS] = 1;
+            $pagamento[CO_INSCRICAO] = $dados[CO_INSCRICAO];
 
-            $parcela[Constantes::CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
-            $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::CO_TIPO_PAGAMENTO];
-            $parcela[Constantes::NU_PARCELA] = 1;
-            $parcela[Constantes::NU_VALOR_PARCELA] = '120.00';
-            $parcela[Constantes::DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
+            $parcela[CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
+            $parcela[CO_TIPO_PAGAMENTO] = $dados[CO_TIPO_PAGAMENTO];
+            $parcela[NU_PARCELA] = 1;
+            $parcela[NU_VALOR_PARCELA] = '120.00';
+            $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
             $parcelaModel->Salva($parcela);
         endif;
