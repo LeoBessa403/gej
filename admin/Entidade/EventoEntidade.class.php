@@ -18,7 +18,6 @@ class EventoEntidade extends AbstractEntidade
 	private $dt_cadastro;
 	private $dt_realizado;
 	private $ds_local;
-	private $co_inscricao;
 
 
 	/**
@@ -162,23 +161,6 @@ class EventoEntidade extends AbstractEntidade
 	public function setDsLocal($ds_local)
     {
         return $this->ds_local = $ds_local;
-    }
-
-	/**
-	* @return InscricaoEntidade $co_inscricao
-     */
-	public function getCoInscricao()
-    {
-        return $this->co_inscricao;
-    }
-
-	/**
-     * @param $co_inscricao
-     * @return mixed
-     */
-	public function setCoInscricao($co_inscricao)
-    {
-        return $this->co_inscricao = $co_inscricao;
     }
 
 }

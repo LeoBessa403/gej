@@ -4,7 +4,7 @@ class Usuario
 {
 
     private $idUsuario;
-    private $form;
+    public $form;
     
     public function Index()
     {

@@ -42,7 +42,7 @@ class MembroWebForm
             ->setId(DS_MEMBRO_ATIVO)
             ->setType("checkbox")
             ->setClasses($res[DS_MEMBRO_ATIVO])
-            ->setTamanhoInput(6)
+            ->setTamanhoInput(12)
             ->setOptions($label_options)
             ->CriaInpunt();
 
@@ -205,6 +205,20 @@ class MembroWebForm
             ->setClasses("email ob")
             ->setLabel("Email")
             ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_CAMINHO)
+            ->setType("singlefile")
+            ->setInfo("Para a identificação")
+            ->setTamanhoInput(12)
+            ->setLabel("Foto de Perfil")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_DESCRICAO)
+            ->setLabel("Fale um pouco sobre você")
+            ->setType("textarea")
             ->CriaInpunt();
 
         if ($CoInscricao) {

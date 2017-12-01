@@ -16,12 +16,12 @@ class InscricaoEntidade extends AbstractEntidade
 	private $ds_retiro;
 	private $ds_membro_ativo;
 	private $ds_situacao_atual_grupo;
-	private $co_evento;
 	private $nu_camisa;
 	private $no_responsavel;
 	private $nu_tel_responsavel;
 	private $ds_descricao;
 	private $co_pessoa;
+	private $co_imagem;
 	private $co_pagamento;
 
 
@@ -35,12 +35,12 @@ class InscricaoEntidade extends AbstractEntidade
 			DS_RETIRO,
 			DS_MEMBRO_ATIVO,
 			DS_SITUACAO_ATUAL_GRUPO,
-			CO_EVENTO,
 			NU_CAMISA,
 			NO_RESPONSAVEL,
 			NU_TEL_RESPONSAVEL,
 			DS_DESCRICAO,
 			CO_PESSOA,
+			CO_IMAGEM,
 		];
     }
 
@@ -139,23 +139,6 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return EventoEntidade $co_evento
-     */
-	public function getCoEvento()
-    {
-        return $this->co_evento;
-    }
-
-	/**
-	* @param $co_evento
-     * @return mixed
-     */
-	public function setCoEvento($co_evento)
-    {
-        return $this->co_evento = $co_evento;
-    }
-
-	/**
 	* @return $nu_camisa
      */
 	public function getNuCamisa()
@@ -238,6 +221,23 @@ class InscricaoEntidade extends AbstractEntidade
 	public function setCoPessoa($co_pessoa)
     {
         return $this->co_pessoa = $co_pessoa;
+    }
+
+	/**
+	* @return ImagemEntidade $co_imagem
+     */
+	public function getCoImagem()
+    {
+        return $this->co_imagem;
+    }
+
+	/**
+	* @param $co_imagem
+     * @return mixed
+     */
+	public function setCoImagem($co_imagem)
+    {
+        return $this->co_imagem = $co_imagem;
     }
 
 	/**

@@ -206,7 +206,6 @@ endif;
 <!--[if gte IE 9]><!-->
 <script src="<?= INCLUDES; ?>jquery-2.0.3.js"></script>
 <!--<![endif]-->
-<!--<script src="<?= PASTAADMIN; ?>plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>-->
 <script src="<?= INCLUDES; ?>jquery-ui.js"></script>
 <script type="text/javascript" src="<?= INCLUDES; ?>jquery.mask.js"></script>
 <script type="text/javascript" src="<?= INCLUDES; ?>jquery.maskMoney.js"></script>

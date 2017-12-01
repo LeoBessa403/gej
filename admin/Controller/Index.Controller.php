@@ -32,15 +32,15 @@ class Index extends AbstractController
             if (!$inscricao->getCoPagamento()) {
                 $pagamentoModel = new PagamentoModel();
                 $parcelaModel = new ParcelamentoModel();
-                $pagamento[Constantes::NU_TOTAL] = '120.00';
-                $pagamento[Constantes::NU_PARCELAS] = 1;
-                $pagamento[Constantes::CO_INSCRICAO] = $inscricao->getCoInscricao();
+                $pagamento[NU_TOTAL] = '120.00';
+                $pagamento[NU_PARCELAS] = 1;
+                $pagamento[CO_INSCRICAO] = $inscricao->getCoInscricao();
 
-                $parcela[Constantes::CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
-                $parcela[Constantes::CO_TIPO_PAGAMENTO] = 1;
-                $parcela[Constantes::NU_PARCELA] = 1;
-                $parcela[Constantes::NU_VALOR_PARCELA] = '120.00';
-                $parcela[Constantes::DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
+                $parcela[CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
+                $parcela[CO_TIPO_PAGAMENTO] = 1;
+                $parcela[NU_PARCELA] = 1;
+                $parcela[NU_VALOR_PARCELA] = '120.00';
+                $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
                 $parcelaModel->Salva($parcela);
             }

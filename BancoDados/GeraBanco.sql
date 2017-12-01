@@ -129,15 +129,15 @@ CREATE TABLE IF NOT EXISTS `gej_bd`.`TB_INSCRICAO` (
   `ds_retiro` VARCHAR(1) NULL DEFAULT NULL,
   `ds_membro_ativo` VARCHAR(1) NULL DEFAULT 'N',
   `ds_situacao_atual_grupo` INT(1) NULL DEFAULT NULL,
-  `co_evento` INT(10) UNSIGNED NOT NULL,
   `nu_camisa` INT(1) NOT NULL,
   `no_responsavel` VARCHAR(50) NOT NULL,
   `nu_tel_responsavel` VARCHAR(15) NOT NULL,
   `ds_descricao` TEXT NOT NULL,
-  `co_pessoa` INT(11) NOT NULL,
-  PRIMARY KEY (`co_inscricao`, `co_evento`, `co_pessoa`),
-  INDEX `fk_TB_INSCRICAO_TB_EVENTO1_idx` (`co_evento` ASC),
-  INDEX `fk_TB_INSCRICAO_TB_PESSOA1_idx` (`co_pessoa` ASC))
+  `co_pessoa` INT NOT NULL,
+  `co_imagem` INT(10) NOT NULL,
+  PRIMARY KEY (`co_inscricao`, `co_pessoa`, `co_imagem`),
+  INDEX `fk_TB_INSCRICAO_TB_PESSOA1_idx` (`co_pessoa` ASC),
+  INDEX `fk_TB_INSCRICAO_TB_IMAGEM1_idx` (`co_imagem` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 

@@ -340,7 +340,7 @@ require_once 'library/Config.inc.php';
 <script src="<?php echo PASTASITE; ?>plugins/respond.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/excanvas.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
-<script src="<?php echo INCLUDES; ?>jquery-1.10.2.js"></script>
+<script type="text/javascript" src="<?= INCLUDES;?>jquery-1.10.2.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
 <script src="<?php echo INCLUDES; ?>jquery-2.0.3.js"></script>
@@ -359,6 +359,11 @@ require_once 'library/Config.inc.php';
                                 return dados;
                         }
                 </script>'; ?>
+<script type="text/javascript" src="<?php echo INCLUDES; ?>validacoes.js"></script>
+
+
+<script src="<?= PASTAADMIN; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+
 <script src="<?php echo PASTASITE; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/jquery.transit/jquery.transit.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
@@ -382,7 +387,6 @@ require_once 'library/Config.inc.php';
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
 <script type="text/javascript" src="<?php echo PASTAADMIN; ?>js/Funcoes.js"></script>
-<script type="text/javascript" src="<?php echo INCLUDES; ?>validacoes.js"></script>
 <script>
     jQuery(document).ready(function () {
         Funcoes.init();

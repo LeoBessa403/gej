@@ -52,26 +52,19 @@ class Relacionamentos
 				),
 			),
 			(InscricaoEntidade::TABELA) => Array(
-				(CO_EVENTO) => Array(
-					('Campo') => CO_EVENTO,
-					('Entidade') => 'EventoEntidade',
-					('Tipo') => '1',
-				),
 				(CO_PESSOA) => Array(
 					('Campo') => CO_PESSOA,
 					('Entidade') => 'PessoaEntidade',
 					('Tipo') => '1',
 				),
+				(CO_IMAGEM) => Array(
+					('Campo') => CO_IMAGEM,
+					('Entidade') => 'ImagemEntidade',
+					('Tipo') => '1',
+				),
 				(CO_PAGAMENTO) => Array(
 					('Campo') => CO_INSCRICAO,
 					('Entidade') => 'PagamentoEntidade',
-					('Tipo') => '1',
-				),
-			),
-			(EventoEntidade::TABELA) => Array(
-				(CO_INSCRICAO) => Array(
-					('Campo') => CO_EVENTO,
-					('Entidade') => 'InscricaoEntidade',
 					('Tipo') => '1',
 				),
 			),
@@ -98,6 +91,18 @@ class Relacionamentos
 				),
 				(CO_USUARIO) => Array(
 					('Campo') => CO_PESSOA,
+					('Entidade') => 'UsuarioEntidade',
+					('Tipo') => '1',
+				),
+			),
+			(ImagemEntidade::TABELA) => Array(
+				(CO_INSCRICAO) => Array(
+					('Campo') => CO_IMAGEM,
+					('Entidade') => 'InscricaoEntidade',
+					('Tipo') => '1',
+				),
+				(CO_USUARIO) => Array(
+					('Campo') => CO_IMAGEM,
 					('Entidade') => 'UsuarioEntidade',
 					('Tipo') => '1',
 				),
@@ -182,13 +187,6 @@ class Relacionamentos
 				(CO_PESSOA) => Array(
 					('Campo') => CO_ENDERECO,
 					('Entidade') => 'PessoaEntidade',
-					('Tipo') => '1',
-				),
-			),
-			(ImagemEntidade::TABELA) => Array(
-				(CO_USUARIO) => Array(
-					('Campo') => CO_IMAGEM,
-					('Entidade') => 'UsuarioEntidade',
 					('Tipo') => '1',
 				),
 			),
