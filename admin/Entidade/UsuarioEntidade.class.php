@@ -20,9 +20,6 @@ class UsuarioEntidade extends AbstractEntidade
 	private $co_pessoa;
 	private $co_acesso;
 	private $co_auditoria;
-	private $co_emprestimo;
-	private $co_tarefa;
-	private $co_usuario_evento;
 	private $co_usuario_perfil;
 
 
@@ -201,57 +198,6 @@ class UsuarioEntidade extends AbstractEntidade
 	public function setCoAuditoria($co_auditoria)
     {
         return $this->co_auditoria = $co_auditoria;
-    }
-
-	/**
-	* @return EmprestimoEntidade $co_emprestimo
-     */
-	public function getCoEmprestimo()
-    {
-        return $this->co_emprestimo;
-    }
-
-	/**
-     * @param $co_emprestimo
-     * @return mixed
-     */
-	public function setCoEmprestimo($co_emprestimo)
-    {
-        return $this->co_emprestimo = $co_emprestimo;
-    }
-
-	/**
-	* @return TarefaEntidade $co_tarefa
-     */
-	public function getCoTarefa()
-    {
-        return $this->co_tarefa;
-    }
-
-	/**
-     * @param $co_tarefa
-     * @return mixed
-     */
-	public function setCoTarefa($co_tarefa)
-    {
-        return $this->co_tarefa = $co_tarefa;
-    }
-
-	/**
-	* @return UsuarioEventoEntidade $co_usuario_evento
-     */
-	public function getCoUsuarioEvento()
-    {
-        return $this->co_usuario_evento;
-    }
-
-	/**
-     * @param $co_usuario_evento
-     * @return mixed
-     */
-	public function setCoUsuarioEvento($co_usuario_evento)
-    {
-        return $this->co_usuario_evento = $co_usuario_evento;
     }
 
 	/**

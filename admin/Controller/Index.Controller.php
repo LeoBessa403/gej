@@ -1,6 +1,6 @@
 <?php
 
-class Index
+class Index extends AbstractController
 {
 
     function Index()
@@ -179,7 +179,6 @@ class Index
                     $no_perfis[] = $perfil->getCoPerfil()->getNoPerfil();
                 }
                 $usuarioAcesso[CO_USUARIO] = $user->getCoUsuario();
-                $usuarioAcesso[CO_CONSUMIDOR] = $user->getCoConsumidor();
                 $usuarioAcesso[DS_CAMINHO] = $user->getCoImagem()->getDsCaminho();
                 $usuarioAcesso[NU_CPF] = $user->getCoPessoa()->getNuCpf();
                 $usuarioAcesso[NO_PESSOA] = $user->getCoPessoa()->getNoPessoa();

@@ -14,9 +14,7 @@ class PerfilEntidade extends AbstractEntidade
 	private $co_perfil;
 	private $no_perfil;
 	private $st_status;
-	private $co_agenda_perfil;
 	private $co_perfil_funcionalidade;
-	private $co_tarefa;
 	private $co_usuario_perfil;
 
 
@@ -92,23 +90,6 @@ class PerfilEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return AgendaPerfilEntidade $co_agenda_perfil
-     */
-	public function getCoAgendaPerfil()
-    {
-        return $this->co_agenda_perfil;
-    }
-
-	/**
-     * @param $co_agenda_perfil
-     * @return mixed
-     */
-	public function setCoAgendaPerfil($co_agenda_perfil)
-    {
-        return $this->co_agenda_perfil = $co_agenda_perfil;
-    }
-
-	/**
 	* @return PerfilFuncionalidadeEntidade $co_perfil_funcionalidade
      */
 	public function getCoPerfilFuncionalidade()
@@ -123,23 +104,6 @@ class PerfilEntidade extends AbstractEntidade
 	public function setCoPerfilFuncionalidade($co_perfil_funcionalidade)
     {
         return $this->co_perfil_funcionalidade = $co_perfil_funcionalidade;
-    }
-
-	/**
-	* @return TarefaEntidade $co_tarefa
-     */
-	public function getCoTarefa()
-    {
-        return $this->co_tarefa;
-    }
-
-	/**
-     * @param $co_tarefa
-     * @return mixed
-     */
-	public function setCoTarefa($co_tarefa)
-    {
-        return $this->co_tarefa = $co_tarefa;
     }
 
 	/**

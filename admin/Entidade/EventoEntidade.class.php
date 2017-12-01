@@ -18,10 +18,7 @@ class EventoEntidade extends AbstractEntidade
 	private $dt_cadastro;
 	private $dt_realizado;
 	private $ds_local;
-	private $co_agenda;
 	private $co_inscricao;
-	private $co_tarefa;
-	private $co_usuario_evento;
 
 
 	/**
@@ -168,23 +165,6 @@ class EventoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return AgendaEntidade $co_agenda
-     */
-	public function getCoAgenda()
-    {
-        return $this->co_agenda;
-    }
-
-	/**
-     * @param $co_agenda
-     * @return mixed
-     */
-	public function setCoAgenda($co_agenda)
-    {
-        return $this->co_agenda = $co_agenda;
-    }
-
-	/**
 	* @return InscricaoEntidade $co_inscricao
      */
 	public function getCoInscricao()
@@ -199,40 +179,6 @@ class EventoEntidade extends AbstractEntidade
 	public function setCoInscricao($co_inscricao)
     {
         return $this->co_inscricao = $co_inscricao;
-    }
-
-	/**
-	* @return TarefaEntidade $co_tarefa
-     */
-	public function getCoTarefa()
-    {
-        return $this->co_tarefa;
-    }
-
-	/**
-     * @param $co_tarefa
-     * @return mixed
-     */
-	public function setCoTarefa($co_tarefa)
-    {
-        return $this->co_tarefa = $co_tarefa;
-    }
-
-	/**
-	* @return UsuarioEventoEntidade $co_usuario_evento
-     */
-	public function getCoUsuarioEvento()
-    {
-        return $this->co_usuario_evento;
-    }
-
-	/**
-     * @param $co_usuario_evento
-     * @return mixed
-     */
-	public function setCoUsuarioEvento($co_usuario_evento)
-    {
-        return $this->co_usuario_evento = $co_usuario_evento;
     }
 
 }
