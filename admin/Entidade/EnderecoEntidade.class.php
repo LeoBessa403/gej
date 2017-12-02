@@ -7,7 +7,7 @@
 
 class EnderecoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_endereco';
+	const TABELA = 'TB_ENDERECO';
 	const ENTIDADE = 'EnderecoEntidade';
 	const CHAVE = CO_ENDERECO;
 
@@ -19,7 +19,6 @@ class EnderecoEntidade extends AbstractEntidade
 	private $no_cidade;
 	private $sg_uf;
 	private $co_pessoa;
-
 
 	/**
      * @return array

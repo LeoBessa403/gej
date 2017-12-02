@@ -7,7 +7,7 @@
 
 class LivroEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_livro';
+	const TABELA = 'TB_LIVRO';
 	const ENTIDADE = 'LivroEntidade';
 	const CHAVE = CO_LIVRO;
 
@@ -24,7 +24,6 @@ class LivroEntidade extends AbstractEntidade
 	private $ds_foto_capa;
 	private $ds_palavras_chave;
 	private $co_codigo_livro;
-
 
 	/**
      * @return array

@@ -7,7 +7,7 @@
 
 class AuditoriaEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_auditoria';
+	const TABELA = 'TB_AUDITORIA';
 	const ENTIDADE = 'AuditoriaEntidade';
 	const CHAVE = CO_AUDITORIA;
 
@@ -20,7 +20,6 @@ class AuditoriaEntidade extends AbstractEntidade
 	private $co_registro;
 	private $ds_perfil_usuario;
 	private $co_usuario;
-
 
 	/**
      * @return array

@@ -7,7 +7,7 @@
 
 class TarefaEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_tarefa';
+	const TABELA = 'TB_TAREFA';
 	const ENTIDADE = 'TarefaEntidade';
 	const CHAVE = CO_TAREFA;
 
@@ -23,7 +23,6 @@ class TarefaEntidade extends AbstractEntidade
 	private $co_perfil;
 	private $co_usuario;
 	private $st_prioridade;
-
 
 	/**
      * @return array

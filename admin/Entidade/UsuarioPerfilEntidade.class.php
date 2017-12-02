@@ -7,14 +7,13 @@
 
 class UsuarioPerfilEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_usuario_perfil';
+	const TABELA = 'TB_USUARIO_PERFIL';
 	const ENTIDADE = 'UsuarioPerfilEntidade';
 	const CHAVE = CO_USUARIO_PERFIL;
 
 	private $co_usuario_perfil;
 	private $co_usuario;
 	private $co_perfil;
-
 
 	/**
      * @return array

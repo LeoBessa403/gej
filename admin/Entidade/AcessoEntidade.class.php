@@ -7,7 +7,7 @@
 
 class AcessoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_acesso';
+	const TABELA = 'TB_ACESSO';
 	const ENTIDADE = 'AcessoEntidade';
 	const CHAVE = CO_ACESSO;
 
@@ -16,7 +16,6 @@ class AcessoEntidade extends AbstractEntidade
 	private $dt_inicio_acesso;
 	private $dt_fim_acesso;
 	private $co_usuario;
-
 
 	/**
      * @return array

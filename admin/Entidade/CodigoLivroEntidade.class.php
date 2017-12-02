@@ -7,7 +7,7 @@
 
 class CodigoLivroEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_codigo_livro';
+	const TABELA = 'TB_CODIGO_LIVRO';
 	const ENTIDADE = 'CodigoLivroEntidade';
 	const CHAVE = CO_CODIGO_LIVRO;
 
@@ -16,7 +16,6 @@ class CodigoLivroEntidade extends AbstractEntidade
 	private $co_livro;
 	private $st_status;
 	private $co_emprestimo;
-
 
 	/**
      * @return array

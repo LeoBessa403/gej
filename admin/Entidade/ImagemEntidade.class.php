@@ -7,7 +7,7 @@
 
 class ImagemEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_imagem';
+	const TABELA = 'TB_IMAGEM';
 	const ENTIDADE = 'ImagemEntidade';
 	const CHAVE = CO_IMAGEM;
 
@@ -15,7 +15,6 @@ class ImagemEntidade extends AbstractEntidade
 	private $ds_caminho;
 	private $co_inscricao;
 	private $co_usuario;
-
 
 	/**
      * @return array

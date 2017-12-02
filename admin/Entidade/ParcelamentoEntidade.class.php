@@ -7,7 +7,7 @@
 
 class ParcelamentoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_parcelamento';
+	const TABELA = 'TB_PARCELAMENTO';
 	const ENTIDADE = 'ParcelamentoEntidade';
 	const CHAVE = CO_PARCELAMENTO;
 
@@ -20,7 +20,6 @@ class ParcelamentoEntidade extends AbstractEntidade
 	private $ds_observacao;
 	private $co_pagamento;
 	private $co_tipo_pagamento;
-
 
 	/**
      * @return array

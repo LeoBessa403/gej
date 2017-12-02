@@ -7,7 +7,7 @@
 
 class MembroEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_membro';
+	const TABELA = 'TB_MEMBRO';
 	const ENTIDADE = 'MembroEntidade';
 	const CHAVE = CO_MEMBRO;
 
@@ -21,7 +21,6 @@ class MembroEntidade extends AbstractEntidade
 	private $st_eucaristia;
 	private $st_crisma;
 	private $co_pessoa;
-
 
 	/**
      * @return array

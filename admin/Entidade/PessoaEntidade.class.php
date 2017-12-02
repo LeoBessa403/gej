@@ -7,7 +7,7 @@
 
 class PessoaEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_pessoa';
+	const TABELA = 'TB_PESSOA';
 	const ENTIDADE = 'PessoaEntidade';
 	const CHAVE = CO_PESSOA;
 
@@ -23,7 +23,6 @@ class PessoaEntidade extends AbstractEntidade
 	private $co_inscricao;
 	private $co_membro;
 	private $co_usuario;
-
 
 	/**
      * @return array

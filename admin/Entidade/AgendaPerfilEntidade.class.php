@@ -7,9 +7,9 @@
 
 class AgendaPerfilEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_agenda_perfil';
+	const TABELA = 'TB_AGENDA_PERFIL';
 	const ENTIDADE = 'AgendaPerfilEntidade';
-	const CHAVE = ;
+	const CHAVE = 'co_agenda_perfil';
 
 	private $co_agenda;
 	private $co_perfil;

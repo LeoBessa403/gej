@@ -7,7 +7,7 @@
 
 class TipoPagamentoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_tipo_pagamento';
+	const TABELA = 'TB_TIPO_PAGAMENTO';
 	const ENTIDADE = 'TipoPagamentoEntidade';
 	const CHAVE = CO_TIPO_PAGAMENTO;
 
@@ -15,7 +15,6 @@ class TipoPagamentoEntidade extends AbstractEntidade
 	private $ds_tipo_pagamento;
 	private $sg_tipo_pagamento;
 	private $co_parcelamento;
-
 
 	/**
      * @return array

@@ -7,7 +7,7 @@
 
 class ContatoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_contato';
+	const TABELA = 'TB_CONTATO';
 	const ENTIDADE = 'ContatoEntidade';
 	const CHAVE = CO_CONTATO;
 
@@ -17,7 +17,6 @@ class ContatoEntidade extends AbstractEntidade
 	private $nu_tel3;
 	private $ds_email;
 	private $co_pessoa;
-
 
 	/**
      * @return array

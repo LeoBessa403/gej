@@ -7,7 +7,7 @@
 
 class InscricaoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_inscricao';
+	const TABELA = 'TB_INSCRICAO';
 	const ENTIDADE = 'InscricaoEntidade';
 	const CHAVE = CO_INSCRICAO;
 
@@ -24,7 +24,6 @@ class InscricaoEntidade extends AbstractEntidade
 	private $co_pessoa;
 	private $co_imagem;
 	private $co_pagamento;
-
 
 	/**
      * @return array

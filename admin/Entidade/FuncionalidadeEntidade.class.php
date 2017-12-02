@@ -7,7 +7,7 @@
 
 class FuncionalidadeEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_funcionalidade';
+	const TABELA = 'TB_FUNCIONALIDADE';
 	const ENTIDADE = 'FuncionalidadeEntidade';
 	const CHAVE = CO_FUNCIONALIDADE;
 
@@ -16,7 +16,6 @@ class FuncionalidadeEntidade extends AbstractEntidade
 	private $ds_rota;
 	private $st_status;
 	private $co_perfil_funcionalidade;
-
 
 	/**
      * @return array

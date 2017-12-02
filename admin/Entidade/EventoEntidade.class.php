@@ -7,7 +7,7 @@
 
 class EventoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_evento';
+	const TABELA = 'TB_EVENTO';
 	const ENTIDADE = 'EventoEntidade';
 	const CHAVE = CO_EVENTO;
 
@@ -18,7 +18,6 @@ class EventoEntidade extends AbstractEntidade
 	private $dt_cadastro;
 	private $dt_realizado;
 	private $ds_local;
-
 
 	/**
      * @return array

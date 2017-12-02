@@ -7,7 +7,7 @@
 
 class CategoriaEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_categoria';
+	const TABELA = 'TB_CATEGORIA';
 	const ENTIDADE = 'CategoriaEntidade';
 	const CHAVE = CO_CATEGORIA;
 
@@ -16,7 +16,6 @@ class CategoriaEntidade extends AbstractEntidade
 	private $ds_tipo;
 	private $ds_cor;
 	private $co_agenda;
-
 
 	/**
      * @return array

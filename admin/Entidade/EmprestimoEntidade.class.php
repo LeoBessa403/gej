@@ -7,9 +7,9 @@
 
 class EmprestimoEntidade extends AbstractEntidade
 {
-	const TABELA = 'tb_emprestimo';
+	const TABELA = 'TB_EMPRESTIMO';
 	const ENTIDADE = 'EmprestimoEntidade';
-	const CHAVE = ;
+	const CHAVE = 'co_emprestimo';
 
 	private $co_usuario;
 	private $co_codigo_livro;
@@ -17,7 +17,6 @@ class EmprestimoEntidade extends AbstractEntidade
 	private $dt_reserva;
 	private $dt_emprestimo;
 	private $dt_devolucao;
-
 
 	/**
      * @return array
