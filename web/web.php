@@ -106,7 +106,7 @@ require_once 'library/Config.inc.php';
                 <div class="col-sm-6">
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
-                        Contatos: (61)9327-4991 - E-Mail:
+                        Contatos: (61) 99105-8681 - E-Mail:
                         <a href="mailto:contato@gejdombosco.com.br">
                             contato@gejdombosco.com.br
                         </a>
@@ -268,7 +268,7 @@ require_once 'library/Config.inc.php';
                         </li>
                         <li>
                             <p>
-                                <i class="fa fa-phone"></i><strong>Telefone:</strong> <span style="color: white;">(61)9327-4991</span>
+                                <i class="fa fa-phone"></i><strong>Telefone:</strong> <span style="color: white;">(61) 99105-8681</span>
                             </p>
                         </li>
                         <li>
@@ -387,6 +387,7 @@ require_once 'library/Config.inc.php';
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
 <script type="text/javascript" src="<?php echo PASTAADMIN; ?>js/Funcoes.js"></script>
+<?php carregaJs($url); ?>
 <script>
     jQuery(document).ready(function () {
         Funcoes.init();

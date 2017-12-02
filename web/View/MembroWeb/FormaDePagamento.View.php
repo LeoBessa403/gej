@@ -6,7 +6,7 @@
             Valida::Mensagem(strtoupper(Mensagens::OK_SALVO_MEMBRO_RETIRO_CARNAVAL), 2);
             ?>
             <div class="row" style="background-color: rgba(225, 238, 208, 1); padding: 20px 0;">
-                <h3 style="margin-left: 15px;">Investimento do Retiro R$ 120,00</h3>
+                <h3 style="margin-left: 15px;">Investimento do Retiro R$ 160,00 (Cartão) ou R$ 150,00 (Dinheiro ou Depósito)</h3>
                 <form action="<?= HOME; ?>web/MembroWeb/ConcluirInscricao" role="form" id="formaPagamento"
                       name="formaPagamento" method="post" class="formulario">
                     <div class="col-md-12">
@@ -39,35 +39,35 @@
                 <div class="row" id="dinheiro"
                      style="padding: 30px; margin-top: 5px; float: left; display: none">
                     <h3>Entrar em Contato:</h3>
-                    <b>(61) 98499-5380 ou (61) 99327-4991 ou (61) 99325-9985 <br>(Todos WhatsApp)</b>
+                    <b>(61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b>
                 </div>
                 <div class="row" id="cartao"
                      style="padding: 30px; margin-top: 5px; float: left; display: none">
                     <h4>Pelo Pagseguro em ate 12X:</h4>
                     <h4>Pagar Pessoalmente Entrar em contato</h4>
-                    <b>(61) 98499-5380 ou (61) 99327-4991 ou (61) 99325-9985 <br>(Todos WhatsApp)</b>
+                    <b>(61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b>
                 </div>
                 <div class="row" id="deposito"
                      style="padding: 30px; margin-top: 5px; float: left; display: none">
                     <h3>Depósito em Conta:</h3>
                     <div class="col-md-6">
                         <b>Banco Caixa<br>
-                            Agência: 1041<br>
-                            Conta: 00026739-0<br>
+                            Agência: 4167<br>
+                            Conta: 00053713-8<br>
                             Operação: 013<br>
-                            Nome: Linneker Lima R. Gomes
+                            Nome: Raul Dias Miranda Cardoso
                         </b>
                     </div>
                     <div class="col-md-6">
-                        <b>Banco Bradesco<br>
-                            Agência: 1298<br>
-                            Conta: 0510813-6<br>
-                            Nome: Leonardo Machado C Bessa
+                        <b>Banco do Brasil<br>
+                            Agência: 2895-9<br>
+                            Conta Corrente: 36566-1<br>
+                            Nome: Letícia Machado Carvalho Bessa
                         </b>
                     </div>
                     <br>
                     <h4>Enviar Comprovante</h4>
-                    <b>(61) 98499-5380 ou (61) 99327-4991 ou (61) 99325-9985 <br>(Todos WhatsApp)</b>
+                    <b>(61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b>
                 </div>
             </div>
         </div>
@@ -217,14 +217,11 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">Horário: 7:00 <br>
-Data: 26/02/2017 (Domingo)<br>
-Coordenador: Linneker (61) 99325-9985</span></b></p>
+&quot;Agency FB&quot;">Coordenadora: Letícia (61) 99105-8681</span></b></p>
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">Comissão: Leo (61) 99327-4991 ou Fernanda (61) 98499-5380</span></b></p>
-
+&quot;Agency FB&quot;">Comissão: Lucreci (61) 99512-1814 ou Raul (61) 99315-1297</span></b></p>
             </div>
         </div>
         <!-- end: PAGE CONTENT-->

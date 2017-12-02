@@ -13,7 +13,7 @@ class MembroWeb extends AbstractController
         $id = "CadastroRetiroCarnaval";
 
         if (!empty($_POST[$id])):
-          $this->salvarInscricao($_POST, $_FILES);
+            $this->salvarInscricao($_POST, $_FILES);
         endif;
 
         $this->form = MembroWebForm::Cadastrar();
@@ -35,31 +35,43 @@ class MembroWeb extends AbstractController
         );
     }
 
-    function FormaDePagamento($coInscricao)
+    function FormaDePagamento()
     {
-        $this->coInscricao = $coInscricao;
+        $this->coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);;
         $this->formas = Inscricao::FormasDePagamento();
     }
 
     function ConcluirInscricao()
     {
+        /** @var PagamentoService $pagamentoService */
+        $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        /** @var ParcelamentoService $parcelamentoService */
+        $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
         $id = "formaPagamento";
 
         if (!empty($_POST[$id])):
             $dados = $_POST;
-            $pagamentoModel = new PagamentoModel();
-            $parcelaModel = new ParcelamentoModel();
-            $pagamento[NU_TOTAL] = '120.00';
-            $pagamento[NU_PARCELAS] = 1;
-            $pagamento[CO_INSCRICAO] = $dados[CO_INSCRICAO];
+            $pagamento[NU_TOTAL] = '150.00';
+            if ($dados[CO_TIPO_PAGAMENTO] == TipoPagamentoEnum::CARTAO_CREDITO) {
+                $pagamento[NU_TOTAL] = '160.00';
+            }
 
-            $parcela[CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
+            $pagamento[NU_PARCELAS] = 1;
+            $temPagamento = $pagamentoService->PesquisaUmQuando([CO_INSCRICAO => $dados[CO_INSCRICAO]]);
+            if (!empty($temPagamento)) {
+                $parcela[CO_PAGAMENTO] = $pagamentoService->Salva($pagamento, $dados[CO_INSCRICAO]);
+                $parcelamentoService->DeletaQuando([CO_PAGAMENTO => $parcela[CO_PAGAMENTO]]);
+            } else {
+                $pagamento[CO_INSCRICAO] = $dados[CO_INSCRICAO];
+                $parcela[CO_PAGAMENTO] = $pagamentoService->Salva($pagamento);
+            }
+
             $parcela[CO_TIPO_PAGAMENTO] = $dados[CO_TIPO_PAGAMENTO];
             $parcela[NU_PARCELA] = 1;
-            $parcela[NU_VALOR_PARCELA] = '120.00';
+            $parcela[NU_VALOR_PARCELA] = $pagamento[NU_TOTAL];
             $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
-            $parcelaModel->Salva($parcela);
+            $parcelamentoService->Salva($parcela);
         endif;
     }
 
@@ -73,6 +85,8 @@ class MembroWeb extends AbstractController
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
         /** @var PessoaService $pessoaService */
         $pessoaService = $this->getService(PESSOA_SERVICE);
+        /** @var ImagemService $imagemService */
+        $imagemService = $this->getService(IMAGEM_SERVICE);
 
         $endereco = $enderecoService->getDados($dados, EnderecoEntidade::ENTIDADE);
         $contato = $contatoService->getDados($dados, ContatoEntidade::ENTIDADE);
@@ -98,10 +112,18 @@ class MembroWeb extends AbstractController
         $inscricao[NU_CAMISA] = $dados[NU_CAMISA][0];
         $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
 
+        $imagem[DS_CAMINHO] = "";
+        if ($foto[DS_CAMINHO]["tmp_name"]):
+            $foto = $_FILES[DS_CAMINHO];
+            $nome = Valida::ValNome($dados[NO_PESSOA]);
+            $up = new Upload();
+            $up->UploadImagens($foto, $nome, "usuarios");
+            $imagem[DS_CAMINHO] = $up->getNameImage();
+        endif;
+        $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
+
         $coInscricao = $inscricaoService->Salva($inscricao);
-        unset($_POST);
-        $this->FormaDePagamento($coInscricao);
-        UrlAmigavel::$controller = 'MembroWeb';
-        UrlAmigavel::$action = 'FormaDePagamento';
+
+        Redireciona('Web/MembroWeb/FormaDePagamento/' . Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
     }
 }
