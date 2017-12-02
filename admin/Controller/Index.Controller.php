@@ -25,9 +25,9 @@ class Index extends AbstractController
             } else {
                 $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
             }
-            if ($inscricao->getStEquipeTrabalho() == "S") {
-                $dados['TotalServos'] = $dados['TotalServos'] + 1;
-            }
+//            if ($inscricao->getStEquipeTrabalho() == "S") {
+//                $dados['TotalServos'] = $dados['TotalServos'] + 1;
+//            }
 
             if (!$inscricao->getCoPagamento()) {
                 $pagamentoModel = new PagamentoModel();
