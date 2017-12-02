@@ -14,6 +14,7 @@ class InscricaoEntidade extends AbstractEntidade
 	private $co_inscricao;
 	private $ds_pastoral;
 	private $ds_retiro;
+	private $dt_cadastro;
 	private $ds_membro_ativo;
 	private $ds_situacao_atual_grupo;
 	private $nu_camisa;
@@ -33,6 +34,7 @@ class InscricaoEntidade extends AbstractEntidade
 			CO_INSCRICAO,
 			DS_PASTORAL,
 			DS_RETIRO,
+			DT_CADASTRO,
 			DS_MEMBRO_ATIVO,
 			DS_SITUACAO_ATUAL_GRUPO,
 			NU_CAMISA,
@@ -257,4 +259,19 @@ class InscricaoEntidade extends AbstractEntidade
         return $this->co_pagamento = $co_pagamento;
     }
 
+	/**
+	 * @return mixed
+	 */
+	public function getDtCadastro()
+	{
+		return $this->dt_cadastro;
+	}
+
+	/**
+	 * @param mixed $dt_cadastro
+	 */
+	public function setDtCadastro($dt_cadastro)
+	{
+		$this->dt_cadastro = $dt_cadastro;
+	}
 }

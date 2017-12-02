@@ -5,6 +5,8 @@ class MembroWeb extends AbstractController
     public $result;
     public $resultAlt;
     public $form;
+    public $formas;
+    public $coInscricao;
 
     function CadastroRetiroCarnaval()
     {
@@ -77,33 +79,26 @@ class MembroWeb extends AbstractController
         $inscricao = $inscricaoService->getDados($dados, InscricaoEntidade::ENTIDADE);
         $pessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
 
-        debug($endereco);
         $endereco[SG_UF] = $dados[SG_UF][0];
 
-        $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
-        $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
-        $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
-
-        $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
-        $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
-        $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
+        $pessoa[NO_PESSOA] = strtoupper($dados[NO_PESSOA]);
         $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
         $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
-        $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
 
-        $pessoa[CO_ENDERECO] = $EnderecoModel->Salva($endereco);
-        $pessoa[CO_CONTATO] = $ContatoModel->Salva($contato);
+        $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
+        $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
 
-        $insc[CO_PESSOA] = $PessoaModel->Salva($pessoa);
-        $insc[DS_PASTORAL] = $dados[DS_PASTORAL];
-        $insc[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+        $inscricao[CO_PESSOA] = $pessoaService->Salva($pessoa);
+        $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
             (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
         );
-        $insc[NU_CAMISA] = $dados[NU_CAMISA][0];
-        $insc[NO_RESPONSAVEL] = strtoupper(trim($dados[NO_RESPONSAVEL]));
-        $insc[NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[NU_TEL_RESPONSAVEL]);
+        $inscricao[DS_RETIRO] = FuncoesSistema::retornoCheckbox(
+            (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
+        );
+        $inscricao[NU_CAMISA] = $dados[NU_CAMISA][0];
+        $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
 
-        $coInscricao = $InscricaoModel->Salva($insc);
+        $coInscricao = $inscricaoService->Salva($inscricao);
         unset($_POST);
         $this->FormaDePagamento($coInscricao);
         UrlAmigavel::$controller = 'MembroWeb';

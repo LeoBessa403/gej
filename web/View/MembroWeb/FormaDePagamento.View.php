@@ -14,8 +14,8 @@
                             <label for="no_perfil" class="control-label"> Forma de pagamento
                                 <span class="symbol required"></span>
                             </label><br>
-                            <select id="<?= Constantes::CO_TIPO_PAGAMENTO; ?>" class="ob"
-                                    name="<?= Constantes::CO_TIPO_PAGAMENTO; ?>">
+                            <select id="<?= CO_TIPO_PAGAMENTO; ?>" class="ob"
+                                    name="<?= CO_TIPO_PAGAMENTO; ?>">
                                 <option value="">Selecione uma forma de Pagamento</option>
                                 <?php
                                 foreach ($formas as $key => $forma) { ?>
@@ -23,8 +23,8 @@
                                 <?php }
                                 ?>
                             </select>
-                            <input type="hidden" id="<?= Constantes::CO_INSCRICAO; ?>"
-                                   name="<?= Constantes::CO_INSCRICAO; ?>" value="<?= $coInscricao; ?>">
+                            <input type="hidden" id="<?= CO_INSCRICAO; ?>"
+                                   name="<?= CO_INSCRICAO; ?>" value="<?= $coInscricao; ?>">
                         </div>
                         <div class="col-md-12" style="display: block; padding: 0;">
                             <button data-style="zoom-out" class="btn btn-success ladda-button" type="submit"

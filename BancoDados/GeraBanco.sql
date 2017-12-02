@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS `gej_bd`.`TB_INSCRICAO` (
   `co_inscricao` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `ds_pastoral` TEXT NULL DEFAULT NULL,
   `ds_retiro` VARCHAR(1) NULL DEFAULT NULL,
+  `dt_cadastro` DATETIME NULL DEFAULT NULL,
   `ds_membro_ativo` VARCHAR(1) NULL DEFAULT 'N',
   `ds_situacao_atual_grupo` INT(1) NULL DEFAULT NULL,
   `nu_camisa` INT(1) NOT NULL,

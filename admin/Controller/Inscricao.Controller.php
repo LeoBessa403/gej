@@ -20,49 +20,49 @@ class Inscricao extends AbstractController
             $InscricaoModel = new InscricaoModel();
             $PagamentoModel = new PagamentoModel();
             $ParcelamentoModel = new ParcelamentoModel();
-            $coInscricao = $dados[Constantes::CO_INSCRICAO];
+            $coInscricao = $dados[CO_INSCRICAO];
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
             /** @var PagamentoEntidade $pagamentoInsc */
             $pagamentoInsc = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
 
-            $endereco[Constantes::DS_ENDERECO] = $dados[Constantes::DS_ENDERECO];
-            $endereco[Constantes::DS_COMPLEMENTO] = $dados[Constantes::DS_COMPLEMENTO];
-            $endereco[Constantes::DS_BAIRRO] = $dados[Constantes::DS_BAIRRO];
-            $endereco[Constantes::NO_CIDADE] = $dados[Constantes::NO_CIDADE];
-            $endereco[Constantes::NU_CEP] = Valida::RetiraMascara($dados[Constantes::NU_CEP]);
-            $endereco[Constantes::SG_UF] = $dados[Constantes::SG_UF][0];
+            $endereco[DS_ENDERECO] = $dados[DS_ENDERECO];
+            $endereco[DS_COMPLEMENTO] = $dados[DS_COMPLEMENTO];
+            $endereco[DS_BAIRRO] = $dados[DS_BAIRRO];
+            $endereco[NO_CIDADE] = $dados[NO_CIDADE];
+            $endereco[NU_CEP] = Valida::RetiraMascara($dados[NU_CEP]);
+            $endereco[SG_UF] = $dados[SG_UF][0];
 
-            $contato[Constantes::DS_EMAIL] = trim($dados[Constantes::DS_EMAIL]);
-            $contato[Constantes::NU_TEL1] = Valida::RetiraMascara($dados[Constantes::NU_TEL1]);
-            $contato[Constantes::NU_TEL2] = Valida::RetiraMascara($dados[Constantes::NU_TEL2]);
+            $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
+            $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
+            $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
 
-            $pessoa[Constantes::NO_PESSOA] = strtoupper(trim($dados[Constantes::NO_PESSOA]));
-            $pessoa[Constantes::NU_CPF] = Valida::RetiraMascara($dados[Constantes::NU_CPF]);
-            $pessoa[Constantes::NU_RG] = Valida::RetiraMascara($dados[Constantes::NU_RG]);
-            $pessoa[Constantes::DT_NASCIMENTO] = Valida::DataDBDate($dados[Constantes::DT_NASCIMENTO]);
-            $pessoa[Constantes::ST_SEXO] = $dados[Constantes::ST_SEXO][0];
-            $pessoa[Constantes::DT_CADASTRO] = Valida::DataAtualBanco();
+            $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
+            $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
+            $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
+            $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
+            $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
+            $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
 
             $EnderecoModel->Salva($endereco, $inscricao->getCoPessoa()->getCoEndereco()->getCoEndereco());
             $ContatoModel->Salva($contato, $inscricao->getCoPessoa()->getCoContato()->getCoContato());
 
             $PessoaModel->Salva($pessoa, $inscricao->getCoPessoa()->getCoPessoa());
 
-            $insc[Constantes::DS_PASTORAL] = $dados[Constantes::DS_PASTORAL];
-            $insc[Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
-                (!empty($dados[Constantes::DS_MEMBRO_ATIVO])) ? $dados[Constantes::DS_MEMBRO_ATIVO] : null
+            $insc[DS_PASTORAL] = $dados[DS_PASTORAL];
+            $insc[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
             );
-            $insc[Constantes::ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
-                (!empty($dados[Constantes::ST_EQUIPE_TRABALHO])) ? $dados[Constantes::ST_EQUIPE_TRABALHO] : null
+            $insc[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
             );
-            $insc[Constantes::NU_CAMISA] = $dados[Constantes::NU_CAMISA][0];
-            $insc[Constantes::NO_RESPONSAVEL] = strtoupper(trim($dados[Constantes::NO_RESPONSAVEL]));
-            $insc[Constantes::NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[Constantes::NU_TEL_RESPONSAVEL]);
+            $insc[NU_CAMISA] = $dados[NU_CAMISA][0];
+            $insc[NO_RESPONSAVEL] = strtoupper(trim($dados[NO_RESPONSAVEL]));
+            $insc[NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[NU_TEL_RESPONSAVEL]);
 
             $InscricaoModel->Salva($insc, $coInscricao);
 
-            $pagamento[Constantes::NU_PARCELAS] = $dados[Constantes::NU_PARCELAS][0];
+            $pagamento[NU_PARCELAS] = $dados[NU_PARCELAS][0];
             $PagamentoModel->Salva($pagamento, $pagamentoInsc->getCoPagamento());
 
             /** @var ParcelamentoEntidade $parcela */
@@ -70,13 +70,13 @@ class Inscricao extends AbstractController
                 $ParcelamentoModel->Deleta($parcela->getCoParcelamento());
             }
 
-            for ($i = 0; $i < $pagamento[Constantes::NU_PARCELAS]; $i++) {
+            for ($i = 0; $i < $pagamento[NU_PARCELAS]; $i++) {
                 $novaParcela = array(
-                    Constantes::NU_PARCELA => $i + 1,
-                    Constantes::NU_VALOR_PARCELA => (120.00 / $pagamento[Constantes::NU_PARCELAS]),
-                    Constantes::DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
-                    Constantes::CO_TIPO_PAGAMENTO => 1,
-                    Constantes::CO_PAGAMENTO => $pagamentoInsc->getCoPagamento(),
+                    NU_PARCELA => $i + 1,
+                    NU_VALOR_PARCELA => (120.00 / $pagamento[NU_PARCELAS]),
+                    DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
+                    CO_TIPO_PAGAMENTO => 1,
+                    CO_PAGAMENTO => $pagamentoInsc->getCoPagamento(),
                 );
                 $ParcelamentoModel->Salva($novaParcela);
             }
@@ -90,37 +90,37 @@ class Inscricao extends AbstractController
         if ($coInscricao):
             $InscricaoModel = new InscricaoModel();
             /** @var InscricaoEntidade $inscricao */
-            $inscricao = $InscricaoModel->PesquisaUmQuando([Constantes::CO_INSCRICAO => $coInscricao]);
+            $inscricao = $InscricaoModel->PesquisaUmQuando([CO_INSCRICAO => $coInscricao]);
 
-            $res[Constantes::DS_MEMBRO_ATIVO] = ($inscricao->getDsMembroAtivo() == 'S')
+            $res[DS_MEMBRO_ATIVO] = ($inscricao->getDsMembroAtivo() == 'S')
                 ? 'checked' : '';
-            $res[Constantes::DS_RETIRO] = ($inscricao->getDsRetiro() == 'S')
+            $res[DS_RETIRO] = ($inscricao->getDsRetiro() == 'S')
                 ? 'checked' : '';
-            $res[Constantes::ST_EQUIPE_TRABALHO] = ($inscricao->getStEquipeTrabalho() == 'S')
+            $res[ST_EQUIPE_TRABALHO] = ($inscricao->getStEquipeTrabalho() == 'S')
                 ? 'checked' : '';
-            $res[Constantes::CO_INSCRICAO] = $inscricao->getCoInscricao();
-            $res[Constantes::NO_PESSOA] = $inscricao->getCoPessoa()->getNoPessoa();
-            $res[Constantes::NU_TEL1] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
-            $res[Constantes::NU_TEL2] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel2());
-            $res[Constantes::NU_CPF] = Valida::MascaraCpf($inscricao->getCoPessoa()->getNuCpf());
-            $res[Constantes::NU_RG] = $inscricao->getCoPessoa()->getNuRg();
-            $res[Constantes::DT_NASCIMENTO] = Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento());
-            $res[Constantes::ST_SEXO] = $inscricao->getCoPessoa()->getStSexo();
-            $res[Constantes::NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
-            $res[Constantes::NU_CAMISA] = $inscricao->getNuCamisa();
+            $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
+            $res[NO_PESSOA] = $inscricao->getCoPessoa()->getNoPessoa();
+            $res[NU_TEL1] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
+            $res[NU_TEL2] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel2());
+            $res[NU_CPF] = Valida::MascaraCpf($inscricao->getCoPessoa()->getNuCpf());
+            $res[NU_RG] = $inscricao->getCoPessoa()->getNuRg();
+            $res[DT_NASCIMENTO] = Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento());
+            $res[ST_SEXO] = $inscricao->getCoPessoa()->getStSexo();
+            $res[NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
+            $res[NU_CAMISA] = $inscricao->getNuCamisa();
 
-            $res[Constantes::DS_EMAIL] = $inscricao->getCoPessoa()->getCoContato()->getDsEmail();
-            $res[Constantes::NO_RESPONSAVEL] = $inscricao->getNoResponsavel();
-            $res[Constantes::NU_TEL_RESPONSAVEL] = Valida::MascaraTel($inscricao->getNuTelResponsavel());
-            $res[Constantes::DS_PASTORAL] = $inscricao->getDsPastoral();
+            $res[DS_EMAIL] = $inscricao->getCoPessoa()->getCoContato()->getDsEmail();
+            $res[NO_RESPONSAVEL] = $inscricao->getNoResponsavel();
+            $res[NU_TEL_RESPONSAVEL] = Valida::MascaraTel($inscricao->getNuTelResponsavel());
+            $res[DS_PASTORAL] = $inscricao->getDsPastoral();
             $res["ds_pastoral_ativo"] = ($inscricao->getDsPastoral()) ? 'checked' : '';
 
-            $res[Constantes::DS_ENDERECO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsEndereco();
-            $res[Constantes::DS_COMPLEMENTO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsComplemento();
-            $res[Constantes::DS_BAIRRO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsBairro();
-            $res[Constantes::NO_CIDADE] = $inscricao->getCoPessoa()->getCoEndereco()->getNoCidade();
-            $res[Constantes::NU_CEP] = $inscricao->getCoPessoa()->getCoEndereco()->getNuCep();
-            $res[Constantes::SG_UF] = $inscricao->getCoPessoa()->getCoEndereco()->getSgUf();
+            $res[DS_ENDERECO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsEndereco();
+            $res[DS_COMPLEMENTO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsComplemento();
+            $res[DS_BAIRRO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsBairro();
+            $res[NO_CIDADE] = $inscricao->getCoPessoa()->getCoEndereco()->getNoCidade();
+            $res[NU_CEP] = $inscricao->getCoPessoa()->getCoEndereco()->getNuCep();
+            $res[SG_UF] = $inscricao->getCoPessoa()->getCoEndereco()->getSgUf();
             $this->form = MembroWebForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
         endif;
 
@@ -138,11 +138,11 @@ class Inscricao extends AbstractController
         }
         if (!empty($_POST)) {
             $Condicoes = array(
-                "pes." . Constantes::NO_PESSOA => trim($_POST[Constantes::NO_PESSOA]),
-                "pes." . Constantes::NU_CPF => Valida::RetiraMascara($_POST[Constantes::NU_CPF]),
-                "pag." . Constantes::TP_SITUACAO => $_POST[Constantes::TP_SITUACAO][0],
-                "insc." . Constantes::DS_MEMBRO_ATIVO => $_POST[Constantes::DS_MEMBRO_ATIVO][0],
-                "insc." . Constantes::ST_EQUIPE_TRABALHO => $_POST[Constantes::ST_EQUIPE_TRABALHO][0],
+                "pes." . NO_PESSOA => trim($_POST[NO_PESSOA]),
+                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
+                "pag." . TP_SITUACAO => $_POST[TP_SITUACAO][0],
+                "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
+                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
             $inscricoes = $inscricaoModel->PesquisaAvancada($Condicoes);
@@ -151,7 +151,7 @@ class Inscricao extends AbstractController
                 $todos[] = $inscricao['co_inscricao'];
             }
             if ($todos) {
-                $insc[Constantes::CO_INSCRICAO] = implode(', ', $todos);
+                $insc[CO_INSCRICAO] = implode(', ', $todos);
                 $this->result = $inscricaoModel->PesquisaTodos($insc);
             } else {
                 $this->result = array();
@@ -175,7 +175,7 @@ class Inscricao extends AbstractController
                 $todos[] = $inscricao['co_inscricao'];
             }
             if ($todos) {
-                $insc[Constantes::CO_INSCRICAO] = implode(', ', $todos);
+                $insc[CO_INSCRICAO] = implode(', ', $todos);
                 $result = $inscricaoModel->PesquisaTodos($insc);
             } else {
                 $result = array();
@@ -192,14 +192,14 @@ class Inscricao extends AbstractController
             } elseif ($res->getCoPessoa()->getNuRG()) {
                 $documento = $res->getCoPessoa()->getNuRG();
             }
-            $dados[$i][Constantes::NO_PESSOA] = strtoupper($res->getCoPessoa()->getNoPessoa());
-            $dados[$i][Constantes::NU_TEL1] = Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()) .
+            $dados[$i][NO_PESSOA] = strtoupper($res->getCoPessoa()->getNoPessoa());
+            $dados[$i][NU_TEL1] = Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()) .
                 ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2());
-            $dados[$i][Constantes::NU_CPF] = $documento;
-            $dados[$i][Constantes::DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
-            $dados[$i][Constantes::ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
-            $dados[$i][Constantes::DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo());
-            $dados[$i][Constantes::TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
+            $dados[$i][NU_CPF] = $documento;
+            $dados[$i][DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
+            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
+            $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo());
+            $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
             $i++;
         }
         $Colunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento');
@@ -217,8 +217,9 @@ class Inscricao extends AbstractController
 
     public static function FormasDePagamento()
     {
-        $tipoPagametnoModel = new TipoPagamentoModel();
-        $tipos = $tipoPagametnoModel->PesquisaTodos();
+        /** @var TipoPagamentoService $tipoPagamentoService */
+        $tipoPagamentoService = new TipoPagamentoService();
+        $tipos = $tipoPagamentoService->PesquisaTodos();
         /** @var TipoPagamentoEntidade $forma */
         foreach ($tipos as $forma) {
             $pagamentos[$forma->getCoTipoPagamento()] = $forma->getDsTipoPagamento();
@@ -255,14 +256,14 @@ class Inscricao extends AbstractController
             $dados = $_POST;
             $PagamentoModel = new PagamentoModel();
             $ParcelamentoModel = new ParcelamentoModel();
-            $coParcela = $dados[Constantes::CO_PARCELAMENTO];
+            $coParcela = $dados[CO_PARCELAMENTO];
 
-            $parcela[Constantes::NU_VALOR_PARCELA_PAGO] = Valida::FormataMoedaBanco($dados[Constantes::NU_VALOR_PARCELA_PAGO]);
-            $parcela[Constantes::DT_VENCIMENTO_PAGO] = ($dados[Constantes::DT_VENCIMENTO_PAGO])
-                ? Valida::DataDBDate($dados[Constantes::DT_VENCIMENTO_PAGO])
+            $parcela[NU_VALOR_PARCELA_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PARCELA_PAGO]);
+            $parcela[DT_VENCIMENTO_PAGO] = ($dados[DT_VENCIMENTO_PAGO])
+                ? Valida::DataDBDate($dados[DT_VENCIMENTO_PAGO])
                 : null;
-            $parcela[Constantes::CO_TIPO_PAGAMENTO] = $dados[Constantes::DS_TIPO_PAGAMENTO][0];
-            $parcela[Constantes::DS_OBSERVACAO] = Valida::LimpaVariavel($dados[Constantes::DS_OBSERVACAO]);
+            $parcela[CO_TIPO_PAGAMENTO] = $dados[DS_TIPO_PAGAMENTO][0];
+            $parcela[DS_OBSERVACAO] = Valida::LimpaVariavel($dados[DS_OBSERVACAO]);
 
             $ParcelamentoModel->Salva($parcela, $coParcela);
 
@@ -276,9 +277,9 @@ class Inscricao extends AbstractController
                 $total = $total + $parcela->getNuValorParcelaPago();
             }
             if($total == 120){
-                $pag[Constantes::TP_SITUACAO] = "C";
+                $pag[TP_SITUACAO] = "C";
             }elseif($total > 0){
-                $pag[Constantes::TP_SITUACAO] = "I";
+                $pag[TP_SITUACAO] = "I";
             }
             $PagamentoModel->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
             unset($_POST);
@@ -293,14 +294,14 @@ class Inscricao extends AbstractController
             /** @var ParcelamentoEntidade $parcela */
             $parcela = $ParcelaModel->PesquisaUmRegistro($parc);
 
-            $res[Constantes::CO_PARCELAMENTO] = $parcela->getCoParcelamento();
-            $res[Constantes::NU_VALOR_PARCELA] = Valida::FormataMoeda($parcela->getNuValorParcela());
-            $res[Constantes::NU_VALOR_PARCELA_PAGO] = Valida::FormataMoeda($parcela->getNuValorParcelaPago());
-            $res[Constantes::DT_VENCIMENTO_PAGO] = ($parcela->getDtVencimentoPago())
+            $res[CO_PARCELAMENTO] = $parcela->getCoParcelamento();
+            $res[NU_VALOR_PARCELA] = Valida::FormataMoeda($parcela->getNuValorParcela());
+            $res[NU_VALOR_PARCELA_PAGO] = Valida::FormataMoeda($parcela->getNuValorParcelaPago());
+            $res[DT_VENCIMENTO_PAGO] = ($parcela->getDtVencimentoPago())
                 ? Valida::DataShow($parcela->getDtVencimentoPago())
                 : null;
-            $res[Constantes::DS_OBSERVACAO] = $parcela->getDsObservacao();
-            $res[Constantes::SG_TIPO_PAGAMENTO] = $parcela->getCoTipoPagamento()->getSgTipoPagamento();
+            $res[DS_OBSERVACAO] = $parcela->getDsObservacao();
+            $res[SG_TIPO_PAGAMENTO] = $parcela->getCoTipoPagamento()->getSgTipoPagamento();
 
             $this->form = InscricaoForm::EditarParcelamento($res);
         endif;
