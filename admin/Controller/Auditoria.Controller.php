@@ -1,6 +1,6 @@
 <?php
 
-class Auditoria
+class Auditoria extends AbstractController
 {
     public $result;
     public $perfis;

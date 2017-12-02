@@ -1,6 +1,6 @@
 <?php
 
-class Inscricao
+class Inscricao extends AbstractController
 {
 
     public function Index()

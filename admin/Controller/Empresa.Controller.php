@@ -1,7 +1,7 @@
 <?php
           
-class Empresa{
-    
+class Empresa extends AbstractController
+{
     public $result;
     public $resultAlt;
     public $form;

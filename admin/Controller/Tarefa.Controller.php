@@ -1,7 +1,7 @@
 <?php
           
-class Tarefa{
-    
+class Tarefa extends AbstractController
+{
     public $result;
     public $resultAlt;
     public $form;

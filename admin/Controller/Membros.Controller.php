@@ -1,6 +1,7 @@
 <?php
           
-class Membros{
+class Membros extends AbstractController
+{
     
     public $result;
     public $resultAlt;

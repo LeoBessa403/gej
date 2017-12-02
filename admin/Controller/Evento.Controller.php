@@ -1,6 +1,7 @@
 <?php
           
-class Evento{
+class Evento extends AbstractController
+{
     
     public $result;
     public $resultAlt;

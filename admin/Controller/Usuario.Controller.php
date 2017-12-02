@@ -1,8 +1,7 @@
 <?php
 
-class Usuario
+class Usuario extends AbstractController
 {
-
     private $idUsuario;
     public $form;
     

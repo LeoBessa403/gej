@@ -1,6 +1,7 @@
 <?php
           
-class Biblioteca{
+class Biblioteca extends AbstractController
+{
     
     public $result;
     public $resultAlt;

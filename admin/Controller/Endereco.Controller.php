@@ -1,6 +1,6 @@
 <?php
 
-class Endereco
+class Endereco extends AbstractController
 {
     public static function montaComboEstadosDescricao()
     {

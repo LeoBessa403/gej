@@ -219,6 +219,7 @@ class MembroWebForm
             ->setId(DS_DESCRICAO)
             ->setLabel("Fale um pouco sobre você")
             ->setType("textarea")
+            ->setClasses("ob")
             ->CriaInpunt();
 
         if ($CoInscricao) {

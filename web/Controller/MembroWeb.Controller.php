@@ -1,6 +1,6 @@
 <?php
 
-class MembroWeb
+class MembroWeb extends AbstractController
 {
     public $result;
     public $resultAlt;
@@ -11,48 +11,7 @@ class MembroWeb
         $id = "CadastroRetiroCarnaval";
 
         if (!empty($_POST[$id])):
-
-            $dados = $_POST;
-            $EnderecoModel = new EnderecoModel();
-            $ContatoModel = new ContatoModel();
-            $PessoaModel = new PessoaModel();
-            $InscricaoModel = new InscricaoModel();
-
-            $endereco[DS_ENDERECO] = $dados[DS_ENDERECO];
-            $endereco[DS_COMPLEMENTO] = $dados[DS_COMPLEMENTO];
-            $endereco[DS_BAIRRO] = $dados[DS_BAIRRO];
-            $endereco[NO_CIDADE] = $dados[NO_CIDADE];
-            $endereco[NU_CEP] = Valida::RetiraMascara($dados[NU_CEP]);
-            $endereco[SG_UF] = $dados[SG_UF][0];
-
-            $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
-            $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
-            $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
-
-            $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
-            $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
-            $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
-            $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
-            $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
-            $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
-
-            $pessoa[CO_ENDERECO] = $EnderecoModel->Salva($endereco);
-            $pessoa[CO_CONTATO] = $ContatoModel->Salva($contato);
-
-            $insc[CO_PESSOA] = $PessoaModel->Salva($pessoa);
-            $insc[DS_PASTORAL] = $dados[DS_PASTORAL];
-            $insc[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
-                (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
-                );
-            $insc[NU_CAMISA] = $dados[NU_CAMISA][0];
-            $insc[NO_RESPONSAVEL] = strtoupper(trim($dados[NO_RESPONSAVEL]));
-            $insc[NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[NU_TEL_RESPONSAVEL]);
-
-            $coInscricao = $InscricaoModel->Salva($insc);
-            unset($_POST);
-            $this->FormaDePagamento($coInscricao);
-            UrlAmigavel::$controller = 'MembroWeb';
-            UrlAmigavel::$action = 'FormaDePagamento';
+          $this->salvarInscricao($_POST, $_FILES);
         endif;
 
         $this->form = MembroWebForm::Cadastrar();
@@ -100,5 +59,54 @@ class MembroWeb
 
             $parcelaModel->Salva($parcela);
         endif;
+    }
+
+    public function salvarInscricao($dados, $foto)
+    {
+        /** @var EnderecoService $enderecoService */
+        $enderecoService = $this->getService(ENDERECO_SERVICE);
+        /** @var ContatoService $contatoService */
+        $contatoService = $this->getService(CONTATO_SERVICE);
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+        /** @var PessoaService $pessoaService */
+        $pessoaService = $this->getService(PESSOA_SERVICE);
+
+        $endereco = $enderecoService->getDados($dados, EnderecoEntidade::ENTIDADE);
+        $contato = $contatoService->getDados($dados, ContatoEntidade::ENTIDADE);
+        $inscricao = $inscricaoService->getDados($dados, InscricaoEntidade::ENTIDADE);
+        $pessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
+
+        debug($endereco);
+        $endereco[SG_UF] = $dados[SG_UF][0];
+
+        $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
+        $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
+        $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
+
+        $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
+        $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
+        $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
+        $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
+        $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
+        $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
+
+        $pessoa[CO_ENDERECO] = $EnderecoModel->Salva($endereco);
+        $pessoa[CO_CONTATO] = $ContatoModel->Salva($contato);
+
+        $insc[CO_PESSOA] = $PessoaModel->Salva($pessoa);
+        $insc[DS_PASTORAL] = $dados[DS_PASTORAL];
+        $insc[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+            (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
+        );
+        $insc[NU_CAMISA] = $dados[NU_CAMISA][0];
+        $insc[NO_RESPONSAVEL] = strtoupper(trim($dados[NO_RESPONSAVEL]));
+        $insc[NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[NU_TEL_RESPONSAVEL]);
+
+        $coInscricao = $InscricaoModel->Salva($insc);
+        unset($_POST);
+        $this->FormaDePagamento($coInscricao);
+        UrlAmigavel::$controller = 'MembroWeb';
+        UrlAmigavel::$action = 'FormaDePagamento';
     }
 }
