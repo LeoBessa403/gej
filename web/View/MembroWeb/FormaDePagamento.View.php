@@ -3,7 +3,6 @@
         <div class="col-md-6">
             <h4>Formas de Pagamento</h4>
             <?php
-            debug($coInscricao);
             Valida::Mensagem(strtoupper(Mensagens::OK_SALVO_MEMBRO_RETIRO_CARNAVAL), 2);
             ?>
             <div class="row" style="background-color: rgba(225, 238, 208, 1); padding: 20px 0;">

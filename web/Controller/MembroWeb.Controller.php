@@ -124,8 +124,7 @@ class MembroWeb extends AbstractController
         $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
 
         $coInscricao = $inscricaoService->Salva($inscricao);
-        $parameto = Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao);
 
-        Redireciona('Web/MembroWeb/FormaDePagamento/'. $parameto);
+        Redireciona('Web/MembroWeb/FormaDePagamento/'. Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
     }
 }
