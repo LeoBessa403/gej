@@ -125,6 +125,6 @@ class MembroWeb extends AbstractController
 
         $coInscricao = $inscricaoService->Salva($inscricao);
 
-        Redireciona('Web/MembroWeb/FormaDePagamento/'. Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
+        Redireciona(UrlAmigavel::$modulo.'/'.UrlAmigavel::$controller.'/FormaDePagamento/'. Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
     }
 }

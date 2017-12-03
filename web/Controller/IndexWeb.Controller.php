@@ -6,7 +6,8 @@ class IndexWeb extends AbstractController
     public $resultAlt;
     public $form;
     
-    function Index(){
+    function Index()
+    {
     }
     
     function CadastroMembro(){
