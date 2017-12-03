@@ -37,7 +37,7 @@ class MembroWeb extends AbstractController
 
     function FormaDePagamento()
     {
-        $this->coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);;
+        $this->coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
         $this->formas = Inscricao::FormasDePagamento();
     }
 
@@ -110,6 +110,7 @@ class MembroWeb extends AbstractController
             (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
         );
         $inscricao[NU_CAMISA] = $dados[NU_CAMISA][0];
+        $inscricao[ST_EQUIPE_TRABALHO] = SimNaoEnum::NAO;
         $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
 
         $imagem[DS_CAMINHO] = "";
@@ -117,13 +118,14 @@ class MembroWeb extends AbstractController
             $foto = $_FILES[DS_CAMINHO];
             $nome = Valida::ValNome($dados[NO_PESSOA]);
             $up = new Upload();
-            $up->UploadImagens($foto, $nome, "usuarios");
+            $up->UploadImagens($foto, $nome, "inscricoes");
             $imagem[DS_CAMINHO] = $up->getNameImage();
         endif;
         $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
 
         $coInscricao = $inscricaoService->Salva($inscricao);
+        $parameto = Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao);
 
-        Redireciona('Web/MembroWeb/FormaDePagamento/' . Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
+        Redireciona('Web/MembroWeb/FormaDePagamento/'. $parameto);
     }
 }

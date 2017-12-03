@@ -387,7 +387,7 @@ require_once 'library/Config.inc.php';
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
 <script type="text/javascript" src="<?php echo PASTAADMIN; ?>js/Funcoes.js"></script>
-<?php carregaJs($url); ?>
+<?php //carregaJs($url); ?>
 <script>
     jQuery(document).ready(function () {
         Funcoes.init();

@@ -60,6 +60,7 @@
 	define('ST_BATIZADO', 'st_batizado');
 	define('ST_EUCARISTIA', 'st_eucaristia');
 	define('ST_CRISMA', 'st_crisma');
+	define('ST_EQUIPE_TRABALHO', 'st_equipe_trabalho');
 	define('CO_PAGAMENTO', 'co_pagamento');
 	define('NU_TOTAL', 'nu_total');
 	define('NU_VALOR_PAGO', 'nu_valor_pago');

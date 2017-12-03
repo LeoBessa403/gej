@@ -5,9 +5,14 @@ class Index extends AbstractController
 
     function Index()
     {
-        $InscricaoModel = new InscricaoModel();
-        $PagamentoModel = new PagamentoModel();
-        $inscricoes = $InscricaoModel->PesquisaTodos();
+        /** @var PagamentoService $pagamentoService */
+        $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        /** @var ParcelamentoService $parcelamentoService */
+        $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+
+        $inscricoes = $inscricaoService->PesquisaTodos();
         $dados['TotalInscricoes'] = count($inscricoes);
         $dados['TotalArrecadado'] = 0;
         $dados['TotalNaoMembros'] = 0;
@@ -25,28 +30,26 @@ class Index extends AbstractController
             } else {
                 $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
             }
-//            if ($inscricao->getStEquipeTrabalho() == "S") {
-//                $dados['TotalServos'] = $dados['TotalServos'] + 1;
-//            }
+            if ($inscricao->getStEquipeTrabalho() == "S") {
+                $dados['TotalServos'] = $dados['TotalServos'] + 1;
+            }
 
             if (!$inscricao->getCoPagamento()) {
-                $pagamentoModel = new PagamentoModel();
-                $parcelaModel = new ParcelamentoModel();
-                $pagamento[NU_TOTAL] = '120.00';
+                $pagamento[NU_TOTAL] = '150.00';
                 $pagamento[NU_PARCELAS] = 1;
                 $pagamento[CO_INSCRICAO] = $inscricao->getCoInscricao();
 
-                $parcela[CO_PAGAMENTO] = $pagamentoModel->Salva($pagamento);
+                $parcela[CO_PAGAMENTO] = $pagamentoService->Salva($pagamento);
                 $parcela[CO_TIPO_PAGAMENTO] = 1;
                 $parcela[NU_PARCELA] = 1;
-                $parcela[NU_VALOR_PARCELA] = '120.00';
+                $parcela[NU_VALOR_PARCELA] = '150.00';
                 $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
-                $parcelaModel->Salva($parcela);
+                $parcelamentoService->Salva($parcela);
             }
 
             /** @var PagamentoEntidade $pagamentoInscricao */
-            $pagamentoInscricao = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
+            $pagamentoInscricao = $pagamentoService->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
             switch ($pagamentoInscricao->getTpSituacao()) {
                 case "C":
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
@@ -70,7 +73,7 @@ class Index extends AbstractController
                 $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
             }
         }
-        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 120.00 - $dados['TotalArrecadado']);
+        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 150.00 - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
 
         $this->dados = $dados;

@@ -21,6 +21,7 @@ class InscricaoEntidade extends AbstractEntidade
 	private $no_responsavel;
 	private $nu_tel_responsavel;
 	private $ds_descricao;
+	private $st_equipe_trabalho;
 	private $co_pessoa;
 	private $co_imagem;
 	private $co_pagamento;
@@ -40,6 +41,7 @@ class InscricaoEntidade extends AbstractEntidade
 			NO_RESPONSAVEL,
 			NU_TEL_RESPONSAVEL,
 			DS_DESCRICAO,
+			ST_EQUIPE_TRABALHO,
 			CO_PESSOA,
 			CO_IMAGEM,
 		];
@@ -273,4 +275,21 @@ class InscricaoEntidade extends AbstractEntidade
 	{
 		$this->dt_cadastro = $dt_cadastro;
 	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getStEquipeTrabalho()
+	{
+		return $this->st_equipe_trabalho;
+	}
+
+	/**
+	 * @param mixed $st_equipe_trabalho
+	 */
+	public function setStEquipeTrabalho($st_equipe_trabalho)
+	{
+		$this->st_equipe_trabalho = $st_equipe_trabalho;
+	}
+
 }
