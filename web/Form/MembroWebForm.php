@@ -211,6 +211,7 @@ class MembroWebForm
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
             ->setInfo("Para a identificação")
+            ->setClasses("ob")
             ->setTamanhoInput(12)
             ->setLabel("Foto de Perfil")
             ->CriaInpunt();
