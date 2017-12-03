@@ -47,6 +47,8 @@ class Index extends AbstractController
 
                 $parcelamentoService->Salva($parcela);
             }
+            /** @var InscricaoEntidade $inscricao */
+            $inscricao = $inscricaoService->PesquisaUmRegistro($inscricao->getCoInscricao());
 
             /** @var PagamentoEntidade $pagamentoInscricao */
             $pagamentoInscricao = $pagamentoService->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
