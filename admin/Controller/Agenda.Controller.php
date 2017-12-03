@@ -52,7 +52,7 @@ class Agenda{
             ->setType("select")
             ->setClasses("ob")
             ->setLabel("Evento")
-            ->setAutocomplete(Constantes::EVENTO_TABELA, "no_evento",Constantes::EVENTO_CHAVE_PRIMARIA)
+            ->setAutocomplete(EVENTO_TABELA, "no_evento",EVENTO_CHAVE_PRIMARIA)
             ->CriaInpunt();
         
         $formulario

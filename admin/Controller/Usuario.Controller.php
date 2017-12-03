@@ -303,7 +303,7 @@ class Usuario extends AbstractController
             foreach ($pessoas as $pessoa) {
                 $todos[] = $pessoa->getCoUsuario()->getCoUsuario();
             }
-            $usuarios[Constantes::CO_USUARIO] = implode(', ', $todos);
+            $usuarios[CO_USUARIO] = implode(', ', $todos);
             $result = $usuarioModel->PesquisaTodos($usuarios);
         } else {
             $result = $usuarioModel->PesquisaTodos();
@@ -312,9 +312,9 @@ class Usuario extends AbstractController
         $i = 0;
         /** @var UsuarioEntidade $value */
         foreach ($result as $value) {
-            $res[$i][Constantes::NO_PESSOA] = $value->getCoPessoa()->getNoPessoa();
-            $res[$i][Constantes::NU_CPF] = Valida::MascaraCpf($value->getCoPessoa()->getNuCpf());
-            $res[$i][Constantes::ST_STATUS] = FuncoesSistema::SituacaoUsuario($value->getStStatus());
+            $res[$i][NO_PESSOA] = $value->getCoPessoa()->getNoPessoa();
+            $res[$i][NU_CPF] = Valida::MascaraCpf($value->getCoPessoa()->getNuCpf());
+            $res[$i][ST_STATUS] = FuncoesSistema::SituacaoUsuario($value->getStStatus());
             $i++;
         }
         $Colunas = array('Nome', 'CPF', 'Status');

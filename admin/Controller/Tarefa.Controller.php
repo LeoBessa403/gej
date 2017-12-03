@@ -49,7 +49,7 @@ class Tarefa extends AbstractController
             ->setId("co_evento")
             ->setType("select")
             ->setLabel("Evento")
-            ->setAutocomplete(Constantes::EVENTO_TABELA, "no_evento",Constantes::EVENTO_CHAVE_PRIMARIA)
+            ->setAutocomplete(EVENTO_TABELA, "no_evento",EVENTO_CHAVE_PRIMARIA)
             ->CriaInpunt(); 
         
         echo $formulario->finalizaFormPesquisaAvancada(); 
@@ -191,7 +191,7 @@ class Tarefa extends AbstractController
             ->setType("select")
             ->setClasses("ob")
             ->setLabel("Evento")
-            ->setAutocomplete(Constantes::EVENTO_TABELA, "no_evento",Constantes::EVENTO_CHAVE_PRIMARIA)
+            ->setAutocomplete(EVENTO_TABELA, "no_evento",EVENTO_CHAVE_PRIMARIA)
             ->CriaInpunt(); 
         
         

@@ -14,20 +14,20 @@ class InscricaoForm
         endif;
 
         $formulario
-            ->setId(Constantes::NU_VALOR_PARCELA)
+            ->setId(NU_VALOR_PARCELA)
             ->setClasses("disabilita moeda")
             ->setLabel("Valor da Parcela R$")
             ->CriaInpunt();
 
         $formulario
-            ->setId(Constantes::NU_VALOR_PARCELA_PAGO)
+            ->setId(NU_VALOR_PARCELA_PAGO)
             ->setClasses("moeda")
             ->setTamanhoInput(6)
             ->setLabel("Valor Pago da Parcela R$")
             ->CriaInpunt();
 
         $formulario
-            ->setId(Constantes::DT_VENCIMENTO_PAGO)
+            ->setId(DT_VENCIMENTO_PAGO)
             ->setClasses("data")
             ->setLabel("Data Paga")
             ->setTamanhoInput(6)
@@ -37,22 +37,22 @@ class InscricaoForm
         $label_options = Inscricao::FormasDePagamento();
         $formulario
             ->setLabel("Forma de Pagamento")
-            ->setId(Constantes::DS_TIPO_PAGAMENTO)
+            ->setId(DS_TIPO_PAGAMENTO)
             ->setType("select")
             ->setOptions($label_options)
             ->CriaInpunt();
 
         $formulario
             ->setType("textarea")
-            ->setId(Constantes::DS_OBSERVACAO)
+            ->setId(DS_OBSERVACAO)
             ->setLabel("Observação")
             ->CriaInpunt();
 
 
             $formulario
                 ->setType("hidden")
-                ->setId(Constantes::CO_PARCELAMENTO)
-                ->setValues($res[Constantes::CO_PARCELAMENTO])
+                ->setId(CO_PARCELAMENTO)
+                ->setValues($res[CO_PARCELAMENTO])
                 ->CriaInpunt();
 
         return $formulario->finalizaForm();
@@ -72,7 +72,7 @@ class InscricaoForm
             ->CriaInpunt();
 
         $formulario
-            ->setId(Constantes::NU_CPF)
+            ->setId(NU_CPF)
             ->setClasses("cpf")
             ->setTamanhoInput(6)
             ->setLabel("CPF")
@@ -81,7 +81,7 @@ class InscricaoForm
         $label_options = Inscricao::SituacaoPagamento();
         $formulario
             ->setLabel("Situação do Pagamento")
-            ->setId(Constantes::TP_SITUACAO)
+            ->setId(TP_SITUACAO)
             ->setType("select")
             ->setTamanhoInput(12)
             ->setOptions($label_options)
@@ -90,7 +90,7 @@ class InscricaoForm
         $label_options = array("" => "Selecione um", "S" => "Sim","N" => "Não");
         $formulario
             ->setLabel("Membro GEJ")
-            ->setId(Constantes::DS_MEMBRO_ATIVO)
+            ->setId(DS_MEMBRO_ATIVO)
             ->setType("select")
             ->setTamanhoInput(12)
             ->setOptions($label_options)
@@ -99,7 +99,7 @@ class InscricaoForm
         $label_options = array("" => "Selecione um", "S" => "Sim","N" => "Não");
         $formulario
             ->setLabel("Servo")
-            ->setId(Constantes::ST_EQUIPE_TRABALHO)
+            ->setId(ST_EQUIPE_TRABALHO)
             ->setType("select")
             ->setTamanhoInput(12)
             ->setOptions($label_options)

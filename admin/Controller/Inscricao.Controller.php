@@ -2,6 +2,7 @@
 
 class Inscricao extends AbstractController
 {
+    public $result;
 
     public function Index()
     {
@@ -128,10 +129,10 @@ class Inscricao extends AbstractController
 
     public function ListarInscricao()
     {
-        $inscricaoModel = new InscricaoModel();
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
         $dados = array();
         $session = new Session();
-        
 
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
             $session->FinalizaSession(PESQUISA_AVANCADA);
@@ -145,21 +146,20 @@ class Inscricao extends AbstractController
                 "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
-            $inscricoes = $inscricaoModel->PesquisaAvancada($Condicoes);
+            $inscricoes = $inscricaoService->PesquisaAvancada($Condicoes);
             $todos = array();
             foreach ($inscricoes as $inscricao) {
                 $todos[] = $inscricao['co_inscricao'];
             }
             if ($todos) {
                 $insc[CO_INSCRICAO] = implode(', ', $todos);
-                $this->result = $inscricaoModel->PesquisaTodos($insc);
+                $this->result = $inscricaoService->PesquisaTodos($insc);
             } else {
                 $this->result = array();
             }
         } else {
-            $this->result = $inscricaoModel->PesquisaTodos($dados);
+            $this->result = $inscricaoService->PesquisaTodos($dados);
         }
-
     }
 
     // AÇÃO DE EXPORTAÇÃO
