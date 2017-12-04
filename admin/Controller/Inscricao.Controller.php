@@ -74,7 +74,7 @@ class Inscricao extends AbstractController
             for ($i = 0; $i < $pagamento[NU_PARCELAS]; $i++) {
                 $novaParcela = array(
                     NU_PARCELA => $i + 1,
-                    NU_VALOR_PARCELA => (120.00 / $pagamento[NU_PARCELAS]),
+                    NU_VALOR_PARCELA => (150.00 / $pagamento[NU_PARCELAS]),
                     DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
                     CO_TIPO_PAGAMENTO => 1,
                     CO_PAGAMENTO => $pagamentoInsc->getCoPagamento(),
@@ -155,23 +155,22 @@ class Inscricao extends AbstractController
     // AÇÃO DE EXPORTAÇÃO
     public function ExportarListarInscricao()
     {
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
         $inscricaoModel = new InscricaoModel();
         $session = new Session();
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
-            $Condicoes = $session->getSession(PESQUISA_AVANCADA);
-            $inscricoes = $inscricaoModel->PesquisaAvancada($Condicoes);
-            $todos = array();
-            foreach ($inscricoes as $inscricao) {
-                $todos[] = $inscricao['co_inscricao'];
-            }
-            if ($todos) {
-                $insc[CO_INSCRICAO] = implode(', ', $todos);
-                $result = $inscricaoModel->PesquisaTodos($insc);
-            } else {
-                $result = array();
-            }
+            $Condicoes = array(
+                "pes." . NO_PESSOA => trim($_POST[NO_PESSOA]),
+                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
+                "pag." . TP_SITUACAO => $_POST[TP_SITUACAO][0],
+                "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
+                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
+            );
+            $session->setSession(PESQUISA_AVANCADA, $Condicoes);
+            $result = $inscricaoModel->PesquisaAvancada($Condicoes);
         } else {
-            $result = $inscricaoModel->PesquisaTodos();
+            $result = $inscricaoService->PesquisaTodos();
         }
         $formato = UrlAmigavel::PegaParametro("formato");
         $i = 0;
@@ -266,7 +265,7 @@ class Inscricao extends AbstractController
             foreach ($pagamentos->getCoParcelamento() as $parcela){
                 $total = $total + $parcela->getNuValorParcelaPago();
             }
-            if($total == 120){
+            if($total == 160){
                 $pag[TP_SITUACAO] = "C";
             }elseif($total > 0){
                 $pag[TP_SITUACAO] = "I";
