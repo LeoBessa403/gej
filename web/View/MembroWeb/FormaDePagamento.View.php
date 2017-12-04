@@ -6,7 +6,7 @@
             Valida::Mensagem(strtoupper(Mensagens::OK_SALVO_MEMBRO_RETIRO_CARNAVAL), 2);
             ?>
             <div class="row" style="background-color: rgba(225, 238, 208, 1); padding: 20px 0;">
-                <h3 style="margin-left: 15px;">Investimento do Retiro R$ 160,00 (Cartão) ou R$ 150,00 (Dinheiro ou Depósito)</h3>
+                <h3 style="margin-left: 15px;">Investimento do Retiro somente R$ 160,00 até 12x no Cartão</h3>
                 <form action="<?= HOME; ?>web/MembroWeb/ConcluirInscricao" role="form" id="formaPagamento"
                       name="formaPagamento" method="post" class="formulario">
                     <div class="col-md-12">
@@ -76,7 +76,7 @@
             <div>
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">5° Retiro de Carnaval </span></b></p>
+&quot;Agency FB&quot;">6º Retiro de Carnaval </span></b></p>
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
@@ -84,7 +84,7 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">26, 27 e 28 de fevereiro de 2017</span></b></p>
+&quot;Agency FB&quot;">10, 11, 12 e 13 de fevereiro de 2018</span></b></p>
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:

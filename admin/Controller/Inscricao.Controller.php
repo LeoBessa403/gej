@@ -131,7 +131,7 @@ class Inscricao extends AbstractController
     {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-        $dados = array();
+        $inscricaoModel = new InscricaoModel();
         $session = new Session();
 
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
@@ -146,19 +146,9 @@ class Inscricao extends AbstractController
                 "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
-            $inscricoes = $inscricaoService->PesquisaAvancada($Condicoes);
-            $todos = array();
-            foreach ($inscricoes as $inscricao) {
-                $todos[] = $inscricao['co_inscricao'];
-            }
-            if ($todos) {
-                $insc[CO_INSCRICAO] = implode(', ', $todos);
-                $this->result = $inscricaoService->PesquisaTodos($insc);
-            } else {
-                $this->result = array();
-            }
+            $this->result = $inscricaoModel->PesquisaAvancada($Condicoes);
         } else {
-            $this->result = $inscricaoService->PesquisaTodos($dados);
+            $this->result = $inscricaoService->PesquisaTodos();
         }
     }
 
@@ -210,10 +200,10 @@ class Inscricao extends AbstractController
         $exporta->GeraArquivo();
     }
 
-    public function ListarInscricaoPesquisaAvancada()
-    {
-        echo InscricaoForm::Pesquisar();
-    }
+//    public function ListarInscricaoPesquisaAvancada()
+//    {
+//        echo InscricaoForm::Pesquisar();
+//    }
 
     public static function FormasDePagamento()
     {
