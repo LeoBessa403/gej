@@ -103,6 +103,39 @@ class Usuario extends AbstractController
         $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
         $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
 
+//        $user[NO_PESSOA] =  strtoupper($pessoa[NO_PESSOA]);
+//        /** @var PessoaEntidade $userNome */
+//        $userNome = $pessoaService->PesquisaUmQuando($user);
+//        $email[DS_EMAIL] = $contato[DS_EMAIL];
+//        /** @var ContatoEntidade $userEmail */
+//        $userEmail = $contatoService->PesquisaUmQuando($email);
+//        $cpf[NU_CPF] = $pessoa[NU_CPF];
+//        /** @var PessoaEntidade $userCpf */
+//        $userCpf = $pessoaService->PesquisaUmQuando($cpf);
+//
+//        debug($userCpf);
+//
+//        $erro = false;
+//        $Campo = array();
+//        if($userNome && $userNome->getCoUsuario()){
+//            if ($userNome->getCoUsuario()->getCoUsuario() != $idCoUsuario):
+//                $Campo[] = "Nome do Usuário";
+//                $erro = true;
+//            endif;
+//        }
+//        if($userEmail && $userEmail->getCoPessoa()->getCoUsuario()){
+//            if ($userEmail->getCoPessoa()->getCoUsuario()->getCoUsuario() != $idCoUsuario):
+//                $Campo[] = "E-mail";
+//                $erro = true;
+//            endif;
+//        }
+//        if($userCpf && $userCpf->getCoUsuario()){
+//            if ($userCpf->getCoUsuario()->getCoUsuario() != $idCoUsuario):
+//                $Campo[] = "CPF";
+//                $erro = true;
+//            endif;
+//        }
+
         $erro = false;
         $Campo = array();
         /** @var UsuarioEntidade $usuario */
@@ -110,17 +143,19 @@ class Usuario extends AbstractController
 
         /** @var UsuarioEntidade $usuario */
         foreach ($usuarios as $usuario) {
-            if($usuario->getCoPessoa()->getNoPessoa() == strtoupper($pessoa[NO_PESSOA])){
-                $Campo[] = "Nome do Usuário";
-                $erro = true;
-            }
-            if($usuario->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]){
-                $Campo[] = "E-mail";
-                $erro = true;
-            }
-            if($usuario->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]){
-                $Campo[] = "CPF";
-                $erro = true;
+            if($usuario->getCoUsuario() != $idCoUsuario){
+                if($usuario->getCoPessoa()->getNoPessoa() == strtoupper($pessoa[NO_PESSOA])){
+                    $Campo[] = "Nome do Usuário";
+                    $erro = true;
+                }
+                if($usuario->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]){
+                    $Campo[] = "E-mail";
+                    $erro = true;
+                }
+                if($usuario->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]){
+                    $Campo[] = "CPF";
+                    $erro = true;
+                }
             }
             if ($erro){
                 break;
