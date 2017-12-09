@@ -97,7 +97,7 @@ line-height:107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>É
-imensa a alegria em telo no nosso 5º retiro de carnaval Santifique-se.
+imensa a alegria em telo no nosso 6º retiro de carnaval Santifique-se.
 Estaremos juntos durante três dias e para que nossa convivência seja harmoniosa
 e muito proveitosa existem alguns aspectos para serem cumpridos para que
 aproveitemos o máximo do que o Senhor tem para nos oferecer. </span></p>

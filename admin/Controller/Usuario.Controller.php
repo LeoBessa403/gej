@@ -4,7 +4,7 @@ class Usuario extends AbstractController
 {
     private $idUsuario;
     public $form;
-    
+
     public function Index()
     {
     }
@@ -91,60 +91,41 @@ class Usuario extends AbstractController
         } else {
             $meusPerfis = array();
         }
-
         $idCoUsuario = (isset($dados[CO_USUARIO]) ? $dados[CO_USUARIO] : null);
 
-        $endereco[DS_ENDERECO] = $dados[DS_ENDERECO];
-        $endereco[DS_COMPLEMENTO] = $dados[DS_COMPLEMENTO];
-        $endereco[DS_BAIRRO] = $dados[DS_BAIRRO];
-        $endereco[NO_CIDADE] = $dados[NO_CIDADE];
-        $endereco[NU_CEP] = Valida::RetiraMascara($dados[NU_CEP]);
+        $endereco = $enderecoService->getDados($dados, EnderecoEntidade::ENTIDADE);
         $endereco[SG_UF] = $dados[SG_UF][0];
 
-        $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
-        $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
-        $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
+        $contato = $contatoService->getDados($dados, ContatoEntidade::ENTIDADE);
 
+        $pessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
         $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
-        $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
-        $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
         $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
         $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
 
-        $usu[DS_SENHA] = $dados[DS_SENHA];
-        $usu[DS_CODE] = base64_encode(base64_encode($dados[DS_SENHA]));
-        if (!empty($dados[ST_STATUS])):
-            $usu[ST_STATUS] = "A";
-        else:
-            if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)):
-                $usu[ST_STATUS] = "I";
-            endif;
-        endif;
-
-        $user[NO_PESSOA] = $pessoa[NO_PESSOA];
-        /** @var PessoaEntidade $userNome */
-        $userNome = $pessoaService->PesquisaUmQuando($user);
-        $email[DS_EMAIL] = $contato[DS_EMAIL];
-        /** @var ContatoEntidade $userEmail */
-        $userEmail = $contatoService->PesquisaUmQuando($email);
-        $cpf[NU_CPF] = $pessoa[NU_CPF];
-        /** @var PessoaEntidade $userCpf */
-        $userCpf = $pessoaService->PesquisaUmQuando($cpf);
-
         $erro = false;
         $Campo = array();
-        if ($userNome && $userNome->getCoUsuario()->getCoUsuario() != $idCoUsuario):
-            $Campo[] = "Nome do Usuário";
-            $erro = true;
-        endif;
-        if ($userEmail && $userEmail->getCoPessoa()->getCoUsuario()->getCoUsuario() != $idCoUsuario):
-            $Campo[] = "E-mail";
-            $erro = true;
-        endif;
-        if ($userCpf && $userCpf->getCoUsuario()->getCoUsuario() != $idCoUsuario):
-            $Campo[] = "CPF";
-            $erro = true;
-        endif;
+        /** @var UsuarioEntidade $usuario */
+        $usuarios = $usuarioService->PesquisaTodos();
+
+        /** @var UsuarioEntidade $usuario */
+        foreach ($usuarios as $usuario) {
+            if($usuario->getCoPessoa()->getNoPessoa() == strtoupper($pessoa[NO_PESSOA])){
+                $Campo[] = "Nome do Usuário";
+                $erro = true;
+            }
+            if($usuario->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]){
+                $Campo[] = "E-mail";
+                $erro = true;
+            }
+            if($usuario->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]){
+                $Campo[] = "CPF";
+                $erro = true;
+            }
+            if ($erro){
+                break;
+            }
+        }
 
         if ($erro):
             $session->setSession(MENSAGEM, "Já exite usuário cadastro com o mesmo "
@@ -158,6 +139,16 @@ class Usuario extends AbstractController
                 $up = new Upload();
                 $up->UploadImagens($foto, $nome, "usuarios");
                 $imagem[DS_CAMINHO] = $up->getNameImage();
+            endif;
+
+            $usu[DS_CODE] = base64_encode(base64_encode($dados[DS_SENHA]));
+            $usu[DS_SENHA] = trim($dados[DS_SENHA]);
+            if (!empty($dados[ST_STATUS])):
+                $usu[ST_STATUS] = "A";
+            else:
+                if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)):
+                    $usu[ST_STATUS] = "I";
+                endif;
             endif;
 
             if ($idCoUsuario):
@@ -218,37 +209,16 @@ class Usuario extends AbstractController
 
                 $session->setSession(CADASTRADO, 'OK');
 
-//                $email = new Email();
-//
-//                // Índice = Nome, e Valor = Email.
-//                $emails = array(
-//                    $pessoa[NO_PESSOA] => $contato[DS_EMAIL]
-//                );
-//                $Mensagem = "<h2>Seu cadastro foi realizado com sucesso</h2><br/>"
-//                    . "Aguarde a Ativação do seu Usuário.";
-//
-//                $email->setEmailDestinatario($emails)
-//                    ->setTitulo("Email de  Teste Pra Todos")
-//                    ->setMensagem($Mensagem);
-//
-//                //Variável para validação de Emails Enviados com Sucesso.
-//                $EmailEnviado = $email->Enviar();
-//
-//                $this->result = true;
             endif;
 
-
-            unset($_POST);
             if (!$resgistrar) {
                 if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)) {
-                    $this->ListarUsuario();
-                    UrlAmigavel::$action = "ListarUsuario";
+                    Redireciona(UrlAmigavel::$modulo.'/'.UrlAmigavel::$controller.'/ListarUsuario/');
                 } else {
-                    UrlAmigavel::$action = "Index";
-                    $IndexControl = new Index();
-                    $IndexControl->Index();
-                    UrlAmigavel::$controller = "Index";
+                    Redireciona(UrlAmigavel::$modulo.'/Index/Index/');
                 }
+            }else{
+                Redireciona('admin/Index/Acessar/');
             }
         endif;
     }

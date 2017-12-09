@@ -8,6 +8,9 @@
         if ($resultAlt):
             Valida::Mensagem(strtoupper(Mensagens::MEMBRO_JA_CADASTRADO), 2);
         endif;
+        if ($inscDuplicada):
+            Valida::Mensagem($inscDuplicada, 2);
+        endif;
         ?>
         <div class="row">
             <?php

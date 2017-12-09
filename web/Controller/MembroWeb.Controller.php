@@ -7,6 +7,7 @@ class MembroWeb extends AbstractController
     public $form;
     public $formas;
     public $coInscricao;
+    public $inscDuplicada;
 
     function CadastroRetiroCarnaval()
     {
@@ -99,32 +100,65 @@ class MembroWeb extends AbstractController
         $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
         $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
 
-        $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
-        $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
+        $user[NO_PESSOA] = strtoupper($dados[NO_PESSOA]);
+        /** @var PessoaEntidade $userNome */
+        $userNome = $pessoaService->PesquisaUmQuando($user);
+        $email[DS_EMAIL] = $contato[DS_EMAIL];
+        /** @var ContatoEntidade $userEmail */
+        $userEmail = $contatoService->PesquisaUmQuando($email);
+        $cpf[NU_CPF] = $pessoa[NU_CPF];
+        /** @var PessoaEntidade $userCpf */
+        $userCpf = $pessoaService->PesquisaUmQuando($cpf);
 
-        $inscricao[CO_PESSOA] = $pessoaService->Salva($pessoa);
-        $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
-            (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
-        );
-        $inscricao[DS_RETIRO] = FuncoesSistema::retornoCheckbox(
-            (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
-        );
-        $inscricao[NU_CAMISA] = $dados[NU_CAMISA][0];
-        $inscricao[ST_EQUIPE_TRABALHO] = SimNaoEnum::NAO;
-        $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
+        $erro = false;
+        $Campo = array();
+        if ($userNome && $userNome->getCoInscricao()) {
+                $Campo[] = "Nome";
+                $erro = true;
+        }
+        if ($userEmail && $userEmail->getCoPessoa()->getCoInscricao()) {
+                $Campo[] = "E-mail";
+                $erro = true;
+        }
+        if ($userCpf && $userCpf->getCoInscricao()) {
+                $Campo[] = "CPF";
+                $erro = true;
+        }
 
-        $imagem[DS_CAMINHO] = "";
-        if ($foto[DS_CAMINHO]["tmp_name"]):
-            $foto = $_FILES[DS_CAMINHO];
-            $nome = Valida::ValNome($dados[NO_PESSOA]);
-            $up = new Upload();
-            $up->UploadImagens($foto, $nome, "inscricoes");
-            $imagem[DS_CAMINHO] = $up->getNameImage();
+        if ($erro):
+            $this->inscDuplicada ="Já exite uma inscrição realizada com o mesmo "
+                . implode(", ", $Campo) . ", em caso de dúvidas entrar em contato com a comissão do retiro.";
+        else:
+            $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
+            $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
+
+            $inscricao[CO_PESSOA] = $pessoaService->Salva($pessoa);
+            $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
+            );
+            $inscricao[DS_RETIRO] = FuncoesSistema::retornoCheckbox(
+                (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
+            );
+            $inscricao[NU_CAMISA] = $dados[NU_CAMISA][0];
+            $inscricao[ST_EQUIPE_TRABALHO] = SimNaoEnum::NAO;
+            $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
+
+            $imagem[DS_CAMINHO] = "";
+            if ($foto[DS_CAMINHO]["tmp_name"]):
+                $foto = $_FILES[DS_CAMINHO];
+                $nome = Valida::ValNome($dados[NO_PESSOA]);
+                $up = new Upload();
+                $up->UploadImagens($foto, $nome, "inscricoes");
+                $imagem[DS_CAMINHO] = $up->getNameImage();
+            endif;
+            $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
+
+            $coInscricao = $inscricaoService->Salva($inscricao);
+
+            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/FormaDePagamento/' .
+                Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
         endif;
-        $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
 
-        $coInscricao = $inscricaoService->Salva($inscricao);
 
-        Redireciona(UrlAmigavel::$modulo.'/'.UrlAmigavel::$controller.'/FormaDePagamento/'. Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
     }
 }

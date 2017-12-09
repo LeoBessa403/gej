@@ -35,8 +35,8 @@ require_once 'library/Config.inc.php';
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/css3-animation/animations.css">
 
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/iCheck/skins/all.css">
-    <link rel="stylesheet"
-          href="<?php echo PASTAADMIN; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+<!--    <link rel="stylesheet"-->
+<!--          href="--><?php //echo PASTAADMIN; ?><!--plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">-->
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
 
     <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
@@ -396,19 +396,20 @@ require_once 'library/Config.inc.php';
         $.stellar();
         $('#co_tipo_pagamento').change(function () {
             var tipoPagamento = $(this).val();
-            if(tipoPagamento == 1){
+            z
+            if (tipoPagamento == 1) {
                 $("#dinheiro").show();
                 $("#cartao").hide();
                 $("#deposito").hide()
-            }else if(tipoPagamento == 2){
+            } else if (tipoPagamento == 2) {
                 $("#dinheiro").hide();
                 $("#cartao").show();
                 $("#deposito").hide()
-            }else if(tipoPagamento == 3){
+            } else if (tipoPagamento == 3) {
                 $("#dinheiro").hide();
                 $("#cartao").hide();
                 $("#deposito").show()
-            }else{
+            } else {
                 $("#dinheiro").hide();
                 $("#cartao").hide();
                 $("#deposito").hide()

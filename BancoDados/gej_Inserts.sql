@@ -27,7 +27,8 @@ INSERT INTO `TB_FUNCIONALIDADE` (`co_funcionalidade`, `no_funcionalidade`, `ds_r
 INSERT INTO `TB_PERFIL` (`co_perfil`, `no_perfil`, `st_status`) VALUES
 (1, 'Master', 'A'),
 (2, 'Coordenador', 'A'),
-(3, 'Membro', 'A');
+(3, 'Membro', 'A'),
+(3, 'Comissão', 'A');
 
 INSERT INTO `TB_PERFIL_FUNCIONALIDADE` (`co_perfil_funcionalidade`, `co_perfil`, `co_funcionalidade`) VALUES
 (1, 1, 1),
