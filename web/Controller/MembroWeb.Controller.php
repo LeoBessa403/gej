@@ -96,37 +96,36 @@ class MembroWeb extends AbstractController
 
         $endereco[SG_UF] = $dados[SG_UF][0];
 
-        $pessoa[NO_PESSOA] = strtoupper($dados[NO_PESSOA]);
+        $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
         $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
         $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
 
-        $user[NO_PESSOA] = strtoupper($dados[NO_PESSOA]);
-        /** @var PessoaEntidade $userNome */
-        $userNome = $pessoaService->PesquisaUmQuando($user);
-        $email[DS_EMAIL] = $contato[DS_EMAIL];
-        /** @var ContatoEntidade $userEmail */
-        $userEmail = $contatoService->PesquisaUmQuando($email);
-        $cpf[NU_CPF] = $pessoa[NU_CPF];
-        /** @var PessoaEntidade $userCpf */
-        $userCpf = $pessoaService->PesquisaUmQuando($cpf);
-
         $erro = false;
         $Campo = array();
-        if ($userNome && $userNome->getCoInscricao()) {
-                $Campo[] = "Nome";
+        /** @var InscricaoEntidade $inscricoes */
+        $inscricoes = $inscricaoService->PesquisaTodos();
+
+        /** @var UsuarioEntidade $usuario */
+        foreach ($inscricoes as $inscricao) {
+            if ($inscricao->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
+                $Campo[] = "Nome do Usuário";
                 $erro = true;
-        }
-        if ($userEmail && $userEmail->getCoPessoa()->getCoInscricao()) {
+            }
+            if ($inscricao->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]) {
                 $Campo[] = "E-mail";
                 $erro = true;
-        }
-        if ($userCpf && $userCpf->getCoInscricao()) {
+            }
+            if ($inscricao->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]) {
                 $Campo[] = "CPF";
                 $erro = true;
+            }
+            if ($erro) {
+                break;
+            }
         }
 
         if ($erro):
-            $this->inscDuplicada ="Já exite uma inscrição realizada com o mesmo "
+            $this->inscDuplicada = "Já exite uma inscrição realizada com o mesmo "
                 . implode(", ", $Campo) . ", em caso de dúvidas entrar em contato com a comissão do retiro.";
         else:
             $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);

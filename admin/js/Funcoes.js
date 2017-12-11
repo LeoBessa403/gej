@@ -1,36 +1,10 @@
 var Funcoes = function () {
     var inicio = function () {
 
-        //VARIÁVEIS GLOBAIS
-        var dados = constantes();
-        var urlValida = dados['HOME'] + 'admin/Controller/Ajax.Controller.php';
-        var upload = dados['PASTAUPLOADS'];
-
-        // MASCARA DE CADASTRO DE LIVROS
-        $("#nu_ano_publicacao").mask("9999").change(function () {
-            var ano = $(this).val();
-            var Hoje = new Date();
-            var AnoAtual = Hoje.getFullYear();
-
-            if (ano > AnoAtual) {
-                Funcoes.Alerta(Funcoes.MSG02);
-                $(this).val("");
-                return false;
-            } else if (ano < 1950) {
-                Funcoes.Alerta(Funcoes.MSG03);
-                $(this).val("");
-                return false;
-            }
-        });
-        $("#nu_edicao").mask("9?99");
-        $("#quantidade").mask("9?99");
-        $("#nu_paginas").mask("9?99");
-
 
         $("#ds_pastoral_ativo").change(function () {
             disabilitaCamposRetiro();
-        })
-
+        });
 
         // CADASTRO De Retiro de Carnaval
         function disabilitaCamposRetiro() {
@@ -42,28 +16,6 @@ var Funcoes = function () {
         }
 
         disabilitaCamposRetiro();
-
-
-        $("#st_status").change(function () {
-            disabilitaDtTermino();
-        })
-
-        // CADASTRO de Tarefa
-        function disabilitaDtTermino() {
-            if ($("#st_status").val() == "C") {
-                $("#dt_conclusao").parent().parent(".form-group").slideDown("slow");
-                $("#dt_conclusao").addClass("ob");
-            } else if ($("#st_status").val() == "I") {
-                $("#dt_conclusao").parent().parent(".form-group").slideUp("fast").removeClass("has-error");
-                $("#dt_conclusao").removeClass("ob");
-            } else {
-                $("#dt_conclusao").parent().parent(".form-group").slideUp("fast").removeClass("has-error");
-                $("#dt_conclusao").val("").removeClass("ob");
-            }
-
-        }
-
-        disabilitaDtTermino();
 
         // Valida data
         $("#dt_nascimento").change(function () {
@@ -80,7 +32,7 @@ var Funcoes = function () {
                 $('span#dt_nascimento-info').text("Para maiores de 14 anos");
                 return false;
             }
-        })
+        });
 
         function verificaTodas() {
             var todas = true;
@@ -111,69 +63,6 @@ var Funcoes = function () {
         });
 
         verificaTodas();
-
-
-        // CARREGA MODAL DE FOTOS DA CAPA DO LIVRO
-        $(".fotos").click(function () {
-            var id = $(this).attr("id");
-            var title = $(this).attr("title");
-            $(".foto .modal-body.modal-body img").attr("src", "");
-            $.ajax({
-                url: urlValida,
-                data: {valida: "capa_livro", id: id},
-                method: "GET",
-                type: 'json',
-                beforeSend: function () {
-                    $("#load").click();
-                },
-                success: function (data) {
-                    $("#carregando .cancelar").click();
-                    var objData = jQuery.parseJSON(data);
-                    if (objData.ds_foto_capa) {
-                        $(".foto .modal-header .modal-title").text(title);
-                        $(".foto .modal-body.modal-body img").attr("src", "../../" + upload + objData.ds_foto_capa);
-                        $("#fotos").click();
-                    } else {
-                        Funcoes.Alerta(Funcoes.MSG04);
-                    }
-                }
-            });
-        });
-
-        // RECUPERA OS CÓDIGOS DO LIVRO
-        $(".pesquisa_livro").click(function () {
-            var id = $(this).attr("id");
-            $("#codigos_livro b").text("");
-            $.ajax({
-                url: urlValida,
-                data: {valida: "pesquisa_livro", id: id},
-                method: "GET",
-                type: 'json',
-                beforeSend: function () {
-                    $("#load").click();
-                },
-                success: function (data) {
-                    $("#codigos_livro b").append(data);
-                    $("#carregando .cancelar").click();
-                    $(".modal .btn-success").attr("id", id);
-                }
-            });
-        });
-
-        $("#Reserva .btn-success").click(function () {
-            var id = $(this).attr("id");
-            $("#load").click();
-
-            $.get(urlValida, {valida: 'reservar', id: id}, function (retorno) {
-                if (retorno != "") {
-                    Funcoes.Sucesso("Reserva efetuada com sucesso!");
-                } else {
-                    Funcoes.Erro("Foi identificado um Erro<br>Favor entrar em contato com o Administrador do Sistema<br>Informando o erro ocorrido.");
-                }
-
-                $("#carregando .cancelar").click();
-            });
-        });
     };
     return {
         init: function () {
