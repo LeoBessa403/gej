@@ -81,7 +81,6 @@ class Usuario extends AbstractController
         /** @var UsuarioPerfilService $usuarioPerfilService */
         $usuarioPerfilService = $this->getService(USUARIO_PERFIL_SERVICE);
         $session = new Session();
-
         if ($session->CheckSession(SESSION_USER)) {
             /** @var Session $us */
             $us = $_SESSION[SESSION_USER];
@@ -133,7 +132,6 @@ class Usuario extends AbstractController
             $session->setSession(MENSAGEM, "Já exite usuário cadastro com o mesmo "
                 . implode(", ", $Campo) . ", Favor Verificar.");
         else:
-
             $imagem[DS_CAMINHO] = "";
             if ($foto[DS_CAMINHO]["tmp_name"]):
                 $foto = $_FILES[DS_CAMINHO];
@@ -208,9 +206,6 @@ class Usuario extends AbstractController
                     $usuarioPerfil[CO_PERFIL] = 3;
                     $usuarioPerfilService->Salva($usuarioPerfil);
                 endif;
-
-                $session->setSession(CADASTRADO, 'OK');
-
             endif;
 
             if (!$resgistrar) {
@@ -220,7 +215,7 @@ class Usuario extends AbstractController
                     Redireciona(UrlAmigavel::$modulo.'/Index/Index/');
                 }
             }else{
-                Redireciona('admin/Index/Acessar/');
+                Redireciona('admin/Index/Acessar/'.Valida::GeraParametro('acesso/C'));
             }
         endif;
     }

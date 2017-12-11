@@ -124,6 +124,10 @@ class Index extends AbstractController
                 $msg = "Sua Sessão foi Expirada!";
                 $class = 2;
                 break;
+            case 'C':
+                $msg = Mensagens::USUARIO_CADASTRADO_SUCESSO;
+                $class = 1;
+                break;
             default:
                 $visivel = false;
                 break;
