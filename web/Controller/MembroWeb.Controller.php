@@ -105,17 +105,17 @@ class MembroWeb extends AbstractController
         /** @var InscricaoEntidade $inscricoes */
         $inscricoes = $inscricaoService->PesquisaTodos();
 
-        /** @var UsuarioEntidade $usuario */
-        foreach ($inscricoes as $inscricao) {
-            if ($inscricao->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
+        /** @var InscricaoEntidade $insc */
+        foreach ($inscricoes as $insc) {
+            if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
                 $Campo[] = "Nome do Usuário";
                 $erro = true;
             }
-            if ($inscricao->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]) {
+            if ($insc->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]) {
                 $Campo[] = "E-mail";
                 $erro = true;
             }
-            if ($inscricao->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]) {
+            if ($insc->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]) {
                 $Campo[] = "CPF";
                 $erro = true;
             }
@@ -152,6 +152,8 @@ class MembroWeb extends AbstractController
             endif;
             $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
 
+
+            debug($inscricao);
             $coInscricao = $inscricaoService->Salva($inscricao);
 
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/FormaDePagamento/' .

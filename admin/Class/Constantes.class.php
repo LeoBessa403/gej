@@ -52,6 +52,8 @@
 	define('NO_RESPONSAVEL', 'no_responsavel');
 	define('NU_TEL_RESPONSAVEL', 'nu_tel_responsavel');
 	define('DS_DESCRICAO', 'ds_descricao');
+	define('DS_ALIMENTACAO', 'ds_alimentacao');
+	define('DS_MEDICACAO', 'ds_medicacao');
 	define('CO_PESSOA', 'co_pessoa');
 	define('CO_MEMBRO', 'co_membro');
 	define('ST_ESTUDA', 'st_estuda');

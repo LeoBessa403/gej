@@ -223,6 +223,20 @@ class MembroWebForm
             ->setClasses("ob")
             ->CriaInpunt();
 
+        $formulario
+            ->setId(DS_MEDICACAO)
+            ->setLabel("Uso de Medicação?")
+            ->setType("textarea")
+            ->setInfo("Descreva se faz uso de alguma medicação e como utiliza.")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_ALIMENTACAO)
+            ->setLabel("Restrição Alimentar?")
+            ->setType("textarea")
+            ->setInfo("Descreva se tiver alguma restrição alimentar.")
+            ->CriaInpunt();
+
         if ($CoInscricao) {
             $formulario
                 ->setType("hidden")

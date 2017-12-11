@@ -135,6 +135,8 @@ CREATE TABLE IF NOT EXISTS `gej_bd`.`TB_INSCRICAO` (
   `no_responsavel` VARCHAR(50) NOT NULL,
   `nu_tel_responsavel` VARCHAR(15) NOT NULL,
   `ds_descricao` TEXT NOT NULL,
+  `ds_medicacao` TEXT NOT NULL,
+  `ds_alimentacao` TEXT NOT NULL,
   `co_pessoa` INT NOT NULL,
   `co_imagem` INT(10) NOT NULL,
   PRIMARY KEY (`co_inscricao`, `co_pessoa`, `co_imagem`),

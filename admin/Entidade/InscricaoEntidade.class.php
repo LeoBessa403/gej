@@ -21,6 +21,8 @@ class InscricaoEntidade extends AbstractEntidade
 	private $no_responsavel;
 	private $nu_tel_responsavel;
 	private $ds_descricao;
+	private $ds_alimentacao;
+	private $ds_medicacao;
 	private $st_equipe_trabalho;
 	private $co_pessoa;
 	private $co_imagem;
@@ -41,6 +43,8 @@ class InscricaoEntidade extends AbstractEntidade
 			NO_RESPONSAVEL,
 			NU_TEL_RESPONSAVEL,
 			DS_DESCRICAO,
+			DS_ALIMENTACAO,
+			DS_MEDICACAO,
 			ST_EQUIPE_TRABALHO,
 			CO_PESSOA,
 			CO_IMAGEM,
@@ -208,6 +212,38 @@ class InscricaoEntidade extends AbstractEntidade
     {
         return $this->ds_descricao = $ds_descricao;
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getDsAlimentacao()
+	{
+		return $this->ds_alimentacao;
+	}
+
+	/**
+	 * @param mixed $ds_alimentacao
+	 */
+	public function setDsAlimentacao($ds_alimentacao)
+	{
+		$this->ds_alimentacao = $ds_alimentacao;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getDsMedicacao()
+	{
+		return $this->ds_medicacao;
+	}
+
+	/**
+	 * @param mixed $ds_medicacao
+	 */
+	public function setDsMedicacao($ds_medicacao)
+	{
+		$this->ds_medicacao = $ds_medicacao;
+	}
 
 	/**
 	* @return PessoaEntidade $co_pessoa
