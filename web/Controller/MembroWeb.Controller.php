@@ -152,8 +152,6 @@ class MembroWeb extends AbstractController
             endif;
             $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
 
-
-            debug($inscricao);
             $coInscricao = $inscricaoService->Salva($inscricao);
 
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/FormaDePagamento/' .
