@@ -52,14 +52,6 @@
                     <big><b><?php
                             echo FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
                             ?></b></big></p>
-<!--                <form action="admin/Pagamento/ListarPagamento" method="post">-->
-<!--                    <button data-style="zoom-out" class="btn btn-primary ladda-button" type="submit"-->
-<!--                            style="margin-top: 10px;">-->
-<!--                        <span class="ladda-label"> Voltar aos pagamentos </span>-->
-<!--                        <i class="clip-arrow-right-2"></i>-->
-<!--                        <span class="ladda-spinner"></span>-->
-<!--                    </button>-->
-<!--                </form>-->
             </div>
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -108,9 +100,9 @@
                     </div>
                 </div>
                 <!-- end: DYNAMIC TABLE PANEL -->
+                <?php Valida::geraBtnVoltar(); ?>
+                <br><br><br>
             </div>
-
-
         </div>
         <!-- end: PAGE CONTENT-->
     </div>
