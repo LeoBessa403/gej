@@ -25,6 +25,7 @@ class Index extends AbstractController
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
+
             if ($inscricao->getDsMembroAtivo() == "N") {
                 $dados['TotalNaoMembros'] = $dados['TotalNaoMembros'] + 1;
             } else {
@@ -43,6 +44,14 @@ class Index extends AbstractController
                 $parcela[CO_TIPO_PAGAMENTO] = 1;
                 $parcela[NU_PARCELA] = 1;
                 $parcela[NU_VALOR_PARCELA] = '150.00';
+                $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
+
+                $parcelamentoService->Salva($parcela);
+            }elseif(!$inscricao->getCoPagamento()->getCoParcelamento()){
+                $parcela[CO_PAGAMENTO] = $inscricao->getCoPagamento()->getCoPagamento();
+                $parcela[CO_TIPO_PAGAMENTO] = 1;
+                $parcela[NU_PARCELA] = 1;
+                $parcela[NU_VALOR_PARCELA] = $inscricao->getCoPagamento()->getNuTotal();
                 $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
                 $parcelamentoService->Salva($parcela);
