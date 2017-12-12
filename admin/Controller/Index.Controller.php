@@ -14,7 +14,6 @@ class Index extends AbstractController
 
         $inscricoes = $inscricaoService->PesquisaTodos();
         $dados['TotalInscricoes'] = count($inscricoes);
-        $dados['TotalArrecadado'] = 0;
         $dados['TotalNaoMembros'] = 0;
         $dados['TotalMembros'] = 0;
         $dados['TotalServos'] = 0;
@@ -22,6 +21,9 @@ class Index extends AbstractController
         $dados['TotalParcial'] = 0;
         $dados['TotalConcluido'] = 0;
         $dados['TotalInscricoesRestantes'] = 0;
+        $dados['TotalInscricoesCartao'] = 0;
+        $dados['TotalAArrecadar'] = 0;
+        $dados['TotalArrecadado'] = 0;
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
@@ -47,7 +49,7 @@ class Index extends AbstractController
                 $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
                 $parcelamentoService->Salva($parcela);
-            }elseif(!$inscricao->getCoPagamento()->getCoParcelamento()){
+            } elseif (!$inscricao->getCoPagamento()->getCoParcelamento()) {
                 $parcela[CO_PAGAMENTO] = $inscricao->getCoPagamento()->getCoPagamento();
                 $parcela[CO_TIPO_PAGAMENTO] = 1;
                 $parcela[NU_PARCELA] = 1;
@@ -60,18 +62,28 @@ class Index extends AbstractController
             $inscricao = $inscricaoService->PesquisaUmRegistro($inscricao->getCoInscricao());
 
             /** @var PagamentoEntidade $pagamentoInscricao */
-            $pagamentoInscricao = $pagamentoService->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
+            $pagamentoInscricao = $pagamentoService->PesquisaUmRegistro(
+                $inscricao->getCoPagamento()->getCoPagamento()
+            );
+
+            if ($pagamentoInscricao->getNuParcelas() == 1
+                && $pagamentoInscricao->getCoParcelamento()[0]->getCoTipoPagamento()->getCoTipoPagamento()
+                == TipoPagamentoEnum::CARTAO_CREDITO
+            ) {
+                $dados['TotalInscricoesCartao'] = $dados['TotalInscricoesCartao'] + 1;
+            }
+
             switch ($pagamentoInscricao->getTpSituacao()) {
-                case "C":
+                case StatusPagamentoEnum::CONCLUIDO:
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
                     if ($inscricao->getStEquipeTrabalho() == "N") {
                         $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
                     }
                     break;
-                case "N":
+                case StatusPagamentoEnum::NAO_INICIADA:
                     $dados['TotalNaoPago'] = $dados['TotalNaoPago'] + 1;
                     break;
-                case "I":
+                case StatusPagamentoEnum::INICIADA:
                     $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
                     if ($inscricao->getStEquipeTrabalho() == "N") {
                         $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
@@ -83,8 +95,10 @@ class Index extends AbstractController
             foreach ($pagamentoInscricao->getCoParcelamento() as $pagamentoInsc) {
                 $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
             }
+            $dados['TotalAArrecadar'] = $dados['TotalAArrecadar'] + $pagamentoInscricao->getNuTotal();
         }
-        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalInscricoes'] * 150.00 - $dados['TotalArrecadado']);
+
+        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
 
         $this->dados = $dados;
