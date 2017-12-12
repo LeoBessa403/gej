@@ -199,10 +199,10 @@ class Inscricao extends AbstractController
         $exporta->GeraArquivo();
     }
 
-//    public function ListarInscricaoPesquisaAvancada()
-//    {
-//        echo InscricaoForm::Pesquisar();
-//    }
+    public function ListarInscricaoPesquisaAvancada()
+    {
+        echo InscricaoForm::Pesquisar();
+    }
 
     public static function FormasDePagamento()
     {
@@ -219,9 +219,9 @@ class Inscricao extends AbstractController
     public static function SituacaoPagamento()
     {
         $SituacaoPagamento[""] = "Situação do Pagamento";
-        $SituacaoPagamento["N"] = "Não Pago";
-        $SituacaoPagamento["I"] = "Parcial";
-        $SituacaoPagamento["C"] = "Concluído";
+        $SituacaoPagamento["N"] = StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::NAO_INICIADA);
+        $SituacaoPagamento["I"] = StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::INICIADA);
+        $SituacaoPagamento["C"] = StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::CONCLUIDO);
         return $SituacaoPagamento;
     }
 

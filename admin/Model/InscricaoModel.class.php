@@ -24,7 +24,13 @@ class  InscricaoModel extends AbstractModel
         $pesquisa = new Pesquisa();
         $where = $pesquisa->getClausula($Condicoes);
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
-        return $this->getUmObjeto(InscricaoEntidade::ENTIDADE, $pesquisa->getResult());;
+        $inscricoes = [];
+        /** @var InscricaoEntidade $inscricao */
+        foreach ($pesquisa->getResult() as $inscricao){
+            $insc[0] = $inscricao;
+            $inscricoes[] = $this->getUmObjeto(InscricaoEntidade::ENTIDADE, $insc);
+        }
+        return $inscricoes;
 
     }
 
