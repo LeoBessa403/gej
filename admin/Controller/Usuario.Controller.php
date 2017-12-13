@@ -2,8 +2,9 @@
 
 class Usuario extends AbstractController
 {
-    private $idUsuario;
     public $form;
+    public $result;
+    public $perfis;
 
     public function Index()
     {
@@ -14,13 +15,15 @@ class Usuario extends AbstractController
         /** @var Session $us */
         $us = $_SESSION[SESSION_USER];
         $user = $us->getUser();
-        $this->idUsuario = $user[md5(CO_USUARIO)];
-        $this->CadastroUsuario(true);
-        UrlAmigavel::$action = "CadastroUsuario";
+        $idUsuario = $user[md5(CO_USUARIO)];
+        Redireciona('admin/Usuario/CadastroUsuario/'.Valida::GeraParametro('usu/'.$idUsuario));
     }
 
-    public function CadastroUsuario($meuPerfil = false)
+    public function CadastroUsuario()
     {
+        /** @var PerfilService $perfilService */
+        $perfilService = static::getService(PERFIL_SERVICE);
+
         $id = "CadastroUsuario";
 
         if (!empty($_POST[$id])):
@@ -28,9 +31,6 @@ class Usuario extends AbstractController
         endif;
 
         $idCoUsuario = UrlAmigavel::PegaParametro("usu");
-        if ($meuPerfil):
-            $idCoUsuario = $this->idUsuario;
-        endif;
         $res = array();
         if ($idCoUsuario):
             /** @var UsuarioService $usuarioService */
@@ -63,7 +63,7 @@ class Usuario extends AbstractController
             $res[SG_UF] = $usuario->getCoPessoa()->getCoEndereco()->getSgUf();
         endif;
 
-        $this->form = UsuarioForm::Cadastrar($res);
+        $this->form = UsuarioForm::Cadastrar($res, false, 6, $perfilService);
     }
 
     public function salvaUsuario($dados, $foto, $resgistrar = false)

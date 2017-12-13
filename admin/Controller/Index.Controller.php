@@ -106,13 +106,16 @@ class Index extends AbstractController
 
     function Registrar()
     {
+        /** @var PerfilService $perfilService */
+        $perfilService = static::getService(PERFIL_SERVICE);
+        
         $id = "CadastroUsuario";
         if (!empty($_POST[$id])):
             $usuarioControl = new Usuario();
             $usuarioControl->salvaUsuario($_POST, $_FILES, true);
         endif;
 
-        $this->form = UsuarioForm::Cadastrar(false, true, 12);
+        $this->form = UsuarioForm::Cadastrar(false, true, 12, $perfilService);
     }
 
     public function Acessar()
