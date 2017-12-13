@@ -131,7 +131,6 @@ class Inscricao extends AbstractController
     {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-        $inscricaoModel = new InscricaoModel();
         $session = new Session();
 
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
@@ -146,7 +145,7 @@ class Inscricao extends AbstractController
                 "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
-            $this->result = $inscricaoModel->PesquisaAvancada($Condicoes);
+            $this->result = $inscricaoService->PesquisaAvancada($Condicoes);
         } else {
             $this->result = $inscricaoService->PesquisaTodos();
         }

@@ -31,7 +31,6 @@ class  InscricaoModel extends AbstractModel
             $inscricoes[] = $this->getUmObjeto(InscricaoEntidade::ENTIDADE, $insc);
         }
         return $inscricoes;
-
     }
 
 }

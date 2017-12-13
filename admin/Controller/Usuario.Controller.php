@@ -222,8 +222,11 @@ class Usuario extends AbstractController
 
     public function ListarUsuario()
     {
-        $perfilControl = new Perfil();
-        $usuarioModel = new UsuarioModel();
+        /** @var PerfilService $perfilService */
+        $perfilService = $this->getService(PERFIL_SERVICE);
+        /** @var UsuarioService $usuarioService */
+        $usuarioService = $this->getService(USUARIO_SERVICE);
+
         $dados = array();
         $session = new Session();
 
@@ -231,30 +234,19 @@ class Usuario extends AbstractController
             $session->FinalizaSession(PESQUISA_AVANCADA);
         }
         if (!empty($_POST)) {
-            $dados = array(
-                NO_PESSOA => trim($_POST[NO_PESSOA]),
-                NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
+            $Condicoes = array(
+                "pes." . NO_PESSOA => trim($_POST[NO_PESSOA]),
+                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
             );
-            $session->setSession(PESQUISA_AVANCADA, $dados);
-            $pessoaModel = new PessoaModel();
-            $pessoas = $pessoaModel->PesquisaTodos($dados);
-            $todos = array();
-            foreach ($pessoas as $pessoa) {
-                $todos[] = $pessoa->getCoUsuario()->getCoUsuario();
-            }
-            if ($todos) {
-                $usuarios[CO_USUARIO] = implode(', ', $todos);
-                $this->result = $usuarioModel->PesquisaTodos($usuarios);
-            } else {
-                $this->result = array();
-            }
+            $session->setSession(PESQUISA_AVANCADA, $Condicoes);
+            $this->result = $usuarioService->PesquisaAvancada($Condicoes);
         } else {
-            $this->result = $usuarioModel->PesquisaTodos($dados);
+            $this->result = $usuarioService->PesquisaTodos($dados);
         }
 
         /** @var UsuarioEntidade $value */
         foreach ($this->result as $value):
-            $this->perfis[$value->getCoUsuario()] = implode(', ', $perfilControl->montaComboPerfil($value));
+            $this->perfis[$value->getCoUsuario()] = implode(', ', $perfilService->montaComboPerfil($value));
         endforeach;
     }
 
