@@ -253,19 +253,15 @@ class Usuario extends AbstractController
     // AÇÃO DE EXPORTAÇÃO
     public function ExportarListarUsuario()
     {
-        $usuarioModel = new UsuarioModel();
+        /** @var UsuarioService $usuarioService */
+        $usuarioService = $this->getService(USUARIO_SERVICE);
+
         $session = new Session();
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
-            $dados = $session->getSession(PESQUISA_AVANCADA);
-            $pessoaModel = new PessoaModel();
-            $pessoas = $pessoaModel->PesquisaTodos($dados);
-            foreach ($pessoas as $pessoa) {
-                $todos[] = $pessoa->getCoUsuario()->getCoUsuario();
-            }
-            $usuarios[CO_USUARIO] = implode(', ', $todos);
-            $result = $usuarioModel->PesquisaTodos($usuarios);
+            $Condicoes = $session->getSession(PESQUISA_AVANCADA);
+            $result =  $usuarioService->PesquisaAvancada($Condicoes);
         } else {
-            $result = $usuarioModel->PesquisaTodos();
+            $result = $usuarioService->PesquisaTodos();
         }
         $formato = UrlAmigavel::PegaParametro("formato");
         $i = 0;

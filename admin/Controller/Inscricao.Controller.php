@@ -156,18 +156,11 @@ class Inscricao extends AbstractController
     {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-        $inscricaoModel = new InscricaoModel();
+
         $session = new Session();
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
-            $Condicoes = array(
-                "pes." . NO_PESSOA => trim($_POST[NO_PESSOA]),
-                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
-                "pag." . TP_SITUACAO => $_POST[TP_SITUACAO][0],
-                "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
-                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
-            );
-            $session->setSession(PESQUISA_AVANCADA, $Condicoes);
-            $result = $inscricaoModel->PesquisaAvancada($Condicoes);
+            $Condicoes = $session->getSession(PESQUISA_AVANCADA);
+            $result =  $inscricaoService->PesquisaAvancada($Condicoes);
         } else {
             $result = $inscricaoService->PesquisaTodos();
         }
