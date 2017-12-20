@@ -3,6 +3,7 @@
 class Inscricao extends AbstractController
 {
     public $result;
+    public $form;
 
     public function Index()
     {
@@ -13,62 +14,20 @@ class Inscricao extends AbstractController
         $id = "DetalharInscricao";
 
         if (!empty($_POST[$id])):
+            debug($_POST);
+            /** @var InscricaoService $inscricaoService */
+            $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+            $inscricaoService->salvarInscricao($_POST, $_FILES);
+          
 
-            $dados = $_POST;
-            $EnderecoModel = new EnderecoModel();
-            $ContatoModel = new ContatoModel();
-            $PessoaModel = new PessoaModel();
-            $InscricaoModel = new InscricaoModel();
-            $PagamentoModel = new PagamentoModel();
-            $ParcelamentoModel = new ParcelamentoModel();
-            $coInscricao = $dados[CO_INSCRICAO];
-            /** @var InscricaoEntidade $inscricao */
-            $inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
-            /** @var PagamentoEntidade $pagamentoInsc */
-            $pagamentoInsc = $PagamentoModel->PesquisaUmRegistro($inscricao->getCoPagamento()->getCoPagamento());
-
-            $endereco[DS_ENDERECO] = $dados[DS_ENDERECO];
-            $endereco[DS_COMPLEMENTO] = $dados[DS_COMPLEMENTO];
-            $endereco[DS_BAIRRO] = $dados[DS_BAIRRO];
-            $endereco[NO_CIDADE] = $dados[NO_CIDADE];
-            $endereco[NU_CEP] = Valida::RetiraMascara($dados[NU_CEP]);
-            $endereco[SG_UF] = $dados[SG_UF][0];
-
-            $contato[DS_EMAIL] = trim($dados[DS_EMAIL]);
-            $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
-            $contato[NU_TEL2] = Valida::RetiraMascara($dados[NU_TEL2]);
-
-            $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
-            $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
-            $pessoa[NU_RG] = Valida::RetiraMascara($dados[NU_RG]);
-            $pessoa[DT_NASCIMENTO] = Valida::DataDBDate($dados[DT_NASCIMENTO]);
-            $pessoa[ST_SEXO] = $dados[ST_SEXO][0];
-            $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
-
-            $EnderecoModel->Salva($endereco, $inscricao->getCoPessoa()->getCoEndereco()->getCoEndereco());
-            $ContatoModel->Salva($contato, $inscricao->getCoPessoa()->getCoContato()->getCoContato());
-
-            $PessoaModel->Salva($pessoa, $inscricao->getCoPessoa()->getCoPessoa());
-
-            $insc[DS_PASTORAL] = $dados[DS_PASTORAL];
-            $insc[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
-                (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
-            );
-            $insc[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
-                (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
-            );
-            $insc[NU_CAMISA] = $dados[NU_CAMISA][0];
-            $insc[NO_RESPONSAVEL] = strtoupper(trim($dados[NO_RESPONSAVEL]));
-            $insc[NU_TEL_RESPONSAVEL] = Valida::RetiraMascara($dados[NU_TEL_RESPONSAVEL]);
-
-            $InscricaoModel->Salva($insc, $coInscricao);
+            $inscricaoService->Salva($insc, $coInscricao);
 
             $pagamento[NU_PARCELAS] = $dados[NU_PARCELAS][0];
-            $PagamentoModel->Salva($pagamento, $pagamentoInsc->getCoPagamento());
+            $pagamentoService->Salva($pagamento, $pagamentoInsc->getCoPagamento());
 
             /** @var ParcelamentoEntidade $parcela */
             foreach ($pagamentoInsc->getCoParcelamento() as $parcela) {
-                $ParcelamentoModel->Deleta($parcela->getCoParcelamento());
+                $parcelamentoService->Deleta($parcela->getCoParcelamento());
             }
 
             for ($i = 0; $i < $pagamento[NU_PARCELAS]; $i++) {
@@ -79,19 +38,19 @@ class Inscricao extends AbstractController
                     CO_TIPO_PAGAMENTO => 1,
                     CO_PAGAMENTO => $pagamentoInsc->getCoPagamento(),
                 );
-                $ParcelamentoModel->Salva($novaParcela);
+                $parcelamentoService->Salva($novaParcela);
             }
-            unset($_POST);
-            $this->ListarInscricao();
-            UrlAmigavel::$action = "ListarInscricao";
+            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
         endif;
 
         $coInscricao = UrlAmigavel::PegaParametro("insc");
+
         $res = array();
         if ($coInscricao):
-            $InscricaoModel = new InscricaoModel();
+            /** @var InscricaoService $inscricaoService */
+            $inscricaoService = $this->getService(INSCRICAO_SERVICE);
             /** @var InscricaoEntidade $inscricao */
-            $inscricao = $InscricaoModel->PesquisaUmQuando([CO_INSCRICAO => $coInscricao]);
+            $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
 
             $res[DS_MEMBRO_ATIVO] = ($inscricao->getDsMembroAtivo() == 'S')
                 ? 'checked' : '';
@@ -122,6 +81,9 @@ class Inscricao extends AbstractController
             $res[NO_CIDADE] = $inscricao->getCoPessoa()->getCoEndereco()->getNoCidade();
             $res[NU_CEP] = $inscricao->getCoPessoa()->getCoEndereco()->getNuCep();
             $res[SG_UF] = $inscricao->getCoPessoa()->getCoEndereco()->getSgUf();
+            $res[DS_DESCRICAO] = $inscricao->getDsDescricao();
+            $res[DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();
+            $res[DS_MEDICACAO] = $inscricao->getDsMedicacao();
             $this->form = MembroWebForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
         endif;
 
