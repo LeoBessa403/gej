@@ -4,6 +4,7 @@ class Inscricao extends AbstractController
 {
     public $result;
     public $form;
+    public $inscDuplicada;
 
     public function Index()
     {
@@ -11,36 +12,44 @@ class Inscricao extends AbstractController
 
     public function DetalharInscricao()
     {
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+        /** @var PagamentoService $pagamentoService */
+        $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        /** @var ParcelamentoService $parcelamentoService */
+        $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+        $this->inscDuplicada = false;
         $id = "DetalharInscricao";
 
         if (!empty($_POST[$id])):
-            debug($_POST);
-            /** @var InscricaoService $inscricaoService */
-            $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-            $inscricaoService->salvarInscricao($_POST, $_FILES);
-          
+            $retorno = $inscricaoService->salvarInscricao($_POST, $_FILES, $_POST[CO_INSCRICAO]);
+            if ($retorno[SUCESSO]) {
+                /** @var InscricaoEntidade $inscricaoEdicao */
+                $inscricaoEdicao = $inscricaoService->PesquisaUmRegistro($_POST[CO_INSCRICAO]);
+                /** @var PagamentoEntidade $pagamento */
+                $pagamento = $inscricaoEdicao->getCoPagamento();
+                $numeroParcelas = $_POST[NU_PARCELAS][0];
 
-            $inscricaoService->Salva($insc, $coInscricao);
+                $pag[NU_PARCELAS] = $numeroParcelas;
+                $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
+                $valorInscricao = $pagamentoService->pegaValorInscricao($pagamento);
 
-            $pagamento[NU_PARCELAS] = $dados[NU_PARCELAS][0];
-            $pagamentoService->Salva($pagamento, $pagamentoInsc->getCoPagamento());
+                $parcelamentoService->DeletaQuando([CO_PAGAMENTO => $pagamento->getCoPagamento()]);
 
-            /** @var ParcelamentoEntidade $parcela */
-            foreach ($pagamentoInsc->getCoParcelamento() as $parcela) {
-                $parcelamentoService->Deleta($parcela->getCoParcelamento());
+                for ($i = 0; $i < $numeroParcelas; $i++) {
+                    $novaParcela = array(
+                        NU_PARCELA => $i + 1,
+                        NU_VALOR_PARCELA => ($valorInscricao / $numeroParcelas),
+                        DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
+                        CO_TIPO_PAGAMENTO => 1,
+                        CO_PAGAMENTO => $pagamento->getCoPagamento(),
+                    );
+                    $parcelamentoService->Salva($novaParcela);
+                }
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
+            } else {
+                $this->inscDuplicada = $retorno[MSG];
             }
-
-            for ($i = 0; $i < $pagamento[NU_PARCELAS]; $i++) {
-                $novaParcela = array(
-                    NU_PARCELA => $i + 1,
-                    NU_VALOR_PARCELA => (150.00 / $pagamento[NU_PARCELAS]),
-                    DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
-                    CO_TIPO_PAGAMENTO => 1,
-                    CO_PAGAMENTO => $pagamentoInsc->getCoPagamento(),
-                );
-                $parcelamentoService->Salva($novaParcela);
-            }
-            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
         endif;
 
         $coInscricao = UrlAmigavel::PegaParametro("insc");
@@ -84,6 +93,9 @@ class Inscricao extends AbstractController
             $res[DS_DESCRICAO] = $inscricao->getDsDescricao();
             $res[DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();
             $res[DS_MEDICACAO] = $inscricao->getDsMedicacao();
+            if ($inscricao->getCoImagem()->getDsCaminho()):
+                $res[DS_CAMINHO] = "inscricoes/" . $inscricao->getCoImagem()->getDsCaminho();
+            endif;
             $this->form = MembroWebForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
         endif;
 
@@ -122,7 +134,7 @@ class Inscricao extends AbstractController
         $session = new Session();
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
             $Condicoes = $session->getSession(PESQUISA_AVANCADA);
-            $result =  $inscricaoService->PesquisaAvancada($Condicoes);
+            $result = $inscricaoService->PesquisaAvancada($Condicoes);
         } else {
             $result = $inscricaoService->PesquisaTodos();
         }
@@ -216,12 +228,12 @@ class Inscricao extends AbstractController
             $pagamentos = $PagamentoModel->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
             /** @var ParcelamentoEntidade $parcela */
             $total = 0;
-            foreach ($pagamentos->getCoParcelamento() as $parcela){
+            foreach ($pagamentos->getCoParcelamento() as $parcela) {
                 $total = $total + $parcela->getNuValorParcelaPago();
             }
-            if($total == 160){
+            if ($total == 160) {
                 $pag[TP_SITUACAO] = "C";
-            }elseif($total > 0){
+            } elseif ($total > 0) {
                 $pag[TP_SITUACAO] = "I";
             }
             $PagamentoModel->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());

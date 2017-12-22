@@ -6,8 +6,8 @@
  */
 class  InscricaoService extends AbstractService
 {
-    private $ObjetoModel; 
-    
+    private $ObjetoModel;
+
     public function __construct()
     {
         parent::__construct(InscricaoEntidade::ENTIDADE);
@@ -29,7 +29,10 @@ class  InscricaoService extends AbstractService
         $pessoaService = $this->getService(PESSOA_SERVICE);
         /** @var ImagemService $imagemService */
         $imagemService = $this->getService(IMAGEM_SERVICE);
-
+        $retorno = [
+            SUCESSO => true,
+            MSG => null
+        ];
         $endereco = $enderecoService->getDados($dados, EnderecoEntidade::ENTIDADE);
         $contato = $contatoService->getDados($dados, ContatoEntidade::ENTIDADE);
         $inscricao = $this->getDados($dados, InscricaoEntidade::ENTIDADE);
@@ -48,26 +51,29 @@ class  InscricaoService extends AbstractService
 
         /** @var InscricaoEntidade $insc */
         foreach ($inscricoes as $insc) {
-            if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
-                $Campo[] = "Nome do Usuário";
-                $erro = true;
-            }
-            if ($insc->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]) {
-                $Campo[] = "E-mail";
-                $erro = true;
-            }
-            if ($insc->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]) {
-                $Campo[] = "CPF";
-                $erro = true;
-            }
-            if ($erro) {
-                break;
+            if((!$coInscricao) || ($coInscricao && $insc->getCoInscricao() != $coInscricao)){
+                if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA] ) {
+                    $Campo[] = "Nome do Usuário";
+                    $erro = true;
+                }
+                if ($insc->getCoPessoa()->getCoContato()->getDsEmail() == $contato[DS_EMAIL]) {
+                    $Campo[] = "E-mail";
+                    $erro = true;
+                }
+                if ($insc->getCoPessoa()->getNuCpf() == $pessoa[NU_CPF]) {
+                    $Campo[] = "CPF";
+                    $erro = true;
+                }
+                if ($erro) {
+                    break;
+                }
             }
         }
 
         if ($erro):
-            $this->inscDuplicada = "Já exite uma inscrição realizada com o mesmo "
+            $retorno[MSG] = "Já exite uma inscrição realizada com o mesmo "
                 . implode(", ", $Campo) . ", em caso de dúvidas entrar em contato com a comissão do retiro.";
+            $retorno[SUCESSO] = false;
         else:
             $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
                 (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
@@ -85,10 +91,9 @@ class  InscricaoService extends AbstractService
                 $up = new Upload();
                 $up->UploadImagens($foto, $nome, "inscricoes");
                 $imagem[DS_CAMINHO] = $up->getNameImage();
-                
             endif;
 
-            if(!$coInscricao){
+            if (!$coInscricao) {
                 $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
                 $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
 
@@ -97,12 +102,23 @@ class  InscricaoService extends AbstractService
 
                 $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
 
-                return $this->Salva($inscricao);
-            }else{
-                
-            }
+                $retorno[CO_INSCRICAO] = $this->Salva($inscricao);
+            } else {
+                /** @var InscricaoEntidade $inscricaoEdicao */
+                $inscricaoEdicao = $this->PesquisaUmRegistro($coInscricao);
 
+                $enderecoService->Salva($endereco, $inscricaoEdicao->getCoPessoa()->getCoEndereco()->getCoEndereco());
+                $contatoService->Salva($contato, $inscricaoEdicao->getCoPessoa()->getCoContato()->getCoContato());
+                if ($foto[DS_CAMINHO]["tmp_name"]):
+                    $imagemService->Salva($imagem, $inscricaoEdicao->getCoImagem()->getCoImagem());
+                endif;
+                $inscricao[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
+                    (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
+                );
+                $this->Salva($inscricao,$coInscricao);
+            }
         endif;
+        return $retorno;
     }
 
 }

@@ -7,18 +7,24 @@ class MembroWeb extends AbstractController
     public $form;
     public $formas;
     public $coInscricao;
+    public $inscDuplicada;
 
     function CadastroRetiroCarnaval()
     {
+        $this->inscDuplicada = false;
         $id = "CadastroRetiroCarnaval";
 
         if (!empty($_POST[$id])):
             /** @var InscricaoService $inscricaoService */
             $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-            $coInscricao = $inscricaoService->salvarInscricao($_POST, $_FILES);
+            $retorno = $inscricaoService->salvarInscricao($_POST, $_FILES);
 
-            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/FormaDePagamento/' .
-                Valida::GeraParametro(CO_INSCRICAO . '/' . $coInscricao));
+            if($retorno[SUCESSO]){
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/FormaDePagamento/' .
+                    Valida::GeraParametro(CO_INSCRICAO . '/' . $retorno[CO_INSCRICAO]));
+            }else{
+                $this->inscDuplicada = $retorno[MSG];
+            }
         endif;
 
         $this->form = MembroWebForm::Cadastrar();
@@ -56,9 +62,9 @@ class MembroWeb extends AbstractController
 
         if (!empty($_POST[$id])):
             $dados = $_POST;
-            $pagamento[NU_TOTAL] = '150.00';
+            $pagamento[NU_TOTAL] = InscricaoEnum::VALOR_DINHEIRO;
             if ($dados[CO_TIPO_PAGAMENTO] == TipoPagamentoEnum::CARTAO_CREDITO) {
-                $pagamento[NU_TOTAL] = '160.00';
+                $pagamento[NU_TOTAL] = InscricaoEnum::VALOR_CARTAO;
             }
 
             $pagamento[NU_PARCELAS] = 1;

@@ -207,11 +207,20 @@ class MembroWebForm
             ->setTamanhoInput(12)
             ->CriaInpunt();
 
+        $ob = 'ob';
+        if ($CoInscricao) {
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_INSCRICAO)
+                ->setValues($CoInscricao)
+                ->CriaInpunt();
+            $ob = '';
+        }
         $formulario
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
             ->setInfo("Para a identificação")
-            ->setClasses("ob")
+            ->setClasses($ob)
             ->setTamanhoInput(12)
             ->setLabel("Foto de Perfil")
             ->CriaInpunt();
@@ -220,6 +229,7 @@ class MembroWebForm
             ->setId(DS_DESCRICAO)
             ->setLabel("Fale um pouco sobre você")
             ->setType("textarea")
+            ->setTamanhoInput(12)
             ->setClasses("ob")
             ->CriaInpunt();
 
@@ -227,6 +237,7 @@ class MembroWebForm
             ->setId(DS_MEDICACAO)
             ->setLabel("Uso de Medicação?")
             ->setType("textarea")
+            ->setTamanhoInput(12)
             ->setInfo("Descreva se faz uso de alguma medicação e como utiliza.")
             ->CriaInpunt();
 
@@ -234,16 +245,10 @@ class MembroWebForm
             ->setId(DS_ALIMENTACAO)
             ->setLabel("Restrição Alimentar?")
             ->setType("textarea")
+            ->setTamanhoInput(12)
             ->setInfo("Descreva se tiver alguma restrição alimentar.")
             ->CriaInpunt();
 
-        if ($CoInscricao) {
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_INSCRICAO)
-                ->setValues($CoInscricao)
-                ->CriaInpunt();
-        }
 
         return $formulario->finalizaForm();
     }

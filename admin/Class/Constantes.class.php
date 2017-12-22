@@ -107,3 +107,9 @@
 	define('USUARIO_SERVICE', 'UsuarioService');
 	define('USUARIO_PERFIL_SERVICE', 'UsuarioPerfilService');
 
+
+	define('SUCESSO', 'sucesso');
+	define('MSG', 'msg');
+
+
+
