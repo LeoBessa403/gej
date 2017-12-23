@@ -18,6 +18,7 @@ class Inscricao extends AbstractController
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
         /** @var ParcelamentoService $parcelamentoService */
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+
         $this->inscDuplicada = false;
         $id = "DetalharInscricao";
 
@@ -161,6 +162,7 @@ class Inscricao extends AbstractController
     {
         /** @var TipoPagamentoService $tipoPagamentoService */
         $tipoPagamentoService = new TipoPagamentoService();
+
         $tipos = $tipoPagamentoService->PesquisaTodos();
         /** @var TipoPagamentoEntidade $forma */
         foreach ($tipos as $forma) {
@@ -180,26 +182,32 @@ class Inscricao extends AbstractController
 
     public function DetalharPagamento()
     {
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+        /** @var PagamentoService $pagamentoService */
+        $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
+
         $coInscricao = UrlAmigavel::PegaParametro("insc");
-        $InscricaoModel = new InscricaoModel();
-        $PagamentoModel = new PagamentoModel();
+
         /** @var InscricaoEntidade $inscricao */
-        $this->inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
+        $this->inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
         /** @var PagamentoEntidade $pagamentoInsc */
-        $this->pagamentoInsc = $PagamentoModel->PesquisaUmRegistro(
+        $this->pagamentoInsc = $pagamentoService->PesquisaUmRegistro(
             $this->inscricao->getCoPagamento()->getCoPagamento()
         );
     }
 
     public function EditarParcela()
     {
+        /** @var PagamentoService $pagamentoService */
+        $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        /** @var ParcelamentoService $parcelamentoService */
+        $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+
         $id = "EditarParcelamento";
 
         if (!empty($_POST[$id])):
-
             $dados = $_POST;
-            $PagamentoModel = new PagamentoModel();
-            $ParcelamentoModel = new ParcelamentoModel();
             $coParcela = $dados[CO_PARCELAMENTO];
 
             $parcela[NU_VALOR_PARCELA_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PARCELA_PAGO]);
@@ -209,12 +217,12 @@ class Inscricao extends AbstractController
             $parcela[CO_TIPO_PAGAMENTO] = $dados[DS_TIPO_PAGAMENTO][0];
             $parcela[DS_OBSERVACAO] = Valida::LimpaVariavel($dados[DS_OBSERVACAO]);
 
-            $ParcelamentoModel->Salva($parcela, $coParcela);
+            $parcelamentoService->Salva($parcela, $coParcela);
 
             /** @var ParcelamentoEntidade $parcelas */
-            $parcelas = $ParcelamentoModel->PesquisaUmRegistro($coParcela);
+            $parcelas = $parcelamentoService->PesquisaUmRegistro($coParcela);
             /** @var PagamentoEntidade $pagamentos */
-            $pagamentos = $PagamentoModel->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
+            $pagamentos = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
             /** @var ParcelamentoEntidade $parcela */
             $total = 0;
             foreach ($pagamentos->getCoParcelamento() as $parcela) {
@@ -225,7 +233,7 @@ class Inscricao extends AbstractController
             } elseif ($total > 0) {
                 $pag[TP_SITUACAO] = "I";
             }
-            $PagamentoModel->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
+            $pagamentoService->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
             unset($_POST);
             $this->ListarInscricao();
             UrlAmigavel::$action = "ListarInscricao";
@@ -234,9 +242,8 @@ class Inscricao extends AbstractController
         $parc = UrlAmigavel::PegaParametro("parc");
         $res = array();
         if ($parc):
-            $ParcelaModel = new ParcelamentoModel();
             /** @var ParcelamentoEntidade $parcela */
-            $parcela = $ParcelaModel->PesquisaUmRegistro($parc);
+            $parcela = $parcelamentoService->PesquisaUmRegistro($parc);
 
             $res[CO_PARCELAMENTO] = $parcela->getCoParcelamento();
             $res[NU_VALOR_PARCELA] = Valida::FormataMoeda($parcela->getNuValorParcela());
@@ -253,8 +260,10 @@ class Inscricao extends AbstractController
 
     public function montaComboTodosTipoPagamento()
     {
-        $TipoPagamentoModel = new TipoPagamentoModel();
-        $tpPagamento = $TipoPagamentoModel->PesquisaTodos();
+        /** @var TipoPagamentoService $tipoPagamentoService */
+        $tipoPagamentoService = $this->getService(TIPO_PAGAMENTO_SERVICE);
+
+        $tpPagamento = $tipoPagamentoService->PesquisaTodos();
         $todosTp = array();
         /** @var TipoPagamentoEntidade $tp */
         foreach ($tpPagamento as $tp) :
