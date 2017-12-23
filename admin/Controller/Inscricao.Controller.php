@@ -32,20 +32,9 @@ class Inscricao extends AbstractController
 
                 $pag[NU_PARCELAS] = $numeroParcelas;
                 $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
-                $valorInscricao = $pagamentoService->pegaValorInscricao($pagamento);
+                
+                $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento);
 
-                $parcelamentoService->DeletaQuando([CO_PAGAMENTO => $pagamento->getCoPagamento()]);
-
-                for ($i = 0; $i < $numeroParcelas; $i++) {
-                    $novaParcela = array(
-                        NU_PARCELA => $i + 1,
-                        NU_VALOR_PARCELA => ($valorInscricao / $numeroParcelas),
-                        DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
-                        CO_TIPO_PAGAMENTO => 1,
-                        CO_PAGAMENTO => $pagamento->getCoPagamento(),
-                    );
-                    $parcelamentoService->Salva($novaParcela);
-                }
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             } else {
                 $this->inscDuplicada = $retorno[MSG];
@@ -56,8 +45,6 @@ class Inscricao extends AbstractController
 
         $res = array();
         if ($coInscricao):
-            /** @var InscricaoService $inscricaoService */
-            $inscricaoService = $this->getService(INSCRICAO_SERVICE);
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
 
@@ -199,7 +186,9 @@ class Inscricao extends AbstractController
         /** @var InscricaoEntidade $inscricao */
         $this->inscricao = $InscricaoModel->PesquisaUmRegistro($coInscricao);
         /** @var PagamentoEntidade $pagamentoInsc */
-        $this->pagamentoInsc = $PagamentoModel->PesquisaUmRegistro($this->inscricao->getCoPagamento()->getCoPagamento());
+        $this->pagamentoInsc = $PagamentoModel->PesquisaUmRegistro(
+            $this->inscricao->getCoPagamento()->getCoPagamento()
+        );
     }
 
     public function EditarParcela()
