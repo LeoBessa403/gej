@@ -35,11 +35,12 @@
                         Modal::deletaRegistro("Inscricao");
                         Modal::confirmacao("confirma_Inscricao");
 
-                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento', 'Ações');
+                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG','Inscrição', 'Nascimento', 'Servo', 'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
                         $documento = '';
+                        $acao = '';
 
                         /** @var InscricaoEntidade $res */
                         foreach ($result as $res):
@@ -48,8 +49,9 @@
                             } elseif ($res->getCoPessoa()->getNuRG()) {
                                 $documento = $res->getCoPessoa()->getNuRG();
                             }
-                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-                                . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-primary tooltips" 
+                            if(Valida::ValPerfil('EditarInscricao')){
+                                $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
+                                    . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-primary tooltips" 
                                 data-original-title="Visualizar Registro" data-placement="top">
                                 <i class="fa fa-clipboard"></i>
                                 </a>
@@ -57,9 +59,11 @@
                                    data-original-title="Detalhes do Pagamento" data-placement="top">
                                     <i class="fa fa-indent"></i>
                                 </a>';
+                            }
                             $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()));
                             $grid->setColunas($documento);
+                            $grid->setColunas(Valida::DataShow($res->getDtCadastro()));
                             $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo()));
