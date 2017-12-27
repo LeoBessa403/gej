@@ -221,22 +221,20 @@ class Inscricao extends AbstractController
 
             /** @var ParcelamentoEntidade $parcelas */
             $parcelas = $parcelamentoService->PesquisaUmRegistro($coParcela);
-            /** @var PagamentoEntidade $pagamentos */
-            $pagamentos = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
+            /** @var PagamentoEntidade $pagamento */
+            $pagamento = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
             /** @var ParcelamentoEntidade $parcela */
             $total = 0;
-            foreach ($pagamentos->getCoParcelamento() as $parcela) {
+            foreach ($pagamento->getCoParcelamento() as $parcela) {
                 $total = $total + $parcela->getNuValorParcelaPago();
             }
-            if ($total == 160) {
+            if ($total == $pagamento->getNuTotal()) {
                 $pag[TP_SITUACAO] = "C";
             } elseif ($total > 0) {
                 $pag[TP_SITUACAO] = "I";
             }
             $pagamentoService->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
-            unset($_POST);
-            $this->ListarInscricao();
-            UrlAmigavel::$action = "ListarInscricao";
+            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
         endif;
 
         $parc = UrlAmigavel::PegaParametro("parc");
