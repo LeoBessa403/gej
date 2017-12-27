@@ -49,7 +49,7 @@
                             } elseif ($res->getCoPessoa()->getNuRG()) {
                                 $documento = $res->getCoPessoa()->getNuRG();
                             }
-                            if(Valida::ValPerfil('EditarInscricao')){
+                            if(Valida::ValPerfil('DetalharInscricao')){
                                 $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
                                     . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-primary tooltips" 
                                 data-original-title="Visualizar Registro" data-placement="top">
