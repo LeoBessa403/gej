@@ -12,6 +12,7 @@ $compara = strstr(UrlAmigavel::$action, 'Exporta');
 if ($compara != null):
     $url->pegaControllerAction();
     exit;
+    die;
 endif;
 ?>
 <!DOCTYPE html>
