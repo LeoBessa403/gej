@@ -15,6 +15,7 @@ class AcessoEntidade extends AbstractEntidade
 	private $ds_session_id;
 	private $dt_inicio_acesso;
 	private $dt_fim_acesso;
+	private $tp_situacao;
 	private $co_usuario;
 
 	/**
@@ -26,6 +27,7 @@ class AcessoEntidade extends AbstractEntidade
 			DS_SESSION_ID,
 			DT_INICIO_ACESSO,
 			DT_FIM_ACESSO,
+            TP_SITUACAO,
 			CO_USUARIO,
 		];
     }
@@ -122,6 +124,22 @@ class AcessoEntidade extends AbstractEntidade
 	public function setCoUsuario($co_usuario)
     {
         return $this->co_usuario = $co_usuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTpSituacao()
+    {
+        return $this->tp_situacao;
+    }
+
+    /**
+     * @param mixed $tp_situacao
+     */
+    public function setTpSituacao($tp_situacao)
+    {
+        $this->tp_situacao = $tp_situacao;
     }
 
 }

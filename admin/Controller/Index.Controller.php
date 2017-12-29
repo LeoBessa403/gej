@@ -193,18 +193,10 @@ class Index extends AbstractController
                 }
             endforeach;
             if ($user != ""):
-                $acesso[DS_SESSION_ID] = session_id();
-                $acesso[CO_USUARIO] = $user->getCoUsuario();
-                $acessoService = static::getService(ACESSO_SERVICE);
-                $meuAcesso = $acessoService->PesquisaUmQuando($acesso);
-                if ($meuAcesso) {
-                    $novoAcesso[DT_FIM_ACESSO] = Valida::DataAtualBanco();
-                    $acessoService->Salva($novoAcesso, $user->getCoUsuario());
-                } else {
-                    $acesso[DT_INICIO_ACESSO] = Valida::DataAtualBanco();
-                    $acesso[DT_FIM_ACESSO] = Valida::DataAtualBanco();
-                    $acessoService->Salva($acesso);
-                }
+                /** @var AcessoService $acessoService */
+                $acessoService = $this->getService(ACESSO_SERVICE);
+                $acessoService->finalizaAcessos();
+                $acessoService->salvarAcesso($user->getCoUsuario());
 
                 $perfis = array();
                 $no_perfis = array();
@@ -218,7 +210,7 @@ class Index extends AbstractController
                 $usuarioAcesso[NU_CPF] = $user->getCoPessoa()->getNuCpf();
                 $usuarioAcesso[NO_PESSOA] = $user->getCoPessoa()->getNoPessoa();
                 $usuarioAcesso[ST_SEXO] = $user->getCoPessoa()->getStSexo();
-                $usuarioAcesso[DT_FIM_ACESSO] = Valida::DataAtualBanco();
+                $usuarioAcesso[DT_FIM_ACESSO] = $acessoService->geraDataFimAcesso();
                 $usuarioAcesso[CAMPO_PERFIL] = implode(',', $perfis);
                 $usuarioAcesso['no_perfis'] = implode(', ', $no_perfis);
 

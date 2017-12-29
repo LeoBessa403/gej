@@ -215,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `gej_bd`.`TB_ACESSO` (
   `ds_session_id` VARCHAR(255) NOT NULL,
   `dt_inicio_acesso` DATETIME NULL DEFAULT NULL,
   `dt_fim_acesso` DATETIME NULL DEFAULT NULL,
+  `tp_situacao` VARCHAR(1) NULL DEFAULT 'A' COMMENT 'A - Ativo / F - Finalizado',
   `co_usuario` INT(10) NOT NULL,
   PRIMARY KEY (`CO_ACESSO`, `CO_USUARIO`),
   INDEX `FK_TB_ACESSO_TB_USUARIO1_IDX` (`CO_USUARIO` ASC),
