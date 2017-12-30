@@ -115,8 +115,8 @@ class  AcessoService extends AbstractService
         $browser_array = array(
             'msie'       =>  'Internet Explorer',
             'firefox'    =>  'Firefox',
-            'safari'     =>  'Safari',
             'chrome'     =>  'Chrome',
+            'safari'     =>  'Safari',
             'edge'       =>  'Edge',
             'opera'      =>  'Opera',
             'netscape'   =>  'Netscape',
