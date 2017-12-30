@@ -31,10 +31,12 @@ class Inscricao extends AbstractController
                 $pagamento = $inscricaoEdicao->getCoPagamento();
                 $numeroParcelas = $_POST[NU_PARCELAS][0];
 
-                $pag[NU_PARCELAS] = $numeroParcelas;
-                $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
-                
-                $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento);
+                if($pagamento->getNuParcelas() != $numeroParcelas){
+                    $pag[NU_PARCELAS] = $numeroParcelas;
+                    $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
+
+                    $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento);
+                }
 
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             } else {

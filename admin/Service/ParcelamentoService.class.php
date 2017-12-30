@@ -24,7 +24,7 @@ class  ParcelamentoService extends AbstractService
                 NU_PARCELA => $i + 1,
                 NU_VALOR_PARCELA => ($valorInscricao / $nuDeparcelas),
                 DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
-                CO_TIPO_PAGAMENTO => 1,
+                CO_TIPO_PAGAMENTO => TipoPagamentoEnum::DINHEIRO,
                 CO_PAGAMENTO => $pagamento->getCoPagamento(),
             );
             $this->Salva($novaParcela);
