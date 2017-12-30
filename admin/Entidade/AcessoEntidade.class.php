@@ -15,6 +15,9 @@ class AcessoEntidade extends AbstractEntidade
 	private $ds_session_id;
 	private $dt_inicio_acesso;
 	private $dt_fim_acesso;
+	private $ds_navegador;
+	private $ds_sistema_operacional;
+	private $ds_dispositivo;
 	private $tp_situacao;
 	private $co_usuario;
 
@@ -27,6 +30,9 @@ class AcessoEntidade extends AbstractEntidade
 			DS_SESSION_ID,
 			DT_INICIO_ACESSO,
 			DT_FIM_ACESSO,
+			DS_NAVEGADOR,
+            DS_SISTEMA_OPERACIONAL,
+            DS_DISPOSITIVO,
             TP_SITUACAO,
 			CO_USUARIO,
 		];
@@ -140,6 +146,54 @@ class AcessoEntidade extends AbstractEntidade
     public function setTpSituacao($tp_situacao)
     {
         $this->tp_situacao = $tp_situacao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDsNavegador()
+    {
+        return $this->ds_navegador;
+    }
+
+    /**
+     * @param mixed $ds_navegador
+     */
+    public function setDsNavegador($ds_navegador)
+    {
+        $this->ds_navegador = $ds_navegador;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDsSistemaOperacional()
+    {
+        return $this->ds_sistema_operacional;
+    }
+
+    /**
+     * @param mixed $ds_sistema_operacional
+     */
+    public function setDsSistemaOperacional($ds_sistema_operacional)
+    {
+        $this->ds_sistema_operacional = $ds_sistema_operacional;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDsDispositivo()
+    {
+        return $this->ds_dispositivo;
+    }
+
+    /**
+     * @param mixed $ds_dispositivo
+     */
+    public function setDsDispositivo($ds_dispositivo)
+    {
+        $this->ds_dispositivo = $ds_dispositivo;
     }
 
 }

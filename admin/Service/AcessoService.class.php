@@ -6,6 +6,9 @@
  */
 class  AcessoService extends AbstractService
 {
+    /**
+     * @var AcessoModel
+     */
     private $ObjetoModel;
 
     /**
@@ -32,6 +35,9 @@ class  AcessoService extends AbstractService
             $novoAcesso[DT_FIM_ACESSO] = $this->geraDataFimAcesso();
             $this->Salva($novoAcesso, $meuAcesso->getCoAcesso());
         } else {
+            $acesso[DS_NAVEGADOR] = $this->getBrowser();
+            $acesso[DS_SISTEMA_OPERACIONAL] = $this->getOS();
+            $acesso[DS_DISPOSITIVO] = $this->getDispositivo();
             $acesso[DT_FIM_ACESSO] = $this->geraDataFimAcesso();
             $acesso[DT_INICIO_ACESSO] = Valida::DataHoraAtualBanco();
             $this->Salva($acesso);
@@ -43,9 +49,12 @@ class  AcessoService extends AbstractService
      */
     public function geraDataFimAcesso()
     {
-        return date("Y-m-d H:i:s",strtotime(Valida::DataHoraAtualBanco()." + ".INATIVO." minutes"));
+        return date("Y-m-d H:i:s", strtotime(Valida::DataHoraAtualBanco() . " + " . INATIVO . " minutes"));
     }
 
+    /**
+     * @param $coUsuario
+     */
     public function terminaAcesso($coUsuario)
     {
         $acesso[DS_SESSION_ID] = session_id();
@@ -55,13 +64,17 @@ class  AcessoService extends AbstractService
         /** @var AcessoEntidade $meuAcesso */
         $meuAcesso = $this->PesquisaUmQuando($acesso);
 
-        if($meuAcesso){
+        if ($meuAcesso) {
             $terminaAcesso[TP_SITUACAO] = StatusAcessoEnum::FINALIZADO;
             $terminaAcesso[DT_FIM_ACESSO] = Valida::DataHoraAtualBanco();
             $this->Salva($terminaAcesso, $meuAcesso->getCoAcesso());
         }
     }
 
+    /**
+     * @param $coUsuario
+     * @return bool
+     */
     public function verificaAcesso($coUsuario)
     {
         $permitido = false;
@@ -72,10 +85,10 @@ class  AcessoService extends AbstractService
         /** @var AcessoEntidade $meuAcesso */
         $meuAcesso = $this->PesquisaUmQuando($acesso);
 
-        if($meuAcesso){
+        if ($meuAcesso) {
             $ultimo_acesso = strtotime($meuAcesso->getDtFimAcesso());
             $agora = strtotime(Valida::DataHoraAtualBanco());
-            if($ultimo_acesso > $agora){
+            if ($ultimo_acesso > $agora) {
                 $novoAcesso[DT_FIM_ACESSO] = $this->geraDataFimAcesso();
                 $this->Salva($novoAcesso, $meuAcesso->getCoAcesso());
                 $permitido = true;
@@ -84,9 +97,100 @@ class  AcessoService extends AbstractService
         return $permitido;
     }
 
+    /**
+     *
+     */
     public function finalizaAcessos()
     {
         return $this->ObjetoModel->finalizaAcessos();
+    }
+
+    /**
+     * @return int
+     */
+    public function getBrowser()
+    {
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+        $browser_array = array(
+            'msie'       =>  'Internet Explorer',
+            'firefox'    =>  'Firefox',
+            'safari'     =>  'Safari',
+            'chrome'     =>  'Chrome',
+            'edge'       =>  'Edge',
+            'opera'      =>  'Opera',
+            'netscape'   =>  'Netscape',
+            'mobile'     =>  'Handheld Browser'
+        );
+
+        foreach ($browser_array as $regex => $value) {
+            if (preg_match('/' . $regex . '/i', $user_agent)) {
+                return $value;
+            }
+        }
+
+        return 'Outro';
+    }
+
+    public function getOS() {
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+        $os_array = array(
+            'windows nt 10'      =>  'Windows 10',
+            'windows nt 6\.3'     =>  'Windows 8.1',
+            'windows nt 6\.2'     =>  'Windows 8',
+            'windows nt 6\.1'     =>  'Windows 7',
+            'windows nt 6\.0'     =>  'Windows Vista',
+            'windows nt 5\.2'     =>  'Windows Server 2003/XP x64',
+            'windows nt 5\.1'     =>  'Windows XP',
+            'windows xp'         =>  'Windows XP',
+            'windows nt 5\.0'     =>  'Windows 2000',
+            'windows me'         =>  'Windows ME',
+            'win98'              =>  'Windows 98',
+            'win95'              =>  'Windows 95',
+            'win16'              =>  'Windows 3.11',
+            'macintosh|mac os x' =>  'Mac OS X',
+            'mac_powerpc'        =>  'Mac OS 9',
+            'linux'              =>  'Linux',
+            'ubuntu'             =>  'Ubuntu',
+            'iphone'             =>  'iPhone',
+            'ipod'               =>  'iPod',
+            'ipad'               =>  'iPad',
+            'android'            =>  'Android',
+            'blackberry'         =>  'BlackBerry',
+            'webos'              =>  'Mobile'
+        );
+
+        foreach ($os_array as $regex => $value) {
+            if (preg_match('/' . $regex . '/i', $user_agent)) {
+                return $value;
+            }
+        }
+
+        return 'Outro';
+    }
+
+    public function getDispositivo() {
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+        $dispositivo_array = array(
+            'iphone'     =>  'iphone',
+            'iPod'     =>  'iPod',
+            'ipad'      =>  'ipad',
+            'android'     =>  'android',
+            'webOS'     =>  'webOS',
+            'BlackBerry'     =>  'BlackBerry',
+            'Symbian'     =>  'Symbian',
+            'IsGeneric'     =>  'IsGeneric',
+        );
+
+        foreach ($dispositivo_array as $regex => $value) {
+            if (preg_match('/' . $regex . '/i', $user_agent)) {
+                return $value;
+            }
+        }
+
+        return 'Computador';
     }
 
 }

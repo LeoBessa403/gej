@@ -43,6 +43,9 @@
 	define('ST_STATUS', 'st_status');
 	define('CO_IMAGEM', 'co_imagem');
 	define('DS_CAMINHO', 'ds_caminho');
+	define('DS_NAVEGADOR', 'ds_navegador');
+	define('DS_SISTEMA_OPERACIONAL', 'ds_sistema_operacional');
+	define('DS_DISPOSITIVO', 'ds_dispositivo');
 	define('CO_INSCRICAO', 'co_inscricao');
 	define('DS_PASTORAL', 'ds_pastoral');
 	define('DS_RETIRO', 'ds_retiro');
