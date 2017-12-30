@@ -174,6 +174,7 @@ class  AcessoService extends AbstractService
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
         $dispositivo_array = array(
+            'tablet'     =>  'tablet',
             'iphone'     =>  'iphone',
             'iPod'     =>  'iPod',
             'ipad'      =>  'ipad',
