@@ -27,7 +27,7 @@ class AcessoForm
             ->setId(DT_INICIO_ACESSO)
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(6)
-            ->setClasses("data")
+            ->setClasses("data dt1")
             ->setLabel("Ínicio")
             ->CriaInpunt();
 
@@ -35,7 +35,7 @@ class AcessoForm
             ->setId(DT_FIM_ACESSO)
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(6)
-            ->setClasses("data")
+            ->setClasses("data dt2")
             ->setLabel("Fim")
             ->CriaInpunt();
 
