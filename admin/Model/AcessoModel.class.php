@@ -24,4 +24,39 @@ class  AcessoModel extends AbstractModel
         }
     }
 
+    public function PesquisaAvancada($Condicoes)
+    {
+        $tabela = PessoaEntidade::TABELA." pes" .
+            " inner join ".UsuarioEntidade::TABELA." usu" .
+            " on pes.".PessoaEntidade::CHAVE." = usu.".PessoaEntidade::CHAVE .
+            " inner join ".AcessoEntidade::TABELA." ace" .
+            " on ace.".UsuarioEntidade::CHAVE." = usu.".UsuarioEntidade::CHAVE;
+
+        $campos = "DISTINCT ace.*";
+        $pesquisa = new Pesquisa();
+        $where = 'where 1 = 1';
+        if(!empty($Condicoes[NO_PESSOA])){
+            $where = $where . " and pes.".NO_PESSOA." like '%".$Condicoes[NO_PESSOA]."%'" ;
+        }
+        if(!empty($Condicoes[NU_CPF])){
+            $where = $where . " and pes.".NU_CPF." = '".$Condicoes[NU_CPF]."'" ;
+        }
+        if(!empty($Condicoes[DT_INICIO_ACESSO])){
+            $where = $where . " and ace.".DT_INICIO_ACESSO." >= '".
+                Valida::DataDBDate($Condicoes[DT_INICIO_ACESSO])." 00:00:00'" ;
+        }
+        if(!empty($Condicoes[DT_FIM_ACESSO])){
+            $where = $where . " and ace.".DT_FIM_ACESSO." <= '".
+                Valida::DataDBDate($Condicoes[DT_FIM_ACESSO])." 23:59:59'" ;
+        }
+        $pesquisa->Pesquisar($tabela, $where, null, $campos);
+        $acessos = [];
+        /** @var AcessoEntidade $acesso */
+        foreach ($pesquisa->getResult() as $acesso){
+            $ace[0] = $acesso;
+            $acessos[] = $this->getUmObjeto(AcessoEntidade::ENTIDADE, $ace);
+        }
+        return $acessos;
+    }
+
 }
