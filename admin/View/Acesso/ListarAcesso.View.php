@@ -32,7 +32,7 @@
                     <div class="panel-body">
                         <?php
                         Modal::load();
-                        $arrColunas = array('Nome', 'Status', 'Início','Fim', 'Navegador', 'S.O.', 'Dispositivo');
+                        $arrColunas = array('Usuário','CPF', 'Status', 'Início','Fim', 'Navegador', 'S.O.', 'Dispositivo');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -40,6 +40,7 @@
                         /** @var AcessoEntidade $res */
                         foreach ($result as $res):
                             $grid->setColunas(strtoupper($res->getCoUsuario()->getCoPessoa()->getNoPessoa()));
+                            $grid->setColunas(Valida::MascaraCpf($res->getCoUsuario()->getCoPessoa()->getNuCpf()));
                             $grid->setColunas(FuncoesSistema::StatusAcesso($res->getTpSituacao()));
                             $grid->setColunas(Valida::DataShow($res->getDtInicioAcesso(), 'd/m/Y H:i:s'));
                             $grid->setColunas(Valida::DataShow($res->getDtFimAcesso(),'d/m/Y H:i:s'));
