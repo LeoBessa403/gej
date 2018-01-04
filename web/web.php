@@ -127,7 +127,7 @@ require_once 'library/Config.inc.php';
                                     Twitter
                                 </a>
                             </li>
-                            <li class="social-dribbble tooltips" data-original-title="Instagram" data-placement="bottom">
+                            <li class="social-instagram tooltips" data-original-title="Instagram" data-placement="bottom">
                                 <a target="_blank" href="https://www.instagram.com/gejdombosco/">
                                     Instagram
                                 </a>
@@ -302,7 +302,7 @@ require_once 'library/Config.inc.php';
                                 Twitter
                             </a>
                         </li>
-                        <li class="social-dribbble tooltips" data-original-title="Instagram" data-placement="bottom">
+                        <li class="social-instagram tooltips" data-original-title="Instagram" data-placement="bottom">
                             <a target="_blank" href="https://www.instagram.com/gejdombosco/">
                                 Instagram
                             </a>
