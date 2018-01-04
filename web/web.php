@@ -132,6 +132,11 @@ require_once 'library/Config.inc.php';
                                     Instagram
                                 </a>
                             </li>
+                            <li class="social-youtube tooltips" data-original-title="YouTube" data-placement="bottom">
+                                <a target="_blank" href="https://www.youtube.com/channel/UCSFi4WhpTMdxxxGM8fBiAcA/videos">
+                                    YouTube
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <!-- end: TOP BAR SOCIAL ICONS -->
@@ -305,6 +310,11 @@ require_once 'library/Config.inc.php';
                         <li class="social-instagram tooltips" data-original-title="Instagram" data-placement="bottom">
                             <a target="_blank" href="https://www.instagram.com/gejdombosco/">
                                 Instagram
+                            </a>
+                        </li>
+                        <li class="social-youtube tooltips" data-original-title="YouTube" data-placement="bottom">
+                            <a target="_blank" href="https://www.youtube.com/channel/UCSFi4WhpTMdxxxGM8fBiAcA/videos">
+                                YouTube
                             </a>
                         </li>
                     </ul>
