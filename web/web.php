@@ -123,8 +123,13 @@ require_once 'library/Config.inc.php';
                                 </a>
                             </li>
                             <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="bottom">
-                                <a target="_blank" href="http://www.twitter.com">
+                                <a target="_blank" href="https://twitter.com/gejdombosco">
                                     Twitter
+                                </a>
+                            </li>
+                            <li class="social-dribbble tooltips" data-original-title="Instagram" data-placement="bottom">
+                                <a target="_blank" href="https://www.instagram.com/gejdombosco/">
+                                    Instagram
                                 </a>
                             </li>
                         </ul>
@@ -293,8 +298,13 @@ require_once 'library/Config.inc.php';
                             </a>
                         </li>
                         <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="bottom">
-                            <a target="_blank" href="http://www.twitter.com">
+                            <a target="_blank" href="https://twitter.com/gejdombosco">
                                 Twitter
+                            </a>
+                        </li>
+                        <li class="social-dribbble tooltips" data-original-title="Instagram" data-placement="bottom">
+                            <a target="_blank" href="https://www.instagram.com/gejdombosco/">
+                                Instagram
                             </a>
                         </li>
                     </ul>
