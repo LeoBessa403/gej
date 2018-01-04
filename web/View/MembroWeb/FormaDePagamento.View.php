@@ -88,7 +88,7 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">“Vós sois a carta de Cristo” </span></b></p>
+&quot;Agency FB&quot;">“Tenho Sede” Jo 19,28</span></b></p>
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;
