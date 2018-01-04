@@ -42,7 +42,8 @@ class MembroWeb extends AbstractController
             "6" => "P",
             "7" => "M",
             "8" => "G",
-            "9" => "GG"
+            "9" => "GG",
+            "10" => "XG",
         );
     }
 
