@@ -11,7 +11,7 @@ class StatusPagamentoEnum extends AbstractEnum
 
     public static $descricao = [
         StatusPagamentoEnum::NAO_INICIADA => 'Não Pago',
-        StatusPagamentoEnum::INICIADA => 'Iniciado',
+        StatusPagamentoEnum::INICIADA => 'Parcial',
         StatusPagamentoEnum::CONCLUIDO => 'Concluído',
     ];
 }
