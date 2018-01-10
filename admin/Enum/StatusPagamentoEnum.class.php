@@ -10,8 +10,8 @@ class StatusPagamentoEnum extends AbstractEnum
     const CONCLUIDO = 'C';
 
     public static $descricao = [
-        StatusPagamentoEnum::NAO_INICIADA => 'Não iniciado',
+        StatusPagamentoEnum::NAO_INICIADA => 'Não Pago',
         StatusPagamentoEnum::INICIADA => 'Iniciado',
-        StatusPagamentoEnum::CONCLUIDO => 'Concluido',
+        StatusPagamentoEnum::CONCLUIDO => 'Concluído',
     ];
 }

@@ -371,7 +371,7 @@ class FuncoesSistema {
                 $op = '<span class="label label-danger">Não Pago</span>';
                 break;
             case "I":
-                $op = '<span class="label label-info">Parcial</span>';
+                $op = '<span class="label label-info">Iniciado</span>';
                 break;
             default:
                 $op = '';
