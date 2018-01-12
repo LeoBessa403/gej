@@ -77,7 +77,7 @@
     <!--container2 do title-->
     <div class="content">
         <header class="sectiontitle sectiontitle-nomargin">
-            <h1>Porque fazer um Retiro Espiritual</h1>
+            <h1>Porque fazer um Retiro Espiritual?</h1>
             <p class="tagline">Retiro Espiritual é um afastamento temporário de suas atividades para conversar com Deus
                 e refletir sobre sua própria vida. Trata-se de uma prática muito tradicional na história do
                 Cristianismo, vivamente recomendada pela Igreja Católica. É também chamado de “Exercícios
@@ -89,15 +89,15 @@
     <!--container2 dos artigos-->
     <div class="container2 bg-body">
         <div class="content" style="padding-bottom: 10px;">
-            <article class="main_tec_item box box-small al-center radius">
-                <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_semantic.png" alt="HTML5 Semântico"
-                     title="Módulo de HTML5 Semântico">
-                <h1>HTML5 Semântico:</h1>
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/teatro.png" alt="Teatro"
+                     title="Peças Teatrais">
+                <h1>Teatro:</h1>
                 <p class="tagline">Aprenda e produzir conteúdo de qualidade. Otimizando cada bloco tanto para usuários
                     quanto para robôs de busca!</p>
             </article>
 
-            <article class="main_tec_item box box-small al-center radius">
+            <article class="main_tec_item box box-medium al-center radius">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_drycss.png"
                      alt="CSS produtivo com OOCSS" title="Módulo de CSS produtivo com OOCSS">
                 <h1>CSS produtivo com OOCSS:</h1>
@@ -105,7 +105,7 @@
                     e de ágil desenvolvimento!</p>
             </article>
 
-            <article class="main_tec_item box box-small al-center radius">
+            <article class="main_tec_item box box-medium al-center radius last">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_forms.png"
                      alt="Formulários com HTML5" title="Módulo de Formulários com HTML5">
                 <h1>Formulários com HTML5:</h1>
@@ -113,7 +113,9 @@
                     HTML5!</p>
             </article>
 
-            <article class="main_tec_item box box-small al-center radius last">
+            <div class="box-line"></div>
+
+            <article class="main_tec_item box box-medium al-center radius">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_midia.png"
                      alt="Áudio e Vídeo na Web" title="Módulo de Áudio e Vídeo na Web">
                 <h1>Áudio e Vídeo na Web:</h1>
@@ -121,9 +123,7 @@
                     de forma fácil!</p>
             </article>
 
-            <div class="box-line"></div>
-
-            <article class="main_tec_item box box-small al-center radius">
+            <article class="main_tec_item box box-medium al-center radius">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_geo.png"
                      alt="Geolocation e HTML5 Storage" title="Módulo de Geolocation e HTML5 Storage">
                 <h1>Geolocation e HTML5 Storage:</h1>
@@ -131,7 +131,7 @@
                     navegação apenas com HTML!</p>
             </article>
 
-            <article class="main_tec_item box box-small al-center radius">
+            <article class="main_tec_item box box-medium al-center radius last">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_microdados.png"
                      alt="Distribuição com Micro Dados" title="Módulo de Distribuição com Micro Dados">
                 <h1>Distribuição com Micro Dados:</h1>
@@ -145,14 +145,14 @@
 
 
 <ul class="sharebox bg-light">
-    <li class="like facebook"><span class="count">0</span> <a
-                href="http%3A%2F%2Flocalhost%2Fupinside%2Fdivulgacao&app_id=626590460695980"
+    <li class="like facebook"><a
+                href="https://www.facebook.com/gej.dombosco" target="_blank"
                 title="Compartilhe no Facebook">Compartilhe no Facebook</a></li>
-    <li class="like google"><span class="count">0</span> <a href="http://localhost/upinside/divulgacao"
-                                                            title="Recomende no Google+">Recomende no Google+</a></li>
-    <li class="like twitter"><span class="count">0</span> <a href="http%3A%2F%2Flocalhost%2Fupinside%2Fdivulgacao"
-                                                             rel="&text=Curso Work Series - HTML5 do Jeito Certo! @UpInsideBr"
-                                                             title="Conte Isto no Twitter">Conte Isto no Twitter</a>
+    <li class="like google"><a href="https://www.instagram.com/gejdombosco/" target="_blank"
+                               title="Recomende no Instagram">Recomende no Instagram</a></li>
+    <li class="like twitter"><a href="https://twitter.com/gejdombosco" target="_blank"
+                                rel="&text=VI Retiro de Carnaval Santifique-se! @gejdombosco"
+                                title="Conte Isto no Twitter">Conte Isto no Twitter</a>
     </li>
 </ul>
 <!--seção temática-->

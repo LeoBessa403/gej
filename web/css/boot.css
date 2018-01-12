@@ -364,8 +364,11 @@ a img {
 }
 
 .sharebox .facebook {
-    background-image: url(boot/social/facebook_pix.png);
+    background-image: url("../img/icons/social/facebook.png");
     background-color: #45619D;
+    background-repeat: no-repeat;
+    background-size: auto 250%;
+    background-position: bottom left;
 }
 
 .sharebox .facebook:hover {
@@ -373,17 +376,23 @@ a img {
 }
 
 .sharebox .google {
-    background-image: url(boot/social/google_pix.png);
-    background-color: #DD4B39;
+    background-image: url("../img/icons/social/dribbble.png");
+    background-color: #7f007f;
+    background-repeat: no-repeat;
+    background-size: auto 250%;
+    background-position: top left;
 }
 
 .sharebox .google:hover {
-    background-color: #E77D72;
+    background-color: #ff67da;
 }
 
 .sharebox .twitter {
-    background-image: url(boot/social/twitter_pix.png);
+    background-image: url("../img/icons/social/twitter.png");
     background-color: #55ACEE;
+    background-repeat: no-repeat;
+    background-size: auto 250%;
+    background-position: bottom left;
 }
 
 .sharebox .twitter:hover {
@@ -491,26 +500,8 @@ a img {
     padding-left: 40px;
 }
 
-.shoticon-facebook {
-    background-image: url(boot/social/facebook.png);
-}
-
-.shoticon-google {
-    background-image: url(boot/social/google.png);
-}
-
-.shoticon-twitter {
-    background-image: url(boot/social/twitter.png);
-}
-
-.shoticon-config {
-    background-image: url(boot/icons/config.png);
-}
-
-.shoticon-mail {
-    background-image: url(boot/icons/mail.png);
-}
-
-.shoticon-section {
-    background-image: url(boot/icons/section.png);
-}
+/*SHAREBOX*/
+/*.sharebox{float: left; width: 100%; padding: 25px 0; text-align: center;}*/
+/*.sharebox li{display: inline-block; background: #ccc; margin: 0 15px; background-position: left 10px center; background-repeat: no-repeat; background-size: auto 60%;}*/
+/*.sharebox a{float: left; padding: 10px 20px 10px 40px; color: #fff;}*/
+/*.sharebox .count{float: right; background: rgba(0,0,0,0.5); padding: 10px 15px; color: #fff;}*/
