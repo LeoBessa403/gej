@@ -1,0 +1,50 @@
+/*VÃDEO PRINCIPAL*/
+.main_video {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+}
+
+/*vÃ­deos de navegaÃ§Ã£o*/
+.main_videos h1 {
+    margin-bottom: 30px;
+}
+
+.main_videos .box {
+    margin-bottom: 30px;
+}
+
+.main_videos .box_video_title {
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+}
+
+.main_videos .thumb {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.main_videos .video_play {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 50%;
+    cursor: pointer;
+}
+
+.main_videos .video_play:hover {
+    background-color: rgba(207, 72, 35, 0.5);
+}
+
+/*DOBRA DE CONVERSÃƒO*/
+.main_chamada {
+    float: left;
+    width: 80%;
+    margin: 40px 10% 0 10%;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+

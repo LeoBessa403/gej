@@ -9,6 +9,10 @@ class IndexWeb extends AbstractController
     function Index()
     {
     }
+
+    function RetiroCarnaval()
+    {
+    }
     
     function CadastroMembro(){
        
