@@ -1,5 +1,5 @@
 <div class="main-content">
-    <div class="container">
+    <div class="container inscricao">
         <h4>Inscrição do VI Retiro de Carnaval Santifique-se</h4>
         <?php
         if ($result):

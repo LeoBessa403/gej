@@ -499,3 +499,20 @@ a img {
     padding-left: 40px;
 }
 
+img,
+picture,
+video,
+embed {
+    max-width: 100%;
+}
+
+.inscricao{
+    padding-top: 8%;
+}
+
+@media screen and (min-width: 750px) {
+    .inscricao {
+       padding-top: 0;
+    }
+}
+
