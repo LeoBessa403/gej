@@ -4,7 +4,6 @@
     padding: 0;
     outline: 0;
 
-    font-family: 'Lato', sans-serif;
     font-size: 1em;
     font-weight: 400;
 
@@ -500,8 +499,3 @@ a img {
     padding-left: 40px;
 }
 
-/*SHAREBOX*/
-/*.sharebox{float: left; width: 100%; padding: 25px 0; text-align: center;}*/
-/*.sharebox li{display: inline-block; background: #ccc; margin: 0 15px; background-position: left 10px center; background-repeat: no-repeat; background-size: auto 60%;}*/
-/*.sharebox a{float: left; padding: 10px 20px 10px 40px; color: #fff;}*/
-/*.sharebox .count{float: right; background: rgba(0,0,0,0.5); padding: 10px 15px; color: #fff;}*/

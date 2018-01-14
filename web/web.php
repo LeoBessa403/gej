@@ -37,8 +37,8 @@ require_once 'library/Config.inc.php';
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/css3-animation/animations.css">
 
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/iCheck/skins/all.css">
-<!--    <link rel="stylesheet"-->
-<!--          href="--><?php //echo PASTAADMIN; ?><!--plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">-->
+    <link rel="stylesheet"
+          href="<?php echo PASTAADMIN; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
 
     <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
