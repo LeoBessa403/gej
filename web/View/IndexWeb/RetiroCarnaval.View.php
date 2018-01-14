@@ -10,12 +10,9 @@
             <div class="clear"></div>
         </div>
     </section>
-    <div class="content">
-        <iframe class="video video-large main_video" width="400" height="600"
-                src="https://www.youtube.com/embed/dwk9KrMgz94"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <!--        <video class="video video-large main_video" src="https://www.youtube.com/v/dwk9KrMgz94"
-        controls width="400"></video>-->
+    <div class="content content_video">
+                <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
+        controls width="400"></video>
 
         <aside class="al-center">
             <h1>Faça sua incrição
