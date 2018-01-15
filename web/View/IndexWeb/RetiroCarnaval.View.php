@@ -12,7 +12,7 @@
     </section>
     <div class="content content_video">
                 <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
-        controls width="400" style="border: 1px solid red;"></video>
+        controls width="400"></video>
 
         <aside class="al-center">
             <h1>Faça sua incrição
@@ -100,7 +100,7 @@
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_drycss.png"
                      alt="CSS produtivo com OOCSS" title="Módulo de CSS produtivo com OOCSS">
-                <h1>CSS produtivo com OOCSS:</h1>
+                <h1>Animação:</h1>
                 <p class="tagline">Conheça as técnicas de produção do modelo OOCSS, construindo um ambiente padronizado
                     e de ágil desenvolvimento!</p>
             </article>
@@ -108,7 +108,7 @@
             <article class="main_tec_item box box-medium al-center radius last">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_forms.png"
                      alt="Formulários com HTML5" title="Módulo de Formulários com HTML5">
-                <h1>Formulários com HTML5:</h1>
+                <h1>Adoração:</h1>
                 <p class="tagline">Conheça e aprenda a utilizar toda tecnologia dos novos elementos de formulário do
                     HTML5!</p>
             </article>
@@ -118,7 +118,7 @@
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_midia.png"
                      alt="Áudio e Vídeo na Web" title="Módulo de Áudio e Vídeo na Web">
-                <h1>Áudio e Vídeo na Web:</h1>
+                <h1>Reflexão:</h1>
                 <p class="tagline">Nunca foi tão fácil incorporar e controlar mídias na internet. Aprenda a fazer isso
                     de forma fácil!</p>
             </article>
@@ -126,7 +126,7 @@
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_geo.png"
                      alt="Geolocation e HTML5 Storage" title="Módulo de Geolocation e HTML5 Storage">
-                <h1>Geolocation e HTML5 Storage:</h1>
+                <h1>Música:</h1>
                 <p class="tagline">Aprenda a utilizar a tecnologia de localização do HTML5. E ainda armazene dados de
                     navegação apenas com HTML!</p>
             </article>
@@ -134,7 +134,7 @@
             <article class="main_tec_item box box-medium al-center radius last">
                 <img src="http://localhost/upinside/divulgacao/themes/wshtml/img/tec_microdados.png"
                      alt="Distribuição com Micro Dados" title="Módulo de Distribuição com Micro Dados">
-                <h1>Distribuição com Micro Dados:</h1>
+                <h1>Pregação:</h1>
                 <p class="tagline">Aprenda a utilizar o vocabulário dos micro dados para distribuir conteúdo otimizado
                     de forma extrema!</p>
             </article>
