@@ -12,7 +12,7 @@
     </section>
     <div class="content content_video">
                 <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
-        controls width="400"></video>
+        controls width="400" style="border: 1px solid red;"></video>
 
         <aside class="al-center">
             <h1>Faça sua incrição
@@ -29,40 +29,43 @@
             <h1>Veja Alguns momentos dos retiros anteriores!</h1>
 
             <article class="box box-small">
-                <div class="thumb">
-                    <div class="video_play"></div>
-                    <img title="Vídeo Aula Entenda o HTML5" alt="Entenda o HTML5"
-                         src="http://localhost/upinside/divulgacao/uploads/images/entendendo-o-html5.jpg"/>
-                </div>
-                <h1 class="box_video_title">Entenda o HTML5</h1>
+                    <img src="<?php echo HOME; ?>web/img/galeria/01.jpg">
             </article>
 
             <article class="box box-small">
-                <div class="thumb">
-                    <div class="video_play"></div>
-                    <img title="Vídeo Aula CSS Produtivo" alt="CSS Produtivo"
-                         src="http://localhost/upinside/divulgacao/uploads/images/css-produtivo.jpg"/>
-                </div>
-                <h1 class="box_video_title">CSS Produtivo</h1>
+                   <img src="<?php echo HOME; ?>web/img/galeria/02.jpg">
             </article>
 
             <article class="box box-small">
-                <div class="thumb">
-                    <div class="video_play"></div>
-                    <img title="Vídeo Aula Design de Interação" alt="Design de Interação"
-                         src="http://localhost/upinside/divulgacao/uploads/images/design-de-interacao.jpg"/>
-                </div>
-                <h1 class="box_video_title">Design de Interação</h1>
+                    <img src="<?php echo HOME; ?>web/img/galeria/03.jpg">
             </article>
 
             <article class="box box-small last">
-                <div class="thumb">
-                    <div class="video_play"></div>
-                    <img title="Vídeo Aula Distribuição Otimizada" alt="Distribuição Otimizada"
-                         src="http://localhost/upinside/divulgacao/uploads/images/distribuicao-otimizada.jpg"/>
-                </div>
-                <h1 class="box_video_title">Distribuição Otimizada</h1>
+                    <img src="<?php echo HOME; ?>web/img/galeria/04.jpg">
             </article>
+
+            <article class="box box-small">
+                    <img src="<?php echo HOME; ?>web/img/galeria/05.jpg">
+            </article>
+
+            <article class="box box-small">
+                   <img src="<?php echo HOME; ?>web/img/galeria/06.jpg">
+            </article>
+
+            <article class="box box-small">
+                    <img src="<?php echo HOME; ?>web/img/galeria/07.jpg">
+            </article>
+
+            <article class="box box-small last">
+                    <img src="<?php echo HOME; ?>web/img/galeria/08.jpg">
+            </article>
+
+            <aside class="al-center">
+                <h1>Veja Mais
+                    <a class="btn btn-dark-grey radius" title="Mais Fotos do Retiro de carnaval Santifique-se"
+                       target="_blank"
+                       href="https://www.facebook.com/gej.dombosco/photos_all">clique aqui</a> para mais fotos.</h1>
+            </aside>
 
             <div class="clear"></div>
         </section>
