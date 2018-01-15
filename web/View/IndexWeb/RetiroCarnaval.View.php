@@ -11,8 +11,8 @@
         </div>
     </section>
     <div class="content content_video">
-                <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
-        controls width="400"></video>
+        <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
+               controls width="400"></video>
 
         <aside class="al-center">
             <h1>Faça sua incrição
@@ -29,35 +29,35 @@
             <h1>Veja Alguns momentos dos retiros anteriores!</h1>
 
             <article class="box box-small">
-                    <img src="<?php echo HOME; ?>web/img/galeria/01.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/01.jpg">
             </article>
 
             <article class="box box-small">
-                   <img src="<?php echo HOME; ?>web/img/galeria/02.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/02.jpg">
             </article>
 
             <article class="box box-small">
-                    <img src="<?php echo HOME; ?>web/img/galeria/03.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/03.jpg">
             </article>
 
             <article class="box box-small last">
-                    <img src="<?php echo HOME; ?>web/img/galeria/04.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/04.jpg">
             </article>
 
             <article class="box box-small">
-                    <img src="<?php echo HOME; ?>web/img/galeria/05.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/05.jpg">
             </article>
 
             <article class="box box-small">
-                   <img src="<?php echo HOME; ?>web/img/galeria/06.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/06.jpg">
             </article>
 
             <article class="box box-small">
-                    <img src="<?php echo HOME; ?>web/img/galeria/07.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/07.jpg">
             </article>
 
             <article class="box box-small last">
-                    <img src="<?php echo HOME; ?>web/img/galeria/08.jpg">
+                <img src="<?php echo HOME; ?>web/img/galeria/08.jpg">
             </article>
 
             <aside class="al-center">
@@ -93,24 +93,24 @@
                 <img src="<?php echo HOME; ?>web/img/teatro.png" alt="Teatro"
                      title="Peças Teatrais">
                 <h1>Teatro:</h1>
-                <p class="tagline">Aprenda e produzir conteúdo de qualidade. Otimizando cada bloco tanto para usuários
-                    quanto para robôs de busca!</p>
+                <p class="tagline">A equipe de Teatro evangeliza através da encenação, mostra aos jovens uma realidade
+                    do nosso dia a dia, que muitas vezes passa despercebido.!</p>
             </article>
 
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/animacao.png"
                      alt="Animação" title="Animação">
                 <h1>Animação:</h1>
-                <p class="tagline">Conheça as técnicas de produção do modelo OOCSS, construindo um ambiente padronizado
-                    e de ágil desenvolvimento!</p>
+                <p class="tagline">A equipe de animação leva o carisma da alegria, levando ao coração dos jovens à
+                    verdadeira alegria que vem de Deus,</p>
             </article>
 
             <article class="main_tec_item box box-medium al-center radius last">
                 <img src="<?php echo HOME; ?>web/img/adoracao.png"
                      alt="Adoração" title="Adoração">
                 <h1>Adoração:</h1>
-                <p class="tagline">Conheça e aprenda a utilizar toda tecnologia dos novos elementos de formulário do
-                    HTML5!</p>
+                <p class="tagline">Adorar Jesus no Santíssimo, nos enche de alegria, amadurece nossa união com Ele;
+                    e crescemos no amor a Deus e ao próximo.</p>
             </article>
 
             <div class="box-line"></div>
@@ -119,24 +119,24 @@
                 <img src="<?php echo HOME; ?>web/img/reflexao.png"
                      alt="Reflexão" title="Reflexão">
                 <h1>Reflexão:</h1>
-                <p class="tagline">Nunca foi tão fácil incorporar e controlar mídias na internet. Aprenda a fazer isso
-                    de forma fácil!</p>
+                <p class="tagline">Deus sempre olha por nós, ele cuida das nossas vidas, guia-nos no caminho do bem,
+                    abençoa a nossa jornada.</p>
             </article>
 
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/musica.png"
                      alt="Música" title="Música">
                 <h1>Música:</h1>
-                <p class="tagline">Aprenda a utilizar a tecnologia de localização do HTML5. E ainda armazene dados de
-                    navegação apenas com HTML!</p>
+                <p class="tagline">A equipe de Música é responsável de evangelizar através da música auxiliando em
+                    momentos de oração e também animação.!</p>
             </article>
 
             <article class="main_tec_item box box-medium al-center radius last">
                 <img src="<?php echo HOME; ?>web/img/pregacao.png"
                      alt="Pregação" title="Pregação">
                 <h1>Pregação:</h1>
-                <p class="tagline">Aprenda a utilizar o vocabulário dos micro dados para distribuir conteúdo otimizado
-                    de forma extrema!</p>
+                <p class="tagline">Algumas pessoas têm o dom de pregação. Essas pessoas ajudam a edificar a igreja,
+                    ensinando mais sobre a palavra de Deus.</p>
             </article>
             <div class="clear"></div>
         </div>
