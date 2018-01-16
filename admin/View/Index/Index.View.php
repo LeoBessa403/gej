@@ -50,7 +50,7 @@
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-3"></i>
                                 Total Inscritos
-                                <span class="negrito dados dados-success">
+                                <span class="negrito dados dados-danger">
                                     <?= $dados['TotalInscricoes']; ?>
                                 </span>
                             </button>
@@ -68,7 +68,7 @@
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-user-cancel"></i>
                                 Não Membros
-                                <span class="dados negrito dados-danger">
+                                <span class="dados negrito dados-warning">
                                     <?= $dados['TotalNaoMembros']; ?>
                                 </span>
                             </button>
