@@ -3,7 +3,7 @@
 <article class="container2">
     <section class="container2 bg-orange">
         <!--container2 do title-->
-        <div class="content">
+        <div class="content content-title">
             <header class="sectiontitle sectiontitle-nomargin">
                 <h3>Conheça mais sobre nosso Retiro</h3>
             </header>
@@ -25,7 +25,7 @@
     </div>
 
     <footer class="bg-bluelight">
-        <section class="content main_videos" style="padding-bottom: 10px;">
+        <section class="content main_fotos" style="padding-bottom: 10px;">
             <h1>Veja Alguns momentos dos retiros anteriores!</h1>
 
             <article class="box box-small">
@@ -73,10 +73,10 @@
 </article>
 
 <!--seção relacional-->
-<section class="container2 bg-orange">
+<section class="container2 bg-orange section">
     <!--container2 do title-->
-    <div class="content">
-        <header class="sectiontitle sectiontitle-nomargin">
+    <div class="content section">
+        <header class="sectiontitle sectiontitle-nomargin section-retiro">
             <h1>Porque fazer um Retiro Espiritual?</h1>
             <p class="tagline">Retiro Espiritual é um afastamento temporário de suas atividades para conversar com Deus
                 e refletir sobre sua própria vida. Trata-se de uma prática muito tradicional na história do
@@ -87,8 +87,8 @@
     </div>
 
     <!--container2 dos artigos-->
-    <div class="container2 bg-body">
-        <div class="content" style="padding-bottom: 10px;">
+    <div class="container2 bg-body section">
+        <div class="content section">
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/teatro.png" alt="Teatro"
                      title="Peças Teatrais">
@@ -156,7 +156,7 @@
     </li>
 </ul>
 <!--seção temática-->
-<section class="container2 bg-bluelight al-center" style="text-align: center;">
+<section class="container2 section bg-bluelight al-center" style="text-align: center;">
     <div class="content">
         <header class="sectiontitle">
             <h1 class="shoticon shoticon-config shoticon-sectiontitle ds-inblock orange">Formas de Pagamento:</h1>
@@ -175,9 +175,9 @@
 </section>
 
 <!--retomada e converção-->
-<article class="container2 bg-blue">
-    <div class="content content-page al-center">
-        <header class="sectiontitle">
+<article class="container2 bg-blue section">
+    <div class="content content-page al-center section">
+        <header class="sectiontitle section">
             <h1 style="color: #E16F4D">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>
             <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b>(61) 99105-8681 ou
                     (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
@@ -194,8 +194,8 @@
 </article>        <!--CONTEUDO-->
 
 <!--content visual-->
-<div class="container2">
-    <div class="content content-page al-center fontsize2 font-light">
+<div class="container2 section">
+    <div class="content section content-page al-center fontsize2 font-light">
         <h1>"Basta que sejais jovens para que eu vos ame." <small>(São João Bosco)</small></h1>
         <div class="clear"></div>
     </div>

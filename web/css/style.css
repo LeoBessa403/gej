@@ -116,10 +116,42 @@
     margin-bottom: 2%;
 }
 
-@media all and (max-width: 995px){
+.main_fotos .box-small {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 840px) {
+    .content-title {
+        padding-bottom: 10px;
+    }
+
+    .main_video {
+        padding-bottom: 0;
+        margin-bottom: 10px;
+    }
+
+    .main_fotos {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .content_video aside {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
     .main_fotos .box-small {
-        width: 22.75%;
-        margin-right: 3%;
+        width: 47%;
+        margin-right: 6%;
+    }
+
+    .main_fotos .box-small:nth-child(2n+1) {
+        margin-right: 0;
+    }
+
+    .section {
+        padding: 0 auto !important;
+        margin: 0 auto !important;
     }
 }
 

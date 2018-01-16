@@ -104,7 +104,7 @@ require_once 'library/Config.inc.php';
     <div class="clearfix" id="topbar">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
                         Contatos: (61) 99105-8681 - E-Mail:
@@ -114,7 +114,7 @@ require_once 'library/Config.inc.php';
                     </div>
                     <!-- end: TOP BAR CALL US -->
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <!-- start: TOP BAR SOCIAL ICONS -->
                     <div class="social-icons">
                         <ul>
