@@ -5,7 +5,7 @@
         <!--container2 do title-->
         <div class="content content-title">
             <header class="sectiontitle sectiontitle-nomargin">
-                <h3>Conheça mais sobre nosso Retiro</h3>
+                <h2>Conheça mais sobre nosso Retiro</h2>
             </header>
             <div class="clear"></div>
         </div>
@@ -14,7 +14,7 @@
         <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
                controls width="400"></video>
 
-        <aside class="al-center">
+        <aside class="al-center sectiontitle-insc">
             <h1>Faça sua incrição
                 <a class="btn btn-green radius" title="Inscrição VI Retiro de carnaval Santifique-se"
                    target="_blank"
@@ -179,8 +179,8 @@
     <div class="content content-page al-center section">
         <header class="sectiontitle section">
             <h1 style="color: #E16F4D">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>
-            <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b>(61) 99105-8681 ou
-                    (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
+            <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b class="nummeros">
+                    (61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
         </header>
         <h2 style="color: #CCD8D1;">Faça sua incrição
             <a class="btn btn-bricky btn-big radius"
@@ -195,8 +195,8 @@
 
 <!--content visual-->
 <div class="container2 section">
-    <div class="content section content-page al-center fontsize2 font-light">
-        <h1>"Basta que sejais jovens para que eu vos ame." <small>(São João Bosco)</small></h1>
+    <div class="content section content-page al-center font-light">
+        <h1 class="frase">"Basta que sejais jovens para que eu vos ame." <small>(São João Bosco)</small></h1>
         <div class="clear"></div>
     </div>
 </div>
