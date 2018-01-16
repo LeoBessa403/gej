@@ -28,12 +28,21 @@
                         Resumo das Inscrições
                     </div>
                     <div class="panel-body">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-3"></i>
                                 Vagas Garantidas
-                                <span class="negrito dados dados-warning">
+                                <span class="negrito dados dados-success">
                                     <?= $dados['TotalInscricoesRestantes']; ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-icon btn-block">
+                                <i class="clip-users-3"></i>
+                                Retirantes Inscritos
+                                <span class="negrito dados dados-warning">
+                                    <?= $dados['TotalRetirantes']; ?>
                                 </span>
                             </button>
                         </div>

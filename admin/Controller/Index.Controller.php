@@ -24,6 +24,7 @@ class Index extends AbstractController
         $dados['TotalInscricoesCartao'] = 0;
         $dados['TotalAArrecadar'] = 0;
         $dados['TotalArrecadado'] = 0;
+        $dados['TotalRetirantes'] = 0;
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
@@ -97,6 +98,8 @@ class Index extends AbstractController
             }
             $dados['TotalAArrecadar'] = $dados['TotalAArrecadar'] + $pagamentoInscricao->getNuTotal();
         }
+
+        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
