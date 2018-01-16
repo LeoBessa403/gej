@@ -18,7 +18,7 @@
             <h1>Faça sua incrição
                 <a class="btn btn-green radius" title="Inscrição VI Retiro de carnaval Santifique-se"
                    target="_blank"
-                   href="http://gejdombosco.com.br/web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a>
+                   href="<?php echo HOME; ?>web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a>
                 e não perca essa oportunidade.</h1>
         </aside>
         <div class="clear"></div>
@@ -156,18 +156,20 @@
     </li>
 </ul>
 <!--seção temática-->
-<section class="container2 bg-bluelight">
+<section class="container2 bg-bluelight" style="text-align: center;">
     <div class="content">
         <header class="sectiontitle">
-            <h1 class="shoticon shoticon-config shoticon-sectiontitle ds-inblock">Ficha Técnica:</h1>
-            <p class="tagline">Saiba mais sobre o conteúdo do curso WS HTML5!</p>
+            <h1 class="shoticon shoticon-config shoticon-sectiontitle ds-inblock orange">Formas de Pagamento:</h1>
+            <p class="tagline">Dividimes em ate 12x o seu pagamento do retiro!</p>
         </header>
 
-        <article class="main_info box box-small"><h1>Tempo em Aula: <b>23h</b></h1></article>
-        <article class="main_info box box-small"><h1>Certifica de: <b>230h</b></h1></article>
-        <article class="main_info box box-small"><h1>Módulos: <b>8</b></h1></article>
-        <article class="main_info box box-small last"><h1>Vídeo Aulas: <b>50</b></h1></article>
-
+        <article class="main_info box box-large"><img src="<?php echo HOME; ?>web/img/banner-pagseguro.png"
+                                                      title="Forma de Pagamento">
+        </article>
+        <article class="main_info box box-large last"><img
+                    src="<?php echo HOME; ?>web/img/banner-pagseguro-forma-pagamento.png"
+                    title="Forma de Pagamento">
+        </article>
         <div class="clear"></div>
     </div>
 </section>
@@ -176,25 +178,16 @@
 <article class="container2 bg-blue">
     <div class="content content-page al-center">
         <header class="sectiontitle">
-            <h1>Faça Parte Da Turma WS HTML5, Matrícule-se!</h1>
-            <p class="tagline">Começe Agora Mesmo. O Curso é
-                <mark>100% em Vídeo Aulas</mark>
-                ,
-                <mark>Online</mark>
-                e
-                <mark>On Demand!</mark>
-            </p>
+            <h1 style="color: #E16F4D">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>
+            <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b>(61) 99105-8681 ou
+                    (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
         </header>
-
-        <a class="btn btn-green btn-big radius" title="Quero Me Matricular no Curso WS HTML5 Agora!" target="_blank"
-           href="http://www.upinside.com.br/curso/curso-html5">Comprar WS HTML5!</a>
-
-        <footer>
-            <div class="main_chamada al-center">
-                Você estuda quando e onde quiser na melhor plataforma EAD. Com suporte diretamente com o tutor, e todo
-                material disponível para download!
-            </div>
-        </footer>
+        <h2 style="color: #CCD8D1;">Faça sua incrição
+            <a class="btn btn-bricky btn-big radius"
+               title="Quero Fazer inscrição do VI RETIRO DE CARNAVAL SANTIFIQUE-SE Agora!"
+               target="_blank"
+               href="<?php echo HOME; ?>web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a> e não perca essa
+            oportunidade.</h2>
 
         <div class="clear"></div>
     </div>
@@ -203,20 +196,7 @@
 <!--content visual-->
 <div class="container2">
     <div class="content content-page al-center fontsize2 font-light">
-        UpInside Treinamentos. Os melhores e mais completos cursos de desenvolvimento WEB e TI do mercado!
+        <h1>"Basta que sejais jovens para que eu vos ame." <small>(São João Bosco)</small></h1>
         <div class="clear"></div>
     </div>
 </div>
-
-
-<ul class="sharebox bg-graylight">
-    <li class="like facebook"><span class="count">0</span> <a
-                href="http%3A%2F%2Flocalhost%2Fupinside%2Fdivulgacao&app_id=626590460695980"
-                title="Compartilhe no Facebook">Compartilhe no Facebook</a></li>
-    <li class="like google"><span class="count">0</span> <a href="http://localhost/upinside/divulgacao"
-                                                            title="Recomende no Google+">Recomende no Google+</a></li>
-    <li class="like twitter"><span class="count">0</span> <a href="http%3A%2F%2Flocalhost%2Fupinside%2Fdivulgacao"
-                                                             rel="&text=Curso Work Series - HTML5 do Jeito Certo! @UpInsideBr"
-                                                             title="Conte Isto no Twitter">Conte Isto no Twitter</a>
-    </li>
-</ul>
