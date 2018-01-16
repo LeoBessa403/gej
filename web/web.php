@@ -26,7 +26,7 @@ require_once 'library/Config.inc.php';
     <!-- start: MAIN CSS -->
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/boot.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/bootstrap/css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>fonts/style.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/animate.css/animate.min.css">

@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------- */
 /*	From Medium Devices Up To Larger Devices
  /* ---------------------------------------------------------------------- */
-@media (min-width: 992px) {
+@media (min-width: 840px) {
 	body {
 		padding-top: 129px;
 	}
@@ -33,7 +33,7 @@
 /* ---------------------------------------------------------------------- */
 /*	From Small Devices Up To Medium Devices
  /* ---------------------------------------------------------------------- */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (max-width: 839px) {
 	body {
 		padding-top: 119px !important;
 	}
@@ -48,7 +48,7 @@
 /* ---------------------------------------------------------------------- */
 /*	Up To Medium Devices
  /* ---------------------------------------------------------------------- */
-@media (max-width: 991px) {
+@media (max-width: 839px) {
 	.navbar-default {
 		line-height: normal !important;
 		background: #fff;
@@ -101,7 +101,7 @@
 /* ---------------------------------------------------------------------- */
 /*	Up To Medium Devices
  /* ---------------------------------------------------------------------- */
-@media (min-width: 768px) {
+@media (min-width: 840px) {
 	.mega-menu {
 		position: static !important;
 	}
@@ -117,7 +117,7 @@
 /* ---------------------------------------------------------------------- */
 /*	Extra Small Devices Only
  /* ---------------------------------------------------------------------- */
-@media (max-width: 767px) {
+@media (max-width: 839px) {
 	body {
 		padding-top: 50px !important;
 	}
