@@ -67,9 +67,7 @@
                             $grid->setColunas(Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
-                            $grid->setColunas(($inscricao->getCoPagamento())
-                                ? FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao())
-                                : null);
+                            $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
                             $grid->setColunas($acao, 2);
                             $grid->criaLinha($inscricao->getCoInscricao());
                         endforeach;
