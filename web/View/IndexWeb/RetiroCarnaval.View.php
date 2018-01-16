@@ -156,7 +156,7 @@
     </li>
 </ul>
 <!--seção temática-->
-<section class="container2 bg-bluelight" style="text-align: center;">
+<section class="container2 bg-bluelight al-center" style="text-align: center;">
     <div class="content">
         <header class="sectiontitle">
             <h1 class="shoticon shoticon-config shoticon-sectiontitle ds-inblock orange">Formas de Pagamento:</h1>
