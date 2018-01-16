@@ -42,34 +42,36 @@
                         $documento = '';
                         $acao = '';
 
-                        /** @var InscricaoEntidade $res */
-                        foreach ($result as $res):
-                            if ($res->getCoPessoa()->getNuCpf()) {
-                                $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
-                            } elseif ($res->getCoPessoa()->getNuRG()) {
-                                $documento = $res->getCoPessoa()->getNuRG();
+                        /** @var InscricaoEntidade $inscricao */
+                        foreach ($result as $inscricao):
+                            if ($inscricao->getCoPessoa()->getNuCpf()) {
+                                $documento = Valida::MascaraCpf($inscricao->getCoPessoa()->getNuCpf());
+                            } elseif ($inscricao->getCoPessoa()->getNuRG()) {
+                                $documento = $inscricao->getCoPessoa()->getNuRG();
                             }
                             if(Valida::ValPerfil('DetalharInscricao')){
                                 $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-                                    . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-primary tooltips" 
+                                    . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" class="btn btn-primary tooltips" 
                                 data-original-title="Visualizar Registro" data-placement="top">
                                 <i class="fa fa-clipboard"></i>
                                 </a>
-                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' . Valida::GeraParametro("insc/" . $res->getCoInscricao()) . '" class="btn btn-dark-grey tooltips" 
+                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" class="btn btn-dark-grey tooltips" 
                                    data-original-title="Detalhes do Pagamento" data-placement="top">
                                     <i class="fa fa-indent"></i>
                                 </a>';
                             }
-                            $grid->setColunas(strtoupper($res->getCoPessoa()->getNoPessoa()));
-                            $grid->setColunas(Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()));
+                            $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
+                            $grid->setColunas(Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1()));
                             $grid->setColunas($documento);
-                            $grid->setColunas(Valida::DataShow($res->getDtCadastro()));
-                            $grid->setColunas(Valida::DataShow($res->getCoPessoa()->getDtNascimento()));
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho()));
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo()));
-                            $grid->setColunas(FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao()));
+                            $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro()));
+                            $grid->setColunas(Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento()));
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
+                            $grid->setColunas(($inscricao->getCoPagamento())
+                                ? FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao())
+                                : null);
                             $grid->setColunas($acao, 2);
-                            $grid->criaLinha($res->getCoInscricao());
+                            $grid->criaLinha($inscricao->getCoInscricao());
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
