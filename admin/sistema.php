@@ -170,7 +170,7 @@ endif;
 //                "Biblioteca" => array("fa fa-book","CadastroLivro","ListarLivro"),
 //                "Agenda" => array("fa fa-calendar","Calendario"),
                 "Usuario" => array("fa fa-group", "MeuPerfilUsuario", "CadastroUsuario", "ListarUsuario"),
-                "Inscricao" => array("clip-note", "ListarInscricao"),
+                "Inscricao" => array("clip-note", "ListarInscricao", "DetalhesInscricao","SobreVcInscricao"),
                 "Perfil" => array("clip-stack-empty", "CadastroPerfil", "ListarPerfil"),
                 "Funcionalidade" => array("fa fa-outdent", "CadastroFuncionalidade", "ListarFuncionalidade"),
                 "Acesso" => array("clip-connection-2", "ListarAcesso"),

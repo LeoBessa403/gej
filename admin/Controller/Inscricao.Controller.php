@@ -31,7 +31,7 @@ class Inscricao extends AbstractController
                 $pagamento = $inscricaoEdicao->getCoPagamento();
                 $numeroParcelas = $_POST[NU_PARCELAS][0];
 
-                if($pagamento->getNuParcelas() != $numeroParcelas){
+                if ($pagamento->getNuParcelas() != $numeroParcelas) {
                     $pag[NU_PARCELAS] = $numeroParcelas;
                     $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
 
@@ -93,6 +93,21 @@ class Inscricao extends AbstractController
 
     public function ListarInscricao()
     {
+        $this->pegarInscricoes();
+    }
+
+    public function DetalhesInscricao()
+    {
+        $this->pegarInscricoes();
+    }
+
+    public function SobreVcInscricao()
+    {
+        $this->pegarInscricoes();
+    }
+
+    private function pegarInscricoes()
+    {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
         $session = new Session();
@@ -118,20 +133,11 @@ class Inscricao extends AbstractController
     // AÇÃO DE EXPORTAÇÃO
     public function ExportarListarInscricao()
     {
-        /** @var InscricaoService $inscricaoService */
-        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-
-        $session = new Session();
-        if ($session->CheckSession(PESQUISA_AVANCADA)) {
-            $Condicoes = $session->getSession(PESQUISA_AVANCADA);
-            $result = $inscricaoService->PesquisaAvancada($Condicoes);
-        } else {
-            $result = $inscricaoService->PesquisaTodos();
-        }
+        $inscricoes = $this->pegarInscricoesExportar();
         $formato = UrlAmigavel::PegaParametro("formato");
         $i = 0;
         /** @var InscricaoEntidade $res */
-        foreach ($result as $res) {
+        foreach ($inscricoes as $res) {
             if ($res->getCoPessoa()->getNuCpf()) {
                 $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
             } elseif ($res->getCoPessoa()->getNuRG()) {
@@ -148,6 +154,73 @@ class Inscricao extends AbstractController
             $i++;
         }
         $Colunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento');
+        $this->geraArquivo($formato, $Colunas, $dados);
+    }
+
+    // AÇÃO DE EXPORTAÇÃO
+    public function ExportarDetalhesInscricao()
+    {
+        $inscricoes = $this->pegarInscricoesExportar();
+        $formato = UrlAmigavel::PegaParametro("formato");
+        $i = 0;
+        /** @var InscricaoEntidade $inscricao */
+        foreach ($inscricoes as $inscricao) {
+            $contato = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
+            if ($inscricao->getCoPessoa()->getCoContato()->getNuTel2()) {
+                $contato = $contato . ' / ' . Valida::MascaraTel(
+                        $inscricao->getCoPessoa()->getCoContato()->getNuTel2()
+                    );
+            } else if ($inscricao->getNuTelResponsavel()) {
+                $contato = $contato . ' / ' . Valida::MascaraTel(
+                        $inscricao->getNuTelResponsavel()
+                    );
+            }
+            $dados[$i][NO_PESSOA] = strtoupper($inscricao->getCoPessoa()->getNoPessoa());
+            $dados[$i][NU_CAMISA] = FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
+            $dados[$i]['CONTATO'] = $contato;
+            $dados[$i][DS_PASTORAL] = $inscricao->getDsPastoral();
+            $dados[$i][DS_RETIRO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsRetiro());
+            $i++;
+        }
+        $Colunas = array('Nome', 'Camisa', 'Contatos', 'Participa Pastoral', 'Particiopou Retiro');
+        $this->geraArquivo($formato, $Colunas, $dados);
+    }
+
+    // AÇÃO DE EXPORTAÇÃO
+    public function ExportarSobreVcInscricao()
+    {
+        $inscricoes = $this->pegarInscricoesExportar();
+        $formato = UrlAmigavel::PegaParametro("formato");
+        $i = 0;
+        /** @var InscricaoEntidade $inscricao */
+        foreach ($inscricoes as $inscricao) {
+            $dados[$i][NO_PESSOA] = strtoupper($inscricao->getCoPessoa()->getNoPessoa());
+            $dados[$i][DS_DESCRICAO] = $inscricao->getDsDescricao();
+            $dados[$i][DS_MEDICACAO] = $inscricao->getDsMedicacao();
+            $dados[$i][DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();
+            $i++;
+        }
+        $Colunas = array('Nome', 'Sobre', 'Medicação', 'Alimentação');
+        $this->geraArquivo($formato, $Colunas, $dados);
+    }
+
+    private function pegarInscricoesExportar()
+    {
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+
+        $session = new Session();
+        if ($session->CheckSession(PESQUISA_AVANCADA)) {
+            $Condicoes = $session->getSession(PESQUISA_AVANCADA);
+            $result = $inscricaoService->PesquisaAvancada($Condicoes);
+        } else {
+            $result = $inscricaoService->PesquisaTodos();
+        }
+        return $result;
+    }
+
+    private function geraArquivo($formato, $Colunas, $dados)
+    {
         $exporta = new Exportacao($formato);
         $exporta->setPapelOrientacao("paisagem");
         $exporta->setColunas($Colunas);
@@ -155,7 +228,17 @@ class Inscricao extends AbstractController
         $exporta->GeraArquivo();
     }
 
+    public function DetalhesInscricaoPesquisaAvancada()
+    {
+        echo InscricaoForm::Pesquisar();
+    }
+
     public function ListarInscricaoPesquisaAvancada()
+    {
+        echo InscricaoForm::Pesquisar();
+    }
+
+    public function SobreVcInscricaoPesquisaAvancada()
     {
         echo InscricaoForm::Pesquisar();
     }
