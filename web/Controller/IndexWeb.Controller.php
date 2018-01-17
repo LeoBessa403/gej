@@ -10,10 +10,6 @@ class IndexWeb extends AbstractController
     {
     }
 
-    function RetiroCarnaval()
-    {
-    }
-    
     function CadastroMembro(){
        
         $id = "cadastroMembro";

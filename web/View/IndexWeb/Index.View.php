@@ -1,221 +1,201 @@
-<section class="fullwidthbanner-container">
-    <div class="fullwidthabnner">
-        <ul>
-            <!-- start: FIRST SLIDE -->
-            <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
-                <img src="<?php echo PASTASITE; ?>images/sliders/fundo.jpg" style="background-color:rgb(246, 246, 246)"
-                     alt="slidebg1" data-bgfit="cover" data-bgposition="left bottom" data-bgrepeat="no-repeat">
-                <div class="caption lft slide_title slide_item_left" style="color: white;"
-                     data-x="0"
-                     data-y="50"
-                     data-speed="400"
-                     data-start="1500"
-                     data-easing="easeOutExpo">
-                    "Basta que sejais <br/>jovens para que <br/> eu vos ame."
-                </div>
-                <div class="caption lfl slide_subtitle slide_item_left"
-                     data-x="0"
-                     data-y="285"
-                     data-speed="400"
-                     data-start="2000"
-                     data-easing="easeOutExpo">
-                    Dom Bosco
-                </div>
-<!--	         <div class="caption lfr slide_desc slide_item_left"
-                    data-x="0"
-                    data-y="230"
-                    data-speed="400"
-                    data-start="2500"
-                    data-easing="easeOutExpo">
-                    <ul>
-                        <li>Internações</li><br>
-                        <li>Radiografia e Eletrocardiograma</li><br>
-                        <li>Vacínas Antirábicas, Triplece, Gripe Canina etc.</li><br>
-                        <li>E muito mais...</li><br>
-                    </ul>
-                </div>-->
-                <a class="caption lfb btn btn-bricky slide_btn slide_item_left"
-                   href="<?php echo PASTASITE; ?>Planos/Cobertura"
-                   data-x="0"
-                   data-y="340"
-                   data-speed="400"
-                   data-start="3000"
-                   data-easing="easeOutExpo">
-                    Veja Mais
-                </a>
-                <div class="caption lft"
-                     data-x="550"
-                     data-y="50"
-                     data-speed="500"
-                     data-start="1000"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/jovem1.png" width="75" alt="Image 1">
-                </div>
-                <div class="caption lfb"
-                     data-x="640"
-                     data-y="65"
-                     data-speed="500"
-                     data-start="1200"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/jovem2.png" width="75" alt="Image 1">
-                </div>
-                <div class="caption lft"
-                     data-x="700"
-                     data-y="60"
-                     data-speed="500"
-                     data-start="1400"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/jovem3.png" width="90" alt="Image 1">
-                </div>
-                <div class="caption lfb"
-                     data-x="800"
-                     data-y="60"
-                     data-speed="500"
-                     data-start="1600"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/jovem4.png" width="90" alt="Image 1">
-                </div>
-                <div class="caption lft"
-                     data-x="900"
-                     data-y="60"
-                     data-speed="500"
-                     data-start="1800"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/jovem5.png" width="100" alt="Image 1">
-                </div>
-                <div class="caption lfb"
-                     data-x="1000"
-                     data-y="60"
-                     data-speed="500"
-                     data-start="2000"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/jovem6.png" width="100" alt="Image 1">
-                </div>
-            </li>
-            <!-- end: FIRST SLIDE -->
-            <!-- start: SECOND SLIDE -->
-            <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
-                <img src="<?php echo PASTASITE; ?>images/sliders/slidebg1.png"
-                     style="background-color:rgb(246, 246, 246)" alt="slidebg1" data-bgfit="cover"
-                     data-bgposition="left bottom" data-bgrepeat="no-repeat">
-                <div class="caption lft slide_title slide_item_left"
-                     data-x="0"
-                     data-y="40"
-                     data-speed="400"
-                     data-start="1500"
-                     data-easing="easeOutExpo">
-                    "Fiz tudo quanto soube <br/> e pude pelos jovens,<br/> que são o amor de<br/> toda a minha vida."
-                </div>
-                <a class="caption lft btn btn-green slide_btn slide_item_left"
-                   href="<?php echo PASTASITE; ?>Planos/ListarPlanos"
-                   data-x="0"
-                   data-y="320"
-                   data-speed="400"
-                   data-start="2000"
-                   data-easing="easeOutExpo">
-                    Dom Bosco
-                </a>
-                <div class="caption sfr"
-                     data-x="710"
-                     data-y="5"
-                     data-speed="500"
-                     data-start="1000"
-                     data-easing="easeOutExpo">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/Dom.png" alt="Image 1">
-                </div>
-            </li>
-            <!-- end: SECOND SLIDE -->
-            <!-- start: THIRD SLIDE -->
-            <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
-                <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                <img src="<?php echo PASTASITE; ?>images/sliders/slidebg3.png"
-                     style="background-color:rgb(246, 246, 246)" alt="slidebg1" data-bgfit="cover"
-                     data-bgposition="left bottom" data-bgrepeat="no-repeat">
-                <div class="caption lft slide_title slide_item_left"
-                     data-x="0"
-                     data-y="105"
-                     data-speed="400"
-                     data-start="1500"
-                     data-easing="easeOutExpo">
-                    "Deus nos colocou <br/> no mundo para os outros."
-                </div>
-                <div class="caption sft slide_subtitle slide_item_left"
-                     data-x="0"
-                     data-y="230"
-                     data-speed="400"
-                     data-start="2000"
-                     data-easing="easeOutExpo">
-                    Dom Bosco
-                </div>
-                <a class="caption sfb btn btn-purple slide_btn slide_item_left"
-                   href="<?php echo PASTASITE; ?>Credenciados/ListarCredenciado"
-                   data-x="0"
-                   data-y="320"
-                   data-speed="400"
-                   data-start="3000"
-                   data-easing="easeOutExpo">
-                    Saiba Mais
-                </a>
-                <div class="caption sfr"
-                     data-x="710"
-                     data-y="10"
-                     data-speed="500"
-                     data-start="1000"
-                     data-easing="easeOutBack">
-                    <img src="<?php echo PASTASITE; ?>images/sliders/bicen.png" width="330" alt="Image 1">
-                </div>
-            </li>
-            <!-- end: THIRD SLIDE -->
-        </ul>
+<!--CONTEUDO-->
+<!--bloco de video-->
+<article class="container2">
+    <section class="container2 bg-orange">
+        <!--container2 do title-->
+        <div class="content content-title">
+            <header class="sectiontitle sectiontitle-nomargin">
+                <h2>Conheça mais sobre nosso Retiro</h2>
+            </header>
+            <div class="clear"></div>
+        </div>
+    </section>
+    <div class="content content_video">
+        <div class="video">
+            <iframe  class="video-large main_video" src="https://www.youtube.com/embed/n5f6gsKsOkI" frameborder="0"
+                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <aside class="al-center sectiontitle-insc">
+            <h1>Faça sua incrição
+                <a class="btn btn-green radius" title="Inscrição VI Retiro de carnaval Santifique-se"
+                   target="_blank"
+                   href="<?php echo HOME; ?>web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a>
+                e não perca essa oportunidade.</h1>
+        </aside>
+        <div class="clear"></div>
+    </div>
+
+    <footer class="bg-bluelight">
+        <section class="content main_fotos" style="padding-bottom: 10px;">
+            <h1>Veja Alguns momentos dos retiros anteriores!</h1>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/01.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/02.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/03.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/04.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/05.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/06.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/07.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?php echo HOME; ?>web/img/galeria/08.jpg">
+            </article>
+
+            <aside class="al-center">
+                <h1 class="click">Veja Mais
+                    <a class="btn btn-dark-grey radius" title="Mais Fotos do Retiro de carnaval Santifique-se"
+                       target="_blank"
+                       href="https://www.facebook.com/gej.dombosco/photos_all">clique aqui</a> para mais fotos.</h1>
+            </aside>
+
+            <div class="clear"></div>
+        </section>
+    </footer>
+</article>
+
+<!--seção relacional-->
+<section class="container2 bg-orange section">
+    <!--container2 do title-->
+    <div class="content section">
+        <header class="sectiontitle sectiontitle-nomargin section-retiro">
+            <h1>Porque fazer um Retiro Espiritual?</h1>
+            <p class="tagline">Retiro Espiritual é um afastamento temporário de suas atividades para conversar com Deus
+                e refletir sobre sua própria vida. Trata-se de uma prática muito tradicional na história do
+                Cristianismo, vivamente recomendada pela Igreja Católica. É também chamado de “Exercícios
+                Espirituais”..</p>
+        </header>
+        <div class="clear"></div>
+    </div>
+
+    <!--container2 dos artigos-->
+    <div class="container2 bg-body section article">
+        <div class="content section">
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/teatro.png" alt="Teatro"
+                     title="Peças Teatrais">
+                <h1>Teatro:</h1>
+                <p class="tagline">A equipe de Teatro evangeliza através da encenação, mostra aos jovens uma realidade
+                    do nosso dia a dia, que muitas vezes passa despercebido.!</p>
+            </article>
+
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/animacao.png"
+                     alt="Animação" title="Animação">
+                <h1>Animação:</h1>
+                <p class="tagline">A equipe de animação leva o carisma da alegria, levando ao coração dos jovens à
+                    verdadeira alegria que vem de Deus,</p>
+            </article>
+
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/adoracao.png"
+                     alt="Adoração" title="Adoração">
+                <h1>Adoração:</h1>
+                <p class="tagline">Adorar Jesus no Santíssimo, nos enche de alegria, amadurece nossa união com Ele;
+                    e crescemos no amor a Deus e ao próximo.</p>
+            </article>
+
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/reflexao.png"
+                     alt="Reflexão" title="Reflexão">
+                <h1>Reflexão:</h1>
+                <p class="tagline">Deus sempre olha por nós, ele cuida das nossas vidas, guia-nos no caminho do bem,
+                    abençoa a nossa jornada.</p>
+            </article>
+
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/musica.png"
+                     alt="Música" title="Música">
+                <h1>Música:</h1>
+                <p class="tagline">A equipe de Música é responsável de evangelizar através da música auxiliando em
+                    momentos de oração e também animação.!</p>
+            </article>
+
+            <article class="main_tec_item box box-medium al-center radius">
+                <img src="<?php echo HOME; ?>web/img/pregacao.png"
+                     alt="Pregação" title="Pregação">
+                <h1>Pregação:</h1>
+                <p class="tagline">Algumas pessoas têm o dom de pregação. Essas pessoas ajudam a edificar a igreja,
+                    ensinando mais sobre a palavra de Deus.</p>
+            </article>
+            <div class="clear"></div>
+        </div>
     </div>
 </section>
-<!-- end: REVOLUTION SLIDERS -->
-<!--			<section>-->
-<!--				<div class="container">-->
-<!--					<div class="row">-->
-<!--						<div class="col-sm-4">-->
-<!--							<div class="core-box">-->
-<!--								<div class="heading">-->
-<!--									<i class="clip-file-powerpoint circle-icon"></i>-->
-<!--									<h2>Conheça nossos planos</h2>-->
-<!--								</div>-->
-<!--                                                            <div class="content">-->
-<!--									A Amigos do Pet oferece planos com coberturas para diferentes necessidades para Cães e Gatos de todas as raças.-->
-<!--								</div>-->
-<!--								<a class="view-more" href="--><?php //echo PASTASITE; ?><!--Planos/ListarPlanos">-->
-<!--									Saiba mais <i class="fa fa-angle-right"></i>-->
-<!--								</a>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="col-sm-4">-->
-<!--							<div class="core-box">-->
-<!--								<div class="heading">-->
-<!--									<i class="fa fa-plus-square circle-icon"></i>-->
-<!--									<h2>Rede Credenciada</h2>-->
-<!--								</div>-->
-<!--								<div class="content">-->
-<!--									Clínicas, hospitais e laboratórios 24 horas a seu dispor.-->
-<!--                                                                        Atendimento para acidentes, doenças, vacinas, urgências, consultas com especialistas e muito mais.-->
-<!--								</div>-->
-<!--								<a class="view-more" href="--><?php //echo PASTASITE; ?><!--Credenciados/ListarCredenciado">-->
-<!--									Saiba mais <i class="fa fa-angle-right"></i>-->
-<!--								</a>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="col-sm-4">-->
-<!--							<div class="core-box">-->
-<!--								<div class="heading">-->
-<!--									<i class="clip-mobile circle-icon"></i>-->
-<!--									<h2>Dúvidas Frequentes</h2>-->
-<!--								</div>-->
-<!--								<div class="content">-->
-<!--									Um espaço onde você encontra informação especializada para manter seu pet saudável e feliz, além de fatos e histórias incríveis.-->
-<!--								</div>-->
-<!--								<a class="view-more" href="--><?php //echo PASTASITE; ?><!--Index/Blog">-->
-<!--									Continuar Lendo <i class="fa fa-angle-right"></i>-->
-<!--								</a>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</section>-->
+
+
+<ul class="sharebox bg-light">
+    <li class="like facebook"><a
+                href="https://www.facebook.com/gej.dombosco" target="_blank"
+                title="Compartilhe no Facebook">Compartilhe no Facebook</a></li>
+    <li class="like google"><a href="https://www.instagram.com/gejdombosco/" target="_blank"
+                               title="Recomende no Instagram">Recomende no Instagram</a></li>
+    <li class="like twitter"><a href="https://twitter.com/gejdombosco" target="_blank"
+                                rel="&text=VI Retiro de Carnaval Santifique-se! @gejdombosco"
+                                title="Conte Isto no Twitter">Conte Isto no Twitter</a>
+    </li>
+</ul>
+<!--seção temática-->
+<section class="container2 section bg-bluelight al-center" style="text-align: center;">
+    <div class="content">
+        <header class="sectiontitle">
+            <h1 class="shoticon shoticon-config shoticon-sectiontitle ds-inblock orange">Formas de Pagamento:</h1>
+            <p class="tagline">Dividimes em ate 12x o seu pagamento do retiro!</p>
+        </header>
+
+        <article class="main_info box box-large"><img src="<?php echo HOME; ?>web/img/banner-pagseguro.png"
+                                                      title="Forma de Pagamento">
+        </article>
+        <article class="main_info box box-large last"><img
+                    src="<?php echo HOME; ?>web/img/banner-pagseguro-forma-pagamento.png"
+                    title="Forma de Pagamento">
+        </article>
+        <div class="clear"></div>
+    </div>
+</section>
+
+<!--retomada e converção-->
+<article class="container2 bg-blue section">
+    <div class="content content-page al-center section">
+        <header class="sectiontitle section">
+            <h1 style="color: #E16F4D">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>
+            <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b class="nummeros">
+                    (61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
+        </header>
+        <h2 style="color: #CCD8D1;">Faça sua incrição
+            <a class="btn btn-bricky btn-big radius"
+               title="Quero Fazer inscrição do VI RETIRO DE CARNAVAL SANTIFIQUE-SE Agora!"
+               target="_blank"
+               href="<?php echo HOME; ?>web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a> e não perca essa
+            oportunidade.</h2>
+
+        <div class="clear"></div>
+    </div>
+</article>        <!--CONTEUDO-->
+
+<!--content visual-->
+<div class="container2 section">
+    <div class="content section content-page al-center font-light">
+        <h1 class="frase">"Basta que sejais jovens para que eu vos ame." <small>(São João Bosco)</small></h1>
+        <div class="clear"></div>
+    </div>
+</div>
