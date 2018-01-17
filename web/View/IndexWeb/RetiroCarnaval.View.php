@@ -11,9 +11,10 @@
         </div>
     </section>
     <div class="content content_video">
-        <video class="video video-large main_video" src="<?php echo HOME; ?>uploads/video.mp4"
-               controls width="400"></video>
-
+        <div class="video">
+            <iframe  class="video-large main_video" src="https://www.youtube.com/embed/n5f6gsKsOkI" frameborder="0"
+                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
         <aside class="al-center sectiontitle-insc">
             <h1>Faça sua incrição
                 <a class="btn btn-green radius" title="Inscrição VI Retiro de carnaval Santifique-se"
