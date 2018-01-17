@@ -124,7 +124,28 @@
     text-shadow: 1px 1px #0b214e;
 }
 
+.main_tec_item {
+    -webkit-box-shadow: inset 1px 1px 0 rgba(200, 200, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 1px 1px 0 rgba(200, 200, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 1px 1px 0 rgba(200, 200, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    width: 31%;
+    margin-right: 3%;
+    height: 380px;
+}
+
+.main_tec_item:nth-child(3n+0) {
+    margin-right: 0 !important;
+}
+
+@media (max-width: 950px) {
+    .main_tec_item {
+        height: 350px;
+    }
+}
+
 @media (max-width: 840px) {
+
     .content-title {
         padding-bottom: 10px;
     }
@@ -157,6 +178,11 @@
         padding: 0 auto !important;
         margin: 0 auto !important;
     }
+
+    .main_tec_item h1 {
+        font-size: 2.3em;
+    }
+
 }
 
 @media (max-width: 700px) {
@@ -177,6 +203,10 @@
         font-size: 1.2em;
         font-weight: normal;
     }
+
+    .main_tec_item {
+        height: 320px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -192,11 +222,16 @@
         font-weight: normal;
         font-size: 1.2em;
     }
+
+    .main_tec_item h1 {
+        font-size: 1.7em;
+    }
 }
 
 @media (max-width: 500px) {
     .sectiontitle-nomargin h2 {
         font-size: 1.7em;
+        font-weight: bolder;
     }
 
     .sectiontitle-insc h1 {
@@ -236,14 +271,25 @@
         font-size: 1.5em;
     }
 
-    .main_tec_item {
-        width: 47%;
-        margin-right: 6%;
-        height: 300px;
+    .article {
+        padding: 10px 0;
+        margin: 0;
     }
 
-    .main_tec_item:nth-child(3n+0), .main_tec_item:nth-child(2n+0) {
-        margin-right: 0  !important;
+    .article .section {
+        padding: 10px 0;
+        margin: 0;
+        width: 95%;
+    }
+
+    .main_tec_item {
+        width: 48%;
+        margin-right: 4%;
+        height: 330px;
+    }
+
+    .main_tec_item:nth-child(2n+1) {
+        margin-right: 0 !important;
     }
 
 }
@@ -251,7 +297,6 @@
 @media (max-width: 380px) {
     .sectiontitle-nomargin h2 {
         font-size: 1.3em;
-        font-weight: bolder;
     }
 
     .sectiontitle-insc h1 {
@@ -265,6 +310,10 @@
 
     .main_fotos .box-small:last-of-type {
         margin-bottom: 15px;
+    }
+
+    .main_tec_item {
+        height: 300px;
     }
 }
 

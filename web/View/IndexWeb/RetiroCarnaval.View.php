@@ -87,7 +87,7 @@
     </div>
 
     <!--container2 dos artigos-->
-    <div class="container2 bg-body section">
+    <div class="container2 bg-body section article">
         <div class="content section">
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/teatro.png" alt="Teatro"
@@ -105,15 +105,13 @@
                     verdadeira alegria que vem de Deus,</p>
             </article>
 
-            <article class="main_tec_item box box-medium al-center radius last">
+            <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/adoracao.png"
                      alt="Adoração" title="Adoração">
                 <h1>Adoração:</h1>
                 <p class="tagline">Adorar Jesus no Santíssimo, nos enche de alegria, amadurece nossa união com Ele;
                     e crescemos no amor a Deus e ao próximo.</p>
             </article>
-
-            <div class="box-line"></div>
 
             <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/reflexao.png"
@@ -131,7 +129,7 @@
                     momentos de oração e também animação.!</p>
             </article>
 
-            <article class="main_tec_item box box-medium al-center radius last">
+            <article class="main_tec_item box box-medium al-center radius">
                 <img src="<?php echo HOME; ?>web/img/pregacao.png"
                      alt="Pregação" title="Pregação">
                 <h1>Pregação:</h1>
