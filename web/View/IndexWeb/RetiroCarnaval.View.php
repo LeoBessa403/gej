@@ -40,7 +40,7 @@
                 <img src="<?php echo HOME; ?>web/img/galeria/03.jpg">
             </article>
 
-            <article class="box box-small last">
+            <article class="box box-small">
                 <img src="<?php echo HOME; ?>web/img/galeria/04.jpg">
             </article>
 
@@ -56,12 +56,12 @@
                 <img src="<?php echo HOME; ?>web/img/galeria/07.jpg">
             </article>
 
-            <article class="box box-small last">
+            <article class="box box-small">
                 <img src="<?php echo HOME; ?>web/img/galeria/08.jpg">
             </article>
 
             <aside class="al-center">
-                <h1>Veja Mais
+                <h1 class="click">Veja Mais
                     <a class="btn btn-dark-grey radius" title="Mais Fotos do Retiro de carnaval Santifique-se"
                        target="_blank"
                        href="https://www.facebook.com/gej.dombosco/photos_all">clique aqui</a> para mais fotos.</h1>
