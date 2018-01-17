@@ -12,7 +12,7 @@ require_once 'library/Config.inc.php';
 <!--<![endif]-->
 <!-- start: HEAD -->
 <head>
-    <title>SITE | GEJ Dom Bosco</title>
+    <title>GEJ | CoNHEÇA MAIS DO NOSSO RETIRO!</title>
     <!-- start: META -->
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1"/><![endif]-->
