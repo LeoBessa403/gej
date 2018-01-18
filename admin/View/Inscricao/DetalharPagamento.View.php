@@ -1,3 +1,10 @@
+<?php
+/** @var InscricaoEntidade $inscricao */
+$inscricao = $inscricao;
+/** @var ParcelamentoEntidade $parcela */
+$parcela = $inscricao->getCoPagamento()->getCoParcelamento()[0];
+$tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamento());
+?>
 <div class="main-content">
     <div class="container">
         <!-- start: PAGE HEADER -->
@@ -48,6 +55,8 @@
                             $parcelas = $inscricao->getCoPagamento()->getNuParcelas();
                             echo "0".$parcelas; ?>
                         </b></big></p>
+                <p>Tipo de Pagamento:<br/>
+                    <big><b><?php echo $tipoPagamento; ?></b></big></p>
                 <p>Situação do Pagamento:<br/>
                     <big><b><?php
                             echo FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
