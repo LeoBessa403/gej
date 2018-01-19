@@ -121,7 +121,6 @@ class Inscricao extends AbstractController
                 "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
                 "pag." . TP_SITUACAO => $_POST[TP_SITUACAO][0],
                 "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
-//                "insc.".ST_STATUS => StatusAcessoEnum::ATIVO,
                 "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
