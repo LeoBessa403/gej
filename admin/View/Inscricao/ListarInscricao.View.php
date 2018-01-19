@@ -32,10 +32,11 @@
                     <div class="panel-body">
                         <?php
                         Modal::load();
-                        Modal::deletaRegistro("Inscricao");
+                        Modal::deletaRegistro(UrlAmigavel::$controller);
                         Modal::confirmacao("confirma_Inscricao");
 
-                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG','Inscrição', 'Nascimento', 'Servo', 'Membro', 'Pagamento', 'Ações');
+                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento',
+                            'Servo', 'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -49,16 +50,25 @@
                             } elseif ($inscricao->getCoPessoa()->getNuRG()) {
                                 $documento = $inscricao->getCoPessoa()->getNuRG();
                             }
-                            if(Valida::ValPerfil('DetalharInscricao')){
+                            if (Valida::ValPerfil('DetalharInscricao')) {
                                 $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-                                    . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" class="btn btn-primary tooltips" 
+                                    . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" 
+class="btn btn-primary tooltips" 
                                 data-original-title="Visualizar Registro" data-placement="top">
                                 <i class="fa fa-clipboard"></i>
                                 </a>
-                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" class="btn btn-dark-grey tooltips" 
+                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' .
+                                    Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" 
+                                 class="btn btn-dark-grey tooltips" 
                                    data-original-title="Detalhes do Pagamento" data-placement="top">
                                     <i class="fa fa-indent"></i>
-                                </a>';
+                                </a>
+                                 <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" 
+                                 id="'. $inscricao->getCoInscricao() . '" 
+                                   href="#'.UrlAmigavel::$controller.'" data-original-title="Inativar Inscrição" 
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o"></i>
+                                 </a>';
                             }
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1()));
@@ -68,8 +78,14 @@
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
                             $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
-                            $grid->setColunas($acao, 2);
-                            $grid->criaLinha($inscricao->getCoInscricao());
+                            if (Valida::ValPerfil('DetalharInscricao')) {
+                                $grid->setColunas($acao, 3);
+                            }
+                            $grid->criaLinha(
+                                    $inscricao->getCoInscricao(),
+                                ($inscricao->getStStatus() == StatusAcessoEnum::DESISTENTE)
+                                    ? true : null
+                            );
                         endforeach;
                         $grid->finalizaGrid();
                         ?>

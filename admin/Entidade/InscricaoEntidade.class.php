@@ -27,6 +27,7 @@ class InscricaoEntidade extends AbstractEntidade
 	private $co_pessoa;
 	private $co_imagem;
 	private $co_pagamento;
+	private $st_status;
 
 	/**
      * @return array
@@ -42,6 +43,7 @@ class InscricaoEntidade extends AbstractEntidade
 			NU_CAMISA,
 			NO_RESPONSAVEL,
 			NU_TEL_RESPONSAVEL,
+			ST_STATUS,
 			DS_DESCRICAO,
 			DS_ALIMENTACAO,
 			DS_MEDICACAO,
@@ -327,5 +329,21 @@ class InscricaoEntidade extends AbstractEntidade
 	{
 		$this->st_equipe_trabalho = $st_equipe_trabalho;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getStStatus()
+    {
+        return $this->st_status;
+    }
+
+    /**
+     * @param mixed $st_status
+     */
+    public function setStStatus($st_status)
+    {
+        $this->st_status = $st_status;
+    }
 
 }

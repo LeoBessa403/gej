@@ -23,6 +23,7 @@ class  InscricaoModel extends AbstractModel
         $campos = "insc.*";
         $pesquisa = new Pesquisa();
         $where = $pesquisa->getClausula($Condicoes);
+        $where = $where . " ORDER BY insc.".ST_STATUS." ASC, insc.".InscricaoEntidade::CHAVE." DESC";
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
         $inscricoes = [];
         /** @var InscricaoEntidade $inscricao */
@@ -31,6 +32,14 @@ class  InscricaoModel extends AbstractModel
             $inscricoes[] = $this->getUmObjeto(InscricaoEntidade::ENTIDADE, $insc);
         }
         return $inscricoes;
+    }
+
+    public function Deleta($coInscricao)
+    {
+        $data = [
+          ST_STATUS => 'D'
+        ];
+        return $this->Salva($data,$coInscricao);
     }
 
 }
