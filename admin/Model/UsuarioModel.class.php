@@ -51,9 +51,7 @@ class  UsuarioModel extends AbstractModel
 
         /** @var ImagemModel $ImagemModel */
         $ImagemModel = new ImagemModel();
-        $ImagemModel->Deleta($usuario->getCoImagem()->getCoImagem());
-
-        return Mensagens::USUARIO_CADASTRADO_SUCESSO;
+        return $ImagemModel->Deleta($usuario->getCoImagem()->getCoImagem());
     }
 
 }
