@@ -56,7 +56,11 @@
                             $grid->setColunas($contato);
                             $grid->setColunas($inscricao->getDsPastoral());
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsRetiro()));
-                            $grid->criaLinha($inscricao->getCoInscricao());
+                            $grid->criaLinha(
+                                $inscricao->getCoInscricao(),
+                                ($inscricao->getStStatus() == StatusAcessoEnum::DESISTENTE)
+                                    ? true : null
+                            );
                         endforeach;
                         $grid->finalizaGrid();
                         ?>

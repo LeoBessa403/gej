@@ -43,7 +43,11 @@
                             $grid->setColunas($inscricao->getDsDescricao());
                             $grid->setColunas($inscricao->getDsMedicacao());
                             $grid->setColunas($inscricao->getDsAlimentacao());
-                            $grid->criaLinha($inscricao->getCoInscricao());
+                            $grid->criaLinha(
+                                $inscricao->getCoInscricao(),
+                                ($inscricao->getStStatus() == StatusAcessoEnum::DESISTENTE)
+                                    ? true : null
+                            );
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
