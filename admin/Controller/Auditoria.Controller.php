@@ -10,11 +10,7 @@ class Auditoria extends AbstractController
     {
         /** @var AuditoriaService $auditoriaService */
         $auditoriaService = $this->getService(AUDITORIA_SERVICE);
-        $condicoes = [
-          NO_TABELA => ParcelamentoEntidade::TABELA,
-          NO_OPERACAO => "D"
-        ];
-        $this->result = $auditoriaService->PesquisaTodos($condicoes);
+        $this->result = $auditoriaService->PesquisaTodos();
     }
 
     function DetalharAuditoria()
