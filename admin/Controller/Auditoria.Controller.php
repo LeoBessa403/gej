@@ -10,21 +10,28 @@ class Auditoria extends AbstractController
     {
         /** @var AuditoriaService $auditoriaService */
         $auditoriaService = $this->getService(AUDITORIA_SERVICE);
-        $this->result = $auditoriaService->PesquisaTodos();
+        $condicoes = [
+          NO_TABELA => ParcelamentoEntidade::TABELA,
+          NO_OPERACAO => "D"
+        ];
+        $this->result = $auditoriaService->PesquisaTodos($condicoes);
     }
 
     function DetalharAuditoria()
     {
-        $perfilControl = new Perfil();
-        $auditoriaModel = new AuditoriaModel();
+        /** @var AuditoriaService $auditoriaService */
+        $auditoriaService = $this->getService(AUDITORIA_SERVICE);
+        /** @var PerfilService $perfilService */
+        $perfilService = $this->getService(PERFIL_SERVICE);
+
         $id = UrlAmigavel::PegaParametro("aud");
         /** @var AuditoriaEntidade result */
-        $this->result = $auditoriaModel->PesquisaUmRegistro($id);
+        $this->result = $auditoriaService->PesquisaUmRegistro($id);
         $usuarioModel = new UsuarioModel();
         if($this->result->getCoUsuario()){
             /** @var UsuarioEntidade $usuario */
             $usuario = $usuarioModel->PesquisaUmRegistro($this->result->getCoUsuario()->getCoUsuario());
-            $perfis = $perfilControl->montaComboPerfil($usuario);
+            $perfis = $perfilService->montaComboPerfil($usuario);
             $this->perfis = implode(', ',$perfis);
         }else{
             $this->perfis = '';
