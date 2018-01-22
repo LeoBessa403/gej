@@ -31,7 +31,8 @@ class Inscricao extends AbstractController
                 $pagamento = $inscricaoEdicao->getCoPagamento();
                 $numeroParcelas = $_POST[NU_PARCELAS][0];
 
-                if ($pagamento->getNuParcelas() != $numeroParcelas) {
+                if ($pagamento->getNuParcelas() != $numeroParcelas &&
+                    $pagamento->getTpSituacao() == StatusPagamentoEnum::NAO_INICIADA) {
                     $pag[NU_PARCELAS] = $numeroParcelas;
                     $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
 
