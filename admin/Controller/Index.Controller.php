@@ -12,7 +12,10 @@ class Index extends AbstractController
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
 
-        $inscricoes = $inscricaoService->PesquisaTodos();
+        $Condicoes = [
+            "insc." . ST_STATUS => StatusAcessoEnum::ATIVO,
+        ];
+        $inscricoes = $inscricaoService->PesquisaAvancada($Condicoes);
         $dados['TotalInscricoes'] = count($inscricoes);
         $dados['TotalNaoMembros'] = 0;
         $dados['TotalMembros'] = 0;
