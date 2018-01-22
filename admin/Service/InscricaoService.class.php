@@ -36,6 +36,7 @@ class  InscricaoService extends AbstractService
         $endereco = $enderecoService->getDados($dados, EnderecoEntidade::ENTIDADE);
         $contato = $contatoService->getDados($dados, ContatoEntidade::ENTIDADE);
         $inscricao = $this->getDados($dados, InscricaoEntidade::ENTIDADE);
+        $inscricao[ST_STATUS] = StatusAcessoEnum::ATIVO;
         $pessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
 
         $endereco[SG_UF] = $dados[SG_UF][0];
