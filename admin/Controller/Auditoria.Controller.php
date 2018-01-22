@@ -8,8 +8,9 @@ class Auditoria extends AbstractController
 
     function ListarAuditoria()
     {
-        $auditoriaModel = new AuditoriaModel();
-        $this->result = $auditoriaModel->PesquisaTodos();
+        /** @var AuditoriaService $auditoriaService */
+        $auditoriaService = $this->getService(AUDITORIA_SERVICE);
+        $this->result = $auditoriaService->PesquisaTodos();
     }
 
     function DetalharAuditoria()

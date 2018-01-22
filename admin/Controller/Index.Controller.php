@@ -96,6 +96,7 @@ class Index extends AbstractController
                 default:
                     break;
             }
+            /** @var ParcelamentoEntidade $pagamentoInsc */
             foreach ($pagamentoInscricao->getCoParcelamento() as $pagamentoInsc) {
                 $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
             }
@@ -103,6 +104,8 @@ class Index extends AbstractController
         }
 
         $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
+
+
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
