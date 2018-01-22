@@ -116,6 +116,7 @@ class  InscricaoService extends AbstractService
                 $inscricao[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
                     (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
                 );
+                unset($inscricao[DT_CADASTRO]);
                 $this->Salva($inscricao,$coInscricao);
             }
         endif;
