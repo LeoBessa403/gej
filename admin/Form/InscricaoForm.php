@@ -37,7 +37,7 @@ class InscricaoForm
         $label_options = Inscricao::FormasDePagamento();
         $formulario
             ->setLabel("Forma de Pagamento")
-            ->setId(DS_TIPO_PAGAMENTO)
+            ->setId(CO_TIPO_PAGAMENTO)
             ->setClasses("ob")
             ->setType("select")
             ->setOptions($label_options)

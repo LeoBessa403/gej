@@ -305,7 +305,7 @@ class Inscricao extends AbstractController
             $parcela[DT_VENCIMENTO_PAGO] = ($dados[DT_VENCIMENTO_PAGO])
                 ? Valida::DataDBDate($dados[DT_VENCIMENTO_PAGO])
                 : null;
-            $parcela[CO_TIPO_PAGAMENTO] = $dados[DS_TIPO_PAGAMENTO][0];
+            $parcela[CO_TIPO_PAGAMENTO] = $dados[CO_TIPO_PAGAMENTO][0];
             $parcela[DS_OBSERVACAO] = Valida::LimpaVariavel($dados[DS_OBSERVACAO]);
 
             $parcelamentoService->Salva($parcela, $coParcela);
@@ -319,6 +319,7 @@ class Inscricao extends AbstractController
             foreach ($pagamento->getCoParcelamento() as $parcela) {
                 $total = $total + $parcela->getNuValorParcelaPago();
             }
+            $pag[NU_VALOR_PAGO] = $total;
             if ($total == $pagamento->getNuTotal()) {
                 $pag[TP_SITUACAO] = "C";
             } elseif ($total > 0) {
