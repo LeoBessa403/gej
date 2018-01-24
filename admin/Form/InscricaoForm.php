@@ -21,15 +21,15 @@ class InscricaoForm
 
         $formulario
             ->setId(NU_VALOR_PARCELA_PAGO)
-            ->setClasses("moeda")
+            ->setClasses("moeda ob")
             ->setTamanhoInput(6)
             ->setLabel("Valor Pago da Parcela R$")
             ->CriaInpunt();
 
         $formulario
             ->setId(DT_VENCIMENTO_PAGO)
-            ->setClasses("data")
-            ->setLabel("Data Paga")
+            ->setClasses("data ob")
+            ->setLabel("Data paga")
             ->setTamanhoInput(6)
             ->setInfo("Data do pagamento realizado")
             ->CriaInpunt();
@@ -38,6 +38,7 @@ class InscricaoForm
         $formulario
             ->setLabel("Forma de Pagamento")
             ->setId(DS_TIPO_PAGAMENTO)
+            ->setClasses("ob")
             ->setType("select")
             ->setOptions($label_options)
             ->CriaInpunt();
