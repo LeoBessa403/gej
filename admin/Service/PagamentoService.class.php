@@ -15,7 +15,7 @@ class  PagamentoService extends AbstractService
     public function pegaValorInscricao(PagamentoEntidade $pagamento)
     {
         $valorInscricao = InscricaoEnum::VALOR_DINHEIRO;
-        if( $pagamento->getCoParcelamento()){
+        if($pagamento->getCoParcelamento()){
             $tipoPagamento = $pagamento->getCoParcelamento()[0]->getCoTipoPagamento();
             $valorInscricao = ($tipoPagamento == TipoPagamentoEnum::CARTAO_CREDITO)
                 ? InscricaoEnum::VALOR_CARTAO : InscricaoEnum::VALOR_DINHEIRO;

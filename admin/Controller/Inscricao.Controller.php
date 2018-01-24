@@ -32,11 +32,10 @@ class Inscricao extends AbstractController
                 $numeroParcelas = $_POST[NU_PARCELAS][0];
 
                 if ($pagamento->getNuParcelas() != $numeroParcelas &&
-                    $pagamento->getTpSituacao() == StatusPagamentoEnum::NAO_INICIADA) {
+                    $pagamento->getTpSituacao() != StatusPagamentoEnum::CONCLUIDO) {
+                    $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento);
                     $pag[NU_PARCELAS] = $numeroParcelas;
                     $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
-
-                    $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento);
                 }
 
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');

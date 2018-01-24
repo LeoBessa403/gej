@@ -42,7 +42,7 @@ class Index extends AbstractController
             }
 
             if (!$inscricao->getCoPagamento()) {
-                $pagamento[NU_TOTAL] = '150.00';
+                $pagamento[NU_TOTAL] = InscricaoEnum::VALOR_DINHEIRO;
                 $pagamento[NU_PARCELAS] = 1;
                 $pagamento[CO_INSCRICAO] = $inscricao->getCoInscricao();
 
