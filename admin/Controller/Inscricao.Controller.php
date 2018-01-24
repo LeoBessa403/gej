@@ -343,6 +343,7 @@ class Inscricao extends AbstractController
                 : null;
             $res[DS_OBSERVACAO] = $parcela->getDsObservacao();
             $res[SG_TIPO_PAGAMENTO] = $parcela->getCoTipoPagamento()->getSgTipoPagamento();
+            $res[CO_TIPO_PAGAMENTO] = $parcela->getCoTipoPagamento()->getCoTipoPagamento();
 
             $this->form = InscricaoForm::EditarParcelamento($res);
         endif;
