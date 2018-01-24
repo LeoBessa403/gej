@@ -17,7 +17,7 @@ class  InscricaoModel extends AbstractModel
         $tabela = InscricaoEntidade::TABELA." insc" .
             " inner join ".PessoaEntidade::TABELA." pes" .
             " on insc.".PessoaEntidade::CHAVE." = pes.".PessoaEntidade::CHAVE .
-            " inner join ".PagamentoEntidade::TABELA." pag" .
+            " left join ".PagamentoEntidade::TABELA." pag" .
             " on pag.".InscricaoEntidade::CHAVE." = insc.".InscricaoEntidade::CHAVE;
 
         $campos = "insc.*";

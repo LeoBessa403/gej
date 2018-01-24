@@ -32,12 +32,12 @@ class Index extends AbstractController
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
 
-            if ($inscricao->getDsMembroAtivo() == "N") {
+            if ($inscricao->getDsMembroAtivo() == SimNaoEnum::NAO) {
                 $dados['TotalNaoMembros'] = $dados['TotalNaoMembros'] + 1;
             } else {
                 $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
             }
-            if ($inscricao->getStEquipeTrabalho() == "S") {
+            if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::SIM) {
                 $dados['TotalServos'] = $dados['TotalServos'] + 1;
             }
 
@@ -62,6 +62,7 @@ class Index extends AbstractController
 
                 $parcelamentoService->Salva($parcela);
             }
+
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $inscricaoService->PesquisaUmRegistro($inscricao->getCoInscricao());
 
@@ -80,7 +81,7 @@ class Index extends AbstractController
             switch ($pagamentoInscricao->getTpSituacao()) {
                 case StatusPagamentoEnum::CONCLUIDO:
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
-                    if ($inscricao->getStEquipeTrabalho() == "N") {
+                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
                         $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
                     }
                     break;
@@ -89,7 +90,7 @@ class Index extends AbstractController
                     break;
                 case StatusPagamentoEnum::INICIADA:
                     $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
-                    if ($inscricao->getStEquipeTrabalho() == "N") {
+                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
                         $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
                     }
                     break;
