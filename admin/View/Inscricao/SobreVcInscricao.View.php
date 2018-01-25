@@ -30,10 +30,15 @@
                         Inscrições
                     </div>
                     <div class="panel-body">
+                        <h2><small>Pesquisar Inscrições</small></h2>
+                        <?php
+                        $grid = new Grid();
+                        echo $grid->PesquisaAvancada();
+                        ?>
+                        <h2><small>Inscrições Cadastradas</small></h2>
                         <?php
                         Modal::load();
                         $arrColunas = array('Nome', 'Sobre', 'Medicação', 'Alimentação');
-                        $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
