@@ -31,10 +31,14 @@
                     </div>
                     <div class="panel-body">
                         <?php
+                        $grid = new Grid();
+                        echo $grid->PesquisaAvancada();
+                        ?>
+                        <h2><small>Inscrições Cadastradas</small></h2>
+                        <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
                         Modal::confirmacao("confirma_Inscricao");
-
                         $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento',
                             'Servo', 'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
@@ -64,8 +68,8 @@ class="btn btn-primary tooltips"
                                     <i class="fa fa-indent"></i>
                                 </a>
                                  <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" 
-                                 id="'. $inscricao->getCoInscricao() . '" 
-                                   href="#'.UrlAmigavel::$controller.'" data-original-title="Inativar Inscrição" 
+                                 id="' . $inscricao->getCoInscricao() . '" 
+                                   href="#' . UrlAmigavel::$controller . '" data-original-title="Inativar Inscrição" 
                                    data-placement="top">
                                     <i class="fa fa-trash-o"></i>
                                  </a>';
@@ -82,7 +86,7 @@ class="btn btn-primary tooltips"
                                 $grid->setColunas($acao, 3);
                             }
                             $grid->criaLinha(
-                                    $inscricao->getCoInscricao(),
+                                $inscricao->getCoInscricao(),
                                 ($inscricao->getStStatus() == StatusAcessoEnum::DESISTENTE)
                                     ? true : null
                             );
