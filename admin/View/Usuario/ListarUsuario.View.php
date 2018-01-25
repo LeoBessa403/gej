@@ -31,12 +31,16 @@
                     </div>
                     <div class="panel-body">
                         <?php
+                        $grid = new Grid();
+                        echo $grid->PesquisaAvancada('Pesquisar Usuários');
+                        ?>
+                        <h2><small>Usuários Cadastrados</small></h2>
+                        <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
                         Modal::confirmacao("confirma_Usuario");
 
                         $arrColunas = array('Nome', 'CPF', 'Perfil', 'Situação', 'Ações');
-                        $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
                         /** @var UsuarioEntidade $res */

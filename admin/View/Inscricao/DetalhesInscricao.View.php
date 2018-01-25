@@ -30,10 +30,9 @@
                         Inscrições
                     </div>
                     <div class="panel-body">
-                        <h2><small>Pesquisar Inscrições</small></h2>
                         <?php
                         $grid = new Grid();
-                        echo $grid->PesquisaAvancada();
+                        echo $grid->PesquisaAvancada('Pesquisar Inscrições');
                         ?>
                         <h2><small>Inscrições Cadastradas</small></h2>
                         <?php
