@@ -13,7 +13,6 @@ class FuncionalidadeEntidade extends AbstractEntidade
 
 	private $co_funcionalidade;
 	private $no_funcionalidade;
-	private $ds_rota;
 	private $st_status;
 	private $co_perfil_funcionalidade;
 
@@ -24,7 +23,6 @@ class FuncionalidadeEntidade extends AbstractEntidade
     	return [
 			CO_FUNCIONALIDADE,
 			NO_FUNCIONALIDADE,
-			DS_ROTA,
 			ST_STATUS,
 		];
     }
@@ -70,23 +68,6 @@ class FuncionalidadeEntidade extends AbstractEntidade
 	public function setNoFuncionalidade($no_funcionalidade)
     {
         return $this->no_funcionalidade = $no_funcionalidade;
-    }
-
-	/**
-	* @return $ds_rota
-     */
-	public function getDsRota()
-    {
-        return $this->ds_rota;
-    }
-
-	/**
-	* @param $ds_rota
-     * @return mixed
-     */
-	public function setDsRota($ds_rota)
-    {
-        return $this->ds_rota = $ds_rota;
     }
 
 	/**

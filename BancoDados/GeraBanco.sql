@@ -49,7 +49,6 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `gej_bd`.`TB_FUNCIONALIDADE` (
   `co_funcionalidade` INT(11) NOT NULL AUTO_INCREMENT,
   `no_funcionalidade` VARCHAR(150) NOT NULL,
-  `ds_rota` VARCHAR(250) NOT NULL,
   `st_status` VARCHAR(1) NOT NULL DEFAULT 'I' COMMENT 'A - Ativo / I - Inativo',
   PRIMARY KEY (`co_funcionalidade`))
 ENGINE = InnoDB

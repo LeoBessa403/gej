@@ -39,7 +39,6 @@
 	define('DS_LOCAL', 'ds_local');
 	define('CO_FUNCIONALIDADE', 'co_funcionalidade');
 	define('NO_FUNCIONALIDADE', 'no_funcionalidade');
-	define('DS_ROTA', 'ds_rota');
 	define('ST_STATUS', 'st_status');
 	define('CO_IMAGEM', 'co_imagem');
 	define('DS_CAMINHO', 'ds_caminho');

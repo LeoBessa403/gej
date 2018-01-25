@@ -10,18 +10,18 @@ INSERT INTO `TB_ENDERECO` (`co_endereco`, `ds_endereco`, `ds_complemento`, `ds_b
 INSERT INTO `TB_PESSOA` (`co_pessoa`, `nu_cpf`, `no_pessoa`, `nu_rg`, `dt_cadastro`, `dt_nascimento`, `st_sexo`, `co_endereco`, `co_contato`) VALUES
 (1, '72681438187', 'Leonardo Machado Carvalho Bessa', '2077811', '2016-10-31 00:00:00', '1984-07-06', 'M', 1, 1);
 
-INSERT INTO `TB_FUNCIONALIDADE` (`co_funcionalidade`, `no_funcionalidade`, `ds_rota`, `st_status`) VALUES
-(1, 'Perfil Master', 'Admin/Index/SuperPerfil', 'A'),
-(2, 'Auditoria Listar', 'Admin/Auditoria/ListarAuditoria', 'A'),
-(3, 'Auditoria Detalhar', 'Admin/Auditoria/DetalharAuditoria', 'A'),
-(4, 'Usuario Cadastrar', 'Admin/Usuario/CadastroUsuario', 'A'),
-(5, 'Usuario Listar', 'Admin/Usuario/ListarUsuario', 'A'),
-(6, 'Meu Usuario', 'Admin/Usuario/MeuPerfilUsuario', 'A'),
-(7, 'Perfil Listar', 'Admin/Perfil/ListarPerfil', 'A'),
-(8, 'Perfil Cadastrar', 'Admin/Perfil/CadastroPerfil', 'A'),
-(9, 'Funcionalidade Listar', 'Admin/Funcionalidade/ListarFuncionalidade', 'A'),
-(10, 'Funcionalidade Cadastrar', 'Admin/Funcionalidade/CadastroFuncionalidade', 'A'),
-(11, 'Funcionalidades Perfil', 'Admin/Funcionalidade/FuncionalidadesPerfil', 'A');
+INSERT INTO `TB_FUNCIONALIDADE` (`co_funcionalidade`, `no_funcionalidade`, `st_status`) VALUES
+(1, 'Perfil Master', 'A'),
+(2, 'Auditoria Listar', 'A'),
+(3, 'Auditoria Detalhar', 'A'),
+(4, 'Usuario Cadastrar', 'A'),
+(5, 'Usuario Listar', 'A'),
+(6, 'Meu Usuario', 'A'),
+(7, 'Perfil Listar', 'A'),
+(8, 'Perfil Cadastrar', 'A'),
+(9, 'Funcionalidade Listar', 'A'),
+(10, 'Funcionalidade Cadastrar', 'A'),
+(11, 'Funcionalidades Perfil', 'A');
 
 
 INSERT INTO `TB_PERFIL` (`co_perfil`, `no_perfil`, `st_status`) VALUES
