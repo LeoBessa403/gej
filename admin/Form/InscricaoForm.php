@@ -74,7 +74,7 @@ class InscricaoForm
 
         $formulario
             ->setId(NU_CPF)
-            ->setClasses("numero")
+            ->setClasses("cpf")
             ->setTamanhoInput(6)
             ->setLabel("CPF")
             ->CriaInpunt();
