@@ -34,7 +34,9 @@
                         $grid = new Grid();
                         echo $grid->PesquisaAvancada('Pesquisar Inscrições');
                         ?>
-                        <h2><small>Inscrições Cadastradas</small></h2>
+                        <h2>
+                            <small>Inscrições Cadastradas</small>
+                        </h2>
                         <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
@@ -54,10 +56,10 @@
                             } elseif ($inscricao->getCoPessoa()->getNuRG()) {
                                 $documento = $inscricao->getCoPessoa()->getNuRG();
                             }
-                            if (Valida::ValPerfil('DetalharInscricao')) {
+                            if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
                                 $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
                                     . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" 
-class="btn btn-primary tooltips" 
+                                class="btn btn-primary tooltips" 
                                 data-original-title="Visualizar Registro" data-placement="top">
                                 <i class="fa fa-clipboard"></i>
                                 </a>
@@ -82,8 +84,10 @@ class="btn btn-primary tooltips"
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
                             $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
-                            if (Valida::ValPerfil('DetalharInscricao')) {
+                            if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
                                 $grid->setColunas($acao, 3);
+                            } else {
+                                $grid->setColunas('', 0);
                             }
                             $grid->criaLinha(
                                 $inscricao->getCoInscricao(),

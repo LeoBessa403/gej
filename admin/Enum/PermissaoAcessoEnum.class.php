@@ -6,38 +6,57 @@
 class PermissaoAcessoEnum extends AbstractEnum
 {
     const PERFIL_MASTER = 1;
-    const AUDITORIA_LISTAR = 2;
-    const AUDITORIA_DETALHAR = 3;
-    const USUARIO_CADASTRAR = 4;
-    const USUARIO_LISTAR = 5;
-    const MEU_USUARIO = 6;
-    const PERFIL_LISTAR = 7;
-    const PERFIL_CADASTRAR = 8;
-    const FUNCIONALIDADE_LISTAR = 9;
-    const FUNCIONALIDADE_CADASTRAR = 10;
+    const LISTAR_AUDITORIA = 2;
+    const DETALHAR_AUDITORIA = 3;
+    const CADASTRO_USUARIO = 4;
+    const LISTAR_USUARIO = 5;
+    const MEU_PERFIL_USUARIO = 6;
+    const LISTAR_PERFIL = 7;
+    const CADASTRO_PERFIL = 8;
+    const LISTAR_FUNCIONALIDADE = 9;
+    const CADASTRO_FUNCIONALIDADE = 10;
     const FUNCIONALIDADE_PERFIL = 11;
-    const INSCRICAO_LISTAR = 12;
+    const LISTAR_INSCRICAO = 12;
     const INSCRICAO_EDITAR = 13;
-    const INSCRICAO_DETALHAR_PAGAMENTO = 14;
-    const INSCRICAO_SOBRE_VC = 15;
-    const INSCRICAO_DETALHES = 16;
+    const DETALHAR_PAGAMENTO_INSCRICAO = 14;
+    const SOBRE_VC_INSCRICAO = 15;
+    const DETALHES_INSCRICAO = 16;
 
     public static $descricao = [
         PermissaoAcessoEnum::PERFIL_MASTER => 'Perfil Master',
-        PermissaoAcessoEnum::AUDITORIA_LISTAR => 'Auditoria Listar',
-        PermissaoAcessoEnum::AUDITORIA_DETALHAR => 'Auditoria Detalhar',
-        PermissaoAcessoEnum::USUARIO_CADASTRAR => 'Usuario Cadastrar',
-        PermissaoAcessoEnum::USUARIO_LISTAR => 'Usuario Listar',
-        PermissaoAcessoEnum::MEU_USUARIO => 'Meu Usuario',
-        PermissaoAcessoEnum::PERFIL_LISTAR => 'Perfil Listar',
-        PermissaoAcessoEnum::PERFIL_CADASTRAR => 'Perfil Cadastrar',
-        PermissaoAcessoEnum::FUNCIONALIDADE_LISTAR => 'Funcionalidade Listar',
-        PermissaoAcessoEnum::FUNCIONALIDADE_CADASTRAR => 'Funcionalidade Cadastrar',
+        PermissaoAcessoEnum::LISTAR_AUDITORIA => 'Auditoria Listar',
+        PermissaoAcessoEnum::DETALHAR_AUDITORIA => 'Auditoria Detalhar',
+        PermissaoAcessoEnum::CADASTRO_USUARIO => 'Usuario Cadastrar',
+        PermissaoAcessoEnum::LISTAR_USUARIO => 'Usuario Listar',
+        PermissaoAcessoEnum::MEU_PERFIL_USUARIO => 'Meu Usuario',
+        PermissaoAcessoEnum::LISTAR_PERFIL => 'Perfil Listar',
+        PermissaoAcessoEnum::CADASTRO_PERFIL => 'Perfil Cadastrar',
+        PermissaoAcessoEnum::LISTAR_FUNCIONALIDADE => 'Funcionalidade Listar',
+        PermissaoAcessoEnum::CADASTRO_FUNCIONALIDADE => 'Funcionalidade Cadastrar',
         PermissaoAcessoEnum::FUNCIONALIDADE_PERFIL => 'Funcionalidade Perfil',
-        PermissaoAcessoEnum::INSCRICAO_LISTAR => 'Inscricao Listar',
+        PermissaoAcessoEnum::LISTAR_INSCRICAO => 'Inscricao Listar',
         PermissaoAcessoEnum::INSCRICAO_EDITAR => 'Inscricao Editar',
-        PermissaoAcessoEnum::INSCRICAO_DETALHAR_PAGAMENTO => 'Inscricao Detalhar Pagamento',
-        PermissaoAcessoEnum::INSCRICAO_SOBRE_VC => 'Inscricao Sobre Vc',
-        PermissaoAcessoEnum::INSCRICAO_DETALHES => 'Inscricao Detalhes',
+        PermissaoAcessoEnum::DETALHAR_PAGAMENTO_INSCRICAO => 'Inscricao Detalhar Pagamento',
+        PermissaoAcessoEnum::SOBRE_VC_INSCRICAO => 'Inscricao Sobre Vc',
+        PermissaoAcessoEnum::DETALHES_INSCRICAO => 'Inscricao Detalhes',
+    ];
+
+    public static $actions = [
+        PermissaoAcessoEnum::PERFIL_MASTER => 'PerfilMaster',
+        PermissaoAcessoEnum::LISTAR_AUDITORIA => 'ListarAuditoria',
+        PermissaoAcessoEnum::DETALHAR_AUDITORIA => 'DetalharAuditoria',
+        PermissaoAcessoEnum::CADASTRO_USUARIO => 'CadastroUsuario',
+        PermissaoAcessoEnum::LISTAR_USUARIO => 'ListarUsuario',
+        PermissaoAcessoEnum::MEU_PERFIL_USUARIO => 'MeuPerfilUsuario',
+        PermissaoAcessoEnum::LISTAR_PERFIL => 'ListarPerfil',
+        PermissaoAcessoEnum::CADASTRO_PERFIL => 'CadastroPerfil',
+        PermissaoAcessoEnum::LISTAR_FUNCIONALIDADE => 'ListarFuncionalidade',
+        PermissaoAcessoEnum::CADASTRO_FUNCIONALIDADE => 'CadastroFuncionalidade',
+        PermissaoAcessoEnum::FUNCIONALIDADE_PERFIL => 'FuncionalidadePerfil',
+        PermissaoAcessoEnum::LISTAR_INSCRICAO => 'ListarInscricao',
+        PermissaoAcessoEnum::INSCRICAO_EDITAR => 'EditarInscricao',
+        PermissaoAcessoEnum::DETALHAR_PAGAMENTO_INSCRICAO => 'DetalharPagamentoInscricao',
+        PermissaoAcessoEnum::SOBRE_VC_INSCRICAO => 'SobreVcInscricao',
+        PermissaoAcessoEnum::DETALHES_INSCRICAO => 'DetalhesInscricao',
     ];
 }
