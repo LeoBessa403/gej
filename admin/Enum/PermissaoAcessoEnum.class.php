@@ -19,8 +19,9 @@ class PermissaoAcessoEnum extends AbstractEnum
     const LISTAR_INSCRICAO = 12;
     const INSCRICAO_EDITAR = 13;
     const DETALHAR_PAGAMENTO_INSCRICAO = 14;
-    const SOBRE_VC_INSCRICAO = 15;
-    const DETALHES_INSCRICAO = 16;
+    const EDITAR_PARCELA_INSCRICAO = 15;
+    const SOBRE_VC_INSCRICAO = 16;
+    const DETALHES_INSCRICAO = 17;
 
     public static $descricao = [
         PermissaoAcessoEnum::PERFIL_MASTER => 'Perfil Master',
@@ -37,6 +38,7 @@ class PermissaoAcessoEnum extends AbstractEnum
         PermissaoAcessoEnum::LISTAR_INSCRICAO => 'Inscricao Listar',
         PermissaoAcessoEnum::INSCRICAO_EDITAR => 'Inscricao Editar',
         PermissaoAcessoEnum::DETALHAR_PAGAMENTO_INSCRICAO => 'Inscricao Detalhar Pagamento',
+        PermissaoAcessoEnum::EDITAR_PARCELA_INSCRICAO => 'Inscricao Editar Parcela',
         PermissaoAcessoEnum::SOBRE_VC_INSCRICAO => 'Inscricao Sobre Vc',
         PermissaoAcessoEnum::DETALHES_INSCRICAO => 'Inscricao Detalhes',
     ];
@@ -54,8 +56,9 @@ class PermissaoAcessoEnum extends AbstractEnum
         PermissaoAcessoEnum::CADASTRO_FUNCIONALIDADE => 'CadastroFuncionalidade',
         PermissaoAcessoEnum::FUNCIONALIDADE_PERFIL => 'FuncionalidadePerfil',
         PermissaoAcessoEnum::LISTAR_INSCRICAO => 'ListarInscricao',
-        PermissaoAcessoEnum::INSCRICAO_EDITAR => 'EditarInscricao',
-        PermissaoAcessoEnum::DETALHAR_PAGAMENTO_INSCRICAO => 'DetalharPagamentoInscricao',
+        PermissaoAcessoEnum::INSCRICAO_EDITAR => 'DetalharInscricao',
+        PermissaoAcessoEnum::DETALHAR_PAGAMENTO_INSCRICAO => 'DetalharPagamento',
+        PermissaoAcessoEnum::EDITAR_PARCELA_INSCRICAO => 'EditarParcela',
         PermissaoAcessoEnum::SOBRE_VC_INSCRICAO => 'SobreVcInscricao',
         PermissaoAcessoEnum::DETALHES_INSCRICAO => 'DetalhesInscricao',
     ];
