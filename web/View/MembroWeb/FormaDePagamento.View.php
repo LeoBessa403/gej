@@ -98,7 +98,7 @@ line-height:107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>É
 com imensa a alegria em telo no nosso 6º retiro de carnaval Santifique-se.
-Estaremos juntos durante três dias e para que nossa convivência seja harmoniosa
+Estaremos juntos durante quatro dias e para que nossa convivência seja harmoniosa
 e muito proveitosa existem alguns aspectos para serem cumpridos para que
 aproveitemos o máximo do que o Senhor tem para nos oferecer. </span></p>
 
@@ -221,7 +221,7 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                     <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">Comissão: Lucreci (61) 99512-1814 ou Raul (61) 99315-1297</span></b></p>
+&quot;Agency FB&quot;">Comissão: Raul (61) 99512-1814 ou Lucrece (61) 99315-1297</span></b></p>
             </div>
         </div>
         <!-- end: PAGE CONTENT-->
