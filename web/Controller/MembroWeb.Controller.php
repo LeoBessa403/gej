@@ -86,4 +86,12 @@ class MembroWeb extends AbstractController
             $parcelamentoService->Salva($parcela);
         endif;
     }
+
+    public function Normas()
+    {
+    }
+
+    public function SobrePagamento()
+    {
+    }
 }

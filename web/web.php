@@ -173,16 +173,18 @@ require_once 'library/Config.inc.php';
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
-                            Cadastros <b class="caret"></b>
+                            6º Retiro de Carnaval <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <!--										<a href="-->
-                                <?php //echo PASTASITE; ?><!--Index/CadastroMembro">-->
-                                <!--											Membro GEJ-->
-                                <!--										</a>-->
                                 <a href="<?php echo PASTASITE; ?>MembroWeb/CadastroRetiroCarnaval">
-                                    6º Retiro de Carnaval
+                                    Inscrição
+                                </a>										</a>
+                                <a href="<?php echo PASTASITE; ?>MembroWeb/Normas">
+                                    Normas do Retiro
+                                </a>										</a>
+                                <a href="<?php echo PASTASITE; ?>MembroWeb/SobrePagamento">
+                                   Sobre o Pagamento
                                 </a>
                             </li>
                         </ul>
@@ -404,6 +406,7 @@ require_once 'library/Config.inc.php';
 <script src="<?php echo PASTAADMIN; ?>plugins/select2/select2.min.js"></script>
 <script src="<?php echo PASTAADMIN; ?>plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
 <script src="<?php echo PASTAADMIN; ?>plugins/fullcalendar/fullcalendar/fullcalendar.js"></script>
+<script src="<?= PASTAADMIN; ?>plugins/ckeditor/ckeditor.js"></script>
 <script src="<?php echo PASTASITE; ?>js/index.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
