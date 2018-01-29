@@ -43,6 +43,8 @@ justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 justify"><b style="mso-bidi-font-weight:normal"><span style="font-size:14.0pt;
 mso-bidi-font-size:11.0pt;line-height:107%;font-family:&quot;Agency FB&quot;">Levar:<br>
 </span></b><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Documentos Pessoais (RG, CPF...)</span></p>
+</span></b><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;</span>- Bíblia</span></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
