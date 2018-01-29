@@ -183,9 +183,9 @@ require_once 'library/Config.inc.php';
                                 <a href="<?php echo PASTASITE; ?>MembroWeb/Normas">
                                     Normas do Retiro
                                 </a>										</a>
-                                <a href="<?php echo PASTASITE; ?>MembroWeb/SobrePagamento">
-                                   Sobre o Pagamento
-                                </a>
+<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/SobrePagamento">-->
+<!--                                   Sobre o Pagamento-->
+<!--                                </a>-->
                             </li>
                         </ul>
                     </li>
