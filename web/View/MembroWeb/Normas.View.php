@@ -174,7 +174,7 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;"><b>Comissão: Lucreci (61) 99512-1814 ou Raul (61) 99315-1297</b></span></b></p>
+&quot;Agency FB&quot;"><b>Comissão: Raul (61) 99512-1814 ou Lucrece (61) 99315-1297</b></span></b></p>
             </div>
         </div>
         <!-- end: PAGE CONTENT-->
