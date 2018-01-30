@@ -16,7 +16,7 @@
                      allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <aside class="al-center sectiontitle-insc">
-            <h1>Faça sua incrição
+            <h1><span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>Faça sua incrição
                 <a class="btn btn-green radius" title="Inscrição VI Retiro de carnaval Santifique-se"
                    target="_blank"
                    href="<?php echo HOME; ?>web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a>
@@ -181,7 +181,7 @@
             <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b class="nummeros">
                     (61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
         </header>
-        <h2 style="color: #CCD8D1;">Faça sua incrição
+        <h2 style="color: #CCD8D1;"><span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>Faça sua incrição
             <a class="btn btn-bricky btn-big radius"
                title="Quero Fazer inscrição do VI RETIRO DE CARNAVAL SANTIFIQUE-SE Agora!"
                target="_blank"
