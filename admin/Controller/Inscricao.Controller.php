@@ -254,7 +254,6 @@ class Inscricao extends AbstractController
         $tipoPagamentoService = new TipoPagamentoService();
 
         $tipos = $tipoPagamentoService->PesquisaTodos();
-        $pagamentos[] = "Selecione uma";
         /** @var TipoPagamentoEntidade $forma */
         foreach ($tipos as $forma) {
             $pagamentos[$forma->getCoTipoPagamento()] = $forma->getDsTipoPagamento();
