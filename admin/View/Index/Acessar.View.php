@@ -49,10 +49,8 @@
 <!-- start: BODY -->
 <body class="login example1">
 <div class="main-login col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" style="padding: 20px 50px;">
-    <div class="logo">
-        <a style="color: whitesmoke;" href="<?= PASTASITE; ?>">
-            <?= DESC; ?>
-        </a>
+    <div class="logo" style="color: white;">
+        <?= DESC; ?>
     </div>
     <!-- start: LOGIN BOX -->
     <div class="box-login" style="padding: 10px 20px;">
@@ -84,7 +82,7 @@
                         <input type="checkbox" class="grey remember" id="remember" name="remember">
                         Lembrar de Mim
                     </label>
-                    <button type="submit" class="btn btn-bricky pull-right">
+                    <button type="submit" class="btn btn-success pull-right">
                         LOGAR <i class="fa fa-arrow-circle-right"></i>
                     </button>
                 </div>
@@ -99,6 +97,11 @@
     </div>
     <div class="copyright" style="color: whitesmoke;">
         <?= date("Y"); ?> &copy; LEO BESSA
+    </div>
+    <div class="al-center logo" style="width: 100%">
+        <a style="color: #000000;" class="btn btn-beige" href="<?= PASTASITE; ?>">
+            Voltar ao Site
+        </a>
     </div>
     <!-- end: COPYRIGHT -->
 </div>
@@ -153,7 +156,7 @@
         endif;
         ?>
         $('.close').click(function () {
-           $(this).parents('#sumir').fadeOut('fast');
+            $(this).parents('#sumir').fadeOut('fast');
         });
     });
 </script>
