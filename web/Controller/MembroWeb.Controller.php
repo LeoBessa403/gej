@@ -8,6 +8,7 @@ class MembroWeb extends AbstractController
     public $formas;
     public $coInscricao;
     public $inscDuplicada;
+    public $PDO;
 
     function CadastroRetiroCarnaval()
     {
@@ -60,6 +61,9 @@ class MembroWeb extends AbstractController
         /** @var ParcelamentoService $parcelamentoService */
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
         $id = "formaPagamento";
+        /** @var ObjetoPDO PDO */
+        $this->PDO = $parcelamentoService->getPDO();
+        $this->PDO->beginTransaction();
 
         if (!empty($_POST[$id])):
             $dados = $_POST;
@@ -83,7 +87,13 @@ class MembroWeb extends AbstractController
             $parcela[NU_VALOR_PARCELA] = $pagamento[NU_TOTAL];
             $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
-            $parcelamentoService->Salva($parcela);
+            $retorno = $parcelamentoService->Salva($parcela);
+            if ($retorno) {
+                $this->PDO->commit();
+            } else {
+                $retorno[MSG] = 'Não foi possível Concluir a Inscrição';
+                $this->PDO->rollBack();
+            }
         endif;
     }
 

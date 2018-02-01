@@ -7,6 +7,7 @@
 class  InscricaoService extends AbstractService
 {
     private $ObjetoModel;
+    private $PDO;
 
     public function __construct()
     {
@@ -21,6 +22,8 @@ class  InscricaoService extends AbstractService
 
     public function salvarInscricao($dados, $foto, $coInscricao = false)
     {
+        $this->PDO = $this->getPDO();
+
         /** @var EnderecoService $enderecoService */
         $enderecoService = $this->getService(ENDERECO_SERVICE);
         /** @var ContatoService $contatoService */
@@ -52,8 +55,8 @@ class  InscricaoService extends AbstractService
 
         /** @var InscricaoEntidade $insc */
         foreach ($inscricoes as $insc) {
-            if((!$coInscricao) || ($coInscricao && $insc->getCoInscricao() != $coInscricao)){
-                if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA] ) {
+            if ((!$coInscricao) || ($coInscricao && $insc->getCoInscricao() != $coInscricao)) {
+                if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
                     $Campo[] = "Nome do Usuário";
                     $erro = true;
                 }
@@ -94,6 +97,7 @@ class  InscricaoService extends AbstractService
                 $imagem[DS_CAMINHO] = $up->getNameImage();
             endif;
 
+            $this->PDO->beginTransaction();
             if (!$coInscricao) {
                 $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
                 $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
@@ -118,7 +122,16 @@ class  InscricaoService extends AbstractService
                     (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
                 );
                 unset($inscricao[DT_CADASTRO]);
-                $this->Salva($inscricao,$coInscricao);
+                $retorno[CO_INSCRICAO] = $this->Salva($inscricao, $coInscricao);
+            }
+            if ($retorno[CO_INSCRICAO]) {
+                $retorno[MSG] = Mensagens::OK_SALVO;
+                $retorno[SUCESSO] = true;
+                $this->PDO->commit();
+            } else {
+                $retorno[MSG] = 'Não foi possível cadastrar a Inscrição';
+                $retorno[SUCESSO] = false;
+                $this->PDO->rollBack();
             }
         endif;
         return $retorno;

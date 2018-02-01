@@ -5,6 +5,7 @@ class Usuario extends AbstractController
     public $form;
     public $result;
     public $perfis;
+    public $PDO;
 
     public function Index()
     {
@@ -80,6 +81,9 @@ class Usuario extends AbstractController
         $imagemService = $this->getService(IMAGEM_SERVICE);
         /** @var UsuarioPerfilService $usuarioPerfilService */
         $usuarioPerfilService = $this->getService(USUARIO_PERFIL_SERVICE);
+        /** @var ObjetoPDO PDO */
+        $this->PDO = $usuarioService->getPDO();
+
         $session = new Session();
         if ($session->CheckSession(SESSION_USER)) {
             /** @var Session $us */
@@ -151,6 +155,7 @@ class Usuario extends AbstractController
                 endif;
             endif;
 
+            $this->PDO->beginTransaction();
             if ($idCoUsuario):
                 /** @var UsuarioEntidade $usuario */
                 $usuario = $usuarioService->PesquisaUmRegistro($idCoUsuario);
@@ -167,7 +172,7 @@ class Usuario extends AbstractController
                 $contatoService->Salva($contato, $usuario->getCoPessoa()->getCoContato()->getCoContato());
                 $enderecoService->Salva($endereco, $usuario->getCoPessoa()->getCoEndereco()->getCoEndereco());
                 $pessoaService->Salva($pessoa, $usuario->getCoPessoa()->getCoPessoa());
-                $usuarioService->Salva($usu, $idCoUsuario);
+                $retorno = $usuarioService->Salva($usu, $idCoUsuario);
                 $usuarioPerfil[CO_USUARIO] = $idCoUsuario;
                 $ok = $usuarioPerfilService->DeletaQuando($usuarioPerfil);
                 if ($ok):
@@ -178,7 +183,7 @@ class Usuario extends AbstractController
                         }
                     }
                     $usuarioPerfil[CO_PERFIL] = 3;
-                    $usuarioPerfilService->Salva($usuarioPerfil);
+                    $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
                 endif;
 
                 $session->setSession(ATUALIZADO, "OK");
@@ -195,7 +200,7 @@ class Usuario extends AbstractController
                 // REGISTRAR ///
                 if ($resgistrar):
                     $usuarioPerfil[CO_PERFIL] = 3;
-                    $usuarioPerfilService->Salva($usuarioPerfil);
+                    $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
                 else:
                     if (!empty($dados['ds_perfil'])) {
                         foreach ($dados['ds_perfil'] as $perfil) {
@@ -204,9 +209,15 @@ class Usuario extends AbstractController
                         }
                     }
                     $usuarioPerfil[CO_PERFIL] = 3;
-                    $usuarioPerfilService->Salva($usuarioPerfil);
+                    $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
                 endif;
             endif;
+            if ($retorno) {
+                $this->PDO->commit();
+            } else {
+                $retorno[MSG] = 'Não foi possível Salvar o Usuário';
+                $this->PDO->rollBack();
+            }
 
             if (!$resgistrar) {
                 if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)) {

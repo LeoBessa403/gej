@@ -6,10 +6,8 @@
  */
 class  AcessoService extends AbstractService
 {
-    /**
-     * @var AcessoModel
-     */
     private $ObjetoModel;
+    private $PDO;
 
     /**
      * AcessoService constructor.
@@ -118,14 +116,14 @@ class  AcessoService extends AbstractService
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
         $browser_array = array(
-            'msie'       =>  'Internet Explorer',
-            'firefox'    =>  'Firefox',
-            'chrome'     =>  'Chrome',
-            'safari'     =>  'Safari',
-            'edge'       =>  'Edge',
-            'opera'      =>  'Opera',
-            'netscape'   =>  'Netscape',
-            'mobile'     =>  'Handheld Browser'
+            'msie' => 'Internet Explorer',
+            'firefox' => 'Firefox',
+            'chrome' => 'Chrome',
+            'safari' => 'Safari',
+            'edge' => 'Edge',
+            'opera' => 'Opera',
+            'netscape' => 'Netscape',
+            'mobile' => 'Handheld Browser'
         );
 
         foreach ($browser_array as $regex => $value) {
@@ -137,33 +135,34 @@ class  AcessoService extends AbstractService
         return 'Outro';
     }
 
-    public function getOS() {
+    public function getOS()
+    {
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
         $os_array = array(
-            'windows nt 10'      =>  'Windows 10',
-            'windows nt 6\.3'     =>  'Windows 8.1',
-            'windows nt 6\.2'     =>  'Windows 8',
-            'windows nt 6\.1'     =>  'Windows 7',
-            'windows nt 6\.0'     =>  'Windows Vista',
-            'windows nt 5\.2'     =>  'Windows Server 2003/XP x64',
-            'windows nt 5\.1'     =>  'Windows XP',
-            'windows xp'         =>  'Windows XP',
-            'windows nt 5\.0'     =>  'Windows 2000',
-            'windows me'         =>  'Windows ME',
-            'win98'              =>  'Windows 98',
-            'win95'              =>  'Windows 95',
-            'win16'              =>  'Windows 3.11',
-            'macintosh|mac os x' =>  'Mac OS X',
-            'mac_powerpc'        =>  'Mac OS 9',
-            'android'            =>  'Android',
-            'iphone'             =>  'iPhone',
-            'ipod'               =>  'iPod',
-            'ipad'               =>  'iPad',
-            'webos'              =>  'Mobile',
-            'linux'              =>  'Linux',
-            'ubuntu'             =>  'Ubuntu',
-            'blackberry'         =>  'BlackBerry',
+            'windows nt 10' => 'Windows 10',
+            'windows nt 6\.3' => 'Windows 8.1',
+            'windows nt 6\.2' => 'Windows 8',
+            'windows nt 6\.1' => 'Windows 7',
+            'windows nt 6\.0' => 'Windows Vista',
+            'windows nt 5\.2' => 'Windows Server 2003/XP x64',
+            'windows nt 5\.1' => 'Windows XP',
+            'windows xp' => 'Windows XP',
+            'windows nt 5\.0' => 'Windows 2000',
+            'windows me' => 'Windows ME',
+            'win98' => 'Windows 98',
+            'win95' => 'Windows 95',
+            'win16' => 'Windows 3.11',
+            'macintosh|mac os x' => 'Mac OS X',
+            'mac_powerpc' => 'Mac OS 9',
+            'android' => 'Android',
+            'iphone' => 'iPhone',
+            'ipod' => 'iPod',
+            'ipad' => 'iPad',
+            'webos' => 'Mobile',
+            'linux' => 'Linux',
+            'ubuntu' => 'Ubuntu',
+            'blackberry' => 'BlackBerry',
         );
 
         foreach ($os_array as $regex => $value) {
@@ -175,19 +174,20 @@ class  AcessoService extends AbstractService
         return 'Outro';
     }
 
-    public function getDispositivo() {
+    public function getDispositivo()
+    {
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
         $dispositivo_array = array(
-            'tablet'     =>  'tablet',
-            'iphone'     =>  'iphone',
-            'iPod'     =>  'iPod',
-            'ipad'      =>  'ipad',
-            'android'     =>  'android',
-            'webOS'     =>  'Mobile',
-            'BlackBerry'     =>  'BlackBerry',
-            'Symbian'     =>  'Symbian',
-            'IsGeneric'     =>  'IsGeneric',
+            'tablet' => 'tablet',
+            'iphone' => 'iphone',
+            'iPod' => 'iPod',
+            'ipad' => 'ipad',
+            'android' => 'android',
+            'webOS' => 'Mobile',
+            'BlackBerry' => 'BlackBerry',
+            'Symbian' => 'Symbian',
+            'IsGeneric' => 'IsGeneric',
         );
 
         foreach ($dispositivo_array as $regex => $value) {

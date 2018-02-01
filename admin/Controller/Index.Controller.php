@@ -2,6 +2,7 @@
 
 class Index extends AbstractController
 {
+    private $PDO;
 
     function Index()
     {
@@ -11,6 +12,8 @@ class Index extends AbstractController
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+        /** @var ObjetoPDO PDO */
+        $this->PDO = $inscricaoService->getPDO();
 
         $Condicoes = [
             "insc." . ST_STATUS => StatusAcessoEnum::ATIVO,
@@ -42,6 +45,7 @@ class Index extends AbstractController
             }
 
             if (!$inscricao->getCoPagamento()) {
+                $this->PDO->beginTransaction();
                 $pagamento[NU_TOTAL] = InscricaoEnum::VALOR_DINHEIRO;
                 $pagamento[NU_PARCELAS] = 1;
                 $pagamento[CO_INSCRICAO] = $inscricao->getCoInscricao();
@@ -52,7 +56,12 @@ class Index extends AbstractController
                 $parcela[NU_VALOR_PARCELA] = InscricaoEnum::VALOR_DINHEIRO;
                 $parcela[DT_VENCIMENTO] = Valida::DataAtualBanco('Y-m-d');
 
-                $parcelamentoService->Salva($parcela);
+                $retorno = $parcelamentoService->Salva($parcela);
+                if ($retorno) {
+                    $this->PDO->commit();
+                } else {
+                    $this->PDO->rollBack();
+                }
             } elseif (!$inscricao->getCoPagamento()->getCoParcelamento()) {
                 $parcela[CO_PAGAMENTO] = $inscricao->getCoPagamento()->getCoPagamento();
                 $parcela[CO_TIPO_PAGAMENTO] = TipoPagamentoEnum::DINHEIRO;
@@ -103,10 +112,7 @@ class Index extends AbstractController
             }
             $dados['TotalAArrecadar'] = $dados['TotalAArrecadar'] + $pagamentoInscricao->getNuTotal();
         }
-
         $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
-
-
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
