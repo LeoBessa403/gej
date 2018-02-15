@@ -12,7 +12,7 @@
     </section>
     <div class="content content_video">
         <div class="video">
-            <iframe  class="video-large main_video" src="https://www.youtube.com/embed/n5f6gsKsOkI" frameborder="0"
+            <iframe  class="video-large main_video" src="https://www.youtube.com/embed/mGctGtHDUSE" frameborder="0"
                      allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <aside class="al-center sectiontitle-insc">
