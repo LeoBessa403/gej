@@ -13,7 +13,6 @@ class AuditoriaEntidade extends AbstractEntidade
 
 	private $co_auditoria;
 	private $dt_realizado;
-	private $co_registro;
 	private $ds_perfil_usuario;
 	private $co_usuario;
 	private $co_auditoria_tabela;
@@ -27,7 +26,6 @@ class AuditoriaEntidade extends AbstractEntidade
     	return [
 			CO_AUDITORIA,
 			DT_REALIZADO,
-			CO_REGISTRO,
 			DS_PERFIL_USUARIO,
 			CO_USUARIO,
 		];
@@ -75,23 +73,6 @@ class AuditoriaEntidade extends AbstractEntidade
 	public function setDtRealizado($dt_realizado)
     {
         return $this->dt_realizado = $dt_realizado;
-    }
-
-	/**
-	* @return RegistroEntidade $co_registro
-     */
-	public function getCoRegistro()
-    {
-        return $this->co_registro;
-    }
-
-	/**
-	* @param $co_registro
-     * @return mixed
-     */
-	public function setCoRegistro($co_registro)
-    {
-        return $this->co_registro = $co_registro;
     }
 
 	/**
