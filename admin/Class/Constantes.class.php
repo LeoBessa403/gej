@@ -109,9 +109,12 @@
 	define('USUARIO_SERVICE', 'UsuarioService');
 	define('USUARIO_PERFIL_SERVICE', 'UsuarioPerfilService');
 
+    define('CO_AUDITORIA_TABELA', 'co_auditoria_tabela');
+    define('TP_OPERACAO', 'tp_operacao');
+    define('CO_AUDITORIA_ITENS', 'co_auditoria_itens');
+    define('DS_CAMPO', 'ds_campo');
+    define('AUDITORIA_TABELA_SERVICE', 'AuditoriaTabelaService');
+    define('AUDITORIA_ITENS_SERVICE', 'AuditoriaItensService');
 
-	define('SUCESSO', 'sucesso');
-	define('MSG', 'msg');
-
-
-
+    define('SUCESSO', 'sucesso');
+    define('MSG', 'msg');

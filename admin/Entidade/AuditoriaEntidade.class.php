@@ -2,7 +2,7 @@
 
 /**
  * Auditoria.Entidade [ ENTIDADE ]
- * @copyright (c) 2017, Leo Bessa
+ * @copyright (c) 2018, Leo Bessa
  */
 
 class AuditoriaEntidade extends AbstractEntidade
@@ -12,26 +12,21 @@ class AuditoriaEntidade extends AbstractEntidade
 	const CHAVE = CO_AUDITORIA;
 
 	private $co_auditoria;
-	private $no_tabela;
 	private $dt_realizado;
-	private $no_operacao;
-	private $ds_item_anterior;
-	private $ds_item_atual;
 	private $co_registro;
 	private $ds_perfil_usuario;
 	private $co_usuario;
+	private $co_auditoria_tabela;
+
 
 	/**
      * @return array
      */
-	public static function getCampos() {
+	public static function getCampos() 
+        {
     	return [
 			CO_AUDITORIA,
-			NO_TABELA,
 			DT_REALIZADO,
-			NO_OPERACAO,
-			DS_ITEM_ANTERIOR,
-			DS_ITEM_ATUAL,
 			CO_REGISTRO,
 			DS_PERFIL_USUARIO,
 			CO_USUARIO,
@@ -39,16 +34,17 @@ class AuditoriaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $relacionamentos
+	* @return array $relacionamentos
      */
-	public static function getRelacionamentos() {
+	public static function getRelacionamentos() 
+        {
     	$relacionamentos = Relacionamentos::getRelacionamentos();
 		return $relacionamentos[static::TABELA];
 	}
 
 
 	/**
-	* @return $co_auditoria
+	* @return int $co_auditoria
      */
 	public function getCoAuditoria()
     {
@@ -64,25 +60,8 @@ class AuditoriaEntidade extends AbstractEntidade
         return $this->co_auditoria = $co_auditoria;
     }
 
-	/**
-	* @return $no_tabela
-     */
-	public function getNoTabela()
-    {
-        return $this->no_tabela;
-    }
-
-	/**
-	* @param $no_tabela
+    /**
      * @return mixed
-     */
-	public function setNoTabela($no_tabela)
-    {
-        return $this->no_tabela = $no_tabela;
-    }
-
-	/**
-	* @return $dt_realizado
      */
 	public function getDtRealizado()
     {
@@ -96,57 +75,6 @@ class AuditoriaEntidade extends AbstractEntidade
 	public function setDtRealizado($dt_realizado)
     {
         return $this->dt_realizado = $dt_realizado;
-    }
-
-	/**
-	* @return $no_operacao
-     */
-	public function getNoOperacao()
-    {
-        return $this->no_operacao;
-    }
-
-	/**
-	* @param $no_operacao
-     * @return mixed
-     */
-	public function setNoOperacao($no_operacao)
-    {
-        return $this->no_operacao = $no_operacao;
-    }
-
-	/**
-	* @return $ds_item_anterior
-     */
-	public function getDsItemAnterior()
-    {
-        return $this->ds_item_anterior;
-    }
-
-	/**
-	* @param $ds_item_anterior
-     * @return mixed
-     */
-	public function setDsItemAnterior($ds_item_anterior)
-    {
-        return $this->ds_item_anterior = $ds_item_anterior;
-    }
-
-	/**
-	* @return $ds_item_atual
-     */
-	public function getDsItemAtual()
-    {
-        return $this->ds_item_atual;
-    }
-
-	/**
-	* @param $ds_item_atual
-     * @return mixed
-     */
-	public function setDsItemAtual($ds_item_atual)
-    {
-        return $this->ds_item_atual = $ds_item_atual;
     }
 
 	/**
@@ -198,6 +126,23 @@ class AuditoriaEntidade extends AbstractEntidade
 	public function setCoUsuario($co_usuario)
     {
         return $this->co_usuario = $co_usuario;
+    }
+
+	/**
+	* @return AuditoriaTabelaEntidade $co_auditoria_tabela
+     */
+	public function getCoAuditoriaTabela()
+    {
+        return $this->co_auditoria_tabela;
+    }
+
+	/**
+     * @param $co_auditoria_tabela
+     * @return mixed
+     */
+	public function setCoAuditoriaTabela($co_auditoria_tabela)
+    {
+        return $this->co_auditoria_tabela = $co_auditoria_tabela;
     }
 
 }
