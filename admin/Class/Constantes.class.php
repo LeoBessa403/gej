@@ -14,7 +14,6 @@
 	define('CO_AUDITORIA', 'co_auditoria');
 	define('NO_TABELA', 'no_tabela');
 	define('DT_REALIZADO', 'dt_realizado');
-	define('NO_OPERACAO', 'no_operacao');
 	define('DS_ITEM_ANTERIOR', 'ds_item_anterior');
 	define('DS_ITEM_ATUAL', 'ds_item_atual');
 	define('CO_REGISTRO', 'co_registro');
