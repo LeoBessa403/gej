@@ -70,10 +70,31 @@
                                                     foreach ($auditoria->getCoAuditoriaTabela() as $auditoriaTabela) { ?>
                                                         <div class="tab-pane"
                                                              id="panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>">
-                                                            <b>Ação Realizada: <?php
+                                                            Tabela: <b><?php echo str_replace('TB_', '', $auditoriaTabela->getNoTabela()); ?></b><br>
+                                                            Ação Realizada: <b><?php
                                                                 echo AuditoriaEnum::getDescricaoValor($auditoriaTabela->getTpOperacao());
                                                                 ?></b>
 
+                                                            <?php
+                                                            $grid = new Grid();
+                                                            ?>
+                                                            <h2>
+                                                                <small>Itens da Auditoria</small>
+                                                            </h2>
+                                                            <?php
+                                                            $arrColunas = array('Dado', 'Item Atual', 'Item Anterior');
+                                                            $grid = new Grid();
+                                                            $grid->setColunasIndeces($arrColunas);
+                                                            $grid->criaGrid();
+                                                            /** @var AuditoriaItensEntidade $item */
+                                                            foreach ($auditoriaTabela->getCoAuditoriaItens() as $item):
+                                                                $grid->setColunas($item->getDsCampo());
+                                                                $grid->setColunas($item->getDsItemAtual());
+                                                                $grid->setColunas($item->getDsItemAnterior());
+                                                                $grid->criaLinha($item->getCoAuditoriaItens());
+                                                            endforeach;
+                                                            $grid->finalizaGrid();
+                                                            ?>
 
                                                         </div>
                                                     <?php } ?>
