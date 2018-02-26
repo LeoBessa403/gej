@@ -117,6 +117,7 @@ class  InscricaoService extends AbstractService
                 if ($foto[DS_CAMINHO]["tmp_name"]):
                     $imagemService->Salva($imagem, $inscricaoEdicao->getCoImagem()->getCoImagem());
                 endif;
+                unset($pessoa[DT_CADASTRO]);
                 $pessoaService->Salva($pessoa, $inscricaoEdicao->getCoPessoa()->getCoPessoa());
                 $inscricao[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
                     (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
