@@ -114,7 +114,7 @@ class  InscricaoService extends AbstractService
 
                 $enderecoService->Salva($endereco, $inscricaoEdicao->getCoPessoa()->getCoEndereco()->getCoEndereco());
                 $contatoService->Salva($contato, $inscricaoEdicao->getCoPessoa()->getCoContato()->getCoContato());
-                if ($foto[DS_CAMINHO]["tmp_name"]):
+                if (!empty($foto["tmp_name"])):
                     $imagemService->Salva($imagem, $inscricaoEdicao->getCoImagem()->getCoImagem());
                 endif;
                 unset($pessoa[DT_CADASTRO]);

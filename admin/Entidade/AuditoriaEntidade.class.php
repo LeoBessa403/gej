@@ -63,7 +63,7 @@ class AuditoriaEntidade extends AbstractEntidade
      */
 	public function getDtRealizado()
     {
-        return $this->dt_realizado;
+        return Valida::DataShow($this->dt_realizado,'d/m/Y - H:i');
     }
 
 	/**

@@ -485,4 +485,23 @@ class FuncoesSistema
         return $op;
     }
 
+    public static function getBadgeLabel($operacao)
+    {
+        switch ($operacao){
+            case AuditoriaEnum::DELETE:
+                $classBadge = 'danger';
+                break;
+            case AuditoriaEnum::INSERT:
+                $classBadge = 'green';
+                break;
+            case AuditoriaEnum::UPDATE:
+                $classBadge = 'info';
+                break;
+            default:
+                $classBadge = 'inverse';
+                break;
+        }
+        return $classBadge;
+    }
+
 }

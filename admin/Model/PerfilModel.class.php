@@ -12,5 +12,8 @@ class  PerfilModel extends AbstractModel
         parent::__construct(PerfilEntidade::ENTIDADE);
     }
 
-
+    public function Deleta($coPerfil)
+    {
+        return parent::Deleta($coPerfil);
+    }
 }

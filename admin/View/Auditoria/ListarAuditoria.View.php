@@ -31,34 +31,61 @@
                         Auditoria
                     </div>
                     <div class="panel-body">
-                        <?php
-                        Modal::load();
-                        $arrColunas = array('Operaçao', 'Tabela', 'Realizado em', 'Usuário', 'Ações');
-                        $grid = new Grid();
-                        $grid->setColunasIndeces($arrColunas);
-                        $grid->criaGrid();
-                        /** @var AuditoriaEntidade $res */
-                        foreach ($result as $res):
-                            $acao = '<a href="' . PASTAADMIN . 'Auditoria/DetalharAuditoria/' .
-                                Valida::GeraParametro("aud/" . $res->getCoAuditoria()) . '" class="btn btn-primary tooltips" 
-                                   data-original-title="Editar Registro" data-placement="top">
-                                    <i class="fa fa-clipboard"></i>
-                                </a>';
-                            $tabela = str_replace("tb_", "", $res->getNoTabela());
-                            $tabela = str_replace("_", " ", $tabela);
+                        <div class="panel-group accordion-custom accordion-teal" id="accordion">
+                            <?php
+                            /** @var AuditoriaEntidade $auditoria */
+                            foreach ($result as $auditoria) { ?>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse"
+                                               data-parent="#accordion"
+                                               href="#collapse<?php echo $auditoria->getCoAuditoria(); ?>">
+                                                <i class="icon-arrow"></i>
+                                                <?php echo $auditoria->getDtRealizado() . '  //  ' .
+                                                    $auditoria->getCoUsuario()->getCoPessoa()->getNoPessoa(); ?>
+                                            </a></h4>
+                                    </div>
+                                    <div id="collapse<?php echo $auditoria->getCoAuditoria(); ?>"
+                                         class="panel-collapse collapse" style="height: 0px;">
+                                        <div class="panel-body">
+                                            <div class="tabbable">
+                                                <ul id="myTab<?php echo $auditoria->getCoAuditoria(); ?>"
+                                                    class="nav nav-tabs tab-padding tab-space-3 tab-pane">
+                                                    <?php
+                                                    /** @var AuditoriaTabelaEntidade $auditoriaTabela */
+                                                    foreach ($auditoria->getCoAuditoriaTabela() as $auditoriaTabela) { ?>
+                                                        <li class="">
+                                                            <a href="#panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>"
+                                                               data-toggle="tab">
+                                                            <span class="badge badge-<?= FuncoesSistema::getBadgeLabel($auditoriaTabela->getTpOperacao()); ?>">
+                                                            <?php echo str_replace('TB_', '', $auditoriaTabela->getNoTabela()); ?></span>
+                                                            </a>
+                                                        </li>
+                                                    <?php } ?>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <?php
+                                                    /** @var AuditoriaTabelaEntidade $auditoriaTabela */
+                                                    foreach ($auditoria->getCoAuditoriaTabela() as $auditoriaTabela) { ?>
+                                                        <div class="tab-pane"
+                                                             id="panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>">
+                                                            <b>Ação Realizada: <?php
+                                                                echo AuditoriaEnum::getDescricaoValor($auditoriaTabela->getTpOperacao());
+                                                                ?></b>
 
-                            $grid->setColunas(FuncoesSistema::OperacaoAuditoria($res->getNoOperacao()));
-                            $grid->setColunas(strtoupper($tabela));
-                            $grid->setColunas(Valida::DataShow($res->getDtRealizado(), "d/m/Y - H:i:s"));
-                            $grid->setColunas(($res->getCoUsuario() 
-                                ? $res->getCoUsuario()->getCoPessoa()->getNoPessoa()
-                                : 'Via Site'));
-                            $grid->setColunas($acao, 1);
-                            $grid->criaLinha($res->getCoAuditoria());
-                        endforeach;
 
-                        $grid->finalizaGrid();
-                        ?>
+                                                        </div>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
                 <!-- end: DYNAMIC TABLE PANEL -->
