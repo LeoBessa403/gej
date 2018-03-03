@@ -504,4 +504,43 @@ class FuncoesSistema
         return $classBadge;
     }
 
+    public static function getDsCampoLabel($noCampo)
+    {
+        $campo = '';
+        $tipo = strtolower(substr($noCampo, 0, 2));
+        switch ($tipo) {
+            case 'st':
+                $campo = str_replace('st_','situação_', $noCampo);
+                break;
+            case 'tp':
+                $campo = str_replace('tp_','tipo_', $noCampo);
+                break;
+            case 'dt':
+                $campo = str_replace('dt_','data_', $noCampo);
+                break;
+            case 'co':
+                $campo = str_replace('co_','código_', $noCampo);
+                break;
+            case 'sg':
+                $campo = str_replace('sg_','sigla_', $noCampo);
+                break;
+            case 'no':
+                $campo = str_replace('no_','nome_', $noCampo);
+                break;
+            case 'ds':
+                $campo = str_replace('ds_','descrição_', $noCampo);
+                break;
+            case 'nu':
+                $campo = str_replace('nu_','número_', $noCampo);
+                break;
+            default:
+                break;
+        }
+
+        $campo = str_replace('_', ' ', $campo);
+        $campo = ucwords($campo);
+
+        return $campo;
+    }
+
 }

@@ -7,7 +7,7 @@
 class  UsuarioService extends AbstractService
 {
     private $ObjetoModel;
-    
+
     public function __construct()
     {
         parent::__construct(UsuarioEntidade::ENTIDADE);
@@ -17,6 +17,18 @@ class  UsuarioService extends AbstractService
     public function PesquisaAvancada($Condicoes)
     {
         return $this->ObjetoModel->PesquisaAvancada($Condicoes);
+    }
+
+    public function PesquisaUsuariosCombo($Condicoes)
+    {
+        $comboUsuarios = [];
+        $usuarios = $this->ObjetoModel->PesquisaAvancada($Condicoes);
+        /** @var UsuarioEntidade $usuario */
+        foreach ($usuarios as $usuario) {
+            $comboUsuarios[$usuario->getCoUsuario()]
+                = Valida::Resumi($usuario->getCoPessoa()->getNoPessoa(), 25);
+        }
+        return $comboUsuarios;
     }
 
 }

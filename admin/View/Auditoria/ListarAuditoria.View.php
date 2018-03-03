@@ -1,3 +1,8 @@
+<style>
+    th, td {
+        padding: 7px;
+    }
+</style>
 <div class="main-content">
     <div class="container">
         <div class="row">
@@ -31,6 +36,14 @@
                         Auditoria
                     </div>
                     <div class="panel-body">
+                        <?php
+                        $grid = new Grid();
+                        echo $grid->PesquisaAvancada('Pesquisar Auditoria');
+                        ?>
+                        <h2>
+                            <small>Auditorias Encontradas</small>
+                        </h2>
+                        <hr>
                         <div class="panel-group accordion-custom accordion-teal" id="accordion">
                             <?php
                             /** @var AuditoriaEntidade $auditoria */
@@ -42,8 +55,10 @@
                                                data-parent="#accordion"
                                                href="#collapse<?php echo $auditoria->getCoAuditoria(); ?>">
                                                 <i class="icon-arrow"></i>
-                                                <?php echo $auditoria->getDtRealizado() . '  //  ' .
-                                                    $auditoria->getCoUsuario()->getCoPessoa()->getNoPessoa(); ?>
+                                                <?php echo $auditoria->getDtRealizado() . '  //  ';
+                                                echo ($auditoria->getDsPerfilUsuario() != 'Via Site')
+                                                    ? $auditoria->getCoUsuario()->getCoPessoa()->getNoPessoa()
+                                                    : $auditoria->getDsPerfilUsuario(); ?>
                                             </a></h4>
                                     </div>
                                     <div id="collapse<?php echo $auditoria->getCoAuditoria(); ?>"
@@ -59,7 +74,8 @@
                                                             <a href="#panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>"
                                                                data-toggle="tab">
                                                             <span class="badge badge-<?= FuncoesSistema::getBadgeLabel($auditoriaTabela->getTpOperacao()); ?>">
-                                                            <?php echo str_replace('TB_', '', $auditoriaTabela->getNoTabela()); ?></span>
+                                                            <?php echo str_replace('TB_', '',
+                                                                $auditoriaTabela->getNoTabela()); ?></span>
                                                             </a>
                                                         </li>
                                                     <?php } ?>
@@ -70,9 +86,13 @@
                                                     foreach ($auditoria->getCoAuditoriaTabela() as $auditoriaTabela) { ?>
                                                         <div class="tab-pane"
                                                              id="panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>">
-                                                            Tabela: <b><?php echo str_replace('TB_', '', $auditoriaTabela->getNoTabela()); ?></b><br>
+                                                            Tabela:
+                                                            <b><?php echo str_replace('TB_', '',
+                                                                    $auditoriaTabela->getNoTabela()); ?></b><br>
                                                             Ação Realizada: <b><?php
-                                                                echo AuditoriaEnum::getDescricaoValor($auditoriaTabela->getTpOperacao());
+                                                                echo AuditoriaEnum::getDescricaoValor(
+                                                                    $auditoriaTabela->getTpOperacao()
+                                                                );
                                                                 ?></b>
 
                                                             <?php
@@ -85,10 +105,14 @@
                                                             $arrColunas = array('Dado', 'Item Atual', 'Item Anterior');
                                                             $grid = new Grid();
                                                             $grid->setColunasIndeces($arrColunas);
-                                                            $grid->criaGrid();
+                                                            $grid->criaGrid(
+                                                                $auditoriaTabela->getCoAuditoriaTabela(), false
+                                                            );
                                                             /** @var AuditoriaItensEntidade $item */
                                                             foreach ($auditoriaTabela->getCoAuditoriaItens() as $item):
-                                                                $grid->setColunas($item->getDsCampo());
+                                                                $grid->setColunas(
+                                                                    FuncoesSistema::getDsCampoLabel($item->getDsCampo())
+                                                                );
                                                                 $grid->setColunas($item->getDsItemAtual());
                                                                 $grid->setColunas($item->getDsItemAnterior());
                                                                 $grid->criaLinha($item->getCoAuditoriaItens());
