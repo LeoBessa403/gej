@@ -35,8 +35,8 @@ class  AcessoModel extends AbstractModel
         $campos = "DISTINCT ace.*";
         $pesquisa = new Pesquisa();
         $where = 'where 1 = 1';
-        if(!empty($Condicoes[NO_PESSOA])){
-            $where = $where . " and pes.".NO_PESSOA." like '%".$Condicoes[NO_PESSOA]."%'" ;
+        if(!empty($Condicoes[CO_USUARIO])){
+            $where = $where . " and usu.".CO_USUARIO." in (".implode(', ',$Condicoes[CO_USUARIO]).")" ;
         }
         if(!empty($Condicoes[NU_CPF])){
             $where = $where . " and pes.".NU_CPF." = '".$Condicoes[NU_CPF]."'" ;

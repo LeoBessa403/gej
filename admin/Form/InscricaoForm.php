@@ -84,6 +84,7 @@ class InscricaoForm
             ->setLabel("Situação do Pagamento")
             ->setId(TP_SITUACAO)
             ->setType("select")
+            ->setClasses("multipla")
             ->setTamanhoInput(12)
             ->setOptions($label_options)
             ->CriaInpunt();

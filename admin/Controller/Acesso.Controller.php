@@ -12,14 +12,16 @@ class Acesso extends AbstractController
         if (!empty($_POST)) {
             $this->result = $acessoService->PesquisaAvancada($_POST);
         } else {
-            $this->result = $acessoService->PesquisaTodos();
+            $this->result = [];
         }
 
     }
 
     public function ListarAcessoPesquisaAvancada()
     {
-        echo AcessoForm::Pesquisar();
+        /** @var UsuarioService $usuarioService */
+        $usuarioService = $this->getService(USUARIO_SERVICE);
+        echo AcessoForm::Pesquisar($usuarioService);
     }
 
 }

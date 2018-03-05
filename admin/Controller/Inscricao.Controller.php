@@ -120,7 +120,8 @@ class Inscricao extends AbstractController
             $Condicoes = array(
                 "pes." . NO_PESSOA => trim($_POST[NO_PESSOA]),
                 "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
-                "pag." . TP_SITUACAO => $_POST[TP_SITUACAO][0],
+                "in#pag." . TP_SITUACAO => (!empty($_POST[TP_SITUACAO]))
+                    ? implode("', '",  $_POST[TP_SITUACAO]) : null ,
                 "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
                 "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
@@ -264,11 +265,7 @@ class Inscricao extends AbstractController
 
     public static function SituacaoPagamento()
     {
-        $SituacaoPagamento[""] = "Situação do Pagamento";
-        $SituacaoPagamento["N"] = StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::NAO_INICIADA);
-        $SituacaoPagamento["I"] = StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::INICIADA);
-        $SituacaoPagamento["C"] = StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::CONCLUIDO);
-        return $SituacaoPagamento;
+        return StatusPagamentoEnum::$descricao;
     }
 
     public function DetalharPagamento()
