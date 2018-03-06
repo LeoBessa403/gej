@@ -34,7 +34,7 @@
                         Modal::load();
                         Modal::deletaRegistro("Perfil");
                         Modal::confirmacao("confirma_Perfil");
-                        $arrColunas = array('Nome', 'Ações');
+                        $arrColunas = array('Nome', 'Funcionalidades', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -54,8 +54,16 @@
                                             <i class="fa fa-trash-o"></i>
                                         </a>';
                                 endif;
+                                $funcs = [];
+                                if (!empty($res->getCoPerfilFuncionalidade())) {
+                                    /** @var PerfilFuncionalidadeEntidade $funcPerfil */
+                                    foreach ($res->getCoPerfilFuncionalidade() as $funcPerfil) {
+                                        $funcs[] = $funcPerfil->getCoFuncionalidade()->getNoFuncionalidade();
+                                    }
+                                }
                                 $grid->setColunas($res->getNoPerfil());
-                                $grid->setColunas($acao, 3);
+                                $grid->setColunas(implode(', ', $funcs));
+                                $grid->setColunas($acao, 2);
                                 $grid->criaLinha($res->getCoPerfil());
                             endif;
                         endforeach;

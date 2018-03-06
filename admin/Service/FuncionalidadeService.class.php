@@ -14,6 +14,17 @@ class  FuncionalidadeService extends AbstractService
         $this->ObjetoModel = New FuncionalidadeModel();
     }
 
+    public function montaComboTodosFuncionalidades()
+    {
+        $funcionalidades = $this->PesquisaTodos();
+        $todasFunc = array();
+        /** @var FuncionalidadeEntidade $func */
+        foreach ($funcionalidades as $func) :
+            $todasFunc[$func->getCoFuncionalidade()] = $func->getNoFuncionalidade();
+        endforeach;
+        return $todasFunc;
+    }
+
     public function salvaFuncionalidade($dados)
     {
         /** @var PerfilFuncionalidadeService $perfilFuncionalidadeService */
@@ -26,11 +37,11 @@ class  FuncionalidadeService extends AbstractService
         ];
         $session = new Session();
 
-        $funcionalidade['no_funcionalidade'] = trim($dados['no_funcionalidade']);
+        $funcionalidade[NO_FUNCIONALIDADE] = trim($dados[NO_FUNCIONALIDADE]);
 
         $this->PDO->beginTransaction();
-        if (!empty($_POST['co_funcionalidade'])):
-            $coFuncionalidade = $dados['co_funcionalidade'];
+        if (!empty($_POST[CO_FUNCIONALIDADE])):
+            $coFuncionalidade = $dados[CO_FUNCIONALIDADE];
             $atualiza = $this->Salva($funcionalidade, $coFuncionalidade);
             if ($atualiza):
                 $perfilFuncional[CO_FUNCIONALIDADE] = $coFuncionalidade;
@@ -45,7 +56,7 @@ class  FuncionalidadeService extends AbstractService
                 $session->setSession(CADASTRADO, "OK");
             endif;
         endif;
-        if ($coFuncionalidade){
+        if ($coFuncionalidade) {
             $perfilFunc[CO_FUNCIONALIDADE] = $coFuncionalidade;
             foreach ($dados[CO_PERFIL] as $coPerfil) {
                 $perfilFunc[CO_PERFIL] = $coPerfil;

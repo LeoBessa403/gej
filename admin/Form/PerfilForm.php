@@ -1,42 +1,39 @@
 <?php
 
-class FuncionalidadeForm
+class PerfilForm
 {
-    public static function Cadastrar($perfilService, $res = false)
+    public static function Cadastrar($funcionalidadeService, $res = false)
     {
-        $id = "cadastroFuncionalidade";
+        $id = "cadastroPerfil";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Cadastrar", 6);
         if ($res):
             $formulario->setValor($res);
         endif;
-
         $formulario
-            ->setId(NO_FUNCIONALIDADE)
+            ->setId(NO_PERFIL)
             ->setClasses("ob")
-            ->setLabel("Funcionalidade")
+            ->setLabel("Perfil")
             ->CriaInpunt();
 
-        $perfis = $perfilService->montaComboTodosPerfis();
+        $funcs = $funcionalidadeService->montaComboTodosFuncionalidades();
         $formulario
-            ->setId(CO_PERFIL)
-            ->setLabel("Perfis")
+            ->setId(CO_FUNCIONALIDADE)
+            ->setLabel("Funcionalidades")
             ->setClasses("multipla")
-            ->setInfo("Perfis que podem acessar a funcionalidade.")
+            ->setInfo("Funcionalidades que o perfil tem acesso.")
             ->setType("select")
-            ->setOptions($perfis)
+            ->setOptions($funcs)
             ->CriaInpunt();
-
 
         if ($res):
             $formulario
                 ->setType("hidden")
-                ->setId(CO_FUNCIONALIDADE)
-                ->setValues($res[CO_FUNCIONALIDADE])
+                ->setId(CO_PERFIL)
+                ->setValues($res[CO_PERFIL])
                 ->CriaInpunt();
         endif;
-
 
         return $formulario->finalizaForm();
     }
