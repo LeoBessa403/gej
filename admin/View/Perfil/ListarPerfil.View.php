@@ -54,7 +54,6 @@
                                             <i class="fa fa-trash-o"></i>
                                         </a>';
                                 endif;
-
                                 $grid->setColunas($res->getNoPerfil());
                                 $grid->setColunas($acao, 3);
                                 $grid->criaLinha($res->getCoPerfil());

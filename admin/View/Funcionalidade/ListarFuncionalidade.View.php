@@ -34,33 +34,37 @@
                         Modal::load();
                         Modal::deletaRegistro("Funcionalidade");
                         Modal::confirmacao("confirma_Funcionalidade");
-                        $arrColunas = array('Nome', 'Ações');
+                        $arrColunas = array('Nome', 'Perfis', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
                         /** @var FuncionalidadeEntidade $res */
-                        foreach ($result as $res):
+                        foreach ($result as $res) {
+                            $perfis = [];
+                            if(!empty($res->getCoPerfilFuncionalidade())){
+                                /** @var PerfilFuncionalidadeEntidade $funcPerfil */
+                                foreach ($res->getCoPerfilFuncionalidade() as $funcPerfil) {
+                                    if($funcPerfil->getCoPerfil()->getCoPerfil() > 1)
+                                    $perfis[] = $funcPerfil->getCoPerfil()->getNoPerfil();
+                                }
+                            }
                             if ($res->getCoFuncionalidade() > 1):
                                 $acao = '<a href="' . PASTAADMIN . 'Funcionalidade/CadastroFuncionalidade/' .
                                     Valida::GeraParametro("fun/" . $res->getCoFuncionalidade()) . '" class="btn btn-primary tooltips" 
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
                                 </a>
-                                <a href="' . PASTAADMIN . 'Funcionalidade/PerfilFuncionalidades/' .
-                                    Valida::GeraParametro("fun/" . $res->getCoFuncionalidade()) . '" class="btn btn-dark-grey tooltips" 
-                                      data-original-title="Perfis da Funcionalidade" data-placement="top">
-                                       <i class="fa fa-outdent"></i>
-                                   </a>
                                 <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="' .
                                     $res->getCoFuncionalidade() . '" 
                                    href="#Funcionalidade" data-original-title="Excluir Registro" data-placement="top">
                                     <i class="fa fa-trash-o"></i>
                                 </a>';
                                 $grid->setColunas($res->getNoFuncionalidade());
-                                $grid->setColunas($acao, 3);
+                                $grid->setColunas(implode(', ', $perfis));
+                                $grid->setColunas($acao, 2);
                                 $grid->criaLinha($res->getCoFuncionalidade());
                             endif;
-                        endforeach;
+                        }
                         $grid->finalizaGrid();
                         ?>
                     </div>
