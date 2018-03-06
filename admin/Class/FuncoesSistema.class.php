@@ -56,10 +56,12 @@ class FuncoesSistema
 
     public static function GeraCodigo()
     {
-
+        $blocosLetrasEnumeros = 2;
+        $sequenciaNumeros = 1;
+        $sequenciaLetras = 3;
         $codigo = '';
-        for ($p = 0; $p < 2; $p++) {
-            for ($m = 0; $m < 3; $m++) {
+        for ($p = 0; $p < $blocosLetrasEnumeros; $p++) {
+            for ($m = 0; $m < $sequenciaLetras; $m++) {
                 $numero = rand(1, 26);
                 switch ($numero) {
                     case '1':
@@ -144,8 +146,10 @@ class FuncoesSistema
                 $codigo .= $letra;
             }
 
-            $numero = rand(0, 9);
-            $codigo .= $numero;
+            for ($n = 0; $n < $sequenciaNumeros; $n++) {
+                $numero = rand(0, 9);
+                $codigo .= $numero;
+            }
         }
 
         return $codigo;
@@ -153,7 +157,6 @@ class FuncoesSistema
 
     public static function ValidaAgenda(array $res)
     {
-
         $us = $_SESSION[SESSION_USER];
         $user = $us->getUser();
         $meusPerfis = explode(",", $user[md5(CAMPO_PERFIL)]);
@@ -411,14 +414,11 @@ class FuncoesSistema
 
     public static function SituacaoSimNao($st)
     {
-        if (!$st):
-            $st = "N";
-        endif;
         switch ($st) {
             case "S":
                 $op = '<span class="label label-success">SIM</span>';
                 break;
-            case "N":
+            default:
                 $op = '<span class="label label-danger">NÃO</span>';
                 break;
         }
