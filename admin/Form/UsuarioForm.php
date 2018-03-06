@@ -151,7 +151,6 @@ class UsuarioForm extends AbstractController
         if (!$resgistrar) {
             if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)):
                 $label_options_perfis = $perfilService->montaComboTodosPerfis();
-                unset($label_options_perfis[1]);
                 $formulario
                     ->setLabel("Perfis")
                     ->setId(CAMPO_PERFIL)
@@ -210,7 +209,7 @@ class UsuarioForm extends AbstractController
             $formulario
                 ->setType("hidden")
                 ->setId(CO_USUARIO)
-                ->setValues($res['co_usuario'])
+                ->setValues($res[CO_USUARIO])
                 ->CriaInpunt();
         endif;
 
@@ -224,7 +223,7 @@ class UsuarioForm extends AbstractController
         $formulario = new Form($id, "admin/Usuario/ListarUsuario", "Pesquisa", 12);
 
         $formulario
-            ->setId("no_pessoa")
+            ->setId(NO_PESSOA)
             ->setIcon("clip-user-6")
             ->setLabel("Nome do Usuario")
             ->setInfo("Pode ser Parte do nome")

@@ -22,23 +22,23 @@ class AcessoForm
         $formulario
             ->setId(NU_CPF)
             ->setClasses("cpf")
-            ->setTamanhoInput(7)
+            ->setTamanhoInput(6)
             ->setLabel("CPF")
             ->CriaInpunt();
 
         $formulario
             ->setId(DT_INICIO_ACESSO)
             ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(6)
+            ->setTamanhoInput(3)
             ->setClasses("data dt1 ob")
-            ->setLabel("Ínicio")
+            ->setLabel("Período Inicío")
             ->setValor(date('d/m/Y'))
             ->CriaInpunt();
 
         $formulario
             ->setId(DT_FIM_ACESSO)
             ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(6)
+            ->setTamanhoInput(3)
             ->setValor(date('d/m/Y'))
             ->setClasses("data dt2 ob")
             ->setLabel("Fim")

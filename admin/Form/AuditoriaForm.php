@@ -33,16 +33,16 @@ class AuditoriaForm
         $formulario
             ->setId('dt1')
             ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(6)
+            ->setTamanhoInput(3)
             ->setClasses("data dt1 ob")
             ->setValor(date('d/m/Y'))
-            ->setLabel("Ínicio")
+            ->setLabel("Período Inicío")
             ->CriaInpunt();
 
         $formulario
             ->setId('dt2')
             ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(6)
+            ->setTamanhoInput(3)
             ->setValor(date('d/m/Y'))
             ->setClasses("data dt2 ob")
             ->setLabel("Fim")

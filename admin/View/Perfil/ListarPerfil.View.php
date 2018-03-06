@@ -45,12 +45,7 @@
                                     Valida::GeraParametro("per/" . $res->getCoPerfil()) . '" class="btn btn-primary tooltips" 
                                     data-original-title="Editar Registro" data-placement="top">
                                      <i class="fa fa-clipboard"></i>
-                                 </a>
-                                 <a href="' . PASTAADMIN . 'Perfil/FuncionalidadesPerfil/' .
-                                    Valida::GeraParametro("per/" . $res->getCoPerfil()) . '" class="btn btn-dark-grey tooltips" 
-                                       data-original-title="Funcionalidades do Perfil" data-placement="top">
-                                        <i class="fa fa-outdent"></i>
-                                    </a>';
+                                 </a>';
                                 if ($res->getCoPerfil() > 3)  :
                                     $acao .= ' '
                                         . '<a data-toggle="modal" role="button" class="btn btn-bricky 

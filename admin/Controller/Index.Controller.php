@@ -127,8 +127,10 @@ class Index extends AbstractController
         
         $id = "CadastroUsuario";
         if (!empty($_POST[$id])):
-            $usuarioControl = new Usuario();
-            $usuarioControl->salvaUsuario($_POST, $_FILES, true);
+
+            /** @var UsuarioService $usuarioService */
+            $usuarioService = static::getService(USUARIO_SERVICE);
+            $usuarioService->salvaUsuario($_POST, $_FILES, true);
         endif;
 
         $this->form = UsuarioForm::Cadastrar(false, true, 12, $perfilService);
