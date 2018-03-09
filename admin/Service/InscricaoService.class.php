@@ -22,6 +22,10 @@ class  InscricaoService extends AbstractService
 
     public function salvarInscricao($dados, $foto, $coInscricao = false)
     {
+        $inscricaoValidador = new InscricaoValidador();
+        /** @var InscricaoValidador $validador */
+        $validador = $inscricaoValidador->validarInscricao($dados, $foto);
+        debug($validador);
         $this->PDO = $this->getPDO();
 
         /** @var EnderecoService $enderecoService */

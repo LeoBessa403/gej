@@ -100,132 +100,132 @@ require_once 'library/Config.inc.php';
 <!-- end: HEAD -->
 <body>
 <!-- start: HEADER -->
-<header class="colored-top-bar">
-    <div class="clearfix" id="topbar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <!-- start: TOP BAR CALL US -->
-                    <div class="callus">
-                        Contatos: (61) 99105-8681 - E-Mail:
-                        <a href="mailto:contato@gejdombosco.com.br">
-                            contato@gejdombosco.com.br
-                        </a>
-                    </div>
-                    <!-- end: TOP BAR CALL US -->
-                </div>
-                <div class="col-sm-4">
-                    <!-- start: TOP BAR SOCIAL ICONS -->
-                    <div class="social-icons">
-                        <ul>
-                            <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="bottom">
-                                <a target="_blank" href="https://www.facebook.com/gej.dombosco">
-                                    Facebook
-                                </a>
-                            </li>
-                            <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="bottom">
-                                <a target="_blank" href="https://twitter.com/gejdombosco">
-                                    Twitter
-                                </a>
-                            </li>
-                            <li class="social-instagram tooltips" data-original-title="Instagram" data-placement="bottom">
-                                <a target="_blank" href="https://www.instagram.com/gejdombosco/">
-                                    Instagram
-                                </a>
-                            </li>
-                            <li class="social-youtube tooltips" data-original-title="YouTube" data-placement="bottom">
-                                <a target="_blank" href="https://www.youtube.com/channel/UCSFi4WhpTMdxxxGM8fBiAcA/videos">
-                                    YouTube
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- end: TOP BAR SOCIAL ICONS -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end: TOP BAR -->
-    <div role="navigation" class="navbar navbar-default navbar-fixed-top space-top">
-        <!-- start: TOP NAVIGATION CONTAINER -->
-        <div class="container">
-            <div class="navbar-header">
-                <!-- start: RESPONSIVE MENU TOGGLER -->
-                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- end: RESPONSIVE MENU TOGGLER -->
-                <!-- start: LOGO -->
-                <a class="navbar-brand" href="<?php echo PASTASITE; ?>">
-                    <img src="<?php echo PASTASITE; ?>/img/logo1.png" width="170"/>
-                </a>
-                <!-- end: LOGO -->
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a href="<?php echo PASTASITE; ?>">
-                            Página Inicial
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
-                            6º Retiro de Carnaval <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="<?php echo PASTASITE; ?>MembroWeb/CadastroRetiroCarnaval">
-                                    Inscrição
-                                </a>										</a>
-                                <a href="<?php echo PASTASITE; ?>MembroWeb/Normas">
-                                    Normas do Retiro
-                                </a>										</a>
-<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/SobrePagamento">-->
-<!--                                   Sobre o Pagamento-->
+<!--<header class="colored-top-bar">-->
+<!--    <div class="clearfix" id="topbar">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-sm-8">-->
+<!--                    <!-- start: TOP BAR CALL US -->-->
+<!--                    <div class="callus">-->
+<!--                        Contatos: (61) 99105-8681 - E-Mail:-->
+<!--                        <a href="mailto:contato@gejdombosco.com.br">-->
+<!--                            contato@gejdombosco.com.br-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <!-- end: TOP BAR CALL US -->-->
+<!--                </div>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <!-- start: TOP BAR SOCIAL ICONS -->-->
+<!--                    <div class="social-icons">-->
+<!--                        <ul>-->
+<!--                            <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="bottom">-->
+<!--                                <a target="_blank" href="https://www.facebook.com/gej.dombosco">-->
+<!--                                    Facebook-->
 <!--                                </a>-->
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a target="_blank" href="<?php echo PASTAADMIN; ?>Index/Index/PrimeiroAcesso">
-                            Área Administrativa
-                        </a>
-                    </li>
-                    <li class="menu-search">
-                        <!-- start: SEARCH BUTTON -->
-                        <a href="#" data-placement="bottom" data-toggle="popover">
-                            <i class="clip-search-3"></i>
-                        </a>
-                        <!-- end: SEARCH BUTTON -->
-                        <!-- start: SEARCH POPOVER -->
-                        <div class="popover bottom search-box">
-                            <div class="arrow"></div>
-                            <div class="popover-content">
-                                <!-- start: SEARCH FORM -->
-                                <form class="" id="searchform" action="#">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Pesquisar">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-main-color btn-squared" type="button">
-                                                    <i class="clip-search-3"></i>
-                                                </button>
-                                            </span>
-                                    </div>
-                                </form>
-                                <!-- end: SEARCH FORM -->
-                            </div>
-                        </div>
-                        <!-- end: SEARCH POPOVER -->
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- end: TOP NAVIGATION CONTAINER -->
-    </div>
-</header>
+<!--                            </li>-->
+<!--                            <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="bottom">-->
+<!--                                <a target="_blank" href="https://twitter.com/gejdombosco">-->
+<!--                                    Twitter-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="social-instagram tooltips" data-original-title="Instagram" data-placement="bottom">-->
+<!--                                <a target="_blank" href="https://www.instagram.com/gejdombosco/">-->
+<!--                                    Instagram-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="social-youtube tooltips" data-original-title="YouTube" data-placement="bottom">-->
+<!--                                <a target="_blank" href="https://www.youtube.com/channel/UCSFi4WhpTMdxxxGM8fBiAcA/videos">-->
+<!--                                    YouTube-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <!-- end: TOP BAR SOCIAL ICONS -->-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <!-- end: TOP BAR -->-->
+<!--    <div role="navigation" class="navbar navbar-default navbar-fixed-top space-top">-->
+<!--        <!-- start: TOP NAVIGATION CONTAINER -->-->
+<!--        <div class="container">-->
+<!--            <div class="navbar-header">-->
+<!--                <!-- start: RESPONSIVE MENU TOGGLER -->-->
+<!--                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">-->
+<!--                    <span class="sr-only">Toggle navigation</span>-->
+<!--                    <span class="icon-bar"></span>-->
+<!--                    <span class="icon-bar"></span>-->
+<!--                    <span class="icon-bar"></span>-->
+<!--                </button>-->
+<!--                <!-- end: RESPONSIVE MENU TOGGLER -->-->
+<!--                <!-- start: LOGO -->-->
+<!--                <a class="navbar-brand" href="--><?php //echo PASTASITE; ?><!--">-->
+<!--                    <img src="--><?php //echo PASTASITE; ?><!--/img/logo1.png" width="170"/>-->
+<!--                </a>-->
+<!--                <!-- end: LOGO -->-->
+<!--            </div>-->
+<!--            <div class="navbar-collapse collapse">-->
+<!--                <ul class="nav navbar-nav navbar-right">-->
+<!--                    <li class="active">-->
+<!--                        <a href="--><?php //echo PASTASITE; ?><!--">-->
+<!--                            Página Inicial-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="dropdown">-->
+<!--                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">-->
+<!--                            6º Retiro de Carnaval <b class="caret"></b>-->
+<!--                        </a>-->
+<!--                        <ul class="dropdown-menu">-->
+<!--                            <li>-->
+<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/CadastroRetiroCarnaval">-->
+<!--                                    Inscrição-->
+<!--                                </a>										</a>-->
+<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/Normas">-->
+<!--                                    Normas do Retiro-->
+<!--                                </a>										</a>-->
+<!--<!--                                <a href="-->--><?php ////echo PASTASITE; ?><!--<!--MembroWeb/SobrePagamento">-->-->
+<!--<!--                                   Sobre o Pagamento-->-->
+<!--<!--                                </a>-->-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a target="_blank" href="--><?php //echo PASTAADMIN; ?><!--Index/Index/PrimeiroAcesso">-->
+<!--                            Área Administrativa-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="menu-search">-->
+<!--                        <!-- start: SEARCH BUTTON -->-->
+<!--                        <a href="#" data-placement="bottom" data-toggle="popover">-->
+<!--                            <i class="clip-search-3"></i>-->
+<!--                        </a>-->
+<!--                        <!-- end: SEARCH BUTTON -->-->
+<!--                        <!-- start: SEARCH POPOVER -->-->
+<!--                        <div class="popover bottom search-box">-->
+<!--                            <div class="arrow"></div>-->
+<!--                            <div class="popover-content">-->
+<!--                                <!-- start: SEARCH FORM -->-->
+<!--                                <form class="" id="searchform" action="#">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="text" class="form-control" placeholder="Pesquisar">-->
+<!--                                            <span class="input-group-btn">-->
+<!--                                                <button class="btn btn-main-color btn-squared" type="button">-->
+<!--                                                    <i class="clip-search-3"></i>-->
+<!--                                                </button>-->
+<!--                                            </span>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                                <!-- end: SEARCH FORM -->-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <!-- end: SEARCH POPOVER -->-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <!-- end: TOP NAVIGATION CONTAINER -->-->
+<!--    </div>-->
+<!--</header>-->
 <!-- end: HEADER -->
 <!-- start: MAIN CONTAINER -->
 <div class="main-container">

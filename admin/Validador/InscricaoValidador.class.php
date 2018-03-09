@@ -8,15 +8,37 @@ class  InscricaoValidador extends AbstractValidador
 {
     private $retorno = [
         SUCESSO => true,
-        MSG => []
+        MSG => [],
+        DADOS => []
     ];
 
     public function validarInscricao($dados, $arquivo)
     {
-        $validadorCpf = $this->validaCampoMascara($dados[NU_CPF], AbstractValidador::VALIDACAO_CPF);
-        if (!$validadorCpf) {
-            $this->retorno[SUCESSO] = false;
-            $this->retorno[MSG][] = 'CPF obrigatório';
-        }
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NU_CPF], AbstractValidador::VALIDACAO_CPF, 'CPF'
+        );
+        $this->retorno[DADOS][] = $this->validaCampoArquivo(
+            $arquivo[DS_CAMINHO], 'Foto de Perfil'
+        );
+        $this->retorno[DADOS][] = $this->validaCampoSelctObrigatorio(
+            $dados[ST_SEXO], 'Sexo'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[DT_NASCIMENTO],AbstractValidador::VALIDACAO_DATA, 'Nascimento'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NU_CEP],AbstractValidador::VALIDACAO_CEP, 'CEP'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NU_TEL1],AbstractValidador::VALIDACAO_TEL, 'Celular'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NU_TEL_RESPONSAVEL],AbstractValidador::VALIDACAO_TEL, 'Tel. Referência'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NO_RESPONSAVEL],AbstractValidador::VALIDACAO_NOME, 'Pessoa de Referência', 3
+        );
+        debug($this->retorno);
+
     }
 }

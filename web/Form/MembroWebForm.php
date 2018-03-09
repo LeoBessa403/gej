@@ -48,7 +48,7 @@ class MembroWebForm
 
         $formulario
             ->setId(NO_PESSOA)
-            ->setClasses("ob nome")
+//            ->setClasses("ob nome")
             ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
             ->setLabel("Nome Completo")
             ->setTamanhoInput(12)
@@ -56,7 +56,7 @@ class MembroWebForm
 
         $formulario
             ->setId(NU_CPF)
-            ->setClasses("cpf ob")
+//            ->setClasses("cpf ob")
             ->setTamanhoInput(6)
             ->setLabel("CPF")
             ->CriaInpunt();
@@ -72,7 +72,7 @@ class MembroWebForm
         $formulario
             ->setLabel("Sexo")
             ->setId(ST_SEXO)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->setType("select")
             ->setTamanhoInput(6)
             ->setOptions($label_options)
@@ -82,7 +82,7 @@ class MembroWebForm
             ->setId(DT_NASCIMENTO)
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(6)
-            ->setClasses("data ob")
+//            ->setClasses("data ob")
             ->setInfo("Para maiores de 14 anos")
             ->setLabel("Nascimento")
             ->CriaInpunt();
@@ -93,7 +93,7 @@ class MembroWebForm
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular")
             ->setInfo("Com o Whatsapp")
-            ->setClasses("tel ob")
+//            ->setClasses("tel ob")
             ->CriaInpunt();
 
         $formulario
@@ -101,14 +101,14 @@ class MembroWebForm
             ->setTamanhoInput(6)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular 2")
-            ->setClasses("tel")
+//            ->setClasses("tel")
             ->CriaInpunt();
 
         $formulario
             ->setId(DS_ENDERECO)
             ->setIcon("clip-home-2")
             ->setTamanhoInput(12)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->setLabel("Endereço")
             ->CriaInpunt();
 
@@ -134,7 +134,7 @@ class MembroWebForm
             ->setId(NU_CEP)
             ->setLabel("CEP")
             ->setTamanhoInput(4)
-            ->setClasses("cep")
+//            ->setClasses("cep")
             ->CriaInpunt();
 
         $options = Endereco::montaComboEstadosDescricao();
@@ -178,7 +178,7 @@ class MembroWebForm
             ->setId(NU_CAMISA)
             ->setType("select")
             ->setTamanhoInput(12)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->setOptions($opticoes_camisa)
             ->setLabel("Tamanho da Camisa")
             ->CriaInpunt();
@@ -186,7 +186,7 @@ class MembroWebForm
         $formulario
             ->setId(NO_RESPONSAVEL)
             ->setTamanhoInput(6)
-            ->setClasses("ob nome")
+//            ->setClasses("ob nome")
             ->setLabel("Pessoa de Referência")
             ->setInfo("Para caso de EMERGÊNCIA")
             ->CriaInpunt();
@@ -195,14 +195,14 @@ class MembroWebForm
             ->setId(NU_TEL_RESPONSAVEL)
             ->setTamanhoInput(6)
             ->setIcon("clip-phone-2")
-            ->setClasses("tel ob")
+//            ->setClasses("tel ob")
             ->setLabel("Tel. Referência")
             ->CriaInpunt();
 
         $formulario
             ->setId(DS_EMAIL)
             ->setIcon("fa-envelope fa")
-            ->setClasses("email ob")
+//            ->setClasses("email ob")
             ->setLabel("Email")
             ->setTamanhoInput(12)
             ->CriaInpunt();
@@ -220,7 +220,7 @@ class MembroWebForm
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
             ->setInfo("Para a identificação")
-            ->setClasses($ob)
+//            ->setClasses($ob)
             ->setTamanhoInput(12)
             ->setLabel("Foto de Perfil")
             ->CriaInpunt();
@@ -230,7 +230,7 @@ class MembroWebForm
             ->setLabel("Fale um pouco sobre você")
             ->setType("textarea")
             ->setTamanhoInput(12)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->CriaInpunt();
 
         $formulario

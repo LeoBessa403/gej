@@ -117,3 +117,6 @@
 
     define('SUCESSO', 'sucesso');
     define('MSG', 'msg');
+    define('DADOS', 'dados');
+    define('VALIDOS', 'validos');
+    define('OBRIGATORIOS', 'obrigatorios');
