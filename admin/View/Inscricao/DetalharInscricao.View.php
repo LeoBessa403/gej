@@ -23,6 +23,11 @@
                 <!-- end: PAGE TITLE & BREADCRUMB -->
             </div>
         </div>
+        <?php
+        if ($inscDuplicada):
+            Valida::Mensagem($inscDuplicada, 2);
+        endif;
+        ?>
         <!-- end: PAGE HEADER -->
         <!-- start: PAGE CONTENT -->
         <div class="row">

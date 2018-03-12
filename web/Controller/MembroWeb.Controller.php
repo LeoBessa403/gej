@@ -20,15 +20,18 @@ class MembroWeb extends AbstractController
             $inscricaoService = $this->getService(INSCRICAO_SERVICE);
             $retorno = $inscricaoService->salvarInscricao($_POST, $_FILES);
 
-            if($retorno[SUCESSO]){
+            if ($retorno[SUCESSO]) {
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/FormaDePagamento/' .
                     Valida::GeraParametro(CO_INSCRICAO . '/' . $retorno[CO_INSCRICAO]));
-            }else{
+            } else {
                 $this->inscDuplicada = $retorno[MSG];
+                $res = $inscricaoService->montaDadosInscricao($_POST);
+                $this->form = MembroWebForm::Cadastrar(false, $res);
             }
+        else:
+            $this->form = MembroWebForm::Cadastrar();
         endif;
 
-        $this->form = MembroWebForm::Cadastrar();
     }
 
     static function montaComboCamisas()

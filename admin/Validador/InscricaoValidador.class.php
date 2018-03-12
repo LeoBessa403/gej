@@ -27,9 +27,6 @@ class  InscricaoValidador extends AbstractValidador
             $dados[DT_NASCIMENTO],AbstractValidador::VALIDACAO_DATA, 'Nascimento'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[NU_CEP],AbstractValidador::VALIDACAO_CEP, 'CEP'
-        );
-        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NU_TEL1],AbstractValidador::VALIDACAO_TEL, 'Celular'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
@@ -38,7 +35,7 @@ class  InscricaoValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NO_RESPONSAVEL],AbstractValidador::VALIDACAO_NOME, 'Pessoa de Referência', 3
         );
-        debug($this->retorno);
 
+        return $this->montaRetorno($this->retorno);
     }
 }

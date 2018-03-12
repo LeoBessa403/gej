@@ -19,6 +19,7 @@ class Inscricao extends AbstractController
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
         /** @var ParcelamentoService $parcelamentoService */
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+        /** @var EnderecoService $enderecoService */
 
         $this->inscDuplicada = false;
         $id = "DetalharInscricao";
@@ -42,6 +43,8 @@ class Inscricao extends AbstractController
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             } else {
                 $this->inscDuplicada = $retorno[MSG];
+                $res = $inscricaoService->montaDadosInscricao($_POST);
+                $this->form = MembroWebForm::Cadastrar(false, $res);
             }
         endif;
 
@@ -51,45 +54,9 @@ class Inscricao extends AbstractController
         if ($coInscricao):
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
-
-            $res[DS_MEMBRO_ATIVO] = ($inscricao->getDsMembroAtivo() == 'S')
-                ? 'checked' : '';
-            $res[DS_RETIRO] = ($inscricao->getDsRetiro() == 'S')
-                ? 'checked' : '';
-            $res[ST_EQUIPE_TRABALHO] = ($inscricao->getStEquipeTrabalho() == 'S')
-                ? 'checked' : '';
-            $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
-            $res[NO_PESSOA] = $inscricao->getCoPessoa()->getNoPessoa();
-            $res[NU_TEL1] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
-            $res[NU_TEL2] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel2());
-            $res[NU_CPF] = Valida::MascaraCpf($inscricao->getCoPessoa()->getNuCpf());
-            $res[NU_RG] = $inscricao->getCoPessoa()->getNuRg();
-            $res[DT_NASCIMENTO] = Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento());
-            $res[ST_SEXO] = $inscricao->getCoPessoa()->getStSexo();
-            $res[NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
-            $res[NU_CAMISA] = $inscricao->getNuCamisa();
-
-            $res[DS_EMAIL] = $inscricao->getCoPessoa()->getCoContato()->getDsEmail();
-            $res[NO_RESPONSAVEL] = $inscricao->getNoResponsavel();
-            $res[NU_TEL_RESPONSAVEL] = Valida::MascaraTel($inscricao->getNuTelResponsavel());
-            $res[DS_PASTORAL] = $inscricao->getDsPastoral();
-            $res["ds_pastoral_ativo"] = ($inscricao->getDsPastoral()) ? 'checked' : '';
-
-            $res[DS_ENDERECO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsEndereco();
-            $res[DS_COMPLEMENTO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsComplemento();
-            $res[DS_BAIRRO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsBairro();
-            $res[NO_CIDADE] = $inscricao->getCoPessoa()->getCoEndereco()->getNoCidade();
-            $res[NU_CEP] = $inscricao->getCoPessoa()->getCoEndereco()->getNuCep();
-            $res[SG_UF] = $inscricao->getCoPessoa()->getCoEndereco()->getSgUf();
-            $res[DS_DESCRICAO] = $inscricao->getDsDescricao();
-            $res[DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();
-            $res[DS_MEDICACAO] = $inscricao->getDsMedicacao();
-            if ($inscricao->getCoImagem()->getDsCaminho()):
-                $res[DS_CAMINHO] = "inscricoes/" . $inscricao->getCoImagem()->getDsCaminho();
-            endif;
+            $res = $inscricaoService->montaDadosInscricao($inscricao, true);
             $this->form = MembroWebForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
         endif;
-
     }
 
     public function ListarInscricao()
@@ -121,7 +88,7 @@ class Inscricao extends AbstractController
                 "pes." . NO_PESSOA => trim($_POST[NO_PESSOA]),
                 "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
                 "in#pag." . TP_SITUACAO => (!empty($_POST[TP_SITUACAO]))
-                    ? implode("', '",  $_POST[TP_SITUACAO]) : null ,
+                    ? implode("', '", $_POST[TP_SITUACAO]) : null,
                 "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
                 "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
