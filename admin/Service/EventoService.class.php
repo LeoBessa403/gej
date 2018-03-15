@@ -25,9 +25,6 @@ class  EventoService extends AbstractService
         $imagemEventoService = $this->getService(IMAGEM_EVENTO_SERVICE);
         $this->PDO = $this->getPDO();
 
-        $dados = $_POST;
-        $fotoCapa = $_FILES[CO_IMAGEM];
-
         unset($dados[$id]);
         $upload = new Upload();
 
