@@ -2,11 +2,9 @@
 
 class Evento extends AbstractController
 {
-
     public $result;
     public $resultAlt;
     public $form;
-
 
     function ListarEvento()
     {
