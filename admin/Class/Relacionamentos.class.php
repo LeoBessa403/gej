@@ -44,6 +44,11 @@ class Relacionamentos
                     ('Entidade') => 'UsuarioPerfilEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_COMISSAO_EVENTO) => Array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'ComissaoEventoEntidade',
+                    ('Tipo') => '2',
+                ),
             ),
             (AuditoriaEntidade::TABELA) => Array(
                 (CO_USUARIO) => Array(
@@ -130,6 +135,11 @@ class Relacionamentos
                     ('Campo') => CO_IMAGEM,
                     ('Entidade') => 'UsuarioEntidade',
                     ('Tipo') => '1',
+                ),
+                (CO_IMAGEM_EVENTO) => Array(
+                    ('Campo') => CO_IMAGEM,
+                    ('Entidade') => 'ImagemEventoEntidade',
+                    ('Tipo') => '2',
                 ),
             ),
             (MembroEntidade::TABELA) => Array(
@@ -224,6 +234,42 @@ class Relacionamentos
                 (CO_PERFIL) => Array(
                     ('Campo') => CO_PERFIL,
                     ('Entidade') => 'PerfilEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (ComissaoEventoEntidade::TABELA) => Array(
+                (CO_USUARIO) => Array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'UsuarioEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (EventoEntidade::TABELA) => Array(
+                (CO_COMISSAO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'ComissaoEventoEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_IMAGEM_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'ImagemEventoEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (ImagemEventoEntidade::TABELA) => Array(
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_IMAGEM) => Array(
+                    ('Campo') => CO_IMAGEM,
+                    ('Entidade') => 'ImagemEntidade',
                     ('Tipo') => '1',
                 ),
             ),

@@ -120,3 +120,10 @@
     define('DADOS', 'dados');
     define('VALIDOS', 'validos');
     define('OBRIGATORIOS', 'obrigatorios');
+	define('CO_CATEGORIA_EVENTO', 'co_categoria_evento');
+	define('NO_CATEGORIA_EVENTO', 'no_categoria_evento');
+	define('CO_COMISSAO_EVENTO', 'co_comissao_evento');
+	define('CO_IMAGEM_EVENTO', 'co_imagem_evento');
+	define('CATEGORIA_EVENTO_SERVICE', 'CategoriaEventoService');
+	define('COMISSAO_EVENTO_SERVICE', 'ComissaoEventoService');
+	define('IMAGEM_EVENTO_SERVICE', 'ImagemEventoService');

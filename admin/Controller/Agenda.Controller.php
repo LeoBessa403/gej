@@ -47,13 +47,13 @@ class Agenda{
         $id = "pesquisaMembrosRetiro";
         $formulario = new Form($id, "admin/Agenda/Calendario", "Pesquisa", 12);
         
-        $formulario
-            ->setId("co_evento")
-            ->setType("select")
-            ->setClasses("ob")
-            ->setLabel("Evento")
-            ->setAutocomplete(EVENTO_TABELA, "no_evento",EVENTO_CHAVE_PRIMARIA)
-            ->CriaInpunt();
+//        $formulario
+//            ->setId("co_evento")
+//            ->setType("select")
+//            ->setClasses("ob")
+//            ->setLabel("Evento")
+//            ->setAutocomplete(EVENTO_TABELA, "no_evento",EVENTO_CHAVE_PRIMARIA)
+//            ->CriaInpunt();
         
         $formulario
             ->setId("ds_titulo")
@@ -61,35 +61,35 @@ class Agenda{
             ->setLabel("Título")
             ->CriaInpunt();
         
-        $todos_perfis = PerfilModel::PesquisaPerfil();
-        foreach ($todos_perfis as $key => $value) {
-            $perf[$value['co_perfil']] = $value['no_perfil'];
-        }
-        $labels = FuncoesSistema::ValidaPerfilCadastro($perf);
-                
-        $formulario
-            ->setLabel("Participantes")
-            ->setId(CAMPO_PERFIL)
-            ->setClasses("multipla ob")
-            ->setInfo("Pode selecionar vários perfis.")
-            ->setType("select")
-            ->setOptions($labels)
-            ->CriaInpunt();  
+//        $todos_perfis = PerfilModel::PesquisaPerfil();
+//        foreach ($todos_perfis as $key => $value) {
+//            $perf[$value['co_perfil']] = $value['no_perfil'];
+//        }
+//        $labels = FuncoesSistema::ValidaPerfilCadastro($perf);
+//
+//        $formulario
+//            ->setLabel("Participantes")
+//            ->setId(CAMPO_PERFIL)
+//            ->setClasses("multipla ob")
+//            ->setInfo("Pode selecionar vários perfis.")
+//            ->setType("select")
+//            ->setOptions($labels)
+//            ->CriaInpunt();
         
-        $options[''] = 'Selecione uma Categoria' ;
-        $resultados = AgendaModel::PesquisaCategoriasAgenda();
-        
-        foreach ($resultados as $key => $value) {
-            $options[$value['co_categoria']] = $value['no_categoria'] ;
-        }
-        
-        $formulario
-            ->setId("co_categoria")
-            ->setType("select")
-            ->setClasses("ob")
-            ->setLabel("Categoria")
-            ->setOptions($options)
-            ->CriaInpunt();
+//        $options[''] = 'Selecione uma Categoria' ;
+//        $resultados = AgendaModel::PesquisaCategoriasAgenda();
+//
+//        foreach ($resultados as $key => $value) {
+//            $options[$value['co_categoria']] = $value['no_categoria'] ;
+//        }
+//
+//        $formulario
+//            ->setId("co_categoria")
+//            ->setType("select")
+//            ->setClasses("ob")
+//            ->setLabel("Categoria")
+//            ->setOptions($options)
+//            ->CriaInpunt();
         
         $formulario
             ->setId("dt_inicio")
