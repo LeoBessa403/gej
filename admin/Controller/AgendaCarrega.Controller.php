@@ -1,24 +1,36 @@
 <?php
 // CARREGA A AGENDA INICIALMENTE
 include_once "../../library/Config.inc.php";
-        
-$result = AgendaModel::PesquisaAgendas();
+
+/** @var AgendaService $agendaService */
+$agendaService = new AgendaService();
+/** @var PerfilAgendaService $perfilAgendaService */
+$perfilAgendaService = new PerfilAgendaService();
+$agendas = $agendaService->PesquisaTodos();
+
+$result = [];
 $i = 0;
-foreach ($result as $value) {
-    $result[$i]["co_perfil"] = AgendaModel::PesquisaPerfilAgenda($value["co_agenda"]);
+/** @var AgendaEntidade $agenda */
+foreach ($agendas as $agenda) {
+    $result[$i][CO_PERFIL] = $perfilAgendaService->PesquisaUmQuando([CO_AGENDA => $agenda->getCoAgenda()]);
     $i++;
 }
-$result2 = FuncoesSistema::ValidaAgenda($result);
+//$result2 = FuncoesSistema::ValidaAgenda($result);
 
 $eventos = array();
-foreach ($result2 as $value) {
-     $evento = array(
-                        'id' => (int) $value["co_agenda"],
-                        'title' => strtoupper($value["no_categoria"])." - ".$value["ds_titulo"],
-                        'start' => $value["dt_inicio"],
-                        'end' => $value["dt_fim"],
-                        'className' => $value["ds_cor"],
-                        'allDay' => ($value["st_dia_todo"] == "N" ? FALSE : TRUE)
+/** @var PerfilAgendaEntidade $value */
+foreach ($result as $value) {
+    echo '';
+    /** @var AgendaEntidade $agenda */
+    $agenda = $value->getCoAgenda();
+    $evento = array(
+                        'id' => (int) $agenda->getCoAgenda(),
+                        'title' => strtoupper($agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda()).
+                            " - ".$agenda->getDsTitulo(),
+                        'start' => $agenda->getDtInicio(),
+                        'end' => $agenda->getDtFim(),
+                        'className' => $agenda->getCoCategoriaAgenda()->getDsCor(),
+                        'allDay' => ($agenda->getStDiaTodo() == "N" ? FALSE : TRUE)
                 );
     $eventos[] = $evento;
 }
