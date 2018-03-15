@@ -15,6 +15,7 @@ class PerfilEntidade extends AbstractEntidade
 	private $no_perfil;
 	private $st_status;
 	private $co_perfil_funcionalidade;
+	private $co_perfil_agenda;
 	private $co_usuario_perfil;
 
 	/**
@@ -120,6 +121,22 @@ class PerfilEntidade extends AbstractEntidade
 	public function setCoUsuarioPerfil($co_usuario_perfil)
     {
         return $this->co_usuario_perfil = $co_usuario_perfil;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoPerfilAgenda()
+    {
+        return $this->co_perfil_agenda;
+    }
+
+    /**
+     * @param mixed $co_perfil_agenda
+     */
+    public function setCoPerfilAgenda($co_perfil_agenda)
+    {
+        $this->co_perfil_agenda = $co_perfil_agenda;
     }
 
 }

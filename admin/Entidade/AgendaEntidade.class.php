@@ -2,7 +2,7 @@
 
 /**
  * Agenda.Entidade [ ENTIDADE ]
- * @copyright (c) 2017, Leo Bessa
+ * @copyright (c) 2018, Leo Bessa
  */
 
 class AgendaEntidade extends AbstractEntidade
@@ -12,50 +12,49 @@ class AgendaEntidade extends AbstractEntidade
 	const CHAVE = CO_AGENDA;
 
 	private $co_agenda;
+	private $ds_descricao;
+	private $dt_cadastro;
+	private $st_dia_todo;
 	private $dt_inicio;
 	private $dt_fim;
-	private $ds_descricao;
-	private $st_dia_todo;
-	private $st_status;
 	private $ds_titulo;
-	private $co_categoria;
-	private $co_usuario_solicitante;
-	private $co_usuario_status;
+	private $co_usuario;
+	private $co_categoria_agenda;
 	private $co_evento;
-	private $dt_cadastro;
-	private $co_agenda_perfil;
+	private $co_perfil_agenda;
+
 
 	/**
      * @return array
      */
-	public static function getCampos() {
+	public static function getCampos() 
+        {
     	return [
 			CO_AGENDA,
+			DS_DESCRICAO,
+			DT_CADASTRO,
+			ST_DIA_TODO,
 			DT_INICIO,
 			DT_FIM,
-			DS_DESCRICAO,
-			ST_DIA_TODO,
-			ST_STATUS,
 			DS_TITULO,
-			CO_CATEGORIA,
-			CO_USUARIO_SOLICITANTE,
-			CO_USUARIO_STATUS,
+			CO_USUARIO,
+			CO_CATEGORIA_AGENDA,
 			CO_EVENTO,
-			DT_CADASTRO,
 		];
     }
 
 	/**
-	* @return $relacionamentos
+	* @return array $relacionamentos
      */
-	public static function getRelacionamentos() {
+	public static function getRelacionamentos() 
+        {
     	$relacionamentos = Relacionamentos::getRelacionamentos();
 		return $relacionamentos[static::TABELA];
 	}
 
 
 	/**
-	* @return $co_agenda
+	* @return int $co_agenda
      */
 	public function getCoAgenda()
     {
@@ -69,6 +68,57 @@ class AgendaEntidade extends AbstractEntidade
 	public function setCoAgenda($co_agenda)
     {
         return $this->co_agenda = $co_agenda;
+    }
+
+	/**
+	* @return $ds_descricao
+     */
+	public function getDsDescricao()
+    {
+        return $this->ds_descricao;
+    }
+
+	/**
+	* @param $ds_descricao
+     * @return mixed
+     */
+	public function setDsDescricao($ds_descricao)
+    {
+        return $this->ds_descricao = $ds_descricao;
+    }
+
+	/**
+	* @return $dt_cadastro
+     */
+	public function getDtCadastro()
+    {
+        return $this->dt_cadastro;
+    }
+
+	/**
+	* @param $dt_cadastro
+     * @return mixed
+     */
+	public function setDtCadastro($dt_cadastro)
+    {
+        return $this->dt_cadastro = $dt_cadastro;
+    }
+
+	/**
+	* @return $st_dia_todo
+     */
+	public function getStDiaTodo()
+    {
+        return $this->st_dia_todo;
+    }
+
+	/**
+	* @param $st_dia_todo
+     * @return mixed
+     */
+	public function setStDiaTodo($st_dia_todo)
+    {
+        return $this->st_dia_todo = $st_dia_todo;
     }
 
 	/**
@@ -106,57 +156,6 @@ class AgendaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $ds_descricao
-     */
-	public function getDsDescricao()
-    {
-        return $this->ds_descricao;
-    }
-
-	/**
-	* @param $ds_descricao
-     * @return mixed
-     */
-	public function setDsDescricao($ds_descricao)
-    {
-        return $this->ds_descricao = $ds_descricao;
-    }
-
-	/**
-	* @return $st_dia_todo
-     */
-	public function getStDiaTodo()
-    {
-        return $this->st_dia_todo;
-    }
-
-	/**
-	* @param $st_dia_todo
-     * @return mixed
-     */
-	public function setStDiaTodo($st_dia_todo)
-    {
-        return $this->st_dia_todo = $st_dia_todo;
-    }
-
-	/**
-	* @return $st_status
-     */
-	public function getStStatus()
-    {
-        return $this->st_status;
-    }
-
-	/**
-	* @param $st_status
-     * @return mixed
-     */
-	public function setStStatus($st_status)
-    {
-        return $this->st_status = $st_status;
-    }
-
-	/**
 	* @return $ds_titulo
      */
 	public function getDsTitulo()
@@ -174,54 +173,37 @@ class AgendaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return CategoriaEntidade $co_categoria
+	* @return UsuarioEntidade $co_usuario
      */
-	public function getCoCategoria()
+	public function getCoUsuario()
     {
-        return $this->co_categoria;
+        return $this->co_usuario;
     }
 
 	/**
-	* @param $co_categoria
+	* @param $co_usuario
      * @return mixed
      */
-	public function setCoCategoria($co_categoria)
+	public function setCoUsuario($co_usuario)
     {
-        return $this->co_categoria = $co_categoria;
+        return $this->co_usuario = $co_usuario;
     }
 
 	/**
-	* @return UsuarioSolicitanteEntidade $co_usuario_solicitante
+	* @return CategoriaAgendaEntidade $co_categoria_agenda
      */
-	public function getCoUsuarioSolicitante()
+	public function getCoCategoriaAgenda()
     {
-        return $this->co_usuario_solicitante;
+        return $this->co_categoria_agenda;
     }
 
 	/**
-	* @param $co_usuario_solicitante
+	* @param $co_categoria_agenda
      * @return mixed
      */
-	public function setCoUsuarioSolicitante($co_usuario_solicitante)
+	public function setCoCategoriaAgenda($co_categoria_agenda)
     {
-        return $this->co_usuario_solicitante = $co_usuario_solicitante;
-    }
-
-	/**
-	* @return UsuarioStatusEntidade $co_usuario_status
-     */
-	public function getCoUsuarioStatus()
-    {
-        return $this->co_usuario_status;
-    }
-
-	/**
-	* @param $co_usuario_status
-     * @return mixed
-     */
-	public function setCoUsuarioStatus($co_usuario_status)
-    {
-        return $this->co_usuario_status = $co_usuario_status;
+        return $this->co_categoria_agenda = $co_categoria_agenda;
     }
 
 	/**
@@ -242,37 +224,20 @@ class AgendaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $dt_cadastro
+	* @return PerfilAgendaEntidade $co_perfil_agenda
      */
-	public function getDtCadastro()
+	public function getCoPerfilAgenda()
     {
-        return $this->dt_cadastro;
+        return $this->co_perfil_agenda;
     }
 
 	/**
-	* @param $dt_cadastro
+     * @param $co_perfil_agenda
      * @return mixed
      */
-	public function setDtCadastro($dt_cadastro)
+	public function setCoPerfilAgenda($co_perfil_agenda)
     {
-        return $this->dt_cadastro = $dt_cadastro;
-    }
-
-	/**
-	* @return AgendaPerfilEntidade $co_agenda_perfil
-     */
-	public function getCoAgendaPerfil()
-    {
-        return $this->co_agenda_perfil;
-    }
-
-	/**
-     * @param $co_agenda_perfil
-     * @return mixed
-     */
-	public function setCoAgendaPerfil($co_agenda_perfil)
-    {
-        return $this->co_agenda_perfil = $co_agenda_perfil;
+        return $this->co_perfil_agenda = $co_perfil_agenda;
     }
 
 }

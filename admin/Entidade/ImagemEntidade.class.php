@@ -15,6 +15,7 @@ class ImagemEntidade extends AbstractEntidade
 	private $ds_caminho;
 	private $co_inscricao;
 	private $co_usuario;
+	private $co_imagem_evento;
 
 	/**
      * @return array
@@ -101,6 +102,22 @@ class ImagemEntidade extends AbstractEntidade
 	public function setCoUsuario($co_usuario)
     {
         return $this->co_usuario = $co_usuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoImagemEvento()
+    {
+        return $this->co_imagem_evento;
+    }
+
+    /**
+     * @param mixed $co_imagem_evento
+     */
+    public function setCoImagemEvento($co_imagem_evento)
+    {
+        $this->co_imagem_evento = $co_imagem_evento;
     }
 
 }
