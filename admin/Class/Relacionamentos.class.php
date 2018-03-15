@@ -49,6 +49,11 @@ class Relacionamentos
                     ('Entidade') => 'ComissaoEventoEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '2',
+                ),
             ),
             (AuditoriaEntidade::TABELA) => Array(
                 (CO_USUARIO) => Array(
@@ -203,6 +208,11 @@ class Relacionamentos
                     ('Entidade') => 'UsuarioPerfilEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_PERFIL_AGENDA) => Array(
+                    ('Campo') => CO_PERFIL,
+                    ('Entidade') => 'PerfilAgendaEntidade',
+                    ('Tipo') => '2',
+                ),
             ),
             (FuncionalidadeEntidade::TABELA) => Array(
                 (CO_PERFIL_FUNCIONALIDADE) => Array(
@@ -260,6 +270,11 @@ class Relacionamentos
                     ('Entidade') => 'ImagemEventoEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '2',
+                ),
             ),
             (ImagemEventoEntidade::TABELA) => Array(
                 (CO_EVENTO) => Array(
@@ -270,6 +285,47 @@ class Relacionamentos
                 (CO_IMAGEM) => Array(
                     ('Campo') => CO_IMAGEM,
                     ('Entidade') => 'ImagemEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (AgendaEntidade::TABELA) => Array(
+                (CO_USUARIO) => Array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'UsuarioEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_CATEGORIA_AGENDA) => Array(
+                    ('Campo') => CO_CATEGORIA_AGENDA,
+                    ('Entidade') => 'CategoriaAgendaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PERFIL_AGENDA) => Array(
+                    ('Campo') => CO_AGENDA,
+                    ('Entidade') => 'PerfilAgendaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (CategoriaAgendaEntidade::TABELA) => Array(
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_CATEGORIA_AGENDA,
+                    ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (PerfilAgendaEntidade::TABELA) => Array(
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_AGENDA,
+                    ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PERFIL) => Array(
+                    ('Campo') => CO_PERFIL,
+                    ('Entidade') => 'PerfilEntidade',
                     ('Tipo') => '1',
                 ),
             ),
