@@ -26,14 +26,8 @@ class Evento extends AbstractController
         endif;
 
         $co_evento = UrlAmigavel::PegaParametro("mem");
-//        $res = array();
-//        if($co_evento):
-//            $res = EventosModel::PesquisaUmMembro($co_evento);
-//            $res = $res[0];
-//        endif;
 
         $formulario = new Form($id, "admin/Evento/CadastroEvento");
-//        $formulario->setValor($res);
 
 
         $formulario
