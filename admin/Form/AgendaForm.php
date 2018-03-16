@@ -13,48 +13,44 @@ class AgendaForm
         endif;
 
         $formulario
-            ->setId("co_evento")
+            ->setId(CO_EVENTO)
             ->setType("select")
             ->setLabel("Evento")
             ->setAutocomplete(EventoEntidade::TABELA, DS_DESCRICAO, EventoEntidade::CHAVE)
             ->CriaInpunt();
 
         $formulario
-            ->setId("ds_titulo")
+            ->setId(DS_TITULO)
             ->setClasses("ob")
             ->setLabel("Título")
             ->CriaInpunt();
 
         $perfis = $perfilService->PesquisaTodos();
-        /** @var PerfilEntidade $value */
-        foreach ($perfis as $value) {
-            $perf[$value->getCoPerfil()] = $value->getNoPerfil();
+        /** @var PerfilEntidade $perfil */
+        foreach ($perfis as $perfil) {
+            if($perfil->getCoPerfil() != 1)
+            $perf[$perfil->getCoPerfil()] = $perfil->getNoPerfil();
         }
         $labels = FuncoesSistema::ValidaPerfilCadastro($perf);
 
         $formulario
             ->setLabel("Participantes")
-            ->setId(CAMPO_PERFIL)
+            ->setId(CO_PERFIL)
             ->setClasses("multipla ob")
             ->setInfo("Pode selecionar vários perfis.")
             ->setType("select")
             ->setOptions($labels)
             ->CriaInpunt();
 
-//        $options[''] = 'Selecione uma Categoria';
-//        $resultados = AgendaModel::PesquisaCategoriasAgenda();
-//
-//        foreach ($resultados as $key => $value) {
-//            $options[$value['co_categoria']] = $value['no_categoria'];
-//        }
-//
-//        $formulario
-//            ->setId("co_categoria")
-//            ->setType("select")
-//            ->setClasses("ob")
-//            ->setLabel("Categoria")
-//            ->setOptions($options)
-//            ->CriaInpunt();
+        $formulario
+            ->setId(CO_CATEGORIA_AGENDA)
+            ->setType("select")
+            ->setLabel("Categoria")
+            ->setClasses("ob")
+            ->setAutocomplete(
+                CategoriaAgendaEntidade::TABELA, NO_CATEGORIA_AGENDA, CategoriaAgendaEntidade::CHAVE
+            )
+            ->CriaInpunt();
 
         $formulario
             ->setId(DT_INICIO)

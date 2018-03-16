@@ -20,9 +20,10 @@ class Agenda extends AbstractController
         if (!empty($_POST)):
             $agendaService->SalvaCompromissoAgenda($_POST);
         endif;
+        $res = array();
         $this->categoriaAgenda = $categoriaAgendaService->PesquisaTodos();
 
-        $this->form = AgendaForm::Cadastrar($perfilService);
+        $this->form = AgendaForm::Cadastrar($perfilService, $res);
     }
 
 }

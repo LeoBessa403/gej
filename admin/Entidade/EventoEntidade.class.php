@@ -12,12 +12,11 @@ class EventoEntidade extends AbstractEntidade
 	const CHAVE = CO_EVENTO;
 
 	private $co_evento;
-	private $no_evento;
-	private $ds_conteudo;
-	private $ds_palavras_chaves;
-	private $dt_cadastro;
-	private $dt_realizado;
-	private $ds_local;
+	private $ds_descricao;
+    private $dt_cadastro;
+    private $co_categoria_evento;
+    private $co_endereco;
+    private $co_imagem;
 
 
 	/**
@@ -27,12 +26,8 @@ class EventoEntidade extends AbstractEntidade
         {
     	return [
 			CO_EVENTO,
-			NO_EVENTO,
-			DS_CONTEUDO,
-			DS_PALAVRAS_CHAVES,
-			DT_CADASTRO,
-			DT_REALIZADO,
-			DS_LOCAL,
+			DS_DESCRICAO,
+            DT_CADASTRO,
 		];
     }
 
@@ -63,106 +58,87 @@ class EventoEntidade extends AbstractEntidade
         return $this->co_evento = $co_evento;
     }
 
-	/**
-	* @return $no_evento
-     */
-	public function getNoEvento()
-    {
-        return $this->no_evento;
-    }
-
-	/**
-	* @param $no_evento
+    /**
      * @return mixed
      */
-	public function setNoEvento($no_evento)
+    public function getDsDescricao()
     {
-        return $this->no_evento = $no_evento;
+        return $this->ds_descricao;
     }
 
-	/**
-	* @return $ds_conteudo
+    /**
+     * @param mixed $ds_descricao
      */
-	public function getDsConteudo()
+    public function setDsDescricao($ds_descricao)
     {
-        return $this->ds_conteudo;
+        $this->ds_descricao = $ds_descricao;
     }
 
-	/**
-	* @param $ds_conteudo
+    /**
      * @return mixed
      */
-	public function setDsConteudo($ds_conteudo)
-    {
-        return $this->ds_conteudo = $ds_conteudo;
-    }
-
-	/**
-	* @return $ds_palavras_chaves
-     */
-	public function getDsPalavrasChaves()
-    {
-        return $this->ds_palavras_chaves;
-    }
-
-	/**
-	* @param $ds_palavras_chaves
-     * @return mixed
-     */
-	public function setDsPalavrasChaves($ds_palavras_chaves)
-    {
-        return $this->ds_palavras_chaves = $ds_palavras_chaves;
-    }
-
-	/**
-	* @return $dt_cadastro
-     */
-	public function getDtCadastro()
+    public function getDtCadastro()
     {
         return $this->dt_cadastro;
     }
 
-	/**
-	* @param $dt_cadastro
+    /**
+     * @param mixed $dt_cadastro
+     */
+    public function setDtCadastro($dt_cadastro)
+    {
+        $this->dt_cadastro = $dt_cadastro;
+    }
+
+    /**
+     * @return CategoriaEventoEntidade $co_categoria_evento
+     */
+    public function getCoCategoriaEvento()
+    {
+        return $this->co_categoria_evento;
+    }
+
+    /**
+     * @param $co_categoria_evento
      * @return mixed
      */
-	public function setDtCadastro($dt_cadastro)
+    public function setCoCategoriaEvento($co_categoria_evento)
     {
-        return $this->dt_cadastro = $dt_cadastro;
+        $this->co_categoria_evento = $co_categoria_evento;
     }
 
-	/**
-	* @return $dt_realizado
+    /**
+     * @return EnderecoEntidade $co_endereco
      */
-	public function getDtRealizado()
+    public function getCoEndereco()
     {
-        return $this->dt_realizado;
+        return $this->co_endereco;
     }
 
-	/**
-	* @param $dt_realizado
+    /**
+     * @param $co_endereco
      * @return mixed
      */
-	public function setDtRealizado($dt_realizado)
+    public function setCoEndereco($co_endereco)
     {
-        return $this->dt_realizado = $dt_realizado;
+        $this->co_endereco = $co_endereco;
     }
 
-	/**
-	* @return $ds_local
+    /**
+     * @return ImagemEntidade $co_imagem
      */
-	public function getDsLocal()
+    public function getCoImagem()
     {
-        return $this->ds_local;
+        return $this->co_imagem;
     }
 
-	/**
-	* @param $ds_local
+    /**
+     * @param $co_imagem
      * @return mixed
      */
-	public function setDsLocal($ds_local)
+    public function setCoImagem($co_imagem)
     {
-        return $this->ds_local = $ds_local;
+        $this->co_imagem = $co_imagem;
     }
 
 }
