@@ -21,6 +21,7 @@ class PermissaoAcessoEnum extends AbstractEnum
     const EDITAR_PARCELA_INSCRICAO = 15;
     const SOBRE_VC_INSCRICAO = 16;
     const DETALHES_INSCRICAO = 17;
+    const CALENDARIO = 18;
 
     public static $descricao = [
         PermissaoAcessoEnum::PERFIL_MASTER => 'Perfil Master',
@@ -39,6 +40,7 @@ class PermissaoAcessoEnum extends AbstractEnum
         PermissaoAcessoEnum::EDITAR_PARCELA_INSCRICAO => 'Inscricao Editar Parcela',
         PermissaoAcessoEnum::SOBRE_VC_INSCRICAO => 'Inscricao Sobre Vc',
         PermissaoAcessoEnum::DETALHES_INSCRICAO => 'Inscricao Detalhes',
+        PermissaoAcessoEnum::CALENDARIO => 'Calendário',
     ];
 
     public static $actions = [
@@ -58,5 +60,6 @@ class PermissaoAcessoEnum extends AbstractEnum
         PermissaoAcessoEnum::EDITAR_PARCELA_INSCRICAO => 'EditarParcela',
         PermissaoAcessoEnum::SOBRE_VC_INSCRICAO => 'SobreVcInscricao',
         PermissaoAcessoEnum::DETALHES_INSCRICAO => 'DetalhesInscricao',
+        PermissaoAcessoEnum::CALENDARIO => 'Calendario',
     ];
 }

@@ -155,62 +155,21 @@ class FuncoesSistema
         return $codigo;
     }
 
-    public static function ValidaAgenda(array $res)
+    public static function ValidaPerfilAgenda(array $res)
     {
         $us = $_SESSION[SESSION_USER];
         $user = $us->getUser();
         $meusPerfis = explode(",", $user[md5(CAMPO_PERFIL)]);
 
         $label_options = array();
-        foreach ($res as $value) {
-            $perfil = array();
-            foreach ($value["co_perfil"] as $val) {
-                array_push($perfil, $val['co_perfil']);
+        /** @var AgendaEntidade $agenda */
+        foreach ($res as $agenda) {
+            /** @var PerfilAgendaEntidade $perfilAgenda */
+            foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
+                if(in_array($perfilAgenda->getCoPerfil()->getCoPerfil(), $meusPerfis)){
+                    $label_options[] = $agenda;
+                }
             }
-
-            $value["co_perfil"] = $perfil;
-
-
-            if (in_array(1, $meusPerfis)):
-                $label_options[] = $value;
-            elseif (in_array(2, $meusPerfis)):
-                $label_options[] = $value;
-            elseif (in_array(3, $meusPerfis) && in_array(3, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(4, $meusPerfis) && $value["co_evento"] == 3): // Evento que do Perfil Lider de Evento é Responsável
-                $label_options[] = $value;
-            elseif (in_array(5, $meusPerfis) && array_intersect($value["co_perfil"], array(5, 6))):
-                $label_options[] = $value;
-            elseif (in_array(6, $meusPerfis) && in_array(6, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(7, $meusPerfis) && array_intersect($value["co_perfil"], array(7, 8))):
-                $label_options[] = $value;
-            elseif (in_array(8, $meusPerfis) && in_array(8, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(9, $meusPerfis) && array_intersect($value["co_perfil"], array(9, 10))):
-                $label_options[] = $value;
-            elseif (in_array(10, $meusPerfis) && in_array(10, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(11, $meusPerfis) && array_intersect($value["co_perfil"], array(11, 12))):
-                $label_options[] = $value;
-            elseif (in_array(12, $meusPerfis) && in_array(12, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(13, $meusPerfis) && array_intersect($value["co_perfil"], array(13, 14))):
-                $label_options[] = $value;
-            elseif (in_array(14, $meusPerfis) && in_array(14, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(15, $meusPerfis) && array_intersect($value["co_perfil"], array(15, 16))):
-                $label_options[] = $value;
-            elseif (in_array(16, $meusPerfis) && in_array(16, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(17, $meusPerfis) && array_intersect($value["co_perfil"], array(17, 18))):
-                $label_options[] = $value;
-            elseif (in_array(18, $meusPerfis) && in_array(18, $value["co_perfil"])):
-                $label_options[] = $value;
-            elseif (in_array(19, $meusPerfis) && in_array(19, $value["co_perfil"])):
-                $label_options[] = $value;
-            endif;
-
         }
 
         return $label_options;
@@ -277,7 +236,6 @@ class FuncoesSistema
         $user = $us->getUser();
         $meusPerfis = explode(",", $user[md5(CAMPO_PERFIL)]);
 
-        $label_options[''] = "Selecione um Item";
         foreach ($res as $key => $value) {
             if (in_array(1, $meusPerfis)):
                 $label_options[$key] = $value;
@@ -487,7 +445,7 @@ class FuncoesSistema
 
     public static function getBadgeLabel($operacao)
     {
-        switch ($operacao){
+        switch ($operacao) {
             case AuditoriaEnum::DELETE:
                 $classBadge = 'danger';
                 break;
@@ -510,28 +468,28 @@ class FuncoesSistema
         $tipo = strtolower(substr($noCampo, 0, 2));
         switch ($tipo) {
             case 'st':
-                $campo = str_replace('st_','situação_', $noCampo);
+                $campo = str_replace('st_', 'situação_', $noCampo);
                 break;
             case 'tp':
-                $campo = str_replace('tp_','tipo_', $noCampo);
+                $campo = str_replace('tp_', 'tipo_', $noCampo);
                 break;
             case 'dt':
-                $campo = str_replace('dt_','data_', $noCampo);
+                $campo = str_replace('dt_', 'data_', $noCampo);
                 break;
             case 'co':
-                $campo = str_replace('co_','código_', $noCampo);
+                $campo = str_replace('co_', 'código_', $noCampo);
                 break;
             case 'sg':
-                $campo = str_replace('sg_','sigla_', $noCampo);
+                $campo = str_replace('sg_', 'sigla_', $noCampo);
                 break;
             case 'no':
-                $campo = str_replace('no_','nome_', $noCampo);
+                $campo = str_replace('no_', 'nome_', $noCampo);
                 break;
             case 'ds':
-                $campo = str_replace('ds_','descrição_', $noCampo);
+                $campo = str_replace('ds_', 'descrição_', $noCampo);
                 break;
             case 'nu':
-                $campo = str_replace('nu_','número_', $noCampo);
+                $campo = str_replace('nu_', 'número_', $noCampo);
                 break;
             default:
                 break;

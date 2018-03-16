@@ -4,7 +4,7 @@ class Acesso extends AbstractController
 {
     public $result;
 
-    function ListarAcesso()
+    public function ListarAcesso()
     {
         /** @var AcessoService $acessoService */
         $acessoService = $this->getService(ACESSO_SERVICE);
