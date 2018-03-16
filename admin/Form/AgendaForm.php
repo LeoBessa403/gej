@@ -103,7 +103,7 @@ class AgendaForm
                 ->CriaInpunt();
         endif;
 
-        echo $formulario->finalizaFormAgenda();
+        return $formulario->finalizaFormAgenda();
     }
 }
 

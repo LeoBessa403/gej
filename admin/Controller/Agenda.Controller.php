@@ -2,7 +2,6 @@
 
 class Agenda extends AbstractController
 {
-
     public $result;
     public $resultAlt;
     public $form;
@@ -22,8 +21,7 @@ class Agenda extends AbstractController
         endif;
         $res = array();
         $this->categoriaAgenda = $categoriaAgendaService->PesquisaTodos();
-
-        $this->form = AgendaForm::Cadastrar($perfilService, $res);
+        echo AgendaForm::Cadastrar($perfilService, $res);
     }
 
 }

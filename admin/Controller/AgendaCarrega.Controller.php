@@ -24,7 +24,7 @@ foreach ($result2 as $agenda) {
             " - " . $agenda->getDsTitulo(),
         'start' => $agenda->getDtInicio(),
         'end' => $agenda->getDtFim(),
-        'className' => $agenda->getCoCategoriaAgenda()->getDsCor(),
+        'className' => 'label-'.$agenda->getCoCategoriaAgenda()->getDsCor(),
         'allDay' => ($agenda->getStDiaTodo() == "N" ? FALSE : TRUE)
     );
     $eventos[] = $evento;

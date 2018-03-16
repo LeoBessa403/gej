@@ -17,6 +17,9 @@ class EventoEntidade extends AbstractEntidade
     private $co_categoria_evento;
     private $co_endereco;
     private $co_imagem;
+    private $co_comissao_evento;
+    private $co_imagem_evento;
+    private $co_agenda;
 
 
 	/**
@@ -139,6 +142,54 @@ class EventoEntidade extends AbstractEntidade
     public function setCoImagem($co_imagem)
     {
         $this->co_imagem = $co_imagem;
+    }
+
+    /**
+     * @return ComissaoEventoEntidade $co_imagem
+     */
+    public function getCoComissaoEvento()
+    {
+        return $this->co_comissao_evento;
+    }
+
+    /**
+     * @param mixed $co_comissao_evento
+     */
+    public function setCoComissaoEvento($co_comissao_evento)
+    {
+        $this->co_comissao_evento = $co_comissao_evento;
+    }
+
+    /**
+     * @return ImagemEventoEntidade $co_imagem
+     */
+    public function getCoImagemEvento()
+    {
+        return $this->co_imagem_evento;
+    }
+
+    /**
+     * @param mixed $co_imagem_evento
+     */
+    public function setCoImagemEvento($co_imagem_evento)
+    {
+        $this->co_imagem_evento = $co_imagem_evento;
+    }
+
+    /**
+     * @return AgendaEntidade $co_agenda
+     */
+    public function getCoAgenda()
+    {
+        return $this->co_agenda;
+    }
+
+    /**
+     * @param mixed $co_agenda
+     */
+    public function setCoAgenda($co_agenda)
+    {
+        $this->co_agenda = $co_agenda;
     }
 
 }

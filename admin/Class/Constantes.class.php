@@ -107,6 +107,9 @@ define('CO_CATEGORIA_AGENDA', 'co_categoria_agenda');
 define('CO_PERFIL_AGENDA', 'co_perfil_agenda');
 define('NO_CATEGORIA_AGENDA', 'no_categoria_agenda');
 define('DS_COR', 'ds_cor');
+define('CO_CATEGORIA', 'co_categoria');
+define('NO_CATEGORIA', 'no_categoria');
+define('DS_TIPO', 'ds_tipo');
 
 
 
