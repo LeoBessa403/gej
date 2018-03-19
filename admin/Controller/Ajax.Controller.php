@@ -12,28 +12,35 @@ if(isset($_GET['valida'])){
 /////////////////// PARTICULARIDADES DO SISTEMA ////////////////////////
 //////////////////////////////////////////////////////////////////////// 
   
-        case 'pesquisa_tarefa': 
-            $id =  $_GET['co_tarefa'];    
-            $agenda = AgendaModel::PesquisaUmaAgenda($id);
-            $perfis = AgendaModel::PesquisaPerfilAgenda($id);
-            $agenda = $agenda[0];      
-            $agenda['perfis'] = $perfis;
-            $dt_ini = explode(" ", $agenda['dt_inicio']);
-            $agenda['dt_inicio'] = implode("/",array_reverse(explode("-", $dt_ini[0]))) ;
+        case 'pesquisa_agenda':
+            /** @var AgendaService $agendaService */
+            $agendaService = new AgendaService();
+            $coAgenda =  $_GET[CO_AGENDA];
+
+            /** @var AgendaEntidade $agenda */
+            $agenda = $agendaService->PesquisaUmRegistro($coAgenda);
+//            debug($agenda);
+//            $agenda['perfis'] = $perfis;
+            $dt_ini = explode(" ", $agenda->getDtInicio());
+            $agendaEdicao[DT_INICIO] = implode("/",array_reverse(explode("-", $dt_ini[0]))) ;
             $dt_ini = explode(":", $dt_ini[1]);
-            $agenda['hr_inicio'] = $dt_ini[0].":".$dt_ini[1];
+            $agendaEdicao['hr_inicio'] = $dt_ini[0].":".$dt_ini[1];
             
-            if($agenda['dt_fim']):
-                $dt_fim = explode(" ", $agenda['dt_fim']);
-                $agenda['dt_fim'] = implode("/",array_reverse(explode("-", $dt_fim[0]))) ;
+            if($agenda->getDtFim()):
+                $dt_fim = explode(" ", $agenda->getDtFim());
+                $agendaEdicao[DT_FIM] = implode("/",array_reverse(explode("-", $dt_fim[0]))) ;
                 $dt_fim = explode(":", $dt_fim[1]);
-                $agenda['hr_fim'] = $dt_fim[0].":".$dt_fim[1];
+                $agendaEdicao['hr_fim'] = $dt_fim[0].":".$dt_fim[1];
             else:
-                $agenda['dt_fim'] = null;
-                $agenda['hr_fim'] = null;
+                $agendaEdicao[DT_FIM] = null;
+                $agendaEdicao['hr_fim'] = null;
             endif;
-            
-            echo json_encode($agenda);
+            $agendaEdicao[DS_TITULO] = $agenda->getDsTitulo();
+            $agendaEdicao[CO_EVENTO] = (!empty($agenda->getCoEvento())) ? $agenda->getCoEvento()->getCoEvento() : null;
+            $agendaEdicao[CO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getCoCategoriaAgenda();
+            $agendaEdicao[NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
+
+            echo json_encode($agendaEdicao);
         break;
         
         case 'capa_livro': 

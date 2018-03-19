@@ -25,13 +25,8 @@ class AgendaForm
             ->setLabel("Título")
             ->CriaInpunt();
 
-        $perfis = $perfilService->PesquisaTodos();
-        /** @var PerfilEntidade $perfil */
-        foreach ($perfis as $perfil) {
-            if($perfil->getCoPerfil() != 1)
-            $perf[$perfil->getCoPerfil()] = $perfil->getNoPerfil();
-        }
-        $labels = FuncoesSistema::ValidaPerfilCadastro($perf);
+        $perfis = $perfilService->montaComboTodosPerfis();
+        $labels = FuncoesSistema::ValidaPerfilCadastro($perfis);
 
         $formulario
             ->setLabel("Participantes")
@@ -95,7 +90,7 @@ class AgendaForm
             ->setLabel("Descrição da Eventualidade")
             ->CriaInpunt();
 
-        if ($res):
+        if ($res && !empty($res[CO_AGENDA])):
             $formulario
                 ->setType("hidden")
                 ->setId(CO_AGENDA)

@@ -102,7 +102,7 @@ var Calendar = function () {
                 });
                 Calendar.limpaForm();
 
-                $.get(urlValida, {valida: 'pesquisa_tarefa', co_tarefa: calEvent.id}, function(retorno) {
+                $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id}, function(retorno) {
                     var agenda = jQuery.parseJSON(retorno);
                     
                     $modal.find('#dt_inicio').val(agenda.dt_inicio);
@@ -115,8 +115,8 @@ var Calendar = function () {
                     $modal.find('#ds_descricao').val(agenda.ds_descricao);
                     
                     
-                    $modal.find("#co_categoria").val(agenda.co_categoria).attr('selected',true);
-                    $modal.find('.select2-chosen:eq(1)').text(agenda.no_categoria);
+                    $modal.find("#co_categoria_agenda").val(agenda.co_categoria_agenda).attr('selected',true);
+                    $modal.find('.select2-chosen:eq(1)').text(agenda.no_categoria_agenda);
                     
                     $modal.find("#co_evento").val(agenda.co_evento).attr('selected',true);
                     $modal.find('.select2-chosen:eq(0)').text(agenda.no_evento);
@@ -172,11 +172,11 @@ var Calendar = function () {
             $modal.find("#co_evento").val('').attr('selected',true);
             $modal.find('.select2-chosen:eq(0)').text('Selecione uma Evento');
 
-            $modal.find("#co_categoria").val('').attr('selected',true);
+            $modal.find("#co_categoria_agenda").val('').attr('selected',true);
             $modal.find('.select2-chosen:eq(1)').text('Selecione uma Categoria');
 
             $modal.find(".select2-search-choice").hide();
-            $modal.find("#ds_perfil option").each(function(){
+            $modal.find("#co_perfil option").each(function(){
                 $(this).attr('selected',false);
             });
 

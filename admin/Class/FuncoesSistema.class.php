@@ -162,12 +162,15 @@ class FuncoesSistema
         $meusPerfis = explode(",", $user[md5(CAMPO_PERFIL)]);
 
         $label_options = array();
+        $agendas = array();
         /** @var AgendaEntidade $agenda */
         foreach ($res as $agenda) {
             /** @var PerfilAgendaEntidade $perfilAgenda */
             foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
-                if(in_array($perfilAgenda->getCoPerfil()->getCoPerfil(), $meusPerfis)){
+                if(in_array($perfilAgenda->getCoPerfil()->getCoPerfil(), $meusPerfis) &&
+                    !in_array($agenda->getCoAgenda(), $agendas)){
                     $label_options[] = $agenda;
+                    $agendas[$agenda->getCoAgenda()] = $agenda->getCoAgenda();
                 }
             }
         }

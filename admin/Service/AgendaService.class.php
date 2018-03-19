@@ -16,6 +16,7 @@ class  AgendaService extends AbstractService
 
     public function SalvaCompromissoAgenda($result)
     {
+        $session = new Session();
         $agendaValidador = new AgendaValidador();
         $validador = $agendaValidador->validarAgenda($result);
         if ($validador[SUCESSO]) {
@@ -24,14 +25,13 @@ class  AgendaService extends AbstractService
 
             $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
-            $session = new Session();
+
             /** @var ObjetoPDO PDO */
             $this->PDO = $this->getPDO();
             $retorno = [
                 SUCESSO => false,
                 MSG => null
             ];
-
             $dados[DS_DESCRICAO] = $result[DS_DESCRICAO];
             $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
             $dados[CO_USUARIO] = $user[md5(CO_USUARIO)];
@@ -40,7 +40,7 @@ class  AgendaService extends AbstractService
             $dados[DT_FIM] = (!empty($result[DT_FIM]) ? Valida::DataDB($result[DT_FIM] . " " . $result['hr_fim'] . ":00") : null);
             $dados[DS_TITULO] = $result[DS_TITULO];
             $dados[CO_CATEGORIA_AGENDA] = $result[CO_CATEGORIA_AGENDA][0];
-            $dados[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : null;
+            $dados[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : 0;
 
             $this->PDO->beginTransaction();
             if (!empty($result[CO_AGENDA])):
@@ -72,6 +72,7 @@ class  AgendaService extends AbstractService
             }
 
         } else {
+            $session->setSession(MENSAGEM, $validador[MSG]);
             $retorno = $validador;
         }
 
