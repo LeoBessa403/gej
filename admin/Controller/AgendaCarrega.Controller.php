@@ -20,8 +20,7 @@ $eventos = array();
 foreach ($result2 as $agenda) {
     $evento = array(
         'id' => (int)$agenda->getCoAgenda(),
-        'title' => strtoupper($agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda()) .
-            " - " . $agenda->getDsTitulo(),
+        'title' => $agenda->getDsTitulo(),
         'start' => $agenda->getDtInicio(),
         'end' => $agenda->getDtFim(),
         'className' => 'label-'.$agenda->getCoCategoriaAgenda()->getDsCor(),

@@ -20,24 +20,24 @@ var Calendar = function () {
         /* initialize the calendar
 				 -----------------------------------------------------------------*/
         //VARIÁVEL GLOBAL
-        var dados    = constantes();
+        var dados = constantes();
 
-        var home             = dados['HOME'];
+        var home = dados['HOME'];
         var urlCarregaTarefa = home + 'admin/Controller/AgendaCarrega.Controller.php';
-        var urlValida        = home + 'admin/Controller/Ajax.Controller.php';
-        
+        var urlValida = home + 'admin/Controller/Ajax.Controller.php';
+
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
         var form = '';
-        
-        $(".remove-evento").click(function(){
-            $(this).attr("id",$modal.find('#co_agenda').val());
-            $(".deleta_registro .btn-success").attr('id',$modal.find('#co_agenda').val());
+
+        $(".remove-evento").click(function () {
+            $(this).attr("id", $modal.find('#co_agenda').val());
+            $(".deleta_registro .btn-success").attr('id', $modal.find('#co_agenda').val());
         })
-        
-        
+
+
         var calendar = $('#calendar').fullCalendar({
             buttonText: {
                 prev: '<i class="fa fa-chevron-left"></i>',
@@ -72,26 +72,39 @@ var Calendar = function () {
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             selectable: true,
-            timeFormat: 'H(:mm)',
+            timeFormat: 'H:mm',
             selectHelper: true,
-            select: function (start) {  
+            select: function (start) {
                 $modal.modal({
                     backdrop: 'static'
                 });
                 Calendar.limpaForm();
-                
-                dia = start.getDate();
-                mes = (start.getMonth()+1);
-                if(dia < 10){
-                    dia = '0'+dia;
+
+                var dia = start.getDate();
+                var mes = (start.getMonth() + 1);
+                var hora_inicio = '20:00';
+                var dt_inicio;
+                var hora = start.getHours();
+                var minuto = start.getMinutes();
+
+                if (dia < 10) {
+                    dia = '0' + dia;
                 }
-                if(mes < 10){
-                    mes = '0'+mes;
+                if (mes < 10) {
+                    mes = '0' + mes;
                 }
-                
-                dt_inicio = dia+'/'+mes+'/'+start.getFullYear();
-                hora_inicio = '20:00';
-                
+
+                if (hora < 10) {
+                    hora = '0' + hora;
+                }
+                if (minuto < 10) {
+                    minuto = '0' + minuto;
+                }
+                if (hora > 0) {
+                    hora_inicio = hora + ':' + minuto;
+                }
+                dt_inicio = dia + '/' + mes + '/' + start.getFullYear();
+
                 $modal.find('#dt_inicio').val(dt_inicio);
                 $modal.find('#hr_inicio').val(hora_inicio);
                 $modal.find(".remove-evento").hide();
@@ -101,56 +114,73 @@ var Calendar = function () {
                     backdrop: 'static'
                 });
                 Calendar.limpaForm();
+                if (calEvent.id) {
+                    alert(1);
+                    $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id}, function (retorno) {
+                        var agenda = jQuery.parseJSON(retorno);
+                        console.log(agenda.perfis.co_perfil[1]);
 
-                $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id}, function(retorno) {
-                    var agenda = jQuery.parseJSON(retorno);
-                    
-                    $modal.find('#dt_inicio').val(agenda.dt_inicio);
-                    $modal.find('#hr_inicio').val(agenda.hr_inicio);
-                    $modal.find('#dt_fim').val(agenda.dt_fim);
-                    $modal.find('#hr_fim').val(agenda.hr_fim);
-                    
-                    $modal.find('#ds_titulo').val(agenda.ds_titulo);
-                    $modal.find('#co_agenda').val(agenda.co_agenda);
-                    $modal.find('#ds_descricao').val(agenda.ds_descricao);
-                    
-                    
-                    $modal.find("#co_categoria_agenda").val(agenda.co_categoria_agenda).attr('selected',true);
-                    $modal.find('.select2-chosen:eq(1)').text(agenda.no_categoria_agenda);
-                    
-                    $modal.find("#co_evento").val(agenda.co_evento).attr('selected',true);
-                    $modal.find('.select2-chosen:eq(0)').text(agenda.no_evento);
-                    
-                    
-                    $modal.find('#st_status').val(agenda.st_status);
-                    $modal.find('#dt_cadastro').val(agenda.dt_cadastro);
-                    
-                    for(i = 0; i < agenda.perfis.length; i++){
-                        $modal.find("#ds_perfil option").each(function(){
-                            var valor = $(this).val();
-                            if(valor == agenda.perfis[i].co_perfil){
-                                $(this).attr('selected',true);
-                                $modal.find('#s2id_ds_perfil ul').prepend('<li class="select2-search-choice"><div>'+agenda.perfis[i].no_perfil+'</div><a href="#" id="ag-'+agenda.perfis[i].co_perfil+'" onclick="return false;" class="select2-search-choice-close" tabindex="-1"></a></li>');
-                            }
-                        });
-                    }
-                    
-                    $modal.find(".select2-search-choice-close")
-                    .on("click dblclick", function () {
-                       $(this).parent(".select2-search-choice").hide();
-                        var id = $(this).attr("id").replace("ag-","");
-                        $modal.find("#ds_perfil option").each(function(){
-                            var valor = $(this).val();
-                            if(valor == id){
-                                $(this).attr('selected',false);
-                            }
-                        });
+                        $modal.find('#dt_inicio').val(agenda.dt_inicio);
+                        $modal.find('#hr_inicio').val(agenda.hr_inicio);
+                        $modal.find('#dt_fim').val(agenda.dt_fim);
+                        $modal.find('#hr_fim').val(agenda.hr_fim);
+
+                        $modal.find('#ds_titulo').val(agenda.ds_titulo);
+                        $modal.find('#co_agenda').val(agenda.co_agenda);
+                        $modal.find('#ds_descricao').val(agenda.ds_descricao);
+
+                        $modal.find("#co_categoria_agenda").val(agenda.co_categoria_agenda).attr('selected', true);
+                        $modal.find('.select2-chosen:eq(1)').text(agenda.no_categoria_agenda);
+
+                        $modal.find("#co_evento").val(agenda.co_evento).attr('selected', true);
+                        $modal.find('.select2-chosen:eq(0)').text(agenda.no_evento);
+
+                        for (i = 0; i < agenda.perfis.co_perfil.length; i++) {
+                            $modal.find("#co_perfil option").each(function () {
+                                var valor = $(this).val();
+                                if (valor == agenda.perfis.co_perfil[i]) {
+                                    $(this).attr('selected', true);
+                                    $modal.find('#s2id_co_perfil ul').prepend('<li class="select2-search-choice"><div>' + agenda.perfis.no_perfil[i] + '</div><a href="#" id="ag-' + agenda.perfis.co_perfil[i] + '" onclick="return false;" class="select2-search-choice-close" tabindex="-1"></a></li>');
+                                }
+                            });
+                        }
+
+                        $modal.find(".select2-search-choice-close")
+                            .on("click dblclick", function () {
+                                $(this).parent(".select2-search-choice").hide();
+                                var id = $(this).attr("id").replace("ag-", "");
+                                $modal.find("#co_perfil option").each(function () {
+                                    var valor = $(this).val();
+                                    if (valor == id) {
+                                        $(this).attr('selected', false);
+                                    }
+                                });
+                            });
+
+                        $modal.find(".remove-evento").show();
+
                     });
-                    
-                    $modal.find(".remove-evento").show();
-                    
-                });
-            },
+                } else {
+                    var time = calEvent.start;
+                    var dia = time.getDate();
+                    var mes = (time.getMonth() + 1);
+                    var hora_inicio = '20:00';
+                    var dt_inicio;
+                    if (dia < 10) {
+
+                        dia = '0' + dia;
+                    }
+                    if (mes < 10) {
+                        mes = '0' + mes;
+                    }
+                    dt_inicio = dia + '/' + mes + '/' + time.getFullYear();
+                    console.log(dt_inicio);
+
+                    $modal.find('#dt_inicio').val(dt_inicio);
+                    $modal.find('#hr_inicio').val(hora_inicio);
+                    $modal.find(".remove-evento").hide();
+                }
+            }
         });
     };
     return {
@@ -159,7 +189,7 @@ var Calendar = function () {
         },
         limpaForm: function () {
             var $modal = $('#event-management');
-            
+
             $modal.find('#dt_inicio').val('');
             $modal.find('#hr_inicio').val('');
             $modal.find('#dt_fim').val('');
@@ -168,28 +198,28 @@ var Calendar = function () {
             $modal.find('#ds_titulo').val('');
             $modal.find('#co_agenda').val('');
             $modal.find('#ds_descricao').val('');
-            
-            $modal.find("#co_evento").val('').attr('selected',true);
+
+            $modal.find("#co_evento").val('').attr('selected', true);
             $modal.find('.select2-chosen:eq(0)').text('Selecione uma Evento');
 
-            $modal.find("#co_categoria_agenda").val('').attr('selected',true);
+            $modal.find("#co_categoria_agenda").val('').attr('selected', true);
             $modal.find('.select2-chosen:eq(1)').text('Selecione uma Categoria');
 
             $modal.find(".select2-search-choice").hide();
-            $modal.find("#co_perfil option").each(function(){
-                $(this).attr('selected',false);
+            $modal.find("#co_perfil option").each(function () {
+                $(this).attr('selected', false);
             });
 
             $modal.find('#st_status').val('');
             $modal.find('#dt_cadastro').val('');
-            
-            $modal.find('.has-error').each(function() {
+
+            $modal.find('.has-error').each(function () {
                 $(this).removeClass('has-error');
             });
-            $modal.find('.has-success').each(function() {
+            $modal.find('.has-success').each(function () {
                 $(this).removeClass('has-success');
             });
-                    
+
         }
     };
 }();

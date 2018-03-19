@@ -2,15 +2,12 @@
 
 class AgendaForm
 {
-    public static function Cadastrar($perfilService, $res = false)
+    public static function Cadastrar($perfilService)
     {
         $id = "cadastroCompromisso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Salvar", 6);
-        if ($res):
-            $formulario->setValor($res);
-        endif;
 
         $formulario
             ->setId(CO_EVENTO)
@@ -90,13 +87,11 @@ class AgendaForm
             ->setLabel("Descrição da Eventualidade")
             ->CriaInpunt();
 
-        if ($res && !empty($res[CO_AGENDA])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_AGENDA)
-                ->setValues($res[CO_AGENDA])
-                ->CriaInpunt();
-        endif;
+        $formulario
+            ->setType("hidden")
+            ->setId(CO_AGENDA)
+            ->setValues(null)
+            ->CriaInpunt();
 
         return $formulario->finalizaFormAgenda();
     }

@@ -33,9 +33,7 @@ class  AgendaService extends AbstractService
                 MSG => null
             ];
             $dados[DS_DESCRICAO] = $result[DS_DESCRICAO];
-            $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
             $dados[CO_USUARIO] = $user[md5(CO_USUARIO)];
-            $dados[ST_DIA_TODO] = SimNaoEnum::NAO;
             $dados[DT_INICIO] = Valida::DataDB($result[DT_INICIO] . " " . $result['hr_inicio'] . ":00");
             $dados[DT_FIM] = (!empty($result[DT_FIM]) ? Valida::DataDB($result[DT_FIM] . " " . $result['hr_fim'] . ":00") : null);
             $dados[DS_TITULO] = $result[DS_TITULO];
@@ -49,6 +47,8 @@ class  AgendaService extends AbstractService
                 $this->Salva($dados, $coAgenda);
                 $session->setSession(ATUALIZADO, "OK");
             else:
+                $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $dados[ST_DIA_TODO] = SimNaoEnum::NAO;
                 $coAgenda = $this->Salva($dados);
                 $session->setSession(CADASTRADO, "OK");
             endif;
