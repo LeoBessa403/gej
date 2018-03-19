@@ -167,14 +167,12 @@ var Calendar = function () {
                     var hora_inicio = '20:00';
                     var dt_inicio;
                     if (dia < 10) {
-
                         dia = '0' + dia;
                     }
                     if (mes < 10) {
                         mes = '0' + mes;
                     }
                     dt_inicio = dia + '/' + mes + '/' + time.getFullYear();
-                    console.log(dt_inicio);
 
                     $modal.find('#dt_inicio').val(dt_inicio);
                     $modal.find('#hr_inicio').val(hora_inicio);
