@@ -217,19 +217,6 @@ class Inscricao extends AbstractController
         echo InscricaoForm::Pesquisar();
     }
 
-    public static function FormasDePagamento()
-    {
-        /** @var TipoPagamentoService $tipoPagamentoService */
-        $tipoPagamentoService = new TipoPagamentoService();
-
-        $tipos = $tipoPagamentoService->PesquisaTodos();
-        /** @var TipoPagamentoEntidade $forma */
-        foreach ($tipos as $forma) {
-            $pagamentos[$forma->getCoTipoPagamento()] = $forma->getDsTipoPagamento();
-        }
-        return $pagamentos;
-    }
-
     public static function SituacaoPagamento()
     {
         return StatusPagamentoEnum::$descricao;
@@ -322,21 +309,4 @@ class Inscricao extends AbstractController
         endif;
     }
 
-    public function montaComboTodosTipoPagamento()
-    {
-        /** @var TipoPagamentoService $tipoPagamentoService */
-        $tipoPagamentoService = $this->getService(TIPO_PAGAMENTO_SERVICE);
-
-        $tpPagamento = $tipoPagamentoService->PesquisaTodos();
-        $todosTp = array();
-        /** @var TipoPagamentoEntidade $tp */
-        foreach ($tpPagamento as $tp) :
-            $todosTp[$tp->getCoTipoPagamento()] = $tp->getDsTipoPagamento();
-        endforeach;
-        return $todosTp;
-    }
-
 }
-
-?>
-   

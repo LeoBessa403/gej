@@ -19,9 +19,7 @@ class Acesso extends AbstractController
 
     public function ListarAcessoPesquisaAvancada()
     {
-        /** @var UsuarioService $usuarioService */
-        $usuarioService = $this->getService(USUARIO_SERVICE);
-        echo AcessoForm::Pesquisar($usuarioService);
+        echo AcessoForm::Pesquisar();
     }
 
 }

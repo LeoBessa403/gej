@@ -20,7 +20,7 @@ class  AuditoriaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancada($Condicoes);
     }
 
-    public function PesquisaTabelasCombo()
+    public static function PesquisaTabelasCombo()
     {
         $conn = new ObjetoPDO();
         $conn->inicializarConexao();

@@ -14,9 +14,12 @@ class  FuncionalidadeService extends AbstractService
         $this->ObjetoModel = New FuncionalidadeModel();
     }
 
-    public function montaComboTodosFuncionalidades()
+    public static function montaComboTodosFuncionalidades()
     {
-        $funcionalidades = $this->PesquisaTodos();
+        /** @var FuncionalidadeService $funcionalidadeService */
+        $funcionalidadeService = new FuncionalidadeService();
+
+        $funcionalidades = $funcionalidadeService->PesquisaTodos();
         $todasFunc = array();
         /** @var FuncionalidadeEntidade $func */
         foreach ($funcionalidades as $func) :

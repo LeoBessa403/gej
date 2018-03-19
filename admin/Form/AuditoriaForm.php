@@ -3,14 +3,14 @@
 class AuditoriaForm
 {
 
-    public static function Pesquisar($usuarioService, $auditoriaService)
+    public static function Pesquisar()
     {
         $id = "pesquisaAcesso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Pesquisa", 12);
 
-        $usuarios = $usuarioService->PesquisaUsuariosCombo([]);
+        $usuarios = UsuarioService::PesquisaUsuariosCombo([]);
         $formulario
             ->setId(CO_USUARIO)
             ->setLabel("Nome do Usuário")
@@ -20,7 +20,7 @@ class AuditoriaForm
             ->setOptions($usuarios)
             ->CriaInpunt();
 
-        $tabelas = $auditoriaService->PesquisaTabelasCombo();
+        $tabelas = AuditoriaService::PesquisaTabelasCombo();
         $formulario
             ->setId(NO_TABELA)
             ->setLabel("Entidade")

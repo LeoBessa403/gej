@@ -12,5 +12,18 @@ class  TipoPagamentoService extends AbstractService
         parent::__construct(TipoPagamentoEntidade::ENTIDADE);
     }
 
+    public static function montaComboTodosTipoPagamento()
+    {
+        /** @var TipoPagamentoService $tipoPagamentoService */
+        $tipoPagamentoService = new TipoPagamentoService();
+
+        $tpPagamento = $tipoPagamentoService->PesquisaTodos();
+        $todosTp = array();
+        /** @var TipoPagamentoEntidade $tp */
+        foreach ($tpPagamento as $tp) :
+            $todosTp[$tp->getCoTipoPagamento()] = $tp->getDsTipoPagamento();
+        endforeach;
+        return $todosTp;
+    }
 
 }

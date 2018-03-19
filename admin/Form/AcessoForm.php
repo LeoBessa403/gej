@@ -3,13 +3,13 @@
 class AcessoForm
 {
 
-    public static function Pesquisar($usuarioService)
+    public static function Pesquisar()
     {
         $id = "pesquisaAcesso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action, "Pesquisa", 12);
 
-        $usuarios = $usuarioService->PesquisaUsuariosCombo([]);
+        $usuarios = UsuarioService::PesquisaUsuariosCombo([]);
         $formulario
             ->setId(CO_USUARIO)
             ->setLabel("Nome do Usuário")

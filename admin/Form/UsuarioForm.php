@@ -3,7 +3,7 @@
 class UsuarioForm extends AbstractController
 {
 
-    public static function Cadastrar($res = false, $resgistrar = false, $tamanho = 6, $perfilService)
+    public static function Cadastrar($res = false, $resgistrar = false, $tamanho = 6)
     {
         $id = "CadastroUsuario";
         $meusPerfis = array();
@@ -22,10 +22,10 @@ class UsuarioForm extends AbstractController
             $usuario = $usuarioModel->PesquisaUmQuando([CO_USUARIO => $res['co_usuario']]);
 
             if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)) {
-                $res[CAMPO_PERFIL] = $perfilService->montaArrayPerfil($usuario);
+                $res[CAMPO_PERFIL] = PerfilService::montaArrayPerfil($usuario);
             } else {
                 $res[ST_STATUS] = FuncoesSistema::SituacaoUsuarioLabel($res[ST_STATUS]);
-                $res[CAMPO_PERFIL] = implode(', ', $perfilService->montaComboPerfil($usuario));
+                $res[CAMPO_PERFIL] = implode(', ', PerfilService::montaComboPerfil($usuario));
             }
             $formulario->setValor($res);
         endif;
@@ -150,7 +150,7 @@ class UsuarioForm extends AbstractController
 
         if (!$resgistrar) {
             if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)):
-                $label_options_perfis = $perfilService->montaComboTodosPerfis();
+                $label_options_perfis = PerfilService::montaComboTodosPerfis();
                 $formulario
                     ->setLabel("Perfis")
                     ->setId(CAMPO_PERFIL)

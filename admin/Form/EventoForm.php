@@ -9,37 +9,113 @@ class EventoForm extends AbstractController
 
         /** @var Form $formulario */
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller
-            . "/" . UrlAmigavel::$action, 'Cadastrar', 12);
+            . "/" . UrlAmigavel::$action, 'Cadastrar', 6);
         if ($res):
             $formulario->setValor($res);
         endif;
 
         $formulario
-            ->setId("no_evento")
+            ->setId(DS_TITULO)
             ->setClasses("ob")
-            ->setLabel("Título do Evento")
+            ->setLabel("Título")
+            ->CriaInpunt();
+
+        $perfis = PerfilService::montaComboTodosPerfis();
+        $labels = FuncoesSistema::ValidaPerfilCadastro($perfis);
+
+        $formulario
+            ->setLabel("Participantes")
+            ->setId(CO_PERFIL)
+            ->setClasses("multipla ob")
+            ->setInfo("Pode selecionar vários perfis.")
+            ->setType("select")
+            ->setOptions($labels)
             ->CriaInpunt();
 
         $formulario
-            ->setId("ds_palavras_chaves")
+            ->setId(CO_CATEGORIA_EVENTO)
             ->setClasses("ob")
-            ->setTamanhoInput(9)
-            ->setInfo("Separados por Vírgula. Ex: teste, teste 2")
-            ->setLabel("Palavras Chaves")
+            ->setAutocomplete(CategoriaEventoEntidade::TABELA, NO_CATEGORIA_EVENTO, CategoriaEventoEntidade::CHAVE)
+            ->setLabel("Categoria Evento")
             ->CriaInpunt();
 
         $formulario
-            ->setId("dt_realizado")
-            ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(3)
+            ->setId(DT_INICIO)
+            ->setTamanhoInput(6)
             ->setClasses("data ob")
-            ->setLabel("Data")
+            ->setIcon("clip-calendar-3")
+            ->setLabel("Data de Inicio")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId("hr_inicio")
+            ->setTamanhoInput(6)
+            ->setClasses("horas ob")
+            ->setPlace("Formato 24Hrs")
+            ->setIcon("clip-clock-2", "dir")
+            ->setLabel("Hórario Inicial")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DT_FIM)
+            ->setTamanhoInput(6)
+            ->setClasses("data")
+            ->setIcon("clip-calendar-3")
+            ->setInfo("Data Previsto para Terminar")
+            ->setLabel("Data de Termino")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId("hr_fim")
+            ->setTamanhoInput(6)
+            ->setPlace("Formato 24Hrs")
+            ->setInfo("Horário Previsto para Terminar")
+            ->setClasses("horas")
+            ->setIcon("clip-clock-2", "dir")
+            ->setLabel("Hórario Final")
             ->CriaInpunt();
 
 
         $formulario
-            ->setId("ds_local")
-            ->setLabel("Local:")
+            ->setId(DS_ENDERECO)
+            ->setIcon("clip-home-2")
+            ->setTamanhoInput(12)
+            ->setClasses("ob")
+            ->setLabel("Endereço")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_COMPLEMENTO)
+            ->setLabel("Complemento")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_BAIRRO)
+            ->setLabel("Bairro")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NO_CIDADE)
+            ->setLabel("Cidade")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_CEP)
+            ->setLabel("CEP")
+            ->setTamanhoInput(4)
+            ->setClasses("cep")
+            ->CriaInpunt();
+
+        $options = Endereco::montaComboEstadosDescricao();
+        $formulario
+            ->setTamanhoInput(8)
+            ->setId(SG_UF)
+            ->setType("select")
+            ->setLabel("Estado")
+            ->setOptions($options)
             ->CriaInpunt();
 
         $formulario
@@ -49,12 +125,12 @@ class EventoForm extends AbstractController
             ->setInfo("Imagem Principal do Evento")
             ->CriaInpunt();
 
-
         $formulario
-            ->setId("ds_conteudo")
-            ->setLabel("Conteúdo")
+            ->setId(DS_DESCRICAO)
+            ->setClasses("ob")
             ->setType("textarea")
             ->setClasses("ckeditor")
+            ->setLabel("Descrição do Evento")
             ->CriaInpunt();
 
         $formulario
@@ -67,41 +143,16 @@ class EventoForm extends AbstractController
             ->CriaInpunt();
 
 
-//        if ($co_evento):
-//            $formulario
-//                ->setType("hidden")
-//                ->setId("co_evento")
-//                ->setValues($co_evento)
-//                ->CriaInpunt();
-//        endif;
+        if (!empty($res[CO_EVENTO])):
+            $formulario
+                ->setType("hidden")
+                ->setId("co_evento")
+                ->setValues($res[CO_EVENTO])
+                ->CriaInpunt();
+        endif;
 
 
        return $formulario->finalizaForm();
     }
 
-    public static function Pesquisar()
-    {
-        $id = "pesquisaUsuario";
-
-        $formulario = new Form($id, "admin/Usuario/ListarUsuario", "Pesquisa", 12);
-
-        $formulario
-            ->setId(NO_PESSOA)
-            ->setIcon("clip-user-6")
-            ->setLabel("Nome do Usuario")
-            ->setInfo("Pode ser Parte do nome")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_CPF)
-            ->setClasses("cpf")
-            ->setTamanhoInput(6)
-            ->setLabel("CPF")
-            ->CriaInpunt();
-
-        return $formulario->finalizaFormPesquisaAvancada();
-    }
 }
-
-?>
-   

@@ -2,7 +2,7 @@
 
 class PerfilForm
 {
-    public static function Cadastrar($funcionalidadeService, $res = false)
+    public static function Cadastrar($res = false)
     {
         $id = "cadastroPerfil";
 
@@ -17,7 +17,7 @@ class PerfilForm
             ->setLabel("Perfil")
             ->CriaInpunt();
 
-        $funcs = $funcionalidadeService->montaComboTodosFuncionalidades();
+        $funcs = FuncionalidadeService::montaComboTodosFuncionalidades();
         $formulario
             ->setId(CO_FUNCIONALIDADE)
             ->setLabel("Funcionalidades")

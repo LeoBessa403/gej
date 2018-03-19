@@ -69,8 +69,6 @@ class Usuario extends AbstractController
 
     public function ListarUsuario()
     {
-        /** @var PerfilService $perfilService */
-        $perfilService = $this->getService(PERFIL_SERVICE);
         /** @var UsuarioService $usuarioService */
         $usuarioService = $this->getService(USUARIO_SERVICE);
 
@@ -93,7 +91,7 @@ class Usuario extends AbstractController
 
         /** @var UsuarioEntidade $value */
         foreach ($this->result as $value):
-            $this->perfis[$value->getCoUsuario()] = implode(', ', $perfilService->montaComboPerfil($value));
+            $this->perfis[$value->getCoUsuario()] = implode(', ', PerfilService::montaComboPerfil($value));
         endforeach;
     }
 

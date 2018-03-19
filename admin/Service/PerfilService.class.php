@@ -14,9 +14,11 @@ class  PerfilService extends AbstractService
         $this->ObjetoModel = New PerfilModel();
     }
 
-    public function montaComboTodosPerfis()
+    public static function montaComboTodosPerfis()
     {
-        $Perfis = $this->PesquisaTodos();
+        /** @var PerfilService $perfilService */
+        $perfilService = new PerfilService();
+        $Perfis = $perfilService->PesquisaTodos();
         $todosPerfis = array();
         /** @var PerfilEntidade $perfil */
         foreach ($Perfis as $perfil) :
@@ -26,7 +28,7 @@ class  PerfilService extends AbstractService
         return $todosPerfis;
     }
 
-    public function montaComboPerfil(UsuarioEntidade $usuario)
+    public static function montaComboPerfil(UsuarioEntidade $usuario)
     {
         $meusPerfis = array();
         /** @var UsuarioPerfilEntidade $perfil */
@@ -36,7 +38,7 @@ class  PerfilService extends AbstractService
         return $meusPerfis;
     }
 
-    public function montaArrayPerfil(UsuarioEntidade $usuario)
+    public static function montaArrayPerfil(UsuarioEntidade $usuario)
     {
         $meusPerfis = array();
         /** @var UsuarioPerfilEntidade $perfil */

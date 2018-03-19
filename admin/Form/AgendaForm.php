@@ -2,7 +2,7 @@
 
 class AgendaForm
 {
-    public static function Cadastrar($perfilService)
+    public static function Cadastrar()
     {
         $id = "cadastroCompromisso";
 
@@ -22,7 +22,7 @@ class AgendaForm
             ->setLabel("Título")
             ->CriaInpunt();
 
-        $perfis = $perfilService->montaComboTodosPerfis();
+        $perfis = PerfilService::montaComboTodosPerfis();
         $labels = FuncoesSistema::ValidaPerfilCadastro($perfis);
 
         $formulario

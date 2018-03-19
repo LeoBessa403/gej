@@ -16,8 +16,6 @@ class Funcionalidade extends AbstractController
     {
         /** @var FuncionalidadeService $funcionalidadeService */
         $funcionalidadeService = $this->getService(FUNCIONALIDADE_SERVICE);
-        /** @var PerfilService $perfilService */
-        $perfilService = $this->getService(PERFIL_SERVICE);
 
         $id = "cadastroFuncionalidade";
 
@@ -43,7 +41,7 @@ class Funcionalidade extends AbstractController
             $res[CO_PERFIL] = $perfisFunc;
         endif;
 
-        $this->form = FuncionalidadeForm::Cadastrar($perfilService, $res);
+        $this->form = FuncionalidadeForm::Cadastrar($res);
 
     }
 

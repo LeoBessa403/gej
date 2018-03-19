@@ -54,7 +54,7 @@ class MembroWeb extends AbstractController
     function FormaDePagamento()
     {
         $this->coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
-        $this->formas = Inscricao::FormasDePagamento();
+        $this->formas = TipoPagamentoService::montaComboTodosTipoPagamento();
     }
 
     function ConcluirInscricao()
