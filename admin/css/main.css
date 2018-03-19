@@ -3992,6 +3992,7 @@ ul#countdown li p.timeRefDays, ul#countdown li p.timeRefHours, ul#countdown li p
 .label-beige, .badge-beige {
 	background-color: #CCCC99 !important;
 	border-color: #CCCC99 !important;
+	color: #000 !important;
 }
 .label-green, .badge-green {
 	background-color: #3D9400 !important;
