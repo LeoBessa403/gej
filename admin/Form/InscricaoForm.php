@@ -34,7 +34,7 @@ class InscricaoForm
             ->setInfo("Data do pagamento realizado")
             ->CriaInpunt();
 
-        $label_options = TipoPagamentoService::montaComboTodosTipoPagamento()();
+        $label_options = TipoPagamentoService::montaComboTodosTipoPagamento();
         $formulario
             ->setLabel("Forma de Pagamento")
             ->setId(CO_TIPO_PAGAMENTO)

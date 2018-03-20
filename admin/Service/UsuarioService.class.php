@@ -21,10 +21,10 @@ class  UsuarioService extends AbstractService
 
     public static function PesquisaUsuariosCombo($Condicoes)
     {
-        /** @var UsuarioService $usuarioService */
-        $usuarioService = new PessoaService();
+        /** @var UsuarioModel $usuarioModel */
+        $usuarioModel = new UsuarioModel();
         $comboUsuarios = [];
-        $usuarios = $usuarioService->ObjetoModel->PesquisaAvancada($Condicoes);
+        $usuarios = $usuarioModel->PesquisaAvancada($Condicoes);
         /** @var UsuarioEntidade $usuario */
         foreach ($usuarios as $usuario) {
             $comboUsuarios[$usuario->getCoUsuario()]
