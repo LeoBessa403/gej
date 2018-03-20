@@ -164,19 +164,16 @@ class  UsuarioService extends AbstractService
                 $usuarioPerfil[CO_USUARIO] = $usuarioService->Salva($usu);
 
                 // REGISTRAR ///
-                if ($resgistrar):
-                    $usuarioPerfil[CO_PERFIL] = 3;
-                    $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
-                else:
+                if (!$resgistrar):
                     if (!empty($dados['ds_perfil'])) {
                         foreach ($dados['ds_perfil'] as $perfil) {
                             $usuarioPerfil[CO_PERFIL] = $perfil;
                             $usuarioPerfilService->Salva($usuarioPerfil);
                         }
                     }
-                    $usuarioPerfil[CO_PERFIL] = 3;
-                    $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
                 endif;
+                $usuarioPerfil[CO_PERFIL] = 3;
+                $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
             endif;
             if ($retorno) {
                 $this->PDO->commit();
