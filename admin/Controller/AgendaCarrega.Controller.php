@@ -6,14 +6,7 @@ include_once "../../library/Config.inc.php";
 $agendaService = new AgendaService();
 $agendas = $agendaService->PesquisaTodos();
 
-$result = [];
-$i = 0;
-/** @var AgendaEntidade $agenda */
-foreach ($agendas as $agenda) {
-    $result[$i] = $agendaService->PesquisaUmRegistro($agenda->getCoAgenda());
-    $i++;
-}
-$result2 = FuncoesSistema::ValidaPerfilAgenda($result);
+$result2 = FuncoesSistema::ValidaPerfilAgenda($agendas);
 
 $eventos = array();
 /** @var AgendaEntidade $agenda */
