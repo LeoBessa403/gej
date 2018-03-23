@@ -162,7 +162,6 @@ class FuncoesSistema
         $meusPerfis = explode(",", $user[md5(CAMPO_PERFIL)]);
 
         $label_options = array();
-        $agendas = array();
         /** @var AgendaEntidade $agenda */
         foreach ($res as $agenda) {
             /** @var PerfilAgendaEntidade $perfilAgenda */
