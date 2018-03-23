@@ -66,7 +66,7 @@ require_once 'library/Config.inc.php';
     <!-- start: CSS REQUIRED FOR CHECK -->
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/DataTables/media/css/DT_bootstrap.css">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="<?= PASTASITE; ?>img/favicon.ico"/>
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: HTML5SHIV FOR IE8 -->
     <!--[if lt IE 9]>

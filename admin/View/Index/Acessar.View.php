@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/font-awesome/css/font-awesome-ie7.min.css">
     <![endif]-->
     <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
-
+    <link rel="shortcut icon" href="<?= PASTASITE; ?>img/favicon.ico"/>
     <!-- end: MAIN CSS -->
     <!-- start: CSS REQUIRED FOR SELECT -->
     <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/select2/select2.css">
