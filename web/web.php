@@ -177,20 +177,20 @@ require_once 'library/Config.inc.php';
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
                             6º Retiro de Carnaval <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="<?php echo PASTASITE; ?>MembroWeb/CadastroRetiroCarnaval">
-                                    Inscrição
-                                </a>                                        </a>
-                                <a href="<?php echo PASTASITE; ?>MembroWeb/Normas">
-                                    Normas do Retiro
-                                </a>                                        </a>
-                                <!--                                <a href="-->
-                                <?php //echo PASTASITE; ?><!--MembroWeb/SobrePagamento">-->
-                                <!--                                   Sobre o Pagamento-->
-                                <!--                                </a>-->
-                            </li>
-                        </ul>
+<!--                        <ul class="dropdown-menu">-->
+<!--                            <li>-->
+<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/CadastroRetiroCarnaval">-->
+<!--                                    Inscrição-->
+<!--                                </a>                                        </a>-->
+<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/Normas">-->
+<!--                                    Normas do Retiro-->
+<!--                                </a>                                        </a>-->
+<!--                                <!--                                <a href="-->-->
+<!--                                --><?php ////echo PASTASITE; ?><!--<!--MembroWeb/SobrePagamento">-->-->
+<!--                                <!--                                   Sobre o Pagamento-->-->
+<!--                                <!--                                </a>-->-->
+<!--                            </li>-->
+<!--                        </ul>-->
                     </li>
                     <li>
                         <a target="_blank" href="<?php echo PASTAADMIN; ?>Index/Index/PrimeiroAcesso">
