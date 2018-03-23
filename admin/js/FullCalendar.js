@@ -115,7 +115,6 @@ var Calendar = function () {
                 });
                 Calendar.limpaForm();
                 if (calEvent.id) {
-                    alert(1);
                     $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id}, function (retorno) {
                         var agenda = jQuery.parseJSON(retorno);
                         console.log(agenda.perfis.co_perfil[1]);
