@@ -167,8 +167,8 @@ class FuncoesSistema
         foreach ($res as $agenda) {
             /** @var PerfilAgendaEntidade $perfilAgenda */
             foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
-                if ((in_array(PermissaoAcessoEnum::PERFIL_MASTER, $meusPerfis)) ||
-                    (in_array($perfilAgenda->getCoPerfil()->getCoPerfil(), $meusPerfis) &&
+                if ((in_array(PermissaoAcessoEnum::PERFIL_MASTER, $meusPerfis) ||
+                    (in_array($perfilAgenda->getCoPerfil()->getCoPerfil(), $meusPerfis)) &&
                         !in_array($agenda->getCoAgenda(), $agendas))) {
                     $label_options[] = $agenda;
                     $agendas[$agenda->getCoAgenda()] = $agenda->getCoAgenda();
