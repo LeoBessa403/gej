@@ -74,7 +74,7 @@
                                                             <a href="#panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>"
                                                                data-toggle="tab">
                                                             <span class="badge badge-<?= FuncoesSistema::getBadgeLabel($auditoriaTabela->getTpOperacao()); ?>">
-                                                            <?php echo str_replace('TB_', '',
+                                                            <?php echo str_replace(array('TB_', 'tb_'), '',
                                                                 $auditoriaTabela->getNoTabela()); ?></span>
                                                             </a>
                                                         </li>
@@ -87,7 +87,7 @@
                                                         <div class="tab-pane"
                                                              id="panel_tab<?php echo $auditoriaTabela->getCoAuditoriaTabela(); ?>">
                                                             Tabela:
-                                                            <b><?php echo str_replace('TB_', '',
+                                                            <b><?php echo str_replace(array('TB_', 'tb_'), '',
                                                                     $auditoriaTabela->getNoTabela()); ?></b><br>
                                                             Ação Realizada: <b><?php
                                                                 echo AuditoriaEnum::getDescricaoValor(
