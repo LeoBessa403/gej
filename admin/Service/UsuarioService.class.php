@@ -27,8 +27,10 @@ class  UsuarioService extends AbstractService
         $usuarios = $usuarioService->PesquisaAvancada($Condicoes);
         /** @var UsuarioEntidade $usuario */
         foreach ($usuarios as $usuario) {
-            $comboUsuarios[$usuario->getCoUsuario()]
-                = Valida::Resumi($usuario->getCoPessoa()->getNoPessoa(), 25);
+            if($usuario->getStStatus() == StatusUsuarioEnum::ATIVO){
+                $comboUsuarios[$usuario->getCoUsuario()]
+                    = Valida::Resumi($usuario->getCoPessoa()->getNoPessoa(), 25);
+            }
         }
         return $comboUsuarios;
     }
