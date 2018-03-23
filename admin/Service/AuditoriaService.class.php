@@ -23,12 +23,12 @@ class  AuditoriaService extends AbstractService
     public static function PesquisaTabelasCombo()
     {
         $conn = new ObjetoPDO();
-        $conn->inicializarConexao();
+        $conexao = $conn->inicializarConexao();
 
-        $result = mysql_query('SHOW TABLES');
+        $result = mysqli_query($conexao,'SHOW TABLES');
         $tabelas = [];
         if ($result) {
-            while ($row = mysql_fetch_row($result)) {
+            while ($row = mysqli_fetch_row($result)) {
                 $Entidade = str_replace('tb_', '', $row[0]);
                 $Entidade = str_replace('_', ' ', $Entidade);
                 $Entidade = ucwords($Entidade);
