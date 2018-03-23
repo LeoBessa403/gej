@@ -34,7 +34,7 @@
                         Modal::load();
                         Modal::deletaRegistro("Perfil");
                         Modal::confirmacao("confirma_Perfil");
-                        $arrColunas = array('Nome', 'Funcionalidades', 'Ações');
+                        $arrColunas = array('Perfil', 'Funcionalidades', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
