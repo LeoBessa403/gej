@@ -13,6 +13,7 @@ class CategoriaEventoEntidade extends AbstractEntidade
 
 	private $co_categoria_evento;
 	private $no_categoria_evento;
+	private $co_evento;
 
 
 	/**
@@ -54,7 +55,7 @@ class CategoriaEventoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $no_categoria_evento
+	* @return mixed $no_categoria_evento
      */
 	public function getNoCategoriaEvento()
     {
@@ -68,6 +69,23 @@ class CategoriaEventoEntidade extends AbstractEntidade
 	public function setNoCategoriaEvento($no_categoria_evento)
     {
         return $this->no_categoria_evento = $no_categoria_evento;
+    }
+
+    /**
+     * @return EventoEntidade mixed
+     */
+    public function getCoEvento()
+    {
+        return $this->co_evento;
+    }
+
+    /**
+     * @param $co_evento
+     * @return mixed
+     */
+    public function setCoEvento($co_evento)
+    {
+        return $this->co_evento = $co_evento;
     }
 
 }

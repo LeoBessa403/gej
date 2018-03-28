@@ -12,10 +12,8 @@ class EventoEntidade extends AbstractEntidade
 	const CHAVE = CO_EVENTO;
 
 	private $co_evento;
-	private $ds_descricao;
     private $dt_cadastro;
     private $co_categoria_evento;
-    private $co_endereco;
     private $co_imagem;
     private $co_comissao_evento;
     private $co_imagem_evento;
@@ -29,7 +27,6 @@ class EventoEntidade extends AbstractEntidade
         {
     	return [
 			CO_EVENTO,
-			DS_DESCRICAO,
             DT_CADASTRO,
 		];
     }
@@ -64,22 +61,6 @@ class EventoEntidade extends AbstractEntidade
     /**
      * @return mixed
      */
-    public function getDsDescricao()
-    {
-        return $this->ds_descricao;
-    }
-
-    /**
-     * @param mixed $ds_descricao
-     */
-    public function setDsDescricao($ds_descricao)
-    {
-        $this->ds_descricao = $ds_descricao;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getDtCadastro()
     {
         return $this->dt_cadastro;
@@ -108,23 +89,6 @@ class EventoEntidade extends AbstractEntidade
     public function setCoCategoriaEvento($co_categoria_evento)
     {
         $this->co_categoria_evento = $co_categoria_evento;
-    }
-
-    /**
-     * @return EnderecoEntidade $co_endereco
-     */
-    public function getCoEndereco()
-    {
-        return $this->co_endereco;
-    }
-
-    /**
-     * @param $co_endereco
-     * @return mixed
-     */
-    public function setCoEndereco($co_endereco)
-    {
-        $this->co_endereco = $co_endereco;
     }
 
     /**
