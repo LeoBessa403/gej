@@ -282,7 +282,7 @@ endif;
             endif;
             if($session->CheckSession(MENSAGEM)):
             ?>
-            Funcoes.Alerta("<?php echo $session->getSession(MENSAGEM);?>");
+            Funcoes.Informativo("<?php echo $session->getSession(MENSAGEM);?>");
             <?php
             $session->FinalizaSession(MENSAGEM);
             endif;

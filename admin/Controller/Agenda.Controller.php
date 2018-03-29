@@ -9,16 +9,10 @@ class Agenda extends AbstractController
 
     public function Calendario()
     {
-        /** @var AgendaService $agendaService */
-        $agendaService = $this->getService(AGENDA_SERVICE);
-
-        if (!empty($_POST)):
-            $agendaService->SalvaCompromissoAgenda($_POST);
-        endif;
         $categorias = CategoriaAgendaEnum::$descricao;
         $cores = CategoriaAgendaEnum::$cor;
-        foreach ($categorias as $index => $categoria){
-            $this->categoriaAgenda[$cores[$index]] =  $categoria;
+        foreach ($categorias as $index => $categoria) {
+            $this->categoriaAgenda[$cores[$index]] = $categoria;
         }
     }
 
@@ -26,6 +20,17 @@ class Agenda extends AbstractController
     {
         $res["hr_inicio"] = UrlAmigavel::PegaParametro("hr");
         $res[DT_INICIO] = UrlAmigavel::PegaParametro("dt");
+
+        /** @var AgendaService $agendaService */
+        $agendaService = $this->getService(AGENDA_SERVICE);
+
+        if (!empty($_POST)):
+            $retorno = $agendaService->SalvaAgenda($_POST, $_FILES);
+            if ($retorno[SUCESSO]) {
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/Calendario/');
+            }
+        endif;
+
 
         $this->form = AgendaForm::Cadastrar($res);
     }

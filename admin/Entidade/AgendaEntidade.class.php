@@ -38,6 +38,9 @@ class AgendaEntidade extends AbstractEntidade
             DT_INICIO,
             DT_FIM,
             DS_TITULO,
+            CO_CATEGORIA_AGENDA,
+            CO_EVENTO,
+            CO_ENDERECO,
         ];
     }
 

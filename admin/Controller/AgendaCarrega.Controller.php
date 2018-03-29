@@ -23,6 +23,3 @@ foreach ($result2 as $agenda) {
 }
 
 echo json_encode($eventos);
-
-?>
-   

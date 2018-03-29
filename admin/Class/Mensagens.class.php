@@ -20,6 +20,7 @@ class Mensagens
             vaga somente mediante a PAGAMENTO da taxa de InscriÇÃo. Selecione a forma que pretende pagar.</b>";
     const OK_SALVO_INSCRICAO = "Cadastro Realizado com Sucesso! Aguardando a confirmaÇÃo do Pagamento.";
     const MSG_ERROS_CAMPOS = "O(s) Campo(s) <b>%s</b> , favor preencher corretamente.";
+    const MSG_SEM_ITEM_SELECIONADO = "Nenhum item selecionado";
 
     public $MSG01 = "Esse Perfil esta vinculado a um Usuário ou Funcionalidade.";
 

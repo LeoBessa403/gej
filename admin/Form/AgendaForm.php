@@ -15,7 +15,7 @@ class AgendaForm
         $formulario
             ->setId(CO_CATEGORIA_AGENDA)
             ->setType("select")
-            ->setLabel("Categoria Eventualidade")
+            ->setLabel("Categoria da Eventualidade")
             ->setClasses("ob")
             ->setAutocomplete(
                 CategoriaAgendaEntidade::TABELA, NO_CATEGORIA_AGENDA, CategoriaAgendaEntidade::CHAVE
@@ -33,8 +33,9 @@ class AgendaForm
         $formulario
             ->setId(CO_CATEGORIA_EVENTO)
             ->setClasses("ob")
+            ->setType("select")
             ->setAutocomplete(CategoriaEventoEntidade::TABELA, NO_CATEGORIA_EVENTO, CategoriaEventoEntidade::CHAVE)
-            ->setLabel("Categoria Evento")
+            ->setLabel("Categoria do Evento")
             ->CriaInpunt();
 
         $formulario
@@ -134,18 +135,18 @@ class AgendaForm
             ->CriaInpunt();
 
         $formulario
-            ->setId("co_foto_capa")
+            ->setId(CO_IMAGEM)
             ->setLabel("Capa do Evento")
             ->setType("singlefile")
+            ->setClasses("ob")
             ->setInfo("Imagem Principal do Evento")
             ->CriaInpunt();
 
         $formulario
             ->setId(DS_DESCRICAO)
-            ->setClasses("ob")
             ->setType("textarea")
             ->setClasses("ckeditor")
-            ->setLabel("Descrição do Evento")
+            ->setLabel("Descrição da Eventualidade")
             ->CriaInpunt();
 
         $formulario
