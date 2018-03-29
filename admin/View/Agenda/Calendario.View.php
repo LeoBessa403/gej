@@ -42,13 +42,12 @@
                             <h4>Categorias</h4>
                             <div id="event-categories">
                                 <?php
-                                /** @var CategoriaAgendaEntidade $catAgenda */
-                                foreach ($categoriaAgenda as $catAgenda) {
+                                foreach ($categoriaAgenda as $cor => $catAgenda) {
                                     ?>
-                                    <div class="event-category label-<?php echo $catAgenda->getDsCor(); ?>"
-                                         data-class="label-<?php echo $catAgenda->getDsCor(); ?>">
+                                    <div class="event-category label-<?php echo $cor; ?>"
+                                         data-class="label-<?php echo $cor; ?>">
                                         <i class="fa fa-move"></i>
-                                        <?php echo $catAgenda->getNoCategoriaAgenda(); ?>
+                                        <?php echo $catAgenda; ?>
                                     </div>
                                 <?php } ?>
                             </div>

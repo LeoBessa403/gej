@@ -12,8 +12,15 @@ if (isset($_GET['valida'])) {
 /////////////////// PARTICULARIDADES DO SISTEMA ////////////////////////
 //////////////////////////////////////////////////////////////////////// 
 
+        case 'cadastro_agenda':
+            $dt = $_GET[DT_INICIO];
+            $hr = $_GET['hr_inicio'];
+
+            echo 'CadastroAgenda/'.
+                Valida::GeraParametro('dt/' .$dt.'/hr/'.$hr);
+            break;
         case 'pesquisa_agenda':
-            if(!empty($_GET[CO_AGENDA])){
+            if (!empty($_GET[CO_AGENDA])) {
                 /** @var AgendaService $agendaService */
                 $agendaService = new AgendaService();
                 $coAgenda = $_GET[CO_AGENDA];

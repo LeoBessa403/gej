@@ -2,18 +2,39 @@
 
 class AgendaForm
 {
-    public static function Cadastrar()
+    public static function Cadastrar($res)
     {
         $id = "cadastroCompromisso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Salvar", 6);
+        if ($res):
+            $formulario->setValor($res);
+        endif;
 
+        $formulario
+            ->setId(CO_CATEGORIA_AGENDA)
+            ->setType("select")
+            ->setLabel("Categoria Eventualidade")
+            ->setClasses("ob")
+            ->setAutocomplete(
+                CategoriaAgendaEntidade::TABELA, NO_CATEGORIA_AGENDA, CategoriaAgendaEntidade::CHAVE
+            )
+            ->CriaInpunt();
+
+        $options = AgendaService::PesquisaEventosCombo();
         $formulario
             ->setId(CO_EVENTO)
             ->setType("select")
             ->setLabel("Evento")
-            ->setAutocomplete(EventoEntidade::TABELA, DS_DESCRICAO, EventoEntidade::CHAVE)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(CO_CATEGORIA_EVENTO)
+            ->setClasses("ob")
+            ->setAutocomplete(CategoriaEventoEntidade::TABELA, NO_CATEGORIA_EVENTO, CategoriaEventoEntidade::CHAVE)
+            ->setLabel("Categoria Evento")
             ->CriaInpunt();
 
         $formulario
@@ -32,16 +53,6 @@ class AgendaForm
             ->setInfo("Pode selecionar vários perfis.")
             ->setType("select")
             ->setOptions($labels)
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(CO_CATEGORIA_AGENDA)
-            ->setType("select")
-            ->setLabel("Categoria")
-            ->setClasses("ob")
-            ->setAutocomplete(
-                CategoriaAgendaEntidade::TABELA, NO_CATEGORIA_AGENDA, CategoriaAgendaEntidade::CHAVE
-            )
             ->CriaInpunt();
 
         $formulario
@@ -81,11 +92,71 @@ class AgendaForm
             ->CriaInpunt();
 
         $formulario
+            ->setId(DS_ENDERECO)
+            ->setIcon("clip-home-2")
+            ->setTamanhoInput(12)
+            ->setClasses("ob")
+            ->setLabel("Endereço")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_COMPLEMENTO)
+            ->setLabel("Complemento")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_BAIRRO)
+            ->setLabel("Bairro")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NO_CIDADE)
+            ->setLabel("Cidade")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_CEP)
+            ->setLabel("CEP")
+            ->setTamanhoInput(4)
+            ->setClasses("cep")
+            ->CriaInpunt();
+
+        $options = EnderecoService::montaComboEstadosDescricao();
+        $formulario
+            ->setTamanhoInput(8)
+            ->setId(SG_UF)
+            ->setType("select")
+            ->setLabel("Estado")
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId("co_foto_capa")
+            ->setLabel("Capa do Evento")
+            ->setType("singlefile")
+            ->setInfo("Imagem Principal do Evento")
+            ->CriaInpunt();
+
+        $formulario
             ->setId(DS_DESCRICAO)
             ->setClasses("ob")
             ->setType("textarea")
-            ->setLabel("Descrição da Eventualidade")
+            ->setClasses("ckeditor")
+            ->setLabel("Descrição do Evento")
             ->CriaInpunt();
+
+        $formulario
+            ->setId("fotos")
+            ->setLabel("Galeria de Fotos do Evento")
+            ->setType("file")
+            ->setLimite(30)
+            ->setClasses("multipla")
+            ->setInfo("No máximo de 30 Fotos")
+            ->CriaInpunt();
+
 
         $formulario
             ->setType("hidden")
@@ -93,7 +164,7 @@ class AgendaForm
             ->setValues(null)
             ->CriaInpunt();
 
-        return $formulario->finalizaFormAgenda();
+        return $formulario->finalizaForm();
     }
 }
 

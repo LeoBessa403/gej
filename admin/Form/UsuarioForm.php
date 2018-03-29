@@ -122,7 +122,7 @@ class UsuarioForm extends AbstractController
             ->setClasses("cep")
             ->CriaInpunt();
 
-        $options = Endereco::montaComboEstadosDescricao();
+        $options = EnderecoService::montaComboEstadosDescricao();
         $formulario
             ->setTamanhoInput(8)
             ->setId(SG_UF)

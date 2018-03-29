@@ -75,14 +75,9 @@ var Calendar = function () {
             timeFormat: 'H:mm',
             selectHelper: true,
             select: function (start) {
-                $modal.modal({
-                    backdrop: 'static'
-                });
-                Calendar.limpaForm();
-
                 var dia = start.getDate();
                 var mes = (start.getMonth() + 1);
-                var hora_inicio = '20:00';
+                var hora_inicio = '20-00';
                 var dt_inicio;
                 var hora = start.getHours();
                 var minuto = start.getMinutes();
@@ -101,13 +96,14 @@ var Calendar = function () {
                     minuto = '0' + minuto;
                 }
                 if (hora > 0) {
-                    hora_inicio = hora + ':' + minuto;
+                    hora_inicio = hora + '-' + minuto;
                 }
-                dt_inicio = dia + '/' + mes + '/' + start.getFullYear();
+                dt_inicio = dia + '-' + mes + '-' + start.getFullYear();
+                $.get(urlValida, {valida: 'cadastro_agenda', dt_inicio: dt_inicio, hr_inicio: hora_inicio},
+                    function (retorno) {
+                        window.location.href = retorno;
+                    });
 
-                $modal.find('#dt_inicio').val(dt_inicio);
-                $modal.find('#hr_inicio').val(hora_inicio);
-                $modal.find(".remove-evento").hide();
             },
             eventClick: function (calEvent) {
                 $modal.modal({

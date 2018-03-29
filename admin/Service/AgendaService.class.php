@@ -79,4 +79,21 @@ class  AgendaService extends AbstractService
         return $retorno;
     }
 
+    public static function PesquisaEventosCombo()
+    {
+        /** @var AgendaService $agendaService */
+        $agendaService = new AgendaService();
+        $comboEventos = [
+            '' => 'Selecione um Evento'
+        ];
+        $agendas = $agendaService->PesquisaTodos([
+            CO_CATEGORIA_AGENDA => CategoriaAgendaEnum::EVENTO
+        ]);
+        /** @var AgendaEntidade $agenda */
+        foreach ($agendas as $agenda) {
+            $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
+        }
+        return $comboEventos;
+    }
+
 }

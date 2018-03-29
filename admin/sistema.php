@@ -169,7 +169,7 @@ endif;
 //                "Tarefa" => array("fa fa-tasks","CadastroTarefa","ListarTarefa"),
                     "Evento" => array("fa fa-list", "CadastroEvento", "ListarEvento"),
 //                "Biblioteca" => array("fa fa-book","CadastroLivro","ListarLivro"),
-                    "Agenda" => array("fa fa-calendar", "Calendario"),
+                    "Agenda" => array("fa fa-calendar", "Calendario", "CadastroAgenda"),
                     "Usuario" => array("fa fa-group", "MeuPerfilUsuario", "CadastroUsuario", "ListarUsuario"),
                     "Inscricao" => array("clip-note", "ListarInscricao", "DetalhesInscricao", "SobreVcInscricao"),
                     "Perfil" => array("clip-stack-empty", "CadastroPerfil", "ListarPerfil"),

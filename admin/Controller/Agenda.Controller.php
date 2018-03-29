@@ -11,16 +11,23 @@ class Agenda extends AbstractController
     {
         /** @var AgendaService $agendaService */
         $agendaService = $this->getService(AGENDA_SERVICE);
-        /** @var CategoriaAgendaService $categoriaAgendaService */
-        $categoriaAgendaService = $this->getService(CATEGORIA_AGENDA_SERVICE);
-        /** @var PerfilService $perfilService */
-        $perfilService = $this->getService(PERFIL_SERVICE);
 
         if (!empty($_POST)):
             $agendaService->SalvaCompromissoAgenda($_POST);
         endif;
-        $this->categoriaAgenda = $categoriaAgendaService->PesquisaTodos();
-        echo AgendaForm::Cadastrar($perfilService);
+        $categorias = CategoriaAgendaEnum::$descricao;
+        $cores = CategoriaAgendaEnum::$cor;
+        foreach ($categorias as $index => $categoria){
+            $this->categoriaAgenda[$cores[$index]] =  $categoria;
+        }
+    }
+
+    public function CadastroAgenda()
+    {
+        $res["hr_inicio"] = UrlAmigavel::PegaParametro("hr");
+        $res[DT_INICIO] = UrlAmigavel::PegaParametro("dt");
+
+        $this->form = AgendaForm::Cadastrar($res);
     }
 
 }
