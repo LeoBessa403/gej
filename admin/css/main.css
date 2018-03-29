@@ -3999,6 +3999,10 @@ ul#countdown li p.timeRefDays, ul#countdown li p.timeRefHours, ul#countdown li p
 	background-color: #3D9400 !important;
 	border-color: #3D9400 !important;
 }
+.label-black, .badge-black {
+	background-color: #2F2E35 !important;
+	border-color: #3F3F3F !important;
+}
 /* ---------------------------------------------------------------------- */
 /*	Lock Screen
 /* ---------------------------------------------------------------------- */

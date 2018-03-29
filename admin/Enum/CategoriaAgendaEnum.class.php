@@ -27,6 +27,6 @@ class CategoriaAgendaEnum extends AbstractEnum
         CategoriaAgendaEnum::ENCONTRO => 'purple',
         CategoriaAgendaEnum::FORMACAO => 'orange',
         CategoriaAgendaEnum::EVENTO => 'beige',
-        CategoriaAgendaEnum::INTERCESSAO => 'yellow',
+        CategoriaAgendaEnum::INTERCESSAO => 'black',
     ];
 }

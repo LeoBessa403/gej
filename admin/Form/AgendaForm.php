@@ -165,7 +165,8 @@ class AgendaForm
             ->setValues(null)
             ->CriaInpunt();
 
-        return $formulario->finalizaForm();
+
+        return $formulario->finalizaForm('Agenda/Calendario');
     }
 }
 
