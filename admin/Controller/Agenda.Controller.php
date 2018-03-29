@@ -24,13 +24,12 @@ class Agenda extends AbstractController
         /** @var AgendaService $agendaService */
         $agendaService = $this->getService(AGENDA_SERVICE);
 
-        if (!empty($_POST)):
+        if (!empty($_POST['cadastroCompromisso'])):
             $retorno = $agendaService->SalvaAgenda($_POST, $_FILES);
             if ($retorno[SUCESSO]) {
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/Calendario/');
             }
         endif;
-
 
         $this->form = AgendaForm::Cadastrar($res);
     }
