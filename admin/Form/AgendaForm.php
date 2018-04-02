@@ -158,12 +158,19 @@ class AgendaForm
             ->setInfo("No máximo de 30 Fotos")
             ->CriaInpunt();
 
+        if (!empty($res[CO_AGENDA])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_AGENDA)
+                ->setValues($res[CO_AGENDA])
+                ->CriaInpunt();
 
         $formulario
-            ->setType("hidden")
-            ->setId(CO_AGENDA)
-            ->setValues(null)
-            ->CriaInpunt();
+                ->setType("hidden")
+                ->setId(CO_ENDERECO)
+                ->setValues($res[CO_ENDERECO])
+                ->CriaInpunt();
+        endif;
 
 
         return $formulario->finalizaForm('Agenda/Calendario');

@@ -14,7 +14,7 @@ class  AgendaService extends AbstractService
         $this->ObjetoModel = New AgendaModel();
     }
 
-    public function SalvaAgenda($result,$files)
+    public function SalvaAgenda($result, $files)
     {
         $session = new Session();
         $agendaValidador = new AgendaValidador();
@@ -38,8 +38,6 @@ class  AgendaService extends AbstractService
             $endereco = $enderecoService->getDados($result, EnderecoEntidade::ENTIDADE);
             $endereco[SG_UF] = $result[SG_UF][0];
 
-            $dados[CO_ENDERECO] = $enderecoService->Salva($endereco);
-
             $dados[DS_DESCRICAO] = $result[DS_DESCRICAO];
             $dados[CO_USUARIO] = $user[md5(CO_USUARIO)];
             $dados[DT_INICIO] = Valida::DataDB($result[DT_INICIO] . " " . $result['hr_inicio'] . ":00");
@@ -51,10 +49,13 @@ class  AgendaService extends AbstractService
             $this->PDO->beginTransaction();
             if (!empty($result[CO_AGENDA])):
                 $coAgenda = $result[CO_AGENDA];
+                $coEndereco = $result[CO_ENDERECO];
                 $perfilAgendaService->DeletaQuando([CO_AGENDA => $coAgenda]);
+                $dados[CO_ENDERECO] = $enderecoService->Salva($endereco, $coEndereco);
                 $this->Salva($dados, $coAgenda);
                 $session->setSession(ATUALIZADO, "OK");
             else:
+                $dados[CO_ENDERECO] = $enderecoService->Salva($endereco);
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $dados[ST_DIA_TODO] = SimNaoEnum::NAO;
                 $coAgenda = $this->Salva($dados);

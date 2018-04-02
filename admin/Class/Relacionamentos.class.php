@@ -234,6 +234,11 @@ class Relacionamentos
                     ('Entidade') => 'PessoaEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_AGENDA,
+                    ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (UsuarioPerfilEntidade::TABELA) => Array(
                 (CO_USUARIO) => Array(
@@ -302,6 +307,11 @@ class Relacionamentos
                 (CO_EVENTO) => Array(
                     ('Campo') => CO_EVENTO,
                     ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_ENDERECO) => Array(
+                    ('Campo') => CO_ENDERECO,
+                    ('Entidade') => 'EnderecoEntidade',
                     ('Tipo') => '1',
                 ),
                 (CO_PERFIL_AGENDA) => Array(

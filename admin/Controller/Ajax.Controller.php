@@ -15,49 +15,15 @@ if (isset($_GET['valida'])) {
         case 'cadastro_agenda':
             $dt = $_GET[DT_INICIO];
             $hr = $_GET['hr_inicio'];
-
             echo 'CadastroAgenda/'.
                 Valida::GeraParametro('dt/' .$dt.'/hr/'.$hr);
             break;
+
         case 'pesquisa_agenda':
-            if (!empty($_GET[CO_AGENDA])) {
-                /** @var AgendaService $agendaService */
-                $agendaService = new AgendaService();
-                $coAgenda = $_GET[CO_AGENDA];
-
-                /** @var AgendaEntidade $agenda */
-                $agenda = $agendaService->PesquisaUmRegistro($coAgenda);
-                $perfis = [];
-                /** @var PerfilAgendaEntidade $perfilAgenda */
-                foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
-                    $perfis[CO_PERFIL][] = $perfilAgenda->getCoPerfil()->getCoPerfil();
-                    $perfis[NO_PERFIL][] = $perfilAgenda->getCoPerfil()->getNoPerfil();
-                }
-                $agendaEdicao['perfis'] = $perfis;
-                $dt_ini = explode(" ", $agenda->getDtInicio());
-                $agendaEdicao[DT_INICIO] = implode("/", array_reverse(explode("-", $dt_ini[0])));
-                $dt_ini = explode(":", $dt_ini[1]);
-                $agendaEdicao['hr_inicio'] = $dt_ini[0] . ":" . $dt_ini[1];
-
-                if ($agenda->getDtFim()):
-                    $dt_fim = explode(" ", $agenda->getDtFim());
-                    $agendaEdicao[DT_FIM] = implode("/", array_reverse(explode("-", $dt_fim[0])));
-                    $dt_fim = explode(":", $dt_fim[1]);
-                    $agendaEdicao['hr_fim'] = $dt_fim[0] . ":" . $dt_fim[1];
-                else:
-                    $agendaEdicao[DT_FIM] = null;
-                    $agendaEdicao['hr_fim'] = null;
-                endif;
-                $agendaEdicao[DS_TITULO] = $agenda->getDsTitulo();
-                $agendaEdicao[CO_EVENTO] = (!empty($agenda->getCoEvento())) ? $agenda->getCoEvento()->getCoEvento() : null;
-                $agendaEdicao[CO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getCoCategoriaAgenda();
-                $agendaEdicao[NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
-                $agendaEdicao[NO_EVENTO] = (!empty($agenda->getCoEvento())) ? $agenda->getCoEvento()->getDsDescricao() :
-                    'Selecione um evento';
-                $agendaEdicao[DS_DESCRICAO] = $agenda->getDsDescricao();
-                $agendaEdicao[CO_AGENDA] = $agenda->getCoAgenda();
-
-                echo json_encode($agendaEdicao);
+            if (!empty($_GET['co_agenda'])) {
+                $coAgenda = $_GET['co_agenda'];
+                echo 'CadastroAgenda/'.
+                    Valida::GeraParametro('co_agenda/' .$coAgenda);
             }
             break;
 

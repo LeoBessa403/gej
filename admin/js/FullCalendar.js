@@ -106,60 +106,16 @@ var Calendar = function () {
 
             },
             eventClick: function (calEvent) {
-                $modal.modal({
-                    backdrop: 'static'
-                });
-                Calendar.limpaForm();
                 if (calEvent.id) {
-                    $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id}, function (retorno) {
-                        var agenda = jQuery.parseJSON(retorno);
-                        console.log(agenda.perfis.co_perfil[1]);
-
-                        $modal.find('#dt_inicio').val(agenda.dt_inicio);
-                        $modal.find('#hr_inicio').val(agenda.hr_inicio);
-                        $modal.find('#dt_fim').val(agenda.dt_fim);
-                        $modal.find('#hr_fim').val(agenda.hr_fim);
-
-                        $modal.find('#ds_titulo').val(agenda.ds_titulo);
-                        $modal.find('#co_agenda').val(agenda.co_agenda);
-                        $modal.find('#ds_descricao').val(agenda.ds_descricao);
-
-                        $modal.find("#co_categoria_agenda").val(agenda.co_categoria_agenda).attr('selected', true);
-                        $modal.find('.select2-chosen:eq(1)').text(agenda.no_categoria_agenda);
-
-                        $modal.find("#co_evento").val(agenda.co_evento).attr('selected', true);
-                        $modal.find('.select2-chosen:eq(0)').text(agenda.no_evento);
-
-                        for (i = 0; i < agenda.perfis.co_perfil.length; i++) {
-                            $modal.find("#co_perfil option").each(function () {
-                                var valor = $(this).val();
-                                if (valor == agenda.perfis.co_perfil[i]) {
-                                    $(this).attr('selected', true);
-                                    $modal.find('#s2id_co_perfil ul').prepend('<li class="select2-search-choice"><div>' + agenda.perfis.no_perfil[i] + '</div><a href="#" id="ag-' + agenda.perfis.co_perfil[i] + '" onclick="return false;" class="select2-search-choice-close" tabindex="-1"></a></li>');
-                                }
-                            });
-                        }
-
-                        $modal.find(".select2-search-choice-close")
-                            .on("click dblclick", function () {
-                                $(this).parent(".select2-search-choice").hide();
-                                var id = $(this).attr("id").replace("ag-", "");
-                                $modal.find("#co_perfil option").each(function () {
-                                    var valor = $(this).val();
-                                    if (valor == id) {
-                                        $(this).attr('selected', false);
-                                    }
-                                });
-                            });
-
-                        $modal.find(".remove-evento").show();
-
-                    });
+                    $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id},
+                        function (retorno) {
+                            window.location.href = retorno;
+                        });
                 } else {
                     var time = calEvent.start;
                     var dia = time.getDate();
                     var mes = (time.getMonth() + 1);
-                    var hora_inicio = '20:00';
+                    var hora_inicio = '20-00';
                     var dt_inicio;
                     if (dia < 10) {
                         dia = '0' + dia;
@@ -167,11 +123,12 @@ var Calendar = function () {
                     if (mes < 10) {
                         mes = '0' + mes;
                     }
-                    dt_inicio = dia + '/' + mes + '/' + time.getFullYear();
+                    dt_inicio = dia + '-' + mes + '-' + time.getFullYear();
 
-                    $modal.find('#dt_inicio').val(dt_inicio);
-                    $modal.find('#hr_inicio').val(hora_inicio);
-                    $modal.find(".remove-evento").hide();
+                    $.get(urlValida, {valida: 'cadastro_agenda', dt_inicio: dt_inicio, hr_inicio: hora_inicio},
+                        function (retorno) {
+                            window.location.href = retorno;
+                        });
                 }
             }
         });

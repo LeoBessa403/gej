@@ -19,6 +19,7 @@ class EnderecoEntidade extends AbstractEntidade
 	private $no_cidade;
 	private $sg_uf;
 	private $co_pessoa;
+	private $co_agenda;
 
 	/**
      * @return array
@@ -178,6 +179,22 @@ class EnderecoEntidade extends AbstractEntidade
 	public function setCoPessoa($co_pessoa)
     {
         return $this->co_pessoa = $co_pessoa;
+    }
+
+    /**
+     * @return AgendaEntidade mixed
+     */
+    public function getCoAgenda()
+    {
+        return $this->co_agenda;
+    }
+
+    /**
+     * @param mixed $co_agenda
+     */
+    public function setCoAgenda($co_agenda)
+    {
+        $this->co_agenda = $co_agenda;
     }
 
 }

@@ -5,7 +5,6 @@ include_once "../../library/Config.inc.php";
 /** @var AgendaService $agendaService */
 $agendaService = new AgendaService();
 $agendas = $agendaService->PesquisaTodos();
-
 $result2 = FuncoesSistema::ValidaPerfilAgenda($agendas);
 
 $eventos = array();
