@@ -101,7 +101,7 @@ var Calendar = function () {
                 dt_inicio = dia + '-' + mes + '-' + start.getFullYear();
                 $.get(urlValida, {valida: 'cadastro_agenda', dt_inicio: dt_inicio, hr_inicio: hora_inicio},
                     function (retorno) {
-                        window.location.href = retorno;
+                        window.location.href = home + retorno;
                     });
 
             },
@@ -109,7 +109,7 @@ var Calendar = function () {
                 if (calEvent.id) {
                     $.get(urlValida, {valida: 'pesquisa_agenda', co_agenda: calEvent.id},
                         function (retorno) {
-                            window.location.href = retorno;
+                            window.location.href = home + retorno;
                         });
                 } else {
                     var time = calEvent.start;
@@ -127,7 +127,7 @@ var Calendar = function () {
 
                     $.get(urlValida, {valida: 'cadastro_agenda', dt_inicio: dt_inicio, hr_inicio: hora_inicio},
                         function (retorno) {
-                            window.location.href = retorno;
+                            window.location.href = home + retorno;
                         });
                 }
             }
