@@ -26,7 +26,8 @@ class  InscricaoService extends AbstractService
         /** @var InscricaoValidador $validador */
         $validador = $inscricaoValidador->validarInscricao($dados, $foto);
         if ($validador[SUCESSO]) {
-            $this->PDO = $this->getPDO();
+            /** @var PDO $PDO */
+            $PDO = $this->getPDO();
 
             /** @var EnderecoService $enderecoService */
             $enderecoService = $this->getService(ENDERECO_SERVICE);
@@ -101,7 +102,7 @@ class  InscricaoService extends AbstractService
                     $imagem[DS_CAMINHO] = $up->getNameImage();
                 endif;
 
-                $this->PDO->beginTransaction();
+                $PDO->beginTransaction();
                 if (!$coInscricao) {
                     $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
                     $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
@@ -132,11 +133,11 @@ class  InscricaoService extends AbstractService
                 if ($retorno[CO_INSCRICAO]) {
                     $retorno[MSG] = Mensagens::OK_SALVO;
                     $retorno[SUCESSO] = true;
-                    $this->PDO->commit();
+                    $PDO->commit();
                 } else {
                     $retorno[MSG] = 'Não foi possível cadastrar a Inscrição';
                     $retorno[SUCESSO] = false;
-                    $this->PDO->rollBack();
+                    $PDO->rollBack();
                 }
             endif;
         } else {
@@ -146,7 +147,7 @@ class  InscricaoService extends AbstractService
         return $retorno;
     }
 
-    public function montaDadosInscricao($inscricao, $edicao = false)
+    public function montaDadosInscricao(InscricaoEntidade $inscricao, $edicao = false)
     {
         if (!$edicao) {
             $res = $inscricao;

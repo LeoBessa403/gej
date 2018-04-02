@@ -34,9 +34,9 @@ class  UsuarioModel extends AbstractModel
 
     public function Deleta($coUsuario)
     {
-        /** @var PDO PDO */
-        $this->PDO = $this->getPDO();
-        $this->PDO->beginTransaction();
+        /** @var PDO $PDO */
+        $PDO = $this->getPDO();
+        $PDO->beginTransaction();
 
         /** @var UsuarioEntidade $usuario */
         $usuario = $this->PesquisaUmRegistro($coUsuario);
@@ -58,9 +58,9 @@ class  UsuarioModel extends AbstractModel
         $ImagemModel = new ImagemModel();
         $usuario = $ImagemModel->Deleta($usuario->getCoImagem()->getCoImagem());
         if($usuario){
-            $this->PDO->commit();
+            $PDO->commit();
         }else{
-            $this->PDO->rollBack();
+            $PDO->rollBack();
         }
         return $usuario;
     }
