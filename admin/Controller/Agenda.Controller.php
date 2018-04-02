@@ -40,16 +40,12 @@ class Agenda extends AbstractController
                 $perfis[] = $perfilAgenda->getCoPerfil()->getCoPerfil();
             }
             $agendaEdicao[CO_PERFIL] = $perfis;
-            $dt_ini = explode(" ", $agenda->getDtInicio());
-            $agendaEdicao[DT_INICIO] = implode("/", array_reverse(explode("-", $dt_ini[0])));
-            $dt_ini = explode(":", $dt_ini[1]);
-            $agendaEdicao['hr_inicio'] = $dt_ini[0] . ":" . $dt_ini[1];
+            $agendaEdicao[DT_INICIO] = Valida::DataShow($agenda->getDtInicio());
+            $agendaEdicao['hr_inicio'] =  Valida::DataShow($agenda->getDtInicio(),'H:i');
 
             if ($agenda->getDtFim()):
-                $dt_fim = explode(" ", $agenda->getDtFim());
-                $agendaEdicao[DT_FIM] = implode("/", array_reverse(explode("-", $dt_fim[0])));
-                $dt_fim = explode(":", $dt_fim[1]);
-                $agendaEdicao['hr_fim'] = $dt_fim[0] . ":" . $dt_fim[1];
+                $agendaEdicao[DT_FIM] = Valida::DataShow($agenda->getDtFim());
+                $agendaEdicao['hr_fim'] = Valida::DataShow($agenda->getDtFim(),'H:i');
             else:
                 $agendaEdicao[DT_FIM] = null;
                 $agendaEdicao['hr_fim'] = null;
@@ -62,12 +58,9 @@ class Agenda extends AbstractController
             $agendaEdicao[CO_AGENDA] = $agenda->getCoAgenda();
             $agendaEdicao[CO_ENDERECO] = $agenda->getCoEndereco()->getCoEndereco();
 
-            $agendaEdicao[DS_ENDERECO] = $agenda->getCoEndereco()->getDsEndereco();
-            $agendaEdicao[DS_COMPLEMENTO] = $agenda->getCoEndereco()->getDsComplemento();
-            $agendaEdicao[DS_BAIRRO] = $agenda->getCoEndereco()->getDsBairro();
-            $agendaEdicao[NO_CIDADE] = $agenda->getCoEndereco()->getNoCidade();
-            $agendaEdicao[NU_CEP] = $agenda->getCoEndereco()->getNuCep();
-            $agendaEdicao[SG_UF] = $agenda->getCoEndereco()->getSgUf();
+            /** @var EnderecoService $enderecoService */
+            $enderecoService = $this->getService(ENDERECO_SERVICE);
+            $agendaEdicao = $enderecoService->getArrayDadosEndereco($agenda->getCoEndereco(), $agendaEdicao);
 
             $res = $agendaEdicao;
         }

@@ -47,4 +47,21 @@ class  EnderecoService extends AbstractService
         return $ComboEstados;
     }
 
+    /**
+     * @param EnderecoEntidade $endereco
+     * @param array $dados
+     * @return array
+     */
+    public function getArrayDadosEndereco(EnderecoEntidade $endereco, array $dados)
+    {
+        $dados[DS_ENDERECO] = $endereco->getDsEndereco();
+        $dados[DS_COMPLEMENTO] = $endereco->getDsComplemento();
+        $dados[DS_BAIRRO] = $endereco->getDsBairro();
+        $dados[NO_CIDADE] = $endereco->getNoCidade();
+        $dados[NU_CEP] = $endereco->getNuCep();
+        $dados[SG_UF] = $endereco->getSgUf();
+
+        return $dados;
+    }
+
 }

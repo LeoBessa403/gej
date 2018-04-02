@@ -56,12 +56,9 @@ class Usuario extends AbstractController
             $res[NU_TEL1] = $usuario->getCoPessoa()->getCoContato()->getNuTel1();
             $res[NU_TEL2] = $usuario->getCoPessoa()->getCoContato()->getNuTel2();
 
-            $res[DS_ENDERECO] = $usuario->getCoPessoa()->getCoEndereco()->getDsEndereco();
-            $res[DS_COMPLEMENTO] = $usuario->getCoPessoa()->getCoEndereco()->getDsComplemento();
-            $res[DS_BAIRRO] = $usuario->getCoPessoa()->getCoEndereco()->getDsBairro();
-            $res[NO_CIDADE] = $usuario->getCoPessoa()->getCoEndereco()->getNoCidade();
-            $res[NU_CEP] = $usuario->getCoPessoa()->getCoEndereco()->getNuCep();
-            $res[SG_UF] = $usuario->getCoPessoa()->getCoEndereco()->getSgUf();
+            /** @var EnderecoService $enderecoService */
+            $enderecoService = $this->getService(ENDERECO_SERVICE);
+            $res = $enderecoService->getArrayDadosEndereco($usuario->getCoPessoa()->getCoEndereco(), $res);
         endif;
 
         $this->form = UsuarioForm::Cadastrar($res, false, 6, $perfilService);

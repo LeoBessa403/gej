@@ -181,12 +181,11 @@ class  InscricaoService extends AbstractService
             $res[DS_PASTORAL] = $inscricao->getDsPastoral();
             $res["ds_pastoral_ativo"] = ($inscricao->getDsPastoral()) ? 'checked' : '';
 
-            $res[DS_ENDERECO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsEndereco();
-            $res[DS_COMPLEMENTO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsComplemento();
-            $res[DS_BAIRRO] = $inscricao->getCoPessoa()->getCoEndereco()->getDsBairro();
-            $res[NO_CIDADE] = $inscricao->getCoPessoa()->getCoEndereco()->getNoCidade();
-            $res[NU_CEP] = $inscricao->getCoPessoa()->getCoEndereco()->getNuCep();
-            $res[SG_UF] = $inscricao->getCoPessoa()->getCoEndereco()->getSgUf();
+            /** @var EnderecoService $enderecoService */
+            $enderecoService = $this->getService(ENDERECO_SERVICE);
+            $res = $enderecoService->getArrayDadosEndereco($inscricao->getCoPessoa()->getCoEndereco(), $res);
+
+
             $res[DS_DESCRICAO] = $inscricao->getDsDescricao();
             $res[DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();
             $res[DS_MEDICACAO] = $inscricao->getDsMedicacao();
