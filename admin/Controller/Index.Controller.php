@@ -158,7 +158,7 @@ class Index extends AbstractController
                 // Variável para validação de Emails Enviados com Sucesso.
                 $retorno = $email->Enviar();
                 if($retorno == true){
-                    $this->msg = 'Sua senha foi enviada para seu email: '.$pessoa->getCoContato()->getDsEmail().".";
+                    $this->msg = 'Sua senha foi enviada para seu email: '.$pessoa->getCoContato()->getDsEmail();
                     $this->class = 1;
                 }
             }else{
