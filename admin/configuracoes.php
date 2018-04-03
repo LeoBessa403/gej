@@ -3,8 +3,8 @@
 function servidor_inicial()
 {
 
-    $servidor = "local";
-//    $servidor = "web";
+//    $servidor = "local";
+    $servidor = "web";
 
     if ($servidor == "web") {
         $config = array('HOME' => 'http://gejdombosco.com.br/', 'HOST' => 'localhost', 'USER' => 'gejdo247_gej', 'PASS' => 'Admin101*', 'DBSA' => 'gejdo247_gej');
@@ -54,10 +54,10 @@ function servidor_inicial()
     // ******* CONFIGURAÇÕES DE EMAIL ********** //
     //////////////////////////////////////////////
 
-    define('HOST_EMAIL', 'mail.gejdombosco.net');
+    define('HOST_EMAIL', 'mail.gejdombosco.com.br');
     define('PORTA_EMAIL', 587);
-    define('USER_EMAIL', 'contato@gejdombosco.net');
-    define('PASS_EMAIL', 'contato123*');
+    define('USER_EMAIL', 'contato@gejdombosco.com.br');
+    define('PASS_EMAIL', 'Admin101**');
 
     //////////////////////////////////////////////
     // *********** GOOGLE ANALITCS  *********** //

@@ -58,9 +58,9 @@
         <p>
             Por Favor! Entre com o CPF para recuperar sua senha.
         </p>
-        <form class="form-login" action="../RecuperarSenha" method="post">
+        <form class="form-login" action="../Index/RecuperarSenha" method="post" id="RecuperarSenha" name="RecuperarSenha">
             <?php
-            if (!empty($visivel)):
+            if (!empty($msg)):
                 Valida::Mensagem($msg, $class);
             endif;
             ?>
@@ -70,7 +70,12 @@
 								<input type="text" class="form-control cpf ob" name="nu_cpf" id="nu_cpf" placeholder="CPF">
 								<i class="fa fa-user"></i> </span>
                 </div>
-                <div class="form-actions">
+                <div class="new-account" style="float: left;">
+                    <a href="<?= PASTAADMIN; ?>Index/Acessar" class="register">
+                        Voltar ao Login
+                    </a>
+                </div>
+                <div class="form-actions" style="float: right;">
                     <button type="submit" class="btn btn-success pull-right">
                         Recuperar <i class="fa fa-arrow-circle-right"></i>
                     </button>
