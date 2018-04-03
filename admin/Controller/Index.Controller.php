@@ -2,9 +2,6 @@
 
 class Index extends AbstractController
 {
-    public $msg;
-    public $class;
-
     function Index()
     {
         /** @var PagamentoService $pagamentoService */
@@ -134,7 +131,11 @@ class Index extends AbstractController
 
     function RecuperarSenha()
     {
-        if (!empty($_POST[NU_CPF])):
+        $visivel = false;
+        $msg = '';
+        $class = '';
+        if (!empty($_POST)):
+            $visivel = true;
             $indexValidador = new IndexValidador();
             /** @var InscricaoValidador $validador */
             $validador = $indexValidador->validarCPF($_POST);
@@ -164,25 +165,28 @@ class Index extends AbstractController
                         // Variável para validação de Emails Enviados com Sucesso.
                         $retorno = $email->Enviar();
                         if ($retorno == true) {
-                            $this->msg = 'Sua senha foi enviada para seu email: ' . $pessoa->getCoContato()->getDsEmail();
-                            $this->class = 1;
+                            $msg = 'Sua senha foi enviada para seu email: ' . $pessoa->getCoContato()->getDsEmail();
+                            $class = 1;
                         }
                     } else {
-                        $this->msg = 'Usuário não cadastrado.';
-                        $this->class = 3;
+                        $msg = 'Usuário não cadastrado.';
+                        $class = 3;
                     }
                 } else {
-                    $this->msg = 'Usuário não cadastrado. 2';
-                    $this->class = 2;
+                    $msg = 'Pessoa não cadastrada.';
+                    $class = 2;
                 }
             } else {
-                $this->msg = $validador[MSG];
-                $this->class = 3;
+                $msg = $validador[MSG];
+                $class = 3;
             }
         else:
-            $this->msg = 'O Campo CPF é obrigatório';
-            $this->class = 3;
+            $msg = 'O Campo CPF é obrigatório';
+            $class = 3;
         endif;
+        $this->msg = $msg;
+        $this->class = $class;
+        $this->visivel = $visivel;
     }
 
     public function Acessar()
