@@ -161,6 +161,9 @@ class Index extends AbstractController
                     $this->msg = 'Sua senha foi enviada para seu email: '.$pessoa->getCoContato()->getDsEmail().".";
                     $this->class = 1;
                 }
+            }else{
+                $this->msg = 'Usuário não cadastrado.';
+                $this->class = 3;
             }
         endif;
     }
