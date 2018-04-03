@@ -54,11 +54,11 @@
     </div>
     <!-- start: LOGIN BOX -->
     <div class="box-login" style="padding: 10px 20px;">
-        <h3>Entre com sua Conta</h3>
+        <h3>Recuperar Senha</h3>
         <p>
-            Por Favor! Entre com login e senha.
+            Por Favor! Entre com o CPF para recuperar sua senha.
         </p>
-        <form class="form-login" action="../Logar" method="post">
+        <form class="form-login" action="../RecuperarSenha" method="post">
             <?php
             if (!empty($visivel)):
                 Valida::Mensagem($msg, $class);
@@ -67,33 +67,13 @@
             <fieldset>
                 <div class="form-group">
 							<span class="input-icon">
-								<input type="text" class="form-control cpf" name="nu_cpf" id="nu_cpf" placeholder="CPF">
+								<input type="text" class="form-control cpf ob" name="nu_cpf" id="nu_cpf" placeholder="CPF">
 								<i class="fa fa-user"></i> </span>
                 </div>
-                <div class="form-group form-actions">
-							<span class="input-icon">
-								<input type="password" class="form-control password" name="ds_senha" id="ds_senha"
-                                       placeholder="Senha">
-								<i class="fa fa-lock"></i>
-                </div>
                 <div class="form-actions">
-                    <input type="hidden" name="logar_sistema" id="logar_sistema" value="logar"/>
-                    <label for="remember" class="checkbox-inline">
-                        <input type="checkbox" class="grey remember" id="remember" name="remember">
-                        Lembrar de Mim
-                    </label>
                     <button type="submit" class="btn btn-success pull-right">
-                        LOGAR <i class="fa fa-arrow-circle-right"></i>
+                        Recuperar <i class="fa fa-arrow-circle-right"></i>
                     </button>
-                </div>
-                <div class="new-account">
-                    Você não tem Conta?
-                    <a href="<?= PASTAADMIN; ?>Index/Registrar" class="register">
-                        Criar Conta
-                    </a>
-                    <a href="<?= PASTAADMIN; ?>Index/RecuperarSenha" class="register" style="float: right;">
-                        Recuperar Senha
-                    </a>
                 </div>
             </fieldset>
         </form>

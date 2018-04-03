@@ -129,6 +129,16 @@ class Index extends AbstractController
         $this->form = UsuarioForm::Cadastrar(false, true, 12);
     }
 
+    function RecuperarSenha()
+    {
+        $id = "CadastroUsuario";
+        if (!empty($_POST[$id])):
+            /** @var UsuarioService $usuarioService */
+            $usuarioService = static::getService(USUARIO_SERVICE);
+            $usuarioService->salvaUsuario($_POST, $_FILES, true);
+        endif;
+    }
+
     public function Acessar()
     {
         $acesso = UrlAmigavel::PegaParametro('acesso');

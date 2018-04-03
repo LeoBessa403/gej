@@ -156,8 +156,8 @@ class  UsuarioService extends AbstractService
 
                 $session->setSession(ATUALIZADO, "OK");
             else:
-                $pessoa[DT_CADASTRO] = Valida::DataAtualBanco();
-                $usu[DT_CADASTRO] = Valida::DataAtualBanco();
+                $pessoa[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $usu[DT_CADASTRO] = Valida::DataHoraAtualBanco();
 
                 $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
                 $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
