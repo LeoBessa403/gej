@@ -135,37 +135,53 @@ class Index extends AbstractController
     function RecuperarSenha()
     {
         if (!empty($_POST[NU_CPF])):
-            /** @var PessoaService $pessoaService */
-            $pessoaService = static::getService(PESSOA_SERVICE);
-            /** @var PessoaEntidade $pessoa */
-            $pessoa = $pessoaService->PesquisaUmQuando([
-                NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
-            ]);
-            if (!empty($pessoa->getCoUsuario())) {
-                $email = new Email();
+            $indexValidador = new IndexValidador();
+            /** @var InscricaoValidador $validador */
+            $validador = $indexValidador->validarCPF($_POST);
+            if ($validador[SUCESSO]) {
+                /** @var PessoaService $pessoaService */
+                $pessoaService = static::getService(PESSOA_SERVICE);
+                /** @var PessoaEntidade $pessoa */
+                $pessoa = $pessoaService->PesquisaUmQuando([
+                    NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
+                ]);
+                if (!empty($pessoa)) {
+                    if (!empty($pessoa->getCoUsuario())) {
+                        $email = new Email();
 
-                // Índice = Nome, e Valor = Email.
-                $emails = array(
-                    $pessoa->getNoPessoa() => $pessoa->getCoContato()->getDsEmail()
-                );
-                $Mensagem = "<h4>Oi " . $pessoa->getNoPessoa() . ".</h4>";
-                $Mensagem .= "<p>Sua senha de acesso ao sistema do Gej é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
-                    ".</b></p>";
+                        // Índice = Nome, e Valor = Email.
+                        $emails = array(
+                            $pessoa->getNoPessoa() => $pessoa->getCoContato()->getDsEmail()
+                        );
+                        $Mensagem = "<h4>Oi " . $pessoa->getNoPessoa() . ".</h4>";
+                        $Mensagem .= "<p>Sua senha de acesso ao sistema do Gej é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
+                            ".</b></p>";
 
-                $email->setEmailDestinatario($emails)
-                    ->setTitulo("[WEB GEJ] - Recuperação de senha")
-                    ->setMensagem($Mensagem);
+                        $email->setEmailDestinatario($emails)
+                            ->setTitulo("[WEB GEJ] - Recuperação de senha")
+                            ->setMensagem($Mensagem);
 
-                // Variável para validação de Emails Enviados com Sucesso.
-                $retorno = $email->Enviar();
-                if ($retorno == true) {
-                    $this->msg = 'Sua senha foi enviada para seu email: ' . $pessoa->getCoContato()->getDsEmail();
-                    $this->class = 1;
+                        // Variável para validação de Emails Enviados com Sucesso.
+                        $retorno = $email->Enviar();
+                        if ($retorno == true) {
+                            $this->msg = 'Sua senha foi enviada para seu email: ' . $pessoa->getCoContato()->getDsEmail();
+                            $this->class = 1;
+                        }
+                    } else {
+                        $this->msg = 'Usuário não cadastrado.';
+                        $this->class = 3;
+                    }
+                } else {
+                    $this->msg = 'Usuário não cadastrado. 2';
+                    $this->class = 2;
                 }
             } else {
-                $this->msg = 'Usuário não cadastrado.';
+                $this->msg = $validador[MSG];
                 $this->class = 3;
             }
+        else:
+            $this->msg = 'O Campo CPF é obrigatório';
+            $this->class = 3;
         endif;
     }
 

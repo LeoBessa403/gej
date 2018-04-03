@@ -60,8 +60,8 @@
         </p>
         <form class="form-login" action="../Index/RecuperarSenha" method="post" id="RecuperarSenha" name="RecuperarSenha">
             <?php
-            if (!empty($msg)):
-                Valida::Mensagem($msg, $class);
+            if (!empty($this->msg)):
+                Valida::Mensagem($this->msg, $this->class);
             endif;
             ?>
             <fieldset>
