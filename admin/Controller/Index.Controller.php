@@ -170,7 +170,7 @@ class Index extends AbstractController
                         }
                     } else {
                         $msg = 'Usuário não cadastrado.';
-                        $class = 3;
+                        $class = 4;
                     }
                 } else {
                     $msg = 'Pessoa não cadastrada.';
