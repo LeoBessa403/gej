@@ -139,17 +139,18 @@ class Index extends AbstractController
             $pessoaService = static::getService(PESSOA_SERVICE);
             /** @var PessoaEntidade $pessoa */
             $pessoa = $pessoaService->PesquisaUmQuando([
-               NU_CPF =>  Valida::RetiraMascara($_POST[NU_CPF])
+                NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
             ]);
-            if(!empty($pessoa->getCoUsuario())){
+            if (!empty($pessoa->getCoUsuario())) {
                 $email = new Email();
 
                 // Índice = Nome, e Valor = Email.
                 $emails = array(
                     $pessoa->getNoPessoa() => $pessoa->getCoContato()->getDsEmail()
                 );
-                $Mensagem = "<h2>Olá ".$pessoa->getNoPessoa().".</h2>";
-                $Mensagem .= "<p>Sua senha de acesso ao sistema do Gej é: ".$pessoa->getCoUsuario()->getDsSenha().".</p>";
+                $Mensagem = "<h4>Oi " . $pessoa->getNoPessoa() . ".</h4>";
+                $Mensagem .= "<p>Sua senha de acesso ao sistema do Gej é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
+                    ".</b></p>";
 
                 $email->setEmailDestinatario($emails)
                     ->setTitulo("[WEB GEJ] - Recuperação de senha")
@@ -157,11 +158,11 @@ class Index extends AbstractController
 
                 // Variável para validação de Emails Enviados com Sucesso.
                 $retorno = $email->Enviar();
-                if($retorno == true){
-                    $this->msg = 'Sua senha foi enviada para seu email: '.$pessoa->getCoContato()->getDsEmail();
+                if ($retorno == true) {
+                    $this->msg = 'Sua senha foi enviada para seu email: ' . $pessoa->getCoContato()->getDsEmail();
                     $this->class = 1;
                 }
-            }else{
+            } else {
                 $this->msg = 'Usuário não cadastrado.';
                 $this->class = 3;
             }
