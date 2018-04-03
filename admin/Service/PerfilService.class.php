@@ -52,8 +52,8 @@ class  PerfilService extends AbstractService
     {
         /** @var PerfilFuncionalidadeService $perfilFuncionalidadeService */
         $perfilFuncionalidadeService = $this->getService(PERFIL_FUNCIONALIDADE_SERVICE);
-        /** @var ObjetoPDO PDO */
-        $this->PDO = $this->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $this->getPDO();
         $retorno = [
             SUCESSO => false,
             MSG => null
@@ -62,7 +62,7 @@ class  PerfilService extends AbstractService
 
         $perfil[NO_PERFIL] = trim($dados[NO_PERFIL]);
 
-        $this->PDO->beginTransaction();
+        $PDO->beginTransaction();
         if (!empty($_POST[CO_PERFIL])):
             $coPerfil = $dados[CO_PERFIL];
             $atualiza = $this->Salva($perfil, $coPerfil);
@@ -88,10 +88,10 @@ class  PerfilService extends AbstractService
             $retorno[SUCESSO] = true;
         }
         if ($retorno[SUCESSO]) {
-            $this->PDO->commit();
+            $PDO->commit();
         } else {
             $retorno[MSG] = 'Não foi possível Salvar o Perfil';
-            $this->PDO->rollBack();
+            $PDO->rollBack();
         }
         return $retorno;
     }

@@ -5,7 +5,6 @@ class Inscricao extends AbstractController
     public $result;
     public $form;
     public $inscDuplicada;
-    public $PDO;
 
     public function Index()
     {
@@ -50,7 +49,6 @@ class Inscricao extends AbstractController
 
         $coInscricao = UrlAmigavel::PegaParametro("insc");
 
-        $res = array();
         if ($coInscricao):
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
@@ -245,13 +243,13 @@ class Inscricao extends AbstractController
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
         /** @var ParcelamentoService $parcelamentoService */
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
-        /** @var ObjetoPDO PDO */
-        $this->PDO = $parcelamentoService->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $parcelamentoService->getPDO();
 
         $id = "EditarParcelamento";
 
         if (!empty($_POST[$id])):
-            $this->PDO->beginTransaction();
+            $PDO->beginTransaction();
             $dados = $_POST;
             $coParcela = $dados[CO_PARCELAMENTO];
 
@@ -281,10 +279,10 @@ class Inscricao extends AbstractController
             }
             $retorno = $pagamentoService->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
             if ($retorno) {
-                $this->PDO->commit();
+                $PDO->commit();
             } else {
                 $retorno[MSG] = 'Não foi possível Salvar o Parcelamento';
-                $this->PDO->rollBack();
+                $PDO->rollBack();
             }
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
         endif;

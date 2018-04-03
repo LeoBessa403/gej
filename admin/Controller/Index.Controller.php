@@ -2,8 +2,6 @@
 
 class Index extends AbstractController
 {
-    private $PDO;
-
     function Index()
     {
         /** @var PagamentoService $pagamentoService */
@@ -12,8 +10,8 @@ class Index extends AbstractController
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-        /** @var ObjetoPDO PDO */
-        $this->PDO = $inscricaoService->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $inscricaoService->getPDO();
 
         $Condicoes = [
             "insc." . ST_STATUS => StatusAcessoEnum::ATIVO,
@@ -45,7 +43,7 @@ class Index extends AbstractController
             }
 
             if (!$inscricao->getCoPagamento()) {
-                $this->PDO->beginTransaction();
+                $PDO->beginTransaction();
                 $pagamento[NU_TOTAL] = InscricaoEnum::VALOR_DINHEIRO;
                 $pagamento[NU_PARCELAS] = 1;
                 $pagamento[CO_INSCRICAO] = $inscricao->getCoInscricao();
@@ -58,9 +56,9 @@ class Index extends AbstractController
 
                 $retorno = $parcelamentoService->Salva($parcela);
                 if ($retorno) {
-                    $this->PDO->commit();
+                    $PDO->commit();
                 } else {
-                    $this->PDO->rollBack();
+                    $PDO->rollBack();
                 }
             } elseif (!$inscricao->getCoPagamento()->getCoParcelamento()) {
                 $parcela[CO_PAGAMENTO] = $inscricao->getCoPagamento()->getCoPagamento();
@@ -122,18 +120,13 @@ class Index extends AbstractController
 
     function Registrar()
     {
-        /** @var PerfilService $perfilService */
-        $perfilService = static::getService(PERFIL_SERVICE);
-        
         $id = "CadastroUsuario";
         if (!empty($_POST[$id])):
-
             /** @var UsuarioService $usuarioService */
             $usuarioService = static::getService(USUARIO_SERVICE);
             $usuarioService->salvaUsuario($_POST, $_FILES, true);
         endif;
-
-        $this->form = UsuarioForm::Cadastrar(false, true, 12, $perfilService);
+        $this->form = UsuarioForm::Cadastrar(false, true, 12);
     }
 
     public function Acessar()
@@ -253,7 +246,7 @@ class Index extends AbstractController
 //        $grafico = new Grafico(Grafico::PORCENTAGEM, "Teste Porcentagem", "div_porcentagem");
 //        $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
 //        $grafico->GeraGrafico();
-
+//
 //        $grafico = new Grafico(Grafico::MAPA, "Teste Mapa", "div_mapa");
 //        $grafico->SetDados(array(
 //                "['Cidade','Acessos','Visitas']",
@@ -266,7 +259,7 @@ class Index extends AbstractController
 //            )
 //        );
 //        $grafico->GeraGrafico();
-
+//
 //        $grafico = new Grafico(Grafico::COLUNA, "Teste coluna", "div_coluna");
 //        $grafico->SetDados(array(
 //            "['Ano','Gordos','Obesos','Magros']",
@@ -287,26 +280,26 @@ class Index extends AbstractController
 //        ));
 //        $grafico->GeraGrafico();
 //
-        $grafico = new Grafico(Grafico::PIZZA, "Total do programa (Teórica)", "div_pizza");
-        $grafico->SetDados(array(
-            "['Categorias','Procedimentos/Mês']",
-            "['Meta Atingida',800]",
-            "['Meta Restante',356]",
-        ));
-        $grafico->GeraGrafico();
-
-        $grafico = new Grafico(Grafico::COLUNA, "1º Semestre", "div_coluna");
+//        $grafico = new Grafico(Grafico::PIZZA, "Total do programa (Teórica)", "div_pizza");
+//        $grafico->SetDados(array(
+//            "['Categorias','Procedimentos/Mês']",
+//            "['Meta Atingida',800]",
+//            "['Meta Restante',356]",
+//        ));
+//        $grafico->GeraGrafico();
+//
+//        $grafico = new Grafico(Grafico::COLUNA, "1º Semestre", "div_coluna");
 //        $grafico->SetDados(array(
 //            "['Horas','Teórica','Teórico-Prática','Prática']",
 //            "['Horas',256, 128 , 96]"
 //        ));
-        $grafico->SetDados(array(
-            "['Horas','Horas',{ role: 'annotation' }, { role: 'style' }]",
-            "['Teórica',256, 256, 'blue']",
-            "['Teórico-Prática',128, 128, 'red']",
-            "['Prática',96, 96, 'green']",
-        ));
-        $grafico->GeraGrafico();
+//        $grafico->SetDados(array(
+//            "['Horas','Horas',{ role: 'annotation' }, { role: 'style' }]",
+//            "['Teórica',256, 256, 'blue']",
+//            "['Teórico-Prática',128, 128, 'red']",
+//            "['Prática',96, 96, 'green']",
+//        ));
+//        $grafico->GeraGrafico();
 
     }
 
@@ -332,16 +325,6 @@ class Index extends AbstractController
         $this->Email = $email->Enviar();
     }
 
-    // LISTAGEM COM PESQUISA AVANÇADA
-    function ListarMembros()
-    {
-        $dados = array();
-        if (!empty($_POST)):
-            $dados['st_status'] = $_POST['st_status'][0];
-            $dados['no_membro'] = $_POST['no_membro'];
-        endif;
-        $this->result = MembrosModel::PesquisaMembros($dados);
-    }
 
     // AÇÃO DA TELA DE PESQUISA AVANÇADA
     function ListarMembrosPesquisaAvancada()
@@ -371,26 +354,4 @@ class Index extends AbstractController
 
     }
 
-    // AÇÃO DE EXPORTAÇÃO
-    function ExportarCategoria()
-    {
-
-        $formato = UrlAmigavel::PegaParametro("formato");
-        $result = CategoriaModel::PesquisaCategoria();
-        $i = 0;
-        foreach ($result as $value) {
-            $res[$i]['id_categoria'] = $value['id_categoria'];
-            $res[$i]['nome'] = $value['nome'];
-            $i++;
-        }
-        $Colunas = array('Código', 'Categoria');
-        $exporta = new Exportacao($formato, "Relatório de Categorias");
-        // $exporta->setPapelOrientacao("paisagem");
-        $exporta->setColunas($Colunas);
-        $exporta->setConteudo($res);
-        $exporta->GeraArquivo();
-
-    }
 }
-
-?>

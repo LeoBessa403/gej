@@ -32,8 +32,8 @@ class  FuncionalidadeService extends AbstractService
     {
         /** @var PerfilFuncionalidadeService $perfilFuncionalidadeService */
         $perfilFuncionalidadeService = $this->getService(PERFIL_FUNCIONALIDADE_SERVICE);
-        /** @var ObjetoPDO PDO */
-        $this->PDO = $this->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $this->getPDO();
         $retorno = [
             SUCESSO => false,
             MSG => null
@@ -42,7 +42,7 @@ class  FuncionalidadeService extends AbstractService
 
         $funcionalidade[NO_FUNCIONALIDADE] = trim($dados[NO_FUNCIONALIDADE]);
 
-        $this->PDO->beginTransaction();
+        $PDO->beginTransaction();
         if (!empty($_POST[CO_FUNCIONALIDADE])):
             $coFuncionalidade = $dados[CO_FUNCIONALIDADE];
             $atualiza = $this->Salva($funcionalidade, $coFuncionalidade);
@@ -68,10 +68,10 @@ class  FuncionalidadeService extends AbstractService
             $retorno[SUCESSO] = true;
         }
         if ($retorno[SUCESSO]) {
-            $this->PDO->commit();
+            $PDO->commit();
         } else {
             $retorno[MSG] = 'Não foi possível Salvar o Usuário';
-            $this->PDO->rollBack();
+            $PDO->rollBack();
         }
         return $retorno;
     }

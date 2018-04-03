@@ -7,7 +7,6 @@
 class  ParcelamentoService extends AbstractService
 {
     private $ObjetoModel;
-    private $PDO;
 
     public function __construct()
     {
@@ -17,13 +16,14 @@ class  ParcelamentoService extends AbstractService
 
     public function fazerParcelamento($nuDeparcelas, PagamentoEntidade $pagamento)
     {
-        /** @var ObjetoPDO PDO */
-        $this->PDO = $this->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $this->getPDO();
         /** @var PagamentoService $pagamentoService */
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
 
         $valorPago = 0;
         $qtdParcelas = 0;
+        $retorno = null;
         /** @var ParcelamentoEntidade $parcela */
         foreach ($pagamento->getCoParcelamento() as $parcela) {
             if ($parcela->getNuValorParcelaPago()) {
@@ -33,7 +33,7 @@ class  ParcelamentoService extends AbstractService
         }
         $valorInscricao = $pagamentoService->pegaValorInscricao($pagamento);
 
-        $this->PDO->beginTransaction();
+        $PDO->beginTransaction();
         $parc = [
             CO_PAGAMENTO => $pagamento->getCoPagamento()
         ];
@@ -49,10 +49,10 @@ class  ParcelamentoService extends AbstractService
             $retorno = $this->Salva($novaParcela);
         }
         if ($retorno) {
-            $this->PDO->commit();
+            $PDO->commit();
         } else {
             $retorno[MSG] = 'Não foi possível Salvar o Parcelamento';
-            $this->PDO->rollBack();
+            $PDO->rollBack();
         }
     }
 

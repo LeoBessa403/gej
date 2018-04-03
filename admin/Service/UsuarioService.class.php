@@ -49,8 +49,8 @@ class  UsuarioService extends AbstractService
         $imagemService = $this->getService(IMAGEM_SERVICE);
         /** @var UsuarioPerfilService $usuarioPerfilService */
         $usuarioPerfilService = $this->getService(USUARIO_PERFIL_SERVICE);
-        /** @var ObjetoPDO PDO */
-        $this->PDO = $this->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $this->getPDO();
 
         $session = new Session();
         if ($session->CheckSession(SESSION_USER)) {
@@ -123,7 +123,7 @@ class  UsuarioService extends AbstractService
                 endif;
             endif;
 
-            $this->PDO->beginTransaction();
+            $PDO->beginTransaction();
             if ($idCoUsuario):
                 /** @var UsuarioEntidade $usuario */
                 $usuario = $usuarioService->PesquisaUmRegistro($idCoUsuario);
@@ -178,10 +178,10 @@ class  UsuarioService extends AbstractService
                 $retorno = $usuarioPerfilService->Salva($usuarioPerfil);
             endif;
             if ($retorno) {
-                $this->PDO->commit();
+                $PDO->commit();
             } else {
                 $retorno[MSG] = 'Não foi possível Salvar o Usuário';
-                $this->PDO->rollBack();
+                $PDO->rollBack();
             }
 
             if (!$resgistrar) {

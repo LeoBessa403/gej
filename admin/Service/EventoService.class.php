@@ -6,9 +6,7 @@
  */
 class  EventoService extends AbstractService
 {
-
     private $ObjetoModel;
-    private $PDO;
 
     public function __construct()
     {
@@ -23,12 +21,13 @@ class  EventoService extends AbstractService
         $imagemService = $this->getService(IMAGEM_SERVICE);
         /** @var ImagemEventoService $imagemEventoService */
         $imagemEventoService = $this->getService(IMAGEM_EVENTO_SERVICE);
-        $this->PDO = $this->getPDO();
+        /** @var PDO $PDO */
+        $PDO = $this->getPDO();
 
         unset($dados[$id]);
         $upload = new Upload();
 
-        $this->PDO->beginTransaction();
+        $PDO->beginTransaction();
         $evento = $dados;
         if ($fotoCapa["name"]):
             $capa = $upload->UploadImagens($fotoCapa, Valida::ValNome($dados[NO_EVENTO]), "Eventos/CapaEventos");
@@ -64,11 +63,11 @@ class  EventoService extends AbstractService
         if ($retorno[SUCESSO]) {
             $retorno[MSG] = Mensagens::OK_SALVO;
             $retorno[SUCESSO] = true;
-            $this->PDO->commit();
+            $PDO->commit();
         } else {
             $retorno[MSG] = 'Não foi possível cadastrar o Evento';
             $retorno[SUCESSO] = false;
-            $this->PDO->rollBack();
+            $PDO->rollBack();
         }
     }
 

@@ -28,8 +28,8 @@ class  AgendaService extends AbstractService
             $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
 
-            /** @var ObjetoPDO PDO */
-            $this->PDO = $this->getPDO();
+            /** @var PDO $PDO */
+            $PDO = $this->getPDO();
             $retorno = [
                 SUCESSO => false,
                 MSG => null
@@ -46,7 +46,7 @@ class  AgendaService extends AbstractService
             $dados[CO_CATEGORIA_AGENDA] = $result[CO_CATEGORIA_AGENDA][0];
             $dados[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : 0;
 
-            $this->PDO->beginTransaction();
+            $PDO->beginTransaction();
             if (!empty($result[CO_AGENDA])):
                 $coAgenda = $result[CO_AGENDA];
                 $coEndereco = $result[CO_ENDERECO];
@@ -73,11 +73,11 @@ class  AgendaService extends AbstractService
             if ($coAgenda) {
                 $retorno[MSG] = Mensagens::OK_SALVO;
                 $retorno[SUCESSO] = true;
-                $this->PDO->commit();
+                $PDO->commit();
             } else {
                 $retorno[MSG] = 'Não foi possível cadastrar o Compromisso na Agenda';
                 $retorno[SUCESSO] = false;
-                $this->PDO->rollBack();
+                $PDO->rollBack();
             }
 
         } else {
