@@ -134,7 +134,7 @@ class Index extends AbstractController
         $visivel = false;
         $msg = '';
         $class = '';
-        if (!empty($_POST)):
+        if (!empty($_POST)) {
             $visivel = true;
             $indexValidador = new IndexValidador();
             /** @var InscricaoValidador $validador */
@@ -147,7 +147,7 @@ class Index extends AbstractController
                     NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
                 ]);
                 if (!empty($pessoa)) {
-                    if (!empty($pessoa->getCoUsuario())) {
+                    if ($pessoa->getCoUsuario()) {
                         $email = new Email();
 
                         // Índice = Nome, e Valor = Email.
@@ -180,10 +180,10 @@ class Index extends AbstractController
                 $msg = $validador[MSG];
                 $class = 3;
             }
-        else:
+        } else {
             $msg = 'O Campo CPF é obrigatório';
             $class = 3;
-        endif;
+        }
         $this->msg = $msg;
         $this->class = $class;
         $this->visivel = $visivel;
