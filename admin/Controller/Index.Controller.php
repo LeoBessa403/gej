@@ -151,12 +151,11 @@ class Index extends AbstractController
                         /** @var ContatoService $contatoService */
                         $contatoService = $this->getService(CONTATO_SERVICE);
                         $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
-                        if ($pessoa->getCoUsuario()->getCoImagem()->getDsCaminho()):
-                            $res[DS_CAMINHO] = "usuarios/" . $pessoa->getCoUsuario()->getCoImagem()->getDsCaminho();
-                        endif;
-                        if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
-                            $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
-                        endif;
+                        if ($pessoa->getCoInscricao()) {
+                            if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
+                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
+                            endif;
+                        }
                     }
                 } else {
                     $res[NU_CPF] = $_POST[NU_CPF];
