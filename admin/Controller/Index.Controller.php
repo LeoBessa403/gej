@@ -154,6 +154,7 @@ class Index extends AbstractController
                         if ($pessoa->getCoInscricao()) {
                             if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
                                 $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
+                                $res[CO_IMAGEM] = $pessoa->getCoInscricao()->getCoImagem()->getCoImagem();
                             endif;
                         }
                     }

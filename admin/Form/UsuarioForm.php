@@ -230,6 +230,14 @@ class UsuarioForm extends AbstractController
                 ->CriaInpunt();
         endif;
 
+        if (!empty($res[CO_IMAGEM])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_IMAGEM)
+                ->setValues($res[CO_IMAGEM])
+                ->CriaInpunt();
+        endif;
+
         return $formulario->finalizaForm($link);
     }
 
