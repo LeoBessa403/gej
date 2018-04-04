@@ -14,13 +14,13 @@ class  AgendaValidador extends AbstractValidador
 
     public function validarAgenda($dados)
     {
-        $this->retorno[DADOS][] = $this->validaCampoObrigatorioDescricao(
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioDescricao(
             $dados[DS_TITULO], 5, 'Título'
         );
-        $this->retorno[DADOS][] = $this->validaCampoSelctObrigatorio(
+        $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[CO_PERFIL], 'Participantes'
         );
-        $this->retorno[DADOS][] = $this->validaCampoSelctObrigatorio(
+        $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[CO_CATEGORIA_AGENDA], 'Categoria da Eventualidade'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
@@ -29,10 +29,10 @@ class  AgendaValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoValido(
             $dados[DT_FIM],AbstractValidador::VALIDACAO_DATA, 'Data de Termino'
         );
-        $this->retorno[DADOS][] = $this->validaCampoObrigatorioDescricao(
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioDescricao(
             $dados[DS_ENDERECO], 5, 'Endereço'
         );
 
-        return $this->montaRetorno($this->retorno);
+        return $this->MontaRetorno($this->retorno);
     }
 }

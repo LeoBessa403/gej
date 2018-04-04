@@ -17,6 +17,6 @@ class  IndexValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NU_CPF], AbstractValidador::VALIDACAO_CPF, 'CPF'
         );
-        return $this->montaRetorno($this->retorno);
+        return $this->MontaRetorno($this->retorno);
     }
 }

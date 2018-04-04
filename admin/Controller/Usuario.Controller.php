@@ -24,8 +24,6 @@ class Usuario extends AbstractController
     {
         /** @var UsuarioService $usuarioService */
         $usuarioService = $this->getService(USUARIO_SERVICE);
-        /** @var PerfilService $perfilService */
-        $perfilService = static::getService(PERFIL_SERVICE);
 
         $id = "CadastroUsuario";
 
@@ -61,7 +59,7 @@ class Usuario extends AbstractController
             $res = $enderecoService->getArrayDadosEndereco($usuario->getCoPessoa()->getCoEndereco(), $res);
         endif;
 
-        $this->form = UsuarioForm::Cadastrar($res, false, 6, $perfilService);
+        $this->form = UsuarioForm::Cadastrar($res, false, 6);
     }
 
     public function ListarUsuario()
