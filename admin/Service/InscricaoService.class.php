@@ -165,18 +165,18 @@ class  InscricaoService extends AbstractService
                 ? 'checked' : '';
             $res[ST_EQUIPE_TRABALHO] = ($inscricao->getStEquipeTrabalho() == 'S')
                 ? 'checked' : '';
+            /** @var PessoaService $pessoaService */
+            $pessoaService = static::getService(PESSOA_SERVICE);
+            $res = $pessoaService->getArrayDadosPessoa($inscricao->getCoPessoa(), $res);
+
+            /** @var ContatoService $contatoService */
+            $contatoService = $this->getService(CONTATO_SERVICE);
+            $res = $contatoService->getArrayDadosContato($inscricao->getCoPessoa()->getCoContato(), $res);
+
             $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
-            $res[NO_PESSOA] = $inscricao->getCoPessoa()->getNoPessoa();
-            $res[NU_TEL1] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
-            $res[NU_TEL2] = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel2());
-            $res[NU_CPF] = Valida::MascaraCpf($inscricao->getCoPessoa()->getNuCpf());
-            $res[NU_RG] = $inscricao->getCoPessoa()->getNuRg();
-            $res[DT_NASCIMENTO] = Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento());
-            $res[ST_SEXO] = $inscricao->getCoPessoa()->getStSexo();
             $res[NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
             $res[NU_CAMISA] = $inscricao->getNuCamisa();
 
-            $res[DS_EMAIL] = $inscricao->getCoPessoa()->getCoContato()->getDsEmail();
             $res[NO_RESPONSAVEL] = $inscricao->getNoResponsavel();
             $res[NU_TEL_RESPONSAVEL] = Valida::MascaraTel($inscricao->getNuTelResponsavel());
             $res[DS_PASTORAL] = $inscricao->getDsPastoral();
@@ -185,7 +185,6 @@ class  InscricaoService extends AbstractService
             /** @var EnderecoService $enderecoService */
             $enderecoService = $this->getService(ENDERECO_SERVICE);
             $res = $enderecoService->getArrayDadosEndereco($inscricao->getCoPessoa()->getCoEndereco(), $res);
-
 
             $res[DS_DESCRICAO] = $inscricao->getDsDescricao();
             $res[DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();

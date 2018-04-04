@@ -121,12 +121,55 @@ class Index extends AbstractController
     function Registrar()
     {
         $id = "CadastroUsuario";
-        if (!empty($_POST[$id])):
+        $id2 = "ValidacaoPessoa";
+        if (!empty($_POST[$id])) {
             /** @var UsuarioService $usuarioService */
             $usuarioService = static::getService(USUARIO_SERVICE);
             $usuarioService->salvaUsuario($_POST, $_FILES, true);
-        endif;
-        $this->form = UsuarioForm::Cadastrar(false, true, 12);
+        } elseif (!empty($_POST[$id2])) {
+            $indexValidador = new IndexValidador();
+            /** @var InscricaoValidador $validador */
+            $validador = $indexValidador->validarCPF($_POST);
+            if ($validador[SUCESSO]) {
+                /** @var PessoaService $pessoaService */
+                $pessoaService = static::getService(PESSOA_SERVICE);
+                /** @var PessoaEntidade $pessoa */
+                $pessoa = $pessoaService->PesquisaUmQuando([
+                    NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
+                ]);
+                if (!empty($pessoa)) {
+                    if ($pessoa->getCoUsuario()) {
+                        Redireciona('admin/Index/Acessar/' . Valida::GeraParametro('acesso/U'));
+                    } else {
+                        $res = [];
+                        $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
+
+                        /** @var EnderecoService $enderecoService */
+                        $enderecoService = $this->getService(ENDERECO_SERVICE);
+                        $res = $enderecoService->getArrayDadosEndereco($pessoa->getCoEndereco(), $res);
+
+                        /** @var ContatoService $contatoService */
+                        $contatoService = $this->getService(CONTATO_SERVICE);
+                        $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
+                        if ($pessoa->getCoUsuario()->getCoImagem()->getDsCaminho()):
+                            $res[DS_CAMINHO] = "usuarios/" . $pessoa->getCoUsuario()->getCoImagem()->getDsCaminho();
+                        endif;
+                        if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
+                            $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
+                        endif;
+                    }
+                } else {
+                    $res[NU_CPF] = $_POST[NU_CPF];
+                }
+                $this->form = UsuarioForm::Cadastrar($res, true, 12);
+            } else {
+                $session = new Session();
+                $session->setSession(MENSAGEM, $validador[MSG]);
+                $this->form = PessoaForm::ValidarCPF('Index/Acessar');
+            }
+        } else {
+            $this->form = PessoaForm::ValidarCPF('Index/Acessar');
+        }
     }
 
     function RecuperarSenha()
@@ -224,6 +267,10 @@ class Index extends AbstractController
             case 'C':
                 $msg = Mensagens::USUARIO_CADASTRADO_SUCESSO;
                 $class = 1;
+                break;
+            case 'U':
+                $msg = Mensagens::USUARIO_JA_CADASTRADO;
+                $class = 2;
                 break;
             default:
                 $visivel = false;

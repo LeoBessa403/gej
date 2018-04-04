@@ -16,6 +16,7 @@ class Mensagens
                                         <b>Favor aguardar a ativação do seu cadastro.</b>";
 
     const MEMBRO_JA_CADASTRADO = "Não Foi possível o cadastro! Membro Já cadastrado.";
+    const USUARIO_JA_CADASTRADO = "Não é possível o cadastro! Usuário Já cadastrado.";
     const OK_SALVO_MEMBRO_RETIRO_CARNAVAL = "Cadastro Realizado com Sucesso! </br><b>Porem a garantia da sua 
             vaga somente mediante a PAGAMENTO da taxa de InscriÇÃo. Selecione a forma que pretende pagar.</b>";
     const OK_SALVO_INSCRICAO = "Cadastro Realizado com Sucesso! Aguardando a confirmaÇÃo do Pagamento.";

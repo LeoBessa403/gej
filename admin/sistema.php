@@ -120,11 +120,12 @@ endif;
                                 endif;
                             endif;
 
-                            echo Valida::GetMiniatura("usuarios/" . $fotoPerfil, 'Leonardo', 35, 35, "circle-img");
+                            echo Valida::GetMiniatura("usuarios/" . $fotoPerfil,
+                                'Leonardo', 35, 35, "circle-img");
                             ?>
                             <span class="username">
                             <?php
-                            echo $user[md5('no_pessoa')];
+                            echo Valida::Resumi($user[md5(NO_PESSOA)], 25);;
                             ?>
                         </span>
                             <i class="clip-chevron-down"></i>

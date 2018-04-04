@@ -12,14 +12,14 @@ class UsuarioForm extends AbstractController
         /** @var Form $formulario */
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller
             . "/" . UrlAmigavel::$action, 'Cadastrar', $tamanho);
-        if ($res):
+        if (!empty($res[CO_USUARIO])):
             $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
             $meusPerfis = $user[md5(CAMPO_PERFIL)];
             $meusPerfis = explode(',', $meusPerfis);
 
             $usuarioModel = new UsuarioModel();
-            $usuario = $usuarioModel->PesquisaUmQuando([CO_USUARIO => $res['co_usuario']]);
+            $usuario = $usuarioModel->PesquisaUmQuando([CO_USUARIO => $res[CO_USUARIO]]);
 
             if (in_array(1, $meusPerfis) || in_array(2, $meusPerfis)) {
                 $res[CAMPO_PERFIL] = PerfilService::montaArrayPerfil($usuario);
@@ -27,15 +27,8 @@ class UsuarioForm extends AbstractController
                 $res[ST_STATUS] = FuncoesSistema::SituacaoUsuarioLabel($res[ST_STATUS]);
                 $res[CAMPO_PERFIL] = implode(', ', PerfilService::montaComboPerfil($usuario));
             }
-            $formulario->setValor($res);
         endif;
-
-        $formulario
-            ->setId(NO_PESSOA)
-            ->setClasses("ob nome")
-            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
-            ->setLabel("Nome Completo")
-            ->CriaInpunt();
+        $formulario->setValor($res);
 
         $formulario
             ->setId(NU_CPF)
@@ -49,6 +42,13 @@ class UsuarioForm extends AbstractController
             ->setTamanhoInput(6)
             ->setClasses("numero")
             ->setLabel("RG")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NO_PESSOA)
+            ->setClasses("ob nome")
+            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
+            ->setLabel("Nome Completo")
             ->CriaInpunt();
 
         $formulario
@@ -206,11 +206,27 @@ class UsuarioForm extends AbstractController
             ->setLabel("Foto de Perfil")
             ->CriaInpunt();
 
-        if ($res):
+        if (!empty($res[CO_USUARIO])):
             $formulario
                 ->setType("hidden")
                 ->setId(CO_USUARIO)
                 ->setValues($res[CO_USUARIO])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_ENDERECO])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_ENDERECO)
+                ->setValues($res[CO_ENDERECO])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_CONTATO])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_CONTATO)
+                ->setValues($res[CO_CONTATO])
                 ->CriaInpunt();
         endif;
 
