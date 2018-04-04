@@ -21,25 +21,22 @@ class  UsuarioValidador extends AbstractValidador
             $dados[NU_CPF], AbstractValidador::VALIDACAO_CPF, 'CPF'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[DT_NASCIMENTO],AbstractValidador::VALIDACAO_DATA, 'Nascimento'
+            $dados[DT_NASCIMENTO], AbstractValidador::VALIDACAO_DATA, 'Nascimento'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[ST_SEXO], 'Sexo'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[DS_EMAIL],AbstractValidador::VALIDACAO_EMAIL, 'E-mail'
+            $dados[DS_EMAIL], AbstractValidador::VALIDACAO_EMAIL, 'E-mail'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[NU_TEL1],AbstractValidador::VALIDACAO_TEL, 'Celular'
+            $dados[NU_TEL1], AbstractValidador::VALIDACAO_TEL, 'Celular'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioDescricao(
-            $dados[DS_ENDERECO],5, 'Endereço'
+            $dados[DS_ENDERECO], 5, 'Endereço'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-                $dados[DS_SENHA],AbstractValidador::VALIDACAO_SENHA, 'Senha', 6
-        );
-        $this->retorno[DADOS][] = $this->ValidaCampoArquivo(
-            $arquivo[DS_CAMINHO], 'Foto de Perfil'
+            $dados[DS_SENHA], AbstractValidador::VALIDACAO_SENHA, 'Senha', 6
         );
 
         return $this->MontaRetorno($this->retorno);
