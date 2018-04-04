@@ -28,13 +28,20 @@ class UsuarioForm extends AbstractController
                 $res[CAMPO_PERFIL] = implode(', ', PerfilService::montaComboPerfil($usuario));
             }
         endif;
+        $res['cpf'] = $res[NU_CPF];
         $formulario->setValor($res);
 
         $formulario
-            ->setId(NU_CPF)
+            ->setId('cpf')
             ->setClasses("cpf disabilita")
             ->setTamanhoInput(6)
             ->setLabel("CPF")
+            ->CriaInpunt();
+
+        $formulario
+            ->setType("hidden")
+            ->setId(NU_CPF)
+            ->setValues($res[NU_CPF])
             ->CriaInpunt();
 
         $formulario
