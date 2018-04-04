@@ -32,7 +32,7 @@ class UsuarioForm extends AbstractController
 
         $formulario
             ->setId(NU_CPF)
-            ->setClasses("cpf ob")
+            ->setClasses("cpf disabilita")
             ->setTamanhoInput(6)
             ->setLabel("CPF")
             ->CriaInpunt();
