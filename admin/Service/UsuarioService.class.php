@@ -164,14 +164,51 @@ class  UsuarioService extends AbstractService
 
                     $session->setSession(ATUALIZADO, "OK");
                 else:
-                    $pessoa[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                    $usu[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                    $idCoUsuario = (isset($dados[CO_USUARIO])
+                        ? $dados[CO_USUARIO]
+                        : null);
+                    $idCoEndereco = (isset($dados[CO_ENDERECO])
+                        ? $dados[CO_ENDERECO]
+                        : null);
+                    $idCoContato = (isset($dados[CO_CONTATO])
+                        ? $dados[CO_CONTATO]
+                        : null);
+                    $idCoImagem = (isset($dados[CO_IMAGEM])
+                        ? $dados[CO_IMAGEM]
+                        : null);
+                    $idCoPessoa = (isset($dados[CO_PESSOA])
+                        ? $dados[CO_PESSOA]
+                        : null);
 
-                    $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
-                    $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
-                    $usu[CO_IMAGEM] = $imagemService->Salva($imagem);
-                    $usu[CO_PESSOA] = $pessoaService->Salva($pessoa);
-                    $usuarioPerfil[CO_USUARIO] = $usuarioService->Salva($usu);
+                    if (!$idCoEndereco) {
+                        $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
+                    } else {
+                        $enderecoService->Salva($endereco, $idCoEndereco);
+                    }
+                    if (!$idCoContato) {
+                        $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
+                    } else {
+                        $contatoService->Salva($contato, $idCoContato);
+                    }
+                    if (!$idCoImagem) {
+                        $usu[CO_IMAGEM] = $imagemService->Salva($imagem);
+                    } else {
+                        $usu[CO_IMAGEM] = $idCoImagem;
+                        $imagemService->Salva($imagem, $idCoImagem);
+                    }
+                    if (!$idCoPessoa) {
+                        $pessoa[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                        $usu[CO_PESSOA] = $pessoaService->Salva($pessoa);
+                    } else {
+                        $usu[CO_PESSOA] = $idCoPessoa;
+                        $pessoaService->Salva($pessoa, $idCoPessoa);
+                    }
+                    if (!$idCoUsuario) {
+                        $usu[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                        $usuarioPerfil[CO_USUARIO] = $usuarioService->Salva($usu);
+                    } else {
+                        $usuarioService->Salva($usu, $idCoUsuario);
+                    }
 
                     // REGISTRAR ///
                     if (!$resgistrar):

@@ -137,11 +137,11 @@ class Index extends AbstractController
                 $pessoa = $pessoaService->PesquisaUmQuando([
                     NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
                 ]);
+                $res = [];
                 if (!empty($pessoa)) {
                     if ($pessoa->getCoUsuario()) {
                         Redireciona('admin/Index/Acessar/' . Valida::GeraParametro('acesso/U'));
                     } else {
-                        $res = [];
                         $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
 
                         /** @var EnderecoService $enderecoService */

@@ -201,7 +201,6 @@ class UsuarioForm extends AbstractController
         $formulario
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
-            ->setClasses("ob")
             ->setInfo("Caso queira troca de foto")
             ->setLabel("Foto de Perfil")
             ->CriaInpunt();
@@ -235,6 +234,14 @@ class UsuarioForm extends AbstractController
                 ->setType("hidden")
                 ->setId(CO_IMAGEM)
                 ->setValues($res[CO_IMAGEM])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_PESSOA])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_PESSOA)
+                ->setValues($res[CO_PESSOA])
                 ->CriaInpunt();
         endif;
 
