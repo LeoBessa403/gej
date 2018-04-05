@@ -65,7 +65,6 @@ class Agenda extends AbstractController
             $res = $agendaEdicao;
         }
 
-
         $this->form = AgendaForm::Cadastrar($res);
     }
 

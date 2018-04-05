@@ -1,7 +1,7 @@
 <?php
 
 /**
-     * AgendaValidador [ VALIDATOR ]
+ * AgendaValidador [ VALIDATOR ]
  * @copyright (c) 2017, Leo Bessa
  */
 class  AgendaValidador extends AbstractValidador
@@ -23,11 +23,16 @@ class  AgendaValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[CO_CATEGORIA_AGENDA], 'Categoria da Eventualidade'
         );
+        if ($dados[CO_CATEGORIA_AGENDA] == CategoriaAgendaEnum::EVENTO) {
+            $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
+                $dados[CO_CATEGORIA_EVENTO], 'Categoria do evento'
+            );
+        }
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[DT_INICIO],AbstractValidador::VALIDACAO_DATA, 'Data de Início'
+            $dados[DT_INICIO], AbstractValidador::VALIDACAO_DATA, 'Data de Início'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoValido(
-            $dados[DT_FIM],AbstractValidador::VALIDACAO_DATA, 'Data de Termino'
+            $dados[DT_FIM], AbstractValidador::VALIDACAO_DATA, 'Data de Termino'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioDescricao(
             $dados[DS_ENDERECO], 5, 'Endereço'
