@@ -50,7 +50,7 @@ class  AgendaService extends AbstractService
 
             $PDO->beginTransaction();
 
-            if($dados[CO_CATEGORIA_AGENDA] == CategoriaAgendaEnum::EVENTO){
+            if ($dados[CO_CATEGORIA_AGENDA] == CategoriaAgendaEnum::EVENTO) {
                 $dados[CO_EVENTO] = $eventoService->salvarEvento($result, $files);
             }
 
@@ -69,8 +69,6 @@ class  AgendaService extends AbstractService
                 $session->setSession(CADASTRADO, "OK");
             endif;
 
-
-
             $dadosPerfil[CO_AGENDA] = $coAgenda;
             if (!empty($result[CO_PERFIL])):
                 foreach ($result[CO_PERFIL] as $value):
@@ -80,10 +78,12 @@ class  AgendaService extends AbstractService
             endif;
 
             if ($coAgenda) {
+                $session->setSession(MENSAGEM, Mensagens::OK_SALVO);
                 $retorno[MSG] = Mensagens::OK_SALVO;
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
             } else {
+                $session->setSession(MENSAGEM, 'Não foi possível cadastrar o Compromisso na Agenda');
                 $retorno[MSG] = 'Não foi possível cadastrar o Compromisso na Agenda';
                 $retorno[SUCESSO] = false;
                 $PDO->rollBack();
