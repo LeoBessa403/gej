@@ -150,7 +150,7 @@ class AgendaForm
             ->CriaInpunt();
 
         $formulario
-            ->setId("fotos")
+            ->setId(CO_IMAGEM_EVENTO)
             ->setLabel("Galeria de Fotos do Evento")
             ->setType("file")
             ->setLimite(30)

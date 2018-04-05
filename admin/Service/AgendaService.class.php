@@ -24,6 +24,8 @@ class  AgendaService extends AbstractService
             $perfilAgendaService = $this->getService(PERFIL_AGENDA_SERVICE);
             /** @var EnderecoService $enderecoService */
             $enderecoService = $this->getService(ENDERECO_SERVICE);
+            /** @var EventoService $eventoService */
+            $eventoService = $this->getService(EVENTO_SERVICE);
 
             $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
@@ -47,6 +49,11 @@ class  AgendaService extends AbstractService
             $dados[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : 0;
 
             $PDO->beginTransaction();
+
+            if($dados[CO_CATEGORIA_AGENDA] == CategoriaAgendaEnum::EVENTO){
+                $dados[CO_EVENTO] = $eventoService->salvarEvento($result, $files);
+            }
+
             if (!empty($result[CO_AGENDA])):
                 $coAgenda = $result[CO_AGENDA];
                 $coEndereco = $result[CO_ENDERECO];
@@ -61,6 +68,8 @@ class  AgendaService extends AbstractService
                 $coAgenda = $this->Salva($dados);
                 $session->setSession(CADASTRADO, "OK");
             endif;
+
+
 
             $dadosPerfil[CO_AGENDA] = $coAgenda;
             if (!empty($result[CO_PERFIL])):
