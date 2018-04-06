@@ -41,17 +41,18 @@ class Agenda extends AbstractController
             }
             $agendaEdicao[CO_PERFIL] = $perfis;
             $agendaEdicao[DT_INICIO] = Valida::DataShow($agenda->getDtInicio());
-            $agendaEdicao['hr_inicio'] =  Valida::DataShow($agenda->getDtInicio(),'H:i');
+            $agendaEdicao['hr_inicio'] = Valida::DataShow($agenda->getDtInicio(), 'H:i');
 
             if ($agenda->getDtFim()):
                 $agendaEdicao[DT_FIM] = Valida::DataShow($agenda->getDtFim());
-                $agendaEdicao['hr_fim'] = Valida::DataShow($agenda->getDtFim(),'H:i');
+                $agendaEdicao['hr_fim'] = Valida::DataShow($agenda->getDtFim(), 'H:i');
             else:
                 $agendaEdicao[DT_FIM] = null;
                 $agendaEdicao['hr_fim'] = null;
             endif;
             $agendaEdicao[DS_TITULO] = $agenda->getDsTitulo();
-            $agendaEdicao[CO_EVENTO] = (!empty($agenda->getCoEvento())) ? $agenda->getCoEvento()->getCoEvento() : null;
+            $agendaEdicao[CO_EVENTO] = (!empty($agenda->getCoAgendaEvento())) ? $agenda->getCoAgendaEvento()[0]
+                ->getCoEvento()->getCoEvento() : null;
             $agendaEdicao[CO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getCoCategoriaAgenda();
             $agendaEdicao[NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
             $agendaEdicao[DS_DESCRICAO] = $agenda->getDsDescricao();

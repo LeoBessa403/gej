@@ -275,10 +275,15 @@ class Relacionamentos
                     ('Entidade') => 'ImagemEventoEntidade',
                     ('Tipo') => '2',
                 ),
-                (CO_AGENDA) => Array(
+                (CO_AGENDA_EVENTO) => Array(
                     ('Campo') => CO_EVENTO,
-                    ('Entidade') => 'AgendaEntidade',
+                    ('Entidade') => 'AgendaEventoEntidade',
                     ('Tipo') => '2',
+                ),
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_AGENDA,
+                    ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '1',
                 ),
             ),
             (ImagemEventoEntidade::TABELA) => Array(
@@ -290,6 +295,18 @@ class Relacionamentos
                 (CO_IMAGEM) => Array(
                     ('Campo') => CO_IMAGEM,
                     ('Entidade') => 'ImagemEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (AgendaEventoEntidade::TABELA) => Array(
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_AGENDA) => Array(
+                    ('Campo') => CO_AGENDA,
+                    ('Entidade') => 'AgendaEntidade',
                     ('Tipo') => '1',
                 ),
             ),
@@ -305,9 +322,14 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
                 (CO_EVENTO) => Array(
-                    ('Campo') => CO_EVENTO,
+                    ('Campo') => CO_AGENDA,
                     ('Entidade') => 'EventoEntidade',
                     ('Tipo') => '1',
+                ),
+                (CO_AGENDA_EVENTO) => Array(
+                    ('Campo') => CO_AGENDA,
+                    ('Entidade') => 'AgendaEventoEntidade',
+                    ('Tipo') => '2',
                 ),
                 (CO_ENDERECO) => Array(
                     ('Campo') => CO_ENDERECO,

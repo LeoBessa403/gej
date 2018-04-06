@@ -7,53 +7,54 @@
 
 class EventoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_EVENTO';
-	const ENTIDADE = 'EventoEntidade';
-	const CHAVE = CO_EVENTO;
+    const TABELA = 'TB_EVENTO';
+    const ENTIDADE = 'EventoEntidade';
+    const CHAVE = CO_EVENTO;
 
-	private $co_evento;
+    private $co_evento;
     private $dt_cadastro;
     private $co_categoria_evento;
     private $co_imagem;
     private $co_comissao_evento;
     private $co_imagem_evento;
     private $co_agenda;
+    private $co_agenda_evento;
 
 
-	/**
+    /**
      * @return array
      */
-	public static function getCampos() 
-        {
-    	return [
-			CO_EVENTO,
+    public static function getCampos()
+    {
+        return [
+            CO_EVENTO,
             DT_CADASTRO,
-		];
+        ];
     }
 
-	/**
-	* @return array $relacionamentos
+    /**
+     * @return array $relacionamentos
      */
-	public static function getRelacionamentos() 
-        {
-    	$relacionamentos = Relacionamentos::getRelacionamentos();
-		return $relacionamentos[static::TABELA];
-	}
+    public static function getRelacionamentos()
+    {
+        $relacionamentos = Relacionamentos::getRelacionamentos();
+        return $relacionamentos[static::TABELA];
+    }
 
 
-	/**
-	* @return int $co_evento
+    /**
+     * @return int $co_evento
      */
-	public function getCoEvento()
+    public function getCoEvento()
     {
         return $this->co_evento;
     }
 
-	/**
-	* @param $co_evento
+    /**
+     * @param $co_evento
      * @return mixed
      */
-	public function setCoEvento($co_evento)
+    public function setCoEvento($co_evento)
     {
         return $this->co_evento = $co_evento;
     }
@@ -154,6 +155,24 @@ class EventoEntidade extends AbstractEntidade
     public function setCoAgenda($co_agenda)
     {
         $this->co_agenda = $co_agenda;
+    }
+
+    /**
+     * /**
+     * @param $co_agenda_evento
+     * @return mixed
+     */
+    public function setCoAgendaEvento($co_agenda_evento)
+    {
+        return $this->co_agenda_evento = $co_agenda_evento;
+    }
+
+    /**
+     * @return AgendaEventoEntidade $co_agenda_evento
+     */
+    public function getCoAgendaEvento()
+    {
+        return $this->co_agenda_evento;
     }
 
 }

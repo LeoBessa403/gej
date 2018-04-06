@@ -5,13 +5,13 @@ $(function () {
             $("#co_categoria_evento").removeClass('ob');
             $("#co_imagem-info").parent(".form-group").hide();
             $("#co_imagem").removeClass('ob');
-            $("#fotos-info").parent(".form-group").hide();
+            $("#co_imagem_evento-info").parent(".form-group").hide();
         } else {
             $("#co_categoria_evento").parent(".form-group").show();
             $("#co_categoria_evento").addClass('ob');
             $("#co_imagem-info").parent(".form-group").show();
             $("#co_imagem").addClass('ob');
-            $("#fotos-info").parent(".form-group").show();
+            $("#co_imagem_evento-info").parent(".form-group").show();
         }
     }
 

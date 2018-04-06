@@ -12,6 +12,7 @@ define('DT_INICIO_ACESSO', 'dt_inicio_acesso');
 define('DT_FIM_ACESSO', 'dt_fim_acesso');
 define('CO_USUARIO', 'co_usuario');
 define('CO_AUDITORIA', 'co_auditoria');
+define('CO_AGENDA_EVENTO', 'co_agenda_evento');
 define('NO_TABELA', 'no_tabela');
 define('DT_REALIZADO', 'dt_realizado');
 define('DS_ITEM_ANTERIOR', 'ds_item_anterior');
@@ -138,6 +139,7 @@ define('IMAGEM_EVENTO_SERVICE', 'ImagemEventoService');
 define('AGENDA_SERVICE', 'AgendaService');
 define('PERFIL_AGENDA_SERVICE', 'PerfilAgendaService');
 define('CATEGORIA_AGENDA_SERVICE', 'CategoriaAgendaService');
+define('AGENDA_EVENTO_SERVICE', 'AgendaEventoService');
 
 
 

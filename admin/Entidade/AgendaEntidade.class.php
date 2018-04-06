@@ -20,9 +20,10 @@ class AgendaEntidade extends AbstractEntidade
     private $ds_titulo;
     private $co_usuario;
     private $co_categoria_agenda;
-    private $co_evento;
+    private $co_agenda_evento;
     private $co_perfil_agenda;
     private $co_endereco;
+    private $co_evento;
 
 
     /**
@@ -39,7 +40,6 @@ class AgendaEntidade extends AbstractEntidade
             DT_FIM,
             DS_TITULO,
             CO_CATEGORIA_AGENDA,
-            CO_EVENTO,
             CO_ENDERECO,
         ];
     }
@@ -208,20 +208,20 @@ class AgendaEntidade extends AbstractEntidade
     }
 
     /**
-     * @return EventoEntidade $co_evento
+     * @return AgendaEventoEntidade $co_agenda_evento
      */
-    public function getCoEvento()
+    public function getCoAgendaEvento()
     {
-        return $this->co_evento;
+        return $this->co_agenda_evento;
     }
 
     /**
-     * @param $co_evento
+     * @param $co_agenda_evento
      * @return mixed
      */
-    public function setCoEvento($co_evento)
+    public function setCoAgendaEvento($co_agenda_evento)
     {
-        return $this->co_evento = $co_evento;
+        return $this->co_agenda_evento = $co_agenda_evento;
     }
 
     /**
@@ -258,4 +258,20 @@ class AgendaEntidade extends AbstractEntidade
         return $this->co_endereco = $co_endereco;
     }
 
+    /**
+     * @return EventoEntidade $co_evento
+     */
+    public function getCoEvento()
+    {
+        return $this->co_evento;
+    }
+
+    /**
+     * @param $co_evento
+     * @return mixed
+     */
+    public function setCoEvento($co_evento)
+    {
+        return $this->co_evento = $co_evento;
+    }
 }

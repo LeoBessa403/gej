@@ -26,6 +26,8 @@ class  AgendaService extends AbstractService
             $enderecoService = $this->getService(ENDERECO_SERVICE);
             /** @var EventoService $eventoService */
             $eventoService = $this->getService(EVENTO_SERVICE);
+            /** @var AgendaEventoService $agendaEventoService */
+            $agendaEventoService = $this->getService(AGENDA_EVENTO_SERVICE);
 
             $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
@@ -46,13 +48,9 @@ class  AgendaService extends AbstractService
             $dados[DT_FIM] = (!empty($result[DT_FIM]) ? Valida::DataDB($result[DT_FIM] . " " . $result['hr_fim'] . ":00") : null);
             $dados[DS_TITULO] = $result[DS_TITULO];
             $dados[CO_CATEGORIA_AGENDA] = $result[CO_CATEGORIA_AGENDA][0];
-            $dados[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : 0;
 
             $PDO->beginTransaction();
-
-            if ($dados[CO_CATEGORIA_AGENDA] == CategoriaAgendaEnum::EVENTO) {
-                $dados[CO_EVENTO] = $eventoService->salvarEvento($result, $files);
-            }
+            $agendaEvento[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : null;
 
             if (!empty($result[CO_AGENDA])):
                 $coAgenda = $result[CO_AGENDA];
@@ -60,14 +58,25 @@ class  AgendaService extends AbstractService
                 $perfilAgendaService->DeletaQuando([CO_AGENDA => $coAgenda]);
                 $dados[CO_ENDERECO] = $enderecoService->Salva($endereco, $coEndereco);
                 $this->Salva($dados, $coAgenda);
+                if (!empty($agendaEvento[CO_EVENTO])):
+                    $agendaEventoService->Salva($agendaEvento, $coAgenda);
+                endif;
                 $session->setSession(ATUALIZADO, "OK");
             else:
                 $dados[CO_ENDERECO] = $enderecoService->Salva($endereco);
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $dados[ST_DIA_TODO] = SimNaoEnum::NAO;
                 $coAgenda = $this->Salva($dados);
+                if (!empty($agendaEvento[CO_EVENTO])):
+                    $agendaEventoService->Salva($agendaEvento);
+                endif;
                 $session->setSession(CADASTRADO, "OK");
             endif;
+
+            if ($dados[CO_CATEGORIA_AGENDA] == CategoriaAgendaEnum::EVENTO) {
+                $result[CO_AGENDA] = $coAgenda;
+                $novo = $eventoService->salvarEvento($result, $files);
+            }
 
             $dadosPerfil[CO_AGENDA] = $coAgenda;
             if (!empty($result[CO_PERFIL])):
