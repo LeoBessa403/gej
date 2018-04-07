@@ -88,12 +88,10 @@ class  AgendaService extends AbstractService
 
             if ($coAgenda) {
                 $session->setSession(MENSAGEM, Mensagens::OK_SALVO);
-                $retorno[MSG] = Mensagens::OK_SALVO;
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
             } else {
                 $session->setSession(MENSAGEM, 'Não foi possível cadastrar o Compromisso na Agenda');
-                $retorno[MSG] = 'Não foi possível cadastrar o Compromisso na Agenda';
                 $retorno[SUCESSO] = false;
                 $PDO->rollBack();
             }
