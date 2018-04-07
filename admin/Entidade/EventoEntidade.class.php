@@ -29,6 +29,7 @@ class EventoEntidade extends AbstractEntidade
         return [
             CO_EVENTO,
             DT_CADASTRO,
+            CO_CATEGORIA_EVENTO,
         ];
     }
 

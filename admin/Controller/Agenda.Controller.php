@@ -51,10 +51,11 @@ class Agenda extends AbstractController
                 $agendaEdicao['hr_fim'] = null;
             endif;
             $agendaEdicao[DS_TITULO] = $agenda->getDsTitulo();
-            $agendaEdicao[CO_EVENTO] = (!empty($agenda->getCoAgendaEvento())) ? $agenda->getCoAgendaEvento()[0]
-                ->getCoEvento()->getCoEvento() : null;
+            $agendaEdicao[CO_EVENTO] = ($agenda->getCoAgendaEvento())
+                ? $agenda->getCoAgendaEvento()->getCoEvento()->getCoEvento() : null;
             $agendaEdicao[CO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getCoCategoriaAgenda();
-            $agendaEdicao[NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
+            $agendaEdicao[CO_CATEGORIA_EVENTO] = ($agenda->getCoEvento())
+                ? $agenda->getCoEvento()->getCoCategoriaEvento()->getCoCategoriaEvento() : null;
             $agendaEdicao[DS_DESCRICAO] = $agenda->getDsDescricao();
             $agendaEdicao[CO_AGENDA] = $agenda->getCoAgenda();
             $agendaEdicao[CO_ENDERECO] = $agenda->getCoEndereco()->getCoEndereco();

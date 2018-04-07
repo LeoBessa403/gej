@@ -280,6 +280,11 @@ class Relacionamentos
                     ('Entidade') => 'AgendaEventoEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_CATEGORIA_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'CategoriaEventoEntidade',
+                    ('Tipo') => '1',
+                ),
                 (CO_AGENDA) => Array(
                     ('Campo') => CO_AGENDA,
                     ('Entidade') => 'AgendaEntidade',
@@ -329,7 +334,7 @@ class Relacionamentos
                 (CO_AGENDA_EVENTO) => Array(
                     ('Campo') => CO_AGENDA,
                     ('Entidade') => 'AgendaEventoEntidade',
-                    ('Tipo') => '2',
+                    ('Tipo') => '1',
                 ),
                 (CO_ENDERECO) => Array(
                     ('Campo') => CO_ENDERECO,
@@ -346,6 +351,13 @@ class Relacionamentos
                 (CO_AGENDA) => Array(
                     ('Campo') => CO_CATEGORIA_AGENDA,
                     ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (CategoriaEventoEntidade::TABELA) => Array(
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_CATEGORIA_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
                     ('Tipo') => '2',
                 ),
             ),

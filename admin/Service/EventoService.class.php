@@ -34,7 +34,7 @@ class  EventoService extends AbstractService
         endif;
 
         $evento[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-        $evento[CO_CATEGORIA_EVENTO] = $dados[CO_CATEGORIA_EVENTO];
+        $evento[CO_CATEGORIA_EVENTO] = $dados[CO_CATEGORIA_EVENTO][0];
         $evento[CO_AGENDA] = $dados[CO_AGENDA];
         $idEvento = $this->Salva($evento);
 
