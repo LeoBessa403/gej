@@ -22,20 +22,22 @@ class AgendaForm
             )
             ->CriaInpunt();
 
-        $options = AgendaService::PesquisaEventosCombo();
+        $formulario
+            ->setId(CO_CATEGORIA_EVENTO)
+            ->setClasses("ob")
+            ->setType("select")
+            ->setAutocomplete(
+                CategoriaEventoEntidade::TABELA, NO_CATEGORIA_EVENTO, CategoriaEventoEntidade::CHAVE
+            )
+            ->setLabel("Categoria do Evento")
+            ->CriaInpunt();
+
+        $options = AgendaService::PesquisaEventosCombo($res);
         $formulario
             ->setId(CO_EVENTO)
             ->setType("select")
             ->setLabel("Evento")
             ->setOptions($options)
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(CO_CATEGORIA_EVENTO)
-            ->setClasses("ob")
-            ->setType("select")
-            ->setAutocomplete(CategoriaEventoEntidade::TABELA, NO_CATEGORIA_EVENTO, CategoriaEventoEntidade::CHAVE)
-            ->setLabel("Categoria do Evento")
             ->CriaInpunt();
 
         $formulario
@@ -165,7 +167,7 @@ class AgendaForm
                 ->setValues($res[CO_AGENDA])
                 ->CriaInpunt();
 
-        $formulario
+            $formulario
                 ->setType("hidden")
                 ->setId(CO_ENDERECO)
                 ->setValues($res[CO_ENDERECO])

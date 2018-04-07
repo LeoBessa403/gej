@@ -106,7 +106,7 @@ class  AgendaService extends AbstractService
         return $retorno;
     }
 
-    public static function PesquisaEventosCombo()
+    public static function PesquisaEventosCombo($res)
     {
         /** @var AgendaService $agendaService */
         $agendaService = new AgendaService();
@@ -118,7 +118,13 @@ class  AgendaService extends AbstractService
         ]);
         /** @var AgendaEntidade $agenda */
         foreach ($agendas as $agenda) {
-            $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
+            if (!empty($res[CO_AGENDA])) {
+                if ($res[CO_AGENDA] != $agenda->getCoAgenda()) {
+                    $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
+                }
+            } else {
+                $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
+            }
         }
         return $comboEventos;
     }
