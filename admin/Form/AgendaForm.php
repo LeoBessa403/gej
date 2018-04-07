@@ -36,7 +36,7 @@ class AgendaForm
         $formulario
             ->setId(CO_EVENTO)
             ->setType("select")
-            ->setLabel("Evento")
+            ->setLabel("Evento Vinculado")
             ->setOptions($options)
             ->CriaInpunt();
 

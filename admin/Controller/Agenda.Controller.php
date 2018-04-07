@@ -59,6 +59,8 @@ class Agenda extends AbstractController
             $agendaEdicao[DS_DESCRICAO] = $agenda->getDsDescricao();
             $agendaEdicao[CO_AGENDA] = $agenda->getCoAgenda();
             $agendaEdicao[CO_ENDERECO] = $agenda->getCoEndereco()->getCoEndereco();
+            $agendaEdicao[CO_IMAGEM] = ($agenda->getCoEvento())
+                ? $agenda->getCoEvento()->getCoImagem()->getDsCaminho() : null;
 
             /** @var EnderecoService $enderecoService */
             $enderecoService = $this->getService(ENDERECO_SERVICE);

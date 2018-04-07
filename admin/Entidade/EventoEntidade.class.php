@@ -30,6 +30,7 @@ class EventoEntidade extends AbstractEntidade
             CO_EVENTO,
             DT_CADASTRO,
             CO_CATEGORIA_EVENTO,
+            CO_IMAGEM,
         ];
     }
 

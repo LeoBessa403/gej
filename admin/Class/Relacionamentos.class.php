@@ -290,6 +290,11 @@ class Relacionamentos
                     ('Entidade') => 'AgendaEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_IMAGEM) => Array(
+                    ('Campo') => CO_IMAGEM,
+                    ('Entidade') => 'ImagemEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (ImagemEventoEntidade::TABELA) => Array(
                 (CO_EVENTO) => Array(
