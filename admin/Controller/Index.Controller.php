@@ -2,7 +2,7 @@
 
 class Index extends AbstractController
 {
-    function Index()
+    public function Index()
     {
         /** @var PagamentoService $pagamentoService */
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
@@ -118,7 +118,7 @@ class Index extends AbstractController
         $this->dados = $dados;
     }
 
-    function Registrar()
+    public function Registrar()
     {
         $id = "CadastroUsuario";
         $id2 = "ValidacaoPessoa";
@@ -172,7 +172,7 @@ class Index extends AbstractController
         }
     }
 
-    function RecuperarSenha()
+    public function RecuperarSenha()
     {
         $visivel = false;
         $msg = '';
@@ -348,7 +348,7 @@ class Index extends AbstractController
     //*************************************************************//
 
     // EXEMPLO DE ENVIO DE EMAIL
-    function VerGraficos()
+    public function VerGraficos()
     {
 //        $grafico = new Grafico(Grafico::PORCENTAGEM, "Teste Porcentagem", "div_porcentagem");
 //        $grafico->SetDados(array("Teórica" => 80, "Prática e Teórica" => 12));
@@ -411,7 +411,7 @@ class Index extends AbstractController
     }
 
     // EXEMPLO DE ENVIO DE EMAIL
-    function EmailCliente()
+    public function EmailCliente()
     {
         $email = new Email();
 
@@ -434,7 +434,7 @@ class Index extends AbstractController
 
 
     // AÇÃO DA TELA DE PESQUISA AVANÇADA
-    function ListarMembrosPesquisaAvancada()
+    public function ListarMembrosPesquisaAvancada()
     {
 
         $id = "pesquisaMembros";

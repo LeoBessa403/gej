@@ -12,7 +12,7 @@ class  UsuarioValidador extends AbstractValidador
         DADOS => []
     ];
 
-    public function validarUsuario($dados, $arquivo)
+    public function validarUsuario($dados)
     {
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NO_PESSOA], AbstractValidador::VALIDACAO_NOME, 'Nome', 10

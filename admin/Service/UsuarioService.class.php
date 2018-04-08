@@ -39,7 +39,7 @@ class  UsuarioService extends AbstractService
     {
         $usuarioValidador = new UsuarioValidador();
         /** @var InscricaoValidador $validador */
-        $validador = $usuarioValidador->validarUsuario($dados, $foto);
+        $validador = $usuarioValidador->validarUsuario($dados);
         if ($validador[SUCESSO]) {
             /** @var EnderecoService $enderecoService */
             $enderecoService = $this->getService(ENDERECO_SERVICE);
