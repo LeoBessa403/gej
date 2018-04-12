@@ -423,7 +423,6 @@ require_once 'library/Config.inc.php';
         $.stellar();
         $('#co_tipo_pagamento').change(function () {
             var tipoPagamento = $(this).val();
-            z
             if (tipoPagamento == 1) {
                 $("#dinheiro").show();
                 $("#cartao").hide();
