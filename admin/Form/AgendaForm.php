@@ -140,7 +140,6 @@ class AgendaForm
             ->setId(CO_IMAGEM)
             ->setLabel("Capa do Evento")
             ->setType("singlefile")
-            ->setClasses("ob")
             ->setInfo("Imagem Principal do Evento")
             ->CriaInpunt();
 
