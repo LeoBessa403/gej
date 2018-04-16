@@ -1,7 +1,6 @@
 <?php
     require_once 'library/Config.inc.php';
-    $link = $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-    $link = str_replace(str_replace('http://','',HOME),'',$link);
+    $link = UrlAmigavel::getLink();
 
     $url = (isset($link) && $link != "" ? $link : "web");
 
