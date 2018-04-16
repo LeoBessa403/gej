@@ -3,14 +3,26 @@
 function servidor_inicial()
 {
     $local = false;
-    if (strstr($_SERVER['SERVER_NAME'], 'localhost')){
+    if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
         $local = true;
     }
 
     if (!$local) {
-        $config = array('HOME' => 'https://gejdombosco.com.br/', 'HOST' => 'localhost', 'USER' => 'gejdo247_gej', 'PASS' => 'Admin101*', 'DBSA' => 'gejdo247_gej');
+        $config = array(
+            'HOME' => 'https://gejdombosco.com.br/',
+            'HOST' => 'localhost',
+            'USER' => 'gejdo247_gej',
+            'PASS' => 'Admin101*',
+            'DBSA' => 'gejdo247_gej'
+        );
     } else {
-        $config = array('HOME' => 'http://localhost/gej/', 'HOST' => 'localhost', 'USER' => 'root', 'PASS' => '', 'DBSA' => 'gej_bd');
+        $config = array(
+            'HOME' => 'http://localhost/gej/',
+            'HOST' => 'localhost',
+            'USER' => 'root',
+            'PASS' => '',
+            'DBSA' => 'gej_bd'
+        );
     }
 
     define('HOME', $config['HOME']);
