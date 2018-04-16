@@ -40,17 +40,15 @@ function servidor_inicial()
     // Atribui o nome da Sessão do usuario Logado no sitema
     define('SESSION_USER', 'user_gej');
     // Tempo de Inativadade Máximo em Minutos, aceito para deslogar do Sistema.
-    define('INATIVO', 60);
+    define('INATIVO', 20);
     // A frequencia em dias para realizar o BACKUP NO BANCO DE DADOS
-    define('BACKUP', 3);
+    define('BACKUP', 15);
     // TAMANHO PADRÃO DO WIDTH DAS IAMGENS A SEREM CARREGADAS
     define('TAMANHO', 600);
     // PASTA DE ARMAZENAMENTO DE UPLOADS
     define('PASTAUPLOADS', 'uploads/');
     // TABELA PARA ARMAZENAR OS DADOS PARA AUDITORIA
     define('TABELA_AUDITORIA', AuditoriaEntidade::TABELA);
-    // NÚMERO PADRÃO DE ENVIO DO WHATSAPP
-    define('WHATSAPP', '5561993274991');
 
     //////////////////////////////////////////////
     // ******* CONFIGURAÇÕES DE EMAIL ********** //
