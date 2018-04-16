@@ -46,6 +46,7 @@ endif;
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>css/main-responsive.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>css/main.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/iCheck/skins/all.css">
+        <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>css/theme_navy.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/css3-animation/animations.css">
@@ -232,6 +233,7 @@ endif;
     <script src="<?= PASTAADMIN; ?>plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
     <script src="<?= PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
     <script src="<?= PASTAADMIN; ?>plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="<?= PASTAADMIN; ?>plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
     <script src="<?= PASTAADMIN; ?>js/main.js"></script>
     <script src="<?= PASTAADMIN; ?>js/ui-animation.js"></script>
     <!-- end: MAIN JAVASCRIPTS -->
