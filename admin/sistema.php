@@ -17,13 +17,13 @@ if ($compara != null):
 endif;
 ?>
     <!DOCTYPE html>
+    <html lang="pt-BR">
     <!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
     <!--[if IE 8]>
-    <html class="ie8 no-js" lang="en"><![endif]-->
+    <html class="ie8 no-js" lang="pt-BR"><![endif]-->
     <!--[if IE 9]>
-    <html class="ie9 no-js" lang="en"><![endif]-->
+    <html class="ie9 no-js" lang="pt-BR"><![endif]-->
     <!--[if !IE]><!-->
-    <html lang="en" class="no-js">
     <!--<![endif]-->
     <!-- start: HEAD -->
     <head>
@@ -46,7 +46,6 @@ endif;
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>css/main-responsive.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>css/main.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/iCheck/skins/all.css">
-        <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>css/theme_navy.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/css3-animation/animations.css">
@@ -228,14 +227,11 @@ endif;
     <script type="text/javascript" src="<?= INCLUDES; ?>validacoes.js"></script>
 
     <script src="<?= PASTAADMIN; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?= PASTAADMIN; ?>plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
     <script src="<?= PASTAADMIN; ?>plugins/blockUI/jquery.blockUI.js"></script>
     <script src="<?= PASTAADMIN; ?>plugins/iCheck/jquery.icheck.min.js"></script>
     <script src="<?= PASTAADMIN; ?>plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
     <script src="<?= PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
-    <!--<script src="<?php //echo PASTAADMIN; ?>plugins/less/less-1.5.0.min.js"></script>-->
     <script src="<?= PASTAADMIN; ?>plugins/jquery-cookie/jquery.cookie.js"></script>
-    <script src="<?= PASTAADMIN; ?>plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
     <script src="<?= PASTAADMIN; ?>js/main.js"></script>
     <script src="<?= PASTAADMIN; ?>js/ui-animation.js"></script>
     <!-- end: MAIN JAVASCRIPTS -->
