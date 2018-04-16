@@ -1,6 +1,3 @@
-<?php
-require_once 'library/Config.inc.php';
-?>
 <!DOCTYPE html>
 <!-- Template Name: Clip-One - Frontend | Build with Twitter Bootstrap 3 | Version: 1.0 | Author: ClipTheme -->
 <!--[if IE 8]>
