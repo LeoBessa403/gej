@@ -62,6 +62,9 @@ function servidor_inicial()
     define('PASTAUPLOADS', 'uploads/');
     // TABELA PARA ARMAZENAR OS DADOS PARA AUDITORIA
     define('TABELA_AUDITORIA', AuditoriaEntidade::TABELA);
+    // NÚMERO PADRÃO DE ENVIO DO WHATSAPP
+    define('WHATSAPP', '5561993259985');
+
 
     //////////////////////////////////////////////
     // ******* CONFIGURAÇÕES DE EMAIL ********** //

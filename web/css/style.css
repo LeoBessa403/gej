@@ -163,6 +163,24 @@
     margin-right: 0;
 }
 
+.whatsapp {
+    font-size: 11px;
+    background-color: green;
+    color: white;
+    padding: 4px 5px;
+    border-radius: 5px;
+    margin: 3px 5px;
+    font-weight: bold;
+}
+
+.whatsapp:hover, .whatsapp:active, .whatsapp:after, .whatsapp:before {
+    background-color: #339153 !important;
+    color: white !important;
+}
+.tagline .whatsapp {
+    font-size: 1em !important;
+}
+
 @media (max-width: 950px) {
     .main_fotos .click {
         width: 100%;

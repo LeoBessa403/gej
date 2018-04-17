@@ -62,6 +62,8 @@
           href="<?php echo PASTAADMIN; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
     <!-- start: CSS REQUIRED FOR CHECK -->
     <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/DataTables/media/css/DT_bootstrap.css">
+    <!-- Icons/Glyphs -->
+    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/font-awesome.min.css">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="<?= PASTASITE; ?>img/favicon.ico"/>
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
@@ -104,7 +106,12 @@
                 <div class="col-sm-8">
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
-                        Contatos: (61) 99105-8681 - E-Mail:
+                        Nos chame no<a class="whatsapp" title="Nos chame no WhatSapp"
+                           href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Gostaria%20de%20saber%20mais%20sobre%20o%20GEJ!&l=pt_BR"
+                           target="_blank">
+                            <i class="fa fa-whatsapp"></i> WhatSapp
+                        </a>
+                          / E-Mail:
                         <a href="mailto:contato@gejdombosco.com.br">
                             contato@gejdombosco.com.br
                         </a>
@@ -172,22 +179,21 @@
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
-                            6º Retiro de Carnaval <b class="caret"></b>
+                            2º Abastecimento Espiritual <b class="caret"></b>
                         </a>
-<!--                        <ul class="dropdown-menu">-->
-<!--                            <li>-->
-<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/CadastroRetiroCarnaval">-->
-<!--                                    Inscrição-->
-<!--                                </a>                                        </a>-->
-<!--                                <a href="--><?php //echo PASTASITE; ?><!--MembroWeb/Normas">
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?php echo PASTASITE; ?>Inscricoes/CadastroAbastecimento">
+                                    Inscrição
+                                </a>
+<!--                                <a href="--><?php //echo PASTASITE; ?><!--Inscricoes/Normas">-->
 <!--                                    Normas do Retiro-->
-<!--                                </a>                                        </a>-->
-<!--                                <!--                                <a href="-->
-<!--                                --><?php ////echo PASTASITE; ?><!--<!--MembroWeb/SobrePagamento">-->
-<!--                                <!--                                   Sobre o Pagamento-->
-<!--                                <!--                                </a>-->
-<!--                            </li>-->
-<!--                        </ul>-->
+<!--                                </a>                                    -->
+                                <a href="<?php echo PASTASITE; ?>Inscricoes/SobrePagamento">
+                                   Sobre o Pagamento
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a target="_blank" href="<?php echo PASTAADMIN; ?>Index/PrimeiroAcesso">

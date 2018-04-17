@@ -12,16 +12,18 @@
     </section>
     <div class="content content_video">
         <div class="video">
-            <iframe  class="video-large main_video" src="https://www.youtube.com/embed/mGctGtHDUSE" frameborder="0"
-                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe class="video-large main_video" src="https://www.youtube.com/embed/mGctGtHDUSE" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-<!--        <aside class="al-center sectiontitle-insc">-->
-<!--            <h1><span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>Faça sua incrição-->
-<!--                <a class="btn btn-green radius" title="Inscrição VI Retiro de carnaval Santifique-se"-->
-<!--                   target="_blank"-->
-<!--                   href="--><?php //echo HOME; ?><!--web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a>-->
-<!--                e não perca essa oportunidade.</h1>-->
-<!--        </aside>-->
+        <aside class="al-center sectiontitle-insc">
+            <h1>
+                <!--                <span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>-->
+                Faça sua incrição
+                <a class="btn btn-green radius" title="Inscrição 2º Abastecimento Espiritual"
+                   target="_blank"
+                   href="<?php echo HOME; ?>web/Inscricoes/CadastroAbastecimento">Inscrição aqui</a>
+                e não perca nosso Abastecimento Espiritual.</h1>
+        </aside>
         <div class="clear"></div>
     </div>
 
@@ -150,7 +152,7 @@
     <li class="like google"><a href="https://www.instagram.com/gejdombosco/" target="_blank"
                                title="Recomende no Instagram">Recomende no Instagram</a></li>
     <li class="like twitter"><a href="https://twitter.com/gejdombosco" target="_blank"
-                                rel="&text=VI Retiro de Carnaval Santifique-se! @gejdombosco"
+                                rel="&text=2º Abastecimento Espiritual! @gejdombosco"
                                 title="Conte Isto no Twitter">Conte Isto no Twitter</a>
     </li>
 </ul>
@@ -178,15 +180,23 @@
     <div class="content content-page al-center section">
         <header class="sectiontitle section">
             <h1 style="color: #E16F4D">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>
-            <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <b class="nummeros">
-                    (61) 99105-8681 ou (61) 99512-1814 ou (61) 99315-1297 <br>(Todos WhatsApp)</b></p>
+            <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <br><b class="nummeros">
+                    clique e nos chame pelo
+                    <a class="whatsapp" title="Nos chame no WhatSapp"
+                       href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Gostaria%20de%20saber%20mais%20sobre%20o%20Abastecimento%20Espirirual!&l=pt_BR"
+                       target="_blank">
+                        <i class="fa fa-whatsapp"></i> WhatSapp
+                    </a>
+                </b></p>
         </header>
-<!--        <h2 style="color: #CCD8D1;"><span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>Faça sua incrição-->
-<!--            <a class="btn btn-bricky btn-big radius"-->
-<!--               title="Quero Fazer inscrição do VI RETIRO DE CARNAVAL SANTIFIQUE-SE Agora!"-->
-<!--               target="_blank"-->
-<!--               href="--><?php //echo HOME; ?><!--web/MembroWeb/CadastroRetiroCarnaval">Inscrição aqui</a> e não perca essa-->
-<!--            oportunidade.</h2>-->
+        <h2 style="color: #CCD8D1;">
+            <!--            <span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span> <br/><br/>-->
+            Faça sua incrição
+            <a class="btn btn-bricky btn-big radius"
+               title="Quero Fazer inscrição do 2º Abastecimento Espiritual Agora!"
+               target="_blank"
+               href="<?php echo HOME; ?>web/Inscricoes/CadastroAbastecimento">Inscrição aqui</a> e não perca nosso
+            Abastecimento Espiritual.</h2>
 
         <div class="clear"></div>
     </div>
@@ -195,7 +205,9 @@
 <!--content visual-->
 <div class="container2 section">
     <div class="content section content-page al-center font-light">
-        <h1 class="frase">"Basta que sejais jovens para que eu vos ame." <small>(São João Bosco)</small></h1>
+        <h1 class="frase">"Basta que sejais jovens para que eu vos ame."
+            <small>(São João Bosco)</small>
+        </h1>
         <div class="clear"></div>
     </div>
 </div>

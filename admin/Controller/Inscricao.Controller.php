@@ -43,7 +43,7 @@ class Inscricao extends AbstractController
             } else {
                 $this->inscDuplicada = $retorno[MSG];
                 $res = $inscricaoService->montaDadosInscricao($_POST);
-                $this->form = MembroWebForm::Cadastrar(false, $res);
+                $this->form = InscricoesForm::Cadastrar(false, $res);
             }
         endif;
 
@@ -53,7 +53,7 @@ class Inscricao extends AbstractController
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
             $res = $inscricaoService->montaDadosInscricao($inscricao, true);
-            $this->form = MembroWebForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
+            $this->form = InscricoesForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
         endif;
     }
 
