@@ -12,7 +12,6 @@ class MembroEntidade extends AbstractEntidade
 	const CHAVE = CO_MEMBRO;
 
 	private $co_membro;
-	private $no_responsavel;
 	private $st_estuda;
 	private $st_trabalha;
 	private $ds_conhecimento;
@@ -28,7 +27,6 @@ class MembroEntidade extends AbstractEntidade
 	public static function getCampos() {
     	return [
 			CO_MEMBRO,
-			NO_RESPONSAVEL,
 			ST_ESTUDA,
 			ST_TRABALHA,
 			DS_CONHECIMENTO,
@@ -64,23 +62,6 @@ class MembroEntidade extends AbstractEntidade
 	public function setCoMembro($co_membro)
     {
         return $this->co_membro = $co_membro;
-    }
-
-	/**
-	* @return $no_responsavel
-     */
-	public function getNoResponsavel()
-    {
-        return $this->no_responsavel;
-    }
-
-	/**
-	* @param $no_responsavel
-     * @return mixed
-     */
-	public function setNoResponsavel($no_responsavel)
-    {
-        return $this->no_responsavel = $no_responsavel;
     }
 
 	/**
