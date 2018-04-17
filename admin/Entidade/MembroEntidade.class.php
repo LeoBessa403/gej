@@ -48,7 +48,7 @@ class MembroEntidade extends AbstractEntidade
 
 
 	/**
-	* @return $co_membro
+	* @return int $co_membro
      */
 	public function getCoMembro()
     {
@@ -99,7 +99,7 @@ class MembroEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $ds_conhecimento
+	* @return mixed $ds_conhecimento
      */
 	public function getDsConhecimento()
     {
