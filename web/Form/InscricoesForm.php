@@ -1,12 +1,12 @@
 <?php
 
-class MembroWebForm
+class InscricoesForm
 {
 
     public static function Cadastrar($CoInscricao = false, $res = false, $id = false)
     {
         if (!$id):
-            $id = "CadastroRetiroCarnaval";
+            $id = "CadastroAbastecimento";
         endif;
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
@@ -92,7 +92,7 @@ class MembroWebForm
             ->setTamanhoInput(6)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular")
-            ->setInfo("Com o Whatsapp")
+            ->setInfo("Com <i class=\"fa fa-whatsapp\" style='color: green;' '></i> WhatSapp")
             ->setClasses("tel ob")
             ->CriaInpunt();
 
@@ -172,7 +172,7 @@ class MembroWebForm
             ->setId(DS_PASTORAL)
             ->CriaInpunt();
 
-        $opticoes_camisa = MembroWeb::montaComboCamisas();
+        $opticoes_camisa = Inscricoes::montaComboCamisas();
 
         $formulario
             ->setId(NU_CAMISA)
