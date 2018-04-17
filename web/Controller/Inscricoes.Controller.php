@@ -1,6 +1,6 @@
 <?php
 
-class MembroWeb extends AbstractController
+class Inscricoes extends AbstractController
 {
     public $result;
     public $resultAlt;
@@ -9,12 +9,13 @@ class MembroWeb extends AbstractController
     public $coInscricao;
     public $inscDuplicada;
 
-    function CadastroRetiroCarnaval()
+    function CadastroAbastecimento()
     {
         $this->inscDuplicada = false;
-        $id = "CadastroRetiroCarnaval";
+        $id = "CadastroAbastecimento";
 
         if (!empty($_POST[$id])):
+            debug('ESTAMOS EM FASE DE TESTES, FAVOR AGUARDAR O MOMENTO CERTO, APRESSADO (A).');
             /** @var InscricaoService $inscricaoService */
             $inscricaoService = $this->getService(INSCRICAO_SERVICE);
             $retorno = $inscricaoService->salvarInscricao($_POST, $_FILES);
@@ -25,10 +26,10 @@ class MembroWeb extends AbstractController
             } else {
                 $this->inscDuplicada = $retorno[MSG];
                 $res = $inscricaoService->montaDadosInscricao($_POST);
-                $this->form = MembroWebForm::Cadastrar(false, $res);
+                $this->form = InscricoesForm::Cadastrar(false, $res);
             }
         else:
-            $this->form = MembroWebForm::Cadastrar();
+            $this->form = InscricoesForm::Cadastrar();
         endif;
 
     }
