@@ -19,6 +19,7 @@ class EventoEntidade extends AbstractEntidade
     private $co_imagem_evento;
     private $co_agenda;
     private $co_agenda_evento;
+    private $co_inscricao;
 
 
     /**
@@ -175,6 +176,22 @@ class EventoEntidade extends AbstractEntidade
     public function getCoAgendaEvento()
     {
         return $this->co_agenda_evento;
+    }
+
+    /**
+     * @return InscricaoEntidade $co_inscricao
+     */
+    public function getCoInscricao()
+    {
+        return $this->co_inscricao;
+    }
+
+    /**
+     * @param mixed $co_inscricao
+     */
+    public function setCoInscricao($co_inscricao)
+    {
+        $this->co_inscricao = $co_inscricao;
     }
 
 }

@@ -102,6 +102,11 @@ class Relacionamentos
                     ('Entidade') => 'PagamentoEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (PessoaEntidade::TABELA) => Array(
                 (CO_INSCRICAO) => Array(
@@ -278,6 +283,11 @@ class Relacionamentos
                 (CO_AGENDA_EVENTO) => Array(
                     ('Campo') => CO_EVENTO,
                     ('Entidade') => 'AgendaEventoEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_INSCRICAO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'InscricaoEntidade',
                     ('Tipo') => '2',
                 ),
                 (CO_CATEGORIA_EVENTO) => Array(
