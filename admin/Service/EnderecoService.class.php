@@ -54,6 +54,7 @@ class  EnderecoService extends AbstractService
      */
     public function getArrayDadosEndereco(EnderecoEntidade $endereco, array $dados)
     {
+        $dados[CO_ENDERECO] = $endereco->getCoEndereco();
         $dados[DS_ENDERECO] = $endereco->getDsEndereco();
         $dados[DS_COMPLEMENTO] = $endereco->getDsComplemento();
         $dados[DS_BAIRRO] = $endereco->getDsBairro();

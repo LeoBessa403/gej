@@ -63,7 +63,7 @@ class Inscricoes extends AbstractController
                 } else {
                     $res[NU_CPF] = $_POST[NU_CPF];
                 }
-                $this->form = InscricoesForm::Cadastrar(false, $res);
+                $this->form = InscricoesForm::Cadastrar($res);
             } else {
                 $session = new Session();
                 $session->setSession(MENSAGEM, $validador[MSG]);

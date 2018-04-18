@@ -3,7 +3,7 @@
 class InscricoesForm
 {
 
-    public static function Cadastrar($CoInscricao = false, $res = false, $id = false)
+    public static function Cadastrar($res = false, $id = false)
     {
         if (!$id):
             $id = "CadastroAbastecimento";
@@ -205,20 +205,10 @@ class InscricoesForm
             ->setTamanhoInput(12)
             ->CriaInpunt();
 
-        $ob = 'ob';
-        if ($CoInscricao) {
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_INSCRICAO)
-                ->setValues($CoInscricao)
-                ->CriaInpunt();
-            $ob = '';
-        }
         $formulario
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
             ->setInfo("Para a identificação")
-            ->setClasses($ob)
             ->setTamanhoInput(12)
             ->setLabel("Foto de Perfil")
             ->CriaInpunt();
@@ -246,6 +236,46 @@ class InscricoesForm
             ->setTamanhoInput(12)
             ->setInfo("Descreva se tiver alguma restrição alimentar.")
             ->CriaInpunt();
+
+        if (!empty($res[CO_INSCRICAO])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_INSCRICAO)
+                ->setValues($res[CO_INSCRICAO])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_ENDERECO])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_ENDERECO)
+                ->setValues($res[CO_ENDERECO])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_CONTATO])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_CONTATO)
+                ->setValues($res[CO_CONTATO])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_IMAGEM])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_IMAGEM)
+                ->setValues($res[CO_IMAGEM])
+                ->CriaInpunt();
+        endif;
+
+        if (!empty($res[CO_PESSOA])):
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_PESSOA)
+                ->setValues($res[CO_PESSOA])
+                ->CriaInpunt();
+        endif;
 
 
         return $formulario->finalizaForm();
