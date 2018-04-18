@@ -13,8 +13,9 @@ class Inscricoes extends AbstractController
     {
         $this->inscDuplicada = false;
         $id = "CadastroAbastecimento";
+        $id2 = "ValidacaoPessoa";
 
-        if (!empty($_POST[$id])):
+        if (!empty($_POST[$id])) {
             debug('ESTAMOS EM FASE DE TESTES, FAVOR AGUARDAR O MOMENTO CERTO, APRESSADO (A).');
             /** @var InscricaoService $inscricaoService */
             $inscricaoService = $this->getService(INSCRICAO_SERVICE);
@@ -28,9 +29,49 @@ class Inscricoes extends AbstractController
                 $res = $inscricaoService->montaDadosInscricao($_POST);
                 $this->form = InscricoesForm::Cadastrar(false, $res);
             }
-        else:
-            $this->form = InscricoesForm::Cadastrar();
-        endif;
+        } elseif (!empty($_POST[$id2])) {
+            $indexValidador = new IndexValidador();
+            /** @var InscricaoValidador $validador */
+            $validador = $indexValidador->validarCPF($_POST);
+            if ($validador[SUCESSO]) {
+                /** @var PessoaService $pessoaService */
+                $pessoaService = static::getService(PESSOA_SERVICE);
+                /** @var PessoaEntidade $pessoa */
+                $pessoa = $pessoaService->PesquisaUmQuando([
+                    NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
+                ]);
+                $res = [];
+                if (!empty($pessoa)) {
+                    $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
+
+                    /** @var EnderecoService $enderecoService */
+                    $enderecoService = $this->getService(ENDERECO_SERVICE);
+                    $res = $enderecoService->getArrayDadosEndereco($pessoa->getCoEndereco(), $res);
+
+                    /** @var ContatoService $contatoService */
+                    $contatoService = $this->getService(CONTATO_SERVICE);
+                    $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
+                    if ($pessoa->getCoInscricao()) {
+                        if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
+                            $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
+                            $res[CO_IMAGEM] = $pessoa->getCoInscricao()->getCoImagem()->getCoImagem();
+                        endif;
+                    }
+                    $res[DS_MEMBRO_ATIVO] = '';
+                    $res[DS_RETIRO] = '';
+                    $res['ds_pastoral_ativo'] = '';
+                } else {
+                    $res[NU_CPF] = $_POST[NU_CPF];
+                }
+                $this->form = InscricoesForm::Cadastrar(false, $res);
+            } else {
+                $session = new Session();
+                $session->setSession(MENSAGEM, $validador[MSG]);
+                $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento');
+            }
+        } else {
+            $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento', 6);
+        }
 
     }
 

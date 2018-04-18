@@ -2,13 +2,13 @@
 
 class PessoaForm extends AbstractController
 {
-    public static function ValidarCPF($link)
+    public static function ValidarCPF($link, $tamanho = 12)
     {
         $id = "ValidacaoPessoa";
 
         /** @var Form $formulario */
-        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller
-            . "/" . UrlAmigavel::$action, 'Validar', 12);
+        $formulario = new Form($id, UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller
+            . "/" . UrlAmigavel::$action, 'Validar', $tamanho);
 
         $formulario
             ->setId(NU_CPF)

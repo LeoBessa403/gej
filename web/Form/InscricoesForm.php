@@ -11,9 +11,8 @@ class InscricoesForm
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
         $formulario = new Form($id, $action);
-        if ($res):
-            $formulario->setValor($res);
-
+        $formulario->setValor($res);
+        if ($res && UrlAmigavel::$modulo == ADMIN):
             $label_options = array("1" => "1", "2" => "2", "3" => "3");
             $formulario
                 ->setLabel("Números de Parcelas")
@@ -22,16 +21,16 @@ class InscricoesForm
                 ->setTamanhoInput(12)
                 ->setOptions($label_options)
                 ->CriaInpunt();
-
-            $label_options = array("Sim", "Não", "verde", "vermelho");
-            $formulario
-                ->setLabel("Servo?")
-                ->setId(ST_EQUIPE_TRABALHO)
-                ->setType("checkbox")
-                ->setClasses($res[ST_EQUIPE_TRABALHO])
-                ->setTamanhoInput(6)
-                ->setOptions($label_options)
-                ->CriaInpunt();
+//
+//            $label_options = array("Sim", "Não", "verde", "vermelho");
+//            $formulario
+//                ->setLabel("Servo?")
+//                ->setId(ST_EQUIPE_TRABALHO)
+//                ->setType("checkbox")
+//                ->setClasses($res[ST_EQUIPE_TRABALHO])
+//                ->setTamanhoInput(6)
+//                ->setOptions($label_options)
+//                ->CriaInpunt();
 
         endif;
 
@@ -172,16 +171,15 @@ class InscricoesForm
             ->setId(DS_PASTORAL)
             ->CriaInpunt();
 
-        $opticoes_camisa = Inscricoes::montaComboCamisas();
-
-        $formulario
-            ->setId(NU_CAMISA)
-            ->setType("select")
-            ->setTamanhoInput(12)
-            ->setClasses("ob")
-            ->setOptions($opticoes_camisa)
-            ->setLabel("Tamanho da Camisa")
-            ->CriaInpunt();
+//        $opticoes_camisa = Inscricoes::montaComboCamisas();
+//        $formulario
+//            ->setId(NU_CAMISA)
+//            ->setType("select")
+//            ->setTamanhoInput(12)
+//            ->setClasses("ob")
+//            ->setOptions($opticoes_camisa)
+//            ->setLabel("Tamanho da Camisa")
+//            ->CriaInpunt();
 
         $formulario
             ->setId(NO_RESPONSAVEL)
