@@ -95,7 +95,7 @@ class Inscricao extends AbstractController
             $Condicoes[CO_EVENTO] = 3; // EVENTO DO ABASTECIMENTO ESPIRITUAL
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
         } else {
-            $Condicoes = [];
+            $Condicoes[CO_EVENTO] = 3; // EVENTO DO ABASTECIMENTO ESPIRITUAL
             $this->result = $inscricaoService->PesquisaAvancada($Condicoes);
         }
     }
