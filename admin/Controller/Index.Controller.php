@@ -15,7 +15,7 @@ class Index extends AbstractController
 
         $Condicoes = [
             "insc." . ST_STATUS => StatusAcessoEnum::ATIVO,
-            "insc." . CO_EVENTO => 3, // ABASTECIMENTO ESPIRITUAL
+            "insc." . CO_EVENTO => InscricaoEnum::EVENTO_ATUAL,
         ];
         $inscricoes = $inscricaoService->PesquisaAvancada($Condicoes);
         $dados['TotalInscricoes'] = count($inscricoes);
@@ -153,9 +153,9 @@ class Index extends AbstractController
                         $contatoService = $this->getService(CONTATO_SERVICE);
                         $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
                         if ($pessoa->getCoInscricao()) {
-                            if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
-                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
-                                $res[CO_IMAGEM] = $pessoa->getCoInscricao()->getCoImagem()->getCoImagem();
+                            if ($pessoa->getCoInscricao()[0]->getCoImagem()->getDsCaminho()):
+                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()[0]->getCoImagem()->getDsCaminho();
+                                $res[CO_IMAGEM] = $pessoa->getCoInscricao()[0]->getCoImagem()->getCoImagem();
                             endif;
                         }
                     }

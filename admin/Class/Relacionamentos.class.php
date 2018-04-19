@@ -112,7 +112,7 @@ class Relacionamentos
                 (CO_INSCRICAO) => Array(
                     ('Campo') => CO_PESSOA,
                     ('Entidade') => 'InscricaoEntidade',
-                    ('Tipo') => '1',
+                    ('Tipo') => '2',
                 ),
                 (CO_MEMBRO) => Array(
                     ('Campo') => CO_PESSOA,

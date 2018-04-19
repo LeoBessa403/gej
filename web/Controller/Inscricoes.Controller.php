@@ -40,20 +40,33 @@ class Inscricoes extends AbstractController
                 ]);
                 $res = [];
                 if (!empty($pessoa)) {
-                    $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
-
-                    /** @var EnderecoService $enderecoService */
-                    $enderecoService = $this->getService(ENDERECO_SERVICE);
-                    $res = $enderecoService->getArrayDadosEndereco($pessoa->getCoEndereco(), $res);
-
-                    /** @var ContatoService $contatoService */
-                    $contatoService = $this->getService(CONTATO_SERVICE);
-                    $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
+                    $ja_inscrito = false;
                     if ($pessoa->getCoInscricao()) {
-                        if ($pessoa->getCoInscricao()->getCoImagem()->getDsCaminho()):
-                            $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()->getCoImagem()->getDsCaminho();
-                            $res[CO_IMAGEM] = $pessoa->getCoInscricao()->getCoImagem()->getCoImagem();
-                        endif;
+                        /** @var InscricaoEntidade $inscricao */
+                        foreach ($pessoa->getCoInscricao() as $inscricao) {
+                            if ($inscricao->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL) {
+                                $session = new Session();
+                                $session->setSession(MENSAGEM, Mensagens::INSCRICAO_JA_CADASTRADA);
+                                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/CadastroAbastecimento');
+                            }
+                        }
+                    }
+                    if (!$ja_inscrito) {
+                        $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
+
+                        /** @var EnderecoService $enderecoService */
+                        $enderecoService = $this->getService(ENDERECO_SERVICE);
+                        $res = $enderecoService->getArrayDadosEndereco($pessoa->getCoEndereco(), $res);
+
+                        /** @var ContatoService $contatoService */
+                        $contatoService = $this->getService(CONTATO_SERVICE);
+                        $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
+                        if (!empty($pessoa->getCoInscricao())) {
+                            if ($pessoa->getCoInscricao()[0]->getCoImagem()->getDsCaminho()):
+                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()[0]->getCoImagem()->getDsCaminho();
+                                $res[CO_IMAGEM] = $pessoa->getCoInscricao()[0]->getCoImagem()->getCoImagem();
+                            endif;
+                        }
                     }
                 } else {
                     $res[NU_CPF] = $_POST[NU_CPF];
