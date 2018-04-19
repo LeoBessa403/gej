@@ -45,9 +45,8 @@ class Inscricoes extends AbstractController
                         /** @var InscricaoEntidade $inscricao */
                         foreach ($pessoa->getCoInscricao() as $inscricao) {
                             if ($inscricao->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL) {
-                                $session = new Session();
-                                $session->setSession(MENSAGEM, Mensagens::INSCRICAO_JA_CADASTRADA);
-                                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/CadastroAbastecimento');
+                                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller .
+                                    '/CadastroAbastecimento/' . Valida::GeraParametro('insc/U'));
                             }
                         }
                     }
@@ -81,6 +80,10 @@ class Inscricoes extends AbstractController
                 $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento');
             }
         } else {
+            $insc = UrlAmigavel::PegaParametro('insc');
+            if ($insc)
+                $this->inscDuplicada = Mensagens::INSCRICAO_JA_CADASTRADA;
+
             $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento', 6);
         }
 
