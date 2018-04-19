@@ -21,7 +21,7 @@ class Index extends AbstractController
         $dados['TotalInscricoes'] = count($inscricoes);
         $dados['TotalNaoMembros'] = 0;
         $dados['TotalMembros'] = 0;
-        $dados['TotalServos'] = 0;
+//        $dados['TotalServos'] = 0;
         $dados['TotalNaoPago'] = 0;
         $dados['TotalParcial'] = 0;
         $dados['TotalConcluido'] = 0;
@@ -29,7 +29,7 @@ class Index extends AbstractController
         $dados['TotalInscricoesCartao'] = 0;
         $dados['TotalAArrecadar'] = 0;
         $dados['TotalArrecadado'] = 0;
-        $dados['TotalRetirantes'] = 0;
+//        $dados['TotalRetirantes'] = 0;
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
@@ -39,9 +39,9 @@ class Index extends AbstractController
             } else {
                 $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
             }
-            if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::SIM) {
-                $dados['TotalServos'] = $dados['TotalServos'] + 1;
-            }
+//            if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::SIM) {
+//                $dados['TotalServos'] = $dados['TotalServos'] + 1;
+//            }
 
             if (!$inscricao->getCoPagamento()) {
                 $PDO->beginTransaction();
@@ -111,7 +111,7 @@ class Index extends AbstractController
             }
             $dados['TotalAArrecadar'] = $dados['TotalAArrecadar'] + $pagamentoInscricao->getNuTotal();
         }
-        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
+//        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);

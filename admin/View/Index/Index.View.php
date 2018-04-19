@@ -25,7 +25,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-calendar"></i>
-                        Resumo das Inscrições
+                        Resumo das Inscrições do ABASTECIMENTO
                     </div>
                     <div class="panel-body">
                         <div class="col-sm-6">
@@ -37,15 +37,15 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-6">
-                            <button class="btn btn-icon btn-block">
-                                <i class="clip-users-3"></i>
-                                Retirantes Inscritos
-                                <span class="negrito dados dados-warning">
-                                    <?= $dados['TotalRetirantes']; ?>
-                                </span>
-                            </button>
-                        </div>
+<!--                        <div class="col-sm-4">-->
+<!--                            <button class="btn btn-icon btn-block">-->
+<!--                                <i class="clip-users-3"></i>-->
+<!--                                Retirantes Inscritos-->
+<!--                                <span class="negrito dados dados-warning">-->
+<!--                                    --><?//= $dados['TotalRetirantes']; ?>
+<!--                                </span>-->
+<!--                            </button>-->
+<!--                        </div>-->
                         <div class="col-sm-6">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-3"></i>
@@ -64,34 +64,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-4">
-                            <button class="btn btn-icon btn-block">
-                                <i class="clip-user-cancel"></i>
-                                Não Membros
-                                <span class="dados negrito dados-warning">
-                                    <?= $dados['TotalNaoMembros']; ?>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button class="btn btn-icon btn-block">
-                                <i class="clip-user-3"></i>
-                                Membros
-                                <span class="dados negrito dados-info">
-                                    <?= $dados['TotalMembros']; ?>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button class="btn btn-icon btn-block">
-                                <i class="clip-users-2"></i>
-                                Servos
-                                <span class="dados negrito dados-success">
-                                    <?= $dados['TotalServos']; ?>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-6">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-dollar fa"></i>
                                 Total a Arrecadar
@@ -100,7 +73,34 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-6">
+                            <button class="btn btn-icon btn-block">
+                                <i class="clip-user-cancel"></i>
+                                Não Membros
+                                <span class="dados negrito dados-warning">
+                                    <?= $dados['TotalNaoMembros']; ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-icon btn-block">
+                                <i class="clip-user-3"></i>
+                                Membros
+                                <span class="dados negrito dados-info">
+                                    <?= $dados['TotalMembros']; ?>
+                                </span>
+                            </button>
+                        </div>
+<!--                        <div class="col-sm-4">-->
+<!--                            <button class="btn btn-icon btn-block">-->
+<!--                                <i class="clip-users-2"></i>-->
+<!--                                Servos-->
+<!--                                <span class="dados negrito dados-success">-->
+<!--                                    --><?//= $dados['TotalServos']; ?>
+<!--                                </span>-->
+<!--                            </button>-->
+<!--                        </div>-->
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-eur fa"></i>
                                 Não Pagos
@@ -109,7 +109,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-gbp fa"></i>
                                 Pag. Parcial
@@ -118,7 +118,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-usd fa"></i>
                                 Pag. Concluídos
