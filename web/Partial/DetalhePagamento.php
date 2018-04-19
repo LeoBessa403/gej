@@ -29,7 +29,7 @@
             <b>Banco Bradesco<br>
                 Agência: 1298 <br>
                 Conta Corrente: 0510813-6<br>
-                Nome: Leonardo  Machado Carvalho Bessa
+                Nome: Leonardo Machado Carvalho Bessa
             </b>
         </div>
         <br>
