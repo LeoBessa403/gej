@@ -11,8 +11,10 @@ class InscricoesForm
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
         $formulario = new Form($id, $action);
-        if ($res)
+        if ($res) {
+            $res['cpf'] = $res[NU_CPF];
             $formulario->setValor($res);
+        }
         if ($res && UrlAmigavel::$modulo == ADMIN):
             $label_options = array("1" => "1", "2" => "2", "3" => "3");
             $formulario
@@ -47,18 +49,16 @@ class InscricoesForm
             ->CriaInpunt();
 
         $formulario
-            ->setId(NO_PESSOA)
-            ->setClasses("ob nome")
-            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
-            ->setLabel("Nome Completo")
-            ->setTamanhoInput(12)
+            ->setId('cpf')
+            ->setClasses("cpf disabilita")
+            ->setTamanhoInput(6)
+            ->setLabel("CPF")
             ->CriaInpunt();
 
         $formulario
+            ->setType("hidden")
             ->setId(NU_CPF)
-            ->setClasses("cpf ob")
-            ->setTamanhoInput(6)
-            ->setLabel("CPF")
+            ->setValues($res[NU_CPF])
             ->CriaInpunt();
 
         $formulario
@@ -67,6 +67,15 @@ class InscricoesForm
             ->setClasses("numero")
             ->setLabel("RG")
             ->CriaInpunt();
+
+        $formulario
+            ->setId(NO_PESSOA)
+            ->setClasses("ob nome")
+            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
+            ->setLabel("Nome Completo")
+            ->setTamanhoInput(12)
+            ->CriaInpunt();
+
 
         $label_options = array("" => "Selecione um", "M" => "Masculino", "F" => "Feminino");
         $formulario
