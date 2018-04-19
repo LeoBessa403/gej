@@ -9,8 +9,8 @@
 
 class InscricaoEnum extends AbstractEnum
 {
-    const VALOR_CARTAO = 160.00;
-    const VALOR_DINHEIRO = 150.00;
+    const VALOR_CARTAO = 70.00;
+    const VALOR_DINHEIRO = 70.00;
 
     protected static $descricao = [
     ];

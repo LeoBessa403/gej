@@ -424,26 +424,6 @@
         Main.init();
         Index.init();
         $.stellar();
-        $('#co_tipo_pagamento').change(function () {
-            var tipoPagamento = $(this).val();
-            if (tipoPagamento == 1) {
-                $("#dinheiro").show();
-                $("#cartao").hide();
-                $("#deposito").hide()
-            } else if (tipoPagamento == 2) {
-                $("#dinheiro").hide();
-                $("#cartao").show();
-                $("#deposito").hide()
-            } else if (tipoPagamento == 3) {
-                $("#dinheiro").hide();
-                $("#cartao").hide();
-                $("#deposito").show()
-            } else {
-                $("#dinheiro").hide();
-                $("#cartao").hide();
-                $("#deposito").hide()
-            }
-        });
     });
 </script>
 </body>

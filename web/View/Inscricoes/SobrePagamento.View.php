@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <h4>Formas de Pagamento</h4>
             <div class="row">
-                <h3 style="margin-left: 15px;">Investimento do Abastecimento e de somente R$ 70,00 pode ser em até 12x
+                <h3 style="margin-left: 15px;">Investimento do Abastecimento e de somente R$ <?= InscricaoEnum::VALOR_CARTAO; ?> pode ser em até 12x
                     no Cartão</h3>
                 <header class="sectiontitle section">
                     <h1 style="color: #E16F4D; font-weight: bolder;">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>

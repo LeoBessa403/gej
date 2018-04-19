@@ -16,7 +16,6 @@ class Inscricoes extends AbstractController
         $id2 = "ValidacaoPessoa";
 
         if (!empty($_POST[$id])) {
-            debug('ESTAMOS EM FASE DE TESTES, FAVOR AGUARDAR O MOMENTO CERTO, APRESSADO (A).');
             /** @var InscricaoService $inscricaoService */
             $inscricaoService = $this->getService(INSCRICAO_SERVICE);
             $retorno = $inscricaoService->salvarInscricao($_POST, $_FILES);
@@ -26,8 +25,7 @@ class Inscricoes extends AbstractController
                     Valida::GeraParametro(CO_INSCRICAO . '/' . $retorno[CO_INSCRICAO]));
             } else {
                 $this->inscDuplicada = $retorno[MSG];
-                $res = $inscricaoService->montaDadosInscricao($_POST);
-                $this->form = InscricoesForm::Cadastrar(false, $res);
+                $this->form = InscricoesForm::Cadastrar();
             }
         } elseif (!empty($_POST[$id2])) {
             $indexValidador = new IndexValidador();
@@ -57,12 +55,12 @@ class Inscricoes extends AbstractController
                             $res[CO_IMAGEM] = $pessoa->getCoInscricao()->getCoImagem()->getCoImagem();
                         endif;
                     }
-                    $res[DS_MEMBRO_ATIVO] = '';
-                    $res[DS_RETIRO] = '';
-                    $res['ds_pastoral_ativo'] = '';
                 } else {
                     $res[NU_CPF] = $_POST[NU_CPF];
                 }
+                $res[DS_MEMBRO_ATIVO] = '';
+                $res[DS_RETIRO] = '';
+                $res['ds_pastoral_ativo'] = '';
                 $this->form = InscricoesForm::Cadastrar($res);
             } else {
                 $session = new Session();

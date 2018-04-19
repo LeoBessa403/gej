@@ -11,7 +11,8 @@ class InscricoesForm
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
         $formulario = new Form($id, $action);
-        $formulario->setValor($res);
+        if ($res)
+            $formulario->setValor($res);
         if ($res && UrlAmigavel::$modulo == ADMIN):
             $label_options = array("1" => "1", "2" => "2", "3" => "3");
             $formulario
@@ -278,7 +279,7 @@ class InscricoesForm
         endif;
 
 
-        return $formulario->finalizaForm();
+        return $formulario->finalizaForm(UrlAmigavel::$controller . "/" . UrlAmigavel::$action);
     }
 }
 

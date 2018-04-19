@@ -7,7 +7,6 @@
 class  InscricaoService extends AbstractService
 {
     private $ObjetoModel;
-    private $PDO;
 
     public function __construct()
     {
@@ -46,7 +45,8 @@ class  InscricaoService extends AbstractService
             $inscricao = $this->getDados($dados, InscricaoEntidade::ENTIDADE);
             $inscricao[ST_STATUS] = StatusAcessoEnum::ATIVO;
             $pessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
-
+            /// EVENTO DO ABASTECIMENTO
+            $inscricao[CO_EVENTO] = 3;
             $endereco[SG_UF] = $dados[SG_UF][0];
 
             $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));
@@ -60,7 +60,8 @@ class  InscricaoService extends AbstractService
 
             /** @var InscricaoEntidade $insc */
             foreach ($inscricoes as $insc) {
-                if ((!$coInscricao) || ($coInscricao && $insc->getCoInscricao() != $coInscricao)) {
+                if ((!$coInscricao && $inscricao[CO_EVENTO] == $insc->getCoEvento()->getCoEvento())
+                    || ($coInscricao && $insc->getCoInscricao() != $coInscricao)) {
                     if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
                         $Campo[] = "Nome do Usuário";
                         $erro = true;
@@ -81,7 +82,12 @@ class  InscricaoService extends AbstractService
 
             if ($erro):
                 $retorno[MSG] = "Já exite uma inscrição realizada com o mesmo "
-                    . implode(", ", $Campo) . ", em caso de dúvidas entrar em contato com a comissão do retiro.";
+                    . implode(", ", $Campo) . ", em caso de dúvidas entrar em contato com a comissão do retiro. clique e nos chame pelo
+                            <a class=\"whatsapp\" title=\"Nos chame no WhatSapp\"
+                               href=\"https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Estou%20com%20dúvidas%20sobre%20minha%20Inscrição!&l=pt_BR\"
+                               target=\"_blank\">
+                                <i class=\"fa fa-whatsapp\"></i> WhatSapp
+                            </a>";
                 $retorno[SUCESSO] = false;
             else:
                 $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
@@ -90,7 +96,6 @@ class  InscricaoService extends AbstractService
                 $inscricao[DS_RETIRO] = FuncoesSistema::retornoCheckbox(
                     (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
                 );
-                $inscricao[NU_CAMISA] = $dados[NU_CAMISA][0];
                 $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
 
                 $imagem[DS_CAMINHO] = "";
@@ -104,15 +109,48 @@ class  InscricaoService extends AbstractService
 
                 $PDO->beginTransaction();
                 if (!$coInscricao) {
-                    $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
-                    $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
+                    $idCoEndereco = (isset($dados[CO_ENDERECO])
+                        ? $dados[CO_ENDERECO]
+                        : null);
+                    $idCoContato = (isset($dados[CO_CONTATO])
+                        ? $dados[CO_CONTATO]
+                        : null);
+                    $idCoImagem = (isset($dados[CO_IMAGEM])
+                        ? $dados[CO_IMAGEM]
+                        : null);
+                    $idCoPessoa = (isset($dados[CO_PESSOA])
+                        ? $dados[CO_PESSOA]
+                        : null);
 
-                    $inscricao[ST_EQUIPE_TRABALHO] = SimNaoEnum::NAO;
-                    $inscricao[CO_PESSOA] = $pessoaService->Salva($pessoa);
-
-                    $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
-
-                    $retorno[CO_INSCRICAO] = $this->Salva($inscricao);
+                    if (!$idCoEndereco) {
+                        $pessoa[CO_ENDERECO] = $enderecoService->Salva($endereco);
+                    } else {
+                        $enderecoService->Salva($endereco, $idCoEndereco);
+                    }
+                    if (!$idCoContato) {
+                        $pessoa[CO_CONTATO] = $contatoService->Salva($contato);
+                    } else {
+                        $contatoService->Salva($contato, $idCoContato);
+                    }
+                    if (!$idCoImagem) {
+                        $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
+                    } else {
+                        $inscricao[CO_IMAGEM] = $idCoImagem;
+                        $imagemService->Salva($imagem, $idCoImagem);
+                    }
+                    if (!$idCoPessoa) {
+                        $pessoa[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                        $inscricao[CO_PESSOA] = $pessoaService->Salva($pessoa);
+                    } else {
+                        $inscricao[CO_PESSOA] = $idCoPessoa;
+                        $pessoaService->Salva($pessoa, $idCoPessoa);
+                    }
+                    if (!$coInscricao) {
+                        $inscricao[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                        $retorno[CO_INSCRICAO] = $this->Salva($inscricao);
+                    } else {
+                        $retorno[CO_INSCRICAO] = $this->Salva($inscricao, $coInscricao);
+                    }
                 } else {
                     /** @var InscricaoEntidade $inscricaoEdicao */
                     $inscricaoEdicao = $this->PesquisaUmRegistro($coInscricao);
@@ -147,7 +185,7 @@ class  InscricaoService extends AbstractService
         return $retorno;
     }
 
-    public function montaDadosInscricao(InscricaoEntidade $inscricao, $edicao = false)
+    public function montaDadosInscricao(InscricaoEntidade $inscricao = null, $edicao = false)
     {
         if (!$edicao) {
             $res = $inscricao;
