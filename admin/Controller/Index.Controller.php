@@ -15,6 +15,7 @@ class Index extends AbstractController
 
         $Condicoes = [
             "insc." . ST_STATUS => StatusAcessoEnum::ATIVO,
+            "insc." . CO_EVENTO => 3, // ABASTECIMENTO ESPIRITUAL
         ];
         $inscricoes = $inscricaoService->PesquisaAvancada($Condicoes);
         $dados['TotalInscricoes'] = count($inscricoes);
