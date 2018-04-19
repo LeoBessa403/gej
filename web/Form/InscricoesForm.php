@@ -230,7 +230,7 @@ class InscricoesForm
             ->setLabel("Fale um pouco sobre você")
             ->setType("textarea")
             ->setTamanhoInput(12)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->CriaInpunt();
 
         $formulario
