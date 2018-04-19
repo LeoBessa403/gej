@@ -88,7 +88,7 @@ class Inscricao extends AbstractController
                 "in#pag." . TP_SITUACAO => (!empty($_POST[TP_SITUACAO]))
                     ? implode("', '", $_POST[TP_SITUACAO]) : null,
                 "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
-                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
+//                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $this->result = $inscricaoService->PesquisaAvancada($Condicoes);
             $Condicoes[ST_STATUS] = StatusAcessoEnum::ATIVO;
@@ -118,7 +118,7 @@ class Inscricao extends AbstractController
                 ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2());
             $dados[$i][NU_CPF] = $documento;
             $dados[$i][DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
-            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
+//            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
             $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo());
             $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
             $i++;

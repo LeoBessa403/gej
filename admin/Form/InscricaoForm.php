@@ -98,14 +98,14 @@ class InscricaoForm
             ->setOptions($label_options)
             ->CriaInpunt();
 
-        $label_options = array("" => "Selecione um", "S" => "Sim","N" => "Não");
-        $formulario
-            ->setLabel("Servo")
-            ->setId(ST_EQUIPE_TRABALHO)
-            ->setType("select")
-            ->setTamanhoInput(12)
-            ->setOptions($label_options)
-            ->CriaInpunt();
+//        $label_options = array("" => "Selecione um", "S" => "Sim","N" => "Não");
+//        $formulario
+//            ->setLabel("Servo")
+//            ->setId(ST_EQUIPE_TRABALHO)
+//            ->setType("select")
+//            ->setTamanhoInput(12)
+//            ->setOptions($label_options)
+//            ->CriaInpunt();
 
         return $formulario->finalizaFormPesquisaAvancada();
     }
