@@ -38,12 +38,11 @@ class Inscricao extends AbstractController
                     $pag[NU_PARCELAS] = $numeroParcelas;
                     $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
                 }
-
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             } else {
                 $this->inscDuplicada = $retorno[MSG];
                 $res = $inscricaoService->montaDadosInscricao($_POST);
-                $this->form = InscricoesForm::Cadastrar(false, $res);
+                $this->form = InscricoesForm::Cadastrar($res, $id, 'Inscricao/ListarInscricao');
             }
         endif;
 
@@ -53,7 +52,7 @@ class Inscricao extends AbstractController
             /** @var InscricaoEntidade $inscricao */
             $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
             $res = $inscricaoService->montaDadosInscricao($inscricao, true);
-            $this->form = InscricoesForm::Cadastrar($inscricao->getCoInscricao(), $res, $id);
+            $this->form = InscricoesForm::Cadastrar($res, $id, 'Inscricao/ListarInscricao');
         endif;
     }
 
@@ -261,31 +260,37 @@ class Inscricao extends AbstractController
             $parcela[CO_TIPO_PAGAMENTO] = $dados[CO_TIPO_PAGAMENTO][0];
             $parcela[DS_OBSERVACAO] = Valida::LimpaVariavel($dados[DS_OBSERVACAO]);
 
-            $parcelamentoService->Salva($parcela, $coParcela);
+            if($parcela[NU_VALOR_PARCELA_PAGO] > InscricaoEnum::VALOR_CARTAO){
+                $session = new Session();
+                $session->setSession(MENSAGEM, Mensagens::MSG_VALOR_PAGA_ACIMA);
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
+            }else{
+                $parcelamentoService->Salva($parcela, $coParcela);
 
-            /** @var ParcelamentoEntidade $parcelas */
-            $parcelas = $parcelamentoService->PesquisaUmRegistro($coParcela);
-            /** @var PagamentoEntidade $pagamento */
-            $pagamento = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
-            /** @var ParcelamentoEntidade $parcela */
-            $total = 0;
-            foreach ($pagamento->getCoParcelamento() as $parcela) {
-                $total = $total + $parcela->getNuValorParcelaPago();
+                /** @var ParcelamentoEntidade $parcelas */
+                $parcelas = $parcelamentoService->PesquisaUmRegistro($coParcela);
+                /** @var PagamentoEntidade $pagamento */
+                $pagamento = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
+                /** @var ParcelamentoEntidade $parcela */
+                $total = 0;
+                foreach ($pagamento->getCoParcelamento() as $parcela) {
+                    $total = $total + $parcela->getNuValorParcelaPago();
+                }
+                $pag[NU_VALOR_PAGO] = $total;
+                if ($total >= InscricaoEnum::VALOR_DINHEIRO) {
+                    $pag[TP_SITUACAO] = "C";
+                } elseif ($total > 0) {
+                    $pag[TP_SITUACAO] = "I";
+                }
+                $retorno = $pagamentoService->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
+                if ($retorno) {
+                    $PDO->commit();
+                } else {
+                    $retorno[MSG] = 'Não foi possível Salvar o Parcelamento';
+                    $PDO->rollBack();
+                }
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             }
-            $pag[NU_VALOR_PAGO] = $total;
-            if ($total >= InscricaoEnum::VALOR_DINHEIRO) {
-                $pag[TP_SITUACAO] = "C";
-            } elseif ($total > 0) {
-                $pag[TP_SITUACAO] = "I";
-            }
-            $retorno = $pagamentoService->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
-            if ($retorno) {
-                $PDO->commit();
-            } else {
-                $retorno[MSG] = 'Não foi possível Salvar o Parcelamento';
-                $PDO->rollBack();
-            }
-            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
         endif;
 
         $parc = UrlAmigavel::PegaParametro("parc");

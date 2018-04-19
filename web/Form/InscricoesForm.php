@@ -3,12 +3,14 @@
 class InscricoesForm
 {
 
-    public static function Cadastrar($res = false, $id = false)
+    public static function Cadastrar($res = false, $id = false, $link = null)
     {
         if (!$id):
             $id = "CadastroAbastecimento";
         endif;
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
+        if(!$link)
+        $link = UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
         $formulario = new Form($id, $action);
         if ($res) {
@@ -288,7 +290,7 @@ class InscricoesForm
         endif;
 
 
-        return $formulario->finalizaForm(UrlAmigavel::$controller . "/" . UrlAmigavel::$action);
+        return $formulario->finalizaForm($link);
     }
 }
 

@@ -22,6 +22,7 @@ class Mensagens
     const OK_SALVO_INSCRICAO = "Cadastro Realizado com Sucesso! Aguardando a confirmaÇÃo do Pagamento.";
     const MSG_ERROS_CAMPOS = "O(s) Campo(s) <b>%s</b> , favor preencher corretamente.";
     const MSG_SEM_ITEM_SELECIONADO = "Nenhum item selecionado";
+    const MSG_VALOR_PAGA_ACIMA = "O valor pago é maior que o valor da inscrição, favor corrigir com o valor correto.";
 
     public $MSG01 = "Esse Perfil esta vinculado a um Usuário ou Funcionalidade.";
 

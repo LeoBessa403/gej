@@ -61,7 +61,8 @@ class  InscricaoService extends AbstractService
             /** @var InscricaoEntidade $insc */
             foreach ($inscricoes as $insc) {
                 if ((!$coInscricao && $inscricao[CO_EVENTO] == $insc->getCoEvento()->getCoEvento())
-                    || ($coInscricao && $insc->getCoInscricao() != $coInscricao)) {
+                    || ($coInscricao && $insc->getCoInscricao() != $coInscricao
+                        && $inscricao[CO_EVENTO] == $insc->getCoEvento()->getCoEvento())) {
                     if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
                         $Campo[] = "Nome do Usuário";
                         $erro = true;
@@ -229,6 +230,7 @@ class  InscricaoService extends AbstractService
             $res[DS_MEDICACAO] = $inscricao->getDsMedicacao();
             if ($inscricao->getCoImagem()->getDsCaminho()):
                 $res[DS_CAMINHO] = "inscricoes/" . $inscricao->getCoImagem()->getDsCaminho();
+                $res[CO_IMAGEM] = $inscricao->getCoImagem()->getCoImagem();
             endif;
         }
         return $res;
