@@ -9,7 +9,7 @@
                     class="nummeros">
                 clique e nos chame pelo
                 <a class="whatsapp" title="Nos chame no WhatSapp"
-                   href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Estou%20com%20dúvidas%20sobre%20o%20Pagamento!&l=pt_BR"
+                   href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP04) ?>"
                    target="_blank">
                     <i class="fa fa-whatsapp"></i> WhatSapp
                 </a>
@@ -35,7 +35,7 @@
         <br>
         <h3 style="margin-top: 50px; float: left;">Enviar Comprovante pelo nosso
             <a class="whatsapp" title="Nos chame no WhatSapp"
-               href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Segue%20o%20comprovante%20do%20pagamento%20do%20Abastecimento%20Espirirual!&l=pt_BR"
+               href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP05) ?>"
                target="_blank">
                 <i class="fa fa-whatsapp"></i> WhatSapp
             </a>

@@ -183,7 +183,7 @@
             <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <br><b class="nummeros">
                     clique e nos chame pelo
                     <a class="whatsapp" title="Nos chame no WhatSapp"
-                       href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Gostaria%20de%20saber%20mais%20sobre%20o%20Abastecimento%20Espirirual!&l=pt_BR"
+                       href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP02) ?>"
                        target="_blank">
                         <i class="fa fa-whatsapp"></i> WhatSapp
                     </a>

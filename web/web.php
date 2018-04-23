@@ -107,7 +107,7 @@
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
                         Nos chame no<a class="whatsapp" title="Nos chame no WhatSapp"
-                           href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Gostaria%20de%20saber%20mais%20sobre%20o%20GEJ!&l=pt_BR"
+                           href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
                            target="_blank">
                             <i class="fa fa-whatsapp"></i> WhatSapp
                         </a>

@@ -82,13 +82,13 @@ class  InscricaoService extends AbstractService
             }
 
             if ($erro):
-                $retorno[MSG] = "Já exite uma inscrição realizada com o mesmo "
-                    . implode(", ", $Campo) . ", em caso de dúvidas entrar em contato com a comissão do retiro. clique e nos chame pelo
-                            <a class=\"whatsapp\" title=\"Nos chame no WhatSapp\"
-                               href=\"https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Estou%20com%20dúvidas%20sobre%20minha%20Inscrição!&l=pt_BR\"
-                               target=\"_blank\">
-                                <i class=\"fa fa-whatsapp\"></i> WhatSapp
-                            </a>";
+                $retorno[MSG] = 'Já exite uma inscrição realizada com o mesmo '
+                    . implode(", ", $Campo) . ', em caso de dúvidas entrar em contato com a comissão do retiro. clique e nos chame pelo
+                            <a class="whatsapp" title="Nos chame no WhatSapp"
+                               href="'.Valida::geraLinkWhatSapp(Mensagens::ZAP03).'"
+                               target="_blank">
+                                <i class="fa fa-whatsapp"></i> WhatSapp
+                            </a>';
                 $retorno[SUCESSO] = false;
             else:
                 $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(

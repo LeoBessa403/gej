@@ -27,4 +27,11 @@ class Mensagens
 
     public $MSG01 = "Esse Perfil esta vinculado a um Usuário ou Funcionalidade.";
 
+    // MENSAGENS DO WHATSAPP
+    const ZAP01 = "Gostaria de saber mais sobre o GEJ!";
+    const ZAP02 = "Vi no site e gostaria de fazer um orçamento!";
+    const ZAP03 = "Estou com dúvidas sobre minha Inscrição!";
+    const ZAP04 = "Estou com dúvidas sobre o Pagamento!";
+    const ZAP05 = "Segue o comprovante do pagamento do Abastecimento Espirirual!";
+
 }
