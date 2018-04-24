@@ -1,5 +1,5 @@
 <div class="main-content">
-    <div class="container inscricao">
+    <div class="container inscricao" style="margin-bottom: 150px;">
         <h4>Inscrição do 2º Abastecimento Espiritual</h4>
         <?php
         if ($result):
