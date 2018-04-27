@@ -423,6 +423,7 @@ class Index extends AbstractController
     // EXEMPLO DE ENVIO DE EMAIL
     public function EmailCliente()
     {
+        /** @var Email $email */
         $email = new Email();
 
         // Índice = Nome, e Valor = Email.
