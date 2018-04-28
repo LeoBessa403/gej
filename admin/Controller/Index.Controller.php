@@ -20,6 +20,7 @@ class Index extends AbstractController
         $inscricoes = $inscricaoService->PesquisaAvancada($Condicoes);
         $dados['TotalInscricoes'] = count($inscricoes);
         $dados['TotalNaoMembros'] = 0;
+        $dados['TotalDescontos'] = 0;
         $dados['TotalMembros'] = 0;
 //        $dados['TotalServos'] = 0;
         $dados['TotalNaoPago'] = 0;
@@ -109,12 +110,16 @@ class Index extends AbstractController
             foreach ($pagamentoInscricao->getCoParcelamento() as $pagamentoInsc) {
                 $dados['TotalArrecadado'] = $dados['TotalArrecadado'] + $pagamentoInsc->getNuValorParcelaPago();
             }
-            $dados['TotalAArrecadar'] = $dados['TotalAArrecadar'] + $pagamentoInscricao->getNuTotal();
+            $dados['TotalAArrecadar'] = $dados['TotalAArrecadar'] +
+                ($pagamentoInscricao->getNuTotal() - $pagamentoInscricao->getNuValorDesconto());
+
+            $dados['TotalDescontos'] = $dados['TotalDescontos'] + $pagamentoInscricao->getNuValorDesconto();
         }
 //        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
+        $dados['TotalDescontos'] = Valida::FormataMoeda($dados['TotalDescontos']);
 
         $this->dados = $dados;
     }

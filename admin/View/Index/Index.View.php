@@ -55,7 +55,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa fa-money"></i>
                                 Total Arrecadado
@@ -64,12 +64,21 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-dollar fa"></i>
                                 Total a Arrecadar
                                 <span class="dados negrito dados-success">
                                     <?= $dados['TotalAArrecadar']; ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-icon btn-block">
+                                <i class="fa-dollar fa"></i>
+                                Total de Descontos
+                                <span class="dados negrito dados-danger">
+                                    <?= $dados['TotalDescontos']; ?>
                                 </span>
                             </button>
                         </div>
