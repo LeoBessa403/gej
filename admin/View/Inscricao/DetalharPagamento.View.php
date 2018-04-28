@@ -61,6 +61,10 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                     <big><b><?php
                             echo FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
                             ?></b></big></p>
+                <p>Desconto R$:<br/>
+                    <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorDesconto()); ?></b></big></p>
+                <p>Total Pago R$:<br/>
+                    <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorPago()); ?></b></big></p>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -70,7 +74,7 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                     </div>
                     <div class="panel-body">
                         <?php
-                        $arrColunas = array('Parcela', 'Valor R$', 'Vencimento', 'Situação', 'Observação', 'Ação');
+                        $arrColunas = array('Parcela', 'Valor R$', 'Vencimento', 'Situação Parcela', 'Observação', 'Ação');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -95,9 +99,9 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
                                 </a>';
-                            $grid->setColunas("0".$res->getNuParcela());
-                            $grid->setColunas(Valida::FormataMoeda($valor));
-                            $grid->setColunas($venc);
+                            $grid->setColunas("0".$res->getNuParcela(),2);
+                            $grid->setColunas(Valida::FormataMoeda($valor),2);
+                            $grid->setColunas($venc,2);
                             $grid->setColunas($situacao);
                             $grid->setColunas($res->getDsObservacao());
                             $grid->setColunas($acao, 1);

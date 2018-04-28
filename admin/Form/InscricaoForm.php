@@ -17,6 +17,14 @@ class InscricaoForm
             ->setId(NU_VALOR_PARCELA)
             ->setClasses("disabilita moeda")
             ->setLabel("Valor da Parcela R$")
+            ->setTamanhoInput(6)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_DESCONTO)
+            ->setClasses("moeda")
+            ->setTamanhoInput(6)
+            ->setLabel("Valor de desconto R$")
             ->CriaInpunt();
 
         $formulario

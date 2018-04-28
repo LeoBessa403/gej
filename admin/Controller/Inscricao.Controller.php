@@ -229,7 +229,7 @@ class Inscricao extends AbstractController
 
         $coInscricao = UrlAmigavel::PegaParametro("insc");
 
-        /** @var InscricaoEntidade $inscricao */
+        /** @var InscricaoEntidade $this->inscricao */
         $this->inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
         /** @var PagamentoEntidade $pagamentoInsc */
         $this->pagamentoInsc = $pagamentoService->PesquisaUmRegistro(
@@ -276,7 +276,10 @@ class Inscricao extends AbstractController
                 foreach ($pagamento->getCoParcelamento() as $parcela) {
                     $total = $total + $parcela->getNuValorParcelaPago();
                 }
+                $pag[NU_VALOR_DESCONTO] = Valida::FormataMoedaBanco($dados[NU_VALOR_DESCONTO]);
                 $pag[NU_VALOR_PAGO] = $total;
+                $total = $total + $pag[NU_VALOR_DESCONTO];
+
                 if ($total >= InscricaoEnum::VALOR_DINHEIRO) {
                     $pag[TP_SITUACAO] = "C";
                 } elseif ($total > 0) {
