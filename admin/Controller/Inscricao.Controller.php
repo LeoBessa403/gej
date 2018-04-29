@@ -145,13 +145,13 @@ class Inscricao extends AbstractController
                     );
             }
             $dados[$i][NO_PESSOA] = strtoupper($inscricao->getCoPessoa()->getNoPessoa());
-            $dados[$i][NU_CAMISA] = FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
+//            $dados[$i][NU_CAMISA] = FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
             $dados[$i]['CONTATO'] = $contato;
             $dados[$i][DS_PASTORAL] = $inscricao->getDsPastoral();
             $dados[$i][DS_RETIRO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsRetiro());
             $i++;
         }
-        $Colunas = array('Nome', 'Camisa', 'Contatos', 'Participa Pastoral', 'Particiopou Retiro');
+        $Colunas = array('Nome', 'Contatos', 'Participa Pastoral', 'Particiopou Retiro');
         $this->geraArquivo($formato, $Colunas, $dados);
     }
 
