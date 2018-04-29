@@ -87,11 +87,11 @@ class Inscricao extends AbstractController
                 "in#pag." . TP_SITUACAO => (!empty($_POST[TP_SITUACAO]))
                     ? implode("', '", $_POST[TP_SITUACAO]) : null,
                 "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
+                "insc." . CO_EVENTO => InscricaoEnum::EVENTO_ATUAL,
 //                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $this->result = $inscricaoService->PesquisaAvancada($Condicoes);
             $Condicoes[ST_STATUS] = StatusAcessoEnum::ATIVO;
-            $Condicoes[CO_EVENTO] = InscricaoEnum::EVENTO_ATUAL;
             $session->setSession(PESQUISA_AVANCADA, $Condicoes);
         } else {
             $Condicoes[CO_EVENTO] = InscricaoEnum::EVENTO_ATUAL;
@@ -181,11 +181,13 @@ class Inscricao extends AbstractController
         $session = new Session();
         if ($session->CheckSession(PESQUISA_AVANCADA)) {
             $Condicoes = $session->getSession(PESQUISA_AVANCADA);
+            $Condicoes[CO_EVENTO] = InscricaoEnum::EVENTO_ATUAL;
             $result = $inscricaoService->PesquisaAvancada($Condicoes);
         } else {
             $Condicoes = [
                 "insc." . ST_STATUS => StatusAcessoEnum::ATIVO,
             ];
+            $Condicoes[CO_EVENTO] = InscricaoEnum::EVENTO_ATUAL;
             $result = $inscricaoService->PesquisaAvancada($Condicoes);
         }
         return $result;
