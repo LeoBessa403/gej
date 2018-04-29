@@ -4711,6 +4711,11 @@ ul#countdown li p.timeRefDays, ul#countdown li p.timeRefHours, ul#countdown li p
     border-color: #3F3F3F !important;
 }
 
+.label-gray, .badge-gray {
+    background-color: #888888 !important;
+    border-color: #999999 !important;
+}
+
 .label-warning, .badge-warning {
     background-color: #d1bb09 !important;
     border-color: #edd709 !important;

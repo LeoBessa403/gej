@@ -12,6 +12,7 @@ class CategoriaAgendaEnum extends AbstractEnum
     const EVENTO = 5;
     const INTERCESSAO = 6;
     const OUTROS = 7;
+    const MISSAO = 8;
 
     public static $descricao = [
         CategoriaAgendaEnum::REUNIAO => 'Reunião',
@@ -20,6 +21,7 @@ class CategoriaAgendaEnum extends AbstractEnum
         CategoriaAgendaEnum::FORMACAO => 'Formação',
         CategoriaAgendaEnum::EVENTO => 'Evento',
         CategoriaAgendaEnum::INTERCESSAO => 'Intercessão',
+        CategoriaAgendaEnum::MISSAO => 'Missão',
         CategoriaAgendaEnum::OUTROS => 'Outros',
     ];
 
@@ -30,6 +32,7 @@ class CategoriaAgendaEnum extends AbstractEnum
         CategoriaAgendaEnum::FORMACAO => 'orange',
         CategoriaAgendaEnum::EVENTO => 'beige',
         CategoriaAgendaEnum::INTERCESSAO => 'black',
+        CategoriaAgendaEnum::MISSAO => 'gray',
         CategoriaAgendaEnum::OUTROS => 'warning',
     ];
 }
