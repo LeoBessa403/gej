@@ -45,8 +45,7 @@ class  InscricaoService extends AbstractService
             $inscricao = $this->getDados($dados, InscricaoEntidade::ENTIDADE);
             $inscricao[ST_STATUS] = StatusAcessoEnum::ATIVO;
             $pessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
-            /// EVENTO DO ABASTECIMENTO
-            $inscricao[CO_EVENTO] = 3;
+            $inscricao[CO_EVENTO] = InscricaoEnum::EVENTO_ATUAL;
             $endereco[SG_UF] = $dados[SG_UF][0];
 
             $pessoa[NO_PESSOA] = strtoupper(trim($dados[NO_PESSOA]));

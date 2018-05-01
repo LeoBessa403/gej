@@ -19,6 +19,21 @@ class FuncoesSistema
         endif;
     }
 
+    public static function retornoFluxoCaixa($fluxo)
+    {
+        $op = '';
+        switch ($fluxo) {
+            case "E":
+                $op = '<span class="label label-success">Entrada</span>';
+                break;
+            case "S":
+                $op = '<span class="label label-danger">Saída</span>';
+                break;
+        }
+
+        return $op;
+    }
+
     public static function retornoSexo($sexo)
     {
         switch ($sexo) {

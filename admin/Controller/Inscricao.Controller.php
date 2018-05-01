@@ -217,11 +217,6 @@ class Inscricao extends AbstractController
         echo InscricaoForm::Pesquisar();
     }
 
-    public static function SituacaoPagamento()
-    {
-        return StatusPagamentoEnum::$descricao;
-    }
-
     public function DetalharPagamento()
     {
         /** @var InscricaoService $inscricaoService */

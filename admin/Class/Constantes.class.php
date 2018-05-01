@@ -112,7 +112,12 @@ define('DS_COR', 'ds_cor');
 define('CO_CATEGORIA', 'co_categoria');
 define('NO_CATEGORIA', 'no_categoria');
 define('DS_TIPO', 'ds_tipo');
-
+define('CO_FLUXO_CAIXA', 'co_fluxo_caixa');
+define('NU_VALOR', 'nu_valor');
+define('TP_FLUXO', 'tp_fluxo');
+define('ST_PAGAMENTO', 'st_pagamento');
+define('CO_ADMINISTRATIVO', 'co_administrativo');
+define('NU_FUNDO_CAIXA', 'nu_fundo_caixa');
 
 
 define('ACESSO_SERVICE', 'AcessoService');
@@ -141,6 +146,8 @@ define('AGENDA_SERVICE', 'AgendaService');
 define('PERFIL_AGENDA_SERVICE', 'PerfilAgendaService');
 define('CATEGORIA_AGENDA_SERVICE', 'CategoriaAgendaService');
 define('AGENDA_EVENTO_SERVICE', 'AgendaEventoService');
+define('FLUXO_CAIXA_SERVICE', 'FluxoCaixaService');
+define('ADMINISTRATIVO_SERVICE', 'AdministrativoService');
 
 
 
@@ -149,4 +156,6 @@ define('MSG', 'msg');
 define('DADOS', 'dados');
 define('VALIDOS', 'validos');
 define('OBRIGATORIOS', 'obrigatorios');
+
+
 

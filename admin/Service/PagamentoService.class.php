@@ -25,5 +25,10 @@ class  PagamentoService extends AbstractService
         return $valorInscricao;
     }
 
+    public static function SituacaoPagamento()
+    {
+        return StatusPagamentoEnum::$descricao;
+    }
+
 
 }
