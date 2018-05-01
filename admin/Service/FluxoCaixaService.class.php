@@ -28,7 +28,7 @@ class  FluxoCaixaService extends AbstractService
         if (!empty($result[TP_FLUXO])){
             $dados[TP_FLUXO] = FluxoCaixaEnum::FLUXO_ENTRADA;
         }else{
-            $dados[TP_FLUXO] = FluxoCaixaEnum::FLUXO_ENTRADA;
+            $dados[TP_FLUXO] = FluxoCaixaEnum::FLUXO_SAIDA;
         }
         $dados[NU_VALOR] =  Valida::FormataMoedaBanco($result[NU_VALOR]);
         $dados[DT_REALIZADO] =  Valida::DataDB($result[DT_REALIZADO]);

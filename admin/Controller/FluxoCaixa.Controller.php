@@ -20,26 +20,27 @@ class FluxoCaixa extends AbstractController
 
         if (!empty($_POST[$id])):
             $retorno = $fluxoCaixaService->salvaFluxoCaixa($_POST);
-            if($retorno[SUCESSO]){
-                Redireciona(UrlAmigavel::$modulo.'/'.UrlAmigavel::$controller.'/ListarFluxoCaixa/');
+            if ($retorno[SUCESSO]) {
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarFluxoCaixa/');
             }
         endif;
 
         $coFluxoCaixa = UrlAmigavel::PegaParametro(CO_FLUXO_CAIXA);
         $res = array();
         if ($coFluxoCaixa):
-//            /** @var FluxoCaixaEntidade $fluxoCaixa */
-//            $fluxoCaixa = $fluxoCaixaService->PesquisaUmRegistro($coFluxoCaixa);
-//            $res[NO_FLUXO_CAIXA] = $fluxoCaixa->getNoFluxoCaixa();
-//            $res[CO_FLUXO_CAIXA] = $fluxoCaixa->getCoFluxoCaixa();
-//            $perfisFunc = [];
-//            /** @var FluxoCaixaFuncionalidadeEntidade $fluxoCaixaFunc */
-//            foreach ($fluxoCaixa->getCoFluxoCaixaFuncionalidade() as $fluxoCaixaFunc){
-//                $perfisFunc[] = $fluxoCaixaFunc->getCoFuncionalidade()->getCoFuncionalidade();
-//            }
-//            $res[CO_FUNCIONALIDADE] = $perfisFunc;
+            /** @var FluxoCaixaEntidade $fluxoCaixa */
+            $fluxoCaixa = $fluxoCaixaService->PesquisaUmRegistro($coFluxoCaixa);
+            $res[DS_DESCRICAO] = $fluxoCaixa->getDsDescricao();
+            $res[TP_FLUXO] = FluxoCaixaEnum::FLUXO_SAIDA;
+            if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA) {
+                $res[TP_FLUXO] = FluxoCaixaEnum::FLUXO_ENTRADA;
+            }
+            $res[NU_VALOR] = Valida::FormataMoeda($fluxoCaixa->getNuValor());
+            $res[DT_REALIZADO] = Valida::DataShow($fluxoCaixa->getDtRealizado());
+            $res[DT_VENCIMENTO] = Valida::DataShow($fluxoCaixa->getDtVencimento());
+            $res[ST_PAGAMENTO] = $fluxoCaixa->getStPagamento();
+            $res[CO_FLUXO_CAIXA] = $fluxoCaixa->getCoFluxoCaixa();
         endif;
-
         $this->form = FluxoCaixaForm::Cadastro($res);
 
     }
