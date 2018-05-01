@@ -5,7 +5,7 @@
         <!--container2 do title-->
         <div class="content content-title">
             <header class="sectiontitle sectiontitle-nomargin">
-                <h2>Conheça mais sobre nosso Retiro</h2>
+                <h2>Saiba mais sobre nosso Abastecimento</h2>
             </header>
             <div class="clear"></div>
         </div>
@@ -29,7 +29,7 @@
 
     <footer class="bg-bluelight">
         <section class="content main_fotos" style="padding-bottom: 10px;">
-            <h1>Veja Alguns momentos dos retiros anteriores!</h1>
+            <h1>Veja Alguns momentos do Abastecimento anteriores!</h1>
 
             <article class="box box-small">
                 <img src="<?php echo HOME; ?>web/img/galeria/01.jpg">
@@ -65,9 +65,9 @@
 
             <aside class="al-center">
                 <h1 class="click">Veja Mais
-                    <a class="btn btn-dark-grey radius" title="Mais Fotos do Retiro de carnaval Santifique-se"
+                    <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso Abastecimento Espiritual"
                        target="_blank"
-                       href="https://www.facebook.com/gej.dombosco/photos_all">clique aqui</a> para mais fotos.</h1>
+                       href="https://www.facebook.com/gej.dombosco/media_set?set=a.790029107791224.1073741843.100003524269523&type=3">clique aqui</a> para mais fotos.</h1>
             </aside>
 
             <div class="clear"></div>
@@ -80,8 +80,8 @@
     <!--container2 do title-->
     <div class="content section">
         <header class="sectiontitle sectiontitle-nomargin section-retiro">
-            <h1>Porque fazer um Retiro Espiritual?</h1>
-            <p class="tagline">Retiro Espiritual é um afastamento temporário de suas atividades para conversar com Deus
+            <h1>Porque fazer o Abastecimento Espiritual?</h1>
+            <p class="tagline">Abastecimento Espiritual é um afastamento temporário de suas atividades para conversar com Deus
                 e refletir sobre sua própria vida. Trata-se de uma prática muito tradicional na história do
                 Cristianismo, vivamente recomendada pela Igreja Católica. É também chamado de “Exercícios
                 Espirituais”..</p>
