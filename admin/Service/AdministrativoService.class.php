@@ -16,5 +16,16 @@ class  AdministrativoService extends AbstractService
         $this->ObjetoModel = New AdministrativoModel();
     }
 
+    public function atualizaFluxoCaixa($valor, $operacao)
+    {
+        /** @var AdministrativoEntidade $valor */
+        $fluxo = $this->PesquisaUmRegistro(1);
+        if ($operacao == FluxoCaixaEnum::FLUXO_ENTRADA){
+            $dados[NU_FUNDO_CAIXA] =  $fluxo->getNuFundoCaixa() + $valor;
+        }else{
+            $dados[NU_FUNDO_CAIXA] =  $fluxo->getNuFundoCaixa() - $valor;
+        }
+        $this->Salva($dados,1);
+    }
 
 }
