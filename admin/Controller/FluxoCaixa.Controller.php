@@ -3,9 +3,16 @@
 class FluxoCaixa extends AbstractController
 {
     public $result;
+    public $caixa;
 
     function ListarFluxoCaixa()
     {
+        /** @var AdministrativoService $administrativoService */
+        $administrativoService = $this->getService(ADMINISTRATIVO_SERVICE);
+        /** @var AdministrativoEntidade $valor */
+        $valor = $administrativoService->PesquisaUmRegistro(1);
+        $this->caixa = Valida::FormataMoeda( $valor->getNuFundoCaixa(), 'R$');
+
         /** @var FluxoCaixaService $fluxoCaixaService */
         $fluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
         $this->result = $fluxoCaixaService->PesquisaTodos();

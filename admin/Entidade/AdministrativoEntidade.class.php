@@ -7,65 +7,64 @@
 
 class AdministrativoEntidade extends AbstractEntidade
 {
-	const TABELA = 'TB_ADMINISTRATIVO';
-	const ENTIDADE = 'AdministrativoEntidade';
-	const CHAVE = CO_ADMINISTRATIVO;
+    const TABELA = 'TB_ADMINISTRATIVO';
+    const ENTIDADE = 'AdministrativoEntidade';
+    const CHAVE = CO_ADMINISTRATIVO;
 
-	private $co_administrativo;
-	private $nu_fundo_caixa;
+    private $co_administrativo;
+    private $nu_fundo_caixa;
 
 
-	/**
+    /**
      * @return array
      */
-	public static function getCampos() 
-        {
-    	return [
-			CO_ADMINISTRATIVO,
-			NU_FUNDO_CAIXA,
-		];
+    public static function getCampos()
+    {
+        return [
+            CO_ADMINISTRATIVO,
+            NU_FUNDO_CAIXA,
+        ];
     }
 
-	/**
-	* @return array $relacionamentos
+    /**
+     * @return array $relacionamentos
      */
-	public static function getRelacionamentos() 
-        {
-    	$relacionamentos = Relacionamentos::getRelacionamentos();
-		return $relacionamentos[static::TABELA];
-	}
+    public static function getRelacionamentos()
+    {
+        return [];
+    }
 
 
-	/**
-	* @return AdministrativoEntidade $co_administrativo
+    /**
+     * @return AdministrativoEntidade $co_administrativo
      */
-	public function getCoAdministrativo()
+    public function getCoAdministrativo()
     {
         return $this->co_administrativo;
     }
 
-	/**
-	* @param $co_administrativo
+    /**
+     * @param $co_administrativo
      * @return mixed
      */
-	public function setCoAdministrativo($co_administrativo)
+    public function setCoAdministrativo($co_administrativo)
     {
         return $this->co_administrativo = $co_administrativo;
     }
 
-	/**
-	* @return mixed $nu_fundo_caixa
+    /**
+     * @return mixed $nu_fundo_caixa
      */
-	public function getNuFundoCaixa()
+    public function getNuFundoCaixa()
     {
         return $this->nu_fundo_caixa;
     }
 
-	/**
-	* @param $nu_fundo_caixa
+    /**
+     * @param $nu_fundo_caixa
      * @return mixed
      */
-	public function setNuFundoCaixa($nu_fundo_caixa)
+    public function setNuFundoCaixa($nu_fundo_caixa)
     {
         return $this->nu_fundo_caixa = $nu_fundo_caixa;
     }

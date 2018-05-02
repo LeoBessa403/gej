@@ -20,6 +20,12 @@
                         <?php Valida::geraBtnNovo(); ?>
                     </h1>
                 </div>
+                <div class="col-sm-2">
+                    <div class="alert alert-block alert-success fade in">
+                        <h4 class="alert-heading"><i class="fa fa-info-circle"></i> Valor em Caixa</h4>
+                        <h5><?= $caixa; ?></h5>
+                    </div>
+                </div>
                 <!-- end: PAGE TITLE & BREADCRUMB -->
             </div>
         </div>
