@@ -44,15 +44,21 @@ class  FluxoCaixaService extends AbstractService
             $dados[ST_PAGAMENTO] = $result[ST_PAGAMENTO][0];
 
             $PDO->beginTransaction();
-            if($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO){
-                $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
-            }
             if (!empty($result[CO_FLUXO_CAIXA])):
                 $coFluxoCaixa = $result[CO_FLUXO_CAIXA];
+                /** @var FluxoCaixaEntidade $fluxo */
+                $fluxo = $this->PesquisaUmRegistro($coFluxoCaixa);
+                if ($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO &&
+                    $fluxo->getStPagamento() != StatusPagamentoEnum::CONCLUIDO) {
+                    $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
+                }
                 $this->Salva($dados, $coFluxoCaixa);
                 $retorno[MSG] = Mensagens::OK_ATUALIZADO;
                 $session->setSession(ATUALIZADO, "OK");
             else:
+                if ($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO) {
+                    $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
+                }
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $coFluxoCaixa = $this->Salva($dados);
                 $retorno[MSG] = Mensagens::OK_SALVO;
