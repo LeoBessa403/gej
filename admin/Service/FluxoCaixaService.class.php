@@ -44,25 +44,27 @@ class  FluxoCaixaService extends AbstractService
             $dados[ST_PAGAMENTO] = $result[ST_PAGAMENTO][0];
 
             $PDO->beginTransaction();
-            $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
+            if($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO){
+                $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
+            }
             if (!empty($result[CO_FLUXO_CAIXA])):
                 $coFluxoCaixa = $result[CO_FLUXO_CAIXA];
                 $this->Salva($dados, $coFluxoCaixa);
-                if ($coFluxoCaixa):
-                    $retorno[MSG] = Mensagens::OK_ATUALIZADO;
-                    $retorno[SUCESSO] = true;
-                    $session->setSession(ATUALIZADO, "OK");
-                    $PDO->commit();
-                endif;
+                $retorno[MSG] = Mensagens::OK_ATUALIZADO;
+                $session->setSession(ATUALIZADO, "OK");
             else:
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $coFluxoCaixa = $this->Salva($dados);
-                if ($coFluxoCaixa):
-                    $retorno[MSG] = Mensagens::OK_SALVO;
-                    $retorno[SUCESSO] = true;
-                    $session->setSession(CADASTRADO, "OK");
-                    $PDO->rollBack();
-                endif;
+                $retorno[MSG] = Mensagens::OK_SALVO;
+                $session->setSession(CADASTRADO, "OK");
+            endif;
+            if ($coFluxoCaixa):
+                $retorno[SUCESSO] = true;
+                $PDO->commit();
+            else:
+                $session->setSession(MENSAGEM, 'Não foi possível salvar o Fluxo de Caixa');
+                $retorno[SUCESSO] = false;
+                $PDO->rollBack();
             endif;
         } else {
             $session->setSession(MENSAGEM, $validador[MSG]);
