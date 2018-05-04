@@ -29,7 +29,7 @@ class Inscricao extends AbstractController
             }
         endif;
 
-        $coInscricao = UrlAmigavel::PegaParametro("insc");
+        $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
 
         if ($coInscricao):
             /** @var InscricaoEntidade $inscricao */

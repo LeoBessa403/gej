@@ -80,7 +80,7 @@ class Inscricoes extends AbstractController
                 $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento');
             }
         } else {
-            $insc = UrlAmigavel::PegaParametro('insc');
+            $insc = UrlAmigavel::PegaParametro(CO_INSCRICAO);
             if ($insc)
                 $this->inscDuplicada = Mensagens::INSCRICAO_JA_CADASTRADA;
 
