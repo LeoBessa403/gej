@@ -1,6 +1,23 @@
 var Funcoes = function () {
     var inicio = function () {
+        var campo_cep = $('#nu_cep');
+        if (campo_cep.length) {
+            campo_cep.change(function () {
+                var cep = $(this).val().replace('-', '').replace('.', '');
+                if (cep.length === 8) {
+                    $.get("https://viacep.com.br/ws/" + cep + "/json", function (data) {
+                        if (!data.erro) {
+                            $('#ds_bairro').val(data.bairro);
+                            $('#ds_complemento').val(data.complemento);
+                            $('#no_cidade').val(data.localidade);
+                            $('#ds_endereco').val(data.logradouro);
+                            $('#sg_uf').val(data.uf).trigger("change.select2");
 
+                        }
+                    }, 'json');
+                }
+            });
+        }
 
         $("#ds_pastoral_ativo").change(function () {
             disabilitaCamposRetiro();
