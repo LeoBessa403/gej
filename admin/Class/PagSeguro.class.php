@@ -9,7 +9,7 @@ $data['currency'] = 'BRL';
 $data['itemId1'] = $_POST['co_inscricao'];
 $data['itemQuantity1'] = '1';
 $data['itemDescription1'] = 'Retiro Abastecimento Espiritual GEJ Dom Bosco';
-$data['itemAmount1'] = '70.00';
+$data['itemAmount1'] = '80.00';
 
 $url = 'https://ws.pagseguro.uol.com.br/v2/checkout';
 
