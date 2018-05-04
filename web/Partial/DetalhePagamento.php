@@ -20,10 +20,10 @@
         <h2>Para Depósito em Conta:</h2>
         <div class="col-md-6">
             <b>Banco Caixa<br>
-                Agência: 1041<br>
-                Conta: 00026739-0<br>
+                Agência: 0008<br>
+                Conta: 00060673-7<br>
                 Operação: 013<br>
-                Nome: Linneker Lima R. Gomes
+                Nome: Fernanda Gomes F. Moura
             </b>
         </div>
         <div class="col-md-6">
