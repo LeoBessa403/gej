@@ -6,8 +6,8 @@
             Valida::Mensagem(strtoupper(Mensagens::OK_SALVO_MEMBRO_RETIRO_CARNAVAL), 2);
             ?>
             <div class="row" style="background-color: rgba(225, 238, 208, 1); padding: 20px 0;">
-                <h3 style="margin-left: 15px;">Investimento do Retiro somente R$
-                    <?= InscricaoEnum::VALOR_CARTAO; ?> até 12x no Cartão</h3>
+                <h3 style="margin-left: 15px;">Investimento do Retiro somente
+                    <?= Valida::FormataMoeda(InscricaoEnum::VALOR_CARTAO, 'R$'); ?> até 12x no Cartão</h3>
                 <form action="<?= HOME; ?>web/Inscricoes/ConcluirInscricao" role="form" id="formaPagamento"
                       name="formaPagamento" method="post" class="formulario">
                     <div class="col-md-12">
