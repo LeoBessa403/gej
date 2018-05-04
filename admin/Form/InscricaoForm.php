@@ -21,13 +21,6 @@ class InscricaoForm
             ->CriaInpunt();
 
         $formulario
-            ->setId(NU_VALOR_DESCONTO)
-            ->setClasses("moeda")
-            ->setTamanhoInput(6)
-            ->setLabel("Valor de desconto R$")
-            ->CriaInpunt();
-
-        $formulario
             ->setId(NU_VALOR_PARCELA_PAGO)
             ->setClasses("moeda ob")
             ->setTamanhoInput(6)
@@ -48,6 +41,7 @@ class InscricaoForm
             ->setId(CO_TIPO_PAGAMENTO)
             ->setClasses("ob")
             ->setType("select")
+            ->setTamanhoInput(6)
             ->setOptions($label_options)
             ->CriaInpunt();
 
@@ -58,11 +52,11 @@ class InscricaoForm
             ->CriaInpunt();
 
 
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_PARCELAMENTO)
-                ->setValues($res[CO_PARCELAMENTO])
-                ->CriaInpunt();
+        $formulario
+            ->setType("hidden")
+            ->setId(CO_PARCELAMENTO)
+            ->setValues($res[CO_PARCELAMENTO])
+            ->CriaInpunt();
 
         return $formulario->finalizaForm();
     }
@@ -97,7 +91,7 @@ class InscricaoForm
             ->setOptions($label_options)
             ->CriaInpunt();
 
-        $label_options = array("" => "Selecione um", "S" => "Sim","N" => "Não");
+        $label_options = array("" => "Selecione um", "S" => "Sim", "N" => "Não");
         $formulario
             ->setLabel("Membro GEJ")
             ->setId(DS_MEMBRO_ATIVO)
@@ -117,6 +111,38 @@ class InscricaoForm
 
         return $formulario->finalizaFormPesquisaAvancada();
     }
+
+    public static function DetalharPagametno($res)
+    {
+        $id = "DetalharInscricao";
+        $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
+
+        $formulario = new Form($id, $action);
+        $formulario->setValor($res);
+
+        $label_options = array("1" => "1", "2" => "2", "3" => "3");
+        $formulario
+            ->setLabel("Números de Parcelas")
+            ->setId(NU_PARCELAS)
+            ->setType("select")
+            ->setOptions($label_options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_DESCONTO)
+            ->setClasses("moeda")
+            ->setLabel("Valor de desconto R$")
+            ->CriaInpunt();
+
+        $formulario
+            ->setType("hidden")
+            ->setId(CO_INSCRICAO)
+            ->setValues($res[CO_INSCRICAO])
+            ->CriaInpunt();
+
+        return $formulario->finalizaForm(false,false, "Edição do Pagamento");
+    }
 }
+
 ?>
    

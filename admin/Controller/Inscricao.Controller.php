@@ -14,11 +14,6 @@ class Inscricao extends AbstractController
     {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-        /** @var PagamentoService $pagamentoService */
-        $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
-        /** @var ParcelamentoService $parcelamentoService */
-        $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
-        /** @var EnderecoService $enderecoService */
 
         $this->inscDuplicada = false;
         $id = "DetalharInscricao";
@@ -26,18 +21,6 @@ class Inscricao extends AbstractController
         if (!empty($_POST[$id])):
             $retorno = $inscricaoService->salvarInscricao($_POST, $_FILES, $_POST[CO_INSCRICAO]);
             if ($retorno[SUCESSO]) {
-                /** @var InscricaoEntidade $inscricaoEdicao */
-                $inscricaoEdicao = $inscricaoService->PesquisaUmRegistro($_POST[CO_INSCRICAO]);
-                /** @var PagamentoEntidade $pagamento */
-                $pagamento = $inscricaoEdicao->getCoPagamento();
-                $numeroParcelas = $_POST[NU_PARCELAS][0];
-
-                if ($pagamento->getNuParcelas() != $numeroParcelas &&
-                    $pagamento->getTpSituacao() != StatusPagamentoEnum::CONCLUIDO) {
-                    $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento);
-                    $pag[NU_PARCELAS] = $numeroParcelas;
-                    $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
-                }
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             } else {
                 $this->inscDuplicada = $retorno[MSG];
@@ -223,15 +206,55 @@ class Inscricao extends AbstractController
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
         /** @var PagamentoService $pagamentoService */
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        /** @var ParcelamentoService $parcelamentoService */
+        $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
 
-        $coInscricao = UrlAmigavel::PegaParametro("insc");
+        $id = "DetalharInscricao";
 
-        /** @var InscricaoEntidade $this->inscricao */
-        $this->inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
+        if (!empty($_POST[$id])) {
+            /** @var PDO $PDO */
+            $PDO = $parcelamentoService->getPDO();
+            /** @var InscricaoEntidade $inscricaoEdicao */
+            $inscricaoEdicao = $inscricaoService->PesquisaUmRegistro($_POST[CO_INSCRICAO]);
+            /** @var PagamentoEntidade $pagamento */
+            $pagamento = $inscricaoEdicao->getCoPagamento();
+            $numeroParcelas = $_POST[NU_PARCELAS][0];
+            $pag[NU_VALOR_DESCONTO] = Valida::FormataMoedaBanco($_POST[NU_VALOR_DESCONTO]);
+
+            $PDO->beginTransaction();
+            if ($pagamento->getTpSituacao() != StatusPagamentoEnum::CONCLUIDO) {
+                $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento, $pag[NU_VALOR_DESCONTO]);
+                $pag[NU_PARCELAS] = $numeroParcelas;
+            }
+            $retorno = $pagamentoService->Salva($pag, $pagamento->getCoPagamento());
+            if ($retorno) {
+                $PDO->commit();
+            } else {
+                $retorno[MSG] = 'Não foi possível Salvar o Parcelamento';
+                $PDO->rollBack();
+            }
+        }
+
+        $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
+        if(!$coInscricao){
+            $coInscricao = $_POST[CO_INSCRICAO];
+        }
+
+        /** @var InscricaoEntidade $inscricao */
+        $inscricao = $inscricaoService->PesquisaUmRegistro($coInscricao);
         /** @var PagamentoEntidade $pagamentoInsc */
         $this->pagamentoInsc = $pagamentoService->PesquisaUmRegistro(
-            $this->inscricao->getCoPagamento()->getCoPagamento()
+            $inscricao->getCoPagamento()->getCoPagamento()
         );
+
+        $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
+        $res[NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
+        $res[NU_VALOR_DESCONTO] = Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorDesconto());
+
+        $this->form = InscricaoForm::DetalharPagametno($res);
+
+        $this->inscricao = $inscricao;
+
     }
 
     public function EditarParcela()
@@ -257,11 +280,11 @@ class Inscricao extends AbstractController
             $parcela[CO_TIPO_PAGAMENTO] = $dados[CO_TIPO_PAGAMENTO][0];
             $parcela[DS_OBSERVACAO] = Valida::LimpaVariavel($dados[DS_OBSERVACAO]);
 
-            if($parcela[NU_VALOR_PARCELA_PAGO] > InscricaoEnum::VALOR_CARTAO){
+            if ($parcela[NU_VALOR_PARCELA_PAGO] > InscricaoEnum::VALOR_CARTAO) {
                 $session = new Session();
                 $session->setSession(MENSAGEM, Mensagens::MSG_VALOR_PAGA_ACIMA);
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
-            }else{
+            } else {
                 $parcelamentoService->Salva($parcela, $coParcela);
 
                 /** @var ParcelamentoEntidade $parcelas */
@@ -273,9 +296,8 @@ class Inscricao extends AbstractController
                 foreach ($pagamento->getCoParcelamento() as $parcela) {
                     $total = $total + $parcela->getNuValorParcelaPago();
                 }
-                $pag[NU_VALOR_DESCONTO] = Valida::FormataMoedaBanco($dados[NU_VALOR_DESCONTO]);
                 $pag[NU_VALOR_PAGO] = $total;
-                $total = $total + $pag[NU_VALOR_DESCONTO];
+                $total = $total + $pagamento->getNuValorDesconto();
 
                 if ($total >= InscricaoEnum::VALOR_DINHEIRO) {
                     $pag[TP_SITUACAO] = "C";

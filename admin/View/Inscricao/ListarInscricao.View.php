@@ -42,7 +42,7 @@
                         Modal::deletaRegistro(UrlAmigavel::$controller);
                         Modal::confirmacao("confirma_Inscricao");
                         $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento',
-                             'Membro', 'Pagamento', 'Ações');
+                            'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -58,13 +58,13 @@
                             }
                             if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
                                 $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-                                    . Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" 
+                                    . Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
                                 class="btn btn-primary tooltips" 
                                 data-original-title="Visualizar Registro" data-placement="top">
                                 <i class="fa fa-clipboard"></i>
                                 </a>
                                  <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' .
-                                    Valida::GeraParametro("insc/" . $inscricao->getCoInscricao()) . '" 
+                                    Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
                                  class="btn btn-dark-grey tooltips" 
                                    data-original-title="Detalhes do Pagamento" data-placement="top">
                                     <i class="fa fa-indent"></i>

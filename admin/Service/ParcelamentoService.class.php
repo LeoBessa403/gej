@@ -14,10 +14,8 @@ class  ParcelamentoService extends AbstractService
         $this->ObjetoModel = New ParcelamentoModel();
     }
 
-    public function fazerParcelamento($nuDeparcelas, PagamentoEntidade $pagamento)
+    public function fazerParcelamento($nuDeparcelas, PagamentoEntidade $pagamento, $desconto)
     {
-        /** @var PDO $PDO */
-        $PDO = $this->getPDO();
         /** @var PagamentoService $pagamentoService */
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
 
@@ -33,7 +31,6 @@ class  ParcelamentoService extends AbstractService
         }
         $valorInscricao = $pagamentoService->pegaValorInscricao($pagamento);
 
-        $PDO->beginTransaction();
         $parc = [
             CO_PAGAMENTO => $pagamento->getCoPagamento()
         ];
@@ -41,19 +38,14 @@ class  ParcelamentoService extends AbstractService
         for ($i = $qtdParcelas; $i < $nuDeparcelas; $i++) {
             $novaParcela = array(
                 NU_PARCELA => $i + 1,
-                NU_VALOR_PARCELA => (($valorInscricao - $valorPago) / ($nuDeparcelas - $qtdParcelas)),
+                NU_VALOR_PARCELA => (($valorInscricao - $desconto - $valorPago) / ($nuDeparcelas - $qtdParcelas)),
                 DT_VENCIMENTO => Valida::DataAtualBanco('Y-m-d'),
                 CO_TIPO_PAGAMENTO => TipoPagamentoEnum::DINHEIRO,
                 CO_PAGAMENTO => $pagamento->getCoPagamento(),
             );
             $retorno = $this->Salva($novaParcela);
         }
-        if ($retorno) {
-            $PDO->commit();
-        } else {
-            $retorno[MSG] = 'Não foi possível Salvar o Parcelamento';
-            $PDO->rollBack();
-        }
+        return $retorno;
     }
 
     public function Deleta($coPagamento)

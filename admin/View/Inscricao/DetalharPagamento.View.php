@@ -33,8 +33,7 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
         <!-- end: PAGE HEADER -->
         <!-- start: PAGE CONTENT -->
         <div class="row">
-            <div class="col-sm-6" style="padding: 10px; background-color: #fbfbfb; 
-                                                 margin-left: 15px;">
+            <div class="col-sm-3 dados-listados">
                 <p>Nome:<br/>
                     <big><b>
                             <?php echo $inscricao->getCoPessoa()->getNoPessoa(); ?>
@@ -65,6 +64,9 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                     <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorDesconto()); ?></b></big></p>
                 <p>Total Pago R$:<br/>
                     <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorPago()); ?></b></big></p>
+            </div>
+            <div class="col-md-8" style="margin-top: -16px;">
+                <?php echo $form; ?>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-default">

@@ -17,15 +17,15 @@ class InscricoesForm
             $res['cpf'] = $res[NU_CPF];
             $formulario->setValor($res);
         }
-        if ($res && UrlAmigavel::$modulo == ADMIN):
-            $label_options = array("1" => "1", "2" => "2", "3" => "3");
-            $formulario
-                ->setLabel("Números de Parcelas")
-                ->setId(NU_PARCELAS)
-                ->setType("select")
-                ->setTamanhoInput(12)
-                ->setOptions($label_options)
-                ->CriaInpunt();
+//        if ($res && UrlAmigavel::$modulo == ADMIN):
+//            $label_options = array("1" => "1", "2" => "2", "3" => "3");
+//            $formulario
+//                ->setLabel("Números de Parcelas")
+//                ->setId(NU_PARCELAS)
+//                ->setType("select")
+//                ->setTamanhoInput(12)
+//                ->setOptions($label_options)
+//                ->CriaInpunt();
 //
 //            $label_options = array("Sim", "Não", "verde", "vermelho");
 //            $formulario
@@ -37,7 +37,7 @@ class InscricoesForm
 //                ->setOptions($label_options)
 //                ->CriaInpunt();
 
-        endif;
+//        endif;
 
 
         $label_options = array("Sim", "Não", "verde", "vermelho");
