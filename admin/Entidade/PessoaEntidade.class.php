@@ -254,4 +254,11 @@ class PessoaEntidade extends AbstractEntidade
         return $this->co_usuario = $co_usuario;
     }
 
+    /**
+     * @return InscricaoEntidade $co_inscricao
+     */
+    public function getUltimaCoInscricao()
+    {
+        return $this->ultimo($this->getCoInscricao());
+    }
 }

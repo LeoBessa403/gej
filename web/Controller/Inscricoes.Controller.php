@@ -61,9 +61,9 @@ class Inscricoes extends AbstractController
                         $contatoService = $this->getService(CONTATO_SERVICE);
                         $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
                         if (!empty($pessoa->getCoInscricao())) {
-                            if ($pessoa->getCoInscricao()[0]->getCoImagem()->getDsCaminho()):
-                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getCoInscricao()[0]->getCoImagem()->getDsCaminho();
-                                $res[CO_IMAGEM] = $pessoa->getCoInscricao()[0]->getCoImagem()->getCoImagem();
+                            if ($pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho()):
+                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
+                                $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
                             endif;
                         }
                     }
