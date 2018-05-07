@@ -22,7 +22,7 @@ class CategoriaAgendaEnum extends AbstractEnum
         CategoriaAgendaEnum::EVENTO => 'Evento',
         CategoriaAgendaEnum::INTERCESSAO => 'Intercessão',
         CategoriaAgendaEnum::MISSAO => 'Missão',
-        CategoriaAgendaEnum::OUTROS => 'Outros',
+        CategoriaAgendaEnum::OUTROS => 'Aniversariante',
     ];
 
     public static $cor = [
