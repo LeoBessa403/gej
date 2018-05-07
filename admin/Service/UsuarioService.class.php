@@ -29,7 +29,7 @@ class  UsuarioService extends AbstractService
         foreach ($usuarios as $usuario) {
             if ($usuario->getStStatus() == StatusUsuarioEnum::ATIVO) {
                 $comboUsuarios[$usuario->getCoUsuario()]
-                    = Valida::Resumi($usuario->getCoPessoa()->getNoPessoa(), 25);
+                    = Valida::Resumi(strtoupper($usuario->getCoPessoa()->getNoPessoa()), 25);
             }
         }
         return $comboUsuarios;
