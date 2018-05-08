@@ -31,10 +31,8 @@ class  ParcelamentoService extends AbstractService
         }
         $valorInscricao = $pagamentoService->pegaValorInscricao($pagamento);
 
-        $parc = [
-            CO_PAGAMENTO => $pagamento->getCoPagamento()
-        ];
-        $this->DeletaQuando($parc);
+        $pagModel = New PagamentoModel();
+        $pagModel->delataParcelasPagamento($pagamento->getCoPagamento());
         for ($i = $qtdParcelas; $i < $nuDeparcelas; $i++) {
             $novaParcela = array(
                 NU_PARCELA => $i + 1,

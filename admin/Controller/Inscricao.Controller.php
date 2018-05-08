@@ -236,7 +236,7 @@ class Inscricao extends AbstractController
         }
 
         $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
-        if(!$coInscricao){
+        if (!$coInscricao) {
             $coInscricao = $_POST[CO_INSCRICAO];
         }
 
@@ -263,6 +263,8 @@ class Inscricao extends AbstractController
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
         /** @var ParcelamentoService $parcelamentoService */
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+        /** @var AdministrativoService $administrativoService */
+        $administrativoService = $this->getService(ADMINISTRATIVO_SERVICE);
         /** @var PDO $PDO */
         $PDO = $parcelamentoService->getPDO();
 
@@ -293,8 +295,8 @@ class Inscricao extends AbstractController
                 $pagamento = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
                 /** @var ParcelamentoEntidade $parcela */
                 $total = 0;
-                foreach ($pagamento->getCoParcelamento() as $parcela) {
-                    $total = $total + $parcela->getNuValorParcelaPago();
+                foreach ($pagamento->getCoParcelamento() as $parcel) {
+                    $total = $total + $parcel->getNuValorParcelaPago();
                 }
                 $pag[NU_VALOR_PAGO] = $total;
                 $total = $total + $pagamento->getNuValorDesconto();
@@ -304,6 +306,11 @@ class Inscricao extends AbstractController
                 } elseif ($total > 0) {
                     $pag[TP_SITUACAO] = "I";
                 }
+                // Atualiza o fluxo de Caixa
+                $administrativoService->atualizaFluxoCaixa(
+                    $parcela[NU_VALOR_PARCELA_PAGO],
+                    FluxoCaixaEnum::FLUXO_ENTRADA
+                );
                 $retorno = $pagamentoService->Salva($pag, $parcelas->getCoPagamento()->getCoPagamento());
                 if ($retorno) {
                     $PDO->commit();
