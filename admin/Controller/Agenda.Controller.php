@@ -32,17 +32,17 @@ class Agenda extends AbstractController
             foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
                 $perfis[$perfilAgenda->getCoPerfil()->getCoPerfil()] = $perfilAgenda->getCoPerfil()->getNoPerfil();
             }
-
+            $dataInicio = Valida::DataShow($agenda->getDtInicio(), 'd/m/Y H:i');
+            $dataFim =  (!empty($agenda->getDtFim()))
+                ? ' a ' . Valida::DataShow($agenda->getDtFim(), 'd/m/Y H:i') : '';
+            $dados[$i][DT_INICIO] =  $dataInicio . $dataFim;
             $dados[$i][DS_TITULO] = $agenda->getDsTitulo();
             $dados[$i][NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
             $dados[$i][CO_PERFIL_AGENDA] = implode(", ", $perfis);
-            $dados[$i][DT_INICIO] = Valida::DataShow($agenda->getDtInicio(),'d/m/Y H:i');
-            $dados[$i][DT_FIM] =  (!empty($agenda->getDtFim()))
-                ? Valida::DataShow($agenda->getDtFim(),'d/m/Y H:i') : '';
             $dados[$i][DS_ENDERECO] = $agenda->getCoEndereco()->getDsEndereco();
             $i++;
         }
-        $Colunas = array('Eventualidade', 'Categoria', 'Participantes', 'Início', 'Fim', 'Local');
+        $Colunas = array('Data', 'Eventualidade', 'Categoria', 'Participantes', 'Local');
         $this->geraArquivo($formato, $Colunas, $dados);
     }
 
