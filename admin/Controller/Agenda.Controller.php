@@ -36,9 +36,9 @@ class Agenda extends AbstractController
             $dados[$i][DS_TITULO] = $agenda->getDsTitulo();
             $dados[$i][NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
             $dados[$i][CO_PERFIL_AGENDA] = implode(", ", $perfis);
-            $dados[$i][DT_INICIO] = Valida::DataShow($agenda->getDtInicio(),'d/m/Y H:m');
+            $dados[$i][DT_INICIO] = Valida::DataShow($agenda->getDtInicio(),'d/m/Y H:i');
             $dados[$i][DT_FIM] =  (!empty($agenda->getDtFim()))
-                ? Valida::DataShow($agenda->getDtFim(),'d/m/Y H:m') : '';
+                ? Valida::DataShow($agenda->getDtFim(),'d/m/Y H:i') : '';
             $dados[$i][DS_ENDERECO] = $agenda->getCoEndereco()->getDsEndereco();
             $i++;
         }
