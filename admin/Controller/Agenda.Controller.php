@@ -16,6 +16,44 @@ class Agenda extends AbstractController
         }
     }
 
+    // AÇÃO DE EXPORTAÇÃO
+    public function ExportarCalendario()
+    {
+        /** @var AgendaService $agendaService */
+        $agendaService = $this->getService(AGENDA_SERVICE);
+        $agendas = $agendaService->PesquisaTodos();
+
+        $formato = UrlAmigavel::PegaParametro("formato");
+        $i = 0;
+        $perfis = [];
+        /** @var AgendaEntidade $agenda */
+        foreach ($agendas as $agenda) {
+            /** @var PerfilAgendaEntidade $perfilAgenda */
+            foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
+                $perfis[] = $perfilAgenda->getCoPerfil()->getNoPerfil();
+            }
+
+            $dados[$i][DS_TITULO] = $agenda->getDsTitulo();
+            $dados[$i][NO_CATEGORIA_AGENDA] = $agenda->getCoCategoriaAgenda()->getNoCategoriaAgenda();
+            $dados[$i][CO_PERFIL_AGENDA] = implode(", ", $perfis);
+            $dados[$i][DT_INICIO] = Valida::DataShow($agenda->getDtInicio());
+            $dados[$i][DT_FIM] =  (!empty($agenda->getDtFim())) ? Valida::DataShow($agenda->getDtFim()) : '';
+            $dados[$i][DS_ENDERECO] = $agenda->getCoEndereco()->getDsEndereco();
+            $i++;
+        }
+        $Colunas = array('Eventualidade', 'Categoria', 'Participantes', 'Início', 'Fim', 'Local');
+        $this->geraArquivo($formato, $Colunas, $dados);
+    }
+
+    private function geraArquivo($formato, $Colunas, $dados)
+    {
+        $exporta = new Exportacao($formato);
+        $exporta->setPapelOrientacao("paisagem");
+        $exporta->setColunas($Colunas);
+        $exporta->setConteudo($dados);
+        $exporta->GeraArquivo();
+    }
+
     public function CadastroAgenda()
     {
         /** @var AgendaService $agendaService */

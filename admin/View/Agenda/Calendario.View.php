@@ -34,6 +34,8 @@
                     <div class="panel-body">
                         <?php
                         Modal::deletaRegistro("Agenda");
+                        $grid = new Grid();
+                        $grid->gerarBtnExportar();
                         ?>
                         <div class="col-sm-9">
                             <div id='calendar'></div>
