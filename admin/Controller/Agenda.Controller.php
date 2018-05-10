@@ -30,7 +30,7 @@ class Agenda extends AbstractController
         foreach ($agendas as $agenda) {
             /** @var PerfilAgendaEntidade $perfilAgenda */
             foreach ($agenda->getCoPerfilAgenda() as $perfilAgenda) {
-                $perfis[] = $perfilAgenda->getCoPerfil()->getNoPerfil();
+                $perfis[$perfilAgenda->getCoPerfil()->getCoPerfil()] = $perfilAgenda->getCoPerfil()->getNoPerfil();
             }
 
             $dados[$i][DS_TITULO] = $agenda->getDsTitulo();
