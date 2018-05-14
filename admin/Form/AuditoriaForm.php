@@ -31,6 +31,13 @@ class AuditoriaForm
             ->CriaInpunt();
 
         $formulario
+            ->setId(CO_REGISTRO)
+            ->setTamanhoInput(6)
+            ->setClasses("numero")
+            ->setLabel("Código do Registro")
+            ->CriaInpunt();
+
+        $formulario
             ->setId('dt1')
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(3)
