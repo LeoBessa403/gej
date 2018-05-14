@@ -1,24 +1,46 @@
+<?php
+/** @var UrlAmigavel $url */
+$url = new UrlAmigavel();
+/** @var Seo $seo */
+$seo = new Seo($url);
+?>
 <!DOCTYPE html>
-<!-- Template Name: Clip-One - Frontend | Build with Twitter Bootstrap 3 | Version: 1.0 | Author: ClipTheme -->
-<!--[if IE 8]>
-<html class="ie8" lang="en"><![endif]-->
-<!--[if IE 9]>
-<html class="ie9" lang="en"><![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<!-- start: HEAD -->
+<html lang="pt-br" itemscope itemtype="https://schema.org/WebSite">
 <head>
-    <title>GEJ | CONHEÇA MAIS DO NOSSO RETIRO!</title>
-    <!-- start: META -->
-    <!--[if IE]>
-    <meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1"/><![endif]-->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
+
+    <title><?= $seo->getTitulo(); ?></title>
+    <meta name="description" content="<?= $seo->getDescricao(); ?>"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="Abstract" content="<?= DESC; ?>"/>
+    <meta name="author" content="Leonardo Bessa"/>
+    <meta name="copyright" content="<?= DESC; ?>"/>
+    <meta name="language" content="pt-BR"/>
+    <meta name="country" content="BRA"/>
+    <meta name="currency" content="R$"/>
+
+    <link rel="base" href="<?= HOME; ?>"/>
+    <link rel="canonical" href="<?= $seo->getUrl(); ?>"/>
+
+    <meta itemprop="name" content="<?= $seo->getTitulo(); ?>"/>
+    <meta itemprop="description" content="<?= $seo->getDescricao(); ?>"/>
+    <meta itemprop="image" content="<?= $seo->getImagem() ?>"/>
+    <meta itemprop="url" content="<?= $seo->getUrl(); ?>"/>
+
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="<?= $seo->getTitulo(); ?>"/>
+    <meta property="og:description" content="<?= $seo->getDescricao(); ?>"/>
+    <meta property="og:image" content="<?= $seo->getImagem(); ?>"/>
+    <meta property="og:url" content="<?= $seo->getUrl(); ?>"/>
+    <meta property="og:site_name" content="<?= DESC; ?>"/>
+    <meta property="og:locale" content="pt_BR"/>
+
+    <meta property="twitter:domain" content="<?= HOME; ?>"/>
+    <meta property="twitter:title" content="<?= $seo->getTitulo(); ?>"/>
+    <meta property="twitter:description" content="<?= $seo->getDescricao(); ?>"/>
+    <meta property="twitter:image" content="<?= $seo->getImagem(); ?>"/>
+    <meta property="twitter:url" content="<?= $seo->getUrl(); ?>"/>
     <!-- end: META -->
     <!-- start: MAIN CSS -->
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/boot.css">

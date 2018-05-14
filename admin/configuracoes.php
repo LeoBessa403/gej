@@ -35,7 +35,7 @@ function servidor_inicial()
     //////////////////////////////////////////////
 
     // Título do Site
-    define('DESC', 'WEB GEJ');
+    define('DESC', 'GEJ DOM BOSCO');
     // Tabela de pesquisa de usuário para validação
     define('TABLE_USER', 'tb_usuario');
     // Campo de login na Tabela de pesquisa de usuário para validação
@@ -61,6 +61,12 @@ function servidor_inicial()
     define('TABELA_AUDITORIA', AuditoriaEntidade::TABELA);
     // NÚMERO PADRÃO DE ENVIO DO WHATSAPP
     define('WHATSAPP', '5561993259985');
+    // DESCRIÇÃO PADRÃO DO SITE
+    define('DESC_SITE', 'Fazemos missões e evangelizações diversas para todos os jovens que queira conhecer o verdadeiro amorde Deus.');
+    // TÍTULO PADRÃO DO SITE
+    define('TITULO_SITE', 'Grupo de evangelização de jovem Dom Bosco');
+    // CONTROLLERS PARA GERAR O SEO DIFERENCIADO
+    define('CONTROLLER_SEO', '');
 
 
     //////////////////////////////////////////////
