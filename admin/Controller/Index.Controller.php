@@ -213,11 +213,11 @@ class Index extends AbstractController
                             $pessoa->getNoPessoa() => $pessoa->getCoContato()->getDsEmail()
                         );
                         $Mensagem = "<h4>Oi " . $pessoa->getNoPessoa() . ".</h4>";
-                        $Mensagem .= "<p>Sua senha de acesso ao sistema do Gej é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
+                        $Mensagem .= "<p>Sua senha de acesso ao sistema ".DESC." é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
                             ".</b></p>";
 
                         $email->setEmailDestinatario($emails)
-                            ->setTitulo("[WEB GEJ] - Recuperação de senha")
+                            ->setTitulo("[Sistema ".DESC."] - Recuperação de senha")
                             ->setMensagem($Mensagem);
 
                         // Variável para validação de Emails Enviados com Sucesso.
