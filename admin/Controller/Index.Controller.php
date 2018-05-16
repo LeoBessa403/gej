@@ -115,13 +115,24 @@ class Index extends AbstractController
 
             $dados['TotalDescontos'] = $dados['TotalDescontos'] + $pagamentoInscricao->getNuValorDesconto();
         }
-//        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
+//        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] -
 
-        $dados['TotalAArrecadar'] = Valida::FormataMoeda($dados['TotalAArrecadar'] - $dados['TotalArrecadado']);
+        $totalAArrecadar = $dados['TotalAArrecadar'] - $dados['TotalArrecadado'];
+
+        $grafico = new Grafico(Grafico::PIZZA, "Arrecadação", "div_pizza");
+        $grafico->SetDados(array(
+            "['Categorias','Procedimentos/Mês']",
+            "['Total a Arrecadar'," . $totalAArrecadar . "]",
+            "['Total Arrecadado'," . $dados['TotalArrecadado'] . "]",
+        ));
+        $grafico->GeraGrafico();
+
+        $dados['TotalAArrecadar'] = Valida::FormataMoeda($totalAArrecadar);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
         $dados['TotalDescontos'] = Valida::FormataMoeda($dados['TotalDescontos']);
 
         $this->dados = $dados;
+
     }
 
     public function Registrar()
@@ -213,11 +224,11 @@ class Index extends AbstractController
                             $pessoa->getNoPessoa() => $pessoa->getCoContato()->getDsEmail()
                         );
                         $Mensagem = "<h4>Oi " . $pessoa->getNoPessoa() . ".</h4>";
-                        $Mensagem .= "<p>Sua senha de acesso ao sistema ".DESC." é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
+                        $Mensagem .= "<p>Sua senha de acesso ao sistema " . DESC . " é: <b>" . $pessoa->getCoUsuario()->getDsSenha() .
                             ".</b></p>";
 
                         $email->setEmailDestinatario($emails)
-                            ->setTitulo("[Sistema ".DESC."] - Recuperação de senha")
+                            ->setTitulo("[Sistema " . DESC . "] - Recuperação de senha")
                             ->setMensagem($Mensagem);
 
                         // Variável para validação de Emails Enviados com Sucesso.
