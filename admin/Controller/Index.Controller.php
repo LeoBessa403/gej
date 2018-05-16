@@ -124,8 +124,16 @@ class Index extends AbstractController
             "['Categorias','Procedimentos/Mês']",
             "['Total a Arrecadar'," . $totalAArrecadar . "]",
             "['Total Arrecadado'," . $dados['TotalArrecadado'] . "]",
+            "['Total Desconto'," . $dados['TotalDescontos'] . "]",
         ));
         $grafico->GeraGrafico();
+
+        $grafico2 = new Grafico(Grafico::COLUNA, "Total de Inscrições", "div_coluna");
+        $grafico2->SetDados(array(
+            "['Inscrições','Realizadas','Garantidas']",
+            "['Inscrições'," . $dados['TotalInscricoes'] ." , " . $dados['TotalConcluido'] ." ]"
+        ));
+        $grafico2->GeraGrafico();
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($totalAArrecadar);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);
