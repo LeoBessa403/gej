@@ -4675,9 +4675,9 @@ ul#countdown li p.timeRefDays, ul#countdown li p.timeRefHours, ul#countdown li p
 }
 
 .label-orange, .badge-orange {
-    background-color: #ffa84c !important;
+    background-color: #ffa84c  !important;
     border-color: #ff9900 !important;
-    color: #000 !important;
+    color: #2F2E35 !important;
 }
 
 .label-purple, .badge-purple {
@@ -4688,7 +4688,7 @@ ul#countdown li p.timeRefDays, ul#countdown li p.timeRefHours, ul#countdown li p
 .label-yellow, .badge-yellow {
     background-color: #FFB848 !important;
     border-color: #FFB848 !important;
-    color: #000 !important;
+    color: #cb5e00 !important;
 }
 
 .label-teal, .badge-teal {
