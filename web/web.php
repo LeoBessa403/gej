@@ -13,38 +13,10 @@ $siteMap = new Sitemap();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
 
-    <title><?= $seo->getTitulo(); ?></title>
-    <meta name="description" content="<?= $seo->getDescricao(); ?>"/>
-    <meta name="robots" content="index, follow"/>
-    <meta name="Abstract" content="<?= DESC; ?>"/>
-    <meta name="author" content="Leonardo Bessa"/>
-    <meta name="copyright" content="<?= DESC; ?>"/>
-    <meta name="language" content="pt-BR"/>
-    <meta name="country" content="BRA"/>
-    <meta name="currency" content="R$"/>
+    <!-- Inclução das tags do Seo -->
+    <?php require_once 'library/includes/SeoTags.php' ; ?>
 
-    <link rel="base" href="<?= HOME; ?>"/>
-    <link rel="canonical" href="<?= $seo->getUrl(); ?>"/>
 
-    <meta itemprop="name" content="<?= $seo->getTitulo(); ?>"/>
-    <meta itemprop="description" content="<?= $seo->getDescricao(); ?>"/>
-    <meta itemprop="image" content="<?= $seo->getImagem() ?>"/>
-    <meta itemprop="url" content="<?= $seo->getUrl(); ?>"/>
-
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="<?= $seo->getTitulo(); ?>"/>
-    <meta property="og:description" content="<?= $seo->getDescricao(); ?>"/>
-    <meta property="og:image" content="<?= $seo->getImagem(); ?>"/>
-    <meta property="og:url" content="<?= $seo->getUrl(); ?>"/>
-    <meta property="og:site_name" content="<?= DESC; ?>"/>
-    <meta property="og:locale" content="pt_BR"/>
-
-    <meta property="twitter:domain" content="<?= HOME; ?>"/>
-    <meta property="twitter:title" content="<?= $seo->getTitulo(); ?>"/>
-    <meta property="twitter:description" content="<?= $seo->getDescricao(); ?>"/>
-    <meta property="twitter:image" content="<?= $seo->getImagem(); ?>"/>
-    <meta property="twitter:url" content="<?= $seo->getUrl(); ?>"/>
-    <!-- end: META -->
     <!-- start: MAIN CSS -->
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/boot.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/style.css">
