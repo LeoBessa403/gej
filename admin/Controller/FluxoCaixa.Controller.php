@@ -4,6 +4,7 @@ class FluxoCaixa extends AbstractController
 {
     public $result;
     public $caixa;
+    public $fluxoCaixa;
 
     function ListarFluxoCaixa()
     {
@@ -15,7 +16,19 @@ class FluxoCaixa extends AbstractController
 
         /** @var FluxoCaixaService $fluxoCaixaService */
         $fluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
-        $this->result = $fluxoCaixaService->PesquisaTodos();
+        $fluxosCaixa = $fluxoCaixaService->PesquisaTodos();
+        $total = 0;
+        /** @var FluxoCaixaEntidade $fluxoCaixa */
+        foreach ($fluxosCaixa as $fluxoCaixa){
+            if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA){
+                $total =  $total + $fluxoCaixa->getNuValor();
+            }else{
+                $total =  $total - $fluxoCaixa->getNuValor();
+            }
+        }
+        $this->result = $fluxosCaixa;
+        $this->fluxoCaixa = Valida::FormataMoeda($total);
+
     }
 
     function CadastroFluxoCaixa()

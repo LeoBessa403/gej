@@ -1,6 +1,6 @@
 $(function () {
     setTimeout(
         function(){
-            $("#FluxoCaixa").removeClass('pulse');
-        }, 6000);
+            $(".FluxoCaixa, .fadeIn").removeClass('pulse');
+        }, 4000);
 });
