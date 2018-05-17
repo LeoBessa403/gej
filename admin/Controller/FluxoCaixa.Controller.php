@@ -20,10 +20,12 @@ class FluxoCaixa extends AbstractController
         $total = 0;
         /** @var FluxoCaixaEntidade $fluxoCaixa */
         foreach ($fluxosCaixa as $fluxoCaixa){
-            if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA){
-                $total =  $total + $fluxoCaixa->getNuValor();
-            }else{
-                $total =  $total - $fluxoCaixa->getNuValor();
+            if ($fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO) {
+                if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA){
+                    $total =  $total + $fluxoCaixa->getNuValor();
+                }else{
+                    $total =  $total - $fluxoCaixa->getNuValor();
+                }
             }
         }
         $this->result = $fluxosCaixa;
