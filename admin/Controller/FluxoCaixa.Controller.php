@@ -29,7 +29,7 @@ class FluxoCaixa extends AbstractController
             }
         }
         $this->result = $fluxosCaixa;
-        $this->fluxoCaixa = Valida::FormataMoeda($total);
+        $this->fluxoCaixa = Valida::FormataMoeda($total, 'R$');
 
     }
 
