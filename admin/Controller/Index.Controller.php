@@ -119,6 +119,7 @@ class Index extends AbstractController
 
         $totalAArrecadar = $dados['TotalAArrecadar'] - $dados['TotalArrecadado'];
 
+        // GRAFICO PIZZA
         $grafico = new Grafico(Grafico::PIZZA, "Arrecadação", "div_pizza");
         $grafico->SetDados(array(
             "['Categorias','Procedimentos/Mês']",
@@ -128,6 +129,7 @@ class Index extends AbstractController
         ));
         $grafico->GeraGrafico();
 
+        // GRAFICO COLUNAS
         $grafico2 = new Grafico(Grafico::COLUNA, "Total de Inscrições", "div_coluna");
         $grafico2->SetDados(array(
             "['Inscrições','Realizadas','Garantidas']",
