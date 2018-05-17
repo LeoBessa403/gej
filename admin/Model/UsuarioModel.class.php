@@ -36,7 +36,7 @@ class  UsuarioModel extends AbstractModel
             " inner join " . PessoaEntidade::TABELA . " pes" .
             " on usu." . PessoaEntidade::CHAVE . " = pes." . PessoaEntidade::CHAVE;
 
-        $campos = "usu." . CO_USUARIO . ", pes." . NO_PESSOA . ", pes." . DT_NASCIMENTO;
+        $campos = CO_USUARIO . ", " . NO_PESSOA . ", " . DT_NASCIMENTO;
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar($tabela, null, null, $campos);
         return $pesquisa->getResult();
