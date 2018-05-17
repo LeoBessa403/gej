@@ -39,6 +39,8 @@ function servidor_inicial()
 
     // Título do Site
     define('DESC', 'GEJ DOM BOSCO');
+    // Título do Sistema
+    define('DESC_SIS', 'Web Gej');
     // Tabela de pesquisa de usuário para validação
     define('TABLE_USER', 'tb_usuario');
     // Campo de login na Tabela de pesquisa de usuário para validação
