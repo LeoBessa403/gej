@@ -4,31 +4,32 @@ include_once "../../library/Config.inc.php";
 
 /** @var AgendaService $agendaService */
 $agendaService = new AgendaService();
-$agendas = $agendaService->PesquisaTodos();
+$agendas = $agendaService->PesquisaAgendaCalendario();
+
 /** @var UsuarioService $usuarioService */
 $usuarioService = new UsuarioService();
-$usuarios = $usuarioService->PesquisaTodos();
+$usuarios = $usuarioService->PesquisaUsuarioAgenda();
 
 $eventos = array();
-/** @var AgendaEntidade $agenda */
 foreach ($agendas as $agenda) {
+    extract($agenda);
     $evento = array(
-        'id' => (int)$agenda->getCoAgenda(),
-        'title' => $agenda->getDsTitulo(),
-        'start' => $agenda->getDtInicio(),
-        'end' => $agenda->getDtFim(),
-        'className' => 'label-' . $agenda->getCoCategoriaAgenda()->getDsCor(),
-        'allDay' => ($agenda->getStDiaTodo() == "N" ? FALSE : TRUE)
+        'id' => (int)$co_agenda,
+        'title' => $ds_titulo,
+        'start' => $dt_inicio,
+        'end' => $dt_fim,
+        'className' => 'label-' . $ds_cor,
+        'allDay' => ($st_dia_todo == "N" ? FALSE : TRUE)
     );
     $eventos[] = $evento;
 }
-/** @var UsuarioEntidade $usuario */
 foreach ($usuarios as $usuario) {
+    extract($usuario);
     $usua = array(
-        'id' => (int)$usuario->getCoUsuario(),
-        'title' => Valida::Resumi($usuario->getCoPessoa()->getNoPessoa(), 25),
-        'start' => Date('Y') . '-' . Valida::DataShow($usuario->getCoPessoa()->getDtNascimento(), 'm-d') . ' 00:00:00',
-        'end' => Date('Y') . '-' . Valida::DataShow($usuario->getCoPessoa()->getDtNascimento(), 'm-d') . ' 23:59:59',
+        'id' => (int)$co_usuario,
+        'title' => Valida::Resumi($no_pessoa, 25),
+        'start' => Date('Y') . '-' . Valida::DataShow($dt_nascimento, 'm-d') . ' 00:00:00',
+        'end' => Date('Y') . '-' . Valida::DataShow($dt_nascimento, 'm-d') . ' 23:59:59',
         'className' => 'label-warning',
         'allDay' => TRUE
     );

@@ -30,6 +30,18 @@ class  UsuarioModel extends AbstractModel
         return $usuarios;
     }
 
+    public function PesquisaUsuarioAgenda()
+    {
+        $tabela = UsuarioEntidade::TABELA . " usu" .
+            " inner join " . PessoaEntidade::TABELA . " pes" .
+            " on usu." . PessoaEntidade::CHAVE . " = pes." . PessoaEntidade::CHAVE;
+
+        $campos = "usu." . CO_USUARIO . ", pes." . NO_PESSOA . ", pes." . DT_NASCIMENTO;
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar($tabela, null, null, $campos);
+        return $pesquisa->getResult();
+    }
+
     public function Deleta($coUsuario)
     {
         /** @var PDO $PDO */
@@ -55,9 +67,9 @@ class  UsuarioModel extends AbstractModel
         /** @var ImagemModel $ImagemModel */
         $ImagemModel = new ImagemModel();
         $usuario = $ImagemModel->Deleta($usuario->getCoImagem()->getCoImagem());
-        if($usuario){
+        if ($usuario) {
             $PDO->commit();
-        }else{
+        } else {
             $PDO->rollBack();
         }
         return $usuario;

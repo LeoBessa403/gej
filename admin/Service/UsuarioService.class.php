@@ -19,6 +19,11 @@ class  UsuarioService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancada($Condicoes);
     }
 
+    public function PesquisaUsuarioAgenda()
+    {
+        return $this->ObjetoModel->PesquisaUsuarioAgenda();
+    }
+
     public static function PesquisaUsuariosCombo($Condicoes)
     {
         /** @var UsuarioService $usuarioService */

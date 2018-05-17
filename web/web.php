@@ -6,7 +6,6 @@ $seo = new Seo($url);
 /** @var Sitemap $siteMap */
 $siteMap = new Sitemap();
 ?>
-?>
 <!DOCTYPE html>
 <html lang="pt-br" itemscope itemtype="https://schema.org/WebSite">
 <head>
