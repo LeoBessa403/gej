@@ -119,23 +119,11 @@ class Index extends AbstractController
 
         $totalAArrecadar = $dados['TotalAArrecadar'] - $dados['TotalArrecadado'];
 
-        // GRAFICO PIZZA
-        $grafico = new Grafico(Grafico::PIZZA, "Arrecadação", "div_pizza");
-        $grafico->SetDados(array(
-            "['Categorias','Procedimentos/Mês']",
-            "['Total a Arrecadar'," . $totalAArrecadar . "]",
-            "['Total Arrecadado'," . $dados['TotalArrecadado'] . "]",
-            "['Total Desconto'," . $dados['TotalDescontos'] . "]",
-        ));
-        $grafico->GeraGrafico();
+        // Dados para a View Dados Inscrição antes de formatar
+        $dados['TotalAArrecadarDados'] = $totalAArrecadar;
+        $dados['TotalArrecadadoDados'] = $dados['TotalArrecadado'];
+        $dados['TotalDescontosDados'] = $dados['TotalDescontos'];
 
-        // GRAFICO COLUNAS
-        $grafico2 = new Grafico(Grafico::COLUNA, "Total de Inscrições", "div_coluna");
-        $grafico2->SetDados(array(
-            "['Inscrições','Realizadas','Garantidas']",
-            "['Inscrições'," . $dados['TotalInscricoes'] ." , " . $dados['TotalConcluido'] ." ]"
-        ));
-        $grafico2->GeraGrafico();
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($totalAArrecadar);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);

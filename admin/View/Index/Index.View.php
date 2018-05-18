@@ -37,15 +37,15 @@
                                 </span>
                             </button>
                         </div>
-<!--                        <div class="col-sm-4">-->
-<!--                            <button class="btn btn-icon btn-block">-->
-<!--                                <i class="clip-users-3"></i>-->
-<!--                                Retirantes Inscritos-->
-<!--                                <span class="negrito dados dados-warning">-->
-<!--                                    --><?//= $dados['TotalRetirantes']; ?>
-<!--                                </span>-->
-<!--                            </button>-->
-<!--                        </div>-->
+                        <!--                        <div class="col-sm-4">-->
+                        <!--                            <button class="btn btn-icon btn-block">-->
+                        <!--                                <i class="clip-users-3"></i>-->
+                        <!--                                Retirantes Inscritos-->
+                        <!--                                <span class="negrito dados dados-warning">-->
+                        <!--                                    --><? //= $dados['TotalRetirantes']; ?>
+                        <!--                                </span>-->
+                        <!--                            </button>-->
+                        <!--                        </div>-->
                         <div class="col-sm-6">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-3"></i>
@@ -100,15 +100,15 @@
                                 </span>
                             </button>
                         </div>
-<!--                        <div class="col-sm-4">-->
-<!--                            <button class="btn btn-icon btn-block">-->
-<!--                                <i class="clip-users-2"></i>-->
-<!--                                Servos-->
-<!--                                <span class="dados negrito dados-success">-->
-<!--                                    --><?//= $dados['TotalServos']; ?>
-<!--                                </span>-->
-<!--                            </button>-->
-<!--                        </div>-->
+                        <!--                        <div class="col-sm-4">-->
+                        <!--                            <button class="btn btn-icon btn-block">-->
+                        <!--                                <i class="clip-users-2"></i>-->
+                        <!--                                Servos-->
+                        <!--                                <span class="dados negrito dados-success">-->
+                        <!--                                    --><? //= $dados['TotalServos']; ?>
+                        <!--                                </span>-->
+                        <!--                            </button>-->
+                        <!--                        </div>-->
                         <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-eur fa"></i>
@@ -141,18 +141,6 @@
                 <!-- end: FULL CALENDAR PANEL -->
             </div>
             <!-- end: PAGE CONTENT-->
-
-            <div class="col-md-4">
-                <div class="alert alert-info fade in">
-                    <div id="div_pizza"></div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="alert alert-info fade in">
-                    <div id="div_coluna"></div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

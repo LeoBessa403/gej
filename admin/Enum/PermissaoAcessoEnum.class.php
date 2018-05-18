@@ -25,6 +25,7 @@ class PermissaoAcessoEnum extends AbstractEnum
     const CADASTRO_AGENDA = 19;
     const FLUXO_CAIXA_CADASTRO = 20;
     const FLUXO_CAIXA_LISTAR = 21;
+    const GRAFICOS_INSCRICOES = 22;
 
     public static $descricao = [
         PermissaoAcessoEnum::PERFIL_MASTER => 'Perfil Master',
@@ -47,6 +48,7 @@ class PermissaoAcessoEnum extends AbstractEnum
         PermissaoAcessoEnum::CADASTRO_AGENDA => 'Cadastro Agenda',
         PermissaoAcessoEnum::FLUXO_CAIXA_CADASTRO => 'Fluxo Caxa Cadastro',
         PermissaoAcessoEnum::FLUXO_CAIXA_LISTAR => 'Fluxo Caxa Listar',
+        PermissaoAcessoEnum::GRAFICOS_INSCRICOES => 'Gráficos das Inscrições',
     ];
 
     public static $actions = [
@@ -70,5 +72,6 @@ class PermissaoAcessoEnum extends AbstractEnum
         PermissaoAcessoEnum::CADASTRO_AGENDA => 'CadastroAgenda',
         PermissaoAcessoEnum::FLUXO_CAIXA_CADASTRO => 'CadastroFluxoCaixa',
         PermissaoAcessoEnum::FLUXO_CAIXA_LISTAR => 'ListarFluxoCaixa',
+        PermissaoAcessoEnum::GRAFICOS_INSCRICOES => 'GraficosInscricao',
     ];
 }

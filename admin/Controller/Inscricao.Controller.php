@@ -307,7 +307,7 @@ class Inscricao extends AbstractController
                     $pag[TP_SITUACAO] = StatusPagamentoEnum::INICIADA;
                 }
 
-                if($pagamento->getTpSituacao() != StatusPagamentoEnum::NAO_INICIADA){
+                if ($pagamento->getTpSituacao() != StatusPagamentoEnum::NAO_INICIADA) {
                     // Atualiza o fluxo de Caixa retirando o ja realizado
                     $administrativoService->atualizaFluxoCaixa(
                         $pagamento->getNuValorPago(),
@@ -349,6 +349,31 @@ class Inscricao extends AbstractController
 
             $this->form = InscricaoForm::EditarParcelamento($res);
         endif;
+    }
+
+    public function GraficosInscricao()
+    {
+        $indexControl = new Index();
+        $indexControl->Index();
+        $dados = $indexControl->dados;
+
+        // GRAFICO PIZZA
+        $grafico = new Grafico(Grafico::PIZZA, "Arrecadação", "div_pizza");
+        $grafico->SetDados(array(
+            "['Categorias','Procedimentos/Mês']",
+            "['Total a Arrecadar'," . $dados['TotalAArrecadarDados'] . "]",
+            "['Total Arrecadado'," . $dados['TotalArrecadadoDados'] . "]",
+            "['Total Desconto'," . $dados['TotalDescontosDados'] . "]",
+        ));
+        $grafico->GeraGrafico();
+
+        // GRAFICO COLUNAS
+        $grafico2 = new Grafico(Grafico::COLUNA, "Total de Inscrições", "div_coluna");
+        $grafico2->SetDados(array(
+            "['Inscrições','Realizadas','Garantidas']",
+            "['Inscrições'," . $dados['TotalInscricoes'] . " , " . $dados['TotalConcluido'] . " ]"
+        ));
+        $grafico2->GeraGrafico();
     }
 
 }
