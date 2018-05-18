@@ -293,8 +293,8 @@ class Inscricao extends AbstractController
                 $parcelas = $parcelamentoService->PesquisaUmRegistro($coParcela);
                 /** @var PagamentoEntidade $pagamento */
                 $pagamento = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
-                /** @var ParcelamentoEntidade $parcela */
                 $total = 0;
+                /** @var ParcelamentoEntidade $parcel */
                 foreach ($pagamento->getCoParcelamento() as $parcel) {
                     $total = $total + $parcel->getNuValorParcelaPago();
                 }
@@ -302,10 +302,19 @@ class Inscricao extends AbstractController
                 $total = $total + $pagamento->getNuValorDesconto();
 
                 if ($total >= InscricaoEnum::VALOR_DINHEIRO) {
-                    $pag[TP_SITUACAO] = "C";
+                    $pag[TP_SITUACAO] = StatusPagamentoEnum::CONCLUIDO;
                 } elseif ($total > 0) {
-                    $pag[TP_SITUACAO] = "I";
+                    $pag[TP_SITUACAO] = StatusPagamentoEnum::INICIADA;
                 }
+
+                if($pagamento->getTpSituacao() != StatusPagamentoEnum::NAO_INICIADA){
+                    // Atualiza o fluxo de Caixa retirando o ja realizado
+                    $administrativoService->atualizaFluxoCaixa(
+                        $pagamento->getNuValorPago(),
+                        FluxoCaixaEnum::FLUXO_SAIDA
+                    );
+                }
+
                 // Atualiza o fluxo de Caixa
                 $administrativoService->atualizaFluxoCaixa(
                     $parcela[NU_VALOR_PARCELA_PAGO],
