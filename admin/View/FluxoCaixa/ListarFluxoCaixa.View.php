@@ -22,14 +22,20 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="alert alert-block alert-success fade in pulse FluxoCaixa">
-                        <h4 class="alert-heading"><i class="fa fa-info-circle"></i> Valor em Caixa</h4>
+                        <h4 class="alert-heading"><i class="fa fa-star"></i> Valor em Caixa</h4>
                         <h5><?= $caixa; ?></h5>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="alert alert-block alert-info fade in fadeIn FluxoCaixa">
-                        <h4 class="alert-heading"><i class="fa fa-info-circle"></i> Total do Fluxo</h4>
+                        <h4 class="alert-heading"><i class="fa fa-money"></i> Total do Fluxo</h4>
                         <h5><?= $fluxoCaixa; ?></h5>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="alert alert-block alert-warning fade in fadeIn FluxoCaixa">
+                        <h4 class="alert-heading"><i class="fa fa-info-circle"></i> Valor Inscrições</h4>
+                        <h5><?= $inscricaoCaixa; ?></h5>
                     </div>
                 </div>
                 <!-- end: PAGE TITLE & BREADCRUMB -->
