@@ -330,26 +330,15 @@ $siteMap = new Sitemap();
     <div class="footer-copyright">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-12">
                     <a class="logo" href="#">
-                        &copy; DESENVOLVIMENTO LEO BESSA <?php echo date("Y"); ?>
+                        <?php
+                        $linhas = fopen('versao.txt', "a+");
+                        $versoes = fgets($linhas);
+                        $versao = explode('//',$versoes);
+                        ?>
+                        <?= date("Y"); ?> &copy; Leo Bessa Desenvolvimento. <b>Versão: <?= $versao[4]; ?></b>
                     </a>
-                </div>
-                <div class="col-md-4">
-                    <nav id="sub-menu">
-                        <ul>
-                            <li>
-                                <a href="<?php echo PASTASITE; ?>Index/Blog">
-                                    Perguntas Frequentes
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Contatos
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
