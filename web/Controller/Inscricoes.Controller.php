@@ -46,7 +46,7 @@ class Inscricoes extends AbstractController
                         foreach ($pessoa->getCoInscricao() as $inscricao) {
                             if ($inscricao->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL) {
                                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller .
-                                    '/CadastroAbastecimento/' . Valida::GeraParametro('insc/U'));
+                                    '/CadastroAbastecimento/' . Valida::GeraParametro(CO_INSCRICAO . '/U'));
                             }
                         }
                     }
