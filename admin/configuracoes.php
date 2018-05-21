@@ -97,7 +97,11 @@ function servidor_inicial()
     define('IP_LOCALIZACAO', 'http://ip-api.com/php/');
 
     include_once('Class/Constantes.class.php');
-    include_once('library/Constantes.class.php');
+    if (file_exists('library/Constantes.class.php')):
+        include_once "library/Constantes.class.php";
+    else:
+        include_once "../../library/Constantes.class.php";
+    endif;
 
 }
 
