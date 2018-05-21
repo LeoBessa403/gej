@@ -54,6 +54,7 @@ define('DT_INICIO', 'dt_inicio');
 define('DT_FIM', 'dt_fim');
 define('DS_TITULO', 'ds_titulo');
 define('CO_CATEGORIA_AGENDA', 'co_categoria_agenda');
+define('CO_AGENDA_EVENTO', 'co_agenda_evento');
 define('CO_PERFIL_AGENDA', 'co_perfil_agenda');
 define('NO_CATEGORIA_AGENDA', 'no_categoria_agenda');
 define('DS_COR', 'ds_cor');
