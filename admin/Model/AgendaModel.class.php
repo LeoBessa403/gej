@@ -23,4 +23,16 @@ class  AgendaModel extends AbstractModel
         $pesquisa->Pesquisar($tabela, null, null, $campos);
         return $pesquisa->getResult();
     }
+
+    public function PesquisaUsuarioAgenda()
+    {
+        $tabela = UsuarioEntidade::TABELA . " usu" .
+            " inner join " . PessoaEntidade::TABELA . " pes" .
+            " on usu." . PessoaEntidade::CHAVE . " = pes." . PessoaEntidade::CHAVE;
+
+        $campos = CO_USUARIO . ", " . NO_PESSOA . ", " . DT_NASCIMENTO;
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar($tabela, null, null, $campos);
+        return $pesquisa->getResult();
+    }
 }

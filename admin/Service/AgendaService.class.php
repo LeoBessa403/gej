@@ -109,6 +109,11 @@ class  AgendaService extends AbstractService
         return $this->ObjetoModel->PesquisaAgendaCalendario();
     }
 
+    public function PesquisaUsuarioAgenda()
+    {
+        return $this->ObjetoModel->PesquisaUsuarioAgenda();
+    }
+
     public static function PesquisaEventosCombo($res)
     {
         /** @var AgendaService $agendaService */

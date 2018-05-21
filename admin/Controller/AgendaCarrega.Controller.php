@@ -5,10 +5,7 @@ include_once "../../library/Config.inc.php";
 /** @var AgendaService $agendaService */
 $agendaService = new AgendaService();
 $agendas = $agendaService->PesquisaAgendaCalendario();
-
-/** @var UsuarioService $usuarioService */
-$usuarioService = new UsuarioService();
-$usuarios = $usuarioService->PesquisaUsuarioAgenda();
+$usuarios = $agendaService->PesquisaUsuarioAgenda();
 
 $eventos = array();
 foreach ($agendas as $agenda) {

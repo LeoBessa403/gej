@@ -28,9 +28,9 @@ class Inscricoes extends AbstractController
                 $this->form = InscricoesForm::Cadastrar();
             }
         } elseif (!empty($_POST[$id2])) {
-            $indexValidador = new IndexValidador();
+            $PessoaValidador = new PessoaValidador();
             /** @var InscricaoValidador $validador */
-            $validador = $indexValidador->validarCPF($_POST);
+            $validador = $PessoaValidador->validarCPF($_POST);
             if ($validador[SUCESSO]) {
                 /** @var PessoaService $pessoaService */
                 $pessoaService = static::getService(PESSOA_SERVICE);
