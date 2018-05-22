@@ -17,6 +17,11 @@ class Relacionamentos
                     ('Entidade') => 'UsuarioEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_TRAFEGO) => Array(
+                    ('Campo') => CO_TRAFEGO,
+                    ('Entidade') => 'TrafegoEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (UsuarioEntidade::TABELA) => Array(
                 (CO_ACESSO) => Array(
@@ -387,6 +392,38 @@ class Relacionamentos
                     ('Entidade') => 'PerfilEntidade',
                     ('Tipo') => '1',
                 ),
+            ),(VisitaEntidade::TABELA) => Array(
+                (CO_TRAFEGO) => Array(
+                    ('Campo') => CO_TRAFEGO,
+                    ('Entidade') => 'TrafegoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PAGINA_VISITA) => Array(
+                    ('Campo') => CO_VISITA,
+                    ('Entidade') => 'PaginaVisitaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (PaginaEntidade::TABELA) => Array(
+                (CO_PAGINA_VISITA) => Array(
+                    ('Campo') => CO_PAGINA,
+                    ('Entidade') => 'PaginaVisitaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (PaginaVisitaEntidade::TABELA) => Array(
+                (CO_PAGINA) => Array(
+                    ('Campo') => CO_PAGINA,
+                    ('Entidade') => 'PaginaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_VISITA) => Array(
+                    ('Campo') => CO_VISITA,
+                    ('Entidade') => 'VisitaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (TrafegoEntidade::TABELA) => Array(
             ),
         );
     }
