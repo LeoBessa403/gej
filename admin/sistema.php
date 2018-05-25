@@ -181,6 +181,7 @@ endif;
                     "Usuario" => array("fa fa-group", "MeuPerfilUsuario", "CadastroUsuario", "ListarUsuario"),
                     "Inscricao" => array("clip-note", "ListarInscricao", "GraficosInscricao", "DetalhesInscricao", "SobreVcInscricao"),
                     "FluxoCaixa" => array("clip-banknote", "CadastroFluxoCaixa", "ListarFluxoCaixa"),
+                    "Visita" => array("clip-airplane", "ListarVisita"),
                     "Perfil" => array("clip-stack-empty", "CadastroPerfil", "ListarPerfil"),
                     "Funcionalidade" => array("fa fa-outdent", "CadastroFuncionalidade", "ListarFuncionalidade"),
                     "Acesso" => array("clip-connection-2", "ListarAcesso"),
