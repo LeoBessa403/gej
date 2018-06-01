@@ -89,7 +89,7 @@ function servidor_inicial()
     // *********** GOOGLE ANALITCS  *********** //
     //////////////////////////////////////////////
 
-    define('ID_ANALITCS', false);
+    define('ID_ANALITCS', 'UA-71215942-1');
 
 
     //////////////////////////////////////////////
