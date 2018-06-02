@@ -8,7 +8,7 @@ function servidor_inicial()
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
-            'DBSA' => 'gej_bd',
+            'DBSA' => 'gejdo247_gej',
             'DEBUG' => true,
             'PROD' => false
         );
