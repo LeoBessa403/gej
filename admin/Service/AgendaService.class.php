@@ -45,20 +45,20 @@ class  AgendaService extends AbstractService
             $dados[DS_DESCRICAO] = $result[DS_DESCRICAO];
             $dados[CO_USUARIO] = $user[md5(CO_USUARIO)];
             $dados[DT_INICIO] = Valida::DataDB($result[DT_INICIO] . " " . $result['hr_inicio'] . ":00");
-            $dados[DT_FIM] = (!empty($result[DT_FIM]) ? Valida::DataDB($result[DT_FIM] . " " . $result['hr_fim'] . ":00") : null);
+            $dados[DT_FIM] = (count($result[DT_FIM]) ? Valida::DataDB($result[DT_FIM] . " " . $result['hr_fim'] . ":00") : null);
             $dados[DS_TITULO] = $result[DS_TITULO];
             $dados[CO_CATEGORIA_AGENDA] = $result[CO_CATEGORIA_AGENDA][0];
 
             $PDO->beginTransaction();
-            $agendaEvento[CO_EVENTO] = (!empty($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : null;
+            $agendaEvento[CO_EVENTO] = (count($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : null;
 
-            if (!empty($result[CO_AGENDA])):
+            if (count($result[CO_AGENDA])):
                 $coAgenda = $result[CO_AGENDA];
                 $coEndereco = $result[CO_ENDERECO];
                 $perfilAgendaService->DeletaQuando([CO_AGENDA => $coAgenda]);
                 $dados[CO_ENDERECO] = $enderecoService->Salva($endereco, $coEndereco);
                 $this->Salva($dados, $coAgenda);
-                if (!empty($agendaEvento[CO_EVENTO])):
+                if (count($agendaEvento[CO_EVENTO])):
                     $agendaEventoService->Salva($agendaEvento, $coAgenda);
                 endif;
                 $session->setSession(ATUALIZADO, "OK");
@@ -67,7 +67,7 @@ class  AgendaService extends AbstractService
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $dados[ST_DIA_TODO] = SimNaoEnum::NAO;
                 $coAgenda = $this->Salva($dados);
-                if (!empty($agendaEvento[CO_EVENTO])):
+                if (count($agendaEvento[CO_EVENTO])):
                     $agendaEventoService->Salva($agendaEvento);
                 endif;
                 $session->setSession(CADASTRADO, "OK");
@@ -79,7 +79,7 @@ class  AgendaService extends AbstractService
             }
 
             $dadosPerfil[CO_AGENDA] = $coAgenda;
-            if (!empty($result[CO_PERFIL])):
+            if (count($result[CO_PERFIL])):
                 foreach ($result[CO_PERFIL] as $value):
                     $dadosPerfil[CO_PERFIL] = $value;
                     $retorno[CO_AGENDA] = $perfilAgendaService->Salva($dadosPerfil);
@@ -126,7 +126,7 @@ class  AgendaService extends AbstractService
         ]);
         /** @var AgendaEntidade $agenda */
         foreach ($agendas as $agenda) {
-            if (!empty($res[CO_AGENDA])) {
+            if (count($res[CO_AGENDA])) {
                 if ($res[CO_AGENDA] != $agenda->getCoAgenda()) {
                     $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
                 }

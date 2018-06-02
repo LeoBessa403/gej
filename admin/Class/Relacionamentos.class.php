@@ -141,21 +141,6 @@ class Relacionamentos
                 ),
             ),
             (ImagemEntidade::TABELA) => Array(
-                (CO_INSCRICAO) => Array(
-                    ('Campo') => CO_IMAGEM,
-                    ('Entidade') => 'InscricaoEntidade',
-                    ('Tipo') => '1',
-                ),
-                (CO_USUARIO) => Array(
-                    ('Campo') => CO_IMAGEM,
-                    ('Entidade') => 'UsuarioEntidade',
-                    ('Tipo') => '1',
-                ),
-                (CO_IMAGEM_EVENTO) => Array(
-                    ('Campo') => CO_IMAGEM,
-                    ('Entidade') => 'ImagemEventoEntidade',
-                    ('Tipo') => '2',
-                ),
             ),
             (MembroEntidade::TABELA) => Array(
                 (CO_PESSOA) => Array(

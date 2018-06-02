@@ -60,7 +60,7 @@
                                                                 <p><span style="font-weight: bolder; color: #900;">Termino Em:</span><br/>
                                                                 <big><b><?php echo $result['dt_fim']; ?>
                                                                     </b></big></p>   
-                                                                    <?php if(!empty($result['dt_conclusao'])): ?>
+                                                                    <?php if(count($result['dt_conclusao'])): ?>
                                                                             <p><span style="font-weight: bolder; color: #900;">Concluída Em:</span><br/>
                                                                             <big><b><?php echo $result['dt_conclusao']; ?>
                                                                                 </b></big></p>   
