@@ -44,26 +44,14 @@
                         /** @var InscricaoEntidade $inscricao */
                         foreach ($result as $inscricao):
                             $contato = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
-                            $contato .= ' <a class="whatsapp" title="Nos chame no WhatSapp"
-                            href="'. Valida::geraLinkWhatSapp(Mensagens::ZAPAVIVAGEJ,[],
-                                    '55'.$inscricao->getCoPessoa()->getCoContato()->getNuTel1()).'"
-                            target="_blank"> (zap) </a> ';
                             if($inscricao->getCoPessoa()->getCoContato()->getNuTel2()){
                                 $contato = $contato . ' / '.Valida::MascaraTel(
                                         $inscricao->getCoPessoa()->getCoContato()->getNuTel2()
                                     );
-                                $contato .= ' <a class="whatsapp" title="Nos chame no WhatSapp"
-                            href="'. Valida::geraLinkWhatSapp(Mensagens::ZAPAVIVAGEJ,[],
-                                        '55'.$inscricao->getCoPessoa()->getCoContato()->getNuTel2()).'"
-                            target="_blank"> (zap) </a> ';
                             }else if($inscricao->getNuTelResponsavel()){
                                 $contato = $contato . ' / '.Valida::MascaraTel(
                                         $inscricao->getNuTelResponsavel()
                                     );
-                                $contato .= ' <a class="whatsapp" title="Nos chame no WhatSapp"
-                                        href="'. Valida::geraLinkWhatSapp(Mensagens::ZAPAVIVAGEJ,[],
-                                                    '55'.$inscricao->getNuTelResponsavel()).'"
-                                        target="_blank"> (zap) </a> ';
                             }
 
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
