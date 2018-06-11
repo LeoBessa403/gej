@@ -33,5 +33,6 @@ class Mensagens
     const ZAP03 = "Estou com dúvidas sobre minha Inscrição!";
     const ZAP04 = "Estou com dúvidas sobre o Pagamento!";
     const ZAP05 = "Segue o comprovante do pagamento do Abastecimento Espirirual!";
+    const ZAPAVIVAGEJ = "Óla, quero te fazer um super convite!";
 
 }
