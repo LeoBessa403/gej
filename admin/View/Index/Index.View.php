@@ -33,7 +33,7 @@
                                 <i class="clip-users-3"></i>
                                 Vagas Garantidas
                                 <span class="negrito dados dados-success">
-                                    <?= $dados['TotalInscricoesRestantes']; ?>
+                                    <?= $dados['TotalInscricoesGarantidas']; ?>
                                 </span>
                             </button>
                         </div>

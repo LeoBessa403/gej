@@ -26,7 +26,7 @@ class IndexController extends AbstractController
         $dados['TotalNaoPago'] = 0;
         $dados['TotalParcial'] = 0;
         $dados['TotalConcluido'] = 0;
-        $dados['TotalInscricoesRestantes'] = 0;
+        $dados['TotalInscricoesGarantidas'] = 0;
         $dados['TotalInscricoesCartao'] = 0;
         $dados['TotalAArrecadar'] = 0;
         $dados['TotalArrecadado'] = 0;
@@ -90,18 +90,18 @@ class IndexController extends AbstractController
             switch ($pagamentoInscricao->getTpSituacao()) {
                 case StatusPagamentoEnum::CONCLUIDO:
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
-                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
-                        $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
-                    }
+//                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
+//                    $dados['TotalInscricoesGarantidas'] = $dados['TotalInscricoesGarantidas'] + 1;
+//                    }
                     break;
                 case StatusPagamentoEnum::NAO_INICIADA:
                     $dados['TotalNaoPago'] = $dados['TotalNaoPago'] + 1;
                     break;
                 case StatusPagamentoEnum::INICIADA:
                     $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
-                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
-                        $dados['TotalInscricoesRestantes'] = $dados['TotalInscricoesRestantes'] + 1;
-                    }
+//                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
+//                            $dados['TotalInscricoesGarantidas']= $dados['TotalInscricoesGarantidas'] + 1;
+//                    }
                     break;
                 default:
                     break;
@@ -115,7 +115,7 @@ class IndexController extends AbstractController
 
             $dados['TotalDescontos'] = $dados['TotalDescontos'] + $pagamentoInscricao->getNuValorDesconto();
         }
-//        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] -
+       $dados['TotalInscricoesGarantidas'] = $dados['TotalParcial'] +  $dados['TotalConcluido'];
 
         $totalAArrecadar = $dados['TotalAArrecadar'] - $dados['TotalArrecadado'];
 
