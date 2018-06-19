@@ -81,7 +81,7 @@ class IndexController extends AbstractController
             );
 
             if ($pagamentoInscricao->getNuParcelas() == 1
-                && $pagamentoInscricao->getCoParcelamento()[0]->getCoTipoPagamento()->getCoTipoPagamento()
+                && $pagamentoInscricao->getCoPrimeiraParcela()->getCoTipoPagamento()->getCoTipoPagamento()
                 == TipoPagamentoEnum::CARTAO_CREDITO
             ) {
                 $dados['TotalInscricoesCartao'] = $dados['TotalInscricoesCartao'] + 1;

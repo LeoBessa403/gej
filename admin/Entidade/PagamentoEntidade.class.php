@@ -200,4 +200,12 @@ class PagamentoEntidade extends AbstractEntidade
         return $this->co_parcelamento = $co_parcelamento;
     }
 
+    /**
+     * @return ParcelamentoEntidade $co_parcelamento
+     */
+    public function getCoPrimeiraParcela()
+    {
+        return $this->primeiro($this->getCoParcelamento());
+    }
+
 }

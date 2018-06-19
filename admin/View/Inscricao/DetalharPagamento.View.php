@@ -2,7 +2,7 @@
 /** @var InscricaoEntidade $inscricao */
 $inscricao = $inscricao;
 /** @var ParcelamentoEntidade $parcela */
-$parcela = $inscricao->getCoPagamento()->getCoParcelamento()[0];
+$parcela = $inscricao->getCoPagamento()->getCoPrimeiraParcela();
 $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamento());
 ?>
 <div class="main-content">
