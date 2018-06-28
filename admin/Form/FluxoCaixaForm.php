@@ -9,7 +9,7 @@ class FluxoCaixaForm
 
         /** @var Form $formulario */
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" .
-            UrlAmigavel::$action, 'Salvar', 6);
+            UrlAmigavel::$action, 'Salvar', 12);
         if ($res):
             $formulario->setValor($res);
         endif;

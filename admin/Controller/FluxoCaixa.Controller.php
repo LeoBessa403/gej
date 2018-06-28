@@ -44,7 +44,7 @@ class FluxoCaixa extends AbstractController
         $this->result = $fluxosCaixa;
         $this->fluxoCaixa = Valida::FormataMoeda($total, 'R$');
         $this->inscricaoCaixa = Valida::FormataMoeda($totalInscriao, 'R$');
-
+        $this->form = FluxoCaixaForm::Cadastro([]);
     }
 
     function CadastroFluxoCaixa()

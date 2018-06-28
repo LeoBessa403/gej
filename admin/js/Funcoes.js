@@ -1,6 +1,7 @@
 var Funcoes = function () {
     var inicio = function () {
 
+
         $("#ds_pastoral_ativo").change(function () {
             disabilitaCamposRetiro();
         });
@@ -33,35 +34,12 @@ var Funcoes = function () {
             }
         });
 
-        function verificaTodas() {
-            var todas = true;
-            $(".funcionalidade").each(function () {
-                $(".todas").prop("checked", $(".funcionalidade").prop('checked'));
-                if (!$(this).prop('checked')) {
-                    todas = false;
-                }
-            });
-            if (todas) {
-                $(".todas").prop("checked", true);
-            } else {
-                $(".todas").prop("checked", false);
-            }
-        }
 
-
-        // VINCULAÇÃO FUNCIONALIDADES AO PERFIL // BOTÃO TODOS FUNCIONALIDADES
-        $(".todas").change(function () {
-            $(".funcionalidade").each(function () {
-                $(this).prop("checked", $(".todas").prop('checked'));
-            });
+        //VARIÁVEIS GLOBAIS
+        $('#teste').click(function () {
+            $('.cadastrando .modal-body').html($("#cadastrando").html());
+            $('#cadastrando2').click();
         });
-
-        // VINCULAÇÃO DA FUNCIONALIDADE AO PERFIL
-        $(".funcionalidade").change(function () {
-            verificaTodas();
-        });
-
-        verificaTodas();
     };
     return {
         init: function () {

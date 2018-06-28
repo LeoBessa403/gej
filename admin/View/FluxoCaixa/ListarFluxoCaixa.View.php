@@ -51,6 +51,7 @@
                     <div class="panel-body">
                         <?php
                         Modal::load();
+                        Modal::cadastrando($form);
                         Modal::deletaRegistro("FluxoCaixa");
                         Modal::confirmacao("confirma_FluxoCaixa");
                         $arrColunas = array('Descrição', 'Tipo de Fluxo', 'Situação Pag.', 'Valor R$',
