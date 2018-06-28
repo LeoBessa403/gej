@@ -33,13 +33,6 @@ var Funcoes = function () {
                 return false;
             }
         });
-
-
-        //VARIÁVEIS GLOBAIS
-        $('#teste').click(function () {
-            $('.cadastrando .modal-body').html($("#cadastrando").html());
-            $('#cadastrando2').click();
-        });
     };
     return {
         init: function () {
