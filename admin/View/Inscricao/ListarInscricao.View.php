@@ -40,6 +40,8 @@
                         <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
+                        Modal::DesativarInscricao("DesativarInscricao");
+                        Modal::AtivarInscricao("AtivarInscricao");
                         Modal::confirmacao("confirma_Inscricao");
                         $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento',
                             'Membro', 'Pagamento', 'Ações');
@@ -57,24 +59,36 @@
                                 $documento = $inscricao->getCoPessoa()->getNuRG();
                             }
                             if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
-                                $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-                                    . Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
-                                class="btn btn-primary tooltips" 
-                                data-original-title="Visualizar Registro" data-placement="top">
-                                <i class="fa fa-clipboard"></i>
-                                </a>
-                                 <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' .
-                                    Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
-                                 class="btn btn-dark-grey tooltips" 
-                                   data-original-title="Detalhes do Pagamento" data-placement="top">
-                                    <i class="fa fa-indent"></i>
-                                </a>
-                                 <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" 
-                                 id="' . $inscricao->getCoInscricao() . '" 
-                                   href="#' . UrlAmigavel::$controller . '" data-original-title="Inativar Inscrição" 
-                                   data-placement="top">
-                                    <i class="fa fa-trash-o"></i>
-                                 </a>';
+
+                                if ($inscricao->getStStatus() == "D") {
+                                    $acao = ' <a data-toggle="modal" role="button" class="btn btn-green tooltips acao" 
+                                            id="' . $inscricao->getCoInscricao() . '" data-msg-restricao="MSG03"
+                                           href="#AtivarInscricao" data-original-title="Ativar Inscrição" data-placement="top"
+                                           data-url-action="' . PASTAADMIN . 'Inscricao/AtivarInscricao/' .
+                                        Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '">
+                                            <i class="fa fa-unlock-alt"></i>
+                                        </a>';
+                                } else {
+                                    $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
+                                                . Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
+                                        class="btn btn-primary tooltips" 
+                                        data-original-title="Visualizar Registro" data-placement="top">
+                                        <i class="fa fa-clipboard"></i>
+                                        </a>
+                                         <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' .
+                                                Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
+                                         class="btn btn-dark-grey tooltips" 
+                                           data-original-title="Detalhes do Pagamento" data-placement="top">
+                                            <i class="fa fa-indent"></i>
+                                        </a>
+                                         <a data-toggle="modal" role="button" class="btn btn-danger tooltips acao" 
+                                            id="' . $inscricao->getCoInscricao() . '" data-msg-restricao="MSG03"
+                                           href="#DesativarInscricao" data-original-title="Desativar Inscrição" data-placement="top"
+                                           data-url-action="' . PASTAADMIN . 'Inscricao/DesativarInscricao/' .
+                                        Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '">
+                                            <i class="fa fa-lock"></i>
+                                        </a>';
+                                }
                             }
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1()));

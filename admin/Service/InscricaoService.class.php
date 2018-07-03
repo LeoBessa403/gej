@@ -235,4 +235,50 @@ class  InscricaoService extends AbstractService
         return $res;
     }
 
+    /**
+     * @param $coInscricao
+     * @return array
+     */
+    public function desativarInscricao($coInscricao)
+    {
+        return $this->mudarStatusInscricao($coInscricao, "D");
+    }
+
+    /**
+     * @param $coInscricao
+     * @return array
+     */
+    public function ativarInscricao($coInscricao)
+    {
+        return $this->mudarStatusInscricao($coInscricao, "A");
+    }
+
+    /**
+     * @param $coInscricao
+     * @param $stStatus
+     * @return array
+     */
+    private function mudarStatusInscricao($coInscricao, $stStatus)
+    {
+        $session = new Session();
+        $retorno = [
+            SUCESSO => false,
+            MSG => null
+        ];
+        $dados = [
+            ST_STATUS => $stStatus
+        ];
+
+        $coInscricaoEd = $this->Salva($dados, $coInscricao);
+
+        if ($coInscricaoEd) {
+            $session->setSession(MENSAGEM, Mensagens::OK_ATUALIZADO);
+            $retorno[SUCESSO] = true;
+        } else {
+            $session->setSession(MENSAGEM, 'Não foi possível alterar o Produto');
+            $retorno[SUCESSO] = false;
+        }
+        return $retorno;
+    }
+
 }

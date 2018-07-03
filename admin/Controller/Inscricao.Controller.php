@@ -376,4 +376,28 @@ class Inscricao extends AbstractController
         $grafico2->GeraGrafico();
     }
 
+    public function DesativarInscricao()
+    {
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+
+        $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
+        $retorno = $inscricaoService->desativarInscricao($coInscricao);
+        if ($retorno[SUCESSO]) {
+            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
+        }
+    }
+
+    public function AtivarInscricao()
+    {
+        /** @var InscricaoService $inscricaoService */
+        $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+
+        $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
+        $retorno = $inscricaoService->ativarInscricao($coInscricao);
+        if ($retorno[SUCESSO]) {
+            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
+        }
+    }
+
 }
