@@ -14,7 +14,8 @@
         ?>
         <div class="row">
             <?php
-            echo $form;
+//            echo $form;
+            Valida::Mensagem(strtoupper(Mensagens::INSCRICOES_ENCERRADAS), 2);
             ?>
         </div>
         <!-- end: PAGE CONTENT-->
