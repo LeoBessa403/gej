@@ -105,7 +105,7 @@ class Inscricao extends AbstractController
             $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
             $i++;
         }
-        $Colunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Servo', 'Membro', 'Pagamento');
+        $Colunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Membro', 'Pagamento');
         $this->geraArquivo($formato, $Colunas, $dados);
     }
 
