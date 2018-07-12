@@ -130,7 +130,7 @@ class  AgendaService extends AbstractService
                 if ($res[CO_AGENDA] != $agenda->getCoAgenda()) {
                     $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
                 }
-            } elseif (!empty($agenda->getCoEvento())) {
+            } elseif (!empty($agenda->getCoEvento()->getCoEvento())) {
                 $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
             }
         }
