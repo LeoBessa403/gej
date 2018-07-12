@@ -126,11 +126,11 @@ class  AgendaService extends AbstractService
         ]);
         /** @var AgendaEntidade $agenda */
         foreach ($agendas as $agenda) {
-            if (count($res[CO_AGENDA])) {
+            if (!empty($res[CO_AGENDA]) && !empty($agenda->getCoEvento())) {
                 if ($res[CO_AGENDA] != $agenda->getCoAgenda()) {
                     $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
                 }
-            } else {
+            } elseif (!empty($agenda->getCoEvento())) {
                 $comboEventos[$agenda->getCoEvento()->getCoEvento()] = $agenda->getDsTitulo();
             }
         }

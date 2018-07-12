@@ -20,6 +20,7 @@ class EventoEntidade extends AbstractEntidade
     private $co_agenda;
     private $co_agenda_evento;
     private $co_inscricao;
+    private $co_fluxo_caixa;
 
 
     /**
@@ -32,6 +33,7 @@ class EventoEntidade extends AbstractEntidade
             DT_CADASTRO,
             CO_CATEGORIA_EVENTO,
             CO_IMAGEM,
+            CO_AGENDA
         ];
     }
 
@@ -193,5 +195,23 @@ class EventoEntidade extends AbstractEntidade
     {
         $this->co_inscricao = $co_inscricao;
     }
+
+    /**
+     * @return FluxoCaixaEntidade mixed
+     */
+    public function getCoFluxoCaixa()
+    {
+        return $this->co_fluxo_caixa;
+    }
+
+    /**
+     * @param mixed $co_fluxo_caixa
+     */
+    public function setCoFluxoCaixa($co_fluxo_caixa)
+    {
+        $this->co_fluxo_caixa = $co_fluxo_caixa;
+    }
+
+
 
 }

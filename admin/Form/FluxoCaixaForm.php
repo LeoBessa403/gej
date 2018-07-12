@@ -38,6 +38,14 @@ class FluxoCaixaForm
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
+        $options = AgendaService::PesquisaEventosCombo($res);
+        $formulario
+            ->setId(CO_EVENTO)
+            ->setType("select")
+            ->setLabel("Evento Vinculado")
+            ->setOptions($options)
+            ->CriaInpunt();
+
         $formulario
             ->setId(DT_REALIZADO)
             ->setClasses("data ob")

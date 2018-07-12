@@ -280,6 +280,11 @@ class Relacionamentos
                     ('Entidade') => 'InscricaoEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_FLUXO_CAIXA) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Tipo') => '2',
+                ),
                 (CO_CATEGORIA_EVENTO) => Array(
                     ('Campo') => CO_EVENTO,
                     ('Entidade') => 'CategoriaEventoEntidade',
@@ -317,6 +322,13 @@ class Relacionamentos
                 (CO_AGENDA) => Array(
                     ('Campo') => CO_AGENDA,
                     ('Entidade') => 'AgendaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (FluxoCaixaEntidade::TABELA) => Array(
+                (CO_EVENTO) => Array(
+                    ('Campo') => CO_EVENTO,
+                    ('Entidade') => 'EventoEntidade',
                     ('Tipo') => '1',
                 ),
             ),

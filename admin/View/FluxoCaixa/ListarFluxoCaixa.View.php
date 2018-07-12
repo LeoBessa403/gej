@@ -54,7 +54,7 @@
                         Modal::deletaRegistro("FluxoCaixa");
                         Modal::confirmacao("confirma_FluxoCaixa");
                         $arrColunas = array('Descrição', 'Tipo de Fluxo', 'Situação Pag.', 'Valor R$',
-                            'Data Realizado', 'Data Vencimento', 'Ações');
+                            'Data Realizado', 'Data Vencimento', 'Evento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -77,6 +77,8 @@
                             $grid->setColunas(Valida::FormataMoeda($res->getNuValor()));
                             $grid->setColunas(Valida::DataShow($res->getDtRealizado()));
                             $grid->setColunas(Valida::DataShow($res->getDtVencimento()));
+                            $grid->setColunas(($res->getCoEvento())
+                                ? $res->getCoEvento()->getCoAgenda()->getDsTitulo(): 'Fluxo');
                             $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoFluxoCaixa());
                         endforeach;

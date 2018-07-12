@@ -19,13 +19,23 @@ class FluxoCaixa extends AbstractController
         $fluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
         $fluxosCaixa = $fluxoCaixaService->PesquisaTodos();
         $total = 0;
+        $totalInscriaoGastos = 0;
         /** @var FluxoCaixaEntidade $fluxoCaixa */
         foreach ($fluxosCaixa as $fluxoCaixa) {
-            if ($fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO) {
+            if ($fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO &&
+                empty($fluxoCaixa->getCoEvento())) {
                 if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA) {
                     $total = $total + $fluxoCaixa->getNuValor();
                 } else {
                     $total = $total - $fluxoCaixa->getNuValor();
+                }
+            } else {
+                if (!empty($fluxoCaixa->getCoEvento())) {
+                    if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_SAIDA
+                        && $fluxoCaixa->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL
+                        && $fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO) {
+                        $totalInscriaoGastos = $totalInscriaoGastos + $fluxoCaixa->getNuValor();
+                    }
                 }
             }
         }
@@ -41,6 +51,7 @@ class FluxoCaixa extends AbstractController
                 $totalInscriao = $totalInscriao + $inscricao->getCoPagamento()->getNuValorPago();
             }
         }
+        $totalInscriao = $totalInscriao - $totalInscriaoGastos;
         $this->result = $fluxosCaixa;
         $this->fluxoCaixa = Valida::FormataMoeda($total, 'R$');
         $this->inscricaoCaixa = Valida::FormataMoeda($totalInscriao, 'R$');
@@ -70,6 +81,8 @@ class FluxoCaixa extends AbstractController
             if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA) {
                 $res[TP_FLUXO] = FluxoCaixaEnum::FLUXO_ENTRADA;
             }
+            $res[CO_EVENTO] = ($fluxoCaixa->getCoEvento())
+                ? $fluxoCaixa->getCoEvento()->getCoEvento() : null;
             $res[NU_VALOR] = Valida::FormataMoeda($fluxoCaixa->getNuValor());
             $res[DT_REALIZADO] = Valida::DataShow($fluxoCaixa->getDtRealizado());
             $res[DT_VENCIMENTO] = Valida::DataShow($fluxoCaixa->getDtVencimento());

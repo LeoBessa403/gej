@@ -42,6 +42,7 @@ class  FluxoCaixaService extends AbstractService
             $dados[DT_REALIZADO] = Valida::DataDB($result[DT_REALIZADO]);
             $dados[DT_VENCIMENTO] = Valida::DataDB($result[DT_VENCIMENTO]);
             $dados[ST_PAGAMENTO] = $result[ST_PAGAMENTO][0];
+            $dados[CO_EVENTO] = (count($result[CO_EVENTO][0])) ? $result[CO_EVENTO][0] : null;
 
             $PDO->beginTransaction();
             if (!empty($result[CO_FLUXO_CAIXA])):

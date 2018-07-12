@@ -19,6 +19,7 @@ class FluxoCaixaEntidade extends AbstractEntidade
     private $ds_descricao;
     private $tp_fluxo;
     private $st_pagamento;
+    private $co_evento;
 
 
     /**
@@ -35,6 +36,7 @@ class FluxoCaixaEntidade extends AbstractEntidade
             DS_DESCRICAO,
             TP_FLUXO,
             ST_PAGAMENTO,
+            CO_EVENTO
         ];
     }
 
@@ -43,7 +45,8 @@ class FluxoCaixaEntidade extends AbstractEntidade
      */
     public static function getRelacionamentos()
     {
-        return [];
+        $relacionamentos = Relacionamentos::getRelacionamentos();
+        return $relacionamentos[static::TABELA];
     }
 
 
@@ -182,5 +185,23 @@ class FluxoCaixaEntidade extends AbstractEntidade
     {
         return $this->st_pagamento = $st_pagamento;
     }
+
+    /**
+     * @return EventoEntidade mixed
+     */
+    public function getCoEvento()
+    {
+        return $this->co_evento;
+    }
+
+    /**
+     * @param mixed $co_evento
+     */
+    public function setCoEvento($co_evento)
+    {
+        $this->co_evento = $co_evento;
+    }
+
+
 
 }
