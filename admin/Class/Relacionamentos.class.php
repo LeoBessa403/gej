@@ -112,6 +112,11 @@ class Relacionamentos
                     ('Entidade') => 'EventoEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_PEDIDO_CAMISA) => Array(
+                    ('Campo') => CO_INSCRICAO,
+                    ('Entidade') => 'PedidoCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (PessoaEntidade::TABELA) => Array(
                 (CO_INSCRICAO) => Array(
@@ -421,6 +426,64 @@ class Relacionamentos
                 ),
             ),
             (TrafegoEntidade::TABELA) => Array(
+            ),
+            (CamisaCorCamisaEntidade::TABELA) => Array(
+                (CO_CAMISA) => Array(
+                    ('Campo') => CO_CAMISA,
+                    ('Entidade') => 'CamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_COR_CAMISA) => Array(
+                    ('Campo') => CO_COR_CAMISA,
+                    ('Entidade') => 'CorCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (CamisaEntidade::TABELA) => Array(
+                (CO_CAMISA_COR_CAMISA) => Array(
+                    ('Campo') => CO_CAMISA,
+                    ('Entidade') => 'CamisaCorCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PEDIDO_CAMISA) => Array(
+                    ('Campo') => CO_CAMISA,
+                    ('Entidade') => 'PedidoCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_IMAGEM) => Array(
+                    ('Campo') => CO_IMAGEM,
+                    ('Entidade') => 'ImagemEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (CorCamisaEntidade::TABELA) => Array(
+                (CO_CAMISA_COR_CAMISA) => Array(
+                    ('Campo') => CO_COR_CAMISA,
+                    ('Entidade') => 'CamisaCorCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PEDIDO_CAMISA) => Array(
+                    ('Campo') => CO_COR_CAMISA,
+                    ('Entidade') => 'PedidoCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (PedidoCamisaEntidade::TABELA) => Array(
+                (CO_CAMISA) => Array(
+                    ('Campo') => CO_CAMISA,
+                    ('Entidade') => 'CamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_COR_CAMISA) => Array(
+                    ('Campo') => CO_COR_CAMISA,
+                    ('Entidade') => 'CorCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_INSCRICAO) => Array(
+                    ('Campo') => CO_INSCRICAO,
+                    ('Entidade') => 'InscricaoEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
         );
     }

@@ -67,6 +67,16 @@ define('TP_FLUXO', 'tp_fluxo');
 define('ST_PAGAMENTO', 'st_pagamento');
 define('CO_ADMINISTRATIVO', 'co_administrativo');
 define('NU_FUNDO_CAIXA', 'nu_fundo_caixa');
+define('CO_CAMISA_COR_CAMISA', 'co_camisa_cor_camisa');
+define('CO_CAMISA', 'co_camisa');
+define('CO_COR_CAMISA', 'co_cor_camisa');
+define('CO_PEDIDO_CAMISA', 'co_pedido_camisa');
+define('ST_PEDIDO', 'st_pedido');
+define('ST_ENTREGUE', 'st_entregue');
+define('DT_PEDIDA', 'dt_pedida');
+define('DT_ENTREGUE', 'dt_entregue');
+define('NO_COR_CAMISA', 'no_cor_camisa');
+define('NO_CAMISA', 'no_camisa');
 
 
 define('EVENTO_SERVICE', 'EventoService');
@@ -84,7 +94,7 @@ define('CATEGORIA_AGENDA_SERVICE', 'CategoriaAgendaService');
 define('AGENDA_EVENTO_SERVICE', 'AgendaEventoService');
 define('FLUXO_CAIXA_SERVICE', 'FluxoCaixaService');
 define('ADMINISTRATIVO_SERVICE', 'AdministrativoService');
-
-
-
-
+define('CAMISA_COR_CAMISA_SERVICE', 'CamisaCorCamisaService');
+define('PEDIDO_CAMISA_SERVICE', 'PedidoCamisaService');
+define('COR_CAMISA_SERVICE', 'CorCamisaService');
+define('CAMISA_SERVICE', 'CamisaService');

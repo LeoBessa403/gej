@@ -28,6 +28,7 @@ class InscricaoEntidade extends AbstractEntidade
     private $co_imagem;
     private $co_evento;
     private $co_pagamento;
+    private $co_pedido_camisa;
     private $st_status;
 
     /**
@@ -57,7 +58,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $relacionamentos
+     * @return array $relacionamentos
      */
     public static function getRelacionamentos()
     {
@@ -67,7 +68,7 @@ class InscricaoEntidade extends AbstractEntidade
 
 
     /**
-     * @return $co_inscricao
+     * @return int $co_inscricao
      */
     public function getCoInscricao()
     {
@@ -84,7 +85,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $ds_pastoral
+     * @return mixed $ds_pastoral
      */
     public function getDsPastoral()
     {
@@ -101,7 +102,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $ds_retiro
+     * @return mixed $ds_retiro
      */
     public function getDsRetiro()
     {
@@ -118,7 +119,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $ds_membro_ativo
+     * @return mixed $ds_membro_ativo
      */
     public function getDsMembroAtivo()
     {
@@ -135,7 +136,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $ds_situacao_atual_grupo
+     * @return mixed $ds_situacao_atual_grupo
      */
     public function getDsSituacaoAtualGrupo()
     {
@@ -152,7 +153,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $nu_camisa
+     * @return mixed $nu_camisa
      */
     public function getNuCamisa()
     {
@@ -169,7 +170,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $no_responsavel
+     * @return mixed $no_responsavel
      */
     public function getNoResponsavel()
     {
@@ -203,7 +204,7 @@ class InscricaoEntidade extends AbstractEntidade
     }
 
     /**
-     * @return $ds_descricao
+     * @return mixed $ds_descricao
      */
     public function getDsDescricao()
     {
@@ -365,5 +366,23 @@ class InscricaoEntidade extends AbstractEntidade
     {
         $this->co_evento = $co_evento;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCoPedidoCamisa()
+    {
+        return $this->co_pedido_camisa;
+    }
+
+    /**
+     * @param mixed $co_pedido_camisa
+     */
+    public function setCoPedidoCamisa($co_pedido_camisa)
+    {
+        $this->co_pedido_camisa = $co_pedido_camisa;
+    }
+
+
 
 }
