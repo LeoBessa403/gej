@@ -12,5 +12,19 @@ class  CamisaModel extends AbstractModel
         parent::__construct(CamisaEntidade::ENTIDADE);
     }
 
-
+    /**
+     * @param $coCamisa
+     * @return array
+     */
+    public static function getDsCaminhoFotoCamisa($coCamisa)
+    {
+        $tabela = CamisaEntidade::TABELA . " prod" .
+            " inner join " . ImagemEntidade::TABELA . " img" .
+            " on prod." . ImagemEntidade::CHAVE . " = img." . ImagemEntidade::CHAVE;
+        $campos = "img." . DS_CAMINHO . ' AS caminho';
+        $pesquisa = new Pesquisa();
+        $where = "where " . CamisaEntidade::CHAVE . " = " . $coCamisa;
+        $pesquisa->Pesquisar($tabela, $where, null, $campos);
+        return $pesquisa->getResult();
+    }
 }

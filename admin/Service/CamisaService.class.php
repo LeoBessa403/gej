@@ -16,5 +16,59 @@ class  CamisaService extends AbstractService
         $this->ObjetoModel = New CamisaModel();
     }
 
+    public function salvaCamisa($result, $foto)
+    {
+        $session = new Session();
+        $camisaValidador = new CamisaValidador();
+        /** @var CamisaValidador $validador */
+        $validador = $camisaValidador->validarCamisa($result);
+        if ($validador[SUCESSO]) {
+            /** @var PDO $PDO */
+            $PDO = $this->getPDO();
+            /** @var CamisaCorCamisaService $camisaCorCamisaService */
+            $camisaCorCamisaService = $this->getService(CAMISA_COR_CAMISA_SERVICE);
+            /** @var ImagemService $imagemService */
+            $imagemService = $this->getService(IMAGEM_SERVICE);
+            $retorno = [
+                SUCESSO => false,
+                MSG => null
+            ];
+            $coCorCamisa = null;
+            $camisa[NO_CAMISA] = trim($result[NO_CAMISA]);
+
+            $imagem[DS_CAMINHO] = "";
+            if ($foto[DS_CAMINHO]["tmp_name"]):
+                $foto = $_FILES[DS_CAMINHO];
+                $nome = Valida::ValNome($camisa[NO_CAMISA]);
+                $up = new Upload();
+                $up->UploadImagens($foto, $nome, "Camisa");
+                $imagem[DS_CAMINHO] = $up->getNameImage();
+            endif;
+
+            $PDO->beginTransaction();
+            $camisa[CO_IMAGEM] = $imagemService->Salva($imagem);
+            $dadosCor[CO_CAMISA] = $this->Salva($camisa);
+            if (count($result[CO_COR_CAMISA])):
+                foreach ($result[CO_COR_CAMISA] as $value):
+                    $dadosCor[CO_COR_CAMISA] = $value;
+                    $coCorCamisa = $camisaCorCamisaService->Salva($dadosCor);
+                endforeach;
+            endif;
+
+            if ($coCorCamisa):
+                $retorno[SUCESSO] = true;
+                $PDO->commit();
+            else:
+                $session->setSession(MENSAGEM, 'Não foi possível salvar o Fluxo de Caixa');
+                $retorno[SUCESSO] = false;
+                $PDO->rollBack();
+            endif;
+        } else {
+            $session->setSession(MENSAGEM, $validador[MSG]);
+            $retorno = $validador;
+        }
+        return $retorno;
+    }
+
 
 }

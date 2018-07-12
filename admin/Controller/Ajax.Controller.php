@@ -27,6 +27,12 @@ if (isset($_GET['valida'])) {
             }
             break;
 
+        case 'foto_camisa':
+            $id = $_GET['id'];
+            $dsCaminho = CamisaModel::getDsCaminhoFotoCamisa($id);
+            echo json_encode($dsCaminho[0]);
+            break;
+
         case 'capa_livro':
             $id = $_GET['id'];
             $livro = BibliotecaModel::PesquisaUmLivro($id);

@@ -443,12 +443,12 @@ class Relacionamentos
                 (CO_CAMISA_COR_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
                     ('Entidade') => 'CamisaCorCamisaEntidade',
-                    ('Tipo') => '1',
+                    ('Tipo') => '2',
                 ),
                 (CO_PEDIDO_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
                     ('Entidade') => 'PedidoCamisaEntidade',
-                    ('Tipo') => '1',
+                    ('Tipo') => '2',
                 ),
                 (CO_IMAGEM) => Array(
                     ('Campo') => CO_IMAGEM,
@@ -460,12 +460,12 @@ class Relacionamentos
                 (CO_CAMISA_COR_CAMISA) => Array(
                     ('Campo') => CO_COR_CAMISA,
                     ('Entidade') => 'CamisaCorCamisaEntidade',
-                    ('Tipo') => '1',
+                    ('Tipo') => '2',
                 ),
                 (CO_PEDIDO_CAMISA) => Array(
                     ('Campo') => CO_COR_CAMISA,
                     ('Entidade') => 'PedidoCamisaEntidade',
-                    ('Tipo') => '1',
+                    ('Tipo') => '2',
                 ),
             ),
             (PedidoCamisaEntidade::TABELA) => Array(
