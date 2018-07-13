@@ -77,6 +77,8 @@ define('DT_PEDIDA', 'dt_pedida');
 define('DT_ENTREGUE', 'dt_entregue');
 define('NO_COR_CAMISA', 'no_cor_camisa');
 define('NO_CAMISA', 'no_camisa');
+define('NU_VALOR_CUSTO', 'nu_valor_custo');
+define('NU_VALOR_VENDA', 'nu_valor_venda');
 
 
 define('EVENTO_SERVICE', 'EventoService');

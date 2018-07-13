@@ -35,6 +35,8 @@ class  CamisaService extends AbstractService
             ];
             $coCorCamisa = null;
             $camisa[NO_CAMISA] = trim($result[NO_CAMISA]);
+            $camisa[NU_VALOR_CUSTO] = Valida::FormataMoedaBanco($result[NU_VALOR_CUSTO]);
+            $camisa[NU_VALOR_VENDA] = Valida::FormataMoedaBanco($result[NU_VALOR_VENDA]);
 
             $imagem[DS_CAMINHO] = "";
             if ($foto[DS_CAMINHO]["tmp_name"]):

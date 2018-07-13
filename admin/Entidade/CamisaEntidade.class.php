@@ -13,6 +13,8 @@ class CamisaEntidade extends AbstractEntidade
 
 	private $co_camisa;
 	private $no_camisa;
+	private $nu_valor_custo;
+	private $nu_valor_venda;
 	private $co_imagem;
 	private $co_camisa_cor_camisa;
 	private $co_pedido_camisa;
@@ -25,6 +27,8 @@ class CamisaEntidade extends AbstractEntidade
     {
     	return [
 			CO_CAMISA,
+            NU_VALOR_CUSTO,
+            NU_VALOR_VENDA,
 			NO_CAMISA,
 			CO_IMAGEM,
 		];
@@ -124,5 +128,38 @@ class CamisaEntidade extends AbstractEntidade
     {
         return $this->co_pedido_camisa = $co_pedido_camisa;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNuValorCusto()
+    {
+        return $this->nu_valor_custo;
+    }
+
+    /**
+     * @param mixed $nu_valor_custo
+     */
+    public function setNuValorCusto($nu_valor_custo)
+    {
+        $this->nu_valor_custo = $nu_valor_custo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNuValorVenda()
+    {
+        return $this->nu_valor_venda;
+    }
+
+    /**
+     * @param mixed $nu_valor_venda
+     */
+    public function setNuValorVenda($nu_valor_venda)
+    {
+        $this->nu_valor_venda = $nu_valor_venda;
+    }
+
 
 }

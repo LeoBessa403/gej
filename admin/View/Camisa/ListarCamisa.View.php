@@ -46,7 +46,13 @@
                                 Valida::GeraParametro(CO_CAMISA . "/" . $res->getCoCamisa()) .
                                 '" class="btn btn-primary tooltips" 
                                     data-original-title="Editar Registro" data-placement="top">
-                                     <i class="fa fa-clipboard"></i></a>';
+                                     <i class="fa fa-clipboard"></i></a> 
+                                     <a href="' . PASTAADMIN . 'Camisa/ListarPedido/' .
+                                Valida::GeraParametro(CO_CAMISA . "/" . $res->getCoCamisa()) . '" 
+                                         class="btn btn-dark-grey tooltips" 
+                                           data-original-title="Pedidos da Camisa" data-placement="top">
+                                            <i class="clip-bubbles-3"></i>
+                                        </a>';
                             $cores = '';
                             /** @var CamisaCorCamisaEntidade $cor */
                             foreach ($res->getCoCamisaCorCamisa() as $cor){
@@ -67,7 +73,7 @@
                             $grid->setColunas($foto, 2);
                             $grid->setColunas($res->getNoCamisa());
                             $grid->setColunas($cores);
-                            $grid->setColunas($acao, 1);
+                            $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoCamisa());
                         endforeach;
                         $grid->finalizaGrid();

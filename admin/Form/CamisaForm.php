@@ -30,6 +30,20 @@ class CamisaForm
             ->CriaInpunt();
 
         $formulario
+            ->setId(NU_VALOR_CUSTO)
+            ->setClasses("moeda ob")
+            ->setLabel("Valor de custo r$")
+            ->setTamanhoInput(6)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_VENDA)
+            ->setClasses("moeda ob")
+            ->setLabel("Valor de venda r$")
+            ->setTamanhoInput(6)
+            ->CriaInpunt();
+
+        $formulario
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
             ->setInfo("Foto de amostra da camisa")

@@ -14,6 +14,7 @@ class PedidoCamisaEntidade extends AbstractEntidade
 	private $co_pedido_camisa;
 	private $st_pedido;
 	private $st_entregue;
+	private $tp_situacao;
 	private $dt_cadastro;
 	private $dt_pedida;
 	private $dt_entregue;
@@ -31,6 +32,7 @@ class PedidoCamisaEntidade extends AbstractEntidade
 			CO_PEDIDO_CAMISA,
 			ST_PEDIDO,
 			ST_ENTREGUE,
+            TP_SITUACAO,
 			DT_CADASTRO,
 			DT_PEDIDA,
 			DT_ENTREGUE,
@@ -201,6 +203,22 @@ class PedidoCamisaEntidade extends AbstractEntidade
 	public function setCoInscricao($co_inscricao)
     {
         return $this->co_inscricao = $co_inscricao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTpSituacao()
+    {
+        return $this->tp_situacao;
+    }
+
+    /**
+     * @param mixed $tp_situacao
+     */
+    public function setTpSituacao($tp_situacao)
+    {
+        $this->tp_situacao = $tp_situacao;
     }
 
 }

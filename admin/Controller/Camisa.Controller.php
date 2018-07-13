@@ -4,6 +4,7 @@ class Camisa extends AbstractController
 {
     public $result;
     public $form;
+    public $camisa;
 
     function ListarCamisa()
     {
@@ -40,12 +41,33 @@ class Camisa extends AbstractController
             }
             $res[CO_COR_CAMISA] = $cores;
             $res[CO_CAMISA] = $camisa->getCoCamisa();
+            $res[NU_VALOR_CUSTO] = Valida::FormataMoeda($camisa->getNuValorCusto());
+            $res[NU_VALOR_VENDA] = Valida::FormataMoeda($camisa->getNuValorVenda());
             $res[DS_CAMINHO] = ($camisa->getCoImagem())
                 ? "Camisa/" . $camisa->getCoImagem()->getDsCaminho() : null;
 
         endif;
         $this->form = CamisaForm::Cadastro($res);
+    }
 
+    public function ListarPedido()
+    {
+        /** @var PedidoCamisaService $pedidoCamisaService */
+        $pedidoCamisaService = $this->getService(PEDIDO_CAMISA_SERVICE);
+        /** @var CamisaService $camisaService */
+        $camisaService = $this->getService(CAMISA_SERVICE);
+
+        $coCamisa = UrlAmigavel::PegaParametro(CO_CAMISA);
+        if (!$coCamisa) {
+            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarCamisa/');
+        }
+        /** @var CamisaEntidade $camisa */
+        $camisa = $camisaService->PesquisaUmRegistro($coCamisa);
+        /** @var PedidoCamisaEntidade $pedidosCamisa */
+        $pedidosCamisa = $pedidoCamisaService->PesquisaTodos([CO_CAMISA => $coCamisa]);
+
+        $this->result = $pedidosCamisa;
+        $this->camisa = $camisa;
     }
 
 }
