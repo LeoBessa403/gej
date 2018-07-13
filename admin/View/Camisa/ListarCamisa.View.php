@@ -46,13 +46,7 @@
                                 Valida::GeraParametro(CO_CAMISA . "/" . $res->getCoCamisa()) .
                                 '" class="btn btn-primary tooltips" 
                                     data-original-title="Editar Registro" data-placement="top">
-                                     <i class="fa fa-clipboard"></i>
-                                 </a>
-                                 <a data-toggle="modal" role="button" class="btn btn-bricky 
-                                        tooltips deleta" id="' . $res->getCoCamisa() . '" data-msg-restricao="MSG01"
-                                           href="#Camisa" data-original-title="Excluir Registro" data-placement="top">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>';
+                                     <i class="fa fa-clipboard"></i></a>';
                             $cores = '';
                             /** @var CamisaCorCamisaEntidade $cor */
                             foreach ($res->getCoCamisaCorCamisa() as $cor){
@@ -73,7 +67,7 @@
                             $grid->setColunas($foto, 2);
                             $grid->setColunas($res->getNoCamisa());
                             $grid->setColunas($cores);
-                            $grid->setColunas($acao, 2);
+                            $grid->setColunas($acao, 1);
                             $grid->criaLinha($res->getCoCamisa());
                         endforeach;
                         $grid->finalizaGrid();
