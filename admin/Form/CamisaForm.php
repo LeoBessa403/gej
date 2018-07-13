@@ -16,7 +16,7 @@ class CamisaForm
 
         $formulario
             ->setId(NO_CAMISA)
-            ->setClasses("ob nome")
+            ->setClasses("ob")
             ->setLabel("Camisa")
             ->CriaInpunt();
 

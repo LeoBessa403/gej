@@ -26,23 +26,23 @@ class Camisa extends AbstractController
             }
         endif;
 
-        $coFluxoCaixa = UrlAmigavel::PegaParametro(CO_FLUXO_CAIXA);
+        $coCamisa = UrlAmigavel::PegaParametro(CO_CAMISA);
         $res = array();
-        if ($coFluxoCaixa):
-            /** @var FluxoCaixaEntidade $fluxoCaixa */
-            $fluxoCaixa = $fluxoCaixaService->PesquisaUmRegistro($coFluxoCaixa);
-            $res[DS_DESCRICAO] = $fluxoCaixa->getDsDescricao();
-            $res[TP_FLUXO] = FluxoCaixaEnum::FLUXO_SAIDA;
-            if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA) {
-                $res[TP_FLUXO] = FluxoCaixaEnum::FLUXO_ENTRADA;
+        if ($coCamisa):
+            /** @var CamisaEntidade $camisa */
+            $camisa = $camisaService->PesquisaUmRegistro($coCamisa);
+
+            $res[NO_CAMISA] = $camisa->getNoCamisa();
+            $cores = [];
+            /** @var CamisaCorCamisaEntidade $corCamisa */
+            foreach ($camisa->getCoCamisaCorCamisa() as $corCamisa) {
+                $cores[] = $corCamisa->getCoCorCamisa()->getCoCorCamisa();
             }
-            $res[CO_EVENTO] = ($fluxoCaixa->getCoEvento())
-                ? $fluxoCaixa->getCoEvento()->getCoEvento() : null;
-            $res[NU_VALOR] = Valida::FormataMoeda($fluxoCaixa->getNuValor());
-            $res[DT_REALIZADO] = Valida::DataShow($fluxoCaixa->getDtRealizado());
-            $res[DT_VENCIMENTO] = Valida::DataShow($fluxoCaixa->getDtVencimento());
-            $res[ST_PAGAMENTO] = $fluxoCaixa->getStPagamento();
-            $res[CO_FLUXO_CAIXA] = $fluxoCaixa->getCoFluxoCaixa();
+            $res[CO_COR_CAMISA] = $cores;
+            $res[CO_CAMISA] = $camisa->getCoCamisa();
+            $res[DS_CAMINHO] = ($camisa->getCoImagem())
+                ? "Camisa/" . $camisa->getCoImagem()->getDsCaminho() : null;
+
         endif;
         $this->form = CamisaForm::Cadastro($res);
 

@@ -43,11 +43,21 @@ class  CamisaService extends AbstractService
                 $up = new Upload();
                 $up->UploadImagens($foto, $nome, "Camisa");
                 $imagem[DS_CAMINHO] = $up->getNameImage();
+                $camisa[CO_IMAGEM] = $imagemService->Salva($imagem);
             endif;
-
+//            debug($imagem);
             $PDO->beginTransaction();
-            $camisa[CO_IMAGEM] = $imagemService->Salva($imagem);
-            $dadosCor[CO_CAMISA] = $this->Salva($camisa);
+            if (empty($result[CO_CAMISA])) {
+                $dadosCor[CO_CAMISA] = $this->Salva($camisa);
+            } else {
+                $coCamisa = $result[CO_CAMISA];
+                $dadosCor[CO_CAMISA] = $coCamisa;
+                $this->Salva($camisa, $coCamisa);
+                $camisaCorCamisaService->DeletaQuando([
+                    CO_CAMISA => $coCamisa
+                ]);
+            }
+
             if (count($result[CO_COR_CAMISA])):
                 foreach ($result[CO_COR_CAMISA] as $value):
                     $dadosCor[CO_COR_CAMISA] = $value;
