@@ -183,7 +183,7 @@ class InscricoesForm
             ->setId(DS_PASTORAL)
             ->CriaInpunt();
 
-//        $opticoes_camisa = Inscricoes::montaComboCamisas();
+//        $opticoes_camisa = CamisaService::montaComboCamisas();
 //        $formulario
 //            ->setId(NU_CAMISA)
 //            ->setType("select")

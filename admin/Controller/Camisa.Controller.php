@@ -53,6 +53,32 @@ class Camisa extends AbstractController
         $this->form = CamisaForm::Cadastro($res);
     }
 
+    function CadastroPedido()
+    {
+        /** @var PedidoCamisaService $pedidoCamisaService */
+        $pedidoCamisaService = $this->getService(PEDIDO_CAMISA_SERVICE);
+
+        $id = "cadastroCamisa";
+
+        if (!empty($_POST[$id])):
+            $retorno = $pedidoCamisaService->salvaPedidoCamisa($_POST);
+            if ($retorno[SUCESSO]) {
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarPedido/');
+            }
+        endif;
+
+        $coCamisa = UrlAmigavel::PegaParametro(CO_CAMISA);
+        $res = array();
+        $res[ST_ESTOQUE] = '';
+        $res[ST_PEDIDO] = '';
+        $res[TP_SITUACAO] = '';
+        $res[ST_ENTREGUE] = '';
+        if ($coCamisa):
+            $res[CO_CAMISA] = $coCamisa;
+        endif;
+        $this->form = CamisaForm::CadastroPedido($res);
+    }
+
     public function ListarPedido()
     {
         /** @var PedidoCamisaService $pedidoCamisaService */

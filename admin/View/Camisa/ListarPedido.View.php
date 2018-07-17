@@ -19,7 +19,8 @@
                     <h1>Pedidos
                         <small> Detalhes do pedido</small>
                         <?php
-                        echo '<a href="' . PASTAADMIN . UrlAmigavel::$controller . '/CadastroPedido"
+                        echo '<a href="' . PASTAADMIN . UrlAmigavel::$controller . '/CadastroPedido/'.
+                            Valida::GeraParametro(CO_CAMISA . "/" . $camisa->getCoCamisa()) .'"
                                  class="btn btn-green tooltips" data-original-title="Criar '.UrlAmigavel::$controller .'" data-placement="top">
                             <i class="fa fa-plus"></i> Fazer Pedido </a>';
                         ?>
@@ -57,39 +58,34 @@
                     </div>
                     <div class="panel-body">
                         <?php
-                        $arrColunas = array('Pessoa', 'Tamanho', 'Cor', 'Pagamento', 'Pedida', 'Entregue', 'Observação', 'Ação');
+                        $arrColunas = array('Pessoa', 'Tamanho', 'Cor', 'Pagamento', 'Pedida', 'Entregue', 'Ação');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
-//                        /** @var ParcelamentoEntidade $res */
-//                        foreach ($pagamentoInsc->getCoParcelamento() as $res) :
-//
-//                            if ($res->getNuValorParcelaPago() == null):
-//                                $valor = $res->getNuValorParcela();
-//                                $situacao = FuncoesSistema::Pagamento("N");
-//                            else:
-//                                $valor = $res->getNuValorParcelaPago();
-//                                $situacao = FuncoesSistema::Pagamento("C");
-//                            endif;
-//                            if ($res->getDtVencimentoPago() == null):
-//                                $venc = Valida::DataShow($res->getDtVencimento(), "d/m/Y");
-//                            else:
-//                                $venc = Valida::DataShow($res->getDtVencimentoPago(), "d/m/Y");
-//                            endif;
-//                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/EditarParcela/'
-//                                . Valida::GeraParametro("parc/" . $res->getCoParcelamento()) . '" class="btn btn-primary tooltips"
-//                                   data-original-title="Editar Registro" data-placement="top">
-//                                    <i class="fa fa-clipboard"></i>
-//                                </a>';
-//                            $grid->setColunas("0".$res->getNuParcela(),2);
-//                            $grid->setColunas(Valida::FormataMoeda($valor),2);
-//                            $grid->setColunas($venc,2);
-//                            $grid->setColunas($situacao);
-//                            $grid->setColunas($res->getDsObservacao());
-//                            $grid->setColunas($acao, 1);
-//                            $grid->criaLinha($res->getCoParcelamento());
-//                        endforeach;
+                        /** @var PedidoCamisaEntidade $res */
+                        foreach ($result as $res) :
+
+                            if ($res->getTpSituacao() == "N"):
+                                $situacao = FuncoesSistema::Pagamento("N");
+                            else:
+                                $situacao = FuncoesSistema::Pagamento("C");
+                            endif;
+
+                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/EditarParcela/'
+                                . Valida::GeraParametro("parc/" . $res->getCoPedidoCamisa()) . '" class="btn btn-primary tooltips"
+                                   data-original-title="Editar Registro" data-placement="top">
+                                    <i class="fa fa-clipboard"></i>
+                                </a>';
+                            $grid->setColunas($res->getNoPessoa());
+                            $grid->setColunas(FuncoesSistema::TamanhoCamisa($res->getNuCamisa()),2);
+                            $grid->setColunas($res->getCoCorCamisa()->getNoCorCamisa(),2);
+                            $grid->setColunas($situacao);
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStPedido()));
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEntregue()));
+                            $grid->setColunas($acao, 1);
+                            $grid->criaLinha($res->getCoPedidoCamisa());
+                        endforeach;
 
                         $grid->finalizaGrid();
                         ?>

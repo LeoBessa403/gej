@@ -89,23 +89,6 @@ class Inscricoes extends AbstractController
 
     }
 
-    static function montaComboCamisas()
-    {
-        return array(
-            "" => "Selecione um Tamanho",
-            "1" => "BL PP",
-            "2" => "BL P",
-            "3" => "BL M",
-            "4" => "BL G",
-            "5" => "BL GG",
-            "6" => "P",
-            "7" => "M",
-            "8" => "G",
-            "9" => "GG",
-            "10" => "XG",
-        );
-    }
-
     function FormaDePagamento()
     {
         $this->coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);

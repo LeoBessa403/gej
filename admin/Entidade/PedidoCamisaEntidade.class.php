@@ -12,8 +12,11 @@ class PedidoCamisaEntidade extends AbstractEntidade
 	const CHAVE = CO_PEDIDO_CAMISA;
 
 	private $co_pedido_camisa;
+	private $no_pessoa;
+	private $nu_camisa;
 	private $st_pedido;
 	private $st_entregue;
+	private $st_estoque;
 	private $tp_situacao;
 	private $dt_cadastro;
 	private $dt_pedida;
@@ -30,8 +33,11 @@ class PedidoCamisaEntidade extends AbstractEntidade
     {
     	return [
 			CO_PEDIDO_CAMISA,
+            NO_PESSOA,
+            NU_CAMISA,
 			ST_PEDIDO,
 			ST_ENTREGUE,
+            ST_ESTOQUE,
             TP_SITUACAO,
 			DT_CADASTRO,
 			DT_PEDIDA,
@@ -67,6 +73,38 @@ class PedidoCamisaEntidade extends AbstractEntidade
 	public function setCoPedidoCamisa($co_pedido_camisa)
     {
         return $this->co_pedido_camisa = $co_pedido_camisa;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNoPessoa()
+    {
+        return $this->no_pessoa;
+    }
+
+    /**
+     * @param mixed $no_pessoa
+     */
+    public function setNoPessoa($no_pessoa)
+    {
+        $this->no_pessoa = $no_pessoa;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNuCamisa()
+    {
+        return $this->nu_camisa;
+    }
+
+    /**
+     * @param mixed $nu_camisa
+     */
+    public function setNuCamisa($nu_camisa)
+    {
+        $this->nu_camisa = $nu_camisa;
     }
 
 	/**
@@ -219,6 +257,22 @@ class PedidoCamisaEntidade extends AbstractEntidade
     public function setTpSituacao($tp_situacao)
     {
         $this->tp_situacao = $tp_situacao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStEstoque()
+    {
+        return $this->st_estoque;
+    }
+
+    /**
+     * @param mixed $st_estoque
+     */
+    public function setStEstoque($st_estoque)
+    {
+        $this->st_estoque = $st_estoque;
     }
 
 }
