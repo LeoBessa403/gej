@@ -36,7 +36,7 @@
                         Modal::Foto();
                         Modal::deletaRegistro("Camisa");
                         Modal::confirmacao("confirma_Camisa");
-                        $arrColunas = array('Foto', 'Camisa', 'Cores', 'Ações');
+                        $arrColunas = array('Foto', 'Camisa', 'Pedido', 'Cores', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -72,6 +72,7 @@
 
                             $grid->setColunas($foto, 2);
                             $grid->setColunas($res->getNoCamisa());
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getTpPedido()));
                             $grid->setColunas($cores);
                             $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoCamisa());
