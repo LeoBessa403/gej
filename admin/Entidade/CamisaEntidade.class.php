@@ -18,6 +18,7 @@ class CamisaEntidade extends AbstractEntidade
 	private $co_imagem;
 	private $co_camisa_cor_camisa;
 	private $co_pedido_camisa;
+	private $tp_pedido;
 
 
 	/**
@@ -31,6 +32,7 @@ class CamisaEntidade extends AbstractEntidade
             NU_VALOR_VENDA,
 			NO_CAMISA,
 			CO_IMAGEM,
+            TP_PEDIDO,
 		];
     }
 
@@ -159,6 +161,22 @@ class CamisaEntidade extends AbstractEntidade
     public function setNuValorVenda($nu_valor_venda)
     {
         $this->nu_valor_venda = $nu_valor_venda;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTpPedido()
+    {
+        return $this->tp_pedido;
+    }
+
+    /**
+     * @param mixed $tp_pedido
+     */
+    public function setTpPedido($tp_pedido)
+    {
+        $this->tp_pedido = $tp_pedido;
     }
 
 

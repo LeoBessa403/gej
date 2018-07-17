@@ -29,6 +29,7 @@ class Camisa extends AbstractController
 
         $coCamisa = UrlAmigavel::PegaParametro(CO_CAMISA);
         $res = array();
+        $res[TP_PEDIDO] = 'checked';
         if ($coCamisa):
             /** @var CamisaEntidade $camisa */
             $camisa = $camisaService->PesquisaUmRegistro($coCamisa);
@@ -45,6 +46,8 @@ class Camisa extends AbstractController
             $res[NU_VALOR_VENDA] = Valida::FormataMoeda($camisa->getNuValorVenda());
             $res[DS_CAMINHO] = ($camisa->getCoImagem())
                 ? "Camisa/" . $camisa->getCoImagem()->getDsCaminho() : null;
+            $res[TP_PEDIDO] = ($camisa->getTpPedido() == 'S')
+                ? 'checked' : '';
 
         endif;
         $this->form = CamisaForm::Cadastro($res);

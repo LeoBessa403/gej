@@ -37,6 +37,9 @@ class  CamisaService extends AbstractService
             $camisa[NO_CAMISA] = trim($result[NO_CAMISA]);
             $camisa[NU_VALOR_CUSTO] = Valida::FormataMoedaBanco($result[NU_VALOR_CUSTO]);
             $camisa[NU_VALOR_VENDA] = Valida::FormataMoedaBanco($result[NU_VALOR_VENDA]);
+            $camisa[TP_PEDIDO] = FuncoesSistema::retornoCheckbox(
+                (!empty($result[TP_PEDIDO])) ? $result[TP_PEDIDO] : null
+            );
 
             $imagem[DS_CAMINHO] = "";
             if ($foto[DS_CAMINHO]["tmp_name"]):
@@ -47,7 +50,7 @@ class  CamisaService extends AbstractService
                 $imagem[DS_CAMINHO] = $up->getNameImage();
                 $camisa[CO_IMAGEM] = $imagemService->Salva($imagem);
             endif;
-//            debug($imagem);
+
             $PDO->beginTransaction();
             if (empty($result[CO_CAMISA])) {
                 $dadosCor[CO_CAMISA] = $this->Salva($camisa);

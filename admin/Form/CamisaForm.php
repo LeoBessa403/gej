@@ -20,6 +20,16 @@ class CamisaForm
             ->setLabel("Camisa")
             ->CriaInpunt();
 
+        $label_options = array("Sim", "Não", "verde", "vermelho");
+        $formulario
+            ->setLabel("Acenta pedidos?")
+            ->setId(TP_PEDIDO)
+            ->setType("checkbox")
+            ->setClasses($res[TP_PEDIDO])
+            ->setTamanhoInput(12)
+            ->setOptions($label_options)
+            ->CriaInpunt();
+
         $options = CorCamisaService::PesquisaCoresCamisaCombo();
         $formulario
             ->setId(CO_COR_CAMISA)
