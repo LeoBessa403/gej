@@ -5,7 +5,7 @@ class FluxoCaixa extends AbstractController
     public $result;
     public $caixa;
     public $fluxoCaixa;
-    public $inscricaoCaixa;
+    public $totalEventoAtual;
 
     function ListarFluxoCaixa()
     {
@@ -31,14 +31,19 @@ class FluxoCaixa extends AbstractController
                 }
             } else {
                 if (!empty($fluxoCaixa->getCoEvento())) {
-                    if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_SAIDA
-                        && $fluxoCaixa->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL
+                    if ($fluxoCaixa->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL
                         && $fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO) {
-                        $totalInscriaoGastos = $totalInscriaoGastos + $fluxoCaixa->getNuValor();
+                        if($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_SAIDA){
+                            $totalInscriaoGastos = $totalInscriaoGastos + $fluxoCaixa->getNuValor();
+                        }else{
+                            $totalInscriaoGastos = $totalInscriaoGastos - $fluxoCaixa->getNuValor();
+                        }
+
                     }
                 }
             }
         }
+        // NO CASO DE EVENTO DA ARRECADAÇÃO DE INSCRIÇÕES
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
         $Condicoes[CO_EVENTO] = InscricaoEnum::EVENTO_ATUAL;
@@ -51,10 +56,10 @@ class FluxoCaixa extends AbstractController
                 $totalInscriao = $totalInscriao + $inscricao->getCoPagamento()->getNuValorPago();
             }
         }
-        $totalInscriao = $totalInscriao - $totalInscriaoGastos;
+        $totalEventoAtual = $totalInscriao - $totalInscriaoGastos;
         $this->result = $fluxosCaixa;
         $this->fluxoCaixa = Valida::FormataMoeda($total, 'R$');
-        $this->inscricaoCaixa = Valida::FormataMoeda($totalInscriao, 'R$');
+        $this->totalEventoAtual = Valida::FormataMoeda($totalEventoAtual, 'R$');
     }
 
     function CadastroFluxoCaixa()
