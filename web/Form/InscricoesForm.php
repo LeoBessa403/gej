@@ -90,7 +90,7 @@ class InscricoesForm
 
         $formulario
             ->setId(NU_TEL1)
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(6)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular")
             ->setInfo("Com <i class=\"fa fa-whatsapp\" style='color: green;' '></i> WhatSapp")
@@ -99,7 +99,7 @@ class InscricoesForm
 
         $formulario
             ->setId(NU_TEL2)
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(6)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular 2")
             ->setClasses("tel")
@@ -108,17 +108,7 @@ class InscricoesForm
         $formulario
             ->setId(NU_CEP)
             ->setLabel("CEP")
-            ->setTamanhoInput(4)
             ->setClasses("cep")
-            ->CriaInpunt();
-
-        $options = EnderecoService::montaComboEstadosDescricao();
-        $formulario
-            ->setTamanhoInput(12)
-            ->setId(SG_UF)
-            ->setType("select")
-            ->setLabel("Estado")
-            ->setOptions($options)
             ->CriaInpunt();
 
         $formulario
@@ -145,6 +135,15 @@ class InscricoesForm
             ->setId(NO_CIDADE)
             ->setLabel("Cidade")
             ->setTamanhoInput(12)
+            ->CriaInpunt();
+
+        $options = EnderecoService::montaComboEstadosDescricao();
+        $formulario
+            ->setTamanhoInput(12)
+            ->setId(SG_UF)
+            ->setType("select")
+            ->setLabel("Estado")
+            ->setOptions($options)
             ->CriaInpunt();
 
         $label_options = array("Sim", "Não", "verde", "vermelho");
