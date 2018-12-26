@@ -22,7 +22,7 @@ class IndexController extends AbstractController
         $dados['TotalNaoMembros'] = 0;
         $dados['TotalDescontos'] = 0;
         $dados['TotalMembros'] = 0;
-//        $dados['TotalServos'] = 0;
+        $dados['TotalServos'] = 0;
         $dados['TotalNaoPago'] = 0;
         $dados['TotalParcial'] = 0;
         $dados['TotalConcluido'] = 0;
@@ -30,7 +30,7 @@ class IndexController extends AbstractController
         $dados['TotalInscricoesCartao'] = 0;
         $dados['TotalAArrecadar'] = 0;
         $dados['TotalArrecadado'] = 0;
-//        $dados['TotalRetirantes'] = 0;
+        $dados['TotalRetirantes'] = 0;
 
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
@@ -40,9 +40,9 @@ class IndexController extends AbstractController
             } else {
                 $dados['TotalMembros'] = $dados['TotalMembros'] + 1;
             }
-//            if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::SIM) {
-//                $dados['TotalServos'] = $dados['TotalServos'] + 1;
-//            }
+            if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::SIM) {
+                $dados['TotalServos'] = $dados['TotalServos'] + 1;
+            }
 
             if (!$inscricao->getCoPagamento()) {
                 $PDO->beginTransaction();
@@ -90,18 +90,18 @@ class IndexController extends AbstractController
             switch ($pagamentoInscricao->getTpSituacao()) {
                 case StatusPagamentoEnum::CONCLUIDO:
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
-//                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
-//                    $dados['TotalInscricoesGarantidas'] = $dados['TotalInscricoesGarantidas'] + 1;
-//                    }
+                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
+                    $dados['TotalInscricoesGarantidas'] = $dados['TotalInscricoesGarantidas'] + 1;
+                    }
                     break;
                 case StatusPagamentoEnum::NAO_INICIADA:
                     $dados['TotalNaoPago'] = $dados['TotalNaoPago'] + 1;
                     break;
                 case StatusPagamentoEnum::INICIADA:
                     $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
-//                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
-//                            $dados['TotalInscricoesGarantidas']= $dados['TotalInscricoesGarantidas'] + 1;
-//                    }
+                    if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
+                            $dados['TotalInscricoesGarantidas']= $dados['TotalInscricoesGarantidas'] + 1;
+                    }
                     break;
                 default:
                     break;
