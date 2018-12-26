@@ -82,8 +82,8 @@ class  InscricaoService extends AbstractService
             }
 
             if ($erro):
-                $retorno[MSG] = 'Já exite uma inscrição realizada com o mesmo '
-                    . implode(", ", $Campo) . ', em caso de dúvidas entrar em contato com a comissão do retiro. clique e nos chame pelo
+                $retorno[MSG] = '<b>Já exite uma inscrição realizada para o ' . InscricaoEnum::DESC_EVENTO_ATUAL . ' com o mesmo '
+                    . implode(", ", $Campo) . ', em caso de dúvidas entrar em contato com a comissão do retiro</b>. clique e nos chame pelo
                             <a class="whatsapp" title="Nos chame no WhatSapp"
                                href="'.Valida::geraLinkWhatSapp(Mensagens::ZAP03).'"
                                target="_blank">
