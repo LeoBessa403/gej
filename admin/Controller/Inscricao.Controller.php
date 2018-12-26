@@ -371,7 +371,7 @@ class Inscricao extends AbstractController
         $grafico2 = new Grafico(Grafico::COLUNA, "Total de Inscrições", "div_coluna");
         $grafico2->SetDados(array(
             "['Inscrições','Realizadas','Garantidas']",
-            "['Inscrições'," . $dados['TotalInscricoes'] . " , " . $dados['TotalConcluido'] . " ]"
+            "['Inscrições'," . $dados['TotalInscricoes'] . " , " . $dados['TotalParcial'] . " ]"
         ));
         $grafico2->GeraGrafico();
     }
