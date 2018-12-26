@@ -5,7 +5,7 @@
         <!--container2 do title-->
         <div class="content content-title">
             <header class="sectiontitle sectiontitle-nomargin">
-                <h2>Saiba mais sobre nosso Retiro Santifique-se</h2>
+                <h2>Saiba mais sobre nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?></h2>
             </header>
             <div class="clear"></div>
         </div>
@@ -19,17 +19,17 @@
             <h1>
                 <!--                <span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>-->
                 Faça sua incrição
-                <a class="btn btn-green radius" title="Inscrição 2º Abastecimento Espiritual"
+                <a class="btn btn-green radius" title="Inscrição para nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>"
                    target="_blank"
                    href="<?php echo HOME; ?>web/Inscricoes/CadastroRetiro">Inscrição aqui</a>
-                e não perca nosso Abastecimento Espiritual.</h1>
+                e não nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>.</h1>
         </aside>
         <div class="clear"></div>
     </div>
 
     <footer class="bg-bluelight">
         <section class="content main_fotos" style="padding-bottom: 10px;">
-            <h1>Veja Alguns momentos do Abastecimento anteriores!</h1>
+            <h1>Veja Alguns momentos do Evento anterior!</h1>
 
             <article class="box box-small">
                 <img src="<?= PASTASITE; ?>img/galeria/01.jpg">
@@ -81,7 +81,7 @@
 
             <aside class="al-center">
                 <h1 class="click">Veja Mais
-                    <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso Abastecimento Espiritual"
+                    <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>"
                        target="_blank"
                        href="https://www.facebook.com/gej.dombosco/media_set?set=a.790029107791224.1073741843.100003524269523&type=3">clique aqui</a> para mais fotos.</h1>
             </aside>
@@ -96,8 +96,8 @@
     <!--container2 do title-->
     <div class="content section">
         <header class="sectiontitle sectiontitle-nomargin section-retiro">
-            <h1>Porque fazer o Abastecimento Espiritual?</h1>
-            <p class="tagline">Abastecimento Espiritual é um afastamento temporário de suas atividades para conversar com Deus
+            <h1>Porque participar do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>?</h1>
+            <p class="tagline">O nosso Retiro Espiritual é um afastamento temporário de suas atividades para conversar com Deus
                 e refletir sobre sua própria vida. Trata-se de uma prática muito tradicional na história do
                 Cristianismo, vivamente recomendada pela Igreja Católica. É também chamado de “Exercícios
                 Espirituais”..</p>
@@ -168,7 +168,7 @@
     <li class="like google"><a href="https://www.instagram.com/gejdombosco/" target="_blank"
                                title="Recomende no Instagram">Recomende no Instagram</a></li>
     <li class="like twitter"><a href="https://twitter.com/gejdombosco" target="_blank"
-                                rel="&text=2º Abastecimento Espiritual! @gejdombosco"
+                                rel="&text=nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>! @gejdombosco"
                                 title="Conte Isto no Twitter">Conte Isto no Twitter</a>
     </li>
 </ul>
@@ -209,10 +209,10 @@
             <!--            <span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span> <br/><br/>-->
             Faça sua incrição
             <a class="btn btn-bricky btn-big radius"
-               title="Quero Fazer inscrição do 2º Abastecimento Espiritual Agora!"
+               title="Quero Fazer minha inscrição do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?> Agora!"
                target="_blank"
-               href="<?php echo HOME; ?>web/Inscricoes/CadastroRetiro">Inscrição aqui</a> e não perca nosso
-            Abastecimento Espiritual.</h2>
+               href="<?php echo HOME; ?>web/Inscricoes/CadastroRetiro">Inscrição aqui</a> e não perca nosso evento
+            <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>.</h2>
 
         <div class="clear"></div>
     </div>
