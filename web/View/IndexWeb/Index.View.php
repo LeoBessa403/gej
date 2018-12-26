@@ -81,7 +81,7 @@
 
             <aside class="al-center">
                 <h1 class="click">Veja Mais
-                    <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>"
+                    <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso evento anterior"
                        target="_blank"
                        href="https://www.facebook.com/gej.dombosco/media_set?set=a.790029107791224.1073741843.100003524269523&type=3">clique aqui</a> para mais fotos.</h1>
             </aside>
