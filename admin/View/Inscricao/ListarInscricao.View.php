@@ -43,7 +43,7 @@
                         Modal::DesativarInscricao("DesativarInscricao");
                         Modal::AtivarInscricao("AtivarInscricao");
                         Modal::confirmacao("confirma_Inscricao");
-                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento',
+                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento', 'Servo',
                             'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
@@ -95,7 +95,7 @@
                             $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro()));
                             $grid->setColunas(Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento()));
-//                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
+                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
                             $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
                             if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
