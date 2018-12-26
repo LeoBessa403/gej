@@ -55,13 +55,14 @@ class  InscricaoService extends AbstractService
             $erro = false;
             $Campo = array();
             /** @var InscricaoEntidade $inscricoes */
-            $inscricoes = $this->PesquisaTodos();
+            $inscricoes = $this->PesquisaTodos([
+                CO_EVENTO => InscricaoEnum::EVENTO_ATUAL
+            ]);
 
             /** @var InscricaoEntidade $insc */
             foreach ($inscricoes as $insc) {
-                if ((!$coInscricao && $inscricao[CO_EVENTO] == $insc->getCoEvento()->getCoEvento())
-                    || ($coInscricao && $insc->getCoInscricao() != $coInscricao
-                        && $inscricao[CO_EVENTO] == $insc->getCoEvento()->getCoEvento())) {
+                if ((!$coInscricao)
+                    || ($coInscricao && $insc->getCoInscricao() != $coInscricao)) {
                     if ($insc->getCoPessoa()->getNoPessoa() == $pessoa[NO_PESSOA]) {
                         $Campo[] = "Nome do Usuário";
                         $erro = true;

@@ -6,7 +6,7 @@ class InscricoesForm
     public static function Cadastrar($res = false, $id = false, $link = null)
     {
         if (!$id):
-            $id = "CadastroAbastecimento";
+            $id = "CadastroRetiro";
         endif;
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
         if(!$link)
@@ -17,27 +17,17 @@ class InscricoesForm
             $res['cpf'] = $res[NU_CPF];
             $formulario->setValor($res);
         }
-//        if ($res && UrlAmigavel::$modulo == ADMIN):
-//            $label_options = array("1" => "1", "2" => "2", "3" => "3");
-//            $formulario
-//                ->setLabel("Números de Parcelas")
-//                ->setId(NU_PARCELAS)
-//                ->setType("select")
-//                ->setTamanhoInput(12)
-//                ->setOptions($label_options)
-//                ->CriaInpunt();
-//
-//            $label_options = array("Sim", "Não", "verde", "vermelho");
-//            $formulario
-//                ->setLabel("Servo?")
-//                ->setId(ST_EQUIPE_TRABALHO)
-//                ->setType("checkbox")
-//                ->setClasses($res[ST_EQUIPE_TRABALHO])
-//                ->setTamanhoInput(6)
-//                ->setOptions($label_options)
-//                ->CriaInpunt();
-
-//        endif;
+        if ($res && UrlAmigavel::$modulo == ADMIN):
+            $label_options = array("Sim", "Não", "verde", "vermelho");
+            $formulario
+                ->setLabel("Servo?")
+                ->setId(ST_EQUIPE_TRABALHO)
+                ->setType("checkbox")
+                ->setClasses($res[ST_EQUIPE_TRABALHO])
+                ->setTamanhoInput(6)
+                ->setOptions($label_options)
+                ->CriaInpunt();
+        endif;
 
 
         $label_options = array("Sim", "Não", "verde", "vermelho");
@@ -183,15 +173,15 @@ class InscricoesForm
             ->setId(DS_PASTORAL)
             ->CriaInpunt();
 
-//        $opticoes_camisa = CamisaService::montaComboCamisas();
-//        $formulario
-//            ->setId(NU_CAMISA)
-//            ->setType("select")
-//            ->setTamanhoInput(12)
-//            ->setClasses("ob")
-//            ->setOptions($opticoes_camisa)
-//            ->setLabel("Tamanho da Camisa")
-//            ->CriaInpunt();
+        $opticoes_camisa = CamisaService::montaComboCamisas();
+        $formulario
+            ->setId(NU_CAMISA)
+            ->setType("select")
+            ->setTamanhoInput(12)
+            ->setClasses("ob")
+            ->setOptions($opticoes_camisa)
+            ->setLabel("Tamanho da Camisa")
+            ->CriaInpunt();
 
         $formulario
             ->setId(NO_RESPONSAVEL)

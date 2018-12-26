@@ -10,7 +10,7 @@
                     class="nummeros">
                 clique e nos chame pelo
                 <a class="whatsapp" title="Nos chame no WhatSapp"
-                   href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP04) ?>"
+                   href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP04) ?>"
                    target="_blank">
                     <i class="fa fa-whatsapp"></i> WhatSapp
                 </a>
@@ -36,7 +36,7 @@
         <br>
         <h3 style="margin-top: 50px; float: left;">Enviar Comprovante pelo nosso
             <a class="whatsapp" title="Nos chame no WhatSapp"
-               href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP05) ?>"
+               href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP05) ?>"
                target="_blank">
                 <i class="fa fa-whatsapp"></i> WhatSapp
             </a>

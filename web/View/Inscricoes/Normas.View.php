@@ -5,7 +5,7 @@
             <div>
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">6º Retiro de Carnaval </span></b></p>
+&quot;Agency FB&quot;"><?= InscricaoEnum::DESC_EVENTO_ATUAL;?></span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
@@ -13,20 +13,16 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">10, 11, 12 e 13 de fevereiro de 2018</span></b></p>
+&quot;Agency FB&quot;">02, 03, 04 e 05 de Março de 2019</span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">“Tenho Sede” Jo 19,28</span></b></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;
-line-height:107%;font-family:&quot;Agency FB&quot;">&nbsp;</span></p>
+&quot;Agency FB&quot;">“Só Deus basta” Jo 19,28</span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 107%;font-family:&quot;Agency FB&quot;"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>É imensa a alegria em
-                        tê-lo no nosso 6º retiro de carnaval Santifique-se. Estaremos juntos durante quatro dias e para que nossa
+                        tê-lo no nosso <?= InscricaoEnum::DESC_EVENTO_ATUAL;?>. Estaremos juntos durante quatro dias e para que nossa
                         convivência seja harmoniosa e muito proveitosa existem alguns aspectos a serem cumpridos para que aproveitemos o
                         máximo do que o Senhor tem para nos oferecer. </span>
                 </p>
@@ -163,12 +159,12 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;"><b>Horário: 7:00</b></span></b></p>
+&quot;Agency FB&quot;"><b>Horário: 07:00</b></span></b></p>
 
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;"><b>Data: 10/02/2018 (Sábado)</b></span></b></p>
+&quot;Agency FB&quot;"><b>Data: 02/03/2019 (Sábado)</b></span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
@@ -176,7 +172,7 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;"><b>Comissão: Raul (61) 99512-1814 ou Lucrece (61) 99315-1297</b></span></b></p>
+&quot;Agency FB&quot;"><b>Comissão: a definir</b></span></b></p>
             </div>
         </div>
         <!-- end: PAGE CONTENT-->

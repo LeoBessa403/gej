@@ -159,7 +159,7 @@
     margin-right: 3%;
 }
 
-.main_fotos .box-small:nth-child(5n+0) {
+.main_fotos .box-small:nth-child(4n+1) {
     margin-right: 0;
 }
 
@@ -196,7 +196,7 @@
         margin-right: 2% !important;
     }
 
-    .main_fotos .box-small:nth-child(3n+0) {
+    .main_fotos .box-small:nth-child(4n+0) {
         margin-right: 0;
     }
 }

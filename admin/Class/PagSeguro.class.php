@@ -8,8 +8,8 @@ $data['email'] = 'leodjx@hotmail.com';
 $data['currency'] = 'BRL';
 $data['itemId1'] = $_POST['co_inscricao'];
 $data['itemQuantity1'] = '1';
-$data['itemDescription1'] = 'Retiro Abastecimento Espiritual GEJ Dom Bosco';
-$data['itemAmount1'] = '80.00';
+$data['itemDescription1'] = InscricaoEnum::DESC_EVENTO_ATUAL;
+$data['itemAmount1'] = InscricaoEnum::VALOR_CARTAO;
 
 $url = 'https://ws.pagseguro.uol.com.br/v2/checkout';
 

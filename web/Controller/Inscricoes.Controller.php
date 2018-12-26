@@ -9,10 +9,10 @@ class Inscricoes extends AbstractController
     public $coInscricao;
     public $inscDuplicada;
 
-    function CadastroAbastecimento()
+    function CadastroRetiro()
     {
         $this->inscDuplicada = false;
-        $id = "CadastroAbastecimento";
+        $id = "CadastroRetiro";
         $id2 = "ValidacaoPessoa";
 
         if (!empty($_POST[$id])) {

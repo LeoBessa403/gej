@@ -106,7 +106,7 @@ $visitaService->gestaoVisita();
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
                         Nos chame no<a class="whatsapp" title="Nos chame no WhatSapp"
-                           href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
+                           href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
                            target="_blank">
                             <i class="fa fa-whatsapp"></i> WhatSapp
                         </a>
@@ -178,16 +178,16 @@ $visitaService->gestaoVisita();
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
-                            2º Abastecimento Espiritual <b class="caret"></b>
+                            7º Retiro Santifique-se <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="<?php echo PASTASITE; ?>Inscricoes/CadastroAbastecimento">
+                                <a href="<?php echo PASTASITE; ?>Inscricoes/CadastroRetiro">
                                     Inscrição
                                 </a>
-<!--                                <a href="--><?php //echo PASTASITE; ?><!--Inscricoes/Normas">-->
-<!--                                    Normas do Retiro-->
-<!--                                </a>                                    -->
+                                <a href="<?php echo PASTASITE; ?>Inscricoes/Normas">
+                                    Normas do Retiro
+                                </a>
                                 <a href="<?php echo PASTASITE; ?>Inscricoes/SobrePagamento">
                                    Sobre o Pagamento
                                 </a>

@@ -5,7 +5,7 @@
         <!--container2 do title-->
         <div class="content content-title">
             <header class="sectiontitle sectiontitle-nomargin">
-                <h2>Saiba mais sobre nosso Abastecimento</h2>
+                <h2>Saiba mais sobre nosso Retiro Santifique-se</h2>
             </header>
             <div class="clear"></div>
         </div>
@@ -21,7 +21,7 @@
                 Faça sua incrição
                 <a class="btn btn-green radius" title="Inscrição 2º Abastecimento Espiritual"
                    target="_blank"
-                   href="<?php echo HOME; ?>web/Inscricoes/CadastroAbastecimento">Inscrição aqui</a>
+                   href="<?php echo HOME; ?>web/Inscricoes/CadastroRetiro">Inscrição aqui</a>
                 e não perca nosso Abastecimento Espiritual.</h1>
         </aside>
         <div class="clear"></div>
@@ -32,35 +32,51 @@
             <h1>Veja Alguns momentos do Abastecimento anteriores!</h1>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/01.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/01.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/02.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/02.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/03.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/03.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/04.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/04.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/05.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/05.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/06.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/06.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/07.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/07.jpg">
             </article>
 
             <article class="box box-small">
-                <img src="<?php echo HOME; ?>web/img/galeria/08.jpg">
+                <img src="<?= PASTASITE; ?>img/galeria/08.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?= PASTASITE; ?>img/galeria/09.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?= PASTASITE; ?>img/galeria/10.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?= PASTASITE; ?>img/galeria/11.jpg">
+            </article>
+
+            <article class="box box-small">
+                <img src="<?= PASTASITE; ?>img/galeria/12.jpg">
             </article>
 
             <aside class="al-center">
@@ -183,7 +199,7 @@
             <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <br><b class="nummeros">
                     clique e nos chame pelo
                     <a class="whatsapp" title="Nos chame no WhatSapp"
-                       href="<?php Valida::geraLinkWhatSapp(Mensagens::ZAP02) ?>"
+                       href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP02) ?>"
                        target="_blank">
                         <i class="fa fa-whatsapp"></i> WhatSapp
                     </a>
@@ -195,7 +211,7 @@
             <a class="btn btn-bricky btn-big radius"
                title="Quero Fazer inscrição do 2º Abastecimento Espiritual Agora!"
                target="_blank"
-               href="<?php echo HOME; ?>web/Inscricoes/CadastroAbastecimento">Inscrição aqui</a> e não perca nosso
+               href="<?php echo HOME; ?>web/Inscricoes/CadastroRetiro">Inscrição aqui</a> e não perca nosso
             Abastecimento Espiritual.</h2>
 
         <div class="clear"></div>
