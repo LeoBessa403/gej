@@ -83,7 +83,7 @@
                 <h1 class="click">Veja Mais
                     <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso evento anterior"
                        target="_blank"
-                       href="https://www.facebook.com/gej.dombosco/media_set?set=a.790029107791224.1073741843.100003524269523&type=3">clique aqui</a> para mais fotos.</h1>
+                       href="https://www.facebook.com/media/set/?set=a.553482708360285&type=1&l=dbee500a80">clique aqui</a> para mais fotos.</h1>
             </aside>
 
             <div class="clear"></div>
