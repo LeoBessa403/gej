@@ -4,6 +4,7 @@ class Inscricao extends AbstractController
 {
     public $result;
     public $form;
+    public $camisa;
     public $inscDuplicada;
 
     public function Index()
@@ -47,6 +48,21 @@ class Inscricao extends AbstractController
     public function DetalhesInscricao()
     {
         $this->pegarInscricoes();
+        $camisa[1] = 0;
+        $camisa[2] = 0;
+        $camisa[3] = 0;
+        $camisa[4] = 0;
+        $camisa[5] = 0;
+        $camisa[6] = 0;
+        $camisa[7] = 0;
+        $camisa[8] = 0;
+        $camisa[9] = 0;
+        $camisa[10] = 0;
+        /** @var InscricaoEntidade $inscricao */
+        foreach ($this->result as $inscricao){
+            $camisa[$inscricao->getNuCamisa()] = $camisa[$inscricao->getNuCamisa()] + 1;
+        }
+        $this->camisa = $camisa;
     }
 
     public function SobreVcInscricao()
@@ -71,7 +87,7 @@ class Inscricao extends AbstractController
                     ? implode("', '", $_POST[TP_SITUACAO]) : null,
                 "insc." . DS_MEMBRO_ATIVO => $_POST[DS_MEMBRO_ATIVO][0],
                 "insc." . CO_EVENTO => InscricaoEnum::EVENTO_ATUAL,
-//                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
+                "insc." . ST_EQUIPE_TRABALHO => $_POST[ST_EQUIPE_TRABALHO][0],
             );
             $this->result = $inscricaoService->PesquisaAvancada($Condicoes);
             $Condicoes[ST_STATUS] = StatusAcessoEnum::ATIVO;
@@ -100,7 +116,7 @@ class Inscricao extends AbstractController
                 ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2());
             $dados[$i][NU_CPF] = $documento;
             $dados[$i][DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
-//            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
+            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
             $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo());
             $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
             $i++;
@@ -128,7 +144,7 @@ class Inscricao extends AbstractController
                     );
             }
             $dados[$i][NO_PESSOA] = strtoupper($inscricao->getCoPessoa()->getNoPessoa());
-//            $dados[$i][NU_CAMISA] = FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
+            $dados[$i][NU_CAMISA] = FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
             $dados[$i]['CONTATO'] = $contato;
             $dados[$i][DS_PASTORAL] = $inscricao->getDsPastoral();
             $dados[$i][DS_RETIRO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsRetiro());

@@ -1,3 +1,14 @@
+<style>
+    table > thead > tr > th,
+    table > tbody > tr > th,
+    table > thead > tr > td,
+    table > tbody > tr > td {
+        padding: 8px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+    }
+</style>
 <div class="main-content">
     <div class="container">
         <div class="row">
@@ -34,7 +45,9 @@
                         $grid = new Grid();
                         echo $grid->PesquisaAvancada('Pesquisar Inscrições');
                         ?>
-                        <h2><small>Inscrições Cadastradas</small></h2>
+                        <h2>
+                            <small>Inscrições Cadastradas</small>
+                        </h2>
                         <?php
                         Modal::load();
                         $arrColunas = array('Nome', 'Camisa', 'Contatos', 'Participa Pastoral', 'Particiopou Retiro');
@@ -44,12 +57,12 @@
                         /** @var InscricaoEntidade $inscricao */
                         foreach ($result as $inscricao):
                             $contato = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
-                            if($inscricao->getCoPessoa()->getCoContato()->getNuTel2()){
-                                $contato = $contato . ' / '.Valida::MascaraTel(
+                            if ($inscricao->getCoPessoa()->getCoContato()->getNuTel2()) {
+                                $contato = $contato . ' / ' . Valida::MascaraTel(
                                         $inscricao->getCoPessoa()->getCoContato()->getNuTel2()
                                     );
-                            }else if($inscricao->getNuTelResponsavel()){
-                                $contato = $contato . ' / '.Valida::MascaraTel(
+                            } else if ($inscricao->getNuTelResponsavel()) {
+                                $contato = $contato . ' / ' . Valida::MascaraTel(
                                         $inscricao->getNuTelResponsavel()
                                     );
                             }
@@ -67,7 +80,26 @@
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
+                        <h2>
+                            <small>Total de camisas</small>
+                        </h2>
+                        <div class="col-md-3">
+                            <?php
+                            $grid2 = new Grid();
+                            $arrColunas2 = array('Tamanho', 'Total');
+                            $grid2->setColunasIndeces($arrColunas2);
+                            $grid2->criaGrid('camisa', false, false);
+
+                            foreach ($camisa as $tamanho => $total):
+                                $grid2->setColunas(FuncoesSistema::TamanhoCamisa($tamanho), 3);
+                                $grid2->setColunas($total);
+                                $grid2->criaLinha($tamanho);
+                            endforeach;
+                            $grid2->finalizaGrid();
+                            ?>
+                        </div>
                     </div>
+                    <!--  TABELA DE CONTAGEM DAS CAMISAS -->
                 </div>
                 <!-- end: DYNAMIC TABLE PANEL -->
             </div>
