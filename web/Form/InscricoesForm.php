@@ -211,7 +211,7 @@ class InscricoesForm
             ->setType("singlefile")
             ->setInfo("Para a identificação")
             ->setTamanhoInput(12)
-            ->setLabel("Foto de Perfil")
+            ->setLabel("Foto de Perfil (Selfie)")
             ->CriaInpunt();
 
         $formulario
