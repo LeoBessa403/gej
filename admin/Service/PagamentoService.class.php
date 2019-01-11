@@ -18,7 +18,7 @@ class  PagamentoService extends AbstractService
     {
         $valorInscricao = InscricaoEnum::VALOR_DINHEIRO;
         if($pagamento->getCoParcelamento()){
-            $tipoPagamento = ($pagamento->getCoPrimeiraParcela()->getCoTipoPagamento())
+            $tipoPagamento = ($pagamento->getCoPrimeiraParcela())
             ? $pagamento->getCoPrimeiraParcela()->getCoTipoPagamento()->getCoTipoPagamento()
             : TipoPagamentoEnum::DINHEIRO;
             $valorInscricao = ($tipoPagamento == TipoPagamentoEnum::CARTAO_CREDITO)
