@@ -59,7 +59,7 @@ class Inscricao extends AbstractController
         $camisa[9] = 0;
         $camisa[10] = 0;
         /** @var InscricaoEntidade $inscricao */
-        foreach ($this->result as $inscricao){
+        foreach ($this->result as $inscricao) {
             $camisa[$inscricao->getNuCamisa()] = $camisa[$inscricao->getNuCamisa()] + 1;
         }
         $this->camisa = $camisa;
@@ -310,9 +310,23 @@ class Inscricao extends AbstractController
                 /** @var PagamentoEntidade $pagamento */
                 $pagamento = $pagamentoService->PesquisaUmRegistro($parcelas->getCoPagamento()->getCoPagamento());
                 $total = 0;
+                $qtdParcelasPagas = 0;
+                $valorInscricao = $pagamentoService->pegaValorInscricao($pagamento);
                 /** @var ParcelamentoEntidade $parcel */
                 foreach ($pagamento->getCoParcelamento() as $parcel) {
-                    $total = $total + $parcel->getNuValorParcelaPago();
+                    if ($parcel->getNuValorParcelaPago()) {
+                        $total = $total + $parcel->getNuValorParcelaPago();
+                        $qtdParcelasPagas++;
+                    }
+                }
+                $novaParcela[NU_VALOR_PARCELA] =
+                    (($valorInscricao - $pagamento->getNuValorDesconto() - $total) /
+                        ($pagamento->getNuParcelas() - $qtdParcelasPagas));
+                /** @var ParcelamentoEntidade $parcel2 */
+                foreach ($pagamento->getCoParcelamento() as $parcel2) {
+                    if (!$parcel2->getNuValorParcelaPago()) {
+                        $parcelamentoService->Salva($novaParcela, $parcel2->getCoParcelamento());
+                    }
                 }
                 $pag[NU_VALOR_PAGO] = $total;
                 $total = $total + $pagamento->getNuValorDesconto();
