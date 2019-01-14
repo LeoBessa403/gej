@@ -20,17 +20,17 @@
         <h2>Para Depósito em Conta:</h2>
         <div class="col-md-6">
             <b>Banco Caixa<br>
-                Agência: 0008<br>
-                Conta: 00060673-7<br>
+                Agência: 0003<br>
+                Conta: 00004346-8<br>
                 Operação: 013<br>
-                Nome: Fernanda Gomes F. Moura
+                Nome: Victtoria Macedo Leal
             </b>
         </div>
         <div class="col-md-6">
             <b>Banco Bradesco<br>
                 Agência: 1298 <br>
-                Conta Corrente: 0510813-6<br>
-                Nome: Leonardo Machado Carvalho Bessa
+                Conta Corrente: 0018031-9<br>
+                Nome: Letícia Machado Carvalho Bessa
             </b>
         </div>
         <br>
