@@ -8,8 +8,8 @@ $data['email'] = 'leodjx@hotmail.com';
 $data['currency'] = 'BRL';
 $data['itemId1'] = $_POST['co_inscricao'];
 $data['itemQuantity1'] = '1';
-$data['itemDescription1'] = InscricaoEnum::DESC_EVENTO_ATUAL;
-$data['itemAmount1'] = InscricaoEnum::VALOR_CARTAO;
+$data['itemDescription1'] = $_POST['dsInscricao'];
+$data['itemAmount1'] = $_POST['nuValorInscricao'];
 
 $url = 'https://ws.pagseguro.uol.com.br/v2/checkout';
 

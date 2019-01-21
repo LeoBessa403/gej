@@ -16,7 +16,13 @@ $(function () {
 
     $('#pagarAgora').click(function () {
         var coInscricao =  $('#co_inscricao').val();
-        $.post(urlValida,{'co_inscricao' : coInscricao },function(data){
+        var dsInscricao =  $('#dsInscricao').val();
+        var nuValorInscricao =  $('#nuValorInscricao').val();
+        $.post(urlValida,{
+            'co_inscricao' : coInscricao,
+            'dsInscricao' : dsInscricao,
+            'nuValorInscricao' : nuValorInscricao,
+        },function(data){
             $('#code').val(data);
             $('#comprar').submit();
         })

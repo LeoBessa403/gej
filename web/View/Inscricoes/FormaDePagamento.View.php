@@ -26,6 +26,10 @@
                             </select>
                             <input type="hidden" id="<?= CO_INSCRICAO; ?>"
                                    name="<?= CO_INSCRICAO; ?>" value="<?= $coInscricao; ?>">
+                            <input type="hidden" id="dsInscricao"
+                                   name="dsInscricao" value="<?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>">
+                            <input type="hidden" id="nuValorInscricao"
+                                   name="nuValorInscricao" value="<?= InscricaoEnum::VALOR_CARTAO; ?>">
                         </div>
                         <div class="col-md-12" style="display: block; padding: 0;">
                             <button data-style="zoom-out" class="btn btn-green ladda-button" type="submit"
