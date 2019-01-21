@@ -20,12 +20,11 @@ var Funcoes = function () {
         // Valida data
         $("#dt_nascimento").change(function () {
             var idade = 15; // Idade limite para aceitar o cadastro Maior que a Idade
-            var ano = $(this).val().substring(6, 10);
-            var Hoje = new Date();
-            var AnoAtual = Hoje.getFullYear();
-            var novoAno = AnoAtual - idade;
+            var nascimento = $(this).val();
+            var partesData = nascimento.split("/");
+            var validaNascimento = new Date((parseInt(partesData[2]) + idade), partesData[1] - 1, partesData[0]);
 
-            if (ano > novoAno) {
+            if (validaNascimento > new Date()) {
                 Funcoes.Alerta(Funcoes.MSG01);
                 $(this).val("");
                 $(".dt_nascimento").parent(".form-group").addClass('has-error').removeClass('has-success');
