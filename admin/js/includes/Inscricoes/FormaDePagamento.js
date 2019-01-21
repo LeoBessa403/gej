@@ -21,7 +21,7 @@ $(function () {
         $.post(urlValida,{
             'co_inscricao' : coInscricao,
             'dsInscricao' : dsInscricao,
-            'nuValorInscricao' : nuValorInscricao,
+            'nuValorInscricao' : nuValorInscricao
         },function(data){
             $('#code').val(data);
             $('#comprar').submit();
