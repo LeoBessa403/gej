@@ -1,4 +1,7 @@
 $(function () {
+    var idade = 15; // Idade limite para aceitar o cadastro Maior que a Idade
+
+
     $("#ds_pastoral_ativo").change(function () {
         disabilitaCamposRetiro();
     });
@@ -13,10 +16,10 @@ $(function () {
     }
 
     disabilitaCamposRetiro();
+    $('span#dt_nascimento-info').text("Para maiores de " + idade + " anos");
 
     // Valida data
     $("#dt_nascimento").change(function () {
-        var idade = 15; // Idade limite para aceitar o cadastro Maior que a Idade
         var nascimento = $(this).val();
         var partesData = nascimento.split("/");
         var validaNascimento = new Date((parseInt(partesData[2]) + idade), partesData[1] - 1, partesData[0]);

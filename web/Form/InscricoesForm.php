@@ -84,7 +84,6 @@ class InscricoesForm
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(6)
             ->setClasses("data ob")
-            ->setInfo("Para maiores de 14 anos")
             ->setLabel("Nascimento")
             ->CriaInpunt();
 
