@@ -269,8 +269,10 @@ class Inscricao extends AbstractController
         ]);
         /** @var ParcelamentoEntidade $parc */
         foreach ($usuParcelas as $parc){
-            $this->usuParcelas[$parc->getCoParcelamento()] =
-                $parc->getCoUsuario()->getCoPessoa()->getNoPessoa();
+            if(!empty($parc->getCoUsuario())){
+                $this->usuParcelas[$parc->getCoParcelamento()] =
+                    $parc->getCoUsuario()->getCoPessoa()->getNoPessoa();
+            }
         }
 
         $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
