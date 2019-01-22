@@ -76,7 +76,7 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                     </div>
                     <div class="panel-body">
                         <?php
-                        $arrColunas = array('Parcela', 'Valor R$', 'Vencimento', 'Situação Parcela', 'Observação', 'Ação');
+                        $arrColunas = array('Parcela', 'Valor R$', 'Vencimento', 'Situação Parcela','Resp. da Parcela', 'Observação', 'Ação');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
@@ -104,7 +104,9 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                             $grid->setColunas("0".$res->getNuParcela(),2);
                             $grid->setColunas(Valida::FormataMoeda($valor),2);
                             $grid->setColunas($venc,2);
-                            $grid->setColunas($situacao);
+                            $grid->setColunas($situacao,2);
+                            $grid->setColunas((!empty($usuParcelas[$res->getCoParcelamento()])) ?
+                                $usuParcelas[$res->getCoParcelamento()] : null);
                             $grid->setColunas($res->getDsObservacao());
                             $grid->setColunas($acao, 1);
                             $grid->criaLinha($res->getCoParcelamento());

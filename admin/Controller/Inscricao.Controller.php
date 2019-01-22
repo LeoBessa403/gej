@@ -6,6 +6,7 @@ class Inscricao extends AbstractController
     public $form;
     public $camisa;
     public $inscDuplicada;
+    public $usuParcelas;
 
     public function Index()
     {
@@ -60,8 +61,8 @@ class Inscricao extends AbstractController
         $camisa[10] = 0;
         /** @var InscricaoEntidade $inscricao */
         foreach ($this->result as $inscricao) {
-            if($inscricao->getStStatus() == StatusUsuarioEnum::ATIVO)
-            $camisa[$inscricao->getNuCamisa()] = $camisa[$inscricao->getNuCamisa()] + 1;
+            if ($inscricao->getStStatus() == StatusUsuarioEnum::ATIVO)
+                $camisa[$inscricao->getNuCamisa()] = $camisa[$inscricao->getNuCamisa()] + 1;
         }
         $this->camisa = $camisa;
     }
@@ -263,6 +264,14 @@ class Inscricao extends AbstractController
         $this->pagamentoInsc = $pagamentoService->PesquisaUmRegistro(
             $inscricao->getCoPagamento()->getCoPagamento()
         );
+        $usuParcelas = $parcelamentoService->PesquisaTodos([
+            CO_PAGAMENTO => $inscricao->getCoPagamento()->getCoPagamento()
+        ]);
+        /** @var ParcelamentoEntidade $parc */
+        foreach ($usuParcelas as $parc){
+            $this->usuParcelas[$parc->getCoParcelamento()] =
+                $parc->getCoUsuario()->getCoPessoa()->getNoPessoa();
+        }
 
         $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
         $res[NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
@@ -291,7 +300,11 @@ class Inscricao extends AbstractController
             $PDO->beginTransaction();
             $dados = $_POST;
             $coParcela = $dados[CO_PARCELAMENTO];
+            /** @var Session $us */
+            $us = $_SESSION[SESSION_USER];
+            $user = $us->getUser();
 
+            $parcela[CO_USUARIO] = $user[md5(CO_USUARIO)];
             $parcela[NU_VALOR_PARCELA_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PARCELA_PAGO]);
             $parcela[DT_VENCIMENTO_PAGO] = ($dados[DT_VENCIMENTO_PAGO])
                 ? Valida::DataDBDate($dados[DT_VENCIMENTO_PAGO])

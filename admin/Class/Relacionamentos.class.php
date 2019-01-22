@@ -178,7 +178,7 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
                 (CO_USUARIO) => Array(
-                    ('Campo') => CO_PESSOA,
+                    ('Campo') => CO_USUARIO,
                     ('Entidade') => 'UsuarioEntidade',
                     ('Tipo') => '1',
                 ),
