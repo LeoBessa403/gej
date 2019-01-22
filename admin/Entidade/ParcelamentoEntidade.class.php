@@ -20,6 +20,7 @@ class ParcelamentoEntidade extends AbstractEntidade
 	private $ds_observacao;
 	private $co_pagamento;
 	private $co_tipo_pagamento;
+    private $co_usuario;
 
 	/**
      * @return array
@@ -35,11 +36,12 @@ class ParcelamentoEntidade extends AbstractEntidade
 			DS_OBSERVACAO,
 			CO_PAGAMENTO,
 			CO_TIPO_PAGAMENTO,
+            CO_USUARIO,
 		];
     }
 
 	/**
-	* @return $relacionamentos
+	* @return mixed $relacionamentos
      */
 	public static function getRelacionamentos() {
     	$relacionamentos = Relacionamentos::getRelacionamentos();
@@ -48,7 +50,7 @@ class ParcelamentoEntidade extends AbstractEntidade
 
 
 	/**
-	* @return $co_parcelamento
+	* @return mixed $co_parcelamento
      */
 	public function getCoParcelamento()
     {
@@ -65,7 +67,7 @@ class ParcelamentoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $nu_parcela
+	* @return mixed $nu_parcela
      */
 	public function getNuParcela()
     {
@@ -82,7 +84,7 @@ class ParcelamentoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $nu_valor_parcela
+	* @return mixed $nu_valor_parcela
      */
 	public function getNuValorParcela()
     {
@@ -99,7 +101,7 @@ class ParcelamentoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $nu_valor_parcela_pago
+	* @return mixed $nu_valor_parcela_pago
      */
 	public function getNuValorParcelaPago()
     {
@@ -116,7 +118,7 @@ class ParcelamentoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $dt_vencimento
+	* @return mixed $dt_vencimento
      */
 	public function getDtVencimento()
     {
@@ -133,7 +135,7 @@ class ParcelamentoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $dt_vencimento_pago
+	* @return mixed $dt_vencimento_pago
      */
 	public function getDtVencimentoPago()
     {
@@ -150,7 +152,7 @@ class ParcelamentoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return $ds_observacao
+	* @return mixed $ds_observacao
      */
 	public function getDsObservacao()
     {
@@ -198,6 +200,23 @@ class ParcelamentoEntidade extends AbstractEntidade
 	public function setCoTipoPagamento($co_tipo_pagamento)
     {
         return $this->co_tipo_pagamento = $co_tipo_pagamento;
+    }
+
+    /**
+     * @return UsuarioEntidade $co_usuario
+     */
+    public function getCoUsuario()
+    {
+        return $this->co_usuario;
+    }
+
+    /**
+     * @param $co_usuario
+     * @return mixed
+     */
+    public function setCoUsuario($co_usuario)
+    {
+        return $this->co_usuario = $co_usuario;
     }
 
 }

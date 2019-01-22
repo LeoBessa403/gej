@@ -60,6 +60,7 @@ class Inscricao extends AbstractController
         $camisa[10] = 0;
         /** @var InscricaoEntidade $inscricao */
         foreach ($this->result as $inscricao) {
+            if($inscricao->getStStatus() == StatusUsuarioEnum::ATIVO)
             $camisa[$inscricao->getNuCamisa()] = $camisa[$inscricao->getNuCamisa()] + 1;
         }
         $this->camisa = $camisa;

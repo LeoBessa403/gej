@@ -177,6 +177,11 @@ class Relacionamentos
                     ('Entidade') => 'TipoPagamentoEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_USUARIO) => Array(
+                    ('Campo') => CO_PESSOA,
+                    ('Entidade') => 'UsuarioEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (TipoPagamentoEntidade::TABELA) => Array(
                 (CO_PARCELAMENTO) => Array(
