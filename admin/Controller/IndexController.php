@@ -124,6 +124,8 @@ class IndexController extends AbstractController
         $dados['TotalArrecadadoDados'] = $dados['TotalArrecadado'];
         $dados['TotalDescontosDados'] = $dados['TotalDescontos'];
 
+        $dados['TotalRetirantes'] = $dados['TotalInscricoes'] - $dados['TotalServos'];
+
 
         $dados['TotalAArrecadar'] = Valida::FormataMoeda($totalAArrecadar);
         $dados['TotalArrecadado'] = Valida::FormataMoeda($dados['TotalArrecadado']);

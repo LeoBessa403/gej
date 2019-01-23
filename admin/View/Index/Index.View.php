@@ -82,7 +82,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-user-cancel"></i>
                                 Não Membros
@@ -91,7 +91,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-user-3"></i>
                                 Membros
@@ -100,7 +100,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-2"></i>
                                 Servos
@@ -109,7 +109,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-eur fa"></i>
                                 Não Pagos
@@ -118,7 +118,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-gbp fa"></i>
                                 Pag. Parcial
@@ -127,7 +127,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-usd fa"></i>
                                 Pag. Concluídos
