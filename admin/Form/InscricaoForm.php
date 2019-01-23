@@ -135,6 +135,13 @@ class InscricaoForm
             ->CriaInpunt();
 
         $formulario
+            ->setType("textarea")
+            ->setClasses("ob")
+            ->setId(DS_OBSERVACAO)
+            ->setLabel("Motivo desconto")
+            ->CriaInpunt();
+
+        $formulario
             ->setType("hidden")
             ->setId(CO_INSCRICAO)
             ->setValues($res[CO_INSCRICAO])

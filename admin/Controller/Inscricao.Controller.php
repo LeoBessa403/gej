@@ -238,6 +238,7 @@ class Inscricao extends AbstractController
             $pagamento = $inscricaoEdicao->getCoPagamento();
             $numeroParcelas = $_POST[NU_PARCELAS][0];
             $pag[NU_VALOR_DESCONTO] = Valida::FormataMoedaBanco($_POST[NU_VALOR_DESCONTO]);
+            $pag[DS_OBSERVACAO] = trim($_POST[DS_OBSERVACAO]);
 
             $PDO->beginTransaction();
             if ($pagamento->getTpSituacao() != StatusPagamentoEnum::CONCLUIDO) {
@@ -278,6 +279,7 @@ class Inscricao extends AbstractController
         $res[CO_INSCRICAO] = $inscricao->getCoInscricao();
         $res[NU_PARCELAS] = $inscricao->getCoPagamento()->getNuParcelas();
         $res[NU_VALOR_DESCONTO] = Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorDesconto());
+        $res[DS_OBSERVACAO] = $inscricao->getCoPagamento()->getDsObservacao();
 
         $this->form = InscricaoForm::DetalharPagametno($res);
 
