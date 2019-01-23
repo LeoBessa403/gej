@@ -28,7 +28,7 @@
                         Resumo das Inscrições do <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>
                     </div>
                     <div class="panel-body">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-3"></i>
                                 Vagas Garantidas
@@ -37,16 +37,16 @@
                                 </span>
                             </button>
                         </div>
-                        <!--                        <div class="col-sm-4">-->
-                        <!--                            <button class="btn btn-icon btn-block">-->
-                        <!--                                <i class="clip-users-3"></i>-->
-                        <!--                                Retirantes Inscritos-->
-                        <!--                                <span class="negrito dados dados-warning">-->
-                        <!--                                    --><? //= $dados['TotalRetirantes']; ?>
-                        <!--                                </span>-->
-                        <!--                            </button>-->
-                        <!--                        </div>-->
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
+                            <button class="btn btn-icon btn-block">
+                                <i class="clip-users-3"></i>
+                                Retirantes Inscritos
+                                <span class="negrito dados dados-warning">
+                                    <?= $dados['TotalRetirantes']; ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
                             <button class="btn btn-icon btn-block">
                                 <i class="clip-users-3"></i>
                                 Total Inscritos
@@ -100,16 +100,16 @@
                                 </span>
                             </button>
                         </div>
-                        <!--                        <div class="col-sm-4">-->
-                        <!--                            <button class="btn btn-icon btn-block">-->
-                        <!--                                <i class="clip-users-2"></i>-->
-                        <!--                                Servos-->
-                        <!--                                <span class="dados negrito dados-success">-->
-                        <!--                                    --><? //= $dados['TotalServos']; ?>
-                        <!--                                </span>-->
-                        <!--                            </button>-->
-                        <!--                        </div>-->
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
+                            <button class="btn btn-icon btn-block">
+                                <i class="clip-users-2"></i>
+                                Servos
+                                <span class="dados negrito dados-success">
+                                    <?= $dados['TotalServos']; ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-sm-3">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-eur fa"></i>
                                 Não Pagos
@@ -118,7 +118,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-gbp fa"></i>
                                 Pag. Parcial
@@ -127,7 +127,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <button class="btn btn-icon btn-block">
                                 <i class="fa-usd fa"></i>
                                 Pag. Concluídos
