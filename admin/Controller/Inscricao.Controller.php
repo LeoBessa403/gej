@@ -428,9 +428,10 @@ class Inscricao extends AbstractController
     {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-
+        $motivo = explode('/', $_GET['url']);
+        $ds_motivo = $motivo[4];
         $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
-        $retorno = $inscricaoService->desativarInscricao($coInscricao);
+        $retorno = $inscricaoService->desativarInscricao($coInscricao, $ds_motivo);
         if ($retorno[SUCESSO]) {
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
         }

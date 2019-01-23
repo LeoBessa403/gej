@@ -30,6 +30,7 @@ class InscricaoEntidade extends AbstractEntidade
     private $co_pagamento;
     private $co_pedido_camisa;
     private $st_status;
+    private $ds_motivo;
 
     /**
      * @return array
@@ -50,6 +51,7 @@ class InscricaoEntidade extends AbstractEntidade
             DS_DESCRICAO,
             DS_ALIMENTACAO,
             DS_MEDICACAO,
+            DS_MOTIVO,
             ST_EQUIPE_TRABALHO,
             CO_PESSOA,
             CO_IMAGEM,
@@ -250,6 +252,22 @@ class InscricaoEntidade extends AbstractEntidade
     public function setDsMedicacao($ds_medicacao)
     {
         $this->ds_medicacao = $ds_medicacao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDsMotivo()
+    {
+        return $this->ds_motivo;
+    }
+
+    /**
+     * @param mixed $ds_motivo
+     */
+    public function setDsMotivo($ds_motivo)
+    {
+        $this->ds_motivo = $ds_motivo;
     }
 
     /**

@@ -1,9 +1,8 @@
 $(function () {
-
-
     $(".inscricao_model .btn-success").click(function () {
+        var motivo = $('#ds_observacao').val().trim();
         var url_action = $(this).attr("data-url-action");
-        location.href=url_action;
+        location.href=url_action + '/' + motivo;
     });
 
     $(".acao").click(function () {

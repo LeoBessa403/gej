@@ -240,9 +240,9 @@ class  InscricaoService extends AbstractService
      * @param $coInscricao
      * @return array
      */
-    public function desativarInscricao($coInscricao)
+    public function desativarInscricao($coInscricao, $motivo)
     {
-        return $this->mudarStatusInscricao($coInscricao, "D");
+        return $this->mudarStatusInscricao($coInscricao, "D", $motivo);
     }
 
     /**
@@ -251,15 +251,16 @@ class  InscricaoService extends AbstractService
      */
     public function ativarInscricao($coInscricao)
     {
-        return $this->mudarStatusInscricao($coInscricao, "A");
+        return $this->mudarStatusInscricao($coInscricao, "A", '');
     }
 
     /**
      * @param $coInscricao
      * @param $stStatus
+     * @param $motivo
      * @return array
      */
-    private function mudarStatusInscricao($coInscricao, $stStatus)
+    private function mudarStatusInscricao($coInscricao, $stStatus, $motivo)
     {
         $session = new Session();
         $retorno = [
@@ -267,7 +268,8 @@ class  InscricaoService extends AbstractService
             MSG => null
         ];
         $dados = [
-            ST_STATUS => $stStatus
+            ST_STATUS => $stStatus,
+            DS_MOTIVO => $motivo,
         ];
 
         $coInscricaoEd = $this->Salva($dados, $coInscricao);

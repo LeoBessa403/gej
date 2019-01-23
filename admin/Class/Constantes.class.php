@@ -53,6 +53,7 @@ define('ST_DIA_TODO', 'st_dia_todo');
 define('DT_INICIO', 'dt_inicio');
 define('DT_FIM', 'dt_fim');
 define('DS_TITULO', 'ds_titulo');
+define('DS_MOTIVO', 'ds_motivo');
 define('CO_CATEGORIA_AGENDA', 'co_categoria_agenda');
 define('CO_AGENDA_EVENTO', 'co_agenda_evento');
 define('CO_PERFIL_AGENDA', 'co_perfil_agenda');
