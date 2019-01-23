@@ -25,7 +25,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-calendar"></i>
-                        Resumo das Inscrições do ABASTECIMENTO
+                        Resumo das Inscrições do <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>
                     </div>
                     <div class="panel-body">
                         <div class="col-sm-6">
