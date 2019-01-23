@@ -114,7 +114,7 @@ class InscricoesForm
             ->setId(DS_ENDERECO)
             ->setIcon("clip-home-2")
             ->setTamanhoInput(12)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->setLabel("Endereço")
             ->CriaInpunt();
 
@@ -210,6 +210,7 @@ class InscricoesForm
             ->setType("singlefile")
             ->setInfo("Para a identificação")
             ->setTamanhoInput(12)
+            ->setClasses("ob")
             ->setLabel("Foto de Perfil (Selfie)")
             ->CriaInpunt();
 
