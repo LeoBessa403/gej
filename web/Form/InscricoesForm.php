@@ -280,6 +280,26 @@ class InscricoesForm
 
         return $formulario->finalizaForm($link);
     }
+
+
+    public static function ValidarInscricao()
+    {
+        $id = "ValidacaoInscricao";
+
+        /** @var Form $formulario */
+        $formulario = new Form($id, UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller
+            . "/" . UrlAmigavel::$action, 'Ver Dados da Inscrição', 6);
+
+        $formulario
+            ->setId(NU_CPF)
+            ->setClasses("cpf ob")
+            ->setInfo("Verificação de Inscrição já existentes")
+            ->setTamanhoInput(12)
+            ->setLabel("CPF")
+            ->CriaInpunt();
+
+        return $formulario->finalizaForm();
+    }
 }
 
 ?>

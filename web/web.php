@@ -183,13 +183,16 @@ $visitaService->gestaoVisita();
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="<?php echo PASTASITE; ?>Inscricoes/CadastroRetiro">
-                                    Inscrição
+                                    Fazer Inscrição
                                 </a>
                                 <a href="<?php echo PASTASITE; ?>Inscricoes/Normas">
                                     Normas do Retiro
                                 </a>
                                 <a href="<?php echo PASTASITE; ?>Inscricoes/SobrePagamento">
-                                   Sobre o Pagamento
+                                    Formas De Pagamento
+                                </a>
+                                <a href="<?php echo PASTASITE; ?>Inscricoes/VerInscricao">
+                                    Ver Inscrição
                                 </a>
                             </li>
                         </ul>

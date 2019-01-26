@@ -145,4 +145,26 @@ class Inscricoes extends AbstractController
     public function SobrePagamento()
     {
     }
+
+    public function VerInscricao()
+    {
+        $id = "ValidacaoInscricao";
+
+        if (!empty($_POST[$id])):
+            /** @var InscricaoService $inscricaoService */
+            $inscricaoService = $this->getService(INSCRICAO_SERVICE);
+            $inscricao = $inscricaoService->PesquisaAvancada([
+                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
+            ]);
+            if($inscricao){
+                /** @var InscricaoEntidade $inscricao */
+                $this->result = $inscricao[0];
+            }else{
+                $this->inscDuplicada = Mensagens::INSCRICAO_NAO_REALIZADA;
+                $this->form = InscricoesForm::ValidarInscricao();
+            }
+        else:
+            $this->form = InscricoesForm::ValidarInscricao();
+        endif;
+    }
 }

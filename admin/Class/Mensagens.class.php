@@ -25,6 +25,7 @@ class Mensagens
     const MSG_SEM_ITEM_SELECIONADO = "Nenhum item selecionado";
     const MSG_VALOR_PAGA_ACIMA = "O valor pago é maior que o valor da inscrição, favor corrigir com o valor correto.";
     const INSCRICAO_JA_CADASTRADA = "Já existe uma inscrição desse CPF para esse evento.";
+    const INSCRICAO_NAO_REALIZADA = "Não foi encontrada nenhuma inscrição desse CPF para esse evento.";
 
     public $MSG01 = "Esse Perfil esta vinculado a um Usuário ou Funcionalidade.";
 
