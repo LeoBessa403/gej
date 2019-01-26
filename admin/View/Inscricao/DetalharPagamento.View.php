@@ -38,12 +38,12 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                     <big><b>
                             <?php echo $inscricao->getCoPessoa()->getNoPessoa(); ?>
                         </b></big></p>
-<!--                <p>Servo:<br/>-->
-<!--                    <big><b>-->
-<!--                            --><?php
-//                            echo FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
-//                            ?>
-<!--                        </b></big></p>-->
+                <p>Servo:<br/>
+                    <big><b>
+                            <?php
+                            echo FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
+                            ?>
+                        </b></big></p>
                 <p>Membro GEJ:<br/>
                     <big><b>
                             <?php echo FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()); ?>
