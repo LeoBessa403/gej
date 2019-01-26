@@ -154,12 +154,13 @@ class Inscricoes extends AbstractController
             /** @var InscricaoService $inscricaoService */
             $inscricaoService = $this->getService(INSCRICAO_SERVICE);
             $inscricao = $inscricaoService->PesquisaAvancada([
-                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
+                "pes." . NU_CPF => Valida::RetiraMascara($_POST[NU_CPF]),
+                "insc." . CO_EVENTO => InscricaoEnum::EVENTO_ATUAL
             ]);
-            if($inscricao){
+            if ($inscricao) {
                 /** @var InscricaoEntidade $inscricao */
                 $this->result = $inscricao[0];
-            }else{
+            } else {
                 $this->inscDuplicada = Mensagens::INSCRICAO_NAO_REALIZADA;
                 $this->form = InscricoesForm::ValidarInscricao();
             }
