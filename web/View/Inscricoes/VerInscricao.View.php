@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content" style="margin-top: 150px;">
     <div class="container">
         <h4>Ver Inscrição do <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?></h4>
         <div class="row" style="min-height: 500px;">

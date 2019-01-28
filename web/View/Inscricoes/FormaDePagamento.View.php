@@ -1,4 +1,4 @@
-<div class="main-content" xmlns="http://www.w3.org/1999/html">
+<div class="main-content"  style="margin-top: 150px;">
     <div class="container">
         <div class="col-md-6">
             <h4>Formas de Pagamento</h4>

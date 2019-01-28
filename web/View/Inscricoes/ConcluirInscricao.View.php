@@ -1,4 +1,4 @@
-<div class="main-content" xmlns="http://www.w3.org/1999/html">
+<div class="main-content"  style="margin-top: 150px;">
     <div class="container" style="min-height: 500px; margin-bottom: 300px; ">
             <h4>Conclusão da Inscrição do <?= InscricaoEnum::DESC_EVENTO_ATUAL;?></h4>
             <?php
