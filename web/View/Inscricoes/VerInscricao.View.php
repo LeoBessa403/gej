@@ -47,7 +47,7 @@
                                     </b></big></p>
                             <p>E-mail:
                                 <big><b>
-                                        <?php echo $inscricao->getCoPessoa()->getNoPessoa(); ?>
+                                        <?php echo $inscricao->getCoPessoa()->getCoContato()->getDsEmail(); ?>
                                     </b></big></p>
                             <p>Endereço:
                                 <big><b><?php echo $endereco->getDsEndereco(); ?>
@@ -62,7 +62,7 @@
                             <p>Tamanho Camisa:
                                 <big><b>
                                         <?php
-                                        echo FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
+                                        echo FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
                                         ?>
                                     </b></big></p>
                             <p>Membro GEJ:
