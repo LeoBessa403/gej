@@ -24,7 +24,7 @@ class InscricoesForm
                 ->setId(ST_EQUIPE_TRABALHO)
                 ->setType("checkbox")
                 ->setClasses($res[ST_EQUIPE_TRABALHO])
-                ->setTamanhoInput(6)
+                ->setTamanhoInput(12)
                 ->setOptions($label_options)
                 ->CriaInpunt();
         endif;
