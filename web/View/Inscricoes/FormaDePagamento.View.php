@@ -1,4 +1,4 @@
-<div class="main-content"  style="margin-top: 150px;">
+<div class="main-content"  style="margin-top: 30px;">
     <div class="container">
         <div class="col-md-6">
             <h4>Formas de Pagamento</h4>

@@ -1,4 +1,4 @@
-<div class="main-content" style="margin-top: 150px;">
+<div class="main-content" style="margin-top: 30px;">
     <div class="container inscricao" style="margin-bottom: 150px;">
         <h4>Inscrição do <?= InscricaoEnum::DESC_EVENTO_ATUAL;?></h4>
         <?php
