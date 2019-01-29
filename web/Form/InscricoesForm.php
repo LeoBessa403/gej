@@ -288,7 +288,7 @@ class InscricoesForm
 
         /** @var Form $formulario */
         $formulario = new Form($id, UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller
-            . "/" . UrlAmigavel::$action, 'Ver Dados da Inscrição', 6);
+            . "/" . UrlAmigavel::$action, 'Ver Inscrição', 6);
 
         $formulario
             ->setId(NU_CPF)
