@@ -207,7 +207,7 @@ class InscricoesForm
 
         $formulario
             ->setId(DS_CAMINHO)
-            ->setType("singlefile")
+            ->setType("singlefile ob")
             ->setInfo("Para a identificação")
             ->setTamanhoInput(12)
             ->setLabel("Foto de Perfil (Selfie)")
