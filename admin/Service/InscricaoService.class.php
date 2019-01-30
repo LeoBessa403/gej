@@ -228,10 +228,23 @@ class  InscricaoService extends AbstractService
             $res[DS_DESCRICAO] = $inscricao->getDsDescricao();
             $res[DS_ALIMENTACAO] = $inscricao->getDsAlimentacao();
             $res[DS_MEDICACAO] = $inscricao->getDsMedicacao();
-            if ($inscricao->getCoImagem()->getDsCaminho()):
-                $res[DS_CAMINHO] = "inscricoes/" . $inscricao->getCoImagem()->getDsCaminho();
-                $res[CO_IMAGEM] = $inscricao->getCoImagem()->getCoImagem();
-            endif;
+
+            /** @var PessoaService $pessoaService */
+            $pessoaService = $this->getService(PESSOA_SERVICE);
+
+            $pessoa = $pessoaService->PesquisaUmRegistro($inscricao->getCoPessoa()->getCoPessoa());
+            if (!empty($pessoa->getCoInscricao())) {
+                /** @var InscricaoEntidade $inscric */
+                foreach ($pessoa->getCoInscricao() as $inscric){
+                    if ($inscric->getCoImagem()->getDsCaminho()):
+                        if(file_exists( PASTA_RAIZ . PASTAUPLOADS . "inscricoes/" .
+                            $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())){
+                            $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
+                            $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
+                        }
+                    endif;
+                }
+            }
         }
         return $res;
     }
