@@ -133,11 +133,13 @@ class  InscricaoService extends AbstractService
                     } else {
                         $contatoService->Salva($contato, $idCoContato);
                     }
-                    if (!$idCoImagem) {
-                        $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
-                    } else {
-                        $inscricao[CO_IMAGEM] = $idCoImagem;
-                        $imagemService->Salva($imagem, $idCoImagem);
+                    if($imagem[DS_CAMINHO]){
+                        if (!$idCoImagem) {
+                            $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
+                        } else {
+                            $inscricao[CO_IMAGEM] = $idCoImagem;
+                            $imagemService->Salva($imagem, $idCoImagem);
+                        }
                     }
                     if (!$idCoPessoa) {
                         $pessoa[DT_CADASTRO] = Valida::DataHoraAtualBanco();
