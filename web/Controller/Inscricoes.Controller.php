@@ -26,60 +26,14 @@ class Inscricoes extends AbstractController
             } else {
                 $this->inscDuplicada = $retorno[MSG];
                 $this->form = InscricoesForm::Cadastrar();
+                $this->form = $this->setInscricao($_POST);
             }
         } elseif (!empty($_POST[$id2])) {
             $PessoaValidador = new PessoaValidador();
             /** @var InscricaoValidador $validador */
             $validador = $PessoaValidador->validarCPF($_POST);
             if ($validador[SUCESSO]) {
-                /** @var PessoaService $pessoaService */
-                $pessoaService = static::getService(PESSOA_SERVICE);
-                /** @var PessoaEntidade $pessoa */
-                $pessoa = $pessoaService->PesquisaUmQuando([
-                    NU_CPF => Valida::RetiraMascara($_POST[NU_CPF])
-                ]);
-                $res = [];
-                if (!empty($pessoa)) {
-                    $ja_inscrito = false;
-                    if ($pessoa->getCoInscricao()) {
-                        /** @var InscricaoEntidade $inscricao */
-                        foreach ($pessoa->getCoInscricao() as $inscricao) {
-                            if ($inscricao->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL) {
-                                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller .
-                                    '/CadastroAbastecimento/' . Valida::GeraParametro(CO_INSCRICAO . '/U'));
-                            }
-                        }
-                    }
-                    if (!$ja_inscrito) {
-                        $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
-
-                        /** @var EnderecoService $enderecoService */
-                        $enderecoService = $this->getService(ENDERECO_SERVICE);
-                        $res = $enderecoService->getArrayDadosEndereco($pessoa->getCoEndereco(), $res);
-
-                        /** @var ContatoService $contatoService */
-                        $contatoService = $this->getService(CONTATO_SERVICE);
-                        $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
-                        if (!empty($pessoa->getCoInscricao())) {
-                            /** @var InscricaoEntidade $inscric */
-                            foreach ($pessoa->getCoInscricao() as $inscric){
-                                if ($inscric->getCoImagem()->getDsCaminho()):
-                                    if(file_exists( PASTA_RAIZ . PASTAUPLOADS . "inscricoes/" .
-                                        $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())){
-                                        $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
-                                        $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
-                                    }
-                                endif;
-                            }
-                        }
-                    }
-                } else {
-                    $res[NU_CPF] = $_POST[NU_CPF];
-                }
-                $res[DS_MEMBRO_ATIVO] = '';
-                $res[DS_RETIRO] = '';
-                $res['ds_pastoral_ativo'] = '';
-                $this->form = InscricoesForm::Cadastrar($res);
+                $this->form = $this->setInscricao($_POST);
             } else {
                 $session = new Session();
                 $session->setSession(MENSAGEM, $validador[MSG]);
@@ -173,5 +127,57 @@ class Inscricoes extends AbstractController
         else:
             $this->form = InscricoesForm::ValidarInscricao();
         endif;
+    }
+
+    public function setInscricao($dados)
+    {
+        /** @var PessoaService $pessoaService */
+        $pessoaService = static::getService(PESSOA_SERVICE);
+        /** @var PessoaEntidade $pessoa */
+        $pessoa = $pessoaService->PesquisaUmQuando([
+            NU_CPF => Valida::RetiraMascara($dados[NU_CPF])
+        ]);
+        $res = [];
+        if (!empty($pessoa)) {
+            $ja_inscrito = false;
+            if ($pessoa->getCoInscricao()) {
+                /** @var InscricaoEntidade $inscricao */
+                foreach ($pessoa->getCoInscricao() as $inscricao) {
+                    if ($inscricao->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL) {
+                        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller .
+                            '/CadastroAbastecimento/' . Valida::GeraParametro(CO_INSCRICAO . '/U'));
+                    }
+                }
+            }
+            if (!$ja_inscrito) {
+                $res = $pessoaService->getArrayDadosPessoa($pessoa, $res);
+
+                /** @var EnderecoService $enderecoService */
+                $enderecoService = $this->getService(ENDERECO_SERVICE);
+                $res = $enderecoService->getArrayDadosEndereco($pessoa->getCoEndereco(), $res);
+
+                /** @var ContatoService $contatoService */
+                $contatoService = $this->getService(CONTATO_SERVICE);
+                $res = $contatoService->getArrayDadosContato($pessoa->getCoContato(), $res);
+                if (!empty($pessoa->getCoInscricao())) {
+                    /** @var InscricaoEntidade $inscric */
+                    foreach ($pessoa->getCoInscricao() as $inscric){
+                        if ($inscric->getCoImagem()->getDsCaminho()):
+                            if(file_exists( PASTA_RAIZ . PASTAUPLOADS . "inscricoes/" .
+                                $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())){
+                                $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
+                                $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
+                            }
+                        endif;
+                    }
+                }
+            }
+        } else {
+            $res[NU_CPF] = $_POST[NU_CPF];
+        }
+        $res[DS_MEMBRO_ATIVO] = '';
+        $res[DS_RETIRO] = '';
+        $res['ds_pastoral_ativo'] = '';
+        return InscricoesForm::Cadastrar($res);
     }
 }
