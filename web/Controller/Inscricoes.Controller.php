@@ -90,7 +90,7 @@ class Inscricoes extends AbstractController
             if ($insc)
                 $this->inscDuplicada = Mensagens::INSCRICAO_JA_CADASTRADA;
 
-            $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento', 6);
+            $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroRetiroo', 6);
         }
 
     }
