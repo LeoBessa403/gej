@@ -210,7 +210,7 @@ class InscricoesForm
             ->setType("singlefile")
             ->setInfo("Para a identificação")
             ->setTamanhoInput(12)
-            ->setClasses("ob")
+//            ->setClasses("ob")
             ->setLabel("Foto de Perfil (Selfie)")
             ->CriaInpunt();
 
