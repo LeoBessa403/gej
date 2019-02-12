@@ -93,7 +93,7 @@
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1()));
                             $grid->setColunas($documento);
-                            $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro()));
+                            $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro(), 'd/m/Y H:m'));
                             $grid->setColunas(Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
