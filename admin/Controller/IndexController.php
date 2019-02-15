@@ -115,7 +115,7 @@ class IndexController extends AbstractController
 
             $dados['TotalDescontos'] = $dados['TotalDescontos'] + $pagamentoInscricao->getNuValorDesconto();
         }
-       $dados['TotalInscricoesGarantidas'] = $dados['TotalParcial'] +  $dados['TotalConcluido'];
+//       $dados['TotalInscricoesGarantidas'] = $dados['TotalParcial'] +  $dados['TotalConcluido'];
 
         $totalAArrecadar = $dados['TotalAArrecadar'] - $dados['TotalArrecadado'];
 
