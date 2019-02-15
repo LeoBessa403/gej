@@ -94,6 +94,9 @@ class  InscricaoService extends AbstractService
                 $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
                     (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
                 );
+                $inscricao[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
+                    (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
+                );
                 $inscricao[DS_RETIRO] = FuncoesSistema::retornoCheckbox(
                     (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
                 );
