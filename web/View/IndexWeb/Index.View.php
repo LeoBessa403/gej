@@ -17,7 +17,7 @@
         </div>
         <aside class="al-center sectiontitle-insc">
             <h1>
-                <!--                <span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>-->
+                                <span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>
                 Faça sua incrição
                 <a class="btn btn-green radius" title="Inscrição para nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>"
                    target="_blank"
@@ -206,7 +206,7 @@
                 </b></p>
         </header>
         <h2 style="color: #CCD8D1;">
-            <!--            <span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span> <br/><br/>-->
+                        <span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span> <br/><br/>
             Faça sua incrição
             <a class="btn btn-bricky btn-big radius"
                title="Quero Fazer minha inscrição do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?> Agora!"
