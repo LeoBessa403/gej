@@ -91,17 +91,17 @@
                                 <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorPago()); ?></b></big>
                             </p>
                         </div>
-                        <?php
-                        if($inscricao->getCoPagamento()->getTpSituacao() !=
-                            StatusPagamentoEnum::CONCLUIDO){
-                        ?>
-                        <div class="col-sm-12" style="text-align: center;">
-                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 25px;">
-                                <span class="ladda-label"> Pagar Agora </span>
-                                <i class="fa fa-money"></i>
-                            </a>
-                        </div>
-                        <?php } ?>
+<!--                        --><?php
+//                        if($inscricao->getCoPagamento()->getTpSituacao() !=
+//                            StatusPagamentoEnum::CONCLUIDO){
+//                        ?>
+<!--                        <div class="col-sm-12" style="text-align: center;">-->
+<!--                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 25px;">-->
+<!--                                <span class="ladda-label"> Pagar Agora </span>-->
+<!--                                <i class="fa fa-money"></i>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        --><?php //} ?>
                     </div>
                 </div>
             <?php
@@ -114,10 +114,10 @@
     </div>
 </div>
 <!-- end: PAGE -->
-<form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post"
-      onsubmit="PagSeguroLightbox(this); return false;">
-    <input type="hidden" name="code" id="code" value=""/>
-</form>
-
-<script type="text/javascript"
-        src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+<!--<form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post"-->
+<!--      onsubmit="PagSeguroLightbox(this); return false;">-->
+<!--    <input type="hidden" name="code" id="code" value=""/>-->
+<!--</form>-->
+<!---->
+<!--<script type="text/javascript"-->
+<!--        src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>-->

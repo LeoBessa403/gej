@@ -38,17 +38,16 @@
                                 <i class="fa fa-save"></i>
                                 <span class="ladda-spinner"></span>
                             </button>
-                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 10px;">
-                                <span class="ladda-label"> Pagar Agora </span>
-                                <i class="fa fa-money"></i>
-                            </a>
+<!--                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 10px;">-->
+<!--                                <span class="ladda-label"> Pagar Agora </span>-->
+<!--                                <i class="fa fa-money"></i>-->
+<!--                            </a>-->
                         </div>
                     </div>
                 </form>
-
-                <form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
-                    <input type="hidden" name="code" id="code" value="" />
-                </form>
+<!--                <form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">-->
+<!--                    <input type="hidden" name="code" id="code" value="" />-->
+<!--                </form>-->
             </div>
         </div>
         <div class="col-md-6" style="padding: 10px;">
@@ -60,4 +59,4 @@
 <!-- end: PAGE -->
 
 <!-- SCRIPT PAGSEGURO -->
-<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+<!--<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>-->

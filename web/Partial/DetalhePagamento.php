@@ -3,12 +3,12 @@
     <h3 style="margin-left: 15px;">Investimento do Abastecimento e de somente
         <?= Valida::FormataMoeda(InscricaoEnum::VALOR_CARTAO, 'R$'); ?>
         pode ser em até 12x no Cartão</h3>
-    <div style="display: block; padding: 0;text-align: center">
-        <a href="<?= HOME; ?>web/Inscricoes/VerInscricao" class="btn btn-dark-grey">
-            <span class="ladda-label"> Pagar Agora </span>
-            <i class="fa fa-money"></i>
-        </a>
-    </div>
+<!--    <div style="display: block; padding: 0;text-align: center">-->
+<!--        <a href="--><?//= HOME; ?><!--web/Inscricoes/VerInscricao" class="btn btn-dark-grey">-->
+<!--            <span class="ladda-label"> Pagar Agora </span>-->
+<!--            <i class="fa fa-money"></i>-->
+<!--        </a>-->
+<!--    </div>-->
     <header class="sectiontitle section">
         <h1 style="color: #E16F4D; font-weight: bolder;">Em caso de Dúvidas procure nossa Coordenação / Comissão</h1>
         <p class="tagline">Dúvidas sobre pagamentos, vagas e inscrições entrar em contato: <br><b
