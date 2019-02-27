@@ -80,10 +80,10 @@
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
-                        <h2>
-                            <small>Total de camisas</small>
-                        </h2>
                         <div class="col-md-3">
+                            <h2>
+                                <small>Total de camisas</small>
+                            </h2>
                             <?php
                             $grid2 = new Grid();
                             $arrColunas2 = array('Tamanho', 'Total');
@@ -94,6 +94,24 @@
                                 $grid2->setColunas(FuncoesSistema::TamanhoCamisa($tamanho), 3);
                                 $grid2->setColunas($total);
                                 $grid2->criaLinha($tamanho);
+                            endforeach;
+                            $grid2->finalizaGrid();
+                            ?>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>
+                                <small>Total em Idade</small>
+                            </h2>
+                            <?php
+                            $grid3 = new Grid();
+                            $arrColunas3 = array('Idade', 'Quantidade');
+                            $grid2->setColunasIndeces($arrColunas3);
+                            $grid2->criaGrid('idade', false, false);
+
+                            foreach ($idades as $idade => $total):
+                                $grid2->setColunas('<b>' . $idade . '</b>', 3);
+                                $grid2->setColunas($total);
+                                $grid2->criaLinha($total);
                             endforeach;
                             $grid2->finalizaGrid();
                             ?>

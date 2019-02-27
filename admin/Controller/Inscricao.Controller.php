@@ -5,6 +5,7 @@ class Inscricao extends AbstractController
     public $result;
     public $form;
     public $camisa;
+    public $idades;
     public $inscDuplicada;
     public $usuParcelas;
 
@@ -49,22 +50,19 @@ class Inscricao extends AbstractController
     public function DetalhesInscricao()
     {
         $this->pegarInscricoes();
-        $camisa[1] = 0;
-        $camisa[2] = 0;
-        $camisa[3] = 0;
-        $camisa[4] = 0;
-        $camisa[5] = 0;
-        $camisa[6] = 0;
-        $camisa[7] = 0;
-        $camisa[8] = 0;
-        $camisa[9] = 0;
-        $camisa[10] = 0;
+        $camisa = [];
+        $idades = [];
         /** @var InscricaoEntidade $inscricao */
         foreach ($this->result as $inscricao) {
-            if ($inscricao->getStStatus() == StatusUsuarioEnum::ATIVO)
-                $camisa[$inscricao->getNuCamisa()] = $camisa[$inscricao->getNuCamisa()] + 1;
+            if ($inscricao->getStStatus() == StatusUsuarioEnum::ATIVO) {
+                $camisa[$inscricao->getNuCamisa()] =
+                    (!empty($camisa[$inscricao->getNuCamisa()])) ? $camisa[$inscricao->getNuCamisa()] + 1 : 1;
+                $idade = Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento());
+                $idades[$idade] = (!empty($idades[$idade])) ? $idades[$idade] + 1 : 1;
+            }
         }
         $this->camisa = $camisa;
+        $this->idades = $idades;
     }
 
     public function SobreVcInscricao()
@@ -269,8 +267,8 @@ class Inscricao extends AbstractController
             CO_PAGAMENTO => $inscricao->getCoPagamento()->getCoPagamento()
         ]);
         /** @var ParcelamentoEntidade $parc */
-        foreach ($usuParcelas as $parc){
-            if(!empty($parc->getCoUsuario())){
+        foreach ($usuParcelas as $parc) {
+            if (!empty($parc->getCoUsuario())) {
                 $this->usuParcelas[$parc->getCoParcelamento()] =
                     $parc->getCoUsuario()->getCoPessoa()->getNoPessoa();
             }
