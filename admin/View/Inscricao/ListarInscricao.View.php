@@ -43,7 +43,7 @@
                         Modal::DesativarInscricao("DesativarInscricao");
                         Modal::AtivarInscricao("AtivarInscricao");
                         Modal::confirmacao("confirma_Inscricao");
-                        $arrColunas = array('Nome', 'Inscrição', 'Idade', 'Servo',
+                        $arrColunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Servo',
                             'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
@@ -90,9 +90,14 @@
                                         </a>';
                                 }
                             }
+                            $enderecoEnt = $inscricao->getCoPessoa()->getCoEndereco();
+                            $endereco = $enderecoEnt->getDsEndereco()   .' - '. $enderecoEnt->getNoCidade(). ' / ' .
+                                $enderecoEnt->getSgUf();
+                            ;
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro(), 'd/m/Y H:i'));
                             $grid->setColunas(Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento()));
+                            $grid->setColunas($endereco);
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
                             $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
