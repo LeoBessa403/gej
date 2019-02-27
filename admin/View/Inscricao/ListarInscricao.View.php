@@ -43,7 +43,7 @@
                         Modal::DesativarInscricao("DesativarInscricao");
                         Modal::AtivarInscricao("AtivarInscricao");
                         Modal::confirmacao("confirma_Inscricao");
-                        $arrColunas = array('Nome', 'Telefone', 'CPF / RG', 'Inscrição', 'Nascimento', 'Servo',
+                        $arrColunas = array('Nome', 'Inscrição', 'Idade', 'Servo',
                             'Membro', 'Pagamento', 'Ações');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
@@ -91,10 +91,8 @@
                                 }
                             }
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
-                            $grid->setColunas(Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1()));
-                            $grid->setColunas($documento);
                             $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro(), 'd/m/Y H:i'));
-                            $grid->setColunas(Valida::DataShow($inscricao->getCoPessoa()->getDtNascimento()));
+                            $grid->setColunas(Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
                             $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
                             $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
