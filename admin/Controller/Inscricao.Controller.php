@@ -104,24 +104,23 @@ class Inscricao extends AbstractController
         $inscricoes = $this->pegarInscricoesExportar();
         $formato = UrlAmigavel::PegaParametro("formato");
         $i = 0;
-        /** @var InscricaoEntidade $res */
-        foreach ($inscricoes as $res) {
-            if ($res->getCoPessoa()->getNuCpf()) {
-                $documento = Valida::MascaraCpf($res->getCoPessoa()->getNuCpf());
-            } elseif ($res->getCoPessoa()->getNuRG()) {
-                $documento = $res->getCoPessoa()->getNuRG();
-            }
-            $dados[$i][NO_PESSOA] = strtoupper($res->getCoPessoa()->getNoPessoa());
-            $dados[$i][NU_TEL1] = Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel1()) .
-                ' / ' . Valida::MascaraTel($res->getCoPessoa()->getCoContato()->getNuTel2());
-            $dados[$i][NU_CPF] = $documento;
-            $dados[$i][DT_NASCIMENTO] = Valida::DataShow($res->getCoPessoa()->getDtNascimento());
-            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($res->getStEquipeTrabalho());
-            $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($res->getDsMembroAtivo());
-            $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($res->getCoPagamento()->getTpSituacao());
+        $dados = [];
+        /** @var InscricaoEntidade $inscricao */
+        foreach ($inscricoes as $inscricao) {
+            $enderecoEnt = $inscricao->getCoPessoa()->getCoEndereco();
+            $endereco = $enderecoEnt->getDsEndereco() . ' - ' . $enderecoEnt->getNoCidade() . ' / ' .
+                $enderecoEnt->getSgUf();;
+            $dados[$i][NO_PESSOA] = strtoupper($inscricao->getCoPessoa()->getNoPessoa());
+            $dados[$i][DT_CADASTRO] = Valida::DataShow($inscricao->getDtCadastro(), 'd/m/Y H:i');
+            $dados[$i][DT_NASCIMENTO] = Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento());
+            $dados[$i][DS_ENDERECO] = $endereco;
+            $dados[$i][DS_PASTORAL] = $inscricao->getDsPastoral();
+            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
+            $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo());
+            $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
             $i++;
         }
-        $Colunas = array('Nome', 'Telefone', 'CPF / RG', 'Nascimento', 'Membro', 'Pagamento');
+        $Colunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Pastoral', 'Servo', 'Membro', 'Pagamento');
         $this->geraArquivo($formato, $Colunas, $dados);
     }
 
@@ -131,6 +130,7 @@ class Inscricao extends AbstractController
         $inscricoes = $this->pegarInscricoesExportar();
         $formato = UrlAmigavel::PegaParametro("formato");
         $i = 0;
+        $dados = [];
         /** @var InscricaoEntidade $inscricao */
         foreach ($inscricoes as $inscricao) {
             $contato = Valida::MascaraTel($inscricao->getCoPessoa()->getCoContato()->getNuTel1());
@@ -143,14 +143,15 @@ class Inscricao extends AbstractController
                         $inscricao->getNuTelResponsavel()
                     );
             }
+            $dtPagamento = (!empty($inscricao->getCoPagamento()->getCoUltimaParcela()->getDtVencimentoPago()))
+                ? Valida::DataShow($inscricao->getCoPagamento()->getCoUltimaParcela()->getDtVencimentoPago()
+                    , 'd/m/Y') : null;
             $dados[$i][NO_PESSOA] = strtoupper($inscricao->getCoPessoa()->getNoPessoa());
-            $dados[$i][NU_CAMISA] = FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa());
             $dados[$i]['CONTATO'] = $contato;
-            $dados[$i][DS_PASTORAL] = $inscricao->getDsPastoral();
-            $dados[$i][DS_RETIRO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsRetiro());
+            $dados[$i][DT_CADASTRO] = $dtPagamento;
             $i++;
         }
-        $Colunas = array('Nome', 'Contatos', 'Participa Pastoral', 'Particiopou Retiro');
+        $Colunas = array('Nome', 'Contatos', 'Data Pagamento');
         $this->geraArquivo($formato, $Colunas, $dados);
     }
 
