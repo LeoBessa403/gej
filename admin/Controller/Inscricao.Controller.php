@@ -115,12 +115,13 @@ class Inscricao extends AbstractController
             $dados[$i][DT_NASCIMENTO] = Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento());
             $dados[$i][DS_ENDERECO] = $endereco;
             $dados[$i][DS_PASTORAL] = $inscricao->getDsPastoral();
-            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
-            $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo());
+            $dados[$i][DS_DESCRICAO] = $inscricao->getDsDescricao();
+//            $dados[$i][ST_EQUIPE_TRABALHO] = FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
+//            $dados[$i][DS_MEMBRO_ATIVO] = FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo());
             $dados[$i][TP_SITUACAO] = FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
             $i++;
         }
-        $Colunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Pastoral', 'Servo', 'Membro', 'Pagamento');
+        $Colunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Pastoral', 'Descrição', 'Pagamento');
         $this->geraArquivo($formato, $Colunas, $dados);
     }
 
