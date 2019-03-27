@@ -4,7 +4,7 @@ function servidor_inicial()
 {
     if ($_SERVER['HTTP_HOST'] == 'localhost') {
         $config = array(
-            'HOME' => 'http://localhost/gej2/',
+            'HOME' => 'http://localhost/gej/',
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
