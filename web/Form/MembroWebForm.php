@@ -1,32 +1,38 @@
 <?php
 
-class InscricoesForm
+class MembroWebForm
 {
 
-    public static function Cadastrar($res = false, $id = false, $link = null)
+    public static function Cadastrar($CoInscricao = false, $res = false, $id = false)
     {
         if (!$id):
-            $id = "CadastroRetiro";
+            $id = "CadastroRetiroCarnaval";
         endif;
         $action = UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
-        if(!$link)
-        $link = UrlAmigavel::$controller . "/" . UrlAmigavel::$action;
 
         $formulario = new Form($id, $action);
-        if ($res) {
-            $res['cpf'] = $res[NU_CPF];
+        if ($res):
             $formulario->setValor($res);
-        }
-        if ($res && UrlAmigavel::$modulo == ADMIN):
+
+            $label_options = array("1" => "1", "2" => "2", "3" => "3");
+            $formulario
+                ->setLabel("Números de Parcelas")
+                ->setId(NU_PARCELAS)
+                ->setType("select")
+                ->setTamanhoInput(12)
+                ->setOptions($label_options)
+                ->CriaInpunt();
+
             $label_options = array("Sim", "Não", "verde", "vermelho");
             $formulario
                 ->setLabel("Servo?")
                 ->setId(ST_EQUIPE_TRABALHO)
                 ->setType("checkbox")
                 ->setClasses($res[ST_EQUIPE_TRABALHO])
-                ->setTamanhoInput(12)
+                ->setTamanhoInput(6)
                 ->setOptions($label_options)
                 ->CriaInpunt();
+
         endif;
 
 
@@ -41,16 +47,18 @@ class InscricoesForm
             ->CriaInpunt();
 
         $formulario
-            ->setId('cpf')
-            ->setClasses("cpf disabilita")
-            ->setTamanhoInput(6)
-            ->setLabel("CPF")
+            ->setId(NO_PESSOA)
+            ->setClasses("ob nome")
+            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
+            ->setLabel("Nome Completo")
+            ->setTamanhoInput(12)
             ->CriaInpunt();
 
         $formulario
-            ->setType("hidden")
             ->setId(NU_CPF)
-            ->setValues($res[NU_CPF])
+            ->setClasses("cpf ob")
+            ->setTamanhoInput(6)
+            ->setLabel("CPF")
             ->CriaInpunt();
 
         $formulario
@@ -59,15 +67,6 @@ class InscricoesForm
             ->setClasses("numero")
             ->setLabel("RG")
             ->CriaInpunt();
-
-        $formulario
-            ->setId(NO_PESSOA)
-            ->setClasses("ob nome")
-            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
-            ->setLabel("Nome Completo")
-            ->setTamanhoInput(12)
-            ->CriaInpunt();
-
 
         $label_options = array("" => "Selecione um", "M" => "Masculino", "F" => "Feminino");
         $formulario
@@ -84,6 +83,7 @@ class InscricoesForm
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(6)
             ->setClasses("data ob")
+            ->setInfo("Para maiores de 14 anos")
             ->setLabel("Nascimento")
             ->CriaInpunt();
 
@@ -92,7 +92,7 @@ class InscricoesForm
             ->setTamanhoInput(6)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular")
-            ->setInfo("Com <i class='fa fa-whatsapp' style='color: green;'></i> WhatSapp")
+            ->setInfo("Com o Whatsapp")
             ->setClasses("tel ob")
             ->CriaInpunt();
 
@@ -102,12 +102,6 @@ class InscricoesForm
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular 2")
             ->setClasses("tel")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_CEP)
-            ->setLabel("CEP")
-            ->setClasses("cep")
             ->CriaInpunt();
 
         $formulario
@@ -136,9 +130,16 @@ class InscricoesForm
             ->setTamanhoInput(12)
             ->CriaInpunt();
 
+        $formulario
+            ->setId(NU_CEP)
+            ->setLabel("CEP")
+            ->setTamanhoInput(4)
+            ->setClasses("cep")
+            ->CriaInpunt();
+
         $options = EnderecoService::montaComboEstadosDescricao();
         $formulario
-            ->setTamanhoInput(12)
+            ->setTamanhoInput(8)
             ->setId(SG_UF)
             ->setType("select")
             ->setLabel("Estado")
@@ -171,7 +172,8 @@ class InscricoesForm
             ->setId(DS_PASTORAL)
             ->CriaInpunt();
 
-        $opticoes_camisa = CamisaService::montaComboCamisas();
+        $opticoes_camisa = MembroWeb::montaComboCamisas();
+
         $formulario
             ->setId(NU_CAMISA)
             ->setType("select")
@@ -205,13 +207,22 @@ class InscricoesForm
             ->setTamanhoInput(12)
             ->CriaInpunt();
 
+        $ob = 'ob';
+        if ($CoInscricao) {
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_INSCRICAO)
+                ->setValues($CoInscricao)
+                ->CriaInpunt();
+            $ob = '';
+        }
         $formulario
             ->setId(DS_CAMINHO)
             ->setType("singlefile")
             ->setInfo("Para a identificação")
+            ->setClasses($ob)
             ->setTamanhoInput(12)
-//            ->setClasses("ob")
-            ->setLabel("Foto de Perfil (Selfie)")
+            ->setLabel("Foto de Perfil")
             ->CriaInpunt();
 
         $formulario
@@ -219,7 +230,7 @@ class InscricoesForm
             ->setLabel("Fale um pouco sobre você")
             ->setType("textarea")
             ->setTamanhoInput(12)
-//            ->setClasses("ob")
+            ->setClasses("ob")
             ->CriaInpunt();
 
         $formulario
@@ -238,66 +249,6 @@ class InscricoesForm
             ->setInfo("Descreva se tiver alguma restrição alimentar.")
             ->CriaInpunt();
 
-        if (!empty($res[CO_INSCRICAO])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_INSCRICAO)
-                ->setValues($res[CO_INSCRICAO])
-                ->CriaInpunt();
-        endif;
-
-        if (!empty($res[CO_ENDERECO])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_ENDERECO)
-                ->setValues($res[CO_ENDERECO])
-                ->CriaInpunt();
-        endif;
-
-        if (!empty($res[CO_CONTATO])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_CONTATO)
-                ->setValues($res[CO_CONTATO])
-                ->CriaInpunt();
-        endif;
-
-        if (!empty($res[CO_IMAGEM])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_IMAGEM)
-                ->setValues($res[CO_IMAGEM])
-                ->CriaInpunt();
-        endif;
-
-        if (!empty($res[CO_PESSOA])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_PESSOA)
-                ->setValues($res[CO_PESSOA])
-                ->CriaInpunt();
-        endif;
-
-
-        return $formulario->finalizaForm($link);
-    }
-
-
-    public static function ValidarInscricao()
-    {
-        $id = "ValidacaoInscricao";
-
-        /** @var Form $formulario */
-        $formulario = new Form($id, UrlAmigavel::$modulo . "/" . UrlAmigavel::$controller
-            . "/" . UrlAmigavel::$action, 'Ver Inscrição', 6);
-
-        $formulario
-            ->setId(NU_CPF)
-            ->setClasses("cpf ob")
-            ->setInfo("Verificação de Inscrição já existentes")
-            ->setTamanhoInput(12)
-            ->setLabel("CPF")
-            ->CriaInpunt();
 
         return $formulario->finalizaForm();
     }

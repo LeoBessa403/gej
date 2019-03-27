@@ -67,7 +67,7 @@
                                     </b></big></p>
                             <p>Membro GEJ:
                                 <big><b>
-                                        <?php echo FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()); ?>
+                                        <?php echo Valida::SituacaoSimNao($inscricao->getDsMembroAtivo()); ?>
                                     </b></big></p>
                             <p>Parcelas:
                                 <big><b>
@@ -82,7 +82,7 @@
                                         ?></b></big></p>
                             <p>Situação do Pagamento:
                                 <big><b><?php
-                                        echo FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
+                                        echo Valida::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
                                         ?></b></big></p>
                             <p>Desconto R$:
                                 <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorDesconto()); ?></b></big>
