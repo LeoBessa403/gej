@@ -47,15 +47,13 @@ class AgendaForm
             ->CriaInpunt();
 
         $perfis = PerfilService::montaComboTodosPerfis();
-        $labels = FuncoesSistema::ValidaPerfilCadastro($perfis);
-
         $formulario
             ->setLabel("Participantes")
             ->setId(CO_PERFIL)
             ->setClasses("multipla ob")
             ->setInfo("Pode selecionar vários perfis.")
             ->setType("select")
-            ->setOptions($labels)
+            ->setOptions($perfis)
             ->CriaInpunt();
 
         $formulario

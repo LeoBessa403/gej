@@ -52,8 +52,8 @@
                                                                                 endif;
                                                                                 $grid->setColunas(strtoupper($res['no_membro']));
                                                                                 $grid->setColunas(strtoupper(FuncoesSistema::TamanhoCamisa($res['nu_camisa'])));
-                                                                                $grid->setColunas(FuncoesSistema::SituacaoSimNao($res['ds_membro_ativo']));
-                                                                                $grid->setColunas(FuncoesSistema::SituacaoSimNao($res['st_pagamento']));
+                                                                                $grid->setColunas(Valida::SituacaoSimNao($res['ds_membro_ativo']));
+                                                                                $grid->setColunas(Valida::SituacaoSimNao($res['st_pagamento']));
                                                                                 $grid->setColunas(Valida::DataShow($res['dt_nascimento'],"d/m/Y"));
                                                                                 $grid->setColunas($res['nu_tel1']);
                                                                                 $grid->setColunas($res['no_responsavel']);

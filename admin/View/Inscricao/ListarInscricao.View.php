@@ -58,7 +58,7 @@
                             } elseif ($inscricao->getCoPessoa()->getNuRG()) {
                                 $documento = $inscricao->getCoPessoa()->getNuRG();
                             }
-                            if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
+                            if (Valida::ValPerfil('DesativarInscricao')) {
 
                                 if ($inscricao->getStStatus() == "D") {
                                     $acao = ' <a data-toggle="modal" role="button" class="btn btn-green tooltips acao" 
@@ -98,10 +98,10 @@
                             $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro(), 'd/m/Y H:i'));
                             $grid->setColunas(Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento()));
                             $grid->setColunas($endereco);
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()));
-                            $grid->setColunas(FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
-                            if (Valida::ValPerfil(PermissaoAcessoEnum::INSCRICAO_EDITAR)) {
+                            $grid->setColunas(Valida::SituacaoSimNao($inscricao->getStEquipeTrabalho()));
+                            $grid->setColunas(Valida::SituacaoSimNao($inscricao->getDsMembroAtivo()));
+                            $grid->setColunas(Valida::Pagamento($inscricao->getCoPagamento()->getTpSituacao()));
+                            if (Valida::ValPerfil('DesativarInscricao')) {
                                 $grid->setColunas($acao, 3);
                             } else {
                                 $grid->setColunas('', 0);

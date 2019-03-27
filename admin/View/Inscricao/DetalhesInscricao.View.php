@@ -71,7 +71,7 @@
                             $grid->setColunas(FuncoesSistema::TamanhoCamisa($inscricao->getNuCamisa()));
                             $grid->setColunas($contato);
                             $grid->setColunas($inscricao->getDsPastoral());
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($inscricao->getDsRetiro()));
+                            $grid->setColunas(Valida::SituacaoSimNao($inscricao->getDsRetiro()));
                             $grid->criaLinha(
                                 $inscricao->getCoInscricao(),
                                 ($inscricao->getStStatus() == StatusAcessoEnum::DESISTENTE)

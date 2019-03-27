@@ -41,12 +41,12 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                 <p>Servo:<br/>
                     <big><b>
                             <?php
-                            echo FuncoesSistema::SituacaoSimNao($inscricao->getStEquipeTrabalho());
+                            echo Valida::SituacaoSimNao($inscricao->getStEquipeTrabalho());
                             ?>
                         </b></big></p>
                 <p>Membro GEJ:<br/>
                     <big><b>
-                            <?php echo FuncoesSistema::SituacaoSimNao($inscricao->getDsMembroAtivo()); ?>
+                            <?php echo Valida::SituacaoSimNao($inscricao->getDsMembroAtivo()); ?>
                         </b></big></p>
                 <p>Parcelas:<br/>
                     <big><b>
@@ -58,7 +58,7 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
                     <big><b><?php echo $tipoPagamento; ?></b></big></p>
                 <p>Situação do Pagamento:<br/>
                     <big><b><?php
-                            echo FuncoesSistema::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
+                            echo Valida::Pagamento($inscricao->getCoPagamento()->getTpSituacao());
                             ?></b></big></p>
                 <p>Desconto R$:<br/>
                     <big><b><?php echo Valida::FormataMoeda($inscricao->getCoPagamento()->getNuValorDesconto()); ?></b></big></p>
@@ -86,10 +86,10 @@ $tipoPagamento = TipoPagamentoEnum::getDescricaoValor($parcela->getCoTipoPagamen
 
                             if ($res->getNuValorParcelaPago() == null):
                                 $valor = $res->getNuValorParcela();
-                                $situacao = FuncoesSistema::Pagamento("N");
+                                $situacao = Valida::Pagamento("N");
                             else:
                                 $valor = $res->getNuValorParcelaPago();
-                                $situacao = FuncoesSistema::Pagamento("C");
+                                $situacao = Valida::Pagamento("C");
                             endif;
                             if ($res->getDtVencimentoPago() == null):
                                 $venc = Valida::DataShow($res->getDtVencimento(), "d/m/Y");

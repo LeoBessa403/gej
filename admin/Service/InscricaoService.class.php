@@ -91,13 +91,13 @@ class  InscricaoService extends AbstractService
                             </a>';
                 $retorno[SUCESSO] = false;
             else:
-                $inscricao[DS_MEMBRO_ATIVO] = FuncoesSistema::retornoCheckbox(
+                $inscricao[DS_MEMBRO_ATIVO] = Valida::retornoCheckbox(
                     (!empty($dados[DS_MEMBRO_ATIVO])) ? $dados[DS_MEMBRO_ATIVO] : null
                 );
-                $inscricao[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
+                $inscricao[ST_EQUIPE_TRABALHO] = Valida::retornoCheckbox(
                     (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
                 );
-                $inscricao[DS_RETIRO] = FuncoesSistema::retornoCheckbox(
+                $inscricao[DS_RETIRO] = Valida::retornoCheckbox(
                     (!empty($dados[DS_RETIRO])) ? $dados[DS_RETIRO] : null
                 );
                 $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
@@ -168,7 +168,7 @@ class  InscricaoService extends AbstractService
                     endif;
                     unset($pessoa[DT_CADASTRO]);
                     $pessoaService->Salva($pessoa, $inscricaoEdicao->getCoPessoa()->getCoPessoa());
-                    $inscricao[ST_EQUIPE_TRABALHO] = FuncoesSistema::retornoCheckbox(
+                    $inscricao[ST_EQUIPE_TRABALHO] = Valida::retornoCheckbox(
                         (!empty($dados[ST_EQUIPE_TRABALHO])) ? $dados[ST_EQUIPE_TRABALHO] : null
                     );
                     unset($inscricao[DT_CADASTRO]);

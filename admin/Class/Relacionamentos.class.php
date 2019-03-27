@@ -225,6 +225,11 @@ class Relacionamentos
                     ('Entidade') => 'PerfilFuncionalidadeEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_CONTROLLER) => Array(
+                    ('Campo') => CO_CONTROLLER,
+                    ('Entidade') => 'ControllerEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (ContatoEntidade::TABELA) => Array(
                 (CO_PESSOA) => Array(
@@ -257,6 +262,68 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
+            (AnotacaoEntidade::TABELA) => Array(
+                (CO_HISTORIA) => Array(
+                    ('Campo') => CO_HISTORIA,
+                    ('Entidade') => 'HistoriaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (HistoricoHistoriaEntidade::TABELA) => Array(
+                (CO_HISTORIA) => Array(
+                    ('Campo') => CO_HISTORIA,
+                    ('Entidade') => 'HistoriaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (HistoriaEntidade::TABELA) => Array(
+                (CO_ANOTACAO) => Array(
+                    ('Campo') => CO_HISTORIA,
+                    ('Entidade') => 'AnotacaoEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_SESSAO) => Array(
+                    ('Campo') => CO_SESSAO,
+                    ('Entidade') => 'SessaoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_HISTORICO_HISTORIA) => Array(
+                    ('Campo') => CO_HISTORIA,
+                    ('Entidade') => 'HistoricoHistoriaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (SessaoEntidade::TABELA) => Array(
+                (CO_HISTORIA) => Array(
+                    ('Campo') => CO_SESSAO,
+                    ('Entidade') => 'HistoriaEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_MODULO) => Array(
+                    ('Campo') => CO_MODULO,
+                    ('Entidade') => 'ModuloEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (ModuloEntidade::TABELA) => Array(
+                (CO_PROJETO) => Array(
+                    ('Campo') => CO_PROJETO,
+                    ('Entidade') => 'ProjetoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_SESSAO) => Array(
+                    ('Campo') => CO_MODULO,
+                    ('Entidade') => 'SessaoEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (ProjetoEntidade::TABELA) => Array(
+                (CO_MODULO) => Array(
+                    ('Campo') => CO_PROJETO,
+                    ('Entidade') => 'ModuloEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
             (ComissaoEventoEntidade::TABELA) => Array(
                 (CO_USUARIO) => Array(
                     ('Campo') => CO_USUARIO,
@@ -266,6 +333,68 @@ class Relacionamentos
                 (CO_EVENTO) => Array(
                     ('Campo') => CO_EVENTO,
                     ('Entidade') => 'EventoEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (PlanoPacoteEntidade::TABELA) => Array(
+                (CO_PLANO) => Array(
+                    ('Campo') => CO_PLANO,
+                    ('Entidade') => 'PlanoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PACOTE) => Array(
+                    ('Campo') => CO_PACOTE,
+                    ('Entidade') => 'PacoteEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (PlanoEntidade::TABELA) => Array(
+                (CO_PLANO_PACOTE) => Array(
+                    ('Campo') => CO_PLANO,
+                    ('Entidade') => 'PlanoPacoteEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_PLANO_ASSINANTE) => Array(
+                    ('Campo') => CO_PLANO,
+                    ('Entidade') => 'PlanoAssinanteEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (ControllerEntidade::TABELA) => Array(
+                (CO_FUNCIONALIDADE) => Array(
+                    ('Campo') => CO_CONTROLLER,
+                    ('Entidade') => 'FuncionalidadeEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (PacoteEntidade::TABELA) => Array(
+                (CO_PLANO_PACOTE) => Array(
+                    ('Campo') => CO_PACOTE,
+                    ('Entidade') => 'PlanoPacoteEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (PlanoAssinanteEntidade::TABELA) => Array(
+                (CO_PLANO) => Array(
+                    ('Campo') => CO_PLANO,
+                    ('Entidade') => 'PlanoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PLANO_ASSINANTE_ASSINATURA) => Array(
+                    ('Campo') => CO_PLANO_ASSINANTE,
+                    ('Entidade') => 'PlanoAssinanteAssinaturaEntidade',
+                    ('Tipo') => '2',
+                ),
+            ),
+            (PlanoAssinanteAssinaturaEntidade::TABELA) => Array(
+                (CO_ASSINANTE) => Array(
+                    ('Campo') => CO_ASSINANTE,
+                    ('Entidade') => 'AssinanteEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PLANO_ASSINANTE) => Array(
+                    ('Campo') => CO_PLANO_ASSINANTE,
+                    ('Entidade') => 'PlanoAssinanteEntidade',
                     ('Tipo') => '1',
                 ),
             ),

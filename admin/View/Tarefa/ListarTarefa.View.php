@@ -70,8 +70,8 @@
                                                                                     $botoes = 3;            
                                                                                 endif;            
                                                                                 $grid->setColunas($res['ds_titulo']);
-                                                                                $grid->setColunas(FuncoesSistema::StatusPrioridade($res['st_prioridade']));
-                                                                                $grid->setColunas(FuncoesSistema::StatusTarefa($res['st_status']));
+                                                                                $grid->setColunas(Valida::StatusPrioridade($res['st_prioridade']));
+                                                                                $grid->setColunas(Valida::StatusTarefa($res['st_status']));
                                                                                 $grid->setColunas(Valida::DataShow($res['dt_inicio'],"d/m/Y"));
                                                                                 $grid->setColunas(Valida::DataShow($res['dt_fim'],"d/m/Y"));
                                                                                 $grid->setColunas($res['no_evento']);

@@ -73,7 +73,7 @@
                                         </a>';
                             $grid->setColunas($res->getDsDescricao());
                             $grid->setColunas(FuncoesSistema::retornoFluxoCaixa($res->getTpFluxo()));
-                            $grid->setColunas(FuncoesSistema::Pagamento($res->getStPagamento()));
+                            $grid->setColunas(Valida::Pagamento($res->getStPagamento()));
                             $grid->setColunas(Valida::FormataMoeda($res->getNuValor()));
                             $grid->setColunas(Valida::DataShow($res->getDtRealizado()));
                             $grid->setColunas(Valida::DataShow($res->getDtVencimento()));

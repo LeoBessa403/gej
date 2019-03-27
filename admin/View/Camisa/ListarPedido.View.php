@@ -67,9 +67,9 @@
                         foreach ($result as $res) :
 
                             if ($res->getTpSituacao() == "N"):
-                                $situacao = FuncoesSistema::Pagamento("N");
+                                $situacao = Valida::Pagamento("N");
                             else:
-                                $situacao = FuncoesSistema::Pagamento("C");
+                                $situacao = Valida::Pagamento("C");
                             endif;
 
                             $acao = '<a href="' . PASTAADMIN . 'Inscricao/EditarParcela/'
@@ -81,8 +81,8 @@
                             $grid->setColunas(FuncoesSistema::TamanhoCamisa($res->getNuCamisa()),2);
                             $grid->setColunas($res->getCoCorCamisa()->getNoCorCamisa(),2);
                             $grid->setColunas($situacao);
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStPedido()));
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getStEntregue()));
+                            $grid->setColunas(Valida::SituacaoSimNao($res->getStPedido()));
+                            $grid->setColunas(Valida::SituacaoSimNao($res->getStEntregue()));
                             $grid->setColunas($acao, 1);
                             $grid->criaLinha($res->getCoPedidoCamisa());
                         endforeach;

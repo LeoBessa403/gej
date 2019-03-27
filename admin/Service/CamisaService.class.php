@@ -37,7 +37,7 @@ class  CamisaService extends AbstractService
             $camisa[NO_CAMISA] = trim($result[NO_CAMISA]);
             $camisa[NU_VALOR_CUSTO] = Valida::FormataMoedaBanco($result[NU_VALOR_CUSTO]);
             $camisa[NU_VALOR_VENDA] = Valida::FormataMoedaBanco($result[NU_VALOR_VENDA]);
-            $camisa[TP_PEDIDO] = FuncoesSistema::retornoCheckbox(
+            $camisa[TP_PEDIDO] = Valida::retornoCheckbox(
                 (!empty($result[TP_PEDIDO])) ? $result[TP_PEDIDO] : null
             );
 

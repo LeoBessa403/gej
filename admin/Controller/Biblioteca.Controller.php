@@ -93,7 +93,7 @@ class Biblioteca extends AbstractController
                 if($coLivro):
                     $i = false;
                     while($i == false):
-                        $codigo = FuncoesSistema::GeraCodigo();
+                        $codigo = Valida::GeraCodigo();
                         $existe = BibliotecaModel::PesquisaCodigoLivro($codigo);
                         if(empty($existe)):
                             $i = true;

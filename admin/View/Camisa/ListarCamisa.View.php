@@ -72,7 +72,7 @@
 
                             $grid->setColunas($foto, 2);
                             $grid->setColunas($res->getNoCamisa());
-                            $grid->setColunas(FuncoesSistema::SituacaoSimNao($res->getTpPedido()));
+                            $grid->setColunas(Valida::SituacaoSimNao($res->getTpPedido()));
                             $grid->setColunas($cores);
                             $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoCamisa());
