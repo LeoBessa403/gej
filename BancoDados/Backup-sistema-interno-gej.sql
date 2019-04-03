@@ -1,4 +1,4 @@
--- Atualizado em: 27/03/2019 13:54:54
+-- Atualizado em: 03/04/2019 18:05:30
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -23,7 +23,7 @@ CREATE TABLE `tb_acesso` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO tb_acesso VALUES("6","rlgisvct9cv78k6rod9ei9lo36","2019-03-27 13:54:22","2019-03-27 14:14:54","A","1","7");
+INSERT INTO tb_acesso VALUES("6","rlgisvct9cv78k6rod9ei9lo36","2019-03-27 13:54:22","2019-03-27 14:15:01","F","1","7");
 
 
 
@@ -234,7 +234,7 @@ CREATE TABLE `tb_auditoria` (
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_auditoria`,`co_usuario`),
   KEY `fk_TB_AUDITORIA_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -251,7 +251,7 @@ CREATE TABLE `tb_auditoria_itens` (
   `co_auditoria_tabela` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_itens`,`co_auditoria_tabela`),
   KEY `fk_TB_AUDITORIA_ITENS_TB_AUDITORIA_TABELA1_idx` (`co_auditoria_tabela`)
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -268,7 +268,7 @@ CREATE TABLE `tb_auditoria_tabela` (
   `co_auditoria` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_tabela`,`co_auditoria`),
   KEY `fk_TB_AUDITORIA_TABELA_TB_AUDITORIA1_idx` (`co_auditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -4737,7 +4737,7 @@ INSERT INTO tb_pagina VALUES("1","2019-03-25 17:28:54","web/","1","1");
 
 INSERT INTO tb_pagina VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","2","2");
 
-INSERT INTO tb_pagina VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","1","1");
+INSERT INTO tb_pagina VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","2","2");
 
 
 
@@ -4752,7 +4752,7 @@ CREATE TABLE `tb_pagina_visita` (
   PRIMARY KEY (`co_pagina_visita`,`co_visita`,`co_pagina`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_VISITA1_idx` (`co_visita`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_PAGINA1_idx` (`co_pagina`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_pagina_visita VALUES("1","1","1");
@@ -4762,6 +4762,8 @@ INSERT INTO tb_pagina_visita VALUES("2","1","2");
 INSERT INTO tb_pagina_visita VALUES("3","2","3");
 
 INSERT INTO tb_pagina_visita VALUES("4","3","2");
+
+INSERT INTO tb_pagina_visita VALUES("5","4","3");
 
 
 
@@ -6872,7 +6874,7 @@ CREATE TABLE `tb_trafego` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_trafego VALUES("5","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
@@ -6880,6 +6882,8 @@ INSERT INTO tb_trafego VALUES("5","127.0.0.1","Desconhecido","Desconhecida","Des
 INSERT INTO tb_trafego VALUES("6","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 INSERT INTO tb_trafego VALUES("7","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+
+INSERT INTO tb_trafego VALUES("8","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 
 
@@ -7122,7 +7126,7 @@ CREATE TABLE `tb_visita` (
   `co_trafego` int(11) NOT NULL,
   PRIMARY KEY (`co_visita`,`co_trafego`),
   KEY `fk_TB_VISITA_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_visita VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2","1");
@@ -7130,6 +7134,8 @@ INSERT INTO tb_visita VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2"
 INSERT INTO tb_visita VALUES("2","2019-03-27 12:16:54","2019-03-27 12:16:54","1","5");
 
 INSERT INTO tb_visita VALUES("3","2019-03-27 12:18:07","2019-03-27 12:18:07","1","6");
+
+INSERT INTO tb_visita VALUES("4","2019-04-03 18:05:27","2019-04-03 18:05:27","1","8");
 
 
 
