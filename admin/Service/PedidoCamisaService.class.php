@@ -32,18 +32,10 @@ class  PedidoCamisaService extends AbstractService
                 MSG => null
             ];
             $camisaPedido[NO_PESSOA] = trim($result[NO_PESSOA]);
-            $camisaPedido[ST_ESTOQUE] = Valida::retornoCheckbox(
-                (!empty($result[ST_ESTOQUE])) ? $result[ST_ESTOQUE] : null
-            );
-            $camisaPedido[ST_PEDIDO] = Valida::retornoCheckbox(
-                (!empty($result[ST_PEDIDO])) ? $result[ST_PEDIDO] : null
-            );
-            $camisaPedido[TP_SITUACAO] = Valida::retornoCheckbox(
-                (!empty($result[TP_SITUACAO])) ? $result[TP_SITUACAO] : null
-            );
-            $camisaPedido[ST_ENTREGUE] = Valida::retornoCheckbox(
-                (!empty($result[ST_ENTREGUE])) ? $result[ST_ENTREGUE] : null
-            );
+            $camisaPedido[ST_ESTOQUE] = (!empty($result[ST_ESTOQUE])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
+            $camisaPedido[ST_PEDIDO] = (!empty($result[ST_PEDIDO])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
+            $camisaPedido[TP_SITUACAO] =(!empty($result[TP_SITUACAO])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
+            $camisaPedido[ST_ENTREGUE] = (!empty($result[ST_ENTREGUE])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
             $camisaPedido[CO_COR_CAMISA] = $result[CO_COR_CAMISA][0];
             $camisaPedido[NU_CAMISA] = $result[NU_CAMISA][0];
             $camisaPedido[CO_CAMISA] = $result[CO_CAMISA];

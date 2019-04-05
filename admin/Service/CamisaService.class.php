@@ -37,9 +37,7 @@ class  CamisaService extends AbstractService
             $camisa[NO_CAMISA] = trim($result[NO_CAMISA]);
             $camisa[NU_VALOR_CUSTO] = Valida::FormataMoedaBanco($result[NU_VALOR_CUSTO]);
             $camisa[NU_VALOR_VENDA] = Valida::FormataMoedaBanco($result[NU_VALOR_VENDA]);
-            $camisa[TP_PEDIDO] = Valida::retornoCheckbox(
-                (!empty($result[TP_PEDIDO])) ? $result[TP_PEDIDO] : null
-            );
+            $camisa[TP_PEDIDO] = (empty($result[TP_PEDIDO])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
 
             $imagem[DS_CAMINHO] = "";
             if ($foto[DS_CAMINHO]["tmp_name"]):
@@ -87,19 +85,15 @@ class  CamisaService extends AbstractService
 
     static function montaComboCamisas()
     {
-        return array(
-            "" => "Selecione um Tamanho",
-            "1" => "BL PP",
-            "2" => "BL P",
-            "3" => "BL M",
-            "4" => "BL G",
-            "5" => "BL GG",
-            "6" => "P",
-            "7" => "M",
-            "8" => "G",
-            "9" => "GG",
-            "10" => "XG",
-        );
+//        /** @var TamanhoCamisaService $corCamisaService */
+//        $corCamisaService = new CorCamisaService();
+        $comboCores = [];
+//        $cores = $corCamisaService->PesquisaTodos();
+//        /** @var CorCamisaEntidade $cor */
+//        foreach ($cores as $cor) {
+//            $comboCores[$cor->getCoCorCamisa()] = $cor->getNoCorCamisa();
+//        }
+        return $comboCores;
     }
 
 
