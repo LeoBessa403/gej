@@ -12,5 +12,4 @@ class  ComissaoEventoModel extends AbstractModel
         parent::__construct(ComissaoEventoEntidade::ENTIDADE);
     }
 
-
 }

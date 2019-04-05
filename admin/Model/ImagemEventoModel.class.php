@@ -12,5 +12,4 @@ class  ImagemEventoModel extends AbstractModel
         parent::__construct(ImagemEventoEntidade::ENTIDADE);
     }
 
-
 }

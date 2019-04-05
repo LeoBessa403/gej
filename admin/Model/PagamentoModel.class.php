@@ -25,6 +25,5 @@ class  PagamentoModel extends AbstractModel
                 $parcModel->Deleta($parcela->getCoParcelamento());
         }
 
-
     }
 }

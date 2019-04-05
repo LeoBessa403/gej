@@ -14,5 +14,4 @@ class AgendaEventoService extends AbstractService
         $this->ObjetoModel = New AgendaEventoModel();
     }
 
-
 }

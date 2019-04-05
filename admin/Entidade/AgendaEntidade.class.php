@@ -25,7 +25,6 @@ class AgendaEntidade extends AbstractEntidade
     private $co_endereco;
     private $co_evento;
 
-
     /**
      * @return array
      */

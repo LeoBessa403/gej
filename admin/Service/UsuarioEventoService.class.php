@@ -12,5 +12,4 @@ class  UsuarioEventoService extends AbstractService
         parent::__construct(UsuarioEventoEntidade::ENTIDADE);
     }
 
-
 }

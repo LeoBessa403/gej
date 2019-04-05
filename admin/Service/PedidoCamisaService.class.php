@@ -2,7 +2,7 @@
 
 /**
  * PedidoCamisaService.class [ SEVICE ]
- * @copyright (c) 2018, Leo Bessa
+ * @copyright (c) 2019, Leo Bessa
  */
 class  PedidoCamisaService extends AbstractService
 {
@@ -51,7 +51,7 @@ class  PedidoCamisaService extends AbstractService
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
             else:
-                $session->setSession(MENSAGEM, 'Não foi possível salvar o Pedido');
+                $session->setSession(MENSAGEM, 'NÃ£o foi possÃ­vel salvar o Pedido');
                 $retorno[SUCESSO] = false;
                 $PDO->rollBack();
             endif;

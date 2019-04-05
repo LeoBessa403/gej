@@ -12,5 +12,4 @@ class  TarefaService extends AbstractService
         parent::__construct(TarefaEntidade::ENTIDADE);
     }
 
-
 }

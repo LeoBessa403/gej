@@ -63,7 +63,7 @@
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
-                        /** @var PedidoCamisaEntidade $res */
+//                        /** @var PedidoCamisaEntidade $res */
                         foreach ($result as $res) :
 
                             if ($res->getTpSituacao() == "N"):
@@ -77,14 +77,14 @@
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
                                 </a>';
-                            $grid->setColunas($res->getNoPessoa());
-                            $grid->setColunas(FuncoesSistema::TamanhoCamisa($res->getNuCamisa()),2);
-                            $grid->setColunas($res->getCoCorCamisa()->getNoCorCamisa(),2);
-                            $grid->setColunas($situacao);
-                            $grid->setColunas(Valida::SituacaoSimNao($res->getStPedido()));
-                            $grid->setColunas(Valida::SituacaoSimNao($res->getStEntregue()));
-                            $grid->setColunas($acao, 1);
-                            $grid->criaLinha($res->getCoPedidoCamisa());
+//                            $grid->setColunas($res->getNoPessoa());
+//                            $grid->setColunas(FuncoesSistema::TamanhoCamisa($res->getNuCamisa()),2);
+//                            $grid->setColunas($res->getCoCorCamisa()->getNoCorCamisa(),2);
+//                            $grid->setColunas($situacao);
+//                            $grid->setColunas(Valida::SituacaoSimNao($res->getStPedido()));
+//                            $grid->setColunas(Valida::SituacaoSimNao($res->getStEntregue()));
+//                            $grid->setColunas($acao, 1);
+//                            $grid->criaLinha($res->getCoPedidoCamisa());
                         endforeach;
 
                         $grid->finalizaGrid();

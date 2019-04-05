@@ -2,7 +2,7 @@
 
 /**
  * PedidoCamisa.Entidade [ ENTIDADE ]
- * @copyright (c) 2018, Leo Bessa
+ * @copyright (c) 2019, Leo Bessa
  */
 
 class PedidoCamisaEntidade extends AbstractEntidade
@@ -13,17 +13,15 @@ class PedidoCamisaEntidade extends AbstractEntidade
 
 	private $co_pedido_camisa;
 	private $no_pessoa;
-	private $nu_camisa;
 	private $st_pedido;
-	private $st_entregue;
 	private $st_estoque;
-	private $tp_situacao;
 	private $dt_cadastro;
-	private $dt_pedida;
+	private $st_pagamento;
+	private $dt_pedido;
 	private $dt_entregue;
-	private $co_camisa;
-	private $co_cor_camisa;
+	private $ds_observacao;
 	private $co_inscricao;
+	private $co_ped_cam_tamanho_cor;
 
 
 	/**
@@ -33,17 +31,14 @@ class PedidoCamisaEntidade extends AbstractEntidade
     {
     	return [
 			CO_PEDIDO_CAMISA,
-            NO_PESSOA,
-            NU_CAMISA,
+			NO_PESSOA,
 			ST_PEDIDO,
-			ST_ENTREGUE,
-            ST_ESTOQUE,
-            TP_SITUACAO,
+			ST_ESTOQUE,
 			DT_CADASTRO,
-			DT_PEDIDA,
+			ST_PAGAMENTO,
+			DT_PEDIDO,
 			DT_ENTREGUE,
-			CO_CAMISA,
-			CO_COR_CAMISA,
+			DS_OBSERVACAO,
 			CO_INSCRICAO,
 		];
     }
@@ -75,36 +70,21 @@ class PedidoCamisaEntidade extends AbstractEntidade
         return $this->co_pedido_camisa = $co_pedido_camisa;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNoPessoa()
+	/**
+	* @return mixed $no_pessoa
+    */
+	public function getNoPessoa()
     {
         return $this->no_pessoa;
     }
 
-    /**
-     * @param mixed $no_pessoa
-     */
-    public function setNoPessoa($no_pessoa)
+	/**
+	* @param $no_pessoa
+    * @return mixed
+    */
+	public function setNoPessoa($no_pessoa)
     {
-        $this->no_pessoa = $no_pessoa;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNuCamisa()
-    {
-        return $this->nu_camisa;
-    }
-
-    /**
-     * @param mixed $nu_camisa
-     */
-    public function setNuCamisa($nu_camisa)
-    {
-        $this->nu_camisa = $nu_camisa;
+        return $this->no_pessoa = $no_pessoa;
     }
 
 	/**
@@ -125,20 +105,20 @@ class PedidoCamisaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return mixed $st_entregue
+	* @return mixed $st_estoque
     */
-	public function getStEntregue()
+	public function getStEstoque()
     {
-        return $this->st_entregue;
+        return $this->st_estoque;
     }
 
 	/**
-	* @param $st_entregue
+	* @param $st_estoque
     * @return mixed
     */
-	public function setStEntregue($st_entregue)
+	public function setStEstoque($st_estoque)
     {
-        return $this->st_entregue = $st_entregue;
+        return $this->st_estoque = $st_estoque;
     }
 
 	/**
@@ -159,20 +139,37 @@ class PedidoCamisaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return mixed $dt_pedida
+	* @return mixed $st_pagamento
     */
-	public function getDtPedida()
+	public function getStPagamento()
     {
-        return $this->dt_pedida;
+        return $this->st_pagamento;
     }
 
 	/**
-	* @param $dt_pedida
+	* @param $st_pagamento
     * @return mixed
     */
-	public function setDtPedida($dt_pedida)
+	public function setStPagamento($st_pagamento)
     {
-        return $this->dt_pedida = $dt_pedida;
+        return $this->st_pagamento = $st_pagamento;
+    }
+
+	/**
+	* @return mixed $dt_pedido
+    */
+	public function getDtPedido()
+    {
+        return $this->dt_pedido;
+    }
+
+	/**
+	* @param $dt_pedido
+    * @return mixed
+    */
+	public function setDtPedido($dt_pedido)
+    {
+        return $this->dt_pedido = $dt_pedido;
     }
 
 	/**
@@ -193,37 +190,20 @@ class PedidoCamisaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return CamisaEntidade $co_camisa
+	* @return mixed $ds_observacao
     */
-	public function getCoCamisa()
+	public function getDsObservacao()
     {
-        return $this->co_camisa;
+        return $this->ds_observacao;
     }
 
 	/**
-	* @param $co_camisa
+	* @param $ds_observacao
     * @return mixed
     */
-	public function setCoCamisa($co_camisa)
+	public function setDsObservacao($ds_observacao)
     {
-        return $this->co_camisa = $co_camisa;
-    }
-
-	/**
-	* @return CorCamisaEntidade $co_cor_camisa
-    */
-	public function getCoCorCamisa()
-    {
-        return $this->co_cor_camisa;
-    }
-
-	/**
-	* @param $co_cor_camisa
-    * @return mixed
-    */
-	public function setCoCorCamisa($co_cor_camisa)
-    {
-        return $this->co_cor_camisa = $co_cor_camisa;
+        return $this->ds_observacao = $ds_observacao;
     }
 
 	/**
@@ -243,36 +223,21 @@ class PedidoCamisaEntidade extends AbstractEntidade
         return $this->co_inscricao = $co_inscricao;
     }
 
-    /**
+	/**
+	* @return PedCamTamanhoCorEntidade $co_ped_cam_tamanho_cor
+     */
+	public function getCoPedCamTamanhoCor()
+    {
+        return $this->co_ped_cam_tamanho_cor;
+    }
+
+	/**
+     * @param $co_ped_cam_tamanho_cor
      * @return mixed
      */
-    public function getTpSituacao()
+	public function setCoPedCamTamanhoCor($co_ped_cam_tamanho_cor)
     {
-        return $this->tp_situacao;
-    }
-
-    /**
-     * @param mixed $tp_situacao
-     */
-    public function setTpSituacao($tp_situacao)
-    {
-        $this->tp_situacao = $tp_situacao;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStEstoque()
-    {
-        return $this->st_estoque;
-    }
-
-    /**
-     * @param mixed $st_estoque
-     */
-    public function setStEstoque($st_estoque)
-    {
-        $this->st_estoque = $st_estoque;
+        return $this->co_ped_cam_tamanho_cor = $co_ped_cam_tamanho_cor;
     }
 
 }

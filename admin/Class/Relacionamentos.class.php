@@ -572,6 +572,11 @@ class Relacionamentos
                     ('Entidade') => 'CorCamisaEntidade',
                     ('Tipo') => '1',
                 ),
+                (CO_PED_CAM_TAMANHO_COR) => Array(
+                    ('Campo') => CO_COR_CAMISA,
+                    ('Entidade') => 'PedCamTamanhoCorEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (CamisaEntidade::TABELA) => Array(
                 (CO_CAMISA_COR_CAMISA) => Array(
@@ -579,7 +584,7 @@ class Relacionamentos
                     ('Entidade') => 'CamisaCorCamisaEntidade',
                     ('Tipo') => '2',
                 ),
-                (CO_PEDIDO_CAMISA) => Array(
+               (CO_PEDIDO_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
                     ('Entidade') => 'PedidoCamisaEntidade',
                     ('Tipo') => '2',
@@ -587,6 +592,11 @@ class Relacionamentos
                 (CO_IMAGEM) => Array(
                     ('Campo') => CO_IMAGEM,
                     ('Entidade') => 'ImagemEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PED_CAM_TAMANHO_COR) => Array(
+                    ('Campo') => CO_CAMISA,
+                    ('Entidade') => 'PedCamTamanhoCorEntidade',
                     ('Tipo') => '1',
                 ),
             ),
@@ -616,6 +626,40 @@ class Relacionamentos
                 (CO_INSCRICAO) => Array(
                     ('Campo') => CO_INSCRICAO,
                     ('Entidade') => 'InscricaoEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PED_CAM_TAMANHO_COR) => Array(
+                    ('Campo') => CO_PEDIDO_CAMISA,
+                    ('Entidade') => 'PedCamTamanhoCorEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (PedCamTamanhoCorEntidade::TABELA) => Array(
+                (CO_TAMANHO_CAMISA) => Array(
+                    ('Campo') => CO_TAMANHO_CAMISA,
+                    ('Entidade') => 'TamanhoCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_COR_CAMISA) => Array(
+                    ('Campo') => CO_COR_CAMISA,
+                    ('Entidade') => 'CorCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_CAMISA) => Array(
+                    ('Campo') => CO_CAMISA,
+                    ('Entidade') => 'CamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_PEDIDO_CAMISA) => Array(
+                    ('Campo') => CO_PEDIDO_CAMISA,
+                    ('Entidade') => 'PedidoCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (TamanhoCamisaEntidade::TABELA) => Array(
+                (CO_PED_CAM_TAMANHO_COR) => Array(
+                    ('Campo') => CO_TAMANHO_CAMISA,
+                    ('Entidade') => 'PedCamTamanhoCorEntidade',
                     ('Tipo') => '1',
                 ),
             ),

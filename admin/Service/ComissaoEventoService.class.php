@@ -6,9 +6,7 @@
  */
 class  ComissaoEventoService extends AbstractService
 {
-
     private $ObjetoModel;
-
 
     public function __construct()
     {

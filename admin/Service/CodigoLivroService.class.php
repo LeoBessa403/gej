@@ -12,5 +12,4 @@ class  CodigoLivroService extends AbstractService
         parent::__construct(CodigoLivroEntidade::ENTIDADE);
     }
 
-
 }

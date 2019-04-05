@@ -2,7 +2,7 @@
 
 /**
  * PedidoCamisaModel.class [ MODEL ]
- * @copyright (c) 2018, Leo Bessa
+ * @copyright (c) 2019, Leo Bessa
  */
 class  PedidoCamisaModel extends AbstractModel
 {

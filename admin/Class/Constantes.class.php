@@ -78,6 +78,15 @@ define('NU_VALOR_CUSTO', 'nu_valor_custo');
 define('NU_VALOR_VENDA', 'nu_valor_venda');
 define('TP_PEDIDO', 'tp_pedido');
 define('ST_ESTOQUE', 'st_estoque');
+define('CO_PED_CAM_TAMANHO_COR', 'co_ped_cam_tamanho_cor');
+define('NU_QUANTIDADE', 'nu_quantidade');
+define('CO_TAMANHO_CAMISA', 'co_tamanho_camisa');
+define('DT_PEDIDO', 'dt_pedido');
+define('DS_OBSERVACAO', 'ds_observacao');
+define('NO_TAMANHO', 'no_tamanho');
+
+
+
 
 
 define('EVENTO_SERVICE', 'EventoService');
@@ -99,3 +108,5 @@ define('CAMISA_COR_CAMISA_SERVICE', 'CamisaCorCamisaService');
 define('PEDIDO_CAMISA_SERVICE', 'PedidoCamisaService');
 define('COR_CAMISA_SERVICE', 'CorCamisaService');
 define('CAMISA_SERVICE', 'CamisaService');
+define('PED_CAM_TAMANHO_COR_SERVICE', 'PedCamTamanhoCorService');
+define('TAMANHO_CAMISA_SERVICE', 'TamanhoCamisaService');
