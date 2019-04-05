@@ -89,21 +89,21 @@ class CorCamisaEntidade extends AbstractEntidade
         return $this->co_camisa_cor_camisa = $co_camisa_cor_camisa;
     }
 
-//	/**
-//	* @return PedidoCamisaEntidade $co_pedido_camisa
-//     */
-//	public function getCoPedidoCamisa()
-//    {
-//        return $this->co_pedido_camisa;
-//    }
-//
-//	/**
-//     * @param $co_pedido_camisa
-//     * @return mixed
-//     */
-//	public function setCoPedidoCamisa($co_pedido_camisa)
-//    {
-//        return $this->co_pedido_camisa = $co_pedido_camisa;
-//    }
+	/**
+	* @return PedidoCamisaEntidade $co_pedido_camisa
+     */
+	public function getCoPedidoCamisa()
+    {
+        return $this->co_pedido_camisa;
+    }
+
+	/**
+     * @param $co_pedido_camisa
+     * @return mixed
+     */
+	public function setCoPedidoCamisa($co_pedido_camisa)
+    {
+        return $this->co_pedido_camisa = $co_pedido_camisa;
+    }
 
 }

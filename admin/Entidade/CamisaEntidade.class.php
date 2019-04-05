@@ -19,7 +19,7 @@ class CamisaEntidade extends AbstractEntidade
 	private $co_camisa_cor_camisa;
 	private $co_pedido_camisa;
 	private $tp_pedido;
-
+    private $co_ped_cam_tamanho_cor;
 
 	/**
     * @return array
@@ -114,22 +114,22 @@ class CamisaEntidade extends AbstractEntidade
         return $this->co_camisa_cor_camisa = $co_camisa_cor_camisa;
     }
 
-//	/**
-//	* @return PedidoCamisaEntidade $co_pedido_camisa
-//     */
-//	public function getCoPedidoCamisa()
-//    {
-//        return $this->co_pedido_camisa;
-//    }
-//
-//	/**
-//     * @param $co_pedido_camisa
-//     * @return mixed
-//     */
-//	public function setCoPedidoCamisa($co_pedido_camisa)
-//    {
-//        return $this->co_pedido_camisa = $co_pedido_camisa;
-//    }
+	/**
+	* @return PedidoCamisaEntidade $co_pedido_camisa
+     */
+	public function getCoPedidoCamisa()
+    {
+        return $this->co_pedido_camisa;
+    }
+
+	/**
+     * @param $co_pedido_camisa
+     * @return mixed
+     */
+	public function setCoPedidoCamisa($co_pedido_camisa)
+    {
+        return $this->co_pedido_camisa = $co_pedido_camisa;
+    }
 
     /**
      * @return mixed
@@ -179,5 +179,21 @@ class CamisaEntidade extends AbstractEntidade
         $this->tp_pedido = $tp_pedido;
     }
 
+    /**
+     * @return PedCamTamanhoCorEntidade $co_ped_cam_tamanho_cor
+     */
+    public function getCoPedCamTamanhoCor()
+    {
+        return $this->co_ped_cam_tamanho_cor;
+    }
+
+    /**
+     * @param $co_ped_cam_tamanho_cor
+     * @return mixed
+     */
+    public function setCoPedCamTamanhoCor($co_ped_cam_tamanho_cor)
+    {
+        $this->co_ped_cam_tamanho_cor = $co_ped_cam_tamanho_cor;
+    }
 
 }

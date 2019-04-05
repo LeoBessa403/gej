@@ -14,6 +14,7 @@ class CamisaCorCamisaEntidade extends AbstractEntidade
 	private $co_camisa_cor_camisa;
 	private $co_camisa;
 	private $co_cor_camisa;
+	private $co_ped_cam_tamanho_cor;
 
 
 	/**
@@ -87,6 +88,23 @@ class CamisaCorCamisaEntidade extends AbstractEntidade
 	public function setCoCorCamisa($co_cor_camisa)
     {
         return $this->co_cor_camisa = $co_cor_camisa;
+    }
+
+    /**
+     * @return PedCamTamanhoCorEntidade $co_ped_cam_tamanho_cor
+     */
+    public function getCoPedCamTamanhoCor()
+    {
+        return $this->co_ped_cam_tamanho_cor;
+    }
+
+    /**
+     * @param $co_ped_cam_tamanho_cor
+     * @return mixed
+     */
+    public function setCoPedCamTamanhoCor($co_ped_cam_tamanho_cor)
+    {
+        $this->co_ped_cam_tamanho_cor = $co_ped_cam_tamanho_cor;
     }
 
 }
