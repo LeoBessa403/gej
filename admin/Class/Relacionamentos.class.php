@@ -145,8 +145,7 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
-            (ImagemEntidade::TABELA) => Array(
-            ),
+            (ImagemEntidade::TABELA) => Array(),
             (MembroEntidade::TABELA) => Array(
                 (CO_PESSOA) => Array(
                     ('Campo') => CO_PESSOA,
@@ -528,7 +527,8 @@ class Relacionamentos
                     ('Entidade') => 'PerfilEntidade',
                     ('Tipo') => '1',
                 ),
-            ),(VisitaEntidade::TABELA) => Array(
+            ),
+            (VisitaEntidade::TABELA) => Array(
                 (CO_TRAFEGO) => Array(
                     ('Campo') => CO_TRAFEGO,
                     ('Entidade') => 'TrafegoEntidade',
@@ -559,8 +559,7 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
-            (TrafegoEntidade::TABELA) => Array(
-            ),
+            (TrafegoEntidade::TABELA) => Array(),
             (CamisaCorCamisaEntidade::TABELA) => Array(
                 (CO_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
@@ -584,7 +583,7 @@ class Relacionamentos
                     ('Entidade') => 'CamisaCorCamisaEntidade',
                     ('Tipo') => '2',
                 ),
-               (CO_PEDIDO_CAMISA) => Array(
+                (CO_PEDIDO_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
                     ('Entidade') => 'PedidoCamisaEntidade',
                     ('Tipo') => '2',
@@ -606,21 +605,11 @@ class Relacionamentos
                     ('Entidade') => 'CamisaCorCamisaEntidade',
                     ('Tipo') => '2',
                 ),
-                (CO_PEDIDO_CAMISA) => Array(
-                    ('Campo') => CO_COR_CAMISA,
-                    ('Entidade') => 'PedidoCamisaEntidade',
-                    ('Tipo') => '2',
-                ),
             ),
             (PedidoCamisaEntidade::TABELA) => Array(
                 (CO_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
                     ('Entidade') => 'CamisaEntidade',
-                    ('Tipo') => '1',
-                ),
-                (CO_COR_CAMISA) => Array(
-                    ('Campo') => CO_COR_CAMISA,
-                    ('Entidade') => 'CorCamisaEntidade',
                     ('Tipo') => '1',
                 ),
                 (CO_INSCRICAO) => Array(
