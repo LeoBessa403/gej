@@ -145,7 +145,8 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
-            (ImagemEntidade::TABELA) => Array(),
+            (ImagemEntidade::TABELA) => Array(
+            ),
             (MembroEntidade::TABELA) => Array(
                 (CO_PESSOA) => Array(
                     ('Campo') => CO_PESSOA,
@@ -527,8 +528,7 @@ class Relacionamentos
                     ('Entidade') => 'PerfilEntidade',
                     ('Tipo') => '1',
                 ),
-            ),
-            (VisitaEntidade::TABELA) => Array(
+            ),(VisitaEntidade::TABELA) => Array(
                 (CO_TRAFEGO) => Array(
                     ('Campo') => CO_TRAFEGO,
                     ('Entidade') => 'TrafegoEntidade',
@@ -559,7 +559,8 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
-            (TrafegoEntidade::TABELA) => Array(),
+            (TrafegoEntidade::TABELA) => Array(
+            ),
             (CamisaCorCamisaEntidade::TABELA) => Array(
                 (CO_CAMISA) => Array(
                     ('Campo') => CO_CAMISA,
@@ -583,11 +584,6 @@ class Relacionamentos
                     ('Entidade') => 'CamisaCorCamisaEntidade',
                     ('Tipo') => '2',
                 ),
-                (CO_PEDIDO_CAMISA) => Array(
-                    ('Campo') => CO_CAMISA,
-                    ('Entidade') => 'PedidoCamisaEntidade',
-                    ('Tipo') => '2',
-                ),
                 (CO_IMAGEM) => Array(
                     ('Campo') => CO_IMAGEM,
                     ('Entidade') => 'ImagemEntidade',
@@ -607,11 +603,6 @@ class Relacionamentos
                 ),
             ),
             (PedidoCamisaEntidade::TABELA) => Array(
-                (CO_CAMISA) => Array(
-                    ('Campo') => CO_CAMISA,
-                    ('Entidade') => 'CamisaEntidade',
-                    ('Tipo') => '1',
-                ),
                 (CO_INSCRICAO) => Array(
                     ('Campo') => CO_INSCRICAO,
                     ('Entidade') => 'InscricaoEntidade',
