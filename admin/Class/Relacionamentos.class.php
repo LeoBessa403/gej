@@ -528,7 +528,8 @@ class Relacionamentos
                     ('Entidade') => 'PerfilEntidade',
                     ('Tipo') => '1',
                 ),
-            ),(VisitaEntidade::TABELA) => Array(
+            ),
+            (VisitaEntidade::TABELA) => Array(
                 (CO_TRAFEGO) => Array(
                     ('Campo') => CO_TRAFEGO,
                     ('Entidade') => 'TrafegoEntidade',

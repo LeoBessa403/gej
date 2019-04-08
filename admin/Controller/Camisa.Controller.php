@@ -81,8 +81,8 @@ class Camisa extends AbstractController
 
     public function ListarPedido()
     {
-        /** @var PedidoCamisaService $pedidoCamisaService */
-        $pedidoCamisaService = $this->getService(PEDIDO_CAMISA_SERVICE);
+        /** @var PedCamTamanhoCorService $pedCamTamanhoCorService */
+        $pedCamTamanhoCorService = $this->getService(PED_CAM_TAMANHO_COR_SERVICE);
         /** @var CamisaService $camisaService */
         $camisaService = $this->getService(CAMISA_SERVICE);
 
@@ -92,8 +92,8 @@ class Camisa extends AbstractController
         }
         /** @var CamisaEntidade $camisa */
         $camisa = $camisaService->PesquisaUmRegistro($coCamisa);
-        /** @var PedidoCamisaEntidade $pedidosCamisa */
-        $pedidosCamisa = $pedidoCamisaService->PesquisaTodos([CO_CAMISA => $coCamisa]);
+        /** @var PedCamTamanhoCorEntidade $pedidosCamisa */
+        $pedidosCamisa = $pedCamTamanhoCorService->PesquisaTodos([CO_CAMISA => $coCamisa]);
 
         $this->result = $pedidosCamisa;
         $this->camisa = $camisa;

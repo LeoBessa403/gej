@@ -1,4 +1,4 @@
--- Atualizado em: 05/04/2019 17:20:54
+-- Atualizado em: 08/04/2019 13:40:31
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -20,14 +20,16 @@ CREATE TABLE `tb_acesso` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_acesso VALUES("6","rlgisvct9cv78k6rod9ei9lo36","2019-03-27 13:54:22","2019-03-27 14:15:01","F","1","7");
 
 INSERT INTO tb_acesso VALUES("7","0epvkf37megp1ci742rv5t9tl5","2019-04-05 15:54:07","2019-04-05 16:41:02","F","1","11");
 
-INSERT INTO tb_acesso VALUES("8","0epvkf37megp1ci742rv5t9tl5","2019-04-05 16:42:57","2019-04-05 17:40:54","A","1","12");
+INSERT INTO tb_acesso VALUES("8","0epvkf37megp1ci742rv5t9tl5","2019-04-05 16:42:57","2019-04-05 17:41:02","F","1","12");
+
+INSERT INTO tb_acesso VALUES("9","0epvkf37megp1ci742rv5t9tl5","2019-04-05 17:44:02","2019-04-05 18:37:04","A","1","13");
 
 
 
@@ -137,23 +139,6 @@ INSERT INTO tb_agenda VALUES("35","","2018-05-10 19:58:08","N","2018-06-30 15:00
 INSERT INTO tb_agenda VALUES("36","","2018-07-20 10:48:51","N","2018-07-21 19:00:00","2018-07-22 07:00:00","IV Vigília alegria que vem de Deus","1","285","5","17");
 
 INSERT INTO tb_agenda VALUES("37","","2018-12-26 22:37:49","N","2019-03-02 06:00:00","2019-03-05 20:00:00","7º Retiro de Carnaval Santifique-se","1","286","5","0");
-
-
-
-
-DROP TABLE IF EXISTS tb_agenda_evento;
-
-
-CREATE TABLE `tb_agenda_evento` (
-  `co_agenda_evento` int(11) NOT NULL,
-  `co_agenda` int(11) NOT NULL,
-  `co_evento` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-INSERT INTO tb_agenda_evento VALUES("1","0","0");
-
-INSERT INTO tb_agenda_evento VALUES("2","0","0");
 
 
 
@@ -822,7 +807,7 @@ DROP TABLE IF EXISTS tb_camisa;
 CREATE TABLE `tb_camisa` (
   `co_camisa` int(11) NOT NULL AUTO_INCREMENT,
   `no_camisa` varchar(80) DEFAULT NULL,
-  `tp_pedido` varchar(1) DEFAULT NULL,
+  `tp_pedido` varchar(1) DEFAULT NULL COMMENT 'S - Sim / N - Não * Se a camisa pode fazer pedida ',
   `nu_valor_custo` decimal(8,2) DEFAULT NULL,
   `nu_valor_venda` decimal(8,2) DEFAULT NULL,
   `co_imagem` int(10) unsigned NOT NULL,
@@ -920,7 +905,9 @@ CREATE TABLE `tb_comissao_evento` (
   `co_comissao_evento` int(8) NOT NULL AUTO_INCREMENT,
   `co_evento` int(11) NOT NULL,
   `co_usuario` int(10) NOT NULL,
-  PRIMARY KEY (`co_comissao_evento`,`co_evento`,`co_usuario`)
+  PRIMARY KEY (`co_comissao_evento`,`co_evento`,`co_usuario`),
+  KEY `fk_TB_USUARIO_has_TB_EVENTO_TB_EVENTO1_idx` (`co_evento`),
+  KEY `fk_TB_USUARIO_has_TB_EVENTO_TB_USUARIO1_idx` (`co_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -5361,7 +5348,7 @@ INSERT INTO tb_pagina VALUES("1","2019-03-25 17:28:54","web/","1","1");
 
 INSERT INTO tb_pagina VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","3","3");
 
-INSERT INTO tb_pagina VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","3","3");
+INSERT INTO tb_pagina VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","4","4");
 
 
 
@@ -5376,7 +5363,7 @@ CREATE TABLE `tb_pagina_visita` (
   PRIMARY KEY (`co_pagina_visita`,`co_visita`,`co_pagina`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_VISITA1_idx` (`co_visita`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_PAGINA1_idx` (`co_pagina`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_pagina_visita VALUES("1","1","1");
@@ -5392,6 +5379,8 @@ INSERT INTO tb_pagina_visita VALUES("5","4","3");
 INSERT INTO tb_pagina_visita VALUES("6","5","3");
 
 INSERT INTO tb_pagina_visita VALUES("7","6","2");
+
+INSERT INTO tb_pagina_visita VALUES("8","7","3");
 
 
 
@@ -6364,27 +6353,38 @@ INSERT INTO tb_parcelamento VALUES("1664","1","150.00","150.00","2019-03-02","20
 
 
 
+DROP TABLE IF EXISTS tb_ped_cam_tamanho_cor;
+
+
+CREATE TABLE `tb_ped_cam_tamanho_cor` (
+  `co_ped_cam_tamanho_cor` int(11) NOT NULL AUTO_INCREMENT,
+  `nu_quantidade` int(3) DEFAULT NULL,
+  `co_tamanho_camisa` int(2) NOT NULL,
+  `co_cor_camisa` int(11) NOT NULL,
+  `co_camisa` int(11) NOT NULL,
+  `co_pedido_camisa` int(11) NOT NULL,
+  PRIMARY KEY (`co_ped_cam_tamanho_cor`,`co_tamanho_camisa`,`co_cor_camisa`,`co_camisa`,`co_pedido_camisa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
 DROP TABLE IF EXISTS tb_pedido_camisa;
 
 
 CREATE TABLE `tb_pedido_camisa` (
   `co_pedido_camisa` int(11) NOT NULL AUTO_INCREMENT,
   `no_pessoa` varchar(80) DEFAULT NULL,
-  `st_pedido` varchar(1) DEFAULT 'N' COMMENT 'S - Sim / N - Não',
-  `st_estoque` varchar(1) DEFAULT 'N' COMMENT 'Para pedidos do nosso estoque S - Sim / N - Não',
-  `st_entregue` varchar(1) DEFAULT 'N' COMMENT 'S - Sim / N - Não',
-  `tp_situacao` varchar(1) DEFAULT 'N' COMMENT 'S - Sim / N - Não',
+  `st_pedido` int(1) DEFAULT NULL COMMENT '1 - A Pedir / 2 - Pedida / 3 - Recebida / 4 - Entregue',
+  `st_estoque` varchar(1) DEFAULT 'N' COMMENT 'S - Sim / N - Não    *Para pedidos do nosso estoque',
   `dt_cadastro` datetime DEFAULT NULL,
+  `st_pagamento` varchar(1) DEFAULT NULL COMMENT 'N - Não iniciado / I - Iniciado / C - Concluido  *Para Não Estoque\nA - A pagar / P - Paga   *Para Estoque',
   `dt_pedido` date DEFAULT NULL,
   `dt_entregue` date DEFAULT NULL,
-  `nu_camisa` int(2) DEFAULT NULL,
-  `co_cor_camisa` int(11) NOT NULL,
-  `co_camisa` int(11) NOT NULL,
+  `ds_observacao` text COMMENT 'Observação do Pedido',
   `co_inscricao` int(11) NOT NULL,
-  PRIMARY KEY (`co_pedido_camisa`,`co_cor_camisa`,`co_camisa`,`co_inscricao`),
-  KEY `fk_TB_PEDIDO_CAMISA_TB_COR_CAMISA1_idx` (`co_cor_camisa`),
-  KEY `fk_TB_PEDIDO_CAMISA_TB_CAMISA1_idx` (`co_camisa`),
-  KEY `fk_TB_PEDIDO_CAMISA_TB_INSCRICAO1_idx` (`co_inscricao`)
+  PRIMARY KEY (`co_pedido_camisa`,`co_inscricao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -7423,7 +7423,7 @@ CREATE TABLE `tb_sessao` (
   `co_modulo` int(11) NOT NULL,
   PRIMARY KEY (`co_sessao`,`co_modulo`),
   KEY `fk_TB_SESSAO_TB_MODULO1_idx` (`co_modulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_sessao VALUES("4","Camisa","2019-04-05 17:09:31","1");
@@ -7512,7 +7512,7 @@ CREATE TABLE `tb_trafego` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_trafego VALUES("5","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
@@ -7530,6 +7530,10 @@ INSERT INTO tb_trafego VALUES("10","::1","Desconhecido","Desconhecida","Desconhe
 INSERT INTO tb_trafego VALUES("11","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 INSERT INTO tb_trafego VALUES("12","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+
+INSERT INTO tb_trafego VALUES("13","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+
+INSERT INTO tb_trafego VALUES("14","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 
 
@@ -7772,7 +7776,7 @@ CREATE TABLE `tb_visita` (
   `co_trafego` int(11) NOT NULL,
   PRIMARY KEY (`co_visita`,`co_trafego`),
   KEY `fk_TB_VISITA_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_visita VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2","1");
@@ -7786,6 +7790,8 @@ INSERT INTO tb_visita VALUES("4","2019-04-03 18:05:27","2019-04-03 18:05:27","1"
 INSERT INTO tb_visita VALUES("5","2019-04-05 15:29:37","2019-04-05 15:29:37","1","9");
 
 INSERT INTO tb_visita VALUES("6","2019-04-05 15:30:06","2019-04-05 15:30:06","1","10");
+
+INSERT INTO tb_visita VALUES("7","2019-04-08 13:32:50","2019-04-08 13:32:50","1","14");
 
 
 
