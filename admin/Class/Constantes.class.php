@@ -82,7 +82,6 @@ define('CO_PED_CAM_TAMANHO_COR', 'co_ped_cam_tamanho_cor');
 define('NU_QUANTIDADE', 'nu_quantidade');
 define('CO_TAMANHO_CAMISA', 'co_tamanho_camisa');
 define('DT_PEDIDO', 'dt_pedido');
-define('DS_OBSERVACAO', 'ds_observacao');
 define('NO_TAMANHO', 'no_tamanho');
 
 
