@@ -51,7 +51,7 @@ class  PedidoCamisaService extends AbstractService
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
             else:
-                $session->setSession(MENSAGEM, 'NÃ£o foi possÃ­vel salvar o Pedido');
+                $session->setSession(MENSAGEM, 'Não foi possível salvar o Pedido');
                 $retorno[SUCESSO] = false;
                 $PDO->rollBack();
             endif;
