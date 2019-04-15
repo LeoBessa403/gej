@@ -1,4 +1,4 @@
--- Atualizado em: 08/04/2019 15:06:16
+-- Atualizado em: 15/04/2019 15:03:01
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -20,10 +20,10 @@ CREATE TABLE `tb_acesso` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO tb_acesso VALUES("11","v9qal8mfi0p3nr6g1b4j06n0s6","2019-04-08 13:49:42","2019-04-08 15:26:16","A","1","16");
+INSERT INTO tb_acesso VALUES("12","mr7d3vvebf83dteogncuns7ie2","2019-04-15 14:52:32","2019-04-15 15:23:01","A","1","18");
 
 
 
@@ -233,7 +233,7 @@ CREATE TABLE `tb_auditoria` (
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_auditoria`,`co_usuario`),
   KEY `fk_TB_AUDITORIA_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 
 
@@ -250,7 +250,7 @@ CREATE TABLE `tb_auditoria_itens` (
   `co_auditoria_tabela` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_itens`,`co_auditoria_tabela`),
   KEY `fk_TB_AUDITORIA_ITENS_TB_AUDITORIA_TABELA1_idx` (`co_auditoria_tabela`)
-) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 
 
@@ -267,7 +267,7 @@ CREATE TABLE `tb_auditoria_tabela` (
   `co_auditoria` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_tabela`,`co_auditoria`),
   KEY `fk_TB_AUDITORIA_TABELA_TB_AUDITORIA1_idx` (`co_auditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 
 
@@ -2207,7 +2207,7 @@ CREATE TABLE `tb_historia` (
   `co_sessao` int(11) NOT NULL,
   PRIMARY KEY (`co_historia`,`co_sessao`),
   KEY `fk_TB_HISTORIA_TB_SESSAO1_idx` (`co_sessao`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_historia VALUES("1","Manter Camisa","<p>Manter camisa</p>","2019-03-27 11:16:40","2019-04-08 14:26:48","C","4");
@@ -2232,6 +2232,14 @@ INSERT INTO tb_historia VALUES("10","Manter Pedido camisa (Lote)","<p>Manter Ped
 
 INSERT INTO tb_historia VALUES("11","Estatistica da camisa","<p>QUantas pedidas, vendidas, por tamanho, lucro valor arrecadado (Com desconto cart&atilde;o); quantas entregues, quantas estoque;</p>","2019-04-08 14:46:15","2019-04-08 14:46:15","N","4");
 
+INSERT INTO tb_historia VALUES("12","Manter Fluxo de caixa","<p>Manter Fluxo de caixa (Tipo de sa&iacute;das e entradas), usu&aacute;rio atualizando</p>","2019-04-15 14:54:47","2019-04-15 14:54:47","N","11");
+
+INSERT INTO tb_historia VALUES("13","Pesquisa Avançada Dos Fluxos de caixa","<p>por pessoa, por tipo (Entrada e sa&iacute;da, por evento, por data realizado, situa&ccedil;&atilde;o pagamento)</p>","2019-04-15 14:56:31","2019-04-15 14:58:46","N","11");
+
+INSERT INTO tb_historia VALUES("14","Manter Caixa","<p>Caixa atual, caixa por evento, valores a receber, valores a pagar, pessoa respons&aacute;vel pelo dinheiro presente, pelo pagamento ou pelo recebimento.</p>","2019-04-15 15:00:24","2019-04-15 15:00:24","N","11");
+
+INSERT INTO tb_historia VALUES("15","Manter Transferência","<p>Realizar transfer&ecirc;ncia de dinheiro entre entradas e sa&iacute;das e pesosas (Administrativo, conselho e respons&aacute;vel pela miss&atilde;o)</p>","2019-04-15 15:01:26","2019-04-15 15:01:26","N","11");
+
 
 
 
@@ -2246,7 +2254,7 @@ CREATE TABLE `tb_historico_historia` (
   `co_historia` int(11) NOT NULL,
   PRIMARY KEY (`co_historico_historia`,`co_historia`),
   KEY `fk_TB_HISTORICO_HISTORIA_TB_HISTORIA1_idx` (`co_historia`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_historico_historia VALUES("1","13","5","2019-03-27 11:16:40","1");
@@ -2278,6 +2286,16 @@ INSERT INTO tb_historico_historia VALUES("13","8","0","2019-04-08 14:26:48","1")
 INSERT INTO tb_historico_historia VALUES("14","13","5","2019-04-08 14:26:57","2");
 
 INSERT INTO tb_historico_historia VALUES("15","20","20","2019-04-08 14:46:15","11");
+
+INSERT INTO tb_historico_historia VALUES("16","5","5","2019-04-15 14:54:47","12");
+
+INSERT INTO tb_historico_historia VALUES("17","8","8","2019-04-15 14:56:31","13");
+
+INSERT INTO tb_historico_historia VALUES("18","8","8","2019-04-15 14:58:46","13");
+
+INSERT INTO tb_historico_historia VALUES("19","20","20","2019-04-15 15:00:24","14");
+
+INSERT INTO tb_historico_historia VALUES("20","8","8","2019-04-15 15:01:26","15");
 
 
 
@@ -4829,7 +4847,7 @@ INSERT INTO tb_pagina VALUES("1","2019-03-25 17:28:54","web/","1","1");
 
 INSERT INTO tb_pagina VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","3","3");
 
-INSERT INTO tb_pagina VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","4","4");
+INSERT INTO tb_pagina VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","5","5");
 
 
 
@@ -4844,7 +4862,7 @@ CREATE TABLE `tb_pagina_visita` (
   PRIMARY KEY (`co_pagina_visita`,`co_visita`,`co_pagina`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_VISITA1_idx` (`co_visita`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_PAGINA1_idx` (`co_pagina`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_pagina_visita VALUES("1","1","1");
@@ -4862,6 +4880,8 @@ INSERT INTO tb_pagina_visita VALUES("6","5","3");
 INSERT INTO tb_pagina_visita VALUES("7","6","2");
 
 INSERT INTO tb_pagina_visita VALUES("8","7","3");
+
+INSERT INTO tb_pagina_visita VALUES("9","8","3");
 
 
 
@@ -6909,7 +6929,7 @@ CREATE TABLE `tb_sessao` (
   `co_modulo` int(11) NOT NULL,
   PRIMARY KEY (`co_sessao`,`co_modulo`),
   KEY `fk_TB_SESSAO_TB_MODULO1_idx` (`co_modulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_sessao VALUES("4","Camisa","2019-04-05 17:09:31","1");
@@ -6925,6 +6945,8 @@ INSERT INTO tb_sessao VALUES("8","Teatro","2019-04-05 17:13:24","1");
 INSERT INTO tb_sessao VALUES("9","Integração","2019-04-05 17:14:24","3");
 
 INSERT INTO tb_sessao VALUES("10","Produto","2019-04-05 17:16:15","3");
+
+INSERT INTO tb_sessao VALUES("11","Administrativo","2019-04-15 14:53:16","1");
 
 
 
@@ -6998,7 +7020,7 @@ CREATE TABLE `tb_trafego` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_trafego VALUES("5","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
@@ -7013,7 +7035,9 @@ INSERT INTO tb_trafego VALUES("10","::1","Desconhecido","Desconhecida","Desconhe
 
 INSERT INTO tb_trafego VALUES("14","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
-INSERT INTO tb_trafego VALUES("16","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+INSERT INTO tb_trafego VALUES("17","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+
+INSERT INTO tb_trafego VALUES("18","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 
 
@@ -7256,7 +7280,7 @@ CREATE TABLE `tb_visita` (
   `co_trafego` int(11) NOT NULL,
   PRIMARY KEY (`co_visita`,`co_trafego`),
   KEY `fk_TB_VISITA_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_visita VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2","1");
@@ -7272,6 +7296,8 @@ INSERT INTO tb_visita VALUES("5","2019-04-05 15:29:37","2019-04-05 15:29:37","1"
 INSERT INTO tb_visita VALUES("6","2019-04-05 15:30:06","2019-04-05 15:30:06","1","10");
 
 INSERT INTO tb_visita VALUES("7","2019-04-08 13:32:50","2019-04-08 13:32:50","1","14");
+
+INSERT INTO tb_visita VALUES("8","2019-04-15 14:51:37","2019-04-15 14:51:37","1","17");
 
 
 
