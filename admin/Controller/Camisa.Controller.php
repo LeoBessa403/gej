@@ -57,6 +57,8 @@ class Camisa extends AbstractController
     {
         /** @var PedidoCamisaService $pedidoCamisaService */
         $pedidoCamisaService = $this->getService(PEDIDO_CAMISA_SERVICE);
+        /** @var CamisaService $CamisaService */
+        $CamisaService = $this->getService(CAMISA_SERVICE);
 
         $id = "cadastroCamisa";
 
@@ -64,8 +66,8 @@ class Camisa extends AbstractController
             $retorno = $pedidoCamisaService->salvaPedidoCamisa($_POST);
             $coCamisa = $_POST[CO_CAMISA];
             if ($retorno[SUCESSO]) {
-                debug($retorno, 1);
-//                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarPedido/');
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarPedido/' .
+                    Valida::GeraParametro(CO_CAMISA . "/" . $coCamisa));
             }
         } else {
             $coCamisa = UrlAmigavel::PegaParametro(CO_CAMISA);
@@ -74,9 +76,13 @@ class Camisa extends AbstractController
         $res = array();
         $res[ST_ESTOQUE] = '';
         $res[NU_QUANTIDADE] = 1;
-
+        debug($coCamisa);
         if ($coCamisa):
             $res[CO_CAMISA] = $coCamisa;
+            /** @var CamisaEntidade $camisa */
+            $camisa = $CamisaService->PesquisaUmRegistro($coCamisa);
+            debug($camisa);
+
         else:
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarPedido/');
         endif;
