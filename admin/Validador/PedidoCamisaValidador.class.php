@@ -15,7 +15,7 @@ class  PedidoCamisaValidador extends AbstractValidador
     public function validarPedidoCamisa($dados)
     {
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[NO_PESSOA], AbstractValidador::VALIDACAO_NOME,'Quem Pediu'
+            $dados[NO_PESSOA], AbstractValidador::VALIDACAO_NOME, 'Quem Pediu'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[ST_PEDIDO], 'Status Pedido'
@@ -27,14 +27,18 @@ class  PedidoCamisaValidador extends AbstractValidador
             $dados[CO_COR_CAMISA], 'Cor da Camisa'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[NU_QUANTIDADE], AbstractValidador::VALIDACAO_NUMERO,'Quantidade'
+            $dados[NU_QUANTIDADE], AbstractValidador::VALIDACAO_NUMERO, 'Quantidade'
         );
-        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[DT_PEDIDO], AbstractValidador::VALIDACAO_DATA,'Data do Pedido'
-        );
-        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[DT_ENTREGUE], AbstractValidador::VALIDACAO_DATA,'Data Entregue'
-        );
+        if ($dados[NU_QUANTIDADE] > 1) {
+            $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+                $dados[DT_PEDIDO], AbstractValidador::VALIDACAO_DATA, 'Data do Pedido'
+            );
+        }
+        if ($dados[NU_QUANTIDADE] > 3) {
+            $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+                $dados[DT_ENTREGUE], AbstractValidador::VALIDACAO_DATA, 'Data Entregue'
+            );
+        }
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[CO_TAMANHO_CAMISA], 'Tamanho da Camisa'
         );
