@@ -52,6 +52,7 @@ class  CamisaService extends AbstractService
             $PDO->beginTransaction();
             if (empty($result[CO_CAMISA])) {
                 $dadosCor[CO_CAMISA] = $this->Salva($camisa);
+                $session->setSession(MENSAGEM, CADASTRADO);
             } else {
                 $coCamisa = $result[CO_CAMISA];
                 $dadosCor[CO_CAMISA] = $coCamisa;
@@ -59,6 +60,7 @@ class  CamisaService extends AbstractService
                 $camisaCorCamisaService->DeletaQuando([
                     CO_CAMISA => $coCamisa
                 ]);
+                $session->setSession(MENSAGEM, ATUALIZADO);
             }
 
             if (count($result[CO_COR_CAMISA])):

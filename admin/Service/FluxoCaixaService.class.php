@@ -55,7 +55,7 @@ class  FluxoCaixaService extends AbstractService
                 }
                 $this->Salva($dados, $coFluxoCaixa);
                 $retorno[MSG] = Mensagens::OK_ATUALIZADO;
-                $session->setSession(ATUALIZADO, "OK");
+                $session->setSession(MENSAGEM, ATUALIZADO);
             else:
                 if ($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO) {
                     $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
@@ -63,7 +63,7 @@ class  FluxoCaixaService extends AbstractService
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $coFluxoCaixa = $this->Salva($dados);
                 $retorno[MSG] = Mensagens::OK_SALVO;
-                $session->setSession(CADASTRADO, "OK");
+                $session->setSession(MENSAGEM, CADASTRADO);
             endif;
             if ($coFluxoCaixa):
                 $retorno[SUCESSO] = true;

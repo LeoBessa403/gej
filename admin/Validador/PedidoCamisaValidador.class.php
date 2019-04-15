@@ -29,12 +29,12 @@ class  PedidoCamisaValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NU_QUANTIDADE], AbstractValidador::VALIDACAO_NUMERO, 'Quantidade'
         );
-        if ($dados[NU_QUANTIDADE] > 1) {
+        if ($dados[ST_PEDIDO][0] > 1) {
             $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
                 $dados[DT_PEDIDO], AbstractValidador::VALIDACAO_DATA, 'Data do Pedido'
             );
         }
-        if ($dados[NU_QUANTIDADE] > 3) {
+        if ($dados[ST_PEDIDO][0] > 3) {
             $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
                 $dados[DT_ENTREGUE], AbstractValidador::VALIDACAO_DATA, 'Data Entregue'
             );
