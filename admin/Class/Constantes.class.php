@@ -86,8 +86,6 @@ define('NO_TAMANHO', 'no_tamanho');
 
 
 
-
-
 define('EVENTO_SERVICE', 'EventoService');
 define('INSCRICAO_SERVICE', 'InscricaoService');
 define('MEMBRO_SERVICE', 'MembroService');
@@ -109,3 +107,4 @@ define('COR_CAMISA_SERVICE', 'CorCamisaService');
 define('CAMISA_SERVICE', 'CamisaService');
 define('PED_CAM_TAMANHO_COR_SERVICE', 'PedCamTamanhoCorService');
 define('TAMANHO_CAMISA_SERVICE', 'TamanhoCamisaService');
+
