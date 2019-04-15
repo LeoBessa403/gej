@@ -83,13 +83,6 @@ class CamisaForm
             $formulario->setValor($res);
         endif;
 
-        $formulario
-            ->setId(NO_PESSOA)
-            ->setClasses("ob nome")
-            ->setTamanhoInput(12)
-            ->setLabel("Nome")
-            ->CriaInpunt();
-
         $label_options = array("Sim", "Não", "verde", "vermelho");
         $formulario
             ->setLabel("Para o Estoque?")
@@ -100,65 +93,86 @@ class CamisaForm
             ->setOptions($label_options)
             ->CriaInpunt();
 
-        $label_options = array("Sim", "Não", "verde", "vermelho");
         $formulario
-            ->setLabel("Foi Pedida?")
+            ->setId(NO_PESSOA)
+            ->setClasses("ob nome")
+            ->setTamanhoInput(6)
+            ->setLabel("Quem Pediu")
+            ->CriaInpunt();
+
+        $formulario
             ->setId(ST_PEDIDO)
-            ->setType("checkbox")
-            ->setClasses($res[ST_PEDIDO])
+            ->setType("select")
+            ->setClasses("ob")
             ->setTamanhoInput(6)
-            ->setOptions($label_options)
+            ->setLabel("Status Pedido")
+            ->setOptions(StatusPedidoEnum::$descricao)
             ->CriaInpunt();
 
-        $label_options = array("Sim", "Não", "verde", "vermelho");
+        $label_options = PagamentoService::SituacaoPagamento();
         $formulario
-            ->setLabel("Já esta paga?")
-            ->setId(TP_SITUACAO)
-            ->setType("checkbox")
-            ->setClasses($res[TP_SITUACAO])
+            ->setLabel("Situação do Pagamento")
+            ->setId(ST_PAGAMENTO)
+            ->setType("select")
+            ->setClasses("ob")
             ->setTamanhoInput(6)
             ->setOptions($label_options)
             ->CriaInpunt();
 
-        $label_options = array("Sim", "Não", "verde", "vermelho");
-        $formulario
-            ->setLabel("Foi entregue?")
-            ->setId(ST_ENTREGUE)
-            ->setType("checkbox")
-            ->setClasses($res[ST_ENTREGUE])
-            ->setTamanhoInput(6)
-            ->setOptions($label_options)
-            ->CriaInpunt();
-
-        $opcoes = ['' => 'Selecione a cor'];
-        $options = CorCamisaService::PesquisaCoresCamisaCombo();
-        $opcoesGeral = array_merge($opcoes, $options);
+        $options = CorCamisaService::PesquisaCoresCamisaCombo($res[CO_CAMISA]);
         $formulario
             ->setId(CO_COR_CAMISA)
             ->setType("select")
+            ->setTamanhoInput(6)
             ->setClasses("ob")
             ->setLabel("Cor da Camisa")
-            ->setOptions($opcoesGeral)
+            ->setOptions($options)
             ->CriaInpunt();
 
-
-        $opticoes_camisa = CamisaService::montaComboCamisas();
         $formulario
-            ->setId(NU_CAMISA)
+            ->setId(NU_QUANTIDADE)
+            ->setTamanhoInput(6)
+            ->setClasses("numero ob")
+            ->setLabel("Quantidade")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DT_PEDIDO)
+            ->setClasses("data ob")
+            ->setLabel("Data do Pedido")
+            ->setTamanhoInput(6)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DT_ENTREGUE)
+            ->setClasses("data ob")
+            ->setLabel("Data Entregue")
+            ->setTamanhoInput(6)
+            ->CriaInpunt();
+
+        $opticoes_camisa = TamanhoCamisaService::montaComboTamanhoCamisas();
+        $formulario
+            ->setId(CO_TAMANHO_CAMISA)
             ->setType("select")
-            ->setTamanhoInput(12)
+            ->setTamanhoInput(6)
             ->setClasses("ob")
             ->setOptions($opticoes_camisa)
             ->setLabel("Tamanho da Camisa")
             ->CriaInpunt();
 
-        if (!empty($res[CO_CAMISA])):
-            $formulario
-                ->setType("hidden")
-                ->setId(CO_CAMISA)
-                ->setValues($res[CO_CAMISA])
-                ->CriaInpunt();
-        endif;
+
+        $formulario
+            ->setType("textarea")
+            ->setId(DS_OBSERVACAO)
+            ->setTamanhoInput(12)
+            ->setLabel("Observação")
+            ->CriaInpunt();
+
+        $formulario
+            ->setType("hidden")
+            ->setId(CO_CAMISA)
+            ->setValues($res[CO_CAMISA])
+            ->CriaInpunt();
 
         if (!empty($res[CO_PEDIDO_CAMISA])):
             $formulario

@@ -69,12 +69,18 @@ class  FluxoCaixaService extends AbstractService
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
             else:
-                $session->setSession(MENSAGEM, 'Não foi possível salvar o Fluxo de Caixa');
+                Notificacoes::geraMensagem(
+                    'Não foi possível realizar a ação',
+                    TiposMensagemEnum::ERRO
+                );
                 $retorno[SUCESSO] = false;
                 $PDO->rollBack();
             endif;
         } else {
-            $session->setSession(MENSAGEM, $validador[MSG]);
+            Notificacoes::geraMensagem(
+                $validador[MSG],
+                TiposMensagemEnum::ALERTA
+            );
             $retorno = $validador;
         }
         return $retorno;

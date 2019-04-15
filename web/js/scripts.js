@@ -504,7 +504,7 @@
             }
         }
 
-        function setCookie(valor, noCookie, dias = 30) {
+        function setCookie(valor, noCookie, dias) {
             var d = new Date();
             d.setTime(d.getTime() + (dias * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();

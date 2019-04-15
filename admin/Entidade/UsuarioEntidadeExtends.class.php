@@ -9,6 +9,7 @@ class UsuarioEntidadeExtends extends AbstractEntidade
 {
     private $co_comissao_evento;
     private $co_agenda;
+    private $co_ped_cam_tamanho_cor;
 
     /**
      * @return mixed
@@ -40,6 +41,23 @@ class UsuarioEntidadeExtends extends AbstractEntidade
     public function setCoAgenda($co_agenda)
     {
         $this->co_agenda = $co_agenda;
+    }
+
+    /**
+     * @return PedCamTamanhoCorEntidade $co_ped_cam_tamanho_cor
+     */
+    public function getCoPedCamTamanhoCor()
+    {
+        return $this->co_ped_cam_tamanho_cor;
+    }
+
+    /**
+     * @param $co_ped_cam_tamanho_cor
+     * @return mixed
+     */
+    public function setCoPedCamTamanhoCor($co_ped_cam_tamanho_cor)
+    {
+        return $this->co_ped_cam_tamanho_cor = $co_ped_cam_tamanho_cor;
     }
 
 }

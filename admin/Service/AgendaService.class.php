@@ -91,13 +91,19 @@ class  AgendaService extends AbstractService
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
             } else {
-                $session->setSession(MENSAGEM, 'Não foi possível cadastrar o Compromisso na Agenda');
+                Notificacoes::geraMensagem(
+                    'Não foi possível realizar a ação',
+                    TiposMensagemEnum::ERRO
+                );
                 $retorno[SUCESSO] = false;
                 $PDO->rollBack();
             }
 
         } else {
-            $session->setSession(MENSAGEM, $validador[MSG]);
+            Notificacoes::geraMensagem(
+                $validador[MSG],
+                TiposMensagemEnum::ALERTA
+            );
             $retorno = $validador;
         }
 

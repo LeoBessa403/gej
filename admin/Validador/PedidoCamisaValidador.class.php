@@ -14,11 +14,29 @@ class  PedidoCamisaValidador extends AbstractValidador
 
     public function validarPedidoCamisa($dados)
     {
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NO_PESSOA], AbstractValidador::VALIDACAO_NOME,'Quem Pediu'
+        );
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
-            $dados[NU_CAMISA], 'Tamanho da camisa'
+            $dados[ST_PEDIDO], 'Status Pedido'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
+            $dados[ST_PAGAMENTO], 'Situação do Pagamento'
         );
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[CO_COR_CAMISA], 'Cor da Camisa'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[NU_QUANTIDADE], AbstractValidador::VALIDACAO_NUMERO,'Quantidade'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[DT_PEDIDO], AbstractValidador::VALIDACAO_DATA,'Data do Pedido'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+            $dados[DT_ENTREGUE], AbstractValidador::VALIDACAO_DATA,'Data Entregue'
+        );
+        $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
+            $dados[CO_TAMANHO_CAMISA], 'Tamanho da Camisa'
         );
 
         return $this->MontaRetorno($this->retorno);

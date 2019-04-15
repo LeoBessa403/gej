@@ -296,7 +296,10 @@ class  InscricaoService extends AbstractService
             $session->setSession(MENSAGEM, Mensagens::OK_ATUALIZADO);
             $retorno[SUCESSO] = true;
         } else {
-            $session->setSession(MENSAGEM, 'Não foi possível alterar o Produto');
+            Notificacoes::geraMensagem(
+                'Não foi possível realizar a ação',
+                TiposMensagemEnum::ERRO
+            );
             $retorno[SUCESSO] = false;
         }
         return $retorno;

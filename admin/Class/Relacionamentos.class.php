@@ -59,6 +59,11 @@ class Relacionamentos
                     ('Entidade') => 'AgendaEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_PED_CAM_TAMANHO_COR) => Array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'PedCamTamanhoCorEntidade',
+                    ('Tipo') => '2',
+                ),
             ),
             (AuditoriaEntidade::TABELA) => Array(
                 (CO_USUARIO) => Array(
@@ -634,6 +639,11 @@ class Relacionamentos
                 (CO_PEDIDO_CAMISA) => Array(
                     ('Campo') => CO_PEDIDO_CAMISA,
                     ('Entidade') => 'PedidoCamisaEntidade',
+                    ('Tipo') => '1',
+                ),
+                (CO_USUARIO) => Array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'UsuarioEntidade',
                     ('Tipo') => '1',
                 ),
             ),

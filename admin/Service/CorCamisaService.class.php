@@ -16,15 +16,20 @@ class  CorCamisaService extends AbstractService
         $this->ObjetoModel = New CorCamisaModel();
     }
 
-    public static function PesquisaCoresCamisaCombo()
+    public static function PesquisaCoresCamisaCombo($coCamisa)
     {
-        /** @var CorCamisaService $corCamisaService */
-        $corCamisaService = new CorCamisaService();
+        /** @var CamisaCorCamisaService $camisaCorCamisaService */
+        $camisaCorCamisaService = new CamisaCorCamisaService();
         $comboCores = [];
-        $cores = $corCamisaService->PesquisaTodos();
-        /** @var CorCamisaEntidade $cor */
-        foreach ($cores as $cor) {
-            $comboCores[$cor->getCoCorCamisa()] = $cor->getNoCorCamisa();
+        /** @var CamisaCorCamisaEntidade $CamisaCorCamisa */
+        $CamisaCorCamisa = $camisaCorCamisaService->PesquisaTodos([
+            CO_CAMISA => $coCamisa
+        ]);
+
+        /** @var CamisaCorCamisaEntidade $camisaCorCam */
+        foreach ($CamisaCorCamisa as $camisaCorCam) {
+            $comboCores[$camisaCorCam->getCoCorCamisa()->getCoCorCamisa()]
+                = $camisaCorCam->getCoCorCamisa()->getNoCorCamisa();
         }
         return $comboCores;
     }

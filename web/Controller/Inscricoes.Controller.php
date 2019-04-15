@@ -35,8 +35,10 @@ class Inscricoes extends AbstractController
             if ($validador[SUCESSO]) {
                 $this->form = $this->setInscricao($_POST);
             } else {
-                $session = new Session();
-                $session->setSession(MENSAGEM, $validador[MSG]);
+                Notificacoes::geraMensagem(
+                    $validador[MSG],
+                    TiposMensagemEnum::ALERTA
+                );
                 $this->form = PessoaForm::ValidarCPF('Inscricoes/CadastroAbastecimento');
             }
         } else {

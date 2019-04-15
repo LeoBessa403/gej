@@ -17,4 +17,20 @@ class  TamanhoCamisaService extends AbstractService
     }
 
 
+    static function montaComboTamanhoCamisas()
+    {
+        /** @var TamanhoCamisaService $tamanhoCamisaService */
+        $tamanhoCamisaService = new TamanhoCamisaService();
+        $comboTamanhos = [
+            '' => Mensagens::MSG_SEM_ITEM_SELECIONADO
+        ];
+        $tamanhos = $tamanhoCamisaService->PesquisaTodos();
+        $tamanhos = array_reverse($tamanhos);
+        /** @var TamanhoCamisaEntidade $tamanho */
+        foreach ($tamanhos as $tamanho) {
+            $comboTamanhos[$tamanho->getCoTamanhoCamisa()] = $tamanho->getNoTamanho();
+        }
+        return $comboTamanhos;
+    }
+
 }

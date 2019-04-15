@@ -17,6 +17,7 @@ class PedCamTamanhoCorEntidade extends AbstractEntidade
 	private $co_cor_camisa;
 	private $co_camisa;
 	private $co_pedido_camisa;
+    private $co_usuario;
 
 
 	/**
@@ -31,6 +32,7 @@ class PedCamTamanhoCorEntidade extends AbstractEntidade
 			CO_COR_CAMISA,
 			CO_CAMISA,
 			CO_PEDIDO_CAMISA,
+            CO_USUARIO,
 		];
     }
 
@@ -144,6 +146,23 @@ class PedCamTamanhoCorEntidade extends AbstractEntidade
 	public function setCoPedidoCamisa($co_pedido_camisa)
     {
         return $this->co_pedido_camisa = $co_pedido_camisa;
+    }
+
+    /**
+     * @return UsuarioEntidade $co_usuario
+     */
+    public function getCoUsuario()
+    {
+        return $this->co_usuario;
+    }
+
+    /**
+     * @param $co_usuario
+     * @return mixed
+     */
+    public function setCoUsuario($co_usuario)
+    {
+        return $this->co_usuario = $co_usuario;
     }
 
 }
