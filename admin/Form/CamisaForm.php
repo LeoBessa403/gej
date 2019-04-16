@@ -180,9 +180,16 @@ class CamisaForm
                 ->setId(CO_PEDIDO_CAMISA)
                 ->setValues($res[CO_PEDIDO_CAMISA])
                 ->CriaInpunt();
+
+            $formulario
+                ->setType("hidden")
+                ->setId(CO_PED_CAM_TAMANHO_COR)
+                ->setValues($res[CO_PED_CAM_TAMANHO_COR])
+                ->CriaInpunt();
         endif;
 
-        return $formulario->finalizaForm();
+        return $formulario->finalizaForm('Camisa/ListarPedido/'
+            . Valida::GeraParametro(CO_CAMISA . "/" . $res[CO_CAMISA]));
     }
 
 }

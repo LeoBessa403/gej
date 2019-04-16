@@ -65,8 +65,10 @@
 
                         /** @var PedCamTamanhoCorEntidade  $res */
                         foreach ($result as $res) :
-                            $acao = '<a href="' . PASTAADMIN . 'Inscricao/EditarParcela/'
-                                . Valida::GeraParametro("parc/" . $res->getCoPedidoCamisa()->getCoPedidoCamisa()) . '" class="btn btn-primary tooltips"
+                            $acao = '<a href="' . PASTAADMIN . 'Camisa/CadastroPedido/'
+                                . Valida::GeraParametro(CO_PEDIDO_CAMISA . "/" .
+                                    $res->getCoPedidoCamisa()->getCoPedidoCamisa() . "/" .
+                                CO_CAMISA . "/" . $res->getCoCamisa()->getCoCamisa()) . '" class="btn btn-primary tooltips"
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
                                 </a>';

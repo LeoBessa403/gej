@@ -57,10 +57,9 @@ class Camisa extends AbstractController
     {
         /** @var PedidoCamisaService $pedidoCamisaService */
         $pedidoCamisaService = $this->getService(PEDIDO_CAMISA_SERVICE);
-        /** @var CamisaService $CamisaService */
-        $CamisaService = $this->getService(CAMISA_SERVICE);
 
         $id = "cadastroCamisa";
+        $coPedidoCamisa = null;
 
         if (!empty($_POST[$id])) {
             $retorno = $pedidoCamisaService->salvaPedidoCamisa($_POST);
@@ -76,13 +75,27 @@ class Camisa extends AbstractController
         $res = array();
         $res[ST_ESTOQUE] = '';
         $res[NU_QUANTIDADE] = 1;
-        debug($coCamisa);
         if ($coCamisa):
             $res[CO_CAMISA] = $coCamisa;
-            /** @var CamisaEntidade $camisa */
-            $camisa = $CamisaService->PesquisaUmRegistro($coCamisa);
-            debug($camisa);
-
+            if($coPedidoCamisa):
+                /** @var PedidoCamisaEntidade $pedidoCamisa */
+                $pedidoCamisa = $pedidoCamisaService->PesquisaUmRegistro($coPedidoCamisa);
+                $res[ST_ESTOQUE] = ($pedidoCamisa->getStEstoque() == 'S')
+                    ? 'checked' : '';
+                $res[NO_PESSOA] = $pedidoCamisa->getNoPessoa();
+                $res[ST_PEDIDO] = $pedidoCamisa->getStPedido();
+                $res[ST_PAGAMENTO] = $pedidoCamisa->getStPagamento();
+                $res[CO_COR_CAMISA] = $pedidoCamisa->getCoPedCamTamanhoCor()->getCoCorCamisa()->getCoCorCamisa();
+                $res[NU_QUANTIDADE] = $pedidoCamisa->getCoPedCamTamanhoCor()->getNuQuantidade();
+                $res[DT_PEDIDO] = ($pedidoCamisa->getDtPedido())
+                    ? Valida::DataShow($pedidoCamisa->getDtPedido()) : null;
+                $res[DT_ENTREGUE] = ($pedidoCamisa->getDtEntregue())
+                    ? Valida::DataShow($pedidoCamisa->getDtEntregue()) : null;
+                $res[CO_TAMANHO_CAMISA] = $pedidoCamisa->getCoPedCamTamanhoCor()->getCoTamanhoCamisa()->getCoTamanhoCamisa();
+                $res[DS_OBSERVACAO] = $pedidoCamisa->getDsObservacao();
+                $res[CO_PEDIDO_CAMISA] = $coPedidoCamisa;
+                $res[CO_PED_CAM_TAMANHO_COR] = $pedidoCamisa->getCoPedCamTamanhoCor()->getCoPedCamTamanhoCor();
+            endif;
         else:
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarPedido/');
         endif;

@@ -1,26 +1,28 @@
 $(function () {
 
     // Verifica Origem do Pedido
-    function origemPedido() {
+    function origemPedido(limpaCampo) {
         if ($("#st_estoque").prop('checked')) {
             $("#no_pessoa").val('Estoque Administrativo').attr('disabled', true);
         } else {
-            $("#no_pessoa").val('').attr('disabled', false);
+            $("#no_pessoa").attr('disabled', false);
+            if(limpaCampo)
+                $("#no_pessoa").val('');
         }
     }
     $("#st_estoque").change(function () {
-        origemPedido();
+        origemPedido(true);
     });
-    origemPedido();
+    origemPedido(false);
 
     function verificaDataPedido() {
         var stPedido = $("#st_pedido").val();
-        if(stPedido < 2){
+        if(stPedido == 1){
             $("#dt_pedido, #dt_entregue").val('').removeClass('ob')
                 .parent(".form-group").slideUp("fast");
             tiraValidacao('dt_pedido');
-            tiraValidacao('dt_entregue');
-        }else if(stPedido < 3){
+            tiraValidacao('dt_entregue');0
+        }else if(stPedido < 4){
             $("#dt_entregue").val('').removeClass('ob')
                 .parent(".form-group").slideUp("fast");
             tiraValidacao('dt_entregue');

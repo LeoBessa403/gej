@@ -1,4 +1,4 @@
--- Atualizado em: 15/04/2019 15:03:01
+-- Atualizado em: 16/04/2019 12:05:34
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -20,10 +20,14 @@ CREATE TABLE `tb_acesso` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO tb_acesso VALUES("12","mr7d3vvebf83dteogncuns7ie2","2019-04-15 14:52:32","2019-04-15 15:23:01","A","1","18");
+INSERT INTO tb_acesso VALUES("12","mr7d3vvebf83dteogncuns7ie2","2019-04-15 14:52:32","2019-04-15 16:23:17","F","1","18");
+
+INSERT INTO tb_acesso VALUES("13","mr7d3vvebf83dteogncuns7ie2","2019-04-15 16:32:11","2019-04-15 18:10:08","F","1","19");
+
+INSERT INTO tb_acesso VALUES("14","sgh01o2gi5s0m0l5nnm23eg484","2019-04-16 10:41:29","2019-04-16 12:25:34","A","1","20");
 
 
 
@@ -233,8 +237,30 @@ CREATE TABLE `tb_auditoria` (
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_auditoria`,`co_usuario`),
   KEY `fk_TB_AUDITORIA_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
+
+INSERT INTO tb_auditoria VALUES("15","2019-04-15 17:44:23","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("16","2019-04-16 11:05:27","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("17","2019-04-16 11:30:24","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("18","2019-04-16 11:42:26","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("19","2019-04-16 11:42:52","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("20","2019-04-16 11:49:37","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("31","2019-04-16 11:56:45","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("32","2019-04-16 11:57:21","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("33","2019-04-16 11:57:22","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("34","2019-04-16 12:04:57","Coord. Administrativo, Coordenadores, Membros, Master","1");
+
+INSERT INTO tb_auditoria VALUES("35","2019-04-16 12:04:58","Coord. Administrativo, Coordenadores, Membros, Master","1");
 
 
 
@@ -250,8 +276,268 @@ CREATE TABLE `tb_auditoria_itens` (
   `co_auditoria_tabela` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_itens`,`co_auditoria_tabela`),
   KEY `fk_TB_AUDITORIA_ITENS_TB_AUDITORIA_TABELA1_idx` (`co_auditoria_tabela`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=363 DEFAULT CHARSET=utf8;
 
+
+INSERT INTO tb_auditoria_itens VALUES("73","","LEO BESSA usuário externo","no_pessoa","15");
+
+INSERT INTO tb_auditoria_itens VALUES("74","","N","st_estoque","15");
+
+INSERT INTO tb_auditoria_itens VALUES("75","","1","st_pedido","15");
+
+INSERT INTO tb_auditoria_itens VALUES("76","","N","st_pagamento","15");
+
+INSERT INTO tb_auditoria_itens VALUES("77","","","dt_pedido","15");
+
+INSERT INTO tb_auditoria_itens VALUES("78","","","dt_entregue","15");
+
+INSERT INTO tb_auditoria_itens VALUES("79","","obs","ds_observacao","15");
+
+INSERT INTO tb_auditoria_itens VALUES("80","","2019-04-15 17:44:23","dt_cadastro","15");
+
+INSERT INTO tb_auditoria_itens VALUES("81","","3","co_pedido_camisa","16");
+
+INSERT INTO tb_auditoria_itens VALUES("82","","1","nu_quantidade","16");
+
+INSERT INTO tb_auditoria_itens VALUES("83","","6","co_cor_camisa","16");
+
+INSERT INTO tb_auditoria_itens VALUES("84","","3","co_tamanho_camisa","16");
+
+INSERT INTO tb_auditoria_itens VALUES("85","","1","co_camisa","16");
+
+INSERT INTO tb_auditoria_itens VALUES("86","","1","co_usuario","16");
+
+INSERT INTO tb_auditoria_itens VALUES("87","","S","st_estoque","17");
+
+INSERT INTO tb_auditoria_itens VALUES("88","","Estoque Administrativo","no_pessoa","17");
+
+INSERT INTO tb_auditoria_itens VALUES("89","","3","st_pedido","17");
+
+INSERT INTO tb_auditoria_itens VALUES("90","","I","st_pagamento","17");
+
+INSERT INTO tb_auditoria_itens VALUES("91","","2019-04-03 11:05:27","dt_pedido","17");
+
+INSERT INTO tb_auditoria_itens VALUES("92","","","dt_entregue","17");
+
+INSERT INTO tb_auditoria_itens VALUES("93","","eg g r","ds_observacao","17");
+
+INSERT INTO tb_auditoria_itens VALUES("94","","2019-04-16 11:05:27","dt_cadastro","17");
+
+INSERT INTO tb_auditoria_itens VALUES("95","","4","co_pedido_camisa","18");
+
+INSERT INTO tb_auditoria_itens VALUES("96","","8","nu_quantidade","18");
+
+INSERT INTO tb_auditoria_itens VALUES("97","","9","co_cor_camisa","18");
+
+INSERT INTO tb_auditoria_itens VALUES("98","","7","co_tamanho_camisa","18");
+
+INSERT INTO tb_auditoria_itens VALUES("99","","1","co_camisa","18");
+
+INSERT INTO tb_auditoria_itens VALUES("100","","1","co_usuario","18");
+
+INSERT INTO tb_auditoria_itens VALUES("101","4","","co_pedido_camisa","19");
+
+INSERT INTO tb_auditoria_itens VALUES("102","Estoque Administrativo","Estoque Administrativo","no_pessoa","19");
+
+INSERT INTO tb_auditoria_itens VALUES("103","3","4","st_pedido","19");
+
+INSERT INTO tb_auditoria_itens VALUES("104","S","S","st_estoque","19");
+
+INSERT INTO tb_auditoria_itens VALUES("105","2019-04-16 11:05:27","","dt_cadastro","19");
+
+INSERT INTO tb_auditoria_itens VALUES("106","I","C","st_pagamento","19");
+
+INSERT INTO tb_auditoria_itens VALUES("107","2019-04-03","2019-04-03 11:30:24","dt_pedido","19");
+
+INSERT INTO tb_auditoria_itens VALUES("108","","2019-04-10 11:30:24","dt_entregue","19");
+
+INSERT INTO tb_auditoria_itens VALUES("109","eg g r","eg g r","ds_observacao","19");
+
+INSERT INTO tb_auditoria_itens VALUES("110","0","","co_inscricao","19");
+
+INSERT INTO tb_auditoria_itens VALUES("111","","4","co_pedido_camisa","20");
+
+INSERT INTO tb_auditoria_itens VALUES("112","","6","nu_quantidade","20");
+
+INSERT INTO tb_auditoria_itens VALUES("113","","16","co_cor_camisa","20");
+
+INSERT INTO tb_auditoria_itens VALUES("114","","1","co_tamanho_camisa","20");
+
+INSERT INTO tb_auditoria_itens VALUES("115","","1","co_camisa","20");
+
+INSERT INTO tb_auditoria_itens VALUES("116","","1","co_usuario","20");
+
+INSERT INTO tb_auditoria_itens VALUES("117","","N","st_estoque","21");
+
+INSERT INTO tb_auditoria_itens VALUES("118","","Novo Profissional","no_pessoa","21");
+
+INSERT INTO tb_auditoria_itens VALUES("119","","1","st_pedido","21");
+
+INSERT INTO tb_auditoria_itens VALUES("120","","N","st_pagamento","21");
+
+INSERT INTO tb_auditoria_itens VALUES("121","","","dt_pedido","21");
+
+INSERT INTO tb_auditoria_itens VALUES("122","","","dt_entregue","21");
+
+INSERT INTO tb_auditoria_itens VALUES("123","","teste 1","ds_observacao","21");
+
+INSERT INTO tb_auditoria_itens VALUES("124","","2019-04-16 11:42:26","dt_cadastro","21");
+
+INSERT INTO tb_auditoria_itens VALUES("125","","1","co_pedido_camisa","22");
+
+INSERT INTO tb_auditoria_itens VALUES("126","","1","nu_quantidade","22");
+
+INSERT INTO tb_auditoria_itens VALUES("127","","6","co_cor_camisa","22");
+
+INSERT INTO tb_auditoria_itens VALUES("128","","3","co_tamanho_camisa","22");
+
+INSERT INTO tb_auditoria_itens VALUES("129","","1","co_camisa","22");
+
+INSERT INTO tb_auditoria_itens VALUES("130","","1","co_usuario","22");
+
+INSERT INTO tb_auditoria_itens VALUES("131","","S","st_estoque","23");
+
+INSERT INTO tb_auditoria_itens VALUES("132","","Estoque Administrativo","no_pessoa","23");
+
+INSERT INTO tb_auditoria_itens VALUES("133","","2","st_pedido","23");
+
+INSERT INTO tb_auditoria_itens VALUES("134","","I","st_pagamento","23");
+
+INSERT INTO tb_auditoria_itens VALUES("135","","2019-04-03 11:42:52","dt_pedido","23");
+
+INSERT INTO tb_auditoria_itens VALUES("136","","","dt_entregue","23");
+
+INSERT INTO tb_auditoria_itens VALUES("137","","teste 2","ds_observacao","23");
+
+INSERT INTO tb_auditoria_itens VALUES("138","","2019-04-16 11:42:52","dt_cadastro","23");
+
+INSERT INTO tb_auditoria_itens VALUES("139","","2","co_pedido_camisa","24");
+
+INSERT INTO tb_auditoria_itens VALUES("140","","3","nu_quantidade","24");
+
+INSERT INTO tb_auditoria_itens VALUES("141","","9","co_cor_camisa","24");
+
+INSERT INTO tb_auditoria_itens VALUES("142","","6","co_tamanho_camisa","24");
+
+INSERT INTO tb_auditoria_itens VALUES("143","","1","co_camisa","24");
+
+INSERT INTO tb_auditoria_itens VALUES("144","","1","co_usuario","24");
+
+INSERT INTO tb_auditoria_itens VALUES("145","1","","co_pedido_camisa","25");
+
+INSERT INTO tb_auditoria_itens VALUES("146","Novo Profissional","Novo Profissional","no_pessoa","25");
+
+INSERT INTO tb_auditoria_itens VALUES("147","1","4","st_pedido","25");
+
+INSERT INTO tb_auditoria_itens VALUES("148","N","N","st_estoque","25");
+
+INSERT INTO tb_auditoria_itens VALUES("149","2019-04-16 11:42:26","","dt_cadastro","25");
+
+INSERT INTO tb_auditoria_itens VALUES("150","N","C","st_pagamento","25");
+
+INSERT INTO tb_auditoria_itens VALUES("151","","2019-04-03 11:49:37","dt_pedido","25");
+
+INSERT INTO tb_auditoria_itens VALUES("152","","2019-04-16 11:49:37","dt_entregue","25");
+
+INSERT INTO tb_auditoria_itens VALUES("153","teste 1","teste 13","ds_observacao","25");
+
+INSERT INTO tb_auditoria_itens VALUES("154","0","","co_inscricao","25");
+
+INSERT INTO tb_auditoria_itens VALUES("155","1","","co_pedido_camisa","26");
+
+INSERT INTO tb_auditoria_itens VALUES("156","Novo Profissional","Novo Profissional","no_pessoa","26");
+
+INSERT INTO tb_auditoria_itens VALUES("157","4","4","st_pedido","26");
+
+INSERT INTO tb_auditoria_itens VALUES("158","N","N","st_estoque","26");
+
+INSERT INTO tb_auditoria_itens VALUES("159","2019-04-16 11:42:26","","dt_cadastro","26");
+
+INSERT INTO tb_auditoria_itens VALUES("160","C","C","st_pagamento","26");
+
+INSERT INTO tb_auditoria_itens VALUES("161","2019-04-03","2019-04-03 11:49:37","dt_pedido","26");
+
+INSERT INTO tb_auditoria_itens VALUES("162","2019-04-16","2019-04-16 11:49:37","dt_entregue","26");
+
+INSERT INTO tb_auditoria_itens VALUES("163","teste 13","teste 13","ds_observacao","26");
+
+INSERT INTO tb_auditoria_itens VALUES("164","0","","co_inscricao","26");
+
+INSERT INTO tb_auditoria_itens VALUES("325","1","","co_pedido_camisa","43");
+
+INSERT INTO tb_auditoria_itens VALUES("326","Novo Profissional","Novo Profissional","no_pessoa","43");
+
+INSERT INTO tb_auditoria_itens VALUES("327","4","4","st_pedido","43");
+
+INSERT INTO tb_auditoria_itens VALUES("328","N","N","st_estoque","43");
+
+INSERT INTO tb_auditoria_itens VALUES("329","2019-04-16 11:42:26","","dt_cadastro","43");
+
+INSERT INTO tb_auditoria_itens VALUES("330","C","C","st_pagamento","43");
+
+INSERT INTO tb_auditoria_itens VALUES("331","2019-04-03","2019-04-03 11:56:45","dt_pedido","43");
+
+INSERT INTO tb_auditoria_itens VALUES("332","2019-04-16","2019-04-16 11:56:45","dt_entregue","43");
+
+INSERT INTO tb_auditoria_itens VALUES("333","teste 13","teste 13","ds_observacao","43");
+
+INSERT INTO tb_auditoria_itens VALUES("334","0","","co_inscricao","43");
+
+INSERT INTO tb_auditoria_itens VALUES("335","1","","co_ped_cam_tamanho_cor","44");
+
+INSERT INTO tb_auditoria_itens VALUES("336","1","10","nu_quantidade","44");
+
+INSERT INTO tb_auditoria_itens VALUES("337","3","9","co_tamanho_camisa","44");
+
+INSERT INTO tb_auditoria_itens VALUES("338","6","16","co_cor_camisa","44");
+
+INSERT INTO tb_auditoria_itens VALUES("339","1","","co_camisa","44");
+
+INSERT INTO tb_auditoria_itens VALUES("340","1","","co_pedido_camisa","44");
+
+INSERT INTO tb_auditoria_itens VALUES("341","1","","co_usuario","44");
+
+INSERT INTO tb_auditoria_itens VALUES("342","2","","co_historia","45");
+
+INSERT INTO tb_auditoria_itens VALUES("343","Manter Pedido camisa","Manter Pedido camisa","ds_titulo","45");
+
+INSERT INTO tb_auditoria_itens VALUES("344","<p>Manter Pedido camisa</p>","<p>Manter Pedido camisa</p>","ds_observacao","45");
+
+INSERT INTO tb_auditoria_itens VALUES("345","2019-03-27 11:17:04","","dt_cadastro","45");
+
+INSERT INTO tb_auditoria_itens VALUES("346","2019-04-08 14:26:57","2019-04-16 11:57:21","dt_atualizado","45");
+
+INSERT INTO tb_auditoria_itens VALUES("347","I","C","st_situacao","45");
+
+INSERT INTO tb_auditoria_itens VALUES("348","4","4","co_sessao","45");
+
+INSERT INTO tb_auditoria_itens VALUES("349","","13","nu_esforco","46");
+
+INSERT INTO tb_auditoria_itens VALUES("350","","0","nu_esforco_restante","46");
+
+INSERT INTO tb_auditoria_itens VALUES("351","","2019-04-16 11:57:21","dt_cadastro","46");
+
+INSERT INTO tb_auditoria_itens VALUES("352","","2","co_historia","46");
+
+INSERT INTO tb_auditoria_itens VALUES("353","","Pesquisa Avançada dos Pedidos da Camisa","ds_titulo","47");
+
+INSERT INTO tb_auditoria_itens VALUES("354","","<p>Pessoa, tamanho, cor, Sit. pagamento, Status Pedido, Dt Pedido, Dt Entregue, Usu&aacute;rio, Estoque,</p>","ds_observacao","47");
+
+INSERT INTO tb_auditoria_itens VALUES("355","","4","co_sessao","47");
+
+INSERT INTO tb_auditoria_itens VALUES("356","","N","st_situacao","47");
+
+INSERT INTO tb_auditoria_itens VALUES("357","","2019-04-16 12:04:57","dt_atualizado","47");
+
+INSERT INTO tb_auditoria_itens VALUES("358","","2019-04-16 12:04:57","dt_cadastro","47");
+
+INSERT INTO tb_auditoria_itens VALUES("359","","8","nu_esforco","48");
+
+INSERT INTO tb_auditoria_itens VALUES("360","","8","nu_esforco_restante","48");
+
+INSERT INTO tb_auditoria_itens VALUES("361","","2019-04-16 12:04:57","dt_cadastro","48");
+
+INSERT INTO tb_auditoria_itens VALUES("362","","16","co_historia","48");
 
 
 
@@ -267,8 +553,44 @@ CREATE TABLE `tb_auditoria_tabela` (
   `co_auditoria` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_tabela`,`co_auditoria`),
   KEY `fk_TB_AUDITORIA_TABELA_TB_AUDITORIA1_idx` (`co_auditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
+
+INSERT INTO tb_auditoria_tabela VALUES("15","TB_PEDIDO_CAMISA","I","3","15");
+
+INSERT INTO tb_auditoria_tabela VALUES("16","TB_PED_CAM_TAMANHO_COR","I","1","15");
+
+INSERT INTO tb_auditoria_tabela VALUES("17","TB_PEDIDO_CAMISA","I","4","16");
+
+INSERT INTO tb_auditoria_tabela VALUES("18","TB_PED_CAM_TAMANHO_COR","I","2","16");
+
+INSERT INTO tb_auditoria_tabela VALUES("19","TB_PEDIDO_CAMISA","U","4","17");
+
+INSERT INTO tb_auditoria_tabela VALUES("20","TB_PED_CAM_TAMANHO_COR","I","3","17");
+
+INSERT INTO tb_auditoria_tabela VALUES("21","TB_PEDIDO_CAMISA","I","1","18");
+
+INSERT INTO tb_auditoria_tabela VALUES("22","TB_PED_CAM_TAMANHO_COR","I","1","18");
+
+INSERT INTO tb_auditoria_tabela VALUES("23","TB_PEDIDO_CAMISA","I","2","19");
+
+INSERT INTO tb_auditoria_tabela VALUES("24","TB_PED_CAM_TAMANHO_COR","I","2","19");
+
+INSERT INTO tb_auditoria_tabela VALUES("25","TB_PEDIDO_CAMISA","U","1","20");
+
+INSERT INTO tb_auditoria_tabela VALUES("26","TB_PEDIDO_CAMISA","U","1","20");
+
+INSERT INTO tb_auditoria_tabela VALUES("43","TB_PEDIDO_CAMISA","U","1","31");
+
+INSERT INTO tb_auditoria_tabela VALUES("44","TB_PED_CAM_TAMANHO_COR","U","1","31");
+
+INSERT INTO tb_auditoria_tabela VALUES("45","TB_HISTORIA","U","2","32");
+
+INSERT INTO tb_auditoria_tabela VALUES("46","TB_HISTORICO_HISTORIA","I","21","33");
+
+INSERT INTO tb_auditoria_tabela VALUES("47","TB_HISTORIA","I","16","34");
+
+INSERT INTO tb_auditoria_tabela VALUES("48","TB_HISTORICO_HISTORIA","I","22","35");
 
 
 
@@ -283,7 +605,8 @@ CREATE TABLE `tb_camisa` (
   `nu_valor_custo` decimal(8,2) DEFAULT NULL,
   `nu_valor_venda` decimal(8,2) DEFAULT NULL,
   `co_imagem` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`co_camisa`,`co_imagem`)
+  PRIMARY KEY (`co_camisa`,`co_imagem`),
+  KEY `fk_TB_CAMISA_TB_IMAGEM1_idx` (`co_imagem`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 
@@ -299,7 +622,9 @@ CREATE TABLE `tb_camisa_cor_camisa` (
   `co_camisa_cor_camisa` int(10) NOT NULL AUTO_INCREMENT,
   `co_camisa` int(11) NOT NULL,
   `co_cor_camisa` int(11) NOT NULL,
-  PRIMARY KEY (`co_camisa_cor_camisa`,`co_camisa`,`co_cor_camisa`)
+  PRIMARY KEY (`co_camisa_cor_camisa`,`co_camisa`,`co_cor_camisa`),
+  KEY `fk_TB_COR_CAMISA_has_TB_CAMISA_TB_CAMISA1_idx` (`co_camisa`),
+  KEY `fk_TB_COR_CAMISA_has_TB_CAMISA_TB_COR_CAMISA1_idx` (`co_cor_camisa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
@@ -2207,12 +2532,12 @@ CREATE TABLE `tb_historia` (
   `co_sessao` int(11) NOT NULL,
   PRIMARY KEY (`co_historia`,`co_sessao`),
   KEY `fk_TB_HISTORIA_TB_SESSAO1_idx` (`co_sessao`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_historia VALUES("1","Manter Camisa","<p>Manter camisa</p>","2019-03-27 11:16:40","2019-04-08 14:26:48","C","4");
 
-INSERT INTO tb_historia VALUES("2","Manter Pedido camisa","<p>Manter Pedido camisa</p>","2019-03-27 11:17:04","2019-04-08 14:26:57","I","4");
+INSERT INTO tb_historia VALUES("2","Manter Pedido camisa","<p>Manter Pedido camisa</p>","2019-03-27 11:17:04","2019-04-16 11:57:21","C","4");
 
 INSERT INTO tb_historia VALUES("3","Solicitar Missão","<p>Solicitar Miss&atilde;o (Formul&aacute;rio para solicitar miss&otilde;es)</p>","2019-04-05 15:55:39","2019-04-05 15:55:39","N","5");
 
@@ -2240,6 +2565,8 @@ INSERT INTO tb_historia VALUES("14","Manter Caixa","<p>Caixa atual, caixa por ev
 
 INSERT INTO tb_historia VALUES("15","Manter Transferência","<p>Realizar transfer&ecirc;ncia de dinheiro entre entradas e sa&iacute;das e pesosas (Administrativo, conselho e respons&aacute;vel pela miss&atilde;o)</p>","2019-04-15 15:01:26","2019-04-15 15:01:26","N","11");
 
+INSERT INTO tb_historia VALUES("16","Pesquisa Avançada dos Pedidos da Camisa","<p>Pessoa, tamanho, cor, Sit. pagamento, Status Pedido, Dt Pedido, Dt Entregue, Usu&aacute;rio, Estoque,</p>","2019-04-16 12:04:57","2019-04-16 12:04:57","N","4");
+
 
 
 
@@ -2254,7 +2581,7 @@ CREATE TABLE `tb_historico_historia` (
   `co_historia` int(11) NOT NULL,
   PRIMARY KEY (`co_historico_historia`,`co_historia`),
   KEY `fk_TB_HISTORICO_HISTORIA_TB_HISTORIA1_idx` (`co_historia`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_historico_historia VALUES("1","13","5","2019-03-27 11:16:40","1");
@@ -2296,6 +2623,10 @@ INSERT INTO tb_historico_historia VALUES("18","8","8","2019-04-15 14:58:46","13"
 INSERT INTO tb_historico_historia VALUES("19","20","20","2019-04-15 15:00:24","14");
 
 INSERT INTO tb_historico_historia VALUES("20","8","8","2019-04-15 15:01:26","15");
+
+INSERT INTO tb_historico_historia VALUES("21","13","0","2019-04-16 11:57:21","2");
+
+INSERT INTO tb_historico_historia VALUES("22","8","8","2019-04-16 12:04:57","16");
 
 
 
@@ -5864,13 +6195,19 @@ CREATE TABLE `tb_ped_cam_tamanho_cor` (
   `co_cor_camisa` int(11) NOT NULL,
   `co_camisa` int(11) NOT NULL,
   `co_pedido_camisa` int(11) NOT NULL,
-  PRIMARY KEY (`co_ped_cam_tamanho_cor`,`co_tamanho_camisa`,`co_cor_camisa`,`co_camisa`,`co_pedido_camisa`),
+  `co_usuario` int(10) NOT NULL,
+  PRIMARY KEY (`co_ped_cam_tamanho_cor`,`co_tamanho_camisa`,`co_cor_camisa`,`co_camisa`,`co_pedido_camisa`,`co_usuario`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_TAMANHO_CAMISA1_idx` (`co_tamanho_camisa`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_COR_CAMISA1_idx` (`co_cor_camisa`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_CAMISA1_idx` (`co_camisa`),
-  KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_PEDIDO_CAMISA1_idx` (`co_pedido_camisa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_PEDIDO_CAMISA1_idx` (`co_pedido_camisa`),
+  KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_USUARIO1_idx` (`co_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+
+INSERT INTO tb_ped_cam_tamanho_cor VALUES("1","10","9","16","1","1","1");
+
+INSERT INTO tb_ped_cam_tamanho_cor VALUES("2","3","6","9","1","2","1");
 
 
 
@@ -5891,8 +6228,12 @@ CREATE TABLE `tb_pedido_camisa` (
   `co_inscricao` int(11) NOT NULL,
   PRIMARY KEY (`co_pedido_camisa`,`co_inscricao`),
   KEY `fk_TB_PEDIDO_CAMISA_TB_INSCRICAO1_idx` (`co_inscricao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+
+INSERT INTO tb_pedido_camisa VALUES("1","Novo Profissional","4","N","2019-04-16 11:42:26","C","2019-04-03","2019-04-16","teste 13","0");
+
+INSERT INTO tb_pedido_camisa VALUES("2","Estoque Administrativo","2","S","2019-04-16 11:42:52","I","2019-04-03","","teste 2","0");
 
 
 
@@ -7020,7 +7361,7 @@ CREATE TABLE `tb_trafego` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tb_trafego VALUES("5","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
@@ -7038,6 +7379,10 @@ INSERT INTO tb_trafego VALUES("14","::1","Desconhecido","Desconhecida","Desconhe
 INSERT INTO tb_trafego VALUES("17","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 INSERT INTO tb_trafego VALUES("18","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+
+INSERT INTO tb_trafego VALUES("19","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+
+INSERT INTO tb_trafego VALUES("20","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 
 

@@ -18,6 +18,8 @@ class  PedidoCamisaService extends AbstractService
 
     public function salvaPedidoCamisa($result)
     {
+        $result[NO_PESSOA] = (empty($result[ST_ESTOQUE]))
+            ? trim($result[NO_PESSOA]) : 'Estoque Administrativo';
         $session = new Session();
         $pedidoCamisaValidador = new PedidoCamisaValidador();
         /** @var CamisaValidador $validador */
@@ -31,12 +33,13 @@ class  PedidoCamisaService extends AbstractService
                 SUCESSO => false,
                 MSG => null
             ];
-            $camisaPedido[NO_PESSOA] = trim($result[NO_PESSOA]);
             $camisaPedido[ST_ESTOQUE] = (!empty($result[ST_ESTOQUE])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
+            $camisaPedido[NO_PESSOA] = $result[NO_PESSOA];
             $camisaPedido[ST_PEDIDO] = $result[ST_PEDIDO][0];
             $camisaPedido[ST_PAGAMENTO] = $result[ST_PAGAMENTO][0];
             $camisaPedido[DT_PEDIDO] = null;
             $camisaPedido[DT_ENTREGUE] = null;
+            $camisaPedido[DS_OBSERVACAO] = trim($result[DS_OBSERVACAO]);
 
             if ($result[ST_PEDIDO][0] > 1) {
                 $camisaPedido[DT_PEDIDO] = Valida::DataDB($result[DT_PEDIDO]);
@@ -44,25 +47,27 @@ class  PedidoCamisaService extends AbstractService
             if ($result[ST_PEDIDO][0] > 3) {
                 $camisaPedido[DT_ENTREGUE] = Valida::DataDB($result[DT_ENTREGUE]);
             }
-            $camisaPedido[DS_OBSERVACAO] = trim($result[DS_OBSERVACAO]);
+
+            $camisaPedTamCor[NU_QUANTIDADE] = $result[NU_QUANTIDADE];
+            $camisaPedTamCor[CO_COR_CAMISA] = $result[CO_COR_CAMISA][0];
+            $camisaPedTamCor[CO_TAMANHO_CAMISA] = $result[CO_TAMANHO_CAMISA][0];
 
             $PDO->beginTransaction();
             if (empty($result[CO_PEDIDO_CAMISA])) {
                 $camisaPedido[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $camisaPedTamCor[CO_PEDIDO_CAMISA] = $this->Salva($camisaPedido);
+
+                $camisaPedTamCor[CO_CAMISA] = $result[CO_CAMISA];
+                $camisaPedTamCor[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+                $retult = $pedCamTamanhoCorService->Salva($camisaPedTamCor);
                 $session->setSession(MENSAGEM, CADASTRADO);
+
             } else {
-                $camisaPedTamCor[CO_PEDIDO_CAMISA] =  $result[CO_PEDIDO_CAMISA];
                 $this->Salva($camisaPedido, $result[CO_PEDIDO_CAMISA]);
+
+                $retult = $pedCamTamanhoCorService->Salva($camisaPedTamCor, $result[CO_PED_CAM_TAMANHO_COR]);
                 $session->setSession(MENSAGEM, ATUALIZADO);
             }
-            $camisaPedTamCor[NU_QUANTIDADE] = $result[NU_QUANTIDADE];
-            $camisaPedTamCor[CO_COR_CAMISA] = $result[CO_COR_CAMISA][0];
-            $camisaPedTamCor[CO_TAMANHO_CAMISA] = $result[CO_TAMANHO_CAMISA][0];
-            $camisaPedTamCor[CO_CAMISA] = $result[CO_CAMISA];
-            $camisaPedTamCor[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
-
-            $retult = $pedCamTamanhoCorService->Salva($camisaPedTamCor);
 
             if ($retult):
                 $retorno[SUCESSO] = true;
