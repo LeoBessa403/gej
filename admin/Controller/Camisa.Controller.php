@@ -105,7 +105,6 @@ class Camisa extends AbstractController
         $camisa = $camisaService->PesquisaUmRegistro($coCamisa);
         /** @var PedCamTamanhoCorEntidade $pedidosCamisa */
         $pedidosCamisa = $pedCamTamanhoCorService->PesquisaTodos([CO_CAMISA => $coCamisa]);
-
         $this->result = $pedidosCamisa;
         $this->camisa = $camisa;
     }

@@ -58,33 +58,26 @@
                     </div>
                     <div class="panel-body">
                         <?php
-                        $arrColunas = array('Pessoa', 'Tamanho', 'Cor', 'Pagamento', 'Pedida', 'Entregue', 'Ação');
+                        $arrColunas = array('Pessoa', 'Tamanho', 'Cor', 'Pagamento', 'Quantidade', 'Status Pedido', 'Ação');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
-//                        /** @var PedidoCamisaEntidade $res */
+                        /** @var PedCamTamanhoCorEntidade  $res */
                         foreach ($result as $res) :
-
-                            if ($res->getTpSituacao() == "N"):
-                                $situacao = Valida::Pagamento("N");
-                            else:
-                                $situacao = Valida::Pagamento("C");
-                            endif;
-
                             $acao = '<a href="' . PASTAADMIN . 'Inscricao/EditarParcela/'
-                                . Valida::GeraParametro("parc/" . $res->getCoPedidoCamisa()) . '" class="btn btn-primary tooltips"
+                                . Valida::GeraParametro("parc/" . $res->getCoPedidoCamisa()->getCoPedidoCamisa()) . '" class="btn btn-primary tooltips"
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
                                 </a>';
-//                            $grid->setColunas($res->getNoPessoa());
-//                            $grid->setColunas(FuncoesSistema::TamanhoCamisa($res->getNuCamisa()),2);
-//                            $grid->setColunas($res->getCoCorCamisa()->getNoCorCamisa(),2);
-//                            $grid->setColunas($situacao);
-//                            $grid->setColunas(Valida::SituacaoSimNao($res->getStPedido()));
-//                            $grid->setColunas(Valida::SituacaoSimNao($res->getStEntregue()));
-//                            $grid->setColunas($acao, 1);
-//                            $grid->criaLinha($res->getCoPedidoCamisa());
+                            $grid->setColunas($res->getCoPedidoCamisa()->getNoPessoa());
+                            $grid->setColunas($res->getCoTamanhoCamisa()->getNoTamanho(),2);
+                            $grid->setColunas($res->getCoCorCamisa()->getNoCorCamisa(),2);
+                            $grid->setColunas(Valida::Pagamento($res->getCoPedidoCamisa()->getStPagamento()));
+                            $grid->setColunas($res->getNuQuantidade());
+                            $grid->setColunas(StatusPedidoEnum::getDescricaoValor($res->getCoPedidoCamisa()->getStPedido()));
+                            $grid->setColunas($acao, 1);
+                            $grid->criaLinha($res->getCoPedidoCamisa()->getCoPedidoCamisa());
                         endforeach;
 
                         $grid->finalizaGrid();
