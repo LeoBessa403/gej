@@ -58,6 +58,9 @@
                     </div>
                     <div class="panel-body">
                         <?php
+                        Modal::load();
+                        Modal::deletaRegistro("PedidoCamisa");
+                        Modal::confirmacao("confirma_PedidoCamisa");
                         $arrColunas = array('Pessoa', 'Tamanho', 'Cor', 'Pagamento', 'Quantidade', 'Status Pedido', 'Ação');
                         $grid = new Grid();
                         $grid->setColunasIndeces($arrColunas);
@@ -71,6 +74,11 @@
                                 CO_CAMISA . "/" . $res->getCoCamisa()->getCoCamisa()) . '" class="btn btn-primary tooltips"
                                    data-original-title="Editar Registro" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
+                                </a>
+                                <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" 
+                                    id="'. $res->getCoPedidoCamisa()->getCoPedidoCamisa() .'" 
+                                   href="#PedidoCamisa" data-original-title="Excluir Registro" data-placement="top">
+                                    <i class="fa fa-trash-o"></i>
                                 </a>';
                             $grid->setColunas($res->getCoPedidoCamisa()->getNoPessoa());
                             $grid->setColunas($res->getCoTamanhoCamisa()->getNoTamanho(),2);
@@ -78,7 +86,7 @@
                             $grid->setColunas(Valida::Pagamento($res->getCoPedidoCamisa()->getStPagamento()));
                             $grid->setColunas($res->getNuQuantidade());
                             $grid->setColunas(StatusPedidoEnum::getDescricaoValor($res->getCoPedidoCamisa()->getStPedido()));
-                            $grid->setColunas($acao, 1);
+                            $grid->setColunas($acao, 2);
                             $grid->criaLinha($res->getCoPedidoCamisa()->getCoPedidoCamisa());
                         endforeach;
 

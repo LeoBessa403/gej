@@ -12,5 +12,14 @@ class  PedidoCamisaModel extends AbstractModel
         parent::__construct(PedidoCamisaEntidade::ENTIDADE);
     }
 
+    public function Deleta($coPedido)
+    {
+        /** @var PedCamTamanhoCorModel $pedCamTamModel */
+        $pedCamTamModel = new PedCamTamanhoCorModel();
+        $pedCamTamModel->DeletaQuando([
+            CO_PEDIDO_CAMISA => $coPedido
+        ]);
 
+        return parent::Deleta($coPedido);
+    }
 }
