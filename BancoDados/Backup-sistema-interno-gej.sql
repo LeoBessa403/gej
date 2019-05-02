@@ -1,4 +1,4 @@
--- Atualizado em: 02/05/2019 11:41:20
+-- Atualizado em: 02/05/2019 13:34:40
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -20,12 +20,10 @@ CREATE TABLE `TB_ACESSO` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO TB_ACESSO VALUES("15","sgh01o2gi5s0m0l5nnm23eg484","2019-04-16 14:02:21","2019-04-16 15:07:05","F","1","21");
-
-INSERT INTO TB_ACESSO VALUES("16","7ve3vumc32lsevgquf6hub5gj2","2019-05-02 11:39:31","2019-05-02 12:01:20","A","1","23");
+INSERT INTO TB_ACESSO VALUES("19","7ve3vumc32lsevgquf6hub5gj2","2019-05-02 13:15:57","2019-05-02 13:54:40","A","1","26");
 
 
 
@@ -235,14 +233,8 @@ CREATE TABLE `TB_AUDITORIA` (
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_auditoria`,`co_usuario`),
   KEY `fk_TB_AUDITORIA_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-
-INSERT INTO TB_AUDITORIA VALUES("1","2019-05-02 11:40:07","Coord. Administrativo, Coordenadores, Membros, Master","1");
-
-INSERT INTO TB_AUDITORIA VALUES("2","2019-05-02 11:41:08","Coord. Administrativo, Coordenadores, Membros, Master","1");
-
-INSERT INTO TB_AUDITORIA VALUES("3","2019-05-02 11:41:08","Coord. Administrativo, Coordenadores, Membros, Master","1");
 
 
 
@@ -258,34 +250,8 @@ CREATE TABLE `TB_AUDITORIA_ITENS` (
   `co_auditoria_tabela` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_itens`,`co_auditoria_tabela`),
   KEY `fk_TB_AUDITORIA_ITENS_TB_AUDITORIA_TABELA1_idx` (`co_auditoria_tabela`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=160 DEFAULT CHARSET=utf8;
 
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("1","","Camisa","no_sessao","1");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("2","","2","co_modulo","1");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("3","","2019-05-02 11:40:07","dt_cadastro","1");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("4","","Manter Pedido camisa","ds_titulo","2");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("5","","<p>Manter Pedido camisa pelo site da camisa cadastrada</p>","ds_observacao","2");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("6","","12","co_sessao","2");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("7","","N","st_situacao","2");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("8","","2019-05-02 11:41:08","dt_atualizado","2");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("9","","2019-05-02 11:41:08","dt_cadastro","2");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("10","","8","nu_esforco","3");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("11","","8","nu_esforco_restante","3");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("12","","2019-05-02 11:41:08","dt_cadastro","3");
-
-INSERT INTO TB_AUDITORIA_ITENS VALUES("13","","17","co_historia","3");
 
 
 
@@ -301,14 +267,8 @@ CREATE TABLE `TB_AUDITORIA_TABELA` (
   `co_auditoria` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_tabela`,`co_auditoria`),
   KEY `fk_TB_AUDITORIA_TABELA_TB_AUDITORIA1_idx` (`co_auditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
-
-INSERT INTO TB_AUDITORIA_TABELA VALUES("1","TB_SESSAO","I","12","1");
-
-INSERT INTO TB_AUDITORIA_TABELA VALUES("2","TB_HISTORIA","I","17","2");
-
-INSERT INTO TB_AUDITORIA_TABELA VALUES("3","TB_HISTORICO_HISTORIA","I","23","3");
 
 
 
@@ -7079,7 +7039,7 @@ CREATE TABLE `TB_TRAFEGO` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_TRAFEGO VALUES("5","127.0.0.1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
@@ -7096,11 +7056,9 @@ INSERT INTO TB_TRAFEGO VALUES("14","::1","Desconhecido","Desconhecida","Desconhe
 
 INSERT INTO TB_TRAFEGO VALUES("17","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
-INSERT INTO TB_TRAFEGO VALUES("21","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
-
 INSERT INTO TB_TRAFEGO VALUES("22","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
-INSERT INTO TB_TRAFEGO VALUES("23","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
+INSERT INTO TB_TRAFEGO VALUES("26","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0");
 
 
 
@@ -7192,7 +7150,7 @@ CREATE TABLE `TB_USUARIO_PERFIL` (
   KEY `fk_tb_usuario_tb_perfil_tb_perfil1_idx` (`co_perfil`),
   KEY `fk_tb_usuario_tb_perfil_tb_usuario_idx` (`co_usuario`),
   KEY `fk_TB_USUARIO_PERFIL_TB_PERFIL_ASSINANTE1_idx` (`co_perfil_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("34","10","3","0");
@@ -7231,8 +7189,6 @@ INSERT INTO TB_USUARIO_PERFIL VALUES("113","24","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("114","22","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("116","25","3","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("123","13","10","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("124","13","7","0");
@@ -7244,8 +7200,6 @@ INSERT INTO TB_USUARIO_PERFIL VALUES("133","3","9","0");
 INSERT INTO TB_USUARIO_PERFIL VALUES("134","3","7","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("135","3","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("144","26","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("154","20","24","0");
 
@@ -7328,6 +7282,14 @@ INSERT INTO TB_USUARIO_PERFIL VALUES("217","2","8","0");
 INSERT INTO TB_USUARIO_PERFIL VALUES("218","2","7","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("219","2","3","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("220","25","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("221","25","3","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("226","26","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("227","26","3","0");
 
 
 
