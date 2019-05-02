@@ -34,4 +34,19 @@ class  CorCamisaService extends AbstractService
         return $comboCores;
     }
 
+    public static function PesquisaCoresCombo()
+    {
+        /** @var CorCamisaService $corCamisaService */
+        $corCamisaService = new CorCamisaService();
+        $comboCores = [];
+        $CoresCamisa = $corCamisaService->PesquisaTodos();
+
+        /** @var CorCamisaEntidade $CorCamisa */
+        foreach ($CoresCamisa as $CorCamisa) {
+            $comboCores[$CorCamisa->getCoCorCamisa()]
+                = $CorCamisa->getNoCorCamisa();
+        }
+        return $comboCores;
+    }
+
 }

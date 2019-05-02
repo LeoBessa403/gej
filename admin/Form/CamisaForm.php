@@ -30,7 +30,7 @@ class CamisaForm
             ->setOptions($label_options)
             ->CriaInpunt();
 
-        $options = CorCamisaService::PesquisaCoresCamisaCombo();
+        $options = CorCamisaService::PesquisaCoresCombo();
         $formulario
             ->setId(CO_COR_CAMISA)
             ->setType("select")
