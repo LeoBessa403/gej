@@ -37,7 +37,7 @@ class  CamisaService extends AbstractService
             $camisa[NO_CAMISA] = trim($result[NO_CAMISA]);
             $camisa[NU_VALOR_CUSTO] = Valida::FormataMoedaBanco($result[NU_VALOR_CUSTO]);
             $camisa[NU_VALOR_VENDA] = Valida::FormataMoedaBanco($result[NU_VALOR_VENDA]);
-            $camisa[TP_PEDIDO] = (empty($result[TP_PEDIDO])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
+            $camisa[TP_PEDIDO] = (!empty($result[TP_PEDIDO])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
 
             $imagem[DS_CAMINHO] = "";
             if ($foto[DS_CAMINHO]["tmp_name"]):
