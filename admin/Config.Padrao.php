@@ -33,5 +33,5 @@ define('HOST_EMAIL', 'mail.gejdombosco.com.br');
 define('PORTA_EMAIL', '587');
 define('ID_ANALITCS', 'UA-71215942-1');
 define('MODULO_ASSINANTE', '');
-define('LOGAR_EMAIL', '');
+define('LOGAR_EMAIL', false);
 
