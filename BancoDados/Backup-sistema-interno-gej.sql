@@ -1,4 +1,4 @@
--- Atualizado em: 16/12/2019 21:41:59
+-- Atualizado em: 23/12/2019 22:11:35
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -20,7 +20,7 @@ CREATE TABLE `TB_ACESSO` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_ACESSO VALUES("8","3fdf58581b9b7bd3cd957fec61fa9065","2019-05-02 12:57:36","2019-05-02 13:20:32","F","1","35");
@@ -41,7 +41,21 @@ INSERT INTO TB_ACESSO VALUES("15","f65c580b6f124ce6c7b4480e4c10152b","2019-08-04
 
 INSERT INTO TB_ACESSO VALUES("16","f65c580b6f124ce6c7b4480e4c10152b","2019-08-04 21:49:42","2019-08-04 21:52:30","F","22","78");
 
-INSERT INTO TB_ACESSO VALUES("17","022af3f7f5e23c187dde9095d02c99a4","2019-12-16 21:12:03","2019-12-16 21:32:25","A","1","99");
+INSERT INTO TB_ACESSO VALUES("17","022af3f7f5e23c187dde9095d02c99a4","2019-12-16 21:12:03","2019-12-16 21:32:25","F","1","99");
+
+INSERT INTO TB_ACESSO VALUES("18","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:48:45","2019-12-16 21:48:54","F","1","101");
+
+INSERT INTO TB_ACESSO VALUES("19","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:49:04","2019-12-16 21:49:14","F","1","102");
+
+INSERT INTO TB_ACESSO VALUES("20","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:52:25","2019-12-16 21:52:32","F","1","103");
+
+INSERT INTO TB_ACESSO VALUES("21","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:53:17","2019-12-16 21:53:24","F","1","104");
+
+INSERT INTO TB_ACESSO VALUES("22","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:53:52","2019-12-16 21:58:18","F","1","105");
+
+INSERT INTO TB_ACESSO VALUES("23","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:58:26","2019-12-16 22:22:20","F","1","106");
+
+INSERT INTO TB_ACESSO VALUES("24","l03um5urk05n6cidq9fvt1rav6","2019-12-16 23:20:10","2019-12-16 23:46:55","A","1","107");
 
 
 
@@ -2072,6 +2086,21 @@ INSERT INTO TB_COR_CAMISA VALUES("16","Verde");
 INSERT INTO TB_COR_CAMISA VALUES("17","Verde Bebê");
 
 INSERT INTO TB_COR_CAMISA VALUES("18","Vermelho");
+
+
+
+
+DROP TABLE IF EXISTS TB_CRONS;
+
+
+CREATE TABLE `TB_CRONS` (
+  `co_cron` int(11) NOT NULL AUTO_INCREMENT,
+  `dt_cadastro` datetime DEFAULT NULL,
+  `no_cron` varchar(70) DEFAULT NULL,
+  `ds_sql` text,
+  PRIMARY KEY (`co_cron`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 
@@ -5670,7 +5699,7 @@ INSERT INTO TB_PAGINA VALUES("1","2019-03-25 17:28:54","web/","24","24");
 
 INSERT INTO TB_PAGINA VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","21","21");
 
-INSERT INTO TB_PAGINA VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","33","33");
+INSERT INTO TB_PAGINA VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","35","35");
 
 INSERT INTO TB_PAGINA VALUES("4","2019-04-08 16:12:37","web/Inscricoes/Normas","7","7");
 
@@ -5693,7 +5722,7 @@ CREATE TABLE `TB_PAGINA_VISITA` (
   PRIMARY KEY (`co_pagina_visita`,`co_visita`,`co_pagina`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_VISITA1_idx` (`co_visita`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_PAGINA1_idx` (`co_pagina`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_PAGINA_VISITA VALUES("1","1","1");
@@ -5879,6 +5908,10 @@ INSERT INTO TB_PAGINA_VISITA VALUES("90","76","5");
 INSERT INTO TB_PAGINA_VISITA VALUES("91","78","3");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("92","79","3");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("93","80","3");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("94","81","3");
 
 
 
@@ -6868,7 +6901,7 @@ CREATE TABLE `TB_PED_CAM_TAMANHO_COR` (
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_CAMISA1_idx` (`co_camisa`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_PEDIDO_CAMISA1_idx` (`co_pedido_camisa`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -6890,7 +6923,7 @@ CREATE TABLE `TB_PEDIDO_CAMISA` (
   `co_inscricao` int(11) NOT NULL,
   PRIMARY KEY (`co_pedido_camisa`,`co_inscricao`),
   KEY `fk_TB_PEDIDO_CAMISA_TB_INSCRICAO1_idx` (`co_inscricao`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -8025,7 +8058,7 @@ CREATE TABLE `TB_TRAFEGO` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_TRAFEGO VALUES("8","189.6.20.167","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Windows 7","Desktop","Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36");
@@ -8211,6 +8244,24 @@ INSERT INTO TB_TRAFEGO VALUES("98","45.5.159.166","Brazil","BR","GO","Goias","Va
 INSERT INTO TB_TRAFEGO VALUES("99","45.5.159.166","Brazil","BR","GO","Goias","Valparaiso de Goias","Chrome","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
 
 INSERT INTO TB_TRAFEGO VALUES("100","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("101","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("102","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("103","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("104","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("105","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("106","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("107","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+
+INSERT INTO TB_TRAFEGO VALUES("108","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0");
+
+INSERT INTO TB_TRAFEGO VALUES("109","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0");
 
 
 
@@ -8457,7 +8508,7 @@ CREATE TABLE `TB_VISITA` (
   `co_trafego` int(11) NOT NULL,
   PRIMARY KEY (`co_visita`,`co_trafego`),
   KEY `fk_TB_VISITA_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_VISITA VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2","1");
@@ -8615,6 +8666,10 @@ INSERT INTO TB_VISITA VALUES("77","2019-12-16 08:51:08","2019-12-16 08:51:08","1
 INSERT INTO TB_VISITA VALUES("78","2019-12-16 21:07:49","2019-12-16 21:07:49","1","98");
 
 INSERT INTO TB_VISITA VALUES("79","2019-12-16 21:41:49","2019-12-16 21:41:49","1","100");
+
+INSERT INTO TB_VISITA VALUES("80","2019-12-23 22:08:49","2019-12-23 22:08:49","1","108");
+
+INSERT INTO TB_VISITA VALUES("81","2019-12-23 22:09:07","2019-12-23 22:09:07","1","109");
 
 
 

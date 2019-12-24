@@ -40,8 +40,8 @@
                         <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
-                        Modal::DesativarInscricao("DesativarInscricao");
-                        Modal::AtivarInscricao("AtivarInscricao");
+                        Modal::ModalConfirmaDesativacao("DesativarInscricao");
+                        Modal::ModalConfirmaAtivacao("AtivarInscricao");
                         Modal::confirmacao("confirma_Inscricao");
                         $arrColunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Servo',
                             'Membro', 'Pagamento', 'Ações');
