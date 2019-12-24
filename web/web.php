@@ -29,17 +29,17 @@ $visitaService->gestaoVisita();
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main-responsive.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_blue.css" type="text/css" id="skin_color">
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/css3-animation/animations.css">
+    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/css3-animation/animations.css">
 
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/iCheck/skins/all.css">
+    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/iCheck/skins/all.css">
     <link rel="stylesheet"
-          href="<?php echo PASTAADMIN; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+          href="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
 
     <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
-    <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"
           rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="<?= PASTAADMIN; ?>plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet"
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet"
           type="text/css"/>
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 
@@ -49,18 +49,18 @@ $visitaService->gestaoVisita();
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/flex-slider/flexslider.css">
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/colorbox/example2/colorbox.css">
     <!-- start: CSS REQUIRED FOR FULLCALENDARIO -->
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/fullcalendar/fullcalendar/fullcalendar.css">
+<!--    <link rel="stylesheet" href="--><?php //echo PASTA_LIBRARY; ?><!--plugins/fullcalendar/fullcalendar/fullcalendar.css">-->
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
     <link rel="stylesheet" href="<?php echo INCLUDES; ?>Jcalendar.css">
     <!-- start: CSS REQUIRED FOR SELECT -->
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/select2/select2.css">
+    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/select2/select2.css">
     <!-- start: CSS REQUIRED FOR UPLOAD -->
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
+    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
     <!-- start: CSS REQUIRED FOR CHECK -->
     <link rel="stylesheet"
-          href="<?php echo PASTAADMIN; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
+          href="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
     <!-- start: CSS REQUIRED FOR CHECK -->
-    <link rel="stylesheet" href="<?php echo PASTAADMIN; ?>plugins/DataTables/media/css/DT_bootstrap.css">
+    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/DataTables/media/css/DT_bootstrap.css">
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/font-awesome.min.css">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
@@ -69,6 +69,7 @@ $visitaService->gestaoVisita();
     <!-- start: HTML5SHIV FOR IE8 -->
     <!--[if lt IE 9]>
     <script src="<?php echo PASTASITE; ?><?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
+    <!--<![endif]-->
     <!-- SCRIPT GERAR GRAFICOS -->
     <script type="text/javascript" src="<?= HOME; ?>library/Helpers/includes/gera-grafico.js"></script>
     <![endif]-->
@@ -382,7 +383,7 @@ $visitaService->gestaoVisita();
 <script type="text/javascript" src="<?php echo INCLUDES; ?>validacoes.js"></script>
 
 
-<script src="<?= PASTAADMIN; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script src="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 
 <script src="<?php echo PASTASITE; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/jquery.transit/jquery.transit.js"></script>
@@ -391,23 +392,23 @@ $visitaService->gestaoVisita();
 <script src="<?php echo PASTASITE; ?>plugins/blockUI/jquery.blockUI.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/jquery-cookie/jquery.cookie.js"></script>
 <script src="<?php echo PASTASITE; ?>js/main.js"></script>
-<script src="<?php echo PASTAADMIN; ?>js/ui-animation.js"></script>
+<script src="<?php echo PASTA_LIBRARY; ?>js/ui-animation.js"></script>
 <!-- end: MAIN JAVASCRIPTS -->
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script src="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-<script
-        src="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/flex-slider/jquery.flexslider.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/stellar.js/jquery.stellar.min.js"></script>
 <script src="<?php echo PASTASITE; ?>plugins/colorbox/jquery.colorbox-min.js"></script>
-<script src="<?php echo PASTAADMIN; ?>plugins/select2/select2.min.js"></script>
-<script src="<?php echo PASTAADMIN; ?>plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
-<script src="<?php echo PASTAADMIN; ?>plugins/fullcalendar/fullcalendar/fullcalendar.js"></script>
-<script src="<?= PASTAADMIN; ?>plugins/ckeditor/ckeditor.js"></script>
+<script src="<?php echo PASTA_LIBRARY; ?>plugins/select2/select2.min.js"></script>
+<script src="<?php echo PASTA_LIBRARY; ?>plugins/jQRangeSlider/jQAllRangeSliders-min.js"></script>
+<script src="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
+<!--<script src="--><?php //echo PASTA_LIBRARY; ?><!--plugins/fullcalendar/fullcalendar/fullcalendar.js"></script>-->
+<script src="<?= PASTA_LIBRARY; ?>plugins/ckeditor/ckeditor.js"></script>
 <script src="<?php echo PASTASITE; ?>js/index.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
-<script type="text/javascript" src="<?php echo PASTAADMIN; ?>js/Funcoes.js"></script>
+<script type="text/javascript" src="<?php echo PASTA_LIBRARY; ?>js/Funcoes.js"></script>
 <?php carregaJs($url); ?>
 <script>
     jQuery(document).ready(function () {

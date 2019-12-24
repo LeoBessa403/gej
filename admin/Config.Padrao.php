@@ -24,7 +24,7 @@ define('SESSION_USER', 'user_gej');
 define('INATIVO', '20');
 define('BACKUP', '2');
 define('TAMANHO', '800');
-define('WHATSAPP', '5561993259985');
+define('WHATSAPP', '5561993126972');
 define('NUM_BG_IMAGENS', '12');
 define('CONTROLLER_SEO', '');
 define('USER_EMAIL', 'contato@gejdombosco.com.br');

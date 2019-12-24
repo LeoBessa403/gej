@@ -23,19 +23,26 @@
     </header>
     <div class="row" style="padding: 30px; margin-top: 5px; float: left;">
         <h2>Para Depósito em Conta:</h2>
-        <div class="col-md-6">
-            <b>Banco Caixa<br>
-                Agência: 0003<br>
-                Conta: 00004346-8<br>
-                Operação: 013<br>
-                Nome: Victtoria Macedo Leal
+        <div class="col-md-4">
+            <b>Banco do Brasil<br>
+                Agência: 2895-9<br>
+                Conta Corrente: 36.657-9<br>
+                Nome: Rosileda Ribeiro Bessa
             </b>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <b>Banco Bradesco<br>
                 Agência: 1298 <br>
                 Conta Corrente: 0018031-9<br>
                 Nome: Letícia Machado Carvalho Bessa
+            </b>
+        </div>
+        <div class="col-md-4">
+            <b>Banco Caixa<br>
+                Agência: 0647<br>
+                Conta: 00022810-9<br>
+                Operação: 013<br>
+                Nome: Amaury Costa Silva Ramos
             </b>
         </div>
         <br>
