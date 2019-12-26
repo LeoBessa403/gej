@@ -18,23 +18,23 @@ $visitaService->gestaoVisita();
     <!-- Inclução das tags do Seo -->
     <?php require_once 'library/Partial/Site/SeoTags.php' ; ?>
 
-
     <!-- start: MAIN CSS -->
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/boot.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/bootstrap/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>fonts/style.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/animate.css/animate.min.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main-responsive.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_blue.css" type="text/css" id="skin_color">
-    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/css3-animation/animations.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/boot.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/style.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/bootstrap/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>fonts/style.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/animate.css/animate.min.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/main.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/main-responsive.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/theme_blue.css" type="text/css" id="skin_color">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/css3-animation/animations.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/gritter/css/jquery.gritter.css">
 
-    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/iCheck/skins/all.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/iCheck/skins/all.css">
     <link rel="stylesheet"
-          href="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
-    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+          href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
 
     <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"
@@ -45,30 +45,30 @@ $visitaService->gestaoVisita();
 
     <!-- end: MAIN CSS -->
     <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/css/settings.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/flex-slider/flexslider.css">
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/colorbox/example2/colorbox.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/revolution_slider/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/flex-slider/flexslider.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/colorbox/example2/colorbox.css">
     <!-- start: CSS REQUIRED FOR FULLCALENDARIO -->
 <!--    <link rel="stylesheet" href="--><?php //echo PASTA_LIBRARY; ?><!--plugins/fullcalendar/fullcalendar/fullcalendar.css">-->
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
-    <link rel="stylesheet" href="<?php echo INCLUDES; ?>Jcalendar.css">
+    <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css">
     <!-- start: CSS REQUIRED FOR SELECT -->
-    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/select2/select2.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/select2/select2.css">
     <!-- start: CSS REQUIRED FOR UPLOAD -->
-    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
     <!-- start: CSS REQUIRED FOR CHECK -->
     <link rel="stylesheet"
-          href="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
+          href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
     <!-- start: CSS REQUIRED FOR CHECK -->
-    <link rel="stylesheet" href="<?php echo PASTA_LIBRARY; ?>plugins/DataTables/media/css/DT_bootstrap.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/DataTables/media/css/DT_bootstrap.css">
     <!-- Icons/Glyphs -->
-    <link rel="stylesheet" href="<?php echo PASTASITE; ?>css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/font-awesome.min.css">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="<?= PASTASITE; ?>img/favicon.ico"/>
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: HTML5SHIV FOR IE8 -->
     <!--[if lt IE 9]>
-    <script src="<?php echo PASTASITE; ?><?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
+    <script src="<?= PASTASITE; ?><?= PASTASITE; ?>plugins/html5shiv.js"></script>
     <!--<![endif]-->
     <!-- SCRIPT GERAR GRAFICOS -->
     <script type="text/javascript" src="<?= HOME; ?>library/Helpers/includes/gera-grafico.js"></script>
@@ -78,7 +78,7 @@ $visitaService->gestaoVisita();
 <!-- end: HEAD -->
 <body>
 <!-- GOOGLE ANALITCS -->
-<?php if (ID_ANALITCS): ?>
+<?php if (!ID_ANALITCS): ?>
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -92,7 +92,7 @@ $visitaService->gestaoVisita();
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', '<?php echo ID_ANALITCS; ?>', 'auto');
+        ga('create', '<?= ID_ANALITCS; ?>', 'auto');
         ga('send', 'pageview');
 
     </script>
@@ -165,15 +165,15 @@ $visitaService->gestaoVisita();
                 </button>
                 <!-- end: RESPONSIVE MENU TOGGLER -->
                 <!-- start: LOGO -->
-                <a class="navbar-brand" href="<?php echo PASTASITE; ?>">
-                    <img src="<?php echo PASTASITE; ?>/img/logo1.png" width="170"/>
+                <a class="navbar-brand" href="<?= PASTASITE; ?>">
+                    <img src="<?= PASTASITE; ?>/img/logo1.png" width="170"/>
                 </a>
                 <!-- end: LOGO -->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="<?php echo PASTASITE; ?>">
+                        <a href="<?= PASTASITE; ?>">
                             Página Inicial
                         </a>
                     </li>
@@ -183,23 +183,23 @@ $visitaService->gestaoVisita();
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="<?php echo PASTASITE; ?>Inscricoes/CadastroRetiro">
+                                <a href="<?= PASTASITE; ?>Inscricoes/CadastroRetiro">
                                     Fazer Inscrição
                                 </a>
-                                <a href="<?php echo PASTASITE; ?>Inscricoes/Normas">
+                                <a href="<?= PASTASITE; ?>Inscricoes/Normas">
                                     Normas do Retiro
                                 </a>
-                                <a href="<?php echo PASTASITE; ?>Inscricoes/SobrePagamento">
+                                <a href="<?= PASTASITE; ?>Inscricoes/SobrePagamento">
                                     Formas De Pagamento
                                 </a>
-                                <a href="<?php echo PASTASITE; ?>Inscricoes/VerInscricao">
+                                <a href="<?= PASTASITE; ?>Inscricoes/VerInscricao">
                                     Ver Inscrição
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a target="_blank" href="<?php echo PASTAADMIN; ?>Index/PrimeiroAcesso">
+                        <a target="_blank" href="<?= PASTAADMIN; ?>Index/PrimeiroAcesso">
                             Área Administrativa
                         </a>
                     </li>
@@ -354,21 +354,21 @@ $visitaService->gestaoVisita();
 <a id="scroll-top" href="#"><i class="fa fa-angle-up"></i></a>
 <!-- end: FOOTER -->
 <!-- end: FOOTER -->
-<?php Modal::aviso("alerta"); ?>
+<?php Modal::aviso("alerta"); Notificacoes::alerta(); ?>
 <!-- start: MAIN JAVASCRIPTS -->
 <!-- start: MAIN JAVASCRIPTS -->
 <!--[if lt IE 9]>
-<script src="<?php echo PASTASITE; ?>plugins/respond.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/excanvas.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
+<script src="<?= PASTASITE; ?>plugins/respond.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/excanvas.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/html5shiv.js"></script>
 <script type="text/javascript" src="<?= INCLUDES;?>jquery-1.10.2.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
-<script src="<?php echo INCLUDES; ?>jquery-2.0.3.js"></script>
+<script src="<?= INCLUDES; ?>jquery-2.0.3.js"></script>
 <!--<![endif]-->
-<script src="<?php echo INCLUDES; ?>jquery-ui.js"></script>
-<script type="text/javascript" src="<?php echo INCLUDES; ?>jquery.mask.js"></script>
-<script type="text/javascript" src="<?php echo INCLUDES; ?>jquery.maskMoney.js"></script>
+<script src="<?= INCLUDES; ?>jquery-ui.js"></script>
+<script type="text/javascript" src="<?= INCLUDES; ?>jquery.mask.js"></script>
+<script type="text/javascript" src="<?= INCLUDES; ?>jquery.maskMoney.js"></script>
 <?= '<script type="text/javascript">
                         function constantes(){    
                                 var dados = {
@@ -380,35 +380,35 @@ $visitaService->gestaoVisita();
                                 return dados;
                         }
                 </script>'; ?>
-<script type="text/javascript" src="<?php echo INCLUDES; ?>validacoes.js"></script>
+<script type="text/javascript" src="<?= INCLUDES; ?>validacoes.js"></script>
 
 
 <script src="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 
-<script src="<?php echo PASTASITE; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/jquery.transit/jquery.transit.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/jquery.appear/jquery.appear.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/blockUI/jquery.blockUI.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/jquery-cookie/jquery.cookie.js"></script>
-<script src="<?php echo PASTASITE; ?>js/main.js"></script>
-<script src="<?php echo PASTA_LIBRARY; ?>js/ui-animation.js"></script>
+<script src="<?= PASTASITE; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/jquery.transit/jquery.transit.js"></script>
+<script src="<?= PASTASITE; ?>plugins/hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/jquery.appear/jquery.appear.js"></script>
+<script src="<?= PASTASITE; ?>plugins/blockUI/jquery.blockUI.js"></script>
+<script src="<?= PASTASITE; ?>plugins/jquery-cookie/jquery.cookie.js"></script>
+<script src="<?= PASTASITE; ?>js/main.js"></script>
+<script src="<?= PASTA_LIBRARY; ?>js/ui-animation.js"></script>
 <!-- end: MAIN JAVASCRIPTS -->
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-<script src="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/flex-slider/jquery.flexslider.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/stellar.js/jquery.stellar.min.js"></script>
-<script src="<?php echo PASTASITE; ?>plugins/colorbox/jquery.colorbox-min.js"></script>
-<script src="<?php echo PASTA_LIBRARY; ?>plugins/select2/select2.min.js"></script>
-<script src="<?php echo PASTA_LIBRARY; ?>plugins/jQRangeSlider/jQAllRangeSliders-min.js"></script>
-<script src="<?php echo PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/flex-slider/jquery.flexslider.js"></script>
+<script src="<?= PASTASITE; ?>plugins/stellar.js/jquery.stellar.min.js"></script>
+<script src="<?= PASTASITE; ?>plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="<?= PASTA_LIBRARY; ?>plugins/select2/select2.min.js"></script>
+<script src="<?= PASTA_LIBRARY; ?>plugins/jQRangeSlider/jQAllRangeSliders-min.js"></script>
+<script src="<?= PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
 <!--<script src="--><?php //echo PASTA_LIBRARY; ?><!--plugins/fullcalendar/fullcalendar/fullcalendar.js"></script>-->
 <script src="<?= PASTA_LIBRARY; ?>plugins/ckeditor/ckeditor.js"></script>
-<script src="<?php echo PASTASITE; ?>js/index.js"></script>
+<script src="<?= PASTASITE; ?>js/index.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
-<script type="text/javascript" src="<?php echo PASTA_LIBRARY; ?>js/Funcoes.js"></script>
+<script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/Funcoes.js"></script>
 <?php carregaJs($url); ?>
 <script>
     jQuery(document).ready(function () {

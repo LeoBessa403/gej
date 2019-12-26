@@ -631,7 +631,7 @@ class Membros extends AbstractController
             ->setIcon("clip-calendar-3")
             ->setTamanhoInput(4)
             ->setClasses("data ob")
-            ->setInfo("Para maiores de 14 anos")    
+            ->setInfo("Para maiores de 15 anos")
             ->setLabel("Nascimento")
             ->CriaInpunt();
       

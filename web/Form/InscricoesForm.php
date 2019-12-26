@@ -145,32 +145,6 @@ class InscricoesForm
             ->setOptions($options)
             ->CriaInpunt();
 
-        $label_options = array("Sim", "Não", "verde", "vermelho");
-        $formulario
-            ->setLabel("Participou de algum Retiro?")
-            ->setTamanhoInput(5)
-            ->setId(DS_RETIRO)
-            ->setClasses($res[DS_RETIRO])
-            ->setType("checkbox")
-            ->setOptions($label_options)
-            ->CriaInpunt();
-
-        $label_options = array("Sim", "Não", "verde", "vermelho");
-        $formulario
-            ->setLabel("Participa de alguma Pastoral?")
-            ->setId("ds_pastoral_ativo")
-            ->setClasses($res["ds_pastoral_ativo"])
-            ->setTamanhoInput(7)
-            ->setType("checkbox")
-            ->setOptions($label_options)
-            ->CriaInpunt();
-
-        $formulario
-            ->setLabel("Qual Pastoral?")
-            ->setTamanhoInput(12)
-            ->setId(DS_PASTORAL)
-            ->CriaInpunt();
-
         $opticoes_camisa = CamisaService::montaComboCamisas();
         $formulario
             ->setId(NU_CAMISA)
@@ -212,6 +186,32 @@ class InscricoesForm
             ->setTamanhoInput(12)
 //            ->setClasses("ob")
             ->setLabel("Foto de Perfil (Selfie)")
+            ->CriaInpunt();
+
+        $label_options = array("Sim", "Não", "verde", "vermelho");
+        $formulario
+            ->setLabel("Participou de algum Retiro Querigmáico (Primeiro Amor)? ")
+            ->setTamanhoInput(12)
+            ->setId(DS_RETIRO)
+            ->setClasses($res[DS_RETIRO])
+            ->setType("checkbox")
+            ->setOptions($label_options)
+            ->CriaInpunt();
+
+        $label_options = array("Sim", "Não", "verde", "vermelho");
+        $formulario
+            ->setLabel("Participa de alguma Pastoral / Grupo Jovem?")
+            ->setId("ds_pastoral_ativo")
+            ->setClasses($res["ds_pastoral_ativo"])
+            ->setTamanhoInput(12)
+            ->setType("checkbox")
+            ->setOptions($label_options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setLabel("Qual Pastoral/ Grupo? E a quanto Tempo?")
+            ->setTamanhoInput(12)
+            ->setId(DS_PASTORAL)
             ->CriaInpunt();
 
         $formulario

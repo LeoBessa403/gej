@@ -1,5 +1,6 @@
 $(function () {
     var idade = 15; // Idade limite para aceitar o cadastro Maior que a Idade
+    var MSG01 = "Não é permitido a participação para menores de " + idade + " anos";
 
 
     $("#ds_pastoral_ativo").change(function () {
@@ -25,7 +26,7 @@ $(function () {
         var validaNascimento = new Date((parseInt(partesData[2]) + idade), partesData[1] - 1, partesData[0]);
 
         if (validaNascimento > new Date()) {
-            Funcoes.Alerta(Funcoes.MSG01);
+            Funcoes.Alerta(MSG01);
             $(this).val("");
             $(".dt_nascimento").parent(".form-group").addClass('has-error').removeClass('has-success');
             $('span#dt_nascimento-info').text("Para maiores de " + idade + " anos");
