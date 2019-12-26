@@ -50,7 +50,7 @@
                         </h2>
                         <?php
                         Modal::load();
-                        $arrColunas = array('Nome', 'Camisa', 'Contatos', 'Participa Pastoral', 'Particiopou Retiro');
+                        $arrColunas = array('Nome', 'Camisa', 'Contatos', 'Pastoral/ Grupo', 'Particiopou Retiro Querigmáico');
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
