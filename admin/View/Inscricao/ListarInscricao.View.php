@@ -40,8 +40,8 @@
                         <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
-                        Modal::ModalConfirmaDesativacao("DesativarInscricao");
-                        Modal::ModalConfirmaAtivacao("AtivarInscricao");
+                        Modal::ModalConfirmaDesativacao("DesativarInscricao", "Deseja realmenta Desativar essa inscrição?", "", '');
+                        Modal::ModalConfirmaAtivacao("AtivarInscricao", "Deseja realmenta Ativar essa inscrição?", "", '');
                         Modal::confirmacao("confirma_Inscricao");
                         $arrColunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Servo',
                             'Membro', 'Pagamento', 'Ações');
@@ -70,13 +70,13 @@
                                         </a>';
                                 } else {
                                     $acao = '<a href="' . PASTAADMIN . 'Inscricao/DetalharInscricao/'
-                                                . Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
+                                        . Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
                                         class="btn btn-primary tooltips" 
                                         data-original-title="Visualizar Registro" data-placement="top">
                                         <i class="fa fa-clipboard"></i>
                                         </a>
                                          <a href="' . PASTAADMIN . 'Inscricao/DetalharPagamento/' .
-                                                Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
+                                        Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '" 
                                          class="btn btn-dark-grey tooltips" 
                                            data-original-title="Detalhes do Pagamento" data-placement="top">
                                             <i class="fa fa-indent"></i>
@@ -91,9 +91,8 @@
                                 }
                             }
                             $enderecoEnt = $inscricao->getCoPessoa()->getCoEndereco();
-                            $endereco = $enderecoEnt->getDsEndereco()   .' - '. $enderecoEnt->getNoCidade(). ' / ' .
-                                $enderecoEnt->getSgUf();
-                            ;
+                            $endereco = $enderecoEnt->getDsEndereco() . ' - ' . $enderecoEnt->getNoCidade() . ' / ' .
+                                $enderecoEnt->getSgUf();;
                             $grid->setColunas(strtoupper($inscricao->getCoPessoa()->getNoPessoa()));
                             $grid->setColunas(Valida::DataShow($inscricao->getDtCadastro(), 'd/m/Y H:i'));
                             $grid->setColunas(Valida::CalculaIdadeAtual($inscricao->getCoPessoa()->getDtNascimento()));

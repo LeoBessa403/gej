@@ -3,13 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost/gej/</loc>
-<lastmod>2019-12-23T22:08:45-02:00</lastmod>
+<lastmod>2019-12-26T20:18:54-02:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1.0</priority >
 </url>
 <url>
 <loc>http://localhost/gej/web/Inscricoes/CadastroAbastecimento</loc>
-<lastmod>2019-12-23T22:08:45-02:00</lastmod>
+<lastmod>2019-12-26T20:18:54-02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority >
 </url>

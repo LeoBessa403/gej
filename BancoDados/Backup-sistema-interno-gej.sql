@@ -1,5 +1,5 @@
--- Atualizado em: 23/12/2019 22:11:35
--- AMBIENTE: http://localhost/gej/
+-- Atualizado em: 26/12/2019 08:49:45
+-- AMBIENTE: https://gejdombosco.com.br/
 -- BANCO: gejdo247_gej
 
 CREATE DATABASE IF NOT EXISTS gejdo247_gej;
@@ -20,7 +20,7 @@ CREATE TABLE `TB_ACESSO` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_ACESSO VALUES("8","3fdf58581b9b7bd3cd957fec61fa9065","2019-05-02 12:57:36","2019-05-02 13:20:32","F","1","35");
@@ -41,21 +41,11 @@ INSERT INTO TB_ACESSO VALUES("15","f65c580b6f124ce6c7b4480e4c10152b","2019-08-04
 
 INSERT INTO TB_ACESSO VALUES("16","f65c580b6f124ce6c7b4480e4c10152b","2019-08-04 21:49:42","2019-08-04 21:52:30","F","22","78");
 
-INSERT INTO TB_ACESSO VALUES("17","022af3f7f5e23c187dde9095d02c99a4","2019-12-16 21:12:03","2019-12-16 21:32:25","F","1","99");
+INSERT INTO TB_ACESSO VALUES("17","022af3f7f5e23c187dde9095d02c99a4","2019-12-16 21:12:03","2019-12-16 21:32:34","F","1","99");
 
-INSERT INTO TB_ACESSO VALUES("18","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:48:45","2019-12-16 21:48:54","F","1","101");
+INSERT INTO TB_ACESSO VALUES("18","022af3f7f5e23c187dde9095d02c99a4","2019-12-16 21:38:36","2019-12-16 22:21:58","F","1","100");
 
-INSERT INTO TB_ACESSO VALUES("19","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:49:04","2019-12-16 21:49:14","F","1","102");
-
-INSERT INTO TB_ACESSO VALUES("20","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:52:25","2019-12-16 21:52:32","F","1","103");
-
-INSERT INTO TB_ACESSO VALUES("21","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:53:17","2019-12-16 21:53:24","F","1","104");
-
-INSERT INTO TB_ACESSO VALUES("22","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:53:52","2019-12-16 21:58:18","F","1","105");
-
-INSERT INTO TB_ACESSO VALUES("23","l03um5urk05n6cidq9fvt1rav6","2019-12-16 21:58:26","2019-12-16 22:22:20","F","1","106");
-
-INSERT INTO TB_ACESSO VALUES("24","l03um5urk05n6cidq9fvt1rav6","2019-12-16 23:20:10","2019-12-16 23:46:55","A","1","107");
+INSERT INTO TB_ACESSO VALUES("19","dce5dd66f0e506072e8c036f012fc7fb","2019-12-23 22:17:49","2019-12-23 22:44:13","F","1","118");
 
 
 
@@ -95,20 +85,20 @@ CREATE TABLE `TB_AGENDA` (
   KEY `fk_TB_AGENDA_TB_ENDERECO1_idx` (`co_endereco`),
   KEY `fk_TB_AGENDA_TB_CATEGORIA_AGENDA1_idx` (`co_categoria_agenda`),
   KEY `fk_TB_AGENDA_TB_EVENTO1_idx` (`co_evento`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO TB_AGENDA VALUES("1","<p>foi legal muito massa</p>\n\n\n","2018-04-08 00:28:20","N","2018-02-10 06:00:00","2018-02-13 21:00:00","VI Retiro de Carnaval Santifique-se","1","238","5","1");
+INSERT INTO TB_AGENDA VALUES("1","<p>foi legal muito massa</p>\n\n","2018-04-08 00:28:20","N","2018-02-10 06:00:00","2018-02-13 21:00:00","VI Retiro de Carnaval Santifique-se","1","238","5","1");
 
-INSERT INTO TB_AGENDA VALUES("2","<p>Espiritualidade de cada elo - Explica&ccedil;&atilde;o e din&acirc;mica (duas verdades e uma mentira: forma de conhecimento)</p>\n\n\n","2018-04-12 19:07:49","N","2018-04-14 15:30:00","0000-00-00 00:00:00"," Espiritualidade de cada elo ","16","240","3","0");
+INSERT INTO TB_AGENDA VALUES("2","<p>Espiritualidade de cada elo - Explica&ccedil;&atilde;o e din&acirc;mica (duas verdades e uma mentira: forma de conhecimento)</p>\n\n","2018-04-12 19:07:49","N","2018-04-14 15:30:00","0000-00-00 00:00:00"," Espiritualidade de cada elo ","16","240","3","0");
 
-INSERT INTO TB_AGENDA VALUES("3","<p>Festival de Pastel&nbsp;</p>\n\n\n","2018-04-12 19:24:27","N","2018-04-14 20:00:00","0000-00-00 00:00:00","Festival de Pastel ","16","241","5","2");
+INSERT INTO TB_AGENDA VALUES("3","<p>Festival de Pastel&nbsp;</p>\n\n","2018-04-12 19:24:27","N","2018-04-14 20:00:00","0000-00-00 00:00:00","Festival de Pastel ","16","241","5","2");
 
-INSERT INTO TB_AGENDA VALUES("4","<p>E o nosso super evento</p>\n\n\n","2018-04-18 23:24:34","N","2018-07-06 20:00:00","2018-07-08 18:00:00","II Abastecimento Espiritual GEJ","7","1","5","3");
+INSERT INTO TB_AGENDA VALUES("4","<p>E o nosso super evento</p>\n\n","2018-04-18 23:24:34","N","2018-07-06 20:00:00","2018-07-08 18:00:00","II Abastecimento Espiritual GEJ","7","1","5","3");
 
-INSERT INTO TB_AGENDA VALUES("5","<p>Nosso encoro fla</p>\n\n\n","2018-04-28 20:21:52","N","2018-04-28 20:00:00","0000-00-00 00:00:00","Encontro semanal","1","243","3","0");
+INSERT INTO TB_AGENDA VALUES("5","<p>Nosso encoro fla</p>\n\n","2018-04-28 20:21:52","N","2018-04-28 20:00:00","0000-00-00 00:00:00","Encontro semanal","1","243","3","0");
 
-INSERT INTO TB_AGENDA VALUES("6","<p>Forma&ccedil;&atilde;o&nbsp;para todos os membros obrigat&oacute;rio a participa&ccedil;&atilde;o nessa super forma&ccedil;&atilde;o favor comparecer</p>\n\n\n","2018-04-28 20:26:47","N","2018-05-26 15:00:00","2018-05-26 18:00:00","Formação Geral Elos","1","244","4","0");
+INSERT INTO TB_AGENDA VALUES("6","<p>Forma&ccedil;&atilde;o&nbsp;para todos os membros obrigat&oacute;rio a participa&ccedil;&atilde;o nessa super forma&ccedil;&atilde;o favor comparecer</p>\n\n","2018-04-28 20:26:47","N","2018-05-26 15:00:00","2018-05-26 18:00:00","Formação Geral Elos","1","244","4","0");
 
 INSERT INTO TB_AGENDA VALUES("7","","2018-05-09 19:33:31","N","2018-03-17 20:00:00","0000-00-00 00:00:00","retiro EAC","16","249","8","0");
 
@@ -122,7 +112,7 @@ INSERT INTO TB_AGENDA VALUES("11","","2018-05-09 20:04:41","N","2018-04-01 12:00
 
 INSERT INTO TB_AGENDA VALUES("12","","2018-05-09 20:15:37","N","2018-04-07 15:00:00","0000-00-00 00:00:00","intensivão da mesa redonda","16","254","3","0");
 
-INSERT INTO TB_AGENDA VALUES("13","<p><strong>n&atilde;o ouve por motivos maior&nbsp;</strong></p>\n\n\n","2018-05-09 20:22:17","N","2018-04-08 05:00:00","0000-00-00 00:00:00","bazar !","16","255","5","0");
+INSERT INTO TB_AGENDA VALUES("13","<p><strong>n&atilde;o ouve por motivos maior&nbsp;</strong></p>\n\n","2018-05-09 20:22:17","N","2018-04-08 05:00:00","0000-00-00 00:00:00","bazar !","16","255","5","0");
 
 INSERT INTO TB_AGENDA VALUES("14","","2018-05-09 20:29:40","N","2018-04-19 19:30:00","0000-00-00 00:00:00","Adoração ","16","256","5","0");
 
@@ -138,19 +128,19 @@ INSERT INTO TB_AGENDA VALUES("19","","2018-05-09 20:49:55","N","2018-05-12 14:50
 
 INSERT INTO TB_AGENDA VALUES("20","","2018-05-09 21:04:55","N","2018-05-12 20:00:00","0000-00-00 00:00:00","intercessão  ","16","262","8","0");
 
-INSERT INTO TB_AGENDA VALUES("22","<p><strong>um momento de nos preparar !&nbsp;<br />\n\n\num retiro fantastico, que com certeza ajuda na caminhada !</strong><br />\n\n\n&nbsp;</p>\n\n\n","2018-05-09 21:25:27","N","2018-05-18 19:00:00","2018-05-20 20:00:00","retiro de silêncio para o conselho e coordenadores","16","264","5","0");
+INSERT INTO TB_AGENDA VALUES("22","<p><strong>um momento de nos preparar !&nbsp;<br />\n\num retiro fantastico, que com certeza ajuda na caminhada !</strong><br />\n\n&nbsp;</p>\n\n","2018-05-09 21:25:27","N","2018-05-18 19:00:00","2018-05-20 20:00:00","retiro de silêncio para o conselho e coordenadores","16","264","5","0");
 
 INSERT INTO TB_AGENDA VALUES("23","","2018-05-10 19:14:39","N","2018-05-19 14:30:00","0000-00-00 00:00:00","encontro semanal ","16","265","3","0");
 
 INSERT INTO TB_AGENDA VALUES("26","","2018-05-10 19:33:09","N","2018-05-27 07:00:00","0000-00-00 00:00:00","Encontro da AJS","16","268","5","0");
 
-INSERT INTO TB_AGENDA VALUES("27","<p><strong>Uma Super Form&ccedil;&atilde;o Greal para o Crescimento do Grupo !</strong></p>\n\n\n","2018-05-10 19:36:35","N","2018-06-02 15:00:00","0000-00-00 00:00:00","Formação Geral","16","269","4","0");
+INSERT INTO TB_AGENDA VALUES("27","<p><strong>Uma Super Form&ccedil;&atilde;o Greal para o Crescimento do Grupo !</strong></p>\n\n","2018-05-10 19:36:35","N","2018-06-02 15:00:00","0000-00-00 00:00:00","Formação Geral","16","269","4","0");
 
-INSERT INTO TB_AGENDA VALUES("28","<p><strong>Um momento de lazer, algo necessario,&nbsp;</strong></p>\n\n\n\n\n\n<p>&nbsp;</p>\n\n\n","2018-05-10 19:40:19","N","2018-06-02 20:00:00","0000-00-00 00:00:00","Cine GEJ","16","270","5","0");
+INSERT INTO TB_AGENDA VALUES("28","<p><strong>Um momento de lazer, algo necessario,&nbsp;</strong></p>\n\n\n\n<p>&nbsp;</p>\n\n","2018-05-10 19:40:19","N","2018-06-02 20:00:00","0000-00-00 00:00:00","Cine GEJ","16","270","5","0");
 
 INSERT INTO TB_AGENDA VALUES("29","","2018-05-10 19:42:26","N","2018-06-09 15:00:00","0000-00-00 00:00:00","formação de Elos ","16","271","4","0");
 
-INSERT INTO TB_AGENDA VALUES("30","<p><strong>O trabalho edifica o homem !</strong></p>\n\n\n","2018-05-10 19:45:25","N","2018-06-10 05:00:00","0000-00-00 00:00:00","Bazar !","16","272","5","0");
+INSERT INTO TB_AGENDA VALUES("30","<p><strong>O trabalho edifica o homem !</strong></p>\n\n","2018-05-10 19:45:25","N","2018-06-10 05:00:00","0000-00-00 00:00:00","Bazar !","16","272","5","0");
 
 INSERT INTO TB_AGENDA VALUES("31","","2018-05-10 19:47:24","N","2018-06-16 15:00:00","0000-00-00 00:00:00","vida de oração","16","273","8","0");
 
@@ -165,6 +155,8 @@ INSERT INTO TB_AGENDA VALUES("35","","2018-05-10 19:58:08","N","2018-06-30 15:00
 INSERT INTO TB_AGENDA VALUES("36","","2018-07-20 10:48:51","N","2018-07-21 19:00:00","2018-07-22 07:00:00","IV Vigília alegria que vem de Deus","1","285","5","17");
 
 INSERT INTO TB_AGENDA VALUES("37","","2018-12-26 22:37:49","N","2019-03-02 06:00:00","2019-03-05 20:00:00","7º Retiro de Carnaval Santifique-se","1","286","5","0");
+
+INSERT INTO TB_AGENDA VALUES("38","","2019-12-16 21:41:53","N","2020-02-22 08:00:00","2020-02-25 18:00:00","8º Retiro de Carnaval Santifique-se","1","393","5","0");
 
 
 
@@ -182,6 +174,8 @@ CREATE TABLE `TB_AGENDA_EVENTO` (
 INSERT INTO TB_AGENDA_EVENTO VALUES("1","0","0");
 
 INSERT INTO TB_AGENDA_EVENTO VALUES("2","0","0");
+
+INSERT INTO TB_AGENDA_EVENTO VALUES("0","0","0");
 
 
 
@@ -266,7 +260,7 @@ CREATE TABLE `TB_AUDITORIA` (
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_auditoria`,`co_usuario`),
   KEY `fk_TB_AUDITORIA_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_AUDITORIA VALUES("1","2019-04-27 23:32:59","Coord. Administrativo, Coordenadores, Membros, Master","1");
@@ -319,6 +313,8 @@ INSERT INTO TB_AUDITORIA VALUES("24","2019-05-11 16:21:49","Coord. Administrativ
 
 INSERT INTO TB_AUDITORIA VALUES("25","2019-05-11 16:22:53","Coord. Administrativo, Coordenadores, Membro, Master","1");
 
+INSERT INTO TB_AUDITORIA VALUES("26","2019-12-16 21:41:53","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
 
 
 
@@ -333,7 +329,7 @@ CREATE TABLE `TB_AUDITORIA_ITENS` (
   `co_auditoria_tabela` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_itens`,`co_auditoria_tabela`),
   KEY `fk_TB_AUDITORIA_ITENS_TB_AUDITORIA_TABELA1_idx` (`co_auditoria_tabela`)
-) ENGINE=InnoDB AUTO_INCREMENT=383 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=404 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_AUDITORIA_ITENS VALUES("1","146","","co_contato","1");
@@ -1100,6 +1096,48 @@ INSERT INTO TB_AUDITORIA_ITENS VALUES("381","6","","co_pedido_camisa","67");
 
 INSERT INTO TB_AUDITORIA_ITENS VALUES("382","1","","co_usuario","67");
 
+INSERT INTO TB_AUDITORIA_ITENS VALUES("383","","Chácara Santa Cruz","ds_endereco","68");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("384","","","ds_complemento","68");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("385","","","ds_bairro","68");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("386","","","nu_cep","68");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("387","","Ceilândia","no_cidade","68");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("388","","DF","sg_uf","68");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("389","","","ds_descricao","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("390","","1","co_usuario","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("391","","2020-02-22 08:00:00","dt_inicio","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("392","","2020-02-25 18:00:00","dt_fim","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("393","","8º Retiro de Carnaval Santifique-se","ds_titulo","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("394","","5","co_categoria_agenda","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("395","","393","co_endereco","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("396","","2019-12-16 21:41:53","dt_cadastro","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("397","","N","st_dia_todo","69");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("398","","","co_evento","70");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("399","","2019-12-16 21:41:53","dt_cadastro","71");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("400","","2","co_categoria_evento","71");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("401","","38","co_agenda","71");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("402","","38","co_agenda","72");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("403","","3","co_perfil","72");
+
 
 
 
@@ -1114,7 +1152,7 @@ CREATE TABLE `TB_AUDITORIA_TABELA` (
   `co_auditoria` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_tabela`,`co_auditoria`),
   KEY `fk_TB_AUDITORIA_TABELA_TB_AUDITORIA1_idx` (`co_auditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("1","TB_CONTATO","U","146","1");
@@ -1124,6 +1162,8 @@ INSERT INTO TB_AUDITORIA_TABELA VALUES("2","TB_ENDERECO","U","143","1");
 INSERT INTO TB_AUDITORIA_TABELA VALUES("3","TB_PESSOA","U","143","1");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("4","TB_USUARIO","U","25","1");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("5","TB_USUARIO_PERFIL","D","","1");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("6","TB_USUARIO_PERFIL","I","220","1");
 
@@ -1138,6 +1178,8 @@ INSERT INTO TB_AUDITORIA_TABELA VALUES("10","TB_ENDERECO","U","104","2");
 INSERT INTO TB_AUDITORIA_TABELA VALUES("11","TB_PESSOA","U","104","2");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("12","TB_USUARIO","U","17","2");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("13","TB_USUARIO_PERFIL","D","","2");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("14","TB_USUARIO_PERFIL","I","223","2");
 
@@ -1197,21 +1239,31 @@ INSERT INTO TB_AUDITORIA_TABELA VALUES("41","TB_PED_CAM_TAMANHO_COR","I","11","1
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("42","TB_CAMISA","U","1","15");
 
+INSERT INTO TB_AUDITORIA_TABELA VALUES("43","TB_CAMISA_COR_CAMISA","D","","15");
+
 INSERT INTO TB_AUDITORIA_TABELA VALUES("44","TB_CAMISA_COR_CAMISA","I","2","15");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("45","TB_CAMISA","U","1","16");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("46","TB_CAMISA_COR_CAMISA","D","","16");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("47","TB_CAMISA_COR_CAMISA","I","3","16");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("48","TB_CAMISA","U","1","17");
 
+INSERT INTO TB_AUDITORIA_TABELA VALUES("49","TB_CAMISA_COR_CAMISA","D","","17");
+
 INSERT INTO TB_AUDITORIA_TABELA VALUES("50","TB_CAMISA_COR_CAMISA","I","4","17");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("51","TB_CAMISA","U","1","18");
 
+INSERT INTO TB_AUDITORIA_TABELA VALUES("52","TB_CAMISA_COR_CAMISA","D","","18");
+
 INSERT INTO TB_AUDITORIA_TABELA VALUES("53","TB_CAMISA_COR_CAMISA","I","5","18");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("54","TB_CAMISA","U","1","19");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("55","TB_CAMISA_COR_CAMISA","D","","19");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("56","TB_CAMISA_COR_CAMISA","I","6","19");
 
@@ -1220,6 +1272,8 @@ INSERT INTO TB_AUDITORIA_TABELA VALUES("57","TB_PERFIL_FUNCIONALIDADE","I","29",
 INSERT INTO TB_AUDITORIA_TABELA VALUES("58","TB_PERFIL_FUNCIONALIDADE","I","30","21");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("59","TB_PERFIL","U","3","22");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("60","TB_PERFIL_FUNCIONALIDADE","D","","22");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("61","TB_PERFIL_FUNCIONALIDADE","I","31","22");
 
@@ -1234,6 +1288,16 @@ INSERT INTO TB_AUDITORIA_TABELA VALUES("65","TB_PED_CAM_TAMANHO_COR","U","4","24
 INSERT INTO TB_AUDITORIA_TABELA VALUES("66","TB_PEDIDO_CAMISA","U","6","25");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("67","TB_PED_CAM_TAMANHO_COR","U","6","25");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("68","TB_ENDERECO","I","393","26");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("69","TB_AGENDA","I","38","26");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("70","TB_AGENDA_EVENTO","I","0","26");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("71","TB_EVENTO","I","19","26");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("72","TB_PERFIL_AGENDA","I","67","26");
 
 
 
@@ -2099,7 +2163,7 @@ CREATE TABLE `TB_CRONS` (
   `no_cron` varchar(70) DEFAULT NULL,
   `ds_sql` text,
   PRIMARY KEY (`co_cron`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 
 
@@ -2144,7 +2208,7 @@ CREATE TABLE `TB_ENDERECO` (
   `no_cidade` varchar(80) DEFAULT NULL,
   `sg_uf` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`co_endereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=393 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=394 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_ENDERECO VALUES("1","qr 403 conjunto 10 casa 28","","Samambaia Norte","72319111","Brasília","DF");
@@ -2865,6 +2929,8 @@ INSERT INTO TB_ENDERECO VALUES("391","Quadra 03","Cond Flores da Serra Quadra 02
 
 INSERT INTO TB_ENDERECO VALUES("392","Quadra 12 Conjunto M casa 9","","Setor Sul (Gama)","72415613","Brasília","DF");
 
+INSERT INTO TB_ENDERECO VALUES("393","Chácara Santa Cruz","","","","Ceilândia","DF");
+
 
 
 
@@ -2881,7 +2947,7 @@ CREATE TABLE `TB_EVENTO` (
   KEY `fk_TB_EVENTO_TB_IMAGEM1_idx` (`co_imagem`),
   KEY `fk_TB_EVENTO_TB_AGENDA1_idx` (`co_agenda`),
   KEY `fk_TB_EVENTO_TB_CATEGORIA_EVENTO1_idx` (`co_categoria_evento`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_EVENTO VALUES("1","2018-04-08 00:28:20","236","1","2");
@@ -2919,6 +2985,8 @@ INSERT INTO TB_EVENTO VALUES("16","2018-05-10 20:04:53","0","36","2");
 INSERT INTO TB_EVENTO VALUES("17","2018-07-20 10:48:51","0","36","3");
 
 INSERT INTO TB_EVENTO VALUES("18","2018-12-26 22:37:49","0","37","2");
+
+INSERT INTO TB_EVENTO VALUES("19","2019-12-16 21:41:53","0","38","2");
 
 
 
@@ -3064,7 +3132,7 @@ INSERT INTO TB_HISTORIA VALUES("4","Integrar Loja do Bicalho na Ferramenta","<p>
 
 INSERT INTO TB_HISTORIA VALUES("5","Chamada das formações","<p>Chamada das forma&ccedil;&otilde;es (Coordenadores de forma&ccedil;&atilde;o) das forma&ccedil;&otilde;es marcadas na agenda</p>","2019-04-05 15:57:59","2019-04-05 15:58:17","N","7");
 
-INSERT INTO TB_HISTORIA VALUES("6","Manter agenda","<p>Tela de visualiza&ccedil;&atilde;o e edi&ccedil;&atilde;o da agenda validando por perfil, trazer aniversariantes<br />\n\n\n&nbsp;</p>","2019-04-05 15:59:15","2019-04-05 15:59:15","N","6");
+INSERT INTO TB_HISTORIA VALUES("6","Manter agenda","<p>Tela de visualiza&ccedil;&atilde;o e edi&ccedil;&atilde;o da agenda validando por perfil, trazer aniversariantes<br />\n\n&nbsp;</p>","2019-04-05 15:59:15","2019-04-05 15:59:15","N","6");
 
 INSERT INTO TB_HISTORIA VALUES("7","Manter Peça teatro","<p>Manter Pe&ccedil;a teatro (Nome, roteiro, musicas)</p>","2019-04-05 16:02:21","2019-04-05 16:02:21","N","8");
 
@@ -3870,17 +3938,17 @@ CREATE TABLE `TB_INSCRICAO` (
 ) ENGINE=InnoDB AUTO_INCREMENT=437 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO TB_INSCRICAO VALUES("1","","N","2017-12-30 19:59:43","A","N","N","","4","LEILA TOMINAGA","61982522602","Sou top\n\n\nSou Filha de Dom Bosco\n\n\nA neném dos tios Tominaga","","Sou diabética.","","1","2","2");
+INSERT INTO TB_INSCRICAO VALUES("1","","N","2017-12-30 19:59:43","A","N","N","","4","LEILA TOMINAGA","61982522602","Sou top\n\nSou Filha de Dom Bosco \n\nA neném dos tios Tominaga","","Sou diabética.","","1","2","2");
 
 INSERT INTO TB_INSCRICAO VALUES("2","","S","2017-12-04 12:45:16","D","N","N","","8","MãE","6134588070","Sou o Igor! ","","","","1","3","3");
 
 INSERT INTO TB_INSCRICAO VALUES("3","Grupo Jovem Arcanjos e EJNS","S","2018-01-06 19:32:35","A","N","N","","2","MINHA MãE LúCIA","61986280131","Não sei falar muito sobre mim não, mas tudo bem.. Tenho 17 anos, gosto de participar de retiros e eu amei participar do Santifique-se esse ano.. Gosto de dançar, ler, estudar e aprender coisas diferentes ou no mínimo novas, além de conversar e ouvir as pessoas.","","","","1","4","4");
 
-INSERT INTO TB_INSCRICAO VALUES("4","GEJ Dom Bosco","S","2017-12-30 19:23:11","A","S","S","","8","MãE ","61991774916","Sou um rapaz muito ativo, participativo, alegre é muito sério também.\n\n\nNão sou muito fã de falar de mim, mas sou isto e um pouco mais !","","","","1","189","5");
+INSERT INTO TB_INSCRICAO VALUES("4","GEJ Dom Bosco","S","2017-12-30 19:23:11","A","S","S","","8","MãE ","61991774916","Sou um rapaz muito ativo, participativo, alegre é muito sério também.\n\nNão sou muito fã de falar de mim, mas sou isto e um pouco mais !","","","","1","189","5");
 
 INSERT INTO TB_INSCRICAO VALUES("5","Acólitos e coroinhas","N","2017-12-30 19:23:25","A","S","S","","7","MãE ","62999535024","Sou gente boa","","","","1","6","6");
 
-INSERT INTO TB_INSCRICAO VALUES("6","","N","2018-01-08 10:30:31","A","S","S","","3","KêNIA ","61930825870","Amanda\n\n\n19 anos","","","","1","7","7");
+INSERT INTO TB_INSCRICAO VALUES("6","","N","2018-01-08 10:30:31","A","S","S","","3","KêNIA ","61930825870","Amanda\n\n19 anos","","","","1","7","7");
 
 INSERT INTO TB_INSCRICAO VALUES("7","Gej","N","2017-12-30 19:59:54","A","S","S","","2","MINHA MãE ","61994186538","Eu me chamo Jerlane sou do gej tenho  16 anos sou extrovertida brincalhona meiga seria amuuh participar dos eventos do gej amuuh fazer amizade com as pessoas","","","","1","8","8");
 
@@ -3908,15 +3976,15 @@ INSERT INTO TB_INSCRICAO VALUES("19","grupo jovem luz e fogo","S","2017-12-05 13
 
 INSERT INTO TB_INSCRICAO VALUES("20","","N","2017-12-06 00:39:45","D","N","N","","2","MARIO ROBERTO","61983261868","Meu nome é Verônica, tenho 17 anos, não participo de nenhuma pastoral, mas todo domingo vou a missa. Sou uma pessoa muito feliz e que ama a igreja católica.","","","","1","21","21");
 
-INSERT INTO TB_INSCRICAO VALUES("21","GEJ DOM BOSCO","S","2017-12-30 19:29:46","A","S","S","","6","MãE ","61986130447","oie, sou tolerante a lactose e sensível à glúten então plmrdds lembrem-se disso quando forem montar o cardápio, grata.\n\n\nP.S.: ficou faltando um lugarzinho para colocar restrições alimentares e se tem alguma doença/se precisa de medicação.","","","","1","73","22");
+INSERT INTO TB_INSCRICAO VALUES("21","GEJ DOM BOSCO","S","2017-12-30 19:29:46","A","S","S","","6","MãE ","61986130447","oie, sou tolerante a lactose e sensível à glúten então plmrdds lembrem-se disso quando forem montar o cardápio, grata. \n\nP.S.: ficou faltando um lugarzinho para colocar restrições alimentares e se tem alguma doença/se precisa de medicação.","","","","1","73","22");
 
 INSERT INTO TB_INSCRICAO VALUES("22","Catequese, Cerimoniários e Música","N","2017-12-06 23:15:25","A","N","N","","6","MARIA DAS GRAçAS","61934593014","Há um tempo que já estou na caminhada, além disso, sou consagrado à Santíssima Virgem e participo da Paróquia Santo Inácio de Loyola.","","","","1","23","23");
 
 INSERT INTO TB_INSCRICAO VALUES("23","Assunção","S","2017-12-07 00:26:21","D","N","N","","6","BEATRIZ","61993116666","Sou bastante amigo e faço amizade rápido","","","","1","24","24");
 
-INSERT INTO TB_INSCRICAO VALUES("24","Ministério de Coroinhas e Acólitos de São Tarcísio, Ministério Jovem (RCC)","S","2017-12-07 17:42:39","A","N","N","","4","EDI ","61986521612","Sou uma garota que não faz muito tempo q se converteu por inteiro, mais ou menos 1 ano.\n\n\nFui pro meu 1° retiro faz pouco tempo, e foi uma graça, estou querendo ir para esse para começar o ano com o pé direito mas graça de Deus","","","","1","25","25");
+INSERT INTO TB_INSCRICAO VALUES("24","Ministério de Coroinhas e Acólitos de São Tarcísio, Ministério Jovem (RCC)","S","2017-12-07 17:42:39","A","N","N","","4","EDI ","61986521612","Sou uma garota que não faz muito tempo q se converteu por inteiro, mais ou menos 1 ano.\n\nFui pro meu 1° retiro faz pouco tempo, e foi uma graça, estou querendo ir para esse para começar o ano com o pé direito mas graça de Deus","","","","1","25","25");
 
-INSERT INTO TB_INSCRICAO VALUES("25","Grupo de Coroinhas, Grupo Jovem Adonai","S","2017-12-07 20:21:09","A","N","N","","7","LEILA TOMINAGA","61982512602","Filho dos Tios Tominaga, Irmão da Tominaga.\n\n\n##########  Saúde ###########\n\n\n- Alergia a temperos industriais(Sazon, Ajinomoto, Knorr, Maggi e etc).\n\n\n- Sangue tipo B+","","","","1","26","26");
+INSERT INTO TB_INSCRICAO VALUES("25","Grupo de Coroinhas, Grupo Jovem Adonai","S","2017-12-07 20:21:09","A","N","N","","7","LEILA TOMINAGA","61982512602","Filho dos Tios Tominaga, Irmão da Tominaga. \n\n##########  Saúde ###########\n\n- Alergia a temperos industriais(Sazon, Ajinomoto, Knorr, Maggi e etc).\n\n- Sangue tipo B+","","","","1","26","26");
 
 INSERT INTO TB_INSCRICAO VALUES("26","","N","2017-12-08 09:28:35","D","N","N","","7","ANDERSON JOAQUIM DE SANTANA","61932018084","Sou uma pessoa pouco comunicativa com quem não conheço. Odeio falsidade. Estou tá igreja tem um tempinho mas dei uma afastada e estou querendo voltar.","","","","1","27","27");
 
@@ -3924,7 +3992,7 @@ INSERT INTO TB_INSCRICAO VALUES("27","Gej","S","2018-01-05 17:32:01","A","S","S"
 
 INSERT INTO TB_INSCRICAO VALUES("28","Gej dom Bosco","S","2017-12-08 23:24:28","D","S","N","","3","MãE","6133571919","Sou tranquila,eu gosto de fazer as minhas coisas na hora certa","","","","1","29","29");
 
-INSERT INTO TB_INSCRICAO VALUES("29","","N","2018-01-16 23:27:31","A","S","S","","4","LUCILENE AGUIAR","61995990533","\"Sou apenas um lápis na mão de Deus É ele quem me escreve.\"\n\n\nMadre Teresa de Calcutá","","","","1","31","30");
+INSERT INTO TB_INSCRICAO VALUES("29","","N","2018-01-16 23:27:31","A","S","S","","4","LUCILENE AGUIAR","61995990533","\"Sou apenas um lápis na mão de Deus É ele quem me escreve.\" \n\nMadre Teresa de Calcutá","","","","1","31","30");
 
 INSERT INTO TB_INSCRICAO VALUES("30","","N","2017-12-09 15:40:18","D","N","N","","4","GESLâNIA ","6199043516","Fui convidado por um membro do grupo e  decidi participar para ouvir sobre a palavra do senhor  e conhecer o pessoal da igreja com o intuito de complemento ao grupo","","","","1","32","32");
 
@@ -3954,7 +4022,7 @@ INSERT INTO TB_INSCRICAO VALUES("42","Gej","S","2017-12-30 19:31:22","A","S","S"
 
 INSERT INTO TB_INSCRICAO VALUES("43","","S","2017-12-18 22:16:45","D","N","N","","3","MãE","61985754119","Sou do grupo JEDI da paróquia São João Batista.","","Alérgica a corante , intolerante a lactose","","1","54","55");
 
-INSERT INTO TB_INSCRICAO VALUES("44","Grupo Jovem","S","2017-12-30 19:31:55","A","N","N","","3","EDILEUZA MãE","61984946458","Não gosto de falar sobre mim\n\n\nRs rs :)","Omeprazol","Intolerância à lactose","","1","55","56");
+INSERT INTO TB_INSCRICAO VALUES("44","Grupo Jovem","S","2017-12-30 19:31:55","A","N","N","","3","EDILEUZA MãE","61984946458","Não gosto de falar sobre mim \n\nRs rs :)","Omeprazol","Intolerância à lactose","","1","55","56");
 
 INSERT INTO TB_INSCRICAO VALUES("45","Grupo JEDI","N","2018-01-21 21:56:12","A","N","N","","7","MARIA JOSé","61991340627","Bem humorado, paciente, verdadeiro legal","Não","Não","","1","56","57");
 
@@ -3978,7 +4046,7 @@ INSERT INTO TB_INSCRICAO VALUES("54","","S","2017-12-24 15:13:28","D","N","N",""
 
 INSERT INTO TB_INSCRICAO VALUES("55","Gej dom Bosco","S","2017-12-26 11:17:29","D","S","S","","3","MáRCIA FRANCINA DE OLIVEIRA ","61985175039","Sou uma pessoa que e brincalhona, ama retiro e chora muito nos retiros, tenho um amor imenso por nossa senhora e o título que mais amo e nossa senhora aparecida","Quando tenho crise de enxaqueca eu tomo (ibuprofeno, dipirona e etc.)","Não tenho","","1","67","69");
 
-INSERT INTO TB_INSCRICAO VALUES("56","","S","2017-12-26 11:34:19","D","N","N","","3","JOELMA  MãE","61992419993","Bom...\n\n\nEstou afastada da igreja no momento, estou querendo me reconciliar e voltar de vez.","Não","Não","","1","68","70");
+INSERT INTO TB_INSCRICAO VALUES("56","","S","2017-12-26 11:34:19","D","N","N","","3","JOELMA  MãE","61992419993","Bom...\n\nEstou afastada da igreja no momento, estou querendo me reconciliar e voltar de vez.","Não","Não","","1","68","70");
 
 INSERT INTO TB_INSCRICAO VALUES("57","Grupo de jovens Fillis Mater Dei","S","2017-12-26 13:34:49","D","N","N","","3","LúCIA","61984651243","18 anos, consagrada a Nossa Senhora de Fátima, Coordenadora do Grupo Jovem Fmd, frequente na Paróquia Nossa Senhora da Assunção.","","","","1","69","71");
 
@@ -3986,7 +4054,7 @@ INSERT INTO TB_INSCRICAO VALUES("58","Catequese e grupo de jovem","S","2017-12-2
 
 INSERT INTO TB_INSCRICAO VALUES("59","","S","2017-12-27 14:49:41","A","N","N","","6","ROSANGELA ALVES MENDES","61985548484","Sou uma pessoa tímida mas que gosta muito de diversão...","","","","1","71","73");
 
-INSERT INTO TB_INSCRICAO VALUES("60","Jupes","S","2017-12-28 13:35:44","D","N","N","","7","LOURDES","61982478621","Paróquia São Paulo apóstolo\n\n\nCoordenadora 2018-2019 grupo de jovens\n\n\nSanta Terezinha s2","","","","1","74","76");
+INSERT INTO TB_INSCRICAO VALUES("60","Jupes","S","2017-12-28 13:35:44","D","N","N","","7","LOURDES","61982478621","Paróquia São Paulo apóstolo \n\nCoordenadora 2018-2019 grupo de jovens\n\nSanta Terezinha s2","","","","1","74","76");
 
 INSERT INTO TB_INSCRICAO VALUES("61","","S","2017-12-28 22:26:05","A","N","N","","6","PAI","992263829","Eu sou da paróquia São João Evangelista  da samambaia norte  e faço parte do grupo de oração.","Eu uso o remédio contra crise de ansiedade.Chama fluoxetina,todos os dias pela manhã.","Não","","1","75","77");
 
@@ -4032,7 +4100,7 @@ INSERT INTO TB_INSCRICAO VALUES("82","","N","2018-01-06 19:04:42","D","N","N",""
 
 INSERT INTO TB_INSCRICAO VALUES("83","GEJ Dom Bosco","S","2018-01-08 10:29:58","A","S","S","","4","MARIA PEREIRA DOS SANTOS DIAS","61933593317","Tenho 20 anos, faço Direito na UnB, estou estagiando do Tribunal de Contas do DF. Amo chocolate, sorvete e amo ouvir música.","","","","1","98","101");
 
-INSERT INTO TB_INSCRICAO VALUES("84","","N","2018-01-06 21:44:40","A","N","N","","5","ELIOMARA SOARES CONCEIçãO","61999898071","Bom, tenho 17 anos e sou estudante.\n\n\nO que eu mais gosto de fazer é nadar e ficar em casa, às vezes dou umas saídas mas nem sempre.\n\n\nSou alegre e um pouco sem paciência.","Não","Não","","1","100","102");
+INSERT INTO TB_INSCRICAO VALUES("84","","N","2018-01-06 21:44:40","A","N","N","","5","ELIOMARA SOARES CONCEIçãO","61999898071","Bom, tenho 17 anos e sou estudante.\n\nO que eu mais gosto de fazer é nadar e ficar em casa, às vezes dou umas saídas mas nem sempre. \n\nSou alegre e um pouco sem paciência.","Não","Não","","1","100","102");
 
 INSERT INTO TB_INSCRICAO VALUES("85","","N","2018-01-06 22:00:18","A","N","N","","3","MARIA ORLINDA B L GOMES","6134595379","já fiz vários retiros","","","","1","101","103");
 
@@ -4094,7 +4162,7 @@ INSERT INTO TB_INSCRICAO VALUES("113","ajuc","S","2018-01-18 20:01:59","A","N","
 
 INSERT INTO TB_INSCRICAO VALUES("114","","N","2018-01-16 12:00:04","A","N","N","","8","EDIVANIA FERNANDES DE ARAúJO XAVIER","38999024362","Não gosto das festas de carnaval,e procuro fazer novas amizades que somem na minha vida! Não tem lugar melhor para isso, do que este retiro.","","","","1","131","134");
 
-INSERT INTO TB_INSCRICAO VALUES("115","Grupo Jovem Adonai","N","2018-01-16 22:24:36","A","N","S","","7","RONNY TOMINAGA","61984352161","-SOU A TIA TOMINAGA\n\n\n-DIABÉTICA\n\n\n-MÃE DO EDU E DA RIDICULA DA AMANDA KK\n\n\n-AMO O GEJ E AGRADEÇO O CONVITE DE TRABALHAR NO RETIRO\n\n\n-AMO DOM BOSCO\n\n\n-CASADA COM O TIO TOMINAGA","Mediformina\n\n\nDiamocron","Camarão","","1","132","135");
+INSERT INTO TB_INSCRICAO VALUES("115","Grupo Jovem Adonai","N","2018-01-16 22:24:36","A","N","S","","7","RONNY TOMINAGA","61984352161","-SOU A TIA TOMINAGA\n\n-DIABÉTICA \n\n-MÃE DO EDU E DA RIDICULA DA AMANDA KK\n\n-AMO O GEJ E AGRADEÇO O CONVITE DE TRABALHAR NO RETIRO \n\n-AMO DOM BOSCO \n\n-CASADA COM O TIO TOMINAGA","Mediformina \n\nDiamocron","Camarão","","1","132","135");
 
 INSERT INTO TB_INSCRICAO VALUES("116","CATEQUISTA","S","2018-01-19 23:42:49","A","N","N","","8","DIONÍSIO DE OLIVEIRA LIMA JUNIOR ","61981990261","Tenho 29 anos... Gosto de fazer retiros, para buscar cada vez mais aprender. Estar sempre perto de Deus e buscar cada vez mais minha santidade. Sou tagarela, sorridente, faço amizades com facilidade e espero que Deus possa me mostrar algo diferente de todas que já vivenciei!","Sim, fica comigo e sei os horários.","Não","","1","133","136");
 
@@ -4114,7 +4182,7 @@ INSERT INTO TB_INSCRICAO VALUES("123","Pastoral Familiar","S","2018-01-17 21:03:
 
 INSERT INTO TB_INSCRICAO VALUES("124","","S","2018-01-17 21:26:51","D","N","N","","6","MARIA DO SOCORRO RODRIGUES SANTOS","6133590378","Eu sou católica, consagrada a 2 anos, amo comer e dormir, amo a igreja e valorizo muito a família e minhas amizades.","","","","1","141","144");
 
-INSERT INTO TB_INSCRICAO VALUES("125","","N","2018-01-18 10:04:17","A","N","N","","6","WESLEY ","61998739058","Sou uma pessoa bem legal, amavel, forte, a príncipio não sou muito comunicativa, tenho um pouco de dificuldade nisso, timidez, geralmente   tenho necessidade de ter uma certa intimidade, amizade. Também sou observadora que só e sou bastante família.","Para hipertensão.\n\n\nTomo pela manhã em jejum.","Até o momento, não.","","1","142","145");
+INSERT INTO TB_INSCRICAO VALUES("125","","N","2018-01-18 10:04:17","A","N","N","","6","WESLEY ","61998739058","Sou uma pessoa bem legal, amavel, forte, a príncipio não sou muito comunicativa, tenho um pouco de dificuldade nisso, timidez, geralmente   tenho necessidade de ter uma certa intimidade, amizade. Também sou observadora que só e sou bastante família.","Para hipertensão. \n\nTomo pela manhã em jejum.","Até o momento, não.","","1","142","145");
 
 INSERT INTO TB_INSCRICAO VALUES("126","","N","2018-01-18 13:13:12","A","N","N","","8","ANTONIA SIMONE ","61985785437","Não tenho nada para falar.","","Alergia leve com, Trigo, chocolate e derivados.","","1","143","146");
 
@@ -4156,7 +4224,7 @@ INSERT INTO TB_INSCRICAO VALUES("144","","S","2018-01-24 13:41:02","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("145","","N","2018-01-25 14:44:32","A","N","N","","6","MARGARETE DESCONZI","3836471034","23 anos","","","","1","171","174");
 
-INSERT INTO TB_INSCRICAO VALUES("146","Grupo Jovem Adonai, Ministério Paraclitus","N","2018-01-25 18:44:53","A","N","N","","7","ANTôNIA ALVES DE OLIVEIRA ","61984880796","Sou namorado da Tominaga\n\n\nSou do Adonai\n\n\nSou tímido\n\n\nSou baixista\n\n\nSou da Paraclitus\n\n\nSou filho único\n\n\nAmo minha namorada♡. (Ps. nem é ela que ta preenchendo a inscrição)","Bomba de asma(em caso de crise asmática)","","","1","172","175");
+INSERT INTO TB_INSCRICAO VALUES("146","Grupo Jovem Adonai, Ministério Paraclitus","N","2018-01-25 18:44:53","A","N","N","","7","ANTôNIA ALVES DE OLIVEIRA ","61984880796","Sou namorado da Tominaga \n\nSou do Adonai \n\nSou tímido \n\nSou baixista \n\nSou da Paraclitus \n\nSou filho único \n\nAmo minha namorada♡. (Ps. nem é ela que ta preenchendo a inscrição)","Bomba de asma(em caso de crise asmática)","","","1","172","175");
 
 INSERT INTO TB_INSCRICAO VALUES("147","","S","2018-01-26 08:45:13","A","N","N","","3","PAI ","61992108927",".","","","","1","173","176");
 
@@ -4176,7 +4244,7 @@ INSERT INTO TB_INSCRICAO VALUES("154","","N","2018-01-27 18:47:05","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("155","GEJ DOM BOSCO","S","2018-01-27 23:36:11","A","S","S","","7","TIA ZEZE","61930835505","Simpático e engraçado. Super amigo e Carismático.","Não","Não posso comer carne","","1","181","184");
 
-INSERT INTO TB_INSCRICAO VALUES("156","Catequese e Coordenação de grupo de coroinhas","S","2018-01-28 22:46:17","A","N","N","","4","MARIA DE NAZARé","61983663811","Sou uma pessoa que gosta de ajudar as outras, é o que mais me dar prazer na vida. Sou bastante tímida, mas depois consigo me soltar com o tempo, estou com relacionamento fragilizado no que diz respeito a mim e Deus por causa de uma tentativa de suicídio, e espero de todo coração voltar a ter alegria e está novamente ao lado Dele.","Após o café da manhã : Exodus ( 1 comprimido), Sulfato Ferroso ( 1 cp), Cálcio (2 cps) e materna (1 cp).\n\n\nAntes de dormir: Donaren ( 1 cp) e Carbolitium ( 1 cp).","Gordura e açúcar.","","1","182","185");
+INSERT INTO TB_INSCRICAO VALUES("156","Catequese e Coordenação de grupo de coroinhas","S","2018-01-28 22:46:17","A","N","N","","4","MARIA DE NAZARé","61983663811","Sou uma pessoa que gosta de ajudar as outras, é o que mais me dar prazer na vida. Sou bastante tímida, mas depois consigo me soltar com o tempo, estou com relacionamento fragilizado no que diz respeito a mim e Deus por causa de uma tentativa de suicídio, e espero de todo coração voltar a ter alegria e está novamente ao lado Dele.","Após o café da manhã : Exodus ( 1 comprimido), Sulfato Ferroso ( 1 cp), Cálcio (2 cps) e materna (1 cp).\n\nAntes de dormir: Donaren ( 1 cp) e Carbolitium ( 1 cp).","Gordura e açúcar.","","1","182","185");
 
 INSERT INTO TB_INSCRICAO VALUES("157","","S","2018-01-29 08:01:33","A","N","N","","3","ROSANA ","61998129491","Eu sofro de crises convulsivas ( convulsão) e  tenho TDH ( déficit de atenção)","Tegretol tomar as 7hrs da manhã e as 7hrs da noite","","","1","183","186");
 
@@ -4200,13 +4268,13 @@ INSERT INTO TB_INSCRICAO VALUES("166","","N","2018-02-02 11:05:14","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("167","Cerimoniário e GEJ","S","2018-02-02 15:29:32","A","S","N","","8","SOLANGE ","61992687082","Sou uma pessoa Top","","","","1","194","197");
 
-INSERT INTO TB_INSCRICAO VALUES("168","","N","2018-02-02 15:54:49","A","N","N","","8","SOLANGE ","61992687082","Sou muito seria, porem legal ! não gosto de muitas brincadeiras...\n\n\nMas garanto que sou um amor de pessoa.","","","","1","196","199");
+INSERT INTO TB_INSCRICAO VALUES("168","","N","2018-02-02 15:54:49","A","N","N","","8","SOLANGE ","61992687082","Sou muito seria, porem legal ! não gosto de muitas brincadeiras...\n\nMas garanto que sou um amor de pessoa.","","","","1","196","199");
 
 INSERT INTO TB_INSCRICAO VALUES("169","","S","2018-02-03 12:31:21","A","S","N","","7","EDILEUZA","61995264082","Sou o Diego kk","Não","Não","","1","197","200");
 
 INSERT INTO TB_INSCRICAO VALUES("170","","S","2018-02-03 22:41:21","A","N","N","","7","EDNA","6195648386","Sou Soniara, tenho 28 anos, moro no Guará, sou estudante da UnB do curso de Serviço Social, gosto de música, não frequento nenhum grupo jovem, gosto de dormir e de ler.","Não.","Não.","","1","198","201");
 
-INSERT INTO TB_INSCRICAO VALUES("171","","S","2018-02-03 22:44:49","A","N","N","","6","MAE","61998143543","Alguem em busca de seus objetivos, creio que na presença de Deus nada sera impossivel para quem nele cre.\n\n\nEstudo psicologia o que me ajuda cada vez mais a ter amor,compaixão e solidariedade com meu proximo.","sim.\n\n\npropanolol duas vezes ao dia 11:00 da manha e 23:00 da noite\n\n\npaara pressão.","nao.","","1","199","202");
+INSERT INTO TB_INSCRICAO VALUES("171","","S","2018-02-03 22:44:49","A","N","N","","6","MAE","61998143543","Alguem em busca de seus objetivos, creio que na presença de Deus nada sera impossivel para quem nele cre.\n\nEstudo psicologia o que me ajuda cada vez mais a ter amor,compaixão e solidariedade com meu proximo.","sim.\n\npropanolol duas vezes ao dia 11:00 da manha e 23:00 da noite\n\npaara pressão.","nao.","","1","199","202");
 
 INSERT INTO TB_INSCRICAO VALUES("172","","S","2018-02-03 22:49:55","A","N","N","","7","EDNA ","6195648386","Sou Júlia, tenho 20 anos, estudante de Pedagogia da UnB, apaixonada por escolarização de surdos, gosto de dormir, comer, ler e ser feliz! :)","Não.","Não.","","1","200","203");
 
@@ -4218,7 +4286,7 @@ INSERT INTO TB_INSCRICAO VALUES("175","","S","2018-02-04 19:27:59","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("176","","N","2018-02-04 22:26:21","A","N","N","","8","EDIVANIA","61985788495",".","","","","1","204","207");
 
-INSERT INTO TB_INSCRICAO VALUES("177","Grupo Jovem","S","2018-02-05 02:06:05","A","N","N","","3","MARCUS VINICIUS GOMES CIRILO","61982886539","Estudante de Enfermagem, namoro, coordeno o Grupo Jovem Getsêmani na Paróquia São Domingos Sávio (R.Fundo1). Espero que o retiro possa fazer com que eu viva mais uma experiencia com Jesus e que isso fortaleça os chamados de Cristo pra mim.\n\n\nVAI SER UM PIPOCO!!!","","","","1","205","208");
+INSERT INTO TB_INSCRICAO VALUES("177","Grupo Jovem","S","2018-02-05 02:06:05","A","N","N","","3","MARCUS VINICIUS GOMES CIRILO","61982886539","Estudante de Enfermagem, namoro, coordeno o Grupo Jovem Getsêmani na Paróquia São Domingos Sávio (R.Fundo1). Espero que o retiro possa fazer com que eu viva mais uma experiencia com Jesus e que isso fortaleça os chamados de Cristo pra mim.\n\nVAI SER UM PIPOCO!!!","","","","1","205","208");
 
 INSERT INTO TB_INSCRICAO VALUES("178","","N","2018-02-05 16:43:17","A","N","N","","7","ELIETE APARECIDA BARROSO","6130814590","Sou de boa","Não","Não","","1","206","209");
 
@@ -4270,7 +4338,7 @@ INSERT INTO TB_INSCRICAO VALUES("201","","N","2018-02-09 12:34:26","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("202","","N","2018-02-09 13:22:02","A","N","N","","7","JOSEJA SOMBRA","61992952077","Bem, eu tenho fobia de lugar cheio. Porém achei que ir pro retiro ia me ajudar nisso","","","","1","230","233");
 
-INSERT INTO TB_INSCRICAO VALUES("203","","S","2018-02-09 13:30:25","A","N","N","","2","ROSANGELA","93992049717","Meu nome é Alexsandra, tenho 22 anos, acabei de me formar em engenharia civil, e no meu último ano foi um pouco difícil conciliar faculdade com a igreja, o que fez me afastar um pouco, porém sempre entreguei meu sonho e minhas dificuldades nas mãos de Deus com a intercessão da Virgem Maria para que não desistisse.\n\n\nParticipei do Santifique-se em 2017 e foi uma experiência sensacional, e tenho certeza que será melhor ainda, porque hoje tenho mais a agradecer do que pedir.","Não","Não","","1","231","234");
+INSERT INTO TB_INSCRICAO VALUES("203","","S","2018-02-09 13:30:25","A","N","N","","2","ROSANGELA","93992049717","Meu nome é Alexsandra, tenho 22 anos, acabei de me formar em engenharia civil, e no meu último ano foi um pouco difícil conciliar faculdade com a igreja, o que fez me afastar um pouco, porém sempre entreguei meu sonho e minhas dificuldades nas mãos de Deus com a intercessão da Virgem Maria para que não desistisse.\n\nParticipei do Santifique-se em 2017 e foi uma experiência sensacional, e tenho certeza que será melhor ainda, porque hoje tenho mais a agradecer do que pedir.","Não","Não","","1","231","234");
 
 INSERT INTO TB_INSCRICAO VALUES("204","","S","2018-02-09 20:27:20","A","N","N","","7","JOSé RIBAMAR COELHO DA SILVA ","61981215733","Tenho 14 anos, tenho vontade de crescer vivendo a juventude santa como Dom Bosco pregava","","","","1","232","235");
 
@@ -4376,7 +4444,7 @@ INSERT INTO TB_INSCRICAO VALUES("254","","S","2018-06-21 08:27:50","D","S","",""
 
 INSERT INTO TB_INSCRICAO VALUES("255","","S","2018-06-21 08:29:41","D","S","","","0","IVANILDES ","6134586671","","Não","Não","","3","57","58");
 
-INSERT INTO TB_INSCRICAO VALUES("256","","S","2018-06-21 13:20:13","A","S","","","0","SIMONE","6198785437","","Puran t4\n\n\nPela manhã em jejum","","","3","143","257");
+INSERT INTO TB_INSCRICAO VALUES("256","","S","2018-06-21 13:20:13","A","S","","","0","SIMONE","6198785437","","Puran t4\n\nPela manhã em jejum","","","3","143","257");
 
 INSERT INTO TB_INSCRICAO VALUES("257","","N","2018-06-30 00:23:43","A","S","","","0","EDILEUZA MãE","61992474253","","Nenhum.","Intolerante a lactose.","","3","55","56");
 
@@ -4384,7 +4452,7 @@ INSERT INTO TB_INSCRICAO VALUES("258","Grupo de jovens(Jedi)","S","2018-06-30 14
 
 INSERT INTO TB_INSCRICAO VALUES("259","","S","2018-06-30 21:31:48","A","N","N","","0","MINISTéRIO DE MúSICA RAINHA DA PAZ","61984827324","Sou uma pessoa legal gosto de conhecer pessoas novas","Não","Não","","3","186","189");
 
-INSERT INTO TB_INSCRICAO VALUES("260","","N","2018-07-02 11:55:36","A","N","N","","0","SEBASTIANA GONçALVES","61984327005","Oi,\n\n\nBom, não sei muito bem o que falar rs, tenho 20 anos e não participo de nenhuma pastoral no momento, digamos que estou a procura do lugar onde devo servir a Deus.","","","","3","162","165");
+INSERT INTO TB_INSCRICAO VALUES("260","","N","2018-07-02 11:55:36","A","N","N","","0","SEBASTIANA GONçALVES","61984327005","Oi,\n\nBom, não sei muito bem o que falar rs, tenho 20 anos e não participo de nenhuma pastoral no momento, digamos que estou a procura do lugar onde devo servir a Deus.","","","","3","162","165");
 
 INSERT INTO TB_INSCRICAO VALUES("261","Grupo Jovem JEDI","S","2018-07-02 21:10:24","A","N","N","","0","NEIDE ","61991621818","","","","","3","52","52");
 
@@ -4420,7 +4488,7 @@ INSERT INTO TB_INSCRICAO VALUES("276","","S","2019-01-20 21:56:34","D","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("277","","S","2019-01-20 21:59:00","D","N","N","","2","MáRCIA FRANCINA","61985175039","","","Nenhuma","Não comparecerá","37","177","180");
 
-INSERT INTO TB_INSCRICAO VALUES("278","Grupo jovem Luiz e  fogo","S","2019-01-20 22:00:10","D","N","N","","8","MARISA DE FáTIMA MIRANDA ","61991157538","Eu sou uma pessoa determinada e confio muito em Deus","Tomo hormônio\n\n\nCálcio\n\n\nFluxetina\n\n\nGlifagen","Nao tenho","Não tem dinheiro para ir ao retiro","37","20","20");
+INSERT INTO TB_INSCRICAO VALUES("278","Grupo jovem Luiz e  fogo","S","2019-01-20 22:00:10","D","N","N","","8","MARISA DE FáTIMA MIRANDA ","61991157538","Eu sou uma pessoa determinada e confio muito em Deus","Tomo hormônio \n\nCálcio \n\nFluxetina\n\nGlifagen","Nao tenho","Não tem dinheiro para ir ao retiro","37","20","20");
 
 INSERT INTO TB_INSCRICAO VALUES("279","Ajuc","S","2019-01-20 22:00:58","D","N","N","","4","EDILENE SILVA","61992829568","Tenho 17 anos e já fiz o retiro ano passado, gostei muito e quero fazer de novo","","Intolerância a lactose","Desistente","37","158","161");
 
@@ -4446,9 +4514,9 @@ INSERT INTO TB_INSCRICAO VALUES("289","GEJ Dom Bosco","S","2019-01-20 23:00:39",
 
 INSERT INTO TB_INSCRICAO VALUES("290","","N","2019-01-20 23:31:06","A","N","N","","7","MAE","61998459548","","","","","37","255","279");
 
-INSERT INTO TB_INSCRICAO VALUES("291","","S","2019-01-20 23:51:16","D","N","N","","9","MãE ","61996226916","Tenho alguns anos de caminhada, sou pregadora( mais não gosto de falar muito)\n\n\nMe chamam de bombom( pode chamar também)\n\n\nTenho 20 anos\n\n\nGosto de cantar\n\n\nAinda tenho que crescer muito espiritualmente","","","Desistência","37","256","280");
+INSERT INTO TB_INSCRICAO VALUES("291","","S","2019-01-20 23:51:16","D","N","N","","9","MãE ","61996226916","Tenho alguns anos de caminhada, sou pregadora( mais não gosto de falar muito) \n\nMe chamam de bombom( pode chamar também)\n\nTenho 20 anos \n\nGosto de cantar\n\nAinda tenho que crescer muito espiritualmente","","","Desistência","37","256","280");
 
-INSERT INTO TB_INSCRICAO VALUES("292","","S","2019-01-21 00:12:05","D","N","N","","7","MãE ","61995138360","Bom sou bem tímida tenho bastante vergonha,gosto muito de sorri,um pouquinho difícil de fazer amizades.","","Carne de porco(tudo que contém\n\n\nCarne de porco)","","37","257","281");
+INSERT INTO TB_INSCRICAO VALUES("292","","S","2019-01-21 00:12:05","D","N","N","","7","MãE ","61995138360","Bom sou bem tímida tenho bastante vergonha,gosto muito de sorri,um pouquinho difícil de fazer amizades.","","Carne de porco(tudo que contém \n\nCarne de porco)","","37","257","281");
 
 INSERT INTO TB_INSCRICAO VALUES("293","","S","2019-01-21 00:24:51","A","S","N","","8","DAYANE MOREIRA  MãE ","61995593633","Sou uma pessoa comunicativa, espontânea, extrovertida e compreensiva. As vezes impaciente.","Sim. Todas as noites as 21","Não","","37","109","112");
 
@@ -4472,7 +4540,7 @@ INSERT INTO TB_INSCRICAO VALUES("302","","N","2019-01-21 11:48:00","D","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("303","GEJ DOM BOSCO","S","2019-01-21 11:56:00","A","S","S","","3","PAI","61992197688","Sou do GEJ e sou feliz.","Não","Não","","37","39","15");
 
-INSERT INTO TB_INSCRICAO VALUES("304","GEJ Dom bosco","S","2019-01-21 11:57:35","A","S","S","","5","ROSA","6130826060","Lilian Bessa <lililasp@gmail.com>\n\n\nter, 30 de out de 2018 17:31\n\n\npara eu\n\n\n\n\n\nComo o trigo que morre e se entrega a terra\n\n\n\n\n\nQuero morrer por Ti Amado meu,\n\n\n\n\n\nDia após dia até a última gota","","","","37","61","290");
+INSERT INTO TB_INSCRICAO VALUES("304","GEJ Dom bosco","S","2019-01-21 11:57:35","A","S","S","","5","ROSA","6130826060","Lilian Bessa <lililasp@gmail.com>\n\nter, 30 de out de 2018 17:31\n\npara eu\n\n\n\nComo o trigo que morre e se entrega a terra\n\n\n\nQuero morrer por Ti Amado meu,\n\n\n\nDia após dia até a última gota","","","","37","61","290");
 
 INSERT INTO TB_INSCRICAO VALUES("305","Coroinhas","S","2019-01-21 12:28:54","D","N","N","","6","MãE","6130459380","","","","Desistiu","37","263","291");
 
@@ -4502,7 +4570,7 @@ INSERT INTO TB_INSCRICAO VALUES("317","","S","2019-01-23 14:20:00","A","S","N","
 
 INSERT INTO TB_INSCRICAO VALUES("319","","S","2019-01-24 20:55:23","A","N","N","","8","LIDIANE","61992232118","Tímida legal amiga","Não","Não","","37","134","313");
 
-INSERT INTO TB_INSCRICAO VALUES("320","","S","2019-01-24 22:04:09","A","N","N","","4","MARIA","6133593657","Meu nome é Rayssa,\n\n\nTenho 22 anos,\n\n\nSou professora de natação,\n\n\nSou comunicativa, gosto de fazer novas amizades, amo ir á missa e participar de eventos da igreja.","Não","Não","","37","271","314");
+INSERT INTO TB_INSCRICAO VALUES("320","","S","2019-01-24 22:04:09","A","N","N","","4","MARIA","6133593657","Meu nome é Rayssa, \n\nTenho 22 anos,\n\nSou professora de natação, \n\nSou comunicativa, gosto de fazer novas amizades, amo ir á missa e participar de eventos da igreja.","Não","Não","","37","271","314");
 
 INSERT INTO TB_INSCRICAO VALUES("321","","S","2019-01-24 23:33:03","A","N","N","","4","MARIA","61998133042","Meu nome é Polyana, tenho 20 anos, curso Direito  e estou no 7º Semestre. Gosto de fazer novas amizades e estar próxima de Deus.","Não","Não","","37","272","315");
 
@@ -4562,7 +4630,7 @@ INSERT INTO TB_INSCRICAO VALUES("348","","N","2019-02-07 00:20:37","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("349","","S","2019-02-07 14:10:17","A","N","N","","4","MARIA ZILDA","6133590830","Natália, tenho 18 anos, curso direito, gosto de fazer novas amizades sempre, e quero me aproximar de Deus cada vez mais.","Não","Não","","37","284","338");
 
-INSERT INTO TB_INSCRICAO VALUES("350","","N","2019-02-07 22:25:29","D","N","N","","8","EDIONE APARECIDA E SILVA COELHO","61996446583","Vestibulanda de medicina, solteira,  participo da igreja católica há 4 anos, já participei de grupo jovem (fui coordenadora por um ano aproximadamente),  sou uma pessoa tranquila, comunicativa e que tenta absorver o máximo das experiências vividas.","Anticoncepcional (todos os dias as 16:00)\n\n\nAddera D3 (sexta feira após o almoço)\n\n\nUso de antialérgico em caso de crise alérgica (rinite ou dermatite de contato)","","Desistente","37","285","339");
+INSERT INTO TB_INSCRICAO VALUES("350","","N","2019-02-07 22:25:29","D","N","N","","8","EDIONE APARECIDA E SILVA COELHO","61996446583","Vestibulanda de medicina, solteira,  participo da igreja católica há 4 anos, já participei de grupo jovem (fui coordenadora por um ano aproximadamente),  sou uma pessoa tranquila, comunicativa e que tenta absorver o máximo das experiências vividas.","Anticoncepcional (todos os dias as 16:00)\n\nAddera D3 (sexta feira após o almoço) \n\nUso de antialérgico em caso de crise alérgica (rinite ou dermatite de contato)","","Desistente","37","285","339");
 
 INSERT INTO TB_INSCRICAO VALUES("351","","S","2019-02-07 23:25:53","A","N","N","","6","CARLOS ROBERTO","61996748164","","","","","37","286","340");
 
@@ -4666,7 +4734,7 @@ INSERT INTO TB_INSCRICAO VALUES("400","música","S","2019-02-21 22:28:22","A","N
 
 INSERT INTO TB_INSCRICAO VALUES("401","Musica","S","2019-02-21 22:44:05","A","N","N","","4","ROSE MARY PIMENTEL","61991999329","","","","","37","114","117");
 
-INSERT INTO TB_INSCRICAO VALUES("402","Grupo Justo","S","2019-02-22 19:17:47","A","N","N","","2","JANDIRA DA MOTA CORREIA","61984191021","Sou tímida e ao mesmo tempo engraçada, não sou de conversar muito.\n\n\nAcho que é isso","Dorflex, Paracetamol e Ibuprofeno.","Não posso comer e nem tomar nada que tenha leite, não como bacon e nem salsicha e sou alérgica a chocolate.","","37","323","379");
+INSERT INTO TB_INSCRICAO VALUES("402","Grupo Justo","S","2019-02-22 19:17:47","A","N","N","","2","JANDIRA DA MOTA CORREIA","61984191021","Sou tímida e ao mesmo tempo engraçada, não sou de conversar muito.\n\nAcho que é isso","Dorflex, Paracetamol e Ibuprofeno.","Não posso comer e nem tomar nada que tenha leite, não como bacon e nem salsicha e sou alérgica a chocolate.","","37","323","379");
 
 INSERT INTO TB_INSCRICAO VALUES("403","Santíssima Trindade","N","2019-02-24 14:33:49","D","N","N","","4","MãE THAIS ","61991334352","Tenho 18 aninhos, e a um tempo atrás me mudei pra longe de minha igreja depois disso ficou difícil eu conseguir ir às missas, sempre gostei muito da minha igreja e por mais que tivessem outras perto da minha nova casa eu não gostava tanto como gostava da santíssima então nisso me afastei, sinto muita falta, vou voltar a frequenta-la e procurei este retiro como forma de me reencontrar com Deus.","Não","Não","Desistencia","37","324","380");
 
@@ -4682,7 +4750,7 @@ INSERT INTO TB_INSCRICAO VALUES("408","Pastoral da música","S","2019-02-25 08:0
 
 INSERT INTO TB_INSCRICAO VALUES("409","","S","2019-02-25 09:11:13","A","N","N","","4","ELIAR","61999626703","","Tegretol CR 200mg tomo 2 comprimidos de noite e 1 comprimido de manhã","","","37","183","186");
 
-INSERT INTO TB_INSCRICAO VALUES("410","Acólitos e Cerimoniários da Paróquia São José Operário","N","2019-02-25 11:25:13","A","N","N","","5","SôNIA OLIVEIRA DE MORAES","61986175756","Tenho algum tempo de caminhada na Igreja, mas procuro me aprofundar mais na espiritualidade. Gosto de estudar sobre a Fé católica e sobre os santos.\n\n\nFaço cursinho, mas ainda não tenho certeza sobre o curso superior que quero ingressar.\n\n\nMinha família gosta de sempre estar junto pois somos meio apegados, e é bom pois crescemos juntos na Fé.\n\n\nGosto de ler e estar junto dos amigos.","Não, mas tenho Asma Crônica.","Não","","37","328","384");
+INSERT INTO TB_INSCRICAO VALUES("410","Acólitos e Cerimoniários da Paróquia São José Operário","N","2019-02-25 11:25:13","A","N","N","","5","SôNIA OLIVEIRA DE MORAES","61986175756","Tenho algum tempo de caminhada na Igreja, mas procuro me aprofundar mais na espiritualidade. Gosto de estudar sobre a Fé católica e sobre os santos.\n\nFaço cursinho, mas ainda não tenho certeza sobre o curso superior que quero ingressar.\n\nMinha família gosta de sempre estar junto pois somos meio apegados, e é bom pois crescemos juntos na Fé.\n\nGosto de ler e estar junto dos amigos.","Não, mas tenho Asma Crônica.","Não","","37","328","384");
 
 INSERT INTO TB_INSCRICAO VALUES("411","Saúde etc","S","2019-02-25 12:10:57","A","N","N","","4","MATHEUS","61981979118","Sou missionária da Divina Misericórdia portadora de dor crônica, Deus é mais em minha vida pra servir os outros. Uso bengala pra um pouco de apoio mas não preciso de ajuda, Deus é mais comigo","Sim mas vou levar na bolsa e é tomado com água","Não como nenhuma carne animal só a clara de ovo podem levar ovo pra lá pra fazerem pra mim no almoço?  Só como a clara, a gema não.","","37","329","385");
 
@@ -5695,19 +5763,19 @@ CREATE TABLE `TB_PAGINA` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO TB_PAGINA VALUES("1","2019-03-25 17:28:54","web/","24","24");
+INSERT INTO TB_PAGINA VALUES("1","2019-03-25 17:28:54","web/","39","39");
 
-INSERT INTO TB_PAGINA VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","21","21");
+INSERT INTO TB_PAGINA VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","31","31");
 
-INSERT INTO TB_PAGINA VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","35","35");
+INSERT INTO TB_PAGINA VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","33","33");
 
-INSERT INTO TB_PAGINA VALUES("4","2019-04-08 16:12:37","web/Inscricoes/Normas","7","7");
+INSERT INTO TB_PAGINA VALUES("4","2019-04-08 16:12:37","web/Inscricoes/Normas","15","15");
 
-INSERT INTO TB_PAGINA VALUES("5","2019-05-27 22:24:18","web/Inscricoes/SobrePagamento","3","3");
+INSERT INTO TB_PAGINA VALUES("5","2019-05-27 22:24:18","web/Inscricoes/SobrePagamento","8","8");
 
 INSERT INTO TB_PAGINA VALUES("6","2019-08-04 21:53:12","web/Inscricoes/CadastroRetiroo","2","2");
 
-INSERT INTO TB_PAGINA VALUES("7","2019-12-13 17:58:29","web/Inscricoes/VerInscricao","2","2");
+INSERT INTO TB_PAGINA VALUES("7","2019-12-13 17:58:29","web/Inscricoes/VerInscricao","6","6");
 
 
 
@@ -5722,7 +5790,7 @@ CREATE TABLE `TB_PAGINA_VISITA` (
   PRIMARY KEY (`co_pagina_visita`,`co_visita`,`co_pagina`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_VISITA1_idx` (`co_visita`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_PAGINA1_idx` (`co_pagina`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_PAGINA_VISITA VALUES("1","1","1");
@@ -5867,17 +5935,17 @@ INSERT INTO TB_PAGINA_VISITA VALUES("70","67","1");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("71","68","1");
 
-INSERT INTO TB_PAGINA_VISITA VALUES("72","69","1");
-
 INSERT INTO TB_PAGINA_VISITA VALUES("73","68","4");
 
-INSERT INTO TB_PAGINA_VISITA VALUES("74","70","1");
-
-INSERT INTO TB_PAGINA_VISITA VALUES("75","71","1");
+INSERT INTO TB_PAGINA_VISITA VALUES("72","69","1");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("76","69","2");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("77","69","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("74","70","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("75","71","1");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("78","72","4");
 
@@ -5899,19 +5967,99 @@ INSERT INTO TB_PAGINA_VISITA VALUES("86","75","3");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("87","76","7");
 
-INSERT INTO TB_PAGINA_VISITA VALUES("88","77","1");
-
 INSERT INTO TB_PAGINA_VISITA VALUES("89","76","4");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("90","76","5");
 
+INSERT INTO TB_PAGINA_VISITA VALUES("88","77","1");
+
 INSERT INTO TB_PAGINA_VISITA VALUES("91","78","3");
 
-INSERT INTO TB_PAGINA_VISITA VALUES("92","79","3");
+INSERT INTO TB_PAGINA_VISITA VALUES("92","79","1");
 
-INSERT INTO TB_PAGINA_VISITA VALUES("93","80","3");
+INSERT INTO TB_PAGINA_VISITA VALUES("93","79","2");
 
-INSERT INTO TB_PAGINA_VISITA VALUES("94","81","3");
+INSERT INTO TB_PAGINA_VISITA VALUES("94","79","5");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("95","79","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("96","80","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("97","80","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("98","80","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("99","80","5");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("100","80","7");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("101","81","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("102","81","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("103","81","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("104","81","7");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("105","82","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("106","82","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("107","82","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("108","82","5");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("109","82","7");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("110","83","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("111","83","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("112","84","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("113","85","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("115","85","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("116","85","5");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("114","86","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("117","87","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("118","88","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("119","89","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("120","90","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("121","90","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("122","91","7");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("124","91","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("125","91","5");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("123","92","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("126","93","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("127","93","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("128","94","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("129","95","3");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("130","96","2");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("131","97","4");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("132","98","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("133","99","1");
+
+INSERT INTO TB_PAGINA_VISITA VALUES("134","99","2");
 
 
 
@@ -6277,7 +6425,7 @@ INSERT INTO TB_PARCELAMENTO VALUES("1215","1","150.00","150.00","2018-01-30","20
 
 INSERT INTO TB_PARCELAMENTO VALUES("1216","1","150.00","150.00","2018-01-30","2018-01-31","Desconto meninos das irmãs","1","170","0");
 
-INSERT INTO TB_PARCELAMENTO VALUES("1217","1","150.00","150.00","2018-01-30","2018-02-01","Desconto de 60,00\n\n\nAutorizado pela coordenação.","3","171","0");
+INSERT INTO TB_PARCELAMENTO VALUES("1217","1","150.00","150.00","2018-01-30","2018-02-01","Desconto de 60,00\n\nAutorizado pela coordenação.","3","171","0");
 
 INSERT INTO TB_PARCELAMENTO VALUES("1220","1","0.00","0.00","2018-02-01","2018-02-02","","1","172","0");
 
@@ -6425,7 +6573,7 @@ INSERT INTO TB_PARCELAMENTO VALUES("1315","1","80.00","40.00","2018-05-01","2018
 
 INSERT INTO TB_PARCELAMENTO VALUES("1316","1","80.00","40.00","2018-05-01","2018-06-30","Pago para Lucrece","1","241","0");
 
-INSERT INTO TB_PARCELAMENTO VALUES("1318","1","80.00","70.00","2018-05-04","2018-06-30","Pago para Lucrece\n\n\nFalta 10,00 reais que a Fernanda Gomes irá pagar.","1","243","0");
+INSERT INTO TB_PARCELAMENTO VALUES("1318","1","80.00","70.00","2018-05-04","2018-06-30","Pago para Lucrece\n\nFalta 10,00 reais que a Fernanda Gomes irá pagar.","1","243","0");
 
 INSERT INTO TB_PARCELAMENTO VALUES("1319","1","80.00","80.00","2018-05-06","2018-07-02","Pago para Lucrece","1","244","0");
 
@@ -6515,7 +6663,7 @@ INSERT INTO TB_PARCELAMENTO VALUES("1378","2","40.00","0.00","2018-07-03","0000-
 
 INSERT INTO TB_PARCELAMENTO VALUES("1379","1","80.00","80.00","2018-07-03","2018-07-03","","1","273","0");
 
-INSERT INTO TB_PARCELAMENTO VALUES("1380","1","80.00","80.00","2018-07-03","2018-07-03","Meninas das irmãs\n\n\nPago para Letícia","1","274","0");
+INSERT INTO TB_PARCELAMENTO VALUES("1380","1","80.00","80.00","2018-07-03","2018-07-03","Meninas das irmãs\n\nPago para Letícia","1","274","0");
 
 INSERT INTO TB_PARCELAMENTO VALUES("1381","1","80.00","0.00","2018-07-03","0000-00-00","","1","275","0");
 
@@ -6884,6 +7032,50 @@ INSERT INTO TB_PARCELAMENTO VALUES("1664","1","150.00","150.00","2019-03-02","20
 
 
 
+DROP TABLE IF EXISTS TB_PEDIDO_CAMISA;
+
+
+CREATE TABLE `TB_PEDIDO_CAMISA` (
+  `co_pedido_camisa` int(11) NOT NULL AUTO_INCREMENT,
+  `no_pessoa` varchar(80) DEFAULT NULL,
+  `st_pedido` int(1) DEFAULT NULL COMMENT '1 - A Pedir / 2 - Pedida / 3 - Recebida / 4 - Entregue',
+  `st_estoque` varchar(1) DEFAULT 'N' COMMENT 'S - Sim / N - Não    *Para pedidos do nosso estoque',
+  `dt_cadastro` datetime DEFAULT NULL,
+  `st_pagamento` varchar(1) DEFAULT NULL COMMENT 'N - Não iniciado / I - Iniciado / C - Concluido  *Para Não Estoque\nA - A pagar / P - Paga   *Para Estoque',
+  `dt_pedido` date DEFAULT NULL,
+  `dt_entregue` date DEFAULT NULL,
+  `ds_observacao` text COMMENT 'Observação do Pedido',
+  `co_inscricao` int(11) NOT NULL,
+  PRIMARY KEY (`co_pedido_camisa`,`co_inscricao`),
+  KEY `fk_TB_PEDIDO_CAMISA_TB_INSCRICAO1_idx` (`co_inscricao`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("1","Estoque Administrativo","1","S","2019-05-03 22:42:32","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("2","Estoque Administrativo","1","S","2019-05-03 22:43:29","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("3","Keiter","4","N","2019-05-03 22:43:48","N","2019-05-11","2019-05-11","Entregue na reunião do aviva","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("4","Thais","4","N","2019-05-03 22:44:05","N","2019-05-11","2019-05-11","Entregue no Aviva vai acertar depois","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("5","Estoque Administrativo","1","S","2019-05-03 22:44:22","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("6","Lilian","4","N","2019-05-03 22:44:33","C","2019-05-11","2019-05-11","Entregue na reunião do Aviva pago pra Lucrece","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("7","Lucrece","1","N","2019-05-03 22:44:51","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("8","Relka","1","N","2019-05-03 22:45:11","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("9","Vivi","1","N","2019-05-03 22:45:27","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("10","Luana","1","N","2019-05-03 22:45:40","N","","","","0");
+
+INSERT INTO TB_PEDIDO_CAMISA VALUES("11","Raissa","1","N","2019-05-03 22:46:20","N","","","(De fora)","0");
+
+
+
+
 DROP TABLE IF EXISTS TB_PED_CAM_TAMANHO_COR;
 
 
@@ -6901,30 +7093,30 @@ CREATE TABLE `TB_PED_CAM_TAMANHO_COR` (
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_CAMISA1_idx` (`co_camisa`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_PEDIDO_CAMISA1_idx` (`co_pedido_camisa`),
   KEY `fk_TB_PED_CAM_TAMANHO_COR_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("1","1","6","6","1","1","1");
 
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("2","2","7","6","1","2","1");
 
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("3","1","8","6","1","3","1");
 
-DROP TABLE IF EXISTS TB_PEDIDO_CAMISA;
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("4","1","5","6","1","4","1");
 
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("5","2","3","6","1","5","1");
 
-CREATE TABLE `TB_PEDIDO_CAMISA` (
-  `co_pedido_camisa` int(11) NOT NULL AUTO_INCREMENT,
-  `no_pessoa` varchar(80) DEFAULT NULL,
-  `st_pedido` int(1) DEFAULT NULL COMMENT '1 - A Pedir / 2 - Pedida / 3 - Recebida / 4 - Entregue',
-  `st_estoque` varchar(1) DEFAULT 'N' COMMENT 'S - Sim / N - Não    *Para pedidos do nosso estoque',
-  `dt_cadastro` datetime DEFAULT NULL,
-  `st_pagamento` varchar(1) DEFAULT NULL COMMENT 'N - Não iniciado / I - Iniciado / C - Concluido  *Para Não Estoque\nA - A pagar / P - Paga   *Para Estoque',
-  `dt_pedido` date DEFAULT NULL,
-  `dt_entregue` date DEFAULT NULL,
-  `ds_observacao` text COMMENT 'Observação do Pedido',
-  `co_inscricao` int(11) NOT NULL,
-  PRIMARY KEY (`co_pedido_camisa`,`co_inscricao`),
-  KEY `fk_TB_PEDIDO_CAMISA_TB_INSCRICAO1_idx` (`co_inscricao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("6","1","5","6","1","6","1");
 
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("7","1","3","6","1","7","1");
+
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("8","1","2","6","1","8","1");
+
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("9","1","4","6","1","9","1");
+
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("10","1","3","6","1","10","1");
+
+INSERT INTO TB_PED_CAM_TAMANHO_COR VALUES("11","2","3","6","1","11","1");
 
 
 
@@ -7009,30 +7201,24 @@ CREATE TABLE `TB_PERFIL_AGENDA` (
   PRIMARY KEY (`co_perfil_agenda`,`co_agenda`,`co_perfil`),
   KEY `fk_TB_PERFIL_AGENDA_TB_AGENDA1_idx` (`co_agenda`),
   KEY `fk_TB_PERFIL_AGENDA_TB_PERFIL1_idx` (`co_perfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("1","1","4");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("2","1","2");
 
+INSERT INTO TB_PERFIL_AGENDA VALUES("18","1","3");
+
 INSERT INTO TB_PERFIL_AGENDA VALUES("3","2","4");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("4","2","2");
 
+INSERT INTO TB_PERFIL_AGENDA VALUES("19","2","3");
+
 INSERT INTO TB_PERFIL_AGENDA VALUES("11","3","8");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("12","3","2");
-
-INSERT INTO TB_PERFIL_AGENDA VALUES("15","5","3");
-
-INSERT INTO TB_PERFIL_AGENDA VALUES("16","6","3");
-
-INSERT INTO TB_PERFIL_AGENDA VALUES("17","7","3");
-
-INSERT INTO TB_PERFIL_AGENDA VALUES("18","1","3");
-
-INSERT INTO TB_PERFIL_AGENDA VALUES("19","2","3");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("20","3","3");
 
@@ -7042,9 +7228,15 @@ INSERT INTO TB_PERFIL_AGENDA VALUES("23","4","3");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("24","4","2");
 
+INSERT INTO TB_PERFIL_AGENDA VALUES("15","5","3");
+
 INSERT INTO TB_PERFIL_AGENDA VALUES("25","5","8");
 
+INSERT INTO TB_PERFIL_AGENDA VALUES("16","6","3");
+
 INSERT INTO TB_PERFIL_AGENDA VALUES("26","6","3");
+
+INSERT INTO TB_PERFIL_AGENDA VALUES("17","7","3");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("27","7","3");
 
@@ -7126,6 +7318,8 @@ INSERT INTO TB_PERFIL_AGENDA VALUES("65","36","3");
 
 INSERT INTO TB_PERFIL_AGENDA VALUES("66","37","3");
 
+INSERT INTO TB_PERFIL_AGENDA VALUES("67","38","3");
+
 
 
 
@@ -7165,6 +7359,8 @@ INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("1","1","1","0");
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("4","41","10","0");
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("5","41","2","0");
+
+INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("31","42","3","0");
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("7","43","4","0");
 
@@ -7209,8 +7405,6 @@ INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("28","52","2","0");
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("29","53","8","0");
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("30","54","8","0");
-
-INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES("31","42","3","0");
 
 
 
@@ -8058,7 +8252,7 @@ CREATE TABLE `TB_TRAFEGO` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_TRAFEGO VALUES("8","189.6.20.167","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Windows 7","Desktop","Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36");
@@ -8243,25 +8437,51 @@ INSERT INTO TB_TRAFEGO VALUES("98","45.5.159.166","Brazil","BR","GO","Goias","Va
 
 INSERT INTO TB_TRAFEGO VALUES("99","45.5.159.166","Brazil","BR","GO","Goias","Valparaiso de Goias","Chrome","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("100","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("100","45.5.159.166","Brazil","BR","GO","Goias","Valparaiso de Goias","Chrome","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("101","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("101","179.179.43.51","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; motorola one) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Mobile Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("102","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("102","187.25.49.1","Brazil","BR","RJ","Rio de Janeiro","Rio de Janeiro","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-J730G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.2 Chrome/71.0.3578.99 Mobile Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("103","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("103","189.114.58.4","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("104","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("104","179.186.106.39","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 8.1.0; SM-G610M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Mobile Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("105","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("105","187.25.40.63","Brazil","BR","RJ","Rio de Janeiro","Rio de Janeiro","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; SM-J810M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Mobile Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("106","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("106","189.74.12.173","Brazil","BR","DF","Distrito Federal","Recanto das Emas","Mozilla","iOS","Mobile","Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1");
 
-INSERT INTO TB_TRAFEGO VALUES("107","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0");
+INSERT INTO TB_TRAFEGO VALUES("107","179.95.11.18","Brazil","BR","GO","Goias","Santo Antonio do Descoberto","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; motorola one) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Mobile Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("108","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0");
+INSERT INTO TB_TRAFEGO VALUES("108","191.35.133.173","Brazil","BR","BA","Bahia","Vitória da Conquista","Chrome","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
 
-INSERT INTO TB_TRAFEGO VALUES("109","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0");
+INSERT INTO TB_TRAFEGO VALUES("109","179.95.11.18","Brazil","BR","GO","Goias","Santo Antonio do Descoberto","Outro","Outro","Desktop","WhatsApp/2.19.360 A");
+
+INSERT INTO TB_TRAFEGO VALUES("110","179.95.11.18","Brazil","BR","GO","Goias","Santo Antonio do Descoberto","Outro","Outro","Desktop","WhatsApp/2.19.360 A");
+
+INSERT INTO TB_TRAFEGO VALUES("111","179.95.11.18","Brazil","BR","GO","Goias","Santo Antonio do Descoberto","Outro","Outro","Desktop","WhatsApp/2.19.360 A");
+
+INSERT INTO TB_TRAFEGO VALUES("112","177.3.238.216","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 5.1; XT1033) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("113","177.3.238.216","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; motorola one) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("114","177.3.238.216","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; motorola one) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("115","200.198.42.211","Brazil","BR","MG","Minas Gerais","Belo Horizonte","Chrome","Windows 7","Desktop","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("116","132.255.154.253","Brazil","BR","MG","Minas Gerais","Teófilo Otoni","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; Redmi Note 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("117","45.5.159.166","Brazil","BR","GO","Goias","Valparaiso de Goias","Chrome","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("118","45.5.159.166","Brazil","BR","GO","Goias","Valparaiso de Goias","Chrome","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("119","45.5.159.166","Brazil","BR","GO","Goias","Valparaiso de Goias","Chrome","Windows 8.1","Desktop","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("120","177.96.239.0","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; motorola one) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("121","186.244.214.19","Brazil","BR","BA","Bahia","Salvador","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 4.4.2; LG-D618 Build/KOT49I.A1395292854) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36");
+
+INSERT INTO TB_TRAFEGO VALUES("122","179.214.7.19","Brazil","BR","DF","Distrito Federal","Ceilandia","Chrome","Android","Mobile","Mozilla/5.0 (Linux; Android 9; Mi 9T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36");
 
 
 
@@ -8356,33 +8576,29 @@ CREATE TABLE `TB_USUARIO_PERFIL` (
 ) ENGINE=InnoDB AUTO_INCREMENT=226 DEFAULT CHARSET=utf8;
 
 
+INSERT INTO TB_USUARIO_PERFIL VALUES("59","1","1","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("50","7","2","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("171","8","2","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("176","5","2","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("180","4","2","0");
+
 INSERT INTO TB_USUARIO_PERFIL VALUES("34","10","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("35","11","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("36","12","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("48","7","6","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("49","7","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("50","7","2","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("51","7","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("56","1","8","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("57","1","7","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("58","1","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("59","1","1","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("91","19","23","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("92","19","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("107","6","17","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("108","6","3","0");
 
@@ -8392,27 +8608,11 @@ INSERT INTO TB_USUARIO_PERFIL VALUES("113","24","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("114","22","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("123","13","10","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("124","13","7","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("125","13","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("133","3","9","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("134","3","7","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("135","3","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("144","26","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("154","20","24","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("155","20","12","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("156","20","11","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("157","20","4","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("158","20","3","0");
 
@@ -8426,73 +8626,93 @@ INSERT INTO TB_USUARIO_PERFIL VALUES("166","30","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("167","31","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("168","8","8","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("169","8","4","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("170","8","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("171","8","2","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("172","5","8","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("173","5","6","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("174","5","4","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("175","5","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("176","5","2","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("177","4","6","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("178","4","4","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("179","4","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("180","4","2","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("185","21","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("186","18","8","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("187","18","7","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("188","18","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("192","32","4","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("193","32","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("194","27","4","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("195","27","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("204","33","4","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("205","33","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("212","16","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("216","2","21","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("217","2","8","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("218","2","7","0");
-
 INSERT INTO TB_USUARIO_PERFIL VALUES("219","2","3","0");
-
-INSERT INTO TB_USUARIO_PERFIL VALUES("220","25","8","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("221","25","3","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("222","25","3","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("223","17","21","0");
+INSERT INTO TB_USUARIO_PERFIL VALUES("225","17","3","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("157","20","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("169","8","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("174","5","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("178","4","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("192","32","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("194","27","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("204","33","4","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("48","7","6","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("173","5","6","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("177","4","6","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("57","1","7","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("124","13","7","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("134","3","7","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("187","18","7","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("218","2","7","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("56","1","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("168","8","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("172","5","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("186","18","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("217","2","8","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("220","25","8","0");
 
 INSERT INTO TB_USUARIO_PERFIL VALUES("224","17","8","0");
 
-INSERT INTO TB_USUARIO_PERFIL VALUES("225","17","3","0");
+INSERT INTO TB_USUARIO_PERFIL VALUES("133","3","9","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("123","13","10","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("156","20","11","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("155","20","12","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("107","6","17","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("216","2","21","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("223","17","21","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("91","19","23","0");
+
+INSERT INTO TB_USUARIO_PERFIL VALUES("154","20","24","0");
 
 
 
@@ -8508,7 +8728,7 @@ CREATE TABLE `TB_VISITA` (
   `co_trafego` int(11) NOT NULL,
   PRIMARY KEY (`co_visita`,`co_trafego`),
   KEY `fk_TB_VISITA_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_VISITA VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2","1");
@@ -8665,11 +8885,47 @@ INSERT INTO TB_VISITA VALUES("77","2019-12-16 08:51:08","2019-12-16 08:51:08","1
 
 INSERT INTO TB_VISITA VALUES("78","2019-12-16 21:07:49","2019-12-16 21:07:49","1","98");
 
-INSERT INTO TB_VISITA VALUES("79","2019-12-16 21:41:49","2019-12-16 21:41:49","1","100");
+INSERT INTO TB_VISITA VALUES("79","2019-12-17 19:53:57","2019-12-17 21:14:04","4","101");
 
-INSERT INTO TB_VISITA VALUES("80","2019-12-23 22:08:49","2019-12-23 22:08:49","1","108");
+INSERT INTO TB_VISITA VALUES("80","2019-12-18 09:01:31","2019-12-18 09:06:19","5","102");
 
-INSERT INTO TB_VISITA VALUES("81","2019-12-23 22:09:07","2019-12-23 22:09:07","1","109");
+INSERT INTO TB_VISITA VALUES("81","2019-12-18 09:23:56","2019-12-18 09:30:28","4","103");
+
+INSERT INTO TB_VISITA VALUES("82","2019-12-18 09:55:44","2019-12-18 09:56:18","5","104");
+
+INSERT INTO TB_VISITA VALUES("83","2019-12-18 12:38:11","2019-12-18 12:38:40","2","105");
+
+INSERT INTO TB_VISITA VALUES("84","2019-12-18 12:43:01","2019-12-18 12:43:01","1","106");
+
+INSERT INTO TB_VISITA VALUES("85","2019-12-19 11:41:44","2019-12-19 19:43:40","3","107");
+
+INSERT INTO TB_VISITA VALUES("86","2019-12-19 11:53:54","2019-12-19 11:53:54","1","108");
+
+INSERT INTO TB_VISITA VALUES("87","2019-12-19 19:46:48","2019-12-19 19:46:48","1","109");
+
+INSERT INTO TB_VISITA VALUES("88","2019-12-19 19:46:50","2019-12-19 19:46:50","1","110");
+
+INSERT INTO TB_VISITA VALUES("89","2019-12-19 19:46:59","2019-12-19 19:46:59","1","111");
+
+INSERT INTO TB_VISITA VALUES("90","2019-12-19 19:47:59","2019-12-19 19:50:00","2","112");
+
+INSERT INTO TB_VISITA VALUES("91","2019-12-20 14:29:52","2019-12-20 14:38:57","3","113");
+
+INSERT INTO TB_VISITA VALUES("92","2019-12-20 14:30:52","2019-12-20 14:30:52","1","114");
+
+INSERT INTO TB_VISITA VALUES("93","2019-12-20 18:33:03","2019-12-20 18:35:09","2","115");
+
+INSERT INTO TB_VISITA VALUES("94","2019-12-22 20:57:23","2019-12-22 20:57:23","1","116");
+
+INSERT INTO TB_VISITA VALUES("95","2019-12-23 22:17:12","2019-12-23 22:17:12","1","117");
+
+INSERT INTO TB_VISITA VALUES("96","2019-12-23 22:19:52","2019-12-23 22:19:52","1","119");
+
+INSERT INTO TB_VISITA VALUES("97","2019-12-24 12:13:39","2019-12-24 12:13:39","1","120");
+
+INSERT INTO TB_VISITA VALUES("98","2019-12-25 16:47:15","2019-12-25 16:47:15","1","121");
+
+INSERT INTO TB_VISITA VALUES("99","2019-12-25 19:45:07","2019-12-25 19:45:50","2","122");
 
 
 
