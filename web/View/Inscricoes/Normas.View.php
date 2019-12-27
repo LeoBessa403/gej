@@ -150,29 +150,29 @@ justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
                 <!--107%;font-family:&quot;Agency FB&quot;">- <b>Avisar familiares sobre a sua participação no-->
                 <!--encontro. (Pessoa Responsável).</b></span></p>-->
                 <!---->
-                <!--                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:-->
-                <!--&quot;Agency FB&quot;">&nbsp;</span></p>-->
-                <!---->
-                <!--                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;-->
-                <!--text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:-->
-                <!--&quot;Agency FB&quot;"><b>Saída: Paróquia São João Evangelista QS 405 Samambaia Norte DF</b></span></b></p>-->
-                <!---->
-                <!--                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;-->
-                <!--text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:-->
-                <!--&quot;Agency FB&quot;"><b>Horário: 07:00</b></span></b></p>-->
-                <!---->
-                <!---->
-                <!--                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;-->
-                <!--text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:-->
-                <!--&quot;Agency FB&quot;"><b>Data: 02/03/2019 (Sábado)</b></span></b></p>-->
-                <!---->
-                <!--                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;-->
-                <!--text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:-->
-                <!--&quot;Agency FB&quot;"><b>Coordenadora: Letícia (61) 99105-8681</b></span></b></p>-->
-                <!---->
-                <!--                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;-->
-                <!--text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:-->
-                <!--&quot;Agency FB&quot;"><b>Comissão: a definir</b></span></b></p>-->
+                                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
+                &quot;Agency FB&quot;">&nbsp;</span></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
+                &quot;Agency FB&quot;"><b>Saída: Paróquia São João Evangelista QS 405 Samambaia Norte DF</b></span></b></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
+                &quot;Agency FB&quot;"><b>Horário: 07:00</b></span></b></p>
+
+
+                                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
+                &quot;Agency FB&quot;"><b>Data: 22/02/2020 (Sábado)</b></span></b></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
+                &quot;Agency FB&quot;"><b>Coordenadora: Letícia (61) 99105-8681</b></span></b></p>
+
+                                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
+                text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
+                &quot;Agency FB&quot;"><b>Comissão: Amaury (61) 99312-6972 e Lucrece (61) 99315-1297</b></span></b></p>
 
                 <br>
                 <br>
