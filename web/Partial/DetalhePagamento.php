@@ -21,7 +21,7 @@
                 </a>
             </b></p>
     </header>
-    <div class="row" style="padding: 30px; margin-top: 5px; float: left;">
+    <div class="row col-md-12" style="padding: 30px; margin-top: 5px; float: left;">
         <h2>Para Depósito em Conta:</h2>
         <div class="col-md-4">
             <b>Banco do Brasil<br>

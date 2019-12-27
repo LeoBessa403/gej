@@ -22,3 +22,7 @@ UPDATE TB_PESSOA SET co_pessoa = "147", nu_cpf = "01304694160", no_pessoa = "MAR
 
 INSERT INTO TB_INSCRICAO (ds_pastoral, ds_retiro, dt_cadastro, ds_membro_ativo, ds_situacao_atual_grupo, nu_camisa, no_responsavel, nu_tel_responsavel, st_status, ds_descricao, ds_alimentacao, ds_medicacao, ds_motivo, st_equipe_trabalho, co_pessoa, co_evento, co_imagem) VALUES ("", "N", "2019-12-26 20:51:28", "N", "", "3", "JOSE ARNALDO", "61993003405", "A", "", "", "", "", "N", "147", "38", "410");
 
+INSERT INTO TB_PAGAMENTO (nu_total, nu_parcelas, co_inscricao) VALUES ("160", "1", "438");
+
+INSERT INTO TB_PARCELAMENTO (co_pagamento, co_tipo_pagamento, nu_parcela, nu_valor_parcela, dt_vencimento) VALUES ("446", "1", "1", "160", "2019-12-26");
+

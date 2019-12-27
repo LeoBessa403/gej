@@ -293,7 +293,7 @@ class InscricoesForm
 
         $formulario
             ->setId(NU_CPF)
-            ->setClasses("cpf ob")
+            ->setClasses("ob cpf")
             ->setInfo("Verificação de Inscrição já existentes")
             ->setTamanhoInput(12)
             ->setLabel("CPF")
