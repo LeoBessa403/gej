@@ -1,7 +1,7 @@
 $(function () {
     setTimeout(
         function(){
-            var dados = constantes();
-            location.href=dados['HOME'] + 'web/IndexWeb/Index';
+            var home = $("#home").attr('data-val');
+            location.href=home + 'web/IndexWeb/Index';
         }, 10000);
 });

@@ -407,6 +407,7 @@ $visitaService->gestaoVisita();
 <script src="<?= PASTA_LIBRARY; ?>plugins/ckeditor/ckeditor.js"></script>
 <script src="<?= PASTASITE; ?>js/index.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+<?php include_once PARTIAL_LIBRARY . 'constantes_javascript.php'; ?>
 
 <script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/Funcoes.js"></script>
 <?php carregaJs($url); ?>

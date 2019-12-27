@@ -59,4 +59,4 @@
 <!-- end: PAGE -->
 
 <!-- SCRIPT PAGSEGURO -->
-<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+<script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/pagseguro.lightbox.js"></script>

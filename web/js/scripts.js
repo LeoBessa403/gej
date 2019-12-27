@@ -16,10 +16,10 @@
     $(document).ready(function () {
 
         //VARIÁVEIS GLOBAIS
-        var dados = constantes();
+        var home = $("#home").attr('data-val');
 
-        var urlValida = dados['HOME'] + 'admin/Controller/Ajax.Controller.php';
-        var validaEmail = dados['HOME'] + 'library/Helpers/Valida.Controller.php';
+        var urlValida = home + 'admin/Controller/Ajax.Controller.php';
+        var validaEmail = home + 'library/Helpers/Valida.Controller.php';
         var cookieFavotitos = 'bicalho-favoritos';
         var cookieComparados = 'bicalho-comparados';
 
@@ -631,7 +631,7 @@
     $(document).ready(function () {
 
         //VARIÁVEIS GLOBAIS
-        var dados = constantes();
+        var home = $("#home").attr('data-val');
 
         if ($('.star').length > 0) {
             $('.star').each(function () {
@@ -639,8 +639,8 @@
 
                 if ($star.hasClass('big')) {
                     $star.raty({
-                        starOff: dados['HOME'] + 'web/images/star-big-off.png',
-                        starOn: dados['HOME'] + 'web/images/star-big-on.png',
+                        starOff: home + 'web/images/star-big-off.png',
+                        starOn: home + 'web/images/star-big-on.png',
                         space: false,
                         score: function () {
                             return $(this).attr('data-score');
@@ -648,8 +648,8 @@
                     });
                 } else {
                     $star.raty({
-                        starOff: dados['HOME'] + 'web/images/star-off.png',
-                        starOn: dados['HOME'] + 'web/images/star-on.png',
+                        starOff: home + 'web/images/star-off.png',
+                        starOn: home + 'web/images/star-on.png',
                         space: false,
                         score: function () {
                             return $(this).attr('data-score');

@@ -2,8 +2,8 @@ $(function () {
     //VARIÁVEIS GLOBAIS
     var dados = constantes();
 
-    var home = dados['HOME'];
-    var urlValida = home + 'admin/Class/PagSeguro.class.back.php';
+    var home = $("#home").attr('data-val');
+    var urlValida = home + 'admin/Class/PagSeguro.class.php';
 
     $('#co_tipo_pagamento').change(function () {
         if ($(this).val() == 2) {

@@ -1,8 +1,8 @@
 $(function () {
 
     var dados = constantes();
-    var home = dados['HOME'];
-    var urlValida = dados['HOME'] + 'admin/Controller/Ajax.Controller.php';
+    var home = $("#home").attr('data-val');
+    var urlValida = home + 'admin/Controller/Ajax.Controller.php';
     var upload = dados['PASTAUPLOADS'];
 
     // CARREGA MODAL DE FOTOS DA CAPA DO PRODUTO

@@ -1,8 +1,8 @@
 $(function () {
-//VARIÁVEIS GLOBAIS
+//VARIï¿½VEIS GLOBAIS
     var dados = constantes();
 
-    var home = dados['HOME'];
+    var home = $("#home").attr('data-val');
     var urlValida = home + 'admin/Controller/Ajax.Controller.php';
 
     $('#pagarAgora').click(function () {
