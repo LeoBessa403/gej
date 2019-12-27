@@ -31,5 +31,7 @@ function servidor_inicial()
     define('DBSA', $config['DBSA']);
     define('DEBUG', $config['DEBUG']);
     define('PROD', $config['PROD']);
+    define('CO_USUARIO_PADRAO', 1);
+    define('NO_USUARIO_PADRAO', 'Usuário Web Gej');
 
 }
