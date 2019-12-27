@@ -20,15 +20,13 @@ class IndexWeb extends AbstractController
             $dados['dt_cadastro']   = Valida::DataAtualBanco();
             $dados['dt_nascimento'] = explode(' ', Valida::DataDB($dados['dt_nascimento'])); 
             $dados['dt_nascimento'] = $dados['dt_nascimento'][0]; 
-            $dados['st_trabalha']   = Valida::retornoCheckbox((isset($dados['st_trabalha'])) ? $dados['st_trabalha'] : null);
-            $dados['st_estuda']     = Valida::retornoCheckbox((isset($dados['st_estuda'])) ? $dados['st_estuda'] : null);
-            $dados['st_batizado']   = Valida::retornoCheckbox((isset($dados['st_batizado'])) ? $dados['st_batizado'] : null);
-            $dados['st_eucaristia'] = Valida::retornoCheckbox((isset($dados['st_eucaristia'])) ? $dados['st_eucaristia'] : null);
-            $dados['st_crisma']     = Valida::retornoCheckbox((isset($dados['st_crisma'])) ? $dados['st_crisma'] : null);
+            $dados['st_trabalha']   = Valida::retornoCheckbox($dados,'st_trabalha');
+            $dados['st_estuda']     = Valida::retornoCheckbox($dados,'st_estuda');
+            $dados['st_batizado']   = Valida::retornoCheckbox($dados,'st_batizado');
+            $dados['st_eucaristia'] = Valida::retornoCheckbox($dados,'st_eucaristia');
+            $dados['st_crisma']     = Valida::retornoCheckbox($dados,'st_crisma');
             $dados['st_status']     = "N"; 
             $dados['no_membro']     = trim($dados['no_membro']);
-           
-//            debug($dados,1);
 
             unset($dados[$id]); 
             $pesquisa['dt_nascimento'] = $dados['dt_nascimento'];

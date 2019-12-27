@@ -145,7 +145,7 @@ class InscricoesForm
             ->setOptions($options)
             ->CriaInpunt();
 
-        $opticoes_camisa = FuncoesSistema::TamanhoCamisa();
+        $opticoes_camisa = CamisaService::montaComboTamanhoCamisas();
         $formulario
             ->setId(NU_CAMISA)
             ->setType("select")

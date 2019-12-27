@@ -91,17 +91,33 @@ class  CamisaService extends AbstractService
         return $retorno;
     }
 
-    static function montaComboCamisas()
+    static function montaComboCorCamisas()
     {
-//        /** @var TamanhoCamisaService $corCamisaService */
-//        $corCamisaService = new CorCamisaService();
+        /** @var TamanhoCamisaService $corCamisaService */
+        $corCamisaService = new CorCamisaService();
         $comboCores = [];
-//        $cores = $corCamisaService->PesquisaTodos();
-//        /** @var CorCamisaEntidade $cor */
-//        foreach ($cores as $cor) {
-//            $comboCores[$cor->getCoCorCamisa()] = $cor->getNoCorCamisa();
-//        }
+        $cores = $corCamisaService->PesquisaTodos();
+        /** @var CorCamisaEntidade $cor */
+        foreach ($cores as $cor) {
+            $comboCores[$cor->getCoCorCamisa()] = $cor->getNoCorCamisa();
+        }
         return $comboCores;
+    }
+
+    static function montaComboTamanhoCamisas()
+    {
+        /** @var TamanhoCamisaService $tamanhoCamisaService */
+        $tamanhoCamisaService = new TamanhoCamisaService();
+        $comboTamanhos = [
+            '' => Mensagens::MSG_SEM_ITEM_SELECIONADO
+        ];
+        $tamanhos = $tamanhoCamisaService->PesquisaTodos();
+        $tamanhos = array_reverse($tamanhos);
+        /** @var TamanhoCamisaEntidade $tamanho */
+        foreach ($tamanhos as $tamanho) {
+            $comboTamanhos[$tamanho->getCoTamanhoCamisa()] = $tamanho->getNoTamanho();
+        }
+        return $comboTamanhos;
     }
 
 
