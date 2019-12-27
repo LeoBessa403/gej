@@ -17,9 +17,10 @@
         </div>
         <aside class="al-center sectiontitle-insc">
             <h1>
-<!--                                <span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>-->
+                <!--                                <span class="label-danger" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span><br/><br/>-->
                 Faça sua incrição
-                <a class="btn btn-green radius" title="Inscrição para nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>"
+                <a class="btn btn-green radius"
+                   title="Inscrição para nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>"
                    target="_blank"
                    href="<?php echo HOME; ?>web/Inscricoes/CadastroRetiro">Inscrição aqui</a>
                 e não nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>.</h1>
@@ -83,7 +84,8 @@
                 <h1 class="click">Veja Mais
                     <a class="btn btn-dark-grey radius" title="Mais Fotos do nosso evento anterior"
                        target="_blank"
-                       href="https://www.facebook.com/media/set/?set=a.553482708360285&type=1&l=dbee500a80">clique aqui</a> para mais fotos.</h1>
+                       href="https://www.facebook.com/media/set/?set=a.553482708360285&type=1&l=dbee500a80">clique
+                        aqui</a> para mais fotos.</h1>
             </aside>
 
             <div class="clear"></div>
@@ -96,11 +98,11 @@
     <!--container2 do title-->
     <div class="content section">
         <header class="sectiontitle sectiontitle-nomargin section-retiro">
-            <h1>Porque participar do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>?</h1>
-            <p class="tagline">O nosso Retiro Espiritual é um afastamento temporário de suas atividades para conversar com Deus
-                e refletir sobre sua própria vida. Trata-se de uma prática muito tradicional na história do
-                Cristianismo, vivamente recomendada pela Igreja Católica. É também chamado de “Exercícios
-                Espirituais”..</p>
+            <h1>Porque participar do nosso <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?>?</h1>
+            <p class="tagline">Esse retiro é p você que já é de caminhada na IGREJA e que já teve seu primeiro encontro
+                com Jesus, mas sente o desejo de viver um AUTOCONHECIMENTO, AMADURECIMENTO e APROFUNDAMENTO na sua vida
+                espiritual</p>
+            <p>Venha viver esse ABASTECIMENTO!</p>
         </header>
         <div class="clear"></div>
     </div>
@@ -206,7 +208,7 @@
                 </b></p>
         </header>
         <h2 style="color: #CCD8D1;">
-<!--                        <span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span> <br/><br/>-->
+            <!--                        <span class="label-success" style="padding: 0.2% 1%;">ÚLTIMAS VAGAS</span> <br/><br/>-->
             Faça sua incrição
             <a class="btn btn-bricky btn-big radius"
                title="Quero Fazer minha inscrição do nosso evento <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?> Agora!"
