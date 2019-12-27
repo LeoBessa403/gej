@@ -95,12 +95,12 @@
                         if($inscricao->getCoPagamento()->getTpSituacao() !=
                             StatusPagamentoEnum::CONCLUIDO){
 //                        ?>
-                        <div class="col-sm-12" style="text-align: center;">
-                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 25px;">
-                                <span class="ladda-label"> Pagar Agora </span>
-                                <i class="fa fa-money"></i>
-                            </a>
-                        </div>
+<!--                        <div class="col-sm-12" style="text-align: center;">-->
+<!--                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 25px;">-->
+<!--                                <span class="ladda-label"> Pagar Agora </span>-->
+<!--                                <i class="fa fa-money"></i>-->
+<!--                            </a>-->
+<!--                        </div>-->
                         <?php } ?>
                     </div>
                 </div>

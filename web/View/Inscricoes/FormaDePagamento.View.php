@@ -38,10 +38,10 @@
                                 <i class="fa fa-save"></i>
                                 <span class="ladda-spinner"></span>
                             </button>
-                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 10px;">
-                                <span class="ladda-label"> Pagar Agora </span>
-                                <i class="fa fa-money"></i>
-                            </a>
+<!--                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 10px;">-->
+<!--                                <span class="ladda-label"> Pagar Agora </span>-->
+<!--                                <i class="fa fa-money"></i>-->
+<!--                            </a>-->
                         </div>
                     </div>
                 </form>
