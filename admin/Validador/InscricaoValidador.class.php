@@ -17,11 +17,11 @@ class  InscricaoValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NU_CPF], AbstractValidador::VALIDACAO_CPF, 'CPF'
         );
-        if(empty($dados[CO_IMAGEM])){
-            $this->retorno[DADOS][] = $this->ValidaCampoArquivo(
-                $arquivo[DS_CAMINHO], 'Foto de Perfil'
-            );
-        };
+//        if(empty($dados[CO_IMAGEM])){
+//            $this->retorno[DADOS][] = $this->ValidaCampoArquivo(
+//                $arquivo[DS_CAMINHO], 'Foto de Perfil'
+//            );
+//        };
         $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
             $dados[ST_SEXO], 'Sexo'
         );
