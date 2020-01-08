@@ -236,7 +236,7 @@ class  InscricaoService extends AbstractService
                 /** @var InscricaoEntidade $inscric */
                 foreach ($pessoa->getCoInscricao() as $inscric){
                     if ($inscric->getCoImagem()->getDsCaminho()):
-                        if(file_exists( PASTA_RAIZ . PASTAUPLOADS . "inscricoes/" .
+                        if(file_exists( PASTA_UPLOADS . "inscricoes/" .
                             $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())){
                             $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
                             $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
