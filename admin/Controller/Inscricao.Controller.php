@@ -27,9 +27,7 @@ class Inscricao extends AbstractController
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
             } else {
                 $this->inscDuplicada = $retorno[MSG];
-                /** @var InscricaoEntidade $inscricao */
-                $inscricao = $inscricaoService->PesquisaUmRegistro($_POST[CO_INSCRICAO]);
-                $res = $inscricaoService->montaDadosInscricao($inscricao);
+                $res = $inscricaoService->montaDadosInscricao($_POST);
                 $this->form = InscricoesForm::Cadastrar($res, $id, 'Inscricao/ListarInscricao');
             }
         endif;
