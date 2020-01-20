@@ -226,6 +226,8 @@ class Inscricao extends AbstractController
         $pagamentoService = $this->getService(PAGAMENTO_SERVICE);
         /** @var ParcelamentoService $parcelamentoService */
         $parcelamentoService = $this->getService(PARCELAMENTO_SERVICE);
+        /** @var UsuarioService $usuarioService */
+        $usuarioService = $this->getService(USUARIO_SERVICE);
 
         $id = "DetalharInscricao";
 
@@ -271,8 +273,10 @@ class Inscricao extends AbstractController
         /** @var ParcelamentoEntidade $parc */
         foreach ($usuParcelas as $parc) {
             if (!empty($parc->getCoUsuario())) {
+                /** @var UsuarioEntidade $usuario */
+                $usuario = $usuarioService->PesquisaUmRegistro($parc->getCoUsuario()->getCoUsuario());
                 $this->usuParcelas[$parc->getCoParcelamento()] =
-                    $parc->getCoUsuario()->getCoPessoa()->getNoPessoa();
+                    $usuario->getCoPessoa()->getNoPessoa();
             }
         }
 
