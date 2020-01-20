@@ -85,15 +85,15 @@ class  InscricaoService extends AbstractService
                 $retorno[MSG] = '<b>Já exite uma inscrição realizada para o ' . InscricaoEnum::DESC_EVENTO_ATUAL . ' com o mesmo '
                     . implode(", ", $Campo) . ', em caso de dúvidas entrar em contato com a comissão do retiro</b>. clique e nos chame pelo
                             <br/><br/><a class="whatsapp" title="Nos chame no WhatSapp"
-                               href="'.Valida::geraLinkWhatSapp(Mensagens::ZAP03).'"
+                               href="' . Valida::geraLinkWhatSapp(Mensagens::ZAP03) . '"
                                target="_blank">
                                 <i class="fa fa-whatsapp"></i> WhatSapp
                             </a>';
                 $retorno[SUCESSO] = false;
             else:
                 $inscricao[DS_MEMBRO_ATIVO] = Valida::retornoCheckbox($dados, DS_MEMBRO_ATIVO);
-                $inscricao[ST_EQUIPE_TRABALHO] = Valida::retornoCheckbox($dados,ST_EQUIPE_TRABALHO);
-                $inscricao[DS_RETIRO] = Valida::retornoCheckbox($dados,DS_RETIRO );
+                $inscricao[ST_EQUIPE_TRABALHO] = Valida::retornoCheckbox($dados, ST_EQUIPE_TRABALHO);
+                $inscricao[DS_RETIRO] = Valida::retornoCheckbox($dados, DS_RETIRO);
                 $inscricao[NO_RESPONSAVEL] = strtoupper($dados[NO_RESPONSAVEL]);
 
                 $imagem[DS_CAMINHO] = "";
@@ -130,7 +130,7 @@ class  InscricaoService extends AbstractService
                     } else {
                         $contatoService->Salva($contato, $idCoContato);
                     }
-                    if($imagem[DS_CAMINHO]){
+                    if ($imagem[DS_CAMINHO]) {
                         if (!$idCoImagem) {
                             $inscricao[CO_IMAGEM] = $imagemService->Salva($imagem);
                         } else {
@@ -162,7 +162,7 @@ class  InscricaoService extends AbstractService
                     endif;
                     unset($pessoa[DT_CADASTRO]);
                     $pessoaService->Salva($pessoa, $inscricaoEdicao->getCoPessoa()->getCoPessoa());
-                    $inscricao[ST_EQUIPE_TRABALHO] = Valida::retornoCheckbox($dados,ST_EQUIPE_TRABALHO);
+                    $inscricao[ST_EQUIPE_TRABALHO] = Valida::retornoCheckbox($dados, ST_EQUIPE_TRABALHO);
                     unset($inscricao[DT_CADASTRO]);
                     $retorno[CO_INSCRICAO] = $this->Salva($inscricao, $coInscricao);
                 }
@@ -234,16 +234,13 @@ class  InscricaoService extends AbstractService
             $pessoa = $pessoaService->PesquisaUmRegistro($inscricao->getCoPessoa()->getCoPessoa());
             if (!empty($pessoa->getCoInscricao())) {
                 /** @var InscricaoEntidade $inscric */
-                foreach ($pessoa->getCoInscricao() as $inscric){
-                    if ($inscric->getCoImagem()->getDsCaminho()):
-                        if(file_exists( PASTA_UPLOADS . "inscricoes/" .
-                            $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())){
-                            $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
-                            $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
-                        }
-                    endif;
-
-                }
+                if ($pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho()):
+                    if (file_exists(PASTA_UPLOADS . "inscricoes/" .
+                        $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())) {
+                        $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
+                        $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
+                    }
+                endif;
             }
         }
         return $res;
