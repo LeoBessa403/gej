@@ -234,7 +234,7 @@ class  InscricaoService extends AbstractService
             $pessoa = $pessoaService->PesquisaUmRegistro($inscricao->getCoPessoa()->getCoPessoa());
             if (!empty($pessoa->getCoInscricao())) {
                 /** @var InscricaoEntidade $inscric */
-                if ($pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho()):
+                if ($pessoa->getUltimaCoInscricao()->getCoImagem()):
                     if (file_exists(PASTA_UPLOADS . "inscricoes/" .
                         $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())) {
                         $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
