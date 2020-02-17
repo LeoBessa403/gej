@@ -428,17 +428,11 @@ class Inscricao extends AbstractController
         $grafico2->GeraGrafico();
     }
 
-    public function DesativarInscricao()
+    public function DesativarInscricao($coInscricao)
     {
         /** @var InscricaoService $inscricaoService */
         $inscricaoService = $this->getService(INSCRICAO_SERVICE);
-        $motivo = explode('/', $_GET['url']);
-        $ds_motivo = $motivo[4];
-        $coInscricao = UrlAmigavel::PegaParametro(CO_INSCRICAO);
-        $retorno = $inscricaoService->desativarInscricao($coInscricao, $ds_motivo);
-        if ($retorno[SUCESSO]) {
-            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarInscricao/');
-        }
+        return $inscricaoService->desativarInscricao($coInscricao, '');
     }
 
     public function AtivarInscricao()

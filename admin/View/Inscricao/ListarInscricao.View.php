@@ -40,7 +40,7 @@
                         <?php
                         Modal::load();
                         Modal::deletaRegistro(UrlAmigavel::$controller);
-                        Modal::ModalConfirmaDesativacao("DesativarInscricao", "Deseja realmenta Desativar essa inscrição?", "", '');
+                        Modal::ModalConfirmaDesativacao("DesativarInscricao", "Deseja realmenta Desativar essa inscrição?", "", '', true);
                         Modal::ModalConfirmaAtivacao("AtivarInscricao", "Deseja realmenta Ativar essa inscrição?", "", '');
                         Modal::confirmacao("confirma_Inscricao");
                         $arrColunas = array('Nome', 'Inscrição', 'Idade', 'Endereço', 'Servo',
