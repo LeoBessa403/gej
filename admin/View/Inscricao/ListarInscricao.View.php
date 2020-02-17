@@ -64,8 +64,7 @@
                                     $acao = ' <a data-toggle="modal" role="button" class="btn btn-green tooltips acao" 
                                             id="' . $inscricao->getCoInscricao() . '" data-msg-restricao="MSG03"
                                            href="#AtivarInscricao" data-original-title="Ativar Inscrição" data-placement="top"
-                                           data-url-action="' . PASTAADMIN . 'Inscricao/AtivarInscricao/' .
-                                        Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '">
+                                            data-acao="AtivarInscricao">
                                             <i class="fa fa-unlock-alt"></i>
                                         </a>';
                                 } else {
@@ -84,8 +83,7 @@
                                          <a data-toggle="modal" role="button" class="btn btn-danger tooltips acao" 
                                             id="' . $inscricao->getCoInscricao() . '" data-msg-restricao="MSG03"
                                            href="#DesativarInscricao" data-original-title="Desativar Inscrição" data-placement="top"
-                                           data-url-action="' . PASTAADMIN . 'Inscricao/DesativarInscricao/' .
-                                        Valida::GeraParametro(CO_INSCRICAO . "/" . $inscricao->getCoInscricao()) . '">
+                                            data-acao="DesativarInscricao">
                                             <i class="fa fa-lock"></i>
                                         </a>';
                                 }
