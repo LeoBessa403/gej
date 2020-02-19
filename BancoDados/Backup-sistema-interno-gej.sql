@@ -1,4 +1,4 @@
--- Atualizado em: 17/02/2020 11:54:12
+-- Atualizado em: 19/02/2020 15:14:42
 -- AMBIENTE: http://localhost/gej/
 -- BANCO: gejdo247_gej
 
@@ -20,7 +20,7 @@ CREATE TABLE `TB_ACESSO` (
   PRIMARY KEY (`co_acesso`,`co_usuario`,`co_trafego`),
   KEY `fk_TB_ACESSO_TB_USUARIO1_idx` (`co_usuario`),
   KEY `fk_TB_ACESSO_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=327 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_ACESSO VALUES("17","022af3f7f5e23c187dde9095d02c99a4","2019-12-16 21:12:03","2019-12-16 21:32:34","F","1","99");
@@ -641,7 +641,13 @@ INSERT INTO TB_ACESSO VALUES("324","d065e7464c09b8fd46639ab6118d8244","2020-02-1
 
 INSERT INTO TB_ACESSO VALUES("325","fabb668ce9fa49be3d8cd223160de688","2020-02-17 10:22:32","2020-02-17 10:42:58","F","4","1277");
 
-INSERT INTO TB_ACESSO VALUES("326","176c6bbefd963a32aac993fde6ef0f8a","2020-02-17 10:46:00","2020-02-17 11:13:11","A","1","1279");
+INSERT INTO TB_ACESSO VALUES("326","176c6bbefd963a32aac993fde6ef0f8a","2020-02-17 10:46:00","2020-02-17 11:13:11","F","1","1279");
+
+INSERT INTO TB_ACESSO VALUES("327","57b70536pkkfchcgs05iren0t0","2020-02-17 11:55:11","2020-02-17 13:24:38","F","1","1282");
+
+INSERT INTO TB_ACESSO VALUES("328","57b70536pkkfchcgs05iren0t0","2020-02-17 13:24:46","2020-02-17 13:45:04","F","1","1283");
+
+INSERT INTO TB_ACESSO VALUES("329","57b70536pkkfchcgs05iren0t0","2020-02-17 13:59:44","2020-02-17 15:15:42","A","1","1284");
 
 
 
@@ -856,7 +862,7 @@ CREATE TABLE `TB_AUDITORIA` (
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_auditoria`,`co_usuario`),
   KEY `fk_TB_AUDITORIA_TB_USUARIO1_idx` (`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=324 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=340 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_AUDITORIA VALUES("26","2019-12-16 21:41:53","Coord. Administrativo, Coordenadores, Membro, Master","1");
@@ -1455,6 +1461,38 @@ INSERT INTO TB_AUDITORIA VALUES("322","2020-02-16 22:54:17","Usuário Web Gej","
 
 INSERT INTO TB_AUDITORIA VALUES("323","2020-02-16 22:55:29","Usuário Web Gej","1");
 
+INSERT INTO TB_AUDITORIA VALUES("324","2020-02-17 12:18:59","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("325","2020-02-17 12:19:30","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("326","2020-02-17 14:09:08","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("327","2020-02-17 14:13:15","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("328","2020-02-17 14:13:46","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("329","2020-02-17 14:15:19","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("330","2020-02-17 14:17:38","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("331","2020-02-17 14:18:30","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("332","2020-02-17 14:19:48","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("333","2020-02-17 14:19:56","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("334","2020-02-17 14:23:22","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("335","2020-02-17 14:25:18","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("336","2020-02-17 14:25:39","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("337","2020-02-17 14:26:08","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("338","2020-02-17 14:26:26","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
+INSERT INTO TB_AUDITORIA VALUES("339","2020-02-17 14:27:48","Coord. Administrativo, Coordenadores, Membro, Master","1");
+
 
 
 
@@ -1469,7 +1507,7 @@ CREATE TABLE `TB_AUDITORIA_ITENS` (
   `co_auditoria_tabela` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_itens`,`co_auditoria_tabela`),
   KEY `fk_TB_AUDITORIA_ITENS_TB_AUDITORIA_TABELA1_idx` (`co_auditoria_tabela`)
-) ENGINE=InnoDB AUTO_INCREMENT=8501 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8693 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_AUDITORIA_ITENS VALUES("383","","Chácara Santa Cruz","ds_endereco","68");
@@ -17708,6 +17746,390 @@ INSERT INTO TB_AUDITORIA_ITENS VALUES("8499","","160","nu_valor_parcela","1113")
 
 INSERT INTO TB_AUDITORIA_ITENS VALUES("8500","","2020-02-16","dt_vencimento","1113");
 
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8501","","D","st_status","1114");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8502","","","ds_motivo","1114");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8503","","D","st_status","1115");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8504","","","ds_motivo","1115");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8505","","D","st_status","1116");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8506","","","ds_motivo","1116");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8507","","D","st_status","1117");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8508","","","ds_motivo","1117");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8509","","D","st_status","1118");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8510","","","ds_motivo","1118");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8511","","D","st_status","1119");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8512","","","ds_motivo","1119");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8513","534","","co_inscricao","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8514","Grupo de Acólitos e Cerimoniários. Há 4 anos.","","ds_pastoral","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8515","S","","ds_retiro","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8516","2020-02-16 22:54:17","","dt_cadastro","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8517","A","D","st_status","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8518","N","","ds_membro_ativo","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8519","N","","st_equipe_trabalho","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8520","","","ds_situacao_atual_grupo","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8521","5","","nu_camisa","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8522","SôNIA OLIVEIRA MãE","","no_responsavel","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8523","61986664016","","nu_tel_responsavel","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8524","Gosto de aprender coisas novas, amo ler e fazer artesanatos. Sou apaixonada pelo meu serviço no presbitério. Faço faculdade e estou tentando me encontrar na Enfermagem. Procuro crescimento espiritual para adentrar novas moradas, mas para isso sinto que pr","","ds_descricao","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8525","Não.","","ds_medicacao","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8526","Não.","","ds_alimentacao","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8527","","","ds_motivo","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8528","38","","co_evento","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8529","328","","co_pessoa","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8530","0","","co_imagem","1120");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8531","533","","co_inscricao","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8532","","","ds_pastoral","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8533","N","","ds_retiro","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8534","2020-02-16 22:03:15","","dt_cadastro","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8535","A","D","st_status","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8536","N","","ds_membro_ativo","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8537","N","","st_equipe_trabalho","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8538","","","ds_situacao_atual_grupo","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8539","3","","nu_camisa","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8540","FLáVIA ","","no_responsavel","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8541","61998141560","","nu_tel_responsavel","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8542","","","ds_descricao","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8543","","","ds_medicacao","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8544","Intolerante a lactose","","ds_alimentacao","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8545","","","ds_motivo","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8546","38","","co_evento","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8547","408","","co_pessoa","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8548","484","","co_imagem","1121");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8549","531","","co_inscricao","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8550","","","ds_pastoral","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8551","N","","ds_retiro","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8552","2020-02-13 17:28:20","","dt_cadastro","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8553","A","D","st_status","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8554","N","","ds_membro_ativo","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8555","N","","st_equipe_trabalho","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8556","","","ds_situacao_atual_grupo","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8557","3","","nu_camisa","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8558","GERSON MATEUS","","no_responsavel","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8559","61999383819","","nu_tel_responsavel","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8560","Tenho 25 anos, solteira. Não tenho Filhos.\n\nMoro com meus pais.\n\nSou recém graduada em Agronomia, mas ainda não consegui meu primeiro emprego na área, porém trabalho na loja do meu tio de instrumentos musicais.\n\nEm Formosa sou da paroquia São Sebastião","","ds_descricao","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8561","Não","","ds_medicacao","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8562","Não","","ds_alimentacao","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8563","","","ds_motivo","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8564","38","","co_evento","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8565","406","","co_pessoa","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8566","482","","co_imagem","1122");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8567","528","","co_inscricao","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8568","","","ds_pastoral","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8569","N","","ds_retiro","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8570","2020-02-11 23:32:22","","dt_cadastro","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8571","A","D","st_status","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8572","N","","ds_membro_ativo","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8573","N","","st_equipe_trabalho","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8574","","","ds_situacao_atual_grupo","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8575","6","","nu_camisa","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8576","MARLENE","","no_responsavel","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8577","61984330497","","nu_tel_responsavel","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8578","","","ds_descricao","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8579","Sim. Lexapro 15mg após o café da manhã\n\nGlifage após o almoço\n\nMolieri 19h30 da noite\n\nDoraren 40 minutos antes de dormir","","ds_medicacao","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8580","Não","","ds_alimentacao","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8581","","","ds_motivo","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8582","38","","co_evento","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8583","404","","co_pessoa","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8584","479","","co_imagem","1123");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8585","530","","co_inscricao","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8586","Gej 1 ano e meio","","ds_pastoral","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8587","S","","ds_retiro","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8588","2020-02-13 11:28:43","","dt_cadastro","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8589","A","D","st_status","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8590","N","","ds_membro_ativo","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8591","N","","st_equipe_trabalho","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8592","","","ds_situacao_atual_grupo","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8593","1","","nu_camisa","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8594","MARCIA FRANCINA DE OLIVEIRA ","","no_responsavel","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8595","61985175039","","nu_tel_responsavel","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8596","Gosto de conhecer pessoa novas, sou um pouco na minha, tenho vergonha (até pegar intimidade)","","ds_descricao","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8597","Nao","","ds_medicacao","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8598","Nao","","ds_alimentacao","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8599","","","ds_motivo","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8600","38","","co_evento","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8601","177","","co_pessoa","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8602","481","","co_imagem","1124");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8603","529","","co_inscricao","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8604","Grupo Jauc há 2 anos","","ds_pastoral","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8605","S","","ds_retiro","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8606","2020-02-12 13:13:31","","dt_cadastro","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8607","A","D","st_status","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8608","N","","ds_membro_ativo","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8609","N","","st_equipe_trabalho","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8610","","","ds_situacao_atual_grupo","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8611","3","","nu_camisa","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8612","VICTOR GABRIEL","","no_responsavel","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8613","6196741230","","nu_tel_responsavel","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8614","Sou católica e faço parte da coordenação do grupo Jauc da paróquia São José. Estou passando por um momento difícil na minha vida com muitas brigas internas e muitas mudanças acontecendo. Preciso amadurecer e me conhecer pra tomar algumas decisões importan","","ds_descricao","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8615","","","ds_medicacao","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8616","Intolerância à lactose","","ds_alimentacao","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8617","","","ds_motivo","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8618","38","","co_evento","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8619","405","","co_pessoa","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8620","480","","co_imagem","1125");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8621","525","","co_inscricao","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8622","","","ds_pastoral","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8623","N","","ds_retiro","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8624","2020-02-10 16:16:09","","dt_cadastro","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8625","A","D","st_status","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8626","N","","ds_membro_ativo","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8627","N","","st_equipe_trabalho","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8628","","","ds_situacao_atual_grupo","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8629","4","","nu_camisa","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8630","GLEDS CRISTINE","","no_responsavel","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8631","6198459548","","nu_tel_responsavel","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8632","","","ds_descricao","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8633","","","ds_medicacao","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8634","","","ds_alimentacao","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8635","","","ds_motivo","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8636","38","","co_evento","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8637","255","","co_pessoa","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8638","0","","co_imagem","1126");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8639","527","","co_inscricao","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8640","","","ds_pastoral","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8641","N","","ds_retiro","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8642","2020-02-10 21:33:56","","dt_cadastro","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8643","A","D","st_status","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8644","N","","ds_membro_ativo","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8645","N","","st_equipe_trabalho","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8646","","","ds_situacao_atual_grupo","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8647","8","","nu_camisa","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8648","OLINDA ","","no_responsavel","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8649","61996910311","","nu_tel_responsavel","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8650","","","ds_descricao","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8651","","","ds_medicacao","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8652","","","ds_alimentacao","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8653","","","ds_motivo","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8654","38","","co_evento","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8655","275","","co_pessoa","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8656","478","","co_imagem","1127");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8657","523","","co_inscricao","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8658","","","ds_pastoral","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8659","N","","ds_retiro","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8660","2020-02-10 00:06:37","","dt_cadastro","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8661","A","D","st_status","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8662","N","","ds_membro_ativo","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8663","N","","st_equipe_trabalho","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8664","","","ds_situacao_atual_grupo","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8665","9","","nu_camisa","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8666","PRISCILLA","","no_responsavel","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8667","71991928735","","nu_tel_responsavel","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8668","Tenho 63 anos gosto de retiro","","ds_descricao","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8669","Nao","","ds_medicacao","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8670","Comida  gordurox","","ds_alimentacao","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8671","","","ds_motivo","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8672","38","","co_evento","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8673","401","","co_pessoa","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8674","0","","co_imagem","1128");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8675","524","","co_inscricao","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8676","JPII","","ds_pastoral","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8677","N","","ds_retiro","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8678","2020-02-10 15:59:38","","dt_cadastro","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8679","A","D","st_status","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8680","N","","ds_membro_ativo","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8681","N","","st_equipe_trabalho","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8682","","","ds_situacao_atual_grupo","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8683","2","","nu_camisa","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8684","SILVANA GOMES DA SILVA ","","no_responsavel","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8685","61996162341","","nu_tel_responsavel","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8686","Sou  sou tímida mas tbm  extrovertida, animada, não sou tão boa porém canto,  etc","","ds_descricao","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8687","","","ds_medicacao","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8688","","","ds_alimentacao","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8689","","","ds_motivo","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8690","38","","co_evento","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8691","402","","co_pessoa","1129");
+
+INSERT INTO TB_AUDITORIA_ITENS VALUES("8692","476","","co_imagem","1129");
+
 
 
 
@@ -17722,7 +18144,7 @@ CREATE TABLE `TB_AUDITORIA_TABELA` (
   `co_auditoria` int(11) NOT NULL,
   PRIMARY KEY (`co_auditoria_tabela`,`co_auditoria`),
   KEY `fk_TB_AUDITORIA_TABELA_TB_AUDITORIA1_idx` (`co_auditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=1114 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1130 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("68","TB_ENDERECO","I","393","26");
@@ -19816,6 +20238,38 @@ INSERT INTO TB_AUDITORIA_TABELA VALUES("1111","TB_INSCRICAO","I","534","322");
 INSERT INTO TB_AUDITORIA_TABELA VALUES("1112","TB_PAGAMENTO","I","542","323");
 
 INSERT INTO TB_AUDITORIA_TABELA VALUES("1113","TB_PARCELAMENTO","I","1778","323");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1114","TB_INSCRICAO","I","535","324");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1115","TB_INSCRICAO","I","536","325");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1116","TB_INSCRICAO","I","537","326");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1117","TB_INSCRICAO","I","538","327");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1118","TB_INSCRICAO","I","539","328");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1119","TB_INSCRICAO","I","540","329");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1120","TB_INSCRICAO","U","534","330");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1121","TB_INSCRICAO","U","533","331");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1122","TB_INSCRICAO","U","531","332");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1123","TB_INSCRICAO","U","528","333");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1124","TB_INSCRICAO","U","530","334");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1125","TB_INSCRICAO","U","529","335");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1126","TB_INSCRICAO","U","525","336");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1127","TB_INSCRICAO","U","527","337");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1128","TB_INSCRICAO","U","523","338");
+
+INSERT INTO TB_AUDITORIA_TABELA VALUES("1129","TB_INSCRICAO","U","524","339");
 
 
 
@@ -22851,7 +23305,7 @@ CREATE TABLE `TB_INSCRICAO` (
   KEY `fk_TB_INSCRICAO_TB_EVENTO1_idx` (`co_evento`),
   KEY `fk_TB_INSCRICAO_TB_PESSOA1_idx` (`co_pessoa`),
   KEY `fk_TB_INSCRICAO_TB_IMAGEM1_idx` (`co_imagem`)
-) ENGINE=InnoDB AUTO_INCREMENT=535 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=541 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_INSCRICAO VALUES("1","","N","2017-12-30 19:59:43","A","N","N","","4","LEILA TOMINAGA","61982522602","Sou top\n\n\nSou Filha de Dom Bosco \n\n\nA neném dos tios Tominaga","","Sou diabética.","","1","2","2");
@@ -23738,19 +24192,19 @@ INSERT INTO TB_INSCRICAO VALUES("444","Equipe Jovem Ajuc. Há quase 4 anos","S",
 
 INSERT INTO TB_INSCRICAO VALUES("445","Grupo jovem adonai, 3 anos","S","2019-12-27 12:05:27","A","N","N","","6","VERONICA","6133578840","","Sim, para anêmia, antes do almoço e noretisterona no período da noite","Não","","38","349","417");
 
-INSERT INTO TB_INSCRICAO VALUES("446","Grupo jovem fuc des de semtembro de 2019","S","2019-12-27 12:40:21","A","N","N","","9","MARISA ","61995753532","Sou uma pessoa reservada  e um pouco fechada","Sim \n\nMicrovila\n\nEnalapril \n\nGlifagem  \n\nCálcio  \n\nDepiridona \n\nVitamina  d\n\nOmeprazol","Não","","38","20","418");
+INSERT INTO TB_INSCRICAO VALUES("446","Grupo jovem fuc des de semtembro de 2019","S","2019-12-27 12:40:21","D","N","N","","9","MARISA ","61995753532","Sou uma pessoa reservada  e um pouco fechada","Sim \n\nMicrovila\n\nEnalapril \n\nGlifagem  \n\nCálcio  \n\nDepiridona \n\nVitamina  d\n\nOmeprazol","Não","","38","20","418");
 
-INSERT INTO TB_INSCRICAO VALUES("447","Renovação carismática católica","S","2019-12-27 13:31:33","A","N","N","","6","MARIA JOSé ","61994174743","Lindo extrovertido","Não","Não","","38","56","419");
+INSERT INTO TB_INSCRICAO VALUES("447","Renovação carismática católica","S","2019-12-27 13:31:33","D","N","N","","6","MARIA JOSé ","61994174743","Lindo extrovertido","Não","Não","","38","56","419");
 
-INSERT INTO TB_INSCRICAO VALUES("448","","N","2019-12-27 21:29:44","A","N","N","","3","ELIOMAR ENOQUE ","61985223191","","","","","38","69","421");
+INSERT INTO TB_INSCRICAO VALUES("448","","N","2019-12-27 21:29:44","D","N","N","","3","ELIOMAR ENOQUE ","61985223191","","","","","38","69","421");
 
 INSERT INTO TB_INSCRICAO VALUES("449","Fillis Matar Dei, 3 anos.","S","2019-12-27 21:36:31","A","N","N","","7","MARIA DAS GRAçAS ","61986380391","","Não","Não","","38","146","422");
 
-INSERT INTO TB_INSCRICAO VALUES("450","","S","2019-12-27 23:13:57","A","N","N","","6","NEILDO DUARTE DE SOUSA","6132086444","","Não","Preciso me alimentar de 2 em 2 horas","","38","17","423");
+INSERT INTO TB_INSCRICAO VALUES("450","","S","2019-12-27 23:13:57","D","N","N","","6","NEILDO DUARTE DE SOUSA","6132086444","","Não","Preciso me alimentar de 2 em 2 horas","","38","17","423");
 
 INSERT INTO TB_INSCRICAO VALUES("451","","N","2019-12-28 17:30:45","A","N","N","","3","CARLA DOS SANTOS LOURENçO","61985602224","Tenho 16 anos, estudo no Claretiano - Centro Educacional Stella Maria, estou no 3° ano do ensino médio, sou católica, sou consagrada a Nossa Senhora de Fátima","Remédio controlado para ansiedade - toml todo dia às 06:10 na manhã\n\nAnticoncepcional - antes de dormir","","","38","351","424");
 
-INSERT INTO TB_INSCRICAO VALUES("452","Grupo Jovem Adonai; 2 anos","S","2019-12-30 11:50:20","A","N","N","","3","MARILEIS GUIMARãES ","6184439650","","Não.","Não.","","38","304","425");
+INSERT INTO TB_INSCRICAO VALUES("452","Grupo Jovem Adonai; 2 anos","S","2019-12-30 11:50:20","D","N","N","","3","MARILEIS GUIMARãES ","6184439650","","Não.","Não.","","38","304","425");
 
 INSERT INTO TB_INSCRICAO VALUES("453","Sou catequista desde 2018 e participo do grupo das Guardiãs desde 2017","S","2019-12-30 12:37:53","A","N","N","","7","ANTONIA DULCE DA SILVA CHAVES","61991871618","","","","","38","352","426");
 
@@ -23758,19 +24212,19 @@ INSERT INTO TB_INSCRICAO VALUES("454","","N","2020-01-01 18:34:30","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("455","","N","2020-01-02 13:07:04","A","N","N","","9","IZA MARIA WENTZ","61996675508","Sou tímida","","Leite","","38","354","428");
 
-INSERT INTO TB_INSCRICAO VALUES("456","Cerimoniarios - paróquia Jesus de Nazaré -- 4 anos","N","2020-01-03 00:48:45","A","N","N","","9","SOLANGE ","61992687082","","","","","38","194","429");
+INSERT INTO TB_INSCRICAO VALUES("456","Cerimoniarios - paróquia Jesus de Nazaré -- 4 anos","N","2020-01-03 00:48:45","D","N","N","","9","SOLANGE ","61992687082","","","","","38","194","429");
 
-INSERT INTO TB_INSCRICAO VALUES("457","GEJ Dom Bosco, quase 2 anos","S","2020-01-03 20:20:34","A","S","N","","4","EDI","61986521612","","Levotiroxina 150g e loratadina 10g","","","38","25","430");
+INSERT INTO TB_INSCRICAO VALUES("457","GEJ Dom Bosco, quase 2 anos","S","2020-01-03 20:20:34","D","S","N","","4","EDI","61986521612","","Levotiroxina 150g e loratadina 10g","","","38","25","430");
 
 INSERT INTO TB_INSCRICAO VALUES("458","Faço parte do GEJ Dom Bosco a 1 ano e 7 meses","S","2020-01-04 09:28:28","A","S","S","","4","EDILEUZA ","61992474253","","Não.","Intolerância a Lactose.","","38","55","431");
 
 INSERT INTO TB_INSCRICAO VALUES("459","Gej ( não sei quanto tempo )","S","2020-01-04 23:23:25","A","S","S","","8","DAYANE  MãE ","61995593633","Extrovertida, sincera as vezes até demais, falo muito, mas também gosto muito de ajudar sempre estou disposta há fazer o que me pedem. Convivo com facilidade com outras pessoas.","Sim, 1 comprimido durante a noite","Não","","38","109","432");
 
-INSERT INTO TB_INSCRICAO VALUES("460","","N","2020-01-05 01:58:39","A","N","N","","5","NILVA","61981284313","Tenho 28 anos, sou empresária e concursanda. Tenho sentido vontade de buscar a Deus em uma experiência mais profunda. Sou apaixonada por animais, adoro ler, sou muito tímida.","Sim. Pela manhã tomo dois comprimidos para depressão e ansiedade e a noite tomo outro comprimido antes de dormir.","Não como carne (vegetariana)","","38","355","433");
+INSERT INTO TB_INSCRICAO VALUES("460","","N","2020-01-05 01:58:39","D","N","N","","5","NILVA","61981284313","Tenho 28 anos, sou empresária e concursanda. Tenho sentido vontade de buscar a Deus em uma experiência mais profunda. Sou apaixonada por animais, adoro ler, sou muito tímida.","Sim. Pela manhã tomo dois comprimidos para depressão e ansiedade e a noite tomo outro comprimido antes de dormir.","Não como carne (vegetariana)","","38","355","433");
 
-INSERT INTO TB_INSCRICAO VALUES("461","","N","2020-01-05 05:45:51","A","N","N","","7","MARLEIDE JOSE RODRIGUES RAMOS ","6392292960","","Não","Não","","38","356","434");
+INSERT INTO TB_INSCRICAO VALUES("461","","N","2020-01-05 05:45:51","D","N","N","","7","MARLEIDE JOSE RODRIGUES RAMOS ","6392292960","","Não","Não","","38","356","434");
 
-INSERT INTO TB_INSCRICAO VALUES("462","Liturgia/ Música/Ejoc - 6 anos juntando todos","S","2020-01-06 11:33:35","A","N","N","","7","THIAGO SANTOS GONçALVES","61982896319","Extrovertida, empenhada, espontânea.","Não","Dieta vegetariana","","38","357","435");
+INSERT INTO TB_INSCRICAO VALUES("462","Liturgia/ Música/Ejoc - 6 anos juntando todos","S","2020-01-06 11:33:35","D","N","N","","7","THIAGO SANTOS GONçALVES","61982896319","Extrovertida, empenhada, espontânea.","Não","Dieta vegetariana","","38","357","435");
 
 INSERT INTO TB_INSCRICAO VALUES("463","GEJ DOM BOSCO / 4 ANOS","S","2020-01-06 17:25:53","A","S","S","","4","PAI","61992197688","SOU DO GEJ E SOU FELIZ","NÃO","NÃO COMO CARNE\n\nARROZ\n\nMACARRÃO \n\nDerivados de glúten e etc (Tenho intolerância)","","38","39","436");
 
@@ -23826,9 +24280,9 @@ INSERT INTO TB_INSCRICAO VALUES("488","Oásis da Esperança - Paroquia NS Aparec
 
 INSERT INTO TB_INSCRICAO VALUES("489","GEJ 2 Anos","S","2020-01-22 12:59:54","A","S","S","","8","MARINEZ","6130130388",".","não","não","","38","237","0");
 
-INSERT INTO TB_INSCRICAO VALUES("490","","N","2020-01-22 20:54:35","A","N","N","","3","CRISTIANE MãE ","61996654569","","Uso pela manhã- loratadina e anticoncepcional","Frutos do mar","","38","374","456");
+INSERT INTO TB_INSCRICAO VALUES("490","","N","2020-01-22 20:54:35","D","N","N","","3","CRISTIANE MãE ","61996654569","","Uso pela manhã- loratadina e anticoncepcional","Frutos do mar","","38","374","456");
 
-INSERT INTO TB_INSCRICAO VALUES("491","EAC 4 anos","S","2020-01-22 20:59:02","A","N","N","","1","LUCIANO PAI","61996321206","","Não","Não","","38","375","457");
+INSERT INTO TB_INSCRICAO VALUES("491","EAC 4 anos","S","2020-01-22 20:59:02","D","N","N","","1","LUCIANO PAI","61996321206","","Não","Não","","38","375","457");
 
 INSERT INTO TB_INSCRICAO VALUES("492","","N","2020-01-25 19:01:48","A","N","N","","5","ANA PAULA DE SOUZA","61998497773","","","Carne de porco","","38","376","458");
 
@@ -23864,7 +24318,7 @@ INSERT INTO TB_INSCRICAO VALUES("507","","N","2020-01-31 19:26:31","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("508","Jauc ( 1 ano), Ânima ( 8 anos)","N","2020-02-02 22:43:00","A","N","N","","8","WESLEY DOS REIS TORRES ","61984023273","Não tenho muito o que dizer, mas tenho muito a oferecer!","Não","Não","","38","388","465");
 
-INSERT INTO TB_INSCRICAO VALUES("509","Pastoral da música há 1 ano, coroinha há muito tempo, Grupo de oração há 1 ano.","N","2020-02-03 15:38:34","A","N","N","","3","GIOVANE JOSé ","61996995175","Sou uma pessoa engraçada , passei por cituações difíceis como a morte da minha avó , que ainda sinto saudade , quando dei crise de anciedade por 3 anos tive que passar por psicológo , crises muito fortes que não queria sair de casa , depois de alguns anos que passou, meu pai começou a cair na deprecão e nisso meu irmão começou a  fazer umas coisas erradas , meu irmão mais velho dando trabalho aí meu pai sai da deprecão e minha mãe entra e foi essa batalha... Só eu escutando meu pai desabafar comigo de um lado minha mãe do outro meu irmão mais velho do outro e meu irmão do meio do outro e eu sem poder falar nada a ninguém não estava aguentando mais , isso me dói até hoje , em pensar que foi muita preciso psicológica eu estava muito chateada e triste porém para não demonstrar fraqueza ou demonstrar para os outros e as pessoas me jugarem... Preferi ficar me silêncio e isso foi acabando comigo ... A hoje estou melhor sou uma garota engraçada legal , pelo menos pelo que eu escudo dos outros rsrsr.","Não , nenhum","Não , nenhum","","38","389","466");
+INSERT INTO TB_INSCRICAO VALUES("509","Pastoral da música há 1 ano, coroinha há muito tempo, Grupo de oração há 1 ano.","N","2020-02-03 15:38:34","D","N","N","","3","GIOVANE JOSé ","61996995175","Sou uma pessoa engraçada , passei por cituações difíceis como a morte da minha avó , que ainda sinto saudade , quando dei crise de anciedade por 3 anos tive que passar por psicológo , crises muito fortes que não queria sair de casa , depois de alguns anos que passou, meu pai começou a cair na deprecão e nisso meu irmão começou a  fazer umas coisas erradas , meu irmão mais velho dando trabalho aí meu pai sai da deprecão e minha mãe entra e foi essa batalha... Só eu escutando meu pai desabafar comigo de um lado minha mãe do outro meu irmão mais velho do outro e meu irmão do meio do outro e eu sem poder falar nada a ninguém não estava aguentando mais , isso me dói até hoje , em pensar que foi muita preciso psicológica eu estava muito chateada e triste porém para não demonstrar fraqueza ou demonstrar para os outros e as pessoas me jugarem... Preferi ficar me silêncio e isso foi acabando comigo ... A hoje estou melhor sou uma garota engraçada legal , pelo menos pelo que eu escudo dos outros rsrsr.","Não , nenhum","Não , nenhum","","38","389","466");
 
 INSERT INTO TB_INSCRICAO VALUES("510","Pastoral dos Acólitos há muito tempo, e Grupo jovem João Paulo ll que está em reconstrução há 2 meses","N","2020-02-03 17:19:21","A","N","N","","7","PAULO HENRIQUE","61996981622","Eu gosto de ver as pessoas feliz mesmo que eu esteja triste.eu Quero me estregar mais eu tenho medo de perder as amizades mais meu coração sente que precisa se entregar mais o medo me empede","Nenhum","Tolerante a lactose","","38","390","467");
 
@@ -23892,29 +24346,41 @@ INSERT INTO TB_INSCRICAO VALUES("521","","N","2020-02-09 19:00:18","A","N","N","
 
 INSERT INTO TB_INSCRICAO VALUES("522","","S","2020-02-09 23:21:08","A","S","S","","4","SELMéLIA","61991521943","","","","","38","252","0");
 
-INSERT INTO TB_INSCRICAO VALUES("523","","N","2020-02-10 00:06:37","A","N","N","","9","PRISCILLA","71991928735","Tenho 63 anos gosto de retiro","Nao","Comida  gordurox","","38","401","0");
+INSERT INTO TB_INSCRICAO VALUES("523","","N","2020-02-10 00:06:37","D","N","N","","9","PRISCILLA","71991928735","Tenho 63 anos gosto de retiro","Nao","Comida  gordurox","","38","401","0");
 
-INSERT INTO TB_INSCRICAO VALUES("524","JPII","N","2020-02-10 15:59:38","A","N","N","","2","SILVANA GOMES DA SILVA ","61996162341","Sou  sou tímida mas tbm  extrovertida, animada, não sou tão boa porém canto,  etc","","","","38","402","476");
+INSERT INTO TB_INSCRICAO VALUES("524","JPII","N","2020-02-10 15:59:38","D","N","N","","2","SILVANA GOMES DA SILVA ","61996162341","Sou  sou tímida mas tbm  extrovertida, animada, não sou tão boa porém canto,  etc","","","","38","402","476");
 
-INSERT INTO TB_INSCRICAO VALUES("525","","N","2020-02-10 16:16:09","A","N","N","","4","GLEDS CRISTINE","6198459548","","","","","38","255","0");
+INSERT INTO TB_INSCRICAO VALUES("525","","N","2020-02-10 16:16:09","D","N","N","","4","GLEDS CRISTINE","6198459548","","","","","38","255","0");
 
 INSERT INTO TB_INSCRICAO VALUES("526","Acólito á 7 anos","N","2020-02-10 21:23:34","A","N","N","","7","MAMãE ","61999495701","Sou simples, amo pessoas humildes, as vezes sou chato, gosto muito de está entre amigos, e é isso.","Não","Não","","38","403","477");
 
-INSERT INTO TB_INSCRICAO VALUES("527","","N","2020-02-10 21:33:56","A","N","N","","8","OLINDA ","61996910311","","","","","38","275","478");
+INSERT INTO TB_INSCRICAO VALUES("527","","N","2020-02-10 21:33:56","D","N","N","","8","OLINDA ","61996910311","","","","","38","275","478");
 
-INSERT INTO TB_INSCRICAO VALUES("528","","N","2020-02-11 23:32:22","A","N","N","","6","MARLENE","61984330497","","Sim. Lexapro 15mg após o café da manhã\n\nGlifage após o almoço\n\nMolieri 19h30 da noite\n\nDoraren 40 minutos antes de dormir","Não","","38","404","479");
+INSERT INTO TB_INSCRICAO VALUES("528","","N","2020-02-11 23:32:22","D","N","N","","6","MARLENE","61984330497","","Sim. Lexapro 15mg após o café da manhã\n\nGlifage após o almoço\n\nMolieri 19h30 da noite\n\nDoraren 40 minutos antes de dormir","Não","","38","404","479");
 
-INSERT INTO TB_INSCRICAO VALUES("529","Grupo Jauc há 2 anos","S","2020-02-12 13:13:31","A","N","N","","3","VICTOR GABRIEL","6196741230","Sou católica e faço parte da coordenação do grupo Jauc da paróquia São José. Estou passando por um momento difícil na minha vida com muitas brigas internas e muitas mudanças acontecendo. Preciso amadurecer e me conhecer pra tomar algumas decisões importantes na minha vida. To me sentindo perdida real e preciso me retirar e pensar direito.","","Intolerância à lactose","","38","405","480");
+INSERT INTO TB_INSCRICAO VALUES("529","Grupo Jauc há 2 anos","S","2020-02-12 13:13:31","D","N","N","","3","VICTOR GABRIEL","6196741230","Sou católica e faço parte da coordenação do grupo Jauc da paróquia São José. Estou passando por um momento difícil na minha vida com muitas brigas internas e muitas mudanças acontecendo. Preciso amadurecer e me conhecer pra tomar algumas decisões importantes na minha vida. To me sentindo perdida real e preciso me retirar e pensar direito.","","Intolerância à lactose","","38","405","480");
 
-INSERT INTO TB_INSCRICAO VALUES("530","Gej 1 ano e meio","S","2020-02-13 11:28:43","A","N","N","","1","MARCIA FRANCINA DE OLIVEIRA ","61985175039","Gosto de conhecer pessoa novas, sou um pouco na minha, tenho vergonha (até pegar intimidade)","Nao","Nao","","38","177","481");
+INSERT INTO TB_INSCRICAO VALUES("530","Gej 1 ano e meio","S","2020-02-13 11:28:43","D","N","N","","1","MARCIA FRANCINA DE OLIVEIRA ","61985175039","Gosto de conhecer pessoa novas, sou um pouco na minha, tenho vergonha (até pegar intimidade)","Nao","Nao","","38","177","481");
 
-INSERT INTO TB_INSCRICAO VALUES("531","","N","2020-02-13 17:28:20","A","N","N","","3","GERSON MATEUS","61999383819","Tenho 25 anos, solteira. Não tenho Filhos.\n\nMoro com meus pais.\n\nSou recém graduada em Agronomia, mas ainda não consegui meu primeiro emprego na área, porém trabalho na loja do meu tio de instrumentos musicais.\n\nEm Formosa sou da paroquia São Sebastião, e faço parte da Folia da Roça do Divino Espírito Santo.","Não","Não","","38","406","482");
+INSERT INTO TB_INSCRICAO VALUES("531","","N","2020-02-13 17:28:20","D","N","N","","3","GERSON MATEUS","61999383819","Tenho 25 anos, solteira. Não tenho Filhos.\n\nMoro com meus pais.\n\nSou recém graduada em Agronomia, mas ainda não consegui meu primeiro emprego na área, porém trabalho na loja do meu tio de instrumentos musicais.\n\nEm Formosa sou da paroquia São Sebastião, e faço parte da Folia da Roça do Divino Espírito Santo.","Não","Não","","38","406","482");
 
 INSERT INTO TB_INSCRICAO VALUES("532","","N","2020-02-13 17:38:03","A","N","N","","8","DAIANE CRISTINA","6133580333","","","","","38","407","483");
 
-INSERT INTO TB_INSCRICAO VALUES("533","","N","2020-02-16 22:03:15","A","N","N","","3","FLáVIA ","61998141560","","","Intolerante a lactose","","38","408","484");
+INSERT INTO TB_INSCRICAO VALUES("533","","N","2020-02-16 22:03:15","D","N","N","","3","FLáVIA ","61998141560","","","Intolerante a lactose","","38","408","484");
 
-INSERT INTO TB_INSCRICAO VALUES("534","Grupo de Acólitos e Cerimoniários. Há 4 anos.","S","2020-02-16 22:54:17","A","N","N","","5","SôNIA OLIVEIRA MãE","61986664016","Gosto de aprender coisas novas, amo ler e fazer artesanatos. Sou apaixonada pelo meu serviço no presbitério. Faço faculdade e estou tentando me encontrar na Enfermagem. Procuro crescimento espiritual para adentrar novas moradas, mas para isso sinto que preciso de apoio, que penso que o Gej pode me dar através principalmente do Santifique-se!","Não.","Não.","","38","328","0");
+INSERT INTO TB_INSCRICAO VALUES("534","Grupo de Acólitos e Cerimoniários. Há 4 anos.","S","2020-02-16 22:54:17","D","N","N","","5","SôNIA OLIVEIRA MãE","61986664016","Gosto de aprender coisas novas, amo ler e fazer artesanatos. Sou apaixonada pelo meu serviço no presbitério. Faço faculdade e estou tentando me encontrar na Enfermagem. Procuro crescimento espiritual para adentrar novas moradas, mas para isso sinto que preciso de apoio, que penso que o Gej pode me dar através principalmente do Santifique-se!","Não.","Não.","","38","328","0");
+
+INSERT INTO TB_INSCRICAO VALUES("535","","","","D","N","N","","","","","","","","","0","0","0");
+
+INSERT INTO TB_INSCRICAO VALUES("536","","","","D","N","N","","","","","","","","","0","0","0");
+
+INSERT INTO TB_INSCRICAO VALUES("537","","","","D","N","N","","","","","","","","","0","0","0");
+
+INSERT INTO TB_INSCRICAO VALUES("538","","","","D","N","N","","","","","","","","","0","0","0");
+
+INSERT INTO TB_INSCRICAO VALUES("539","","","","D","N","N","","","","","","","","","0","0","0");
+
+INSERT INTO TB_INSCRICAO VALUES("540","","","","D","N","N","","","","","","","","","0","0","0");
 
 
 
@@ -25075,7 +25541,7 @@ INSERT INTO TB_PAGINA VALUES("1","2019-03-25 17:28:54","web/","240","241");
 
 INSERT INTO TB_PAGINA VALUES("2","2019-03-25 17:29:59","web/Inscricoes/CadastroRetiro","507","509");
 
-INSERT INTO TB_PAGINA VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","216","216");
+INSERT INTO TB_PAGINA VALUES("3","2019-03-27 12:16:54","web/IndexWeb/Index","217","217");
 
 INSERT INTO TB_PAGINA VALUES("4","2019-04-08 16:12:37","web/Inscricoes/Normas","82","82");
 
@@ -25270,7 +25736,7 @@ CREATE TABLE `TB_PAGINA_VISITA` (
   PRIMARY KEY (`co_pagina_visita`,`co_visita`,`co_pagina`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_VISITA1_idx` (`co_visita`),
   KEY `fk_TB_PAGINA_has_TB_VISITA_TB_PAGINA1_idx` (`co_pagina`)
-) ENGINE=InnoDB AUTO_INCREMENT=1331 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1332 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_PAGINA_VISITA VALUES("1","1","1");
@@ -27933,6 +28399,8 @@ INSERT INTO TB_PAGINA_VISITA VALUES("1329","950","3");
 
 INSERT INTO TB_PAGINA_VISITA VALUES("1330","951","3");
 
+INSERT INTO TB_PAGINA_VISITA VALUES("1331","952","3");
+
 
 
 
@@ -30454,7 +30922,7 @@ CREATE TABLE `TB_TRAFEGO` (
   `ds_dispositivo` varchar(45) DEFAULT NULL,
   `ds_agente` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=1282 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1286 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_TRAFEGO VALUES("8","189.6.20.167","Brazil","BR","DF","Distrito Federal","Brasília","Chrome","Windows 7","Desktop","Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36");
@@ -32985,6 +33453,14 @@ INSERT INTO TB_TRAFEGO VALUES("1280","::1","Desconhecido","Desconhecida","Descon
 
 INSERT INTO TB_TRAFEGO VALUES("1281","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0");
 
+INSERT INTO TB_TRAFEGO VALUES("1282","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0");
+
+INSERT INTO TB_TRAFEGO VALUES("1283","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0");
+
+INSERT INTO TB_TRAFEGO VALUES("1284","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0");
+
+INSERT INTO TB_TRAFEGO VALUES("1285","::1","Desconhecido","Desconhecida","Desconhecida","Desconhecida","Desconhecida","Firefox","Windows 10","Desktop","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0");
+
 
 
 
@@ -33216,7 +33692,7 @@ CREATE TABLE `TB_VISITA` (
   `co_trafego` int(11) NOT NULL,
   PRIMARY KEY (`co_visita`,`co_trafego`),
   KEY `fk_TB_VISITA_TB_TRAFEGO1_idx` (`co_trafego`)
-) ENGINE=InnoDB AUTO_INCREMENT=952 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=953 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO TB_VISITA VALUES("1","2019-03-25 17:28:54","2019-03-25 17:29:59","2","1");
@@ -35118,6 +35594,8 @@ INSERT INTO TB_VISITA VALUES("949","2020-02-17 10:45:46","2020-02-17 10:45:46","
 INSERT INTO TB_VISITA VALUES("950","2020-02-17 11:51:18","2020-02-17 11:51:18","1","1280");
 
 INSERT INTO TB_VISITA VALUES("951","2020-02-17 11:52:54","2020-02-17 11:52:54","1","1281");
+
+INSERT INTO TB_VISITA VALUES("952","2020-02-19 15:14:29","2020-02-19 15:14:29","1","1285");
 
 
 
