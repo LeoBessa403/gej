@@ -163,7 +163,7 @@ justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
                 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-                &quot;Agency FB&quot;"><b>Saída: Paróquia São João Evangelista QS 405 Samambaia Norte DF</b></span></b>
+                &quot;Agency FB&quot;"><b>Saída: QS 405 Samambaia Norte DF</b></span></b>
                 </p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;

@@ -277,12 +277,12 @@ $visitaService->gestaoVisita();
                 <div class="contact-details">
                     <h4>Contatos</h4>
                     <ul class="contact">
-                        <li>
-                            <p>
-                                <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Paróquia São
-                                                                João Evangelista <br/>QS 405 Samambaia Norte</span>
-                            </p>
-                        </li>
+<!--                        <li>-->
+<!--                            <p>-->
+<!--                                <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Paróquia São-->
+<!--                                                                João Evangelista <br/>QS 405 Samambaia Norte</span>-->
+<!--                            </p>-->
+<!--                        </li>-->
                         <li>
                             <p>
                                 <i class="fa fa-envelope"></i><strong>CEP:</strong> <span style="color: white;">72000-000</span>
