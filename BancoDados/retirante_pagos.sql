@@ -8,6 +8,7 @@ where co_evento = 38
   and i.ds_membro_ativo = 'N'
 order by no_pessoa;
 
+
 select no_pessoa, tc.nu_tel1, tc.nu_tel2, nu_tel_responsavel, t.*, parc.*
 from TB_INSCRICAO i
          inner join TB_PESSOA tp on i.co_pessoa = tp.co_pessoa
