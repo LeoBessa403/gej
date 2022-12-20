@@ -1,7 +1,4 @@
 $(function () {
-    //VARIÁVEIS GLOBAIS
-    var dados = constantes();
-
     var home = $("#home").attr('data-val');
     var urlValida = home + 'admin/Class/PagSeguro.class.php';
 

@@ -88,16 +88,16 @@ class IndexController extends AbstractController
             }
 
             switch ($pagamentoInscricao->getTpSituacao()) {
-                case StatusPagamentoEnum::CONCLUIDO:
+                case SituacaoPagamentoEnum::CONCLUIDO:
                     $dados['TotalConcluido'] = $dados['TotalConcluido'] + 1;
                     if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
                     $dados['TotalInscricoesGarantidas'] = $dados['TotalInscricoesGarantidas'] + 1;
                     }
                     break;
-                case StatusPagamentoEnum::NAO_INICIADA:
+                case SituacaoPagamentoEnum::NAO_INICIADA:
                     $dados['TotalNaoPago'] = $dados['TotalNaoPago'] + 1;
                     break;
-                case StatusPagamentoEnum::INICIADA:
+                case SituacaoPagamentoEnum::INICIADA:
                     $dados['TotalParcial'] = $dados['TotalParcial'] + 1;
                     if ($inscricao->getStEquipeTrabalho() == SimNaoEnum::NAO) {
                             $dados['TotalInscricoesGarantidas']= $dados['TotalInscricoesGarantidas'] + 1;

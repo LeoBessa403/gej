@@ -35,7 +35,7 @@ define('NU_PARCELAS', 'nu_parcelas');
 define('CO_PARCELAMENTO', 'co_parcelamento');
 define('NU_PARCELA', 'nu_parcela');
 define('NU_VALOR_PARCELA', 'nu_valor_parcela');
-define('NU_VALOR_DESCONTO', 'nu_valor_desconto');
+//define('NU_VALOR_DESCONTO', 'nu_valor_desconto');
 define('NU_VALOR_PARCELA_PAGO', 'nu_valor_parcela_pago');
 define('DT_VENCIMENTO', 'dt_vencimento');
 define('DT_VENCIMENTO_PAGO', 'dt_vencimento_pago');

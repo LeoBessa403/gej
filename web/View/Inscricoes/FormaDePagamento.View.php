@@ -18,11 +18,14 @@
                             <select id="<?= CO_TIPO_PAGAMENTO; ?>" class="ob"
                                     name="<?= CO_TIPO_PAGAMENTO; ?>">
                                 <option value="">Selecione uma forma de Pagamento</option>
-                                <?php
-                                foreach ($formas as $key => $forma) { ?>
-                                    <option value="<?= $key; ?>"><?= $forma; ?></option>
-                                <?php }
-                                ?>
+                                <option value="<?= TipoPagamentoEnum::PIX; ?>">
+                                    <?= TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::PIX); ?></option>
+                                <option value="<?= TipoPagamentoEnum::BOLETO; ?>">
+                                    <?= TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::BOLETO); ?>
+                                </option>
+                                <option value="<?= TipoPagamentoEnum::CARTAO_CREDITO; ?>">
+                                    <?= TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::CARTAO_CREDITO); ?>
+                                </option>
                             </select>
                             <input type="hidden" id="<?= CO_INSCRICAO; ?>"
                                    name="<?= CO_INSCRICAO; ?>" value="<?= $coInscricao; ?>">
@@ -38,10 +41,10 @@
                                 <i class="fa fa-save"></i>
                                 <span class="ladda-spinner"></span>
                             </button>
-<!--                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 10px;">-->
-<!--                                <span class="ladda-label"> Pagar Agora </span>-->
-<!--                                <i class="fa fa-money"></i>-->
-<!--                            </a>-->
+                            <a id="pagarAgora" class="btn btn-dark-grey" style="margin-top: 10px;">
+                                <span class="ladda-label"> Pagar Agora </span>
+                                <i class="fa fa-money"></i>
+                            </a>
                         </div>
                     </div>
                 </form>

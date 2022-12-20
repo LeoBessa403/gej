@@ -751,7 +751,7 @@ class Membros extends AbstractController
         
         $label_options = array("Sim","Não","verde","vermelho");
         $formulario
-            ->setLabel("Membro do Grupo GEJ?")
+            ->setLabel("Membro da CCAUG?")
             ->setTamanhoInput(6)
             ->setId("ds_membro_ativo")
             ->setType("checkbox")

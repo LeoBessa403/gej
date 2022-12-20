@@ -243,7 +243,7 @@ class Inscricao extends AbstractController
             $pag[DS_OBSERVACAO] = trim($_POST[DS_OBSERVACAO]);
 
             $PDO->beginTransaction();
-            if ($pagamento->getTpSituacao() != StatusPagamentoEnum::CONCLUIDO) {
+            if ($pagamento->getTpSituacao() != SituacaoPagamentoEnum::CONCLUIDO) {
                 $parcelamentoService->fazerParcelamento($numeroParcelas, $pagamento, $pag[NU_VALOR_DESCONTO]);
                 $pag[NU_PARCELAS] = $numeroParcelas;
             }
@@ -354,12 +354,12 @@ class Inscricao extends AbstractController
                 $total = $total + $pagamento->getNuValorDesconto();
 
                 if ($total >= InscricaoEnum::VALOR_DINHEIRO) {
-                    $pag[TP_SITUACAO] = StatusPagamentoEnum::CONCLUIDO;
+                    $pag[TP_SITUACAO] = SituacaoPagamentoEnum::CONCLUIDO;
                 } elseif ($total > 0) {
-                    $pag[TP_SITUACAO] = StatusPagamentoEnum::INICIADA;
+                    $pag[TP_SITUACAO] = SituacaoPagamentoEnum::INICIADA;
                 }
 
-                if ($pagamento->getTpSituacao() != StatusPagamentoEnum::NAO_INICIADA) {
+                if ($pagamento->getTpSituacao() != SituacaoPagamentoEnum::NAO_INICIADA) {
                     // Atualiza o fluxo de Caixa retirando o ja realizado
                     $administrativoService->atualizaFluxoCaixa(
                         $pagamento->getNuValorPago(),

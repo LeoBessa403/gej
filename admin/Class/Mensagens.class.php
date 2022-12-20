@@ -27,6 +27,7 @@ class Mensagens
     const MSG_VALOR_PAGA_ACIMA = "O valor pago é maior que o valor da inscrição, favor corrigir com o valor correto.";
     const INSCRICAO_JA_CADASTRADA = "Já existe uma inscrição desse CPF para esse evento.";
     const INSCRICAO_NAO_REALIZADA = "Não foi encontrada nenhuma inscrição desse CPF para esse evento.";
+    const OK_MEMBRO_RETIRO_LISTA_ESPERA = "Voçê ficou para lista de espera";
 
     public $MSG01 = "Esse Perfil esta vinculado a um Usuário ou Funcionalidade.";
 

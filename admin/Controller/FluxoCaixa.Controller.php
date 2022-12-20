@@ -22,7 +22,7 @@ class FluxoCaixa extends AbstractController
         $totalInscriaoGastos = 0;
         /** @var FluxoCaixaEntidade $fluxoCaixa */
         foreach ($fluxosCaixa as $fluxoCaixa) {
-            if ($fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO &&
+            if ($fluxoCaixa->getStPagamento() == SituacaoPagamentoEnum::CONCLUIDO &&
                 empty($fluxoCaixa->getCoEvento())) {
                 if ($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_ENTRADA) {
                     $total = $total + $fluxoCaixa->getNuValor();
@@ -32,7 +32,7 @@ class FluxoCaixa extends AbstractController
             } else {
                 if (!empty($fluxoCaixa->getCoEvento())) {
                     if ($fluxoCaixa->getCoEvento()->getCoEvento() == InscricaoEnum::EVENTO_ATUAL
-                        && $fluxoCaixa->getStPagamento() == StatusPagamentoEnum::CONCLUIDO) {
+                        && $fluxoCaixa->getStPagamento() == SituacaoPagamentoEnum::CONCLUIDO) {
                         if($fluxoCaixa->getTpFluxo() == FluxoCaixaEnum::FLUXO_SAIDA){
                             $totalInscriaoGastos = $totalInscriaoGastos + $fluxoCaixa->getNuValor();
                         }else{

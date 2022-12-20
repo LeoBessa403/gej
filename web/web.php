@@ -16,7 +16,7 @@ $visitaService->gestaoVisita();
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
 
     <!-- Inclução das tags do Seo -->
-    <?php require_once 'library/Partial/Site/SeoTags.php' ; ?>
+    <?php require_once 'library/Partial/Site/SeoTags.php'; ?>
 
     <!-- start: MAIN CSS -->
     <link rel="stylesheet" href="<?= PASTASITE; ?>css/boot.css">
@@ -49,7 +49,8 @@ $visitaService->gestaoVisita();
     <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/flex-slider/flexslider.css">
     <link rel="stylesheet" href="<?= PASTASITE; ?>plugins/colorbox/example2/colorbox.css">
     <!-- start: CSS REQUIRED FOR FULLCALENDARIO -->
-<!--    <link rel="stylesheet" href="--><?php //echo PASTA_LIBRARY; ?><!--plugins/fullcalendar/fullcalendar/fullcalendar.css">-->
+    <!--    <link rel="stylesheet" href="-->
+    <?php //echo PASTA_LIBRARY; ?><!--plugins/fullcalendar/fullcalendar/fullcalendar.css">-->
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
     <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css">
     <!-- start: CSS REQUIRED FOR SELECT -->
@@ -107,13 +108,13 @@ $visitaService->gestaoVisita();
                     <!-- start: TOP BAR CALL US -->
                     <div class="callus">
                         Nos chame no<a class="whatsapp" title="Nos chame no WhatSapp"
-                           href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
-                           target="_blank">
+                                       href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
+                                       target="_blank">
                             <i class="fa fa-whatsapp"></i> WhatSapp
                         </a>
-                          / E-Mail:
-                        <a href="mailto:contato@gejdombosco.com.br">
-                            contato@gejdombosco.com.br
+                        / E-Mail:
+                        <a href="mailto:<?= USER_EMAIL; ?>">
+                            <?= USER_EMAIL; ?>
                         </a>
                     </div>
                     <!-- end: TOP BAR CALL US -->
@@ -179,7 +180,7 @@ $visitaService->gestaoVisita();
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
-                            8º Retiro Santifique-se <b class="caret"></b>
+                            <?= InscricaoEnum::DESC_EVENTO_ATUAL; ?> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -253,7 +254,7 @@ $visitaService->gestaoVisita();
                 <div class="newsletter">
                     <h4>Receber Notícias</h4>
                     <p>
-                        Cadastre seu E-mail para receber novidades sobre o GEJ Dom Bosco
+                        Cadastre seu E-mail para receber novidades sobre a CCAUG
                     </p>
                     <form method="POST" action="#" id="newsletterForm">
                         <div class="input-group">
@@ -268,21 +269,25 @@ $visitaService->gestaoVisita();
                 </div>
             </div>
             <div class="col-md-3">
-                <h4>O Grupo</h4>
+                <h4>A Comunidade</h4>
                 <div class="twitter" id="tweet">
-                    Evangelizar os Jovens...
+                    No dia 14 de setembro de 2020, nasce a Comunidade Católica Até a Última Gota (CCAUG), neste dia Deus
+                    cumpre sua promessa. A fundação é constituída por Lilian Bessa (fundadora), Letícia Bessa
+                    (cofundadora) e Linneker Lima (cofundador). Temos por carisma ser aquilo no sentido para qual Deus
+                    nos criou. Nosso principal apostolado é a Escola de Apóstolos que tem por objetivo formar autênticos
+                    filhos de Deus em sua integralidade.
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="contact-details">
                     <h4>Contatos</h4>
                     <ul class="contact">
-<!--                        <li>-->
-<!--                            <p>-->
-<!--                                <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Paróquia São-->
-<!--                                                                João Evangelista <br/>QS 405 Samambaia Norte</span>-->
-<!--                            </p>-->
-<!--                        </li>-->
+                        <!--                        <li>-->
+                        <!--                            <p>-->
+                        <!--                                <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Paróquia São-->
+                        <!--                                                                João Evangelista <br/>QS 405 Samambaia Norte</span>-->
+                        <!--                            </p>-->
+                        <!--                        </li>-->
                         <li>
                             <p>
                                 <i class="fa fa-envelope"></i><strong>CEP:</strong> <span style="color: white;">72000-000</span>
@@ -290,14 +295,20 @@ $visitaService->gestaoVisita();
                         </li>
                         <li>
                             <p>
-                                <i class="fa fa-phone"></i><strong>Telefone:</strong> <span style="color: white;">(61) 99105-8681</span>
+                                <strong>WhatSapp:</strong>
+                                <a class="" title="Nos chame no WhatSapp"
+                                   href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
+                                   target="_blank">
+                                    <i class="fa fa-whatsapp whatsapp"></i>
+                                </a>
+                                <span style="color: white;">(61) 98167-8354</span>
                             </p>
                         </li>
                         <li>
                             <p>
                                 <i class="fa fa-envelope"></i><strong>Email:</strong>
-                                <a href="mailto:contato@gejdombosco.com.br">
-                                    contato@gejdombosco.com.br
+                                <a href="mailto:<?= USER_EMAIL; ?>">
+                                    <?= USER_EMAIL; ?>
                                 </a>
                             </p>
                         </li>
@@ -342,7 +353,7 @@ $visitaService->gestaoVisita();
                         <?php
                         $linhas = fopen('versao.txt', "a+");
                         $versoes = fgets($linhas);
-                        $versao = explode('//',$versoes);
+                        $versao = explode('//', $versoes);
                         ?>
                         <?= date("Y"); ?> &copy; Leo Bessa Desenvolvimento. <b>Versão: <?= $versao[4]; ?></b>
                     </a>
@@ -354,14 +365,15 @@ $visitaService->gestaoVisita();
 <a id="scroll-top" href="#"><i class="fa fa-angle-up"></i></a>
 <!-- end: FOOTER -->
 <!-- end: FOOTER -->
-<?php Modal::aviso("alerta"); Notificacoes::alerta(); ?>
+<?php Modal::aviso("alerta");
+Notificacoes::alerta(); ?>
 <!-- start: MAIN JAVASCRIPTS -->
 <!-- start: MAIN JAVASCRIPTS -->
 <!--[if lt IE 9]>
 <script src="<?= PASTASITE; ?>plugins/respond.min.js"></script>
 <script src="<?= PASTASITE; ?>plugins/excanvas.min.js"></script>
 <script src="<?= PASTASITE; ?>plugins/html5shiv.js"></script>
-<script type="text/javascript" src="<?= INCLUDES;?>jquery-1.10.2.js"></script>
+<script type="text/javascript" src="<?= INCLUDES; ?>jquery-1.10.2.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
 <script src="<?= INCLUDES; ?>jquery-2.0.3.js"></script>
@@ -416,8 +428,14 @@ $visitaService->gestaoVisita();
         Funcoes.init();
         Main.init();
         Index.init();
-        $.stellar();
     });
 </script>
 </body>
 </html>
+
+<H1>
+    FALTA FAZER</H1><BR>
+<H2>TROCAR REDES SOCIAIS<BR>
+    CRIAR BOTÃO DE PAGAR NA VERIFICAÇÃO DA INSCRIÇÃO<BR>
+    CRIAR LOJA NA PAGSEGURO DA CCAUG<BR>
+</H2>

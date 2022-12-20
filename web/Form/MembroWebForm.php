@@ -38,7 +38,7 @@ class MembroWebForm
 
         $label_options = array("Sim", "Não", "verde", "vermelho");
         $formulario
-            ->setLabel("Membro do Grupo GEJ?")
+            ->setLabel("Membro da CCAUG?")
             ->setId(DS_MEMBRO_ATIVO)
             ->setType("checkbox")
             ->setClasses($res[DS_MEMBRO_ATIVO])

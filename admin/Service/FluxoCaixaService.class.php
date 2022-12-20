@@ -49,15 +49,15 @@ class  FluxoCaixaService extends AbstractService
                 $coFluxoCaixa = $result[CO_FLUXO_CAIXA];
                 /** @var FluxoCaixaEntidade $fluxo */
                 $fluxo = $this->PesquisaUmRegistro($coFluxoCaixa);
-                if ($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO &&
-                    $fluxo->getStPagamento() != StatusPagamentoEnum::CONCLUIDO) {
+                if ($dados[ST_PAGAMENTO] == SituacaoPagamentoEnum::CONCLUIDO &&
+                    $fluxo->getStPagamento() != SituacaoPagamentoEnum::CONCLUIDO) {
                     $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
                 }
                 $this->Salva($dados, $coFluxoCaixa);
                 $retorno[MSG] = Mensagens::OK_ATUALIZADO;
                 $session->setSession(MENSAGEM, ATUALIZADO);
             else:
-                if ($dados[ST_PAGAMENTO] == StatusPagamentoEnum::CONCLUIDO) {
+                if ($dados[ST_PAGAMENTO] == SituacaoPagamentoEnum::CONCLUIDO) {
                     $administrativoService->atualizaFluxoCaixa($dados[NU_VALOR], $dados[TP_FLUXO]);
                 }
                 $dados[DT_CADASTRO] = Valida::DataHoraAtualBanco();

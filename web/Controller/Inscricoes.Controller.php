@@ -164,12 +164,14 @@ class Inscricoes extends AbstractController
                 if (!empty($pessoa->getCoInscricao())) {
                     /** @var InscricaoEntidade $inscric */
                     foreach ($pessoa->getCoInscricao() as $inscric){
-                        if ($inscric->getCoImagem()->getDsCaminho()):
+                        if ($inscric->getCoImagem()):
+                        if ($pessoa->getUltimaCoInscricao()->getCoImagem()):
                             if(file_exists( PASTA_RAIZ . PASTAUPLOADS . "inscricoes/" .
                                 $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho())){
                                 $res[DS_CAMINHO] = "inscricoes/" . $pessoa->getUltimaCoInscricao()->getCoImagem()->getDsCaminho();
                                 $res[CO_IMAGEM] = $pessoa->getUltimaCoInscricao()->getCoImagem()->getCoImagem();
                             }
+                        endif;
                         endif;
                     }
                 }

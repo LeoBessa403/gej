@@ -1,8 +1,8 @@
 <h4>Formas de Pagamento</h4>
 <div class="row">
-    <h3 style="margin-left: 15px;">Investimento do Abastecimento e de somente
+    <h3 style="margin-left: 15px;">Investimento do <?= InscricaoEnum::DESC_EVENTO_ATUAL;?> e de somente
         <?= Valida::FormataMoeda(InscricaoEnum::VALOR_CARTAO, 'R$'); ?>
-        pode ser em até 12x no Cartão</h3>
+        e pode ser em até 12x no Cartão</h3>
 <!--    <div style="display: block; padding: 0;text-align: center">-->
 <!--        <a href="--><?//= HOME; ?><!--web/Inscricoes/VerInscricao" class="btn btn-dark-grey">-->
 <!--            <span class="ladda-label"> Pagar Agora </span>-->
@@ -22,27 +22,10 @@
             </b></p>
     </header>
     <div class="row col-md-12" style="padding: 30px; margin-top: 5px; float: left;">
-        <h2>Para Depósito em Conta:</h2>
-        <div class="col-md-4">
-            <b>Banco do Brasil<br>
-                Agência: 2895-9<br>
-                Conta Corrente: 36.657-9<br>
-                Nome: Rosileda Ribeiro Bessa
-            </b>
-        </div>
-        <div class="col-md-4">
-            <b>Banco Bradesco<br>
-                Agência: 1298 <br>
-                Conta Corrente: 0018031-9<br>
-                Nome: Letícia Machado Carvalho Bessa
-            </b>
-        </div>
-        <div class="col-md-4">
-            <b>Banco Caixa<br>
-                Agência: 0647<br>
-                Conta: 00022810-9<br>
-                Operação: 013<br>
-                Nome: Amaury Costa Silva Ramos
+        <h2>Para PIX:</h2>
+        <div class="col-md-12">
+            <b>ASSOCIAÇÃO CATÓLICA DA MIHI ANIMAS<br>
+                CHAVE PIX (CNPJ): 42.494.508/0001-33
             </b>
         </div>
         <br>

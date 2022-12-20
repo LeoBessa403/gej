@@ -9,15 +9,11 @@ text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span s
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">Santifique-se</span></b></p>
-
-                <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:20.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-&quot;Agency FB&quot;">22, 23, 24 e 25 de Fevereiro de 2020</span></b></p>
+&quot;Agency FB&quot;">18, 19, 20 e 21 de Fevereiro de 2023</span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
                 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:107%;font-family:
-                &quot;Agency FB&quot;">“Só Tenho HOJE” Eclo 3,1</span></b></p>
+                &quot;Agency FB&quot;">“Onde te encontrarei.” Santo Agostinho</span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
 justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
@@ -163,7 +159,7 @@ justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
                 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-                &quot;Agency FB&quot;"><b>Saída: QS 405 Samambaia Norte DF</b></span></b>
+                &quot;Agency FB&quot;"><b>Saída: Qr 504 Samambaia Sul DF</b></span></b>
                 </p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
@@ -173,7 +169,7 @@ justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
                 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-                &quot;Agency FB&quot;"><b>Data: 22/02/2020 (Sábado)</b></span></b></p>
+                &quot;Agency FB&quot;"><b>Data: 18/02/2023 (Sábado)</b></span></b></p>
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
                 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
@@ -181,7 +177,7 @@ justify"><span style="font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
 
                 <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;
                 text-align:center" align="center"><b style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;mso-bidi-font-size:13.0pt;line-height:107%;font-family:
-                &quot;Agency FB&quot;"><b>Comissão: Amaury (61) 99312-6972 e Lucrece (61) 99315-1297</b></span></b></p>
+                &quot;Agency FB&quot;"><b>Comissão: Maria Fernanda (61) 98167-8354 e Gustavo (61) 98566-4423</b></span></b></p>
 
                 <br>
                 <br>
