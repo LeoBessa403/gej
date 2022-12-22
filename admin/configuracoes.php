@@ -4,7 +4,7 @@ function servidor_inicial()
 {
     if ($_SERVER['HTTP_HOST'] == 'localhost') {
         $config = array(
-            'HOME' => 'http://localhost/gej/',
+            'HOME' => 'http://localhost/Retiro/',
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
@@ -21,11 +21,11 @@ function servidor_inicial()
         );
     } else {
         $config = array(
-            'HOME' => 'https://ccaug.com.br/',
+            'HOME' => 'https://retiro.ccaug.com.br/',
             'HOST' => 'localhost',
-            'USER' => 'gejdo247_gej',
-            'PASS' => 'Admin101*',
-            'DBSA' => 'gejdo247_gej',
+            'USER' => 'sistem25_retiro',
+            'PASS' => 'Admin101*/',
+            'DBSA' => 'sistem25_retiro',
             'DEBUG' => false,
             'PROD' => true,
             'BANCO' => 1, // 1 = mysql, 2 = postgres
