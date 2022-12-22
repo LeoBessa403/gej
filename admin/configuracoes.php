@@ -8,7 +8,7 @@ function servidor_inicial()
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
-            'DBSA' => 'gejdo247_gej',
+            'DBSA' => 'retiro10',
             'DEBUG' => true,
             'PROD' => false,
             'BANCO' => 1, // 1 = mysql, 2 = postgres
