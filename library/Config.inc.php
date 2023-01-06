@@ -162,7 +162,7 @@ define('PESQUISA_AVANCADA', "pesquisa_avancada");
 
 
 // AUTO LOAD DE CLASSES ####################
-function meu_autoloader($Class)
+function __autoload($Class)
 {
     $pastas = array('Conn', 'Entidade', 'Service', 'Controller', 'Helpers', 'Model', 'Class', 'Form', 'Enum', 'Validador');
     $rotas = array(
@@ -201,7 +201,7 @@ function meu_autoloader($Class)
     endif;
 }
 
-spl_autoload_register('meu_autoloader');
+//spl_autoload_register('meu_autoloader');
 
 //PHPErro :: personaliza o gatilho do PHP
 function PHPErro($ErrNo, $ErrMsg, $ErrFile, $ErrLine)

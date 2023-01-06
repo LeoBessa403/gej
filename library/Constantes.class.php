@@ -141,7 +141,7 @@ define('ST_TIPO_ASSUNTO', 'st_tipo_assunto');
 define('CO_HISTORICO_SUPORTE', 'co_historico_suporte');
 define('DS_MENSAGEM', 'ds_mensagem');
 define('ST_LIDO', 'st_lido');
-define('ST_PAGAMENTO', 'st_pagamento');
+//define('ST_PAGAMENTO', 'st_pagamento');
 define('TP_PAGAMENTO', 'tp_pagamento');
 define('CO_HISTORICO_PAG_ASSINATURA', 'co_historico_pag_assinatura');
 define('DS_ACAO', 'ds_acao');
